@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-11 11:36-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\django_retorica\settings.py:166
+msgid "Espanol"
+msgstr ""
+
+#: .\django_retorica\settings.py:167
+msgid "English"
+msgstr ""
+
+#: .\django_retorica\settings.py:168
+msgid "Portugues"
+msgstr ""
+
+#: .\django_retorica\settings.py:169
+msgid "Francais"
+msgstr ""
+
+#: .\django_retorica\settings.py:170
+msgid "Deutsch"
+msgstr ""
+
+#: .\django_retorica\settings.py:171
+msgid "Italiano"
+msgstr ""
+
+#: .\django_retorica\settings.py:172
+msgid "Catala"
+msgstr ""
+
+#: .\django_retorica\settings.py:173
+msgid "Galego"
+msgstr ""
+
+#: .\django_retorica\settings.py:174
+msgid "Euskara"
+msgstr ""
+
+#: .\django_retorica\settings.py:175
+msgid "Chinese Simplified"
+msgstr ""
+
+#: .\django_retorica\settings.py:176
+msgid "Japanese"
+msgstr ""
+
+#: .\django_retorica\settings.py:177
+msgid "Korean"
+msgstr ""
+
+#: .\django_retorica\settings.py:178
+msgid "Arabic"
+msgstr ""
+
+#: .\django_retorica\settings.py:179
+msgid "Russian"
+msgstr ""
+
+#: .\django_retorica\settings.py:180
+msgid "Hindi"
+msgstr ""
+
+#: .\django_retorica\settings.py:181
+msgid "Turkish"
+msgstr ""

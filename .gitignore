@@ -57,3 +57,5 @@ cookies.txt
 *.broken
 requirements.txt.bak_*
 *.bak_*
+data/logs/*.txt 
+locale/*/LC_MESSAGES/*.mo 
