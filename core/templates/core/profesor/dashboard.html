@@ -1,0 +1,100 @@
+{% extends 'core/profesor/base.html' %}
+{% load i18n %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-tachometer-alt"></i> Panel del Profesor</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.estudiantes }}</div>
+        <div><i class="fas fa-users"></i> Estudiantes</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.cursos }}</div>
+        <div><i class="fas fa-book"></i> Cursos</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-info text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.lecciones }}</div>
+        <div><i class="fas fa-file-alt"></i> Lecciones</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.evaluaciones }}</div>
+        <div><i class="fas fa-clipboard-check"></i> Evaluaciones</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="text-muted">Certificados emitidos</h6>
+        <div class="fs-3 fw-bold text-success">{{ kpis.certificados }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="text-muted">Lecciones completadas</h6>
+        <div class="fs-3 fw-bold text-primary">{{ kpis.progresos }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h6 class="text-muted">Tasa de aciertos</h6>
+        <div class="fs-3 fw-bold text-info">{{ kpis.tasa_aciertos }}%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">Últimos estudiantes</div>
+      <ul class="list-group list-group-flush">
+        {% for e in ultimos_estudiantes %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span><i class="fas fa-user"></i> {{ e.username }}</span>
+          <a href="{% url 'profesor:estudiante_detalle' e.id %}" class="btn btn-sm btn-outline-primary">Ver</a>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin estudiantes</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">Cursos más populares</div>
+      <ul class="list-group list-group-flush">
+        {% for c in cursos_top %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span>{{ c.titulo }}</span>
+          <span class="badge bg-primary">{{ c.estudiantes_inscritos }} inscritos</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin cursos</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

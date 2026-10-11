@@ -35,6 +35,7 @@ urlpatterns = [
 
 # Rutas con prefijo de idioma (/, /en/, /ja/, /ar/, ...)
 urlpatterns += i18n_patterns(
+    path('profesor/', include('core.urls_profesor')),
     path('', index, name='index'),
     path('login/', login_view, name='login'),
     path('registro/', registro_view, name='registro'),

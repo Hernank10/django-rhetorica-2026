@@ -1,0 +1,61 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<a href="{% url 'profesor:lecciones_lista' %}" class="btn btn-sm btn-outline-secondary mb-3">
+  <i class="fas fa-arrow-left"></i> Volver
+</a>
+<h2 class="mb-4">
+  {% if leccion %}<i class="fas fa-edit"></i> Editar lección{% else %}<i class="fas fa-plus"></i> Nueva lección{% endif %}
+</h2>
+
+<form method="post" class="card shadow-sm">
+  {% csrf_token %}
+  <div class="card-body">
+    <div class="mb-3">
+      <label class="form-label">Módulo *</label>
+      <select name="modulo" class="form-select" required>
+        <option value="">— Selecciona un módulo —</option>
+        {% for m in modulos %}
+          <option value="{{ m.id }}" {% if leccion.modulo_id == m.id %}selected{% endif %}>
+            {{ m.curso.titulo }} → {{ m.titulo }}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Título *</label>
+      <input type="text" name="titulo" class="form-control" required
+             value="{{ leccion.titulo|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Contenido (HTML permitido)</label>
+      <textarea name="contenido" class="form-control" rows="10">{{ leccion.contenido|default:'' }}</textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Tipo</label>
+        <select name="tipo" class="form-select">
+          {% for val, label in tipos %}
+            <option value="{{ val }}" {% if leccion.tipo == val %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Orden</label>
+        <input type="number" name="orden" class="form-control" value="{{ leccion.orden|default:1 }}">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Duración (min)</label>
+        <input type="number" name="duracion_estimada" class="form-control" value="{{ leccion.duracion_estimada|default:15 }}">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Puntos</label>
+        <input type="number" name="puntos" class="form-control" value="{{ leccion.puntos|default:10 }}">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-end bg-white">
+    <a href="{% url 'profesor:lecciones_lista' %}" class="btn btn-secondary">Cancelar</a>
+    <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+  </div>
+</form>
+{% endblock %}

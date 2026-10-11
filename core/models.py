@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.core.validators import MinValueValidator, MaxValueValidator
@@ -57,15 +58,16 @@ class User(AbstractUser):
             self.nivel_experiencia = 6
         
         # Calcular tasa de aciertos
-        total_respuestas = Respuesta.objects.filter(user=self).count()
-        if total_respuestas > 0:
-            correctas = Respuesta.objects.filter(user=self, es_correcta=True).count()
-            self.tasa_aciertos = round((correctas / total_respuestas) * 100, 2)
+        if self.pk:
+            total_respuestas = Respuesta.objects.filter(user=self).count()
+            if total_respuestas > 0:
+                correctas = Respuesta.objects.filter(user=self, es_correcta=True).count()
+                self.tasa_aciertos = round((correctas / total_respuestas) * 100, 2)
         
         super().save(*args, **kwargs)
 
 class Respuesta(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='respuestas')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='respuestas')
     tipo_ejercicio = models.CharField(max_length=50)
     item_id = models.IntegerField()
     respuesta_usuario = models.TextField()
@@ -156,7 +158,7 @@ class Logro(models.Model):
         return f"{self.nombre} ({self.tipo})"
 
 class LogroObtenido(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='logros_obtenidos')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='logros_obtenidos')
     logro = models.ForeignKey(Logro, on_delete=models.CASCADE)
     fecha_obtenida = models.DateTimeField(auto_now_add=True)
     notificado = models.BooleanField(default=False)
@@ -182,7 +184,7 @@ class Certificacion(models.Model):
         return f"{self.nombre} - {self.nivel}"
 
 class CertificacionObtenida(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='certificaciones_obtenidas')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='certificaciones_obtenidas')
     certificacion = models.ForeignKey(Certificacion, on_delete=models.CASCADE)
     fecha_obtenida = models.DateTimeField(auto_now_add=True)
     codigo_verificacion = models.CharField(max_length=100, unique=True)

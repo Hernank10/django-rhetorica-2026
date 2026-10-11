@@ -1,0 +1,85 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<a href="{% url 'profesor:evaluaciones' %}" class="btn btn-sm btn-outline-secondary mb-3">
+  <i class="fas fa-arrow-left"></i> Volver
+</a>
+<h2 class="mb-4">
+  {% if evaluacion %}<i class="fas fa-edit"></i> Editar evaluación{% else %}<i class="fas fa-plus"></i> Nueva evaluación{% endif %}
+</h2>
+
+<form method="post" class="card shadow-sm">
+  {% csrf_token %}
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Curso *</label>
+        <select name="curso" class="form-select" required>
+          <option value="">— Selecciona —</option>
+          {% for c in cursos %}
+            <option value="{{ c.id }}"
+              {% if evaluacion.curso_id == c.id %}selected{% elif curso_pre == c.id|stringformat:"s" %}selected{% endif %}>
+              {{ c.titulo }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Módulo (opcional)</label>
+        <select name="modulo" class="form-select">
+          <option value="">— Ninguno (evaluación del curso) —</option>
+          {% for m in modulos %}
+            <option value="{{ m.id }}" {% if evaluacion.modulo_id == m.id %}selected{% endif %}>
+              {{ m.curso.titulo }} → {{ m.titulo }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Título *</label>
+      <input type="text" name="titulo" class="form-control" required
+             value="{{ evaluacion.titulo|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Descripción</label>
+      <textarea name="descripcion" class="form-control" rows="2">{{ evaluacion.descripcion|default:'' }}</textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Tipo de evaluación *</label>
+        <select name="tipo" class="form-select">
+          <option value="diagnostica" {% if evaluacion.tipo == "diagnostica" %}selected{% endif %}>📋 Diagnóstica</option>
+          <option value="modulo" {% if evaluacion.tipo == "modulo" or not evaluacion %}selected{% endif %}>📝 Por módulo</option>
+          <option value="recapitulacion" {% if evaluacion.tipo == "recapitulacion" %}selected{% endif %}>🔄 Recapitulación</option>
+          <option value="final" {% if evaluacion.tipo == "final" %}selected{% endif %}>🎓 Final</option>
+        </select>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label class="form-label">Preguntas / intento</label>
+        <input type="number" name="preguntas_por_evaluacion" class="form-control"
+               value="{{ evaluacion.preguntas_por_evaluacion|default:5 }}">
+      </div>
+      <div class="col-md-2 mb-3">
+        <label class="form-label">Tiempo (min)</label>
+        <input type="number" name="tiempo_limite" class="form-control"
+               value="{{ evaluacion.tiempo_limite|default:30 }}">
+      </div>
+      <div class="col-md-2 mb-3">
+        <label class="form-label">Puntaje máximo</label>
+        <input type="number" name="puntaje_maximo" class="form-control"
+               value="{{ evaluacion.puntaje_maximo|default:100 }}">
+      </div>
+      <div class="col-md-3 mb-3">
+        <label class="form-label">Intentos permitidos</label>
+        <input type="number" name="intentos_permitidos" class="form-control"
+               value="{{ evaluacion.intentos_permitidos|default:3 }}">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-end bg-white">
+    <a href="{% url 'profesor:evaluaciones' %}" class="btn btn-secondary">Cancelar</a>
+    <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+  </div>
+</form>
+{% endblock %}

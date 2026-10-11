@@ -1,0 +1,60 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0"><i class="fas fa-file-alt"></i> Lecciones</h2>
+  <a href="{% url 'profesor:leccion_crear' %}" class="btn btn-primary">
+    <i class="fas fa-plus"></i> Nueva lección
+  </a>
+</div>
+
+<form method="get" class="row g-2 mb-3">
+  <div class="col-md-4">
+    <select name="curso" class="form-select" onchange="this.form.submit()">
+      <option value="">— Todos los cursos —</option>
+      {% for c in cursos %}
+        <option value="{{ c.id }}" {% if curso_sel == c.id|stringformat:"s" %}selected{% endif %}>{{ c.titulo }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Curso</th>
+        <th>Módulo</th>
+        <th>Título</th>
+        <th>Tipo</th>
+        <th>Duración</th>
+        <th>Puntos</th>
+        <th class="text-end">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lecciones %}
+      <tr>
+        <td>{{ l.modulo.curso.titulo }}</td>
+        <td>{{ l.modulo.titulo }}</td>
+        <td><strong>{{ l.titulo }}</strong></td>
+        <td><span class="badge bg-secondary">{{ l.tipo }}</span></td>
+        <td>{{ l.duracion_estimada }} min</td>
+        <td>{{ l.puntos }}</td>
+        <td class="text-end">
+          <a href="{% url 'profesor:leccion_editar' l.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-edit"></i>
+          </a>
+          <form method="post" action="{% url 'profesor:leccion_eliminar' l.id %}" class="d-inline"
+                onsubmit="return confirm('¿Eliminar la lección?');">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+          </form>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="7" class="text-center text-muted">Sin lecciones</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

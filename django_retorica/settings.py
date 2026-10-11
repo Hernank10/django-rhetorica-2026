@@ -2,6 +2,9 @@
 Django settings for django_retorica project.
 """
 
+DEBUG = True
+
+
 import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
@@ -13,9 +16,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xyz123abc456def789ghi012jkl345mno678pqr901stu234vwx567yza'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 
 # Application definition
 INSTALLED_APPS = [
@@ -100,14 +100,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ============================================================
 
 # Permitir hosts para Codespaces
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.githubpreview.dev',
-    '.app.github.dev',
-    '.codespaces.app',
-]
-
 # CSRF Trusted Origins - Para que los POST funcionen en Codespaces
 CSRF_TRUSTED_ORIGINS = [
     'https://*.githubpreview.dev',
@@ -152,8 +144,6 @@ CSRF_USE_SESSIONS = False
 CSRF_COOKIE_HTTPONLY = False
 
 # Para debugging
-DEBUG = True
-
 
 # Zona horaria
 TIME_ZONE = 'America/Bogota'
@@ -182,3 +172,11 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = [BASE_DIR / 'locale']
+
+# -------------------------------------------------------------
+# Hosts permitidos (testserver para Django test Client)
+# -------------------------------------------------------------
+if DEBUG:
+    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver", "[::1]"]
+else:
+    ALLOWED_HOSTS = ["rhetorica.com", "www.rhetorica.com"]

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="row">
+    <aside class="col-md-2">
+      <div class="list-group shadow-sm">
+        <a class="list-group-item list-group-item-action {% if 'dashboard' in request.path %}active{% endif %}"
+           href="{% url 'profesor:dashboard' %}">
+          <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/estudiantes/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:estudiantes' %}">
+          <i class="fas fa-users"></i> Estudiantes
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/cursos/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:cursos_lista' %}">
+          <i class="fas fa-book"></i> Cursos
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/modulos/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:modulos_lista' %}">
+          <i class="fas fa-layer-group"></i> Módulos
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/lecciones/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:lecciones_lista' %}">
+          <i class="fas fa-file-alt"></i> Lecciones
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/evaluaciones/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:evaluaciones' %}">
+          <i class="fas fa-clipboard-check"></i> Evaluaciones
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/certificaciones/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:certificaciones' %}">
+          <i class="fas fa-certificate"></i> Certificaciones
+        </a>
+      </div>
+    </aside>
+    <main class="col-md-10">
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-{{ m.tags|default:'info' }} alert-dismissible fade show">
+            {{ m }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% block panel %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}

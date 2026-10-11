@@ -1,0 +1,207 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<a href="{% url 'profesor:estudiantes' %}" class="btn btn-sm btn-outline-secondary mb-3">
+  <i class="fas fa-arrow-left"></i> Volver
+</a>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="mb-1"><i class="fas fa-user-graduate"></i> {{ estudiante.username }}</h2>
+    <p class="text-muted mb-0">
+      {{ estudiante.get_full_name|default:"—" }} · {{ estudiante.email|default:"—" }}
+    </p>
+  </div>
+  <span class="badge bg-primary fs-6">Estudiante</span>
+</div>
+
+<!-- KPIs del estudiante -->
+<div class="row g-3 mb-4">
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.cursos_activos }}</div>
+        <div><small>Cursos activos</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-info text-white">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.total_respuestas }}</div>
+        <div><small>Respuestas</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.tasa_aciertos }}%</div>
+        <div><small>Aciertos</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.logros }}</div>
+        <div><small>Logros</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.certificados }}</div>
+        <div><small>Certificados</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="card shadow-sm border-0 bg-secondary text-white">
+      <div class="card-body text-center">
+        <div class="fs-3 fw-bold">{{ stats.correctas }}</div>
+        <div><small>Correctas</small></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Cursos asignados -->
+<div class="card shadow-sm mb-4">
+  <div class="card-header bg-white fw-bold">
+    <i class="fas fa-book"></i> Cursos asignados ({{ cursos_data|length }})
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover align-middle mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>Curso</th>
+          <th>Progreso</th>
+          <th>Lecciones</th>
+          <th>Promedio</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in cursos_data %}
+        <tr>
+          <td><strong>{{ c.curso.titulo }}</strong></td>
+          <td style="min-width:180px;">
+            <div class="progress" style="height:20px;">
+              <div class="progress-bar bg-success" style="width:{{ c.progreso_pct }}%;">
+                {{ c.progreso_pct }}%
+              </div>
+            </div>
+          </td>
+          <td>{{ c.completadas }} / {{ c.total_lecciones }}</td>
+          <td><span class="badge bg-info text-dark">{{ c.promedio }} pts</span></td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-center text-muted py-3">Sin cursos con progreso</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <!-- Evaluaciones realizadas -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-clipboard-check"></i> Evaluaciones realizadas ({{ evaluaciones_data|length }})
+      </div>
+      <ul class="list-group list-group-flush" style="max-height:300px;overflow:auto;">
+        {% for e in evaluaciones_data %}
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong>{{ e.evaluacion.titulo }}</strong><br>
+              <small class="text-muted">
+                {{ e.evaluacion.curso.titulo }} · {{ e.intentos }} intento(s)
+              </small>
+            </div>
+            <div class="text-end">
+              <span class="badge bg-success fs-6">{{ e.mejor_puntaje }}/{{ e.puntaje_maximo }}</span>
+            </div>
+          </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted text-center py-3">Sin evaluaciones realizadas</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Certificados -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-certificate"></i> Certificados ({{ certificados.count }})
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for c in certificados %}
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <div>
+              <strong>{{ c.certificacion.nombre }}</strong><br>
+              <small class="text-muted">Código: {{ c.codigo_verificacion }}</small>
+            </div>
+            <span class="badge bg-success">{{ c.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</span>
+          </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted text-center py-3">Sin certificados</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3">
+  <!-- Logros -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-trophy"></i> Logros ({{ logros.count }})
+      </div>
+      <div class="card-body">
+        {% for l in logros %}
+        <span class="badge bg-warning text-dark me-1 mb-1" title="{{ l.logro.descripcion }}">
+          {{ l.logro.icono }} {{ l.logro.nombre }}
+        </span>
+        {% empty %}
+        <p class="text-muted text-center mb-0">Sin logros</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Respuestas recientes -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-history"></i> Últimas respuestas
+      </div>
+      <ul class="list-group list-group-flush" style="max-height:300px;overflow:auto;">
+        {% for r in respuestas %}
+        <li class="list-group-item d-flex justify-content-between">
+          <div>
+            <small class="text-muted">{{ r.fecha|date:"SHORT_DATETIME_FORMAT" }}</small><br>
+            <span>{{ r.tipo_ejercicio }} #{{ r.item_id }}</span>
+          </div>
+          <div>
+            {% if r.es_correcta %}
+              <span class="badge bg-success">✓ {{ r.puntuacion }} pts</span>
+            {% else %}
+              <span class="badge bg-danger">✗ 0 pts</span>
+            {% endif %}
+          </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted text-center py-3">Sin respuestas</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

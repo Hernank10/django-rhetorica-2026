@@ -1,0 +1,44 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-certificate"></i> Certificaciones</h2>
+
+<div class="row mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-success text-white fw-bold">
+        Emitidas ({{ total_emitidas }})
+      </div>
+      <ul class="list-group list-group-flush" style="max-height:500px;overflow:auto;">
+        {% for c in emitidas %}
+        <li class="list-group-item d-flex justify-content-between">
+          <div>
+            <strong>{{ c.certificacion.nombre }}</strong><br>
+            <small class="text-muted">{{ c.user.username }} · {{ c.codigo_verificacion }}</small>
+          </div>
+          <span class="badge bg-success">{{ c.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin certificados emitidos</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white fw-bold">
+        Disponibles ({{ disponibles.count }})
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for c in disponibles %}
+        <li class="list-group-item">
+          <strong>{{ c.nombre }}</strong><br>
+          <small class="text-muted">{{ c.descripcion|default:"" }}</small>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin certificaciones configuradas</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

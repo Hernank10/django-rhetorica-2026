@@ -1424,7 +1424,9 @@ from django.contrib import messages
 def login_view(request):
     """Vista de inicio de sesión"""
     if request.user.is_authenticated:
-        return redirect('dashboard_estudiante')
+        if request.user.is_staff:
+            return redirect("profesor:dashboard")
+        return redirect("dashboard_estudiante")
     
     if request.method == 'POST':
         username = request.POST.get('username')
