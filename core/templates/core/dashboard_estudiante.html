@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Encabezado -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card bg-gradient-primary text-white shadow">
+                <div class="card-body py-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="display-4 mb-2">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </h1>
+                            <p class="lead mb-0">
+                                Bienvenido, <strong>{{ user.username }}</strong>
+                            </p>
+                        </div>
+                        <div>
+                            <a href="{% url 'logout' %}" class="btn btn-light btn-lg">
+                                <i class="fas fa-sign-out-alt"></i> Salir
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="row mb-4">
+        <div class="col-md-3 col-6">
+            <div class="card bg-primary text-white shadow">
+                <div class="card-body text-center">
+                    <h3>{{ ejercicios_count|default:0 }}</h3>
+                    <p class="mb-0">Ejercicios</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body text-center">
+                    <h3>{{ tecnicas_count|default:0 }}</h3>
+                    <p class="mb-0">Técnicas</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card bg-warning text-dark shadow">
+                <div class="card-body text-center">
+                    <h3>{{ puntos_total|default:0 }}</h3>
+                    <p class="mb-0">Puntos</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card bg-info text-white shadow">
+                <div class="card-body text-center">
+                    <h3>{{ certificaciones_count|default:0 }}</h3>
+                    <p class="mb-0">Certificaciones</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ejercicios -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-book-open"></i> Ejercicios Disponibles
+                    </h5>
+                    <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-light btn-sm">
+                        Ver todos <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    {% if ejercicios %}
+                        <div class="row">
+                            {% for ejercicio in ejercicios|slice:":6" %}
+                            <div class="col-md-4 col-lg-2 mb-3">
+                                <div class="card h-100 shadow-sm ejercicios-card">
+                                    <div class="card-body text-center p-2">
+                                        <span class="badge bg-primary">{{ ejercicio.categoria|default:"General"|truncatechars:12 }}</span>
+                                        <h6 class="card-title mt-2 small">{{ ejercicio.titulo|truncatechars:18 }}</h6>
+                                        <div class="d-flex justify-content-center gap-1 mb-2">
+                                            <span class="badge bg-info">N{{ ejercicio.nivel|default:"1" }}</span>
+                                            <span class="badge bg-success">{{ ejercicio.puntos|default:"10" }}</span>
+                                        </div>
+                                        <a href="{% url 'practicar_ejercicio' ejercicio.id %}" 
+                                           class="btn btn-primary btn-sm w-100">
+                                            <i class="fas fa-play"></i> Practicar
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <div class="col-12">
+                                <p class="text-muted text-center">No hay ejercicios disponibles</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% if ejercicios|length > 6 %}
+                        <div class="text-center mt-2">
+                            <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-outline-primary btn-sm">
+                                Ver {{ ejercicios|length|add:"-6" }} ejercicios más
+                            </a>
+                        </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="text-center py-3">
+                            <i class="fas fa-book-open fa-2x text-muted"></i>
+                            <p class="text-muted mt-2">No hay ejercicios disponibles</p>
+                            <a href="{% url 'admin:index' %}" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i> Cargar ejercicios
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Técnicas -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="fas fa-lightbulb"></i> Técnicas Retóricas
+                    </h5>
+                    <a href="{% url 'ver_tecnicas' %}" class="btn btn-light btn-sm">
+                        Ver todas <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    {% if tecnicas %}
+                        <div class="row">
+                            {% for tecnica in tecnicas|slice:":6" %}
+                            <div class="col-md-4 col-lg-2 mb-3">
+                                <div class="card h-100 shadow-sm tecnicas-card">
+                                    <div class="card-body text-center p-2">
+                                        <span class="badge bg-warning text-dark">{{ tecnica.categoria|default:"General"|truncatechars:12 }}</span>
+                                        <h6 class="card-title mt-2 small">{{ tecnica.nombre|truncatechars:18 }}</h6>
+                                        <a href="#" class="btn btn-success btn-sm w-100">
+                                            <i class="fas fa-info-circle"></i> Ver
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <div class="col-12">
+                                <p class="text-muted text-center">No hay técnicas disponibles</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% if tecnicas|length > 6 %}
+                        <div class="text-center mt-2">
+                            <a href="{% url 'ver_tecnicas' %}" class="btn btn-outline-success btn-sm">
+                                Ver {{ tecnicas|length|add:"-6" }} técnicas más
+                            </a>
+                        </div>
+                        {% endif %}
+                    {% else %}
+                        <div class="text-center py-3">
+                            <i class="fas fa-lightbulb fa-2x text-muted"></i>
+                            <p class="text-muted mt-2">No hay técnicas disponibles</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .ejercicios-card, .tecnicas-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .ejercicios-card:hover, .tecnicas-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15) !important;
+    }
+    .badge {
+        font-size: 0.65rem;
+    }
+    .card-title {
+        font-size: 0.75rem;
+    }
+    .gap-1 {
+        gap: 0.25rem;
+    }
+</style>
+{% endblock %}
