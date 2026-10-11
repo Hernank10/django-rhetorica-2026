@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 11:36-0500\n"
+"POT-Creation-Date: 2026-10-11 12:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\core\templates\core\index.html:11
+msgid "Rhetorica+"
+msgstr ""
+
+#: .\core\templates\core\index.html:14
+msgid ""
+"Aprende y practica retórica con ejercicios interactivos y cursos diseñados "
+"para mejorar tus habilidades comunicativas."
+msgstr "대화형 연습과 의사소통 능력을 향상시키기 위해 설계된 코스로 수사학을 배우고 연습하세요."
+
+#: .\core\templates\core\index.html:17
+msgid "Plataforma de aprendizaje retórico basada en IA"
+msgstr "AI 기반 수사학 학습 플랫폼"
+
+#: .\core\templates\core\index.html:65
+msgid "Iniciar Sesión"
+msgstr "로그인"
+
+#: .\core\templates\core\index.html:68
+msgid "Registrarse"
+msgstr "회원가입"
+
+#: .\core\templates\core\index.html:73
+msgid "Accede a todos los cursos y ejercicios"
+msgstr "모든 코스와 연습에 액세스"
+
 #: .\django_retorica\settings.py:166
 msgid "Espanol"
 msgstr ""

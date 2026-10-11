@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 11:36-0500\n"
+"POT-Creation-Date: 2026-10-11 12:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,36 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\core\templates\core\index.html:11
+msgid "Rhetorica+"
+msgstr ""
+
+#: .\core\templates\core\index.html:14
+msgid ""
+"Aprende y practica retórica con ejercicios interactivos y cursos diseñados "
+"para mejorar tus habilidades comunicativas."
+msgstr ""
+"Изучайте и практикуйте риторику с интерактивными упражнениями и курсами, "
+"разработанными для улучшения ваших коммуникативных навыков."
+
+#: .\core\templates\core\index.html:17
+msgid "Plataforma de aprendizaje retórico basada en IA"
+msgstr "Платформа изучения риторики на основе ИИ"
+
+#: .\core\templates\core\index.html:65
+msgid "Iniciar Sesión"
+msgstr "Войти"
+
+#: .\core\templates\core\index.html:68
+msgid "Registrarse"
+msgstr "Регистрация"
+
+#: .\core\templates\core\index.html:73
+msgid "Accede a todos los cursos y ejercicios"
+msgstr "Доступ ко всем курсам и упражнениям"
+
 #: .\django_retorica\settings.py:166
 msgid "Espanol"
 msgstr ""

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 11:36-0500\n"
+"POT-Creation-Date: 2026-10-11 12:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,35 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\core\templates\core\index.html:11
+msgid "Rhetorica+"
+msgstr ""
+
+#: .\core\templates\core\index.html:14
+msgid ""
+"Aprende y practica retórica con ejercicios interactivos y cursos diseñados "
+"para mejorar tus habilidades comunicativas."
+msgstr ""
+"Impara e pratica la retorica con esercizi interattivi e corsi progettati per"
+" migliorare le tue capacità comunicative."
+
+#: .\core\templates\core\index.html:17
+msgid "Plataforma de aprendizaje retórico basada en IA"
+msgstr "Piattaforma di apprendimento retorico basata sull'IA"
+
+#: .\core\templates\core\index.html:65
+msgid "Iniciar Sesión"
+msgstr "Accedi"
+
+#: .\core\templates\core\index.html:68
+msgid "Registrarse"
+msgstr "Registrati"
+
+#: .\core\templates\core\index.html:73
+msgid "Accede a todos los cursos y ejercicios"
+msgstr "Accedi a tutti i corsi ed esercizi"
+
 #: .\django_retorica\settings.py:166
 msgid "Espanol"
 msgstr ""

@@ -107,4 +107,4 @@ iniconfig==2.3.0
 execnet==2.1.2
 
 # -- Documentacion API ----------------------------------------
-Pygments==2.21.0
+Pygments==2.21.0polib==0.2.0 

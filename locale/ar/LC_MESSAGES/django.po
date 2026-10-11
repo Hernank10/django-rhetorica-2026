@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-11 11:36-0500\n"
+"POT-Creation-Date: 2026-10-11 12:13-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,36 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\core\templates\core\index.html:11
+msgid "Rhetorica+"
+msgstr ""
+
+#: .\core\templates\core\index.html:14
+msgid ""
+"Aprende y practica retórica con ejercicios interactivos y cursos diseñados "
+"para mejorar tus habilidades comunicativas."
+msgstr ""
+"تعلم وتدرب على البلاغة من خلال تمارين تفاعلية ودورات مصممة لتحسين مهاراتك "
+"التواصلية."
+
+#: .\core\templates\core\index.html:17
+msgid "Plataforma de aprendizaje retórico basada en IA"
+msgstr "منصة تعلم البلاغة المدعومة بالذكاء الاصطناعي"
+
+#: .\core\templates\core\index.html:65
+msgid "Iniciar Sesión"
+msgstr "تسجيل الدخول"
+
+#: .\core\templates\core\index.html:68
+msgid "Registrarse"
+msgstr "التسجيل"
+
+#: .\core\templates\core\index.html:73
+msgid "Accede a todos los cursos y ejercicios"
+msgstr "الوصول إلى جميع الدورات والتمارين"
+
 #: .\django_retorica\settings.py:166
 msgid "Espanol"
 msgstr ""
