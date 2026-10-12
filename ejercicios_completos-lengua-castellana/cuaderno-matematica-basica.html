@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de matemática básica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF3F7;
+    --grid:#CBD9E3;
+    --ink:#16283A;
+    --ink-soft:#586A7C;
+    --teal:#276670;
+    --teal-dark:#1B4A52;
+    --mint:#E1EFEA;
+    --mint-line:#2E7D5B;
+    --good:#2F7D46;
+    --bad:#B23A2E;
+    --bad-bg:#F8E7E4;
+    --card-shadow: 0 1px 0 rgba(22,40,58,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .bg-grid{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      repeating-linear-gradient(to bottom, transparent, transparent 27px, var(--grid) 27px, var(--grid) 28px),
+      repeating-linear-gradient(to right, transparent, transparent 27px, var(--grid) 27px, var(--grid) 28px);
+    opacity:0.5;
+  }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    padding:22px 20px 60px;
+  }
+  header.top{ margin-bottom:18px; }
+  .eyebrow{
+    font-size:13px; color:var(--teal); font-weight:600;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:28px;
+    line-height:1.15;
+    margin:4px 0 6px;
+    color:var(--ink);
+  }
+  .lede{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    line-height:1.5;
+    margin:0 0 8px;
+    max-width:46ch;
+  }
+  .progress-wrap{ display:flex; align-items:center; gap:10px; margin-top:14px; }
+  .progress-track{ flex:1; height:6px; border-radius:3px; background:var(--grid); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--teal); border-radius:3px; transition:width .4s ease; }
+  .progress-label{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; font-variant-numeric: tabular-nums; }
+
+  .cat-list{ list-style:none; margin:22px 0 0; padding:0; border-top:1px solid var(--grid); }
+  .cat-item{ border-bottom:1px solid var(--grid); }
+  .cat-btn{
+    width:100%; text-align:left; background:none; border:none;
+    padding:16px 4px; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    font-family:inherit; color:var(--ink);
+  }
+  .cat-num{ font-family:'IBM Plex Mono', monospace; font-size:14px; color:var(--teal); width:26px; flex-shrink:0; }
+  .cat-text{ flex:1; min-width:0; }
+  .cat-name{ font-size:16px; font-weight:600; line-height:1.3; }
+  .cat-sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  .cat-progress{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--good); font-weight:600; white-space:nowrap; }
+  .cat-btn:active{ opacity:0.6; }
+
+  .deck-header{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .back-btn{
+    background:none; border:1px solid var(--grid); border-radius:8px;
+    padding:7px 12px; font-size:13px; color:var(--ink);
+    font-family:inherit; cursor:pointer;
+  }
+  .back-btn:active{ background:var(--grid); }
+  .deck-title{ font-family:'Fraunces', serif; font-size:18px; font-weight:600; flex:1; min-width:0; }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--grid);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    box-shadow:var(--card-shadow);
+    margin-top:6px;
+  }
+  .card-eyebrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:12.5px; color:var(--teal); font-weight:600; margin-bottom:6px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .card-title{
+    font-family:'Fraunces', serif; font-size:20px; font-weight:700; line-height:1.25;
+    margin:0 0 14px;
+  }
+  .block-label{ font-size:12px; font-weight:600; color:var(--ink-soft); margin:16px 0 5px; }
+  .block-label:first-of-type{ margin-top:0; }
+  .concept-text{ font-size:15px; line-height:1.55; margin:0; }
+  .example-box{
+    background:var(--mint);
+    border-left:3px solid var(--mint-line);
+    border-radius:0 8px 8px 0;
+    padding:10px 12px;
+    font-size:14px; line-height:1.5; color:#1E3A2E;
+  }
+  .exercise-prompt{ font-size:14.5px; line-height:1.5; margin:0 0 10px; color:var(--ink); }
+
+  .answer-row{ display:flex; gap:8px; }
+  input[type="text"]{
+    flex:1; border:1px solid var(--grid); border-radius:8px;
+    padding:10px 12px; font-family:'IBM Plex Mono', monospace; font-size:15px;
+    background:#FDFEFE; color:var(--ink);
+  }
+  input[type="text"]:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+  textarea{
+    width:100%; min-height:90px; resize:vertical;
+    border:1px solid var(--grid); border-radius:8px;
+    padding:10px 12px; font-family:inherit; font-size:14.5px;
+    background:#FDFEFE; color:var(--ink);
+  }
+  textarea:focus{ outline:2px solid var(--teal); outline-offset:1px; }
+
+  .check-btn, .save-btn{
+    background:var(--teal); color:#fff; border:none;
+    border-radius:8px; padding:9px 16px; font-size:14px; font-weight:600;
+    font-family:inherit; cursor:pointer; white-space:nowrap;
+  }
+  .check-btn:active, .save-btn:active{ background:var(--teal-dark); }
+
+  .feedback{
+    margin-top:10px; padding:9px 12px; border-radius:8px;
+    font-size:14px; font-weight:500; display:none;
+  }
+  .feedback.ok{ display:block; background:#E4F2E8; color:var(--good); }
+  .feedback.bad{ display:block; background:var(--bad-bg); color:var(--bad); }
+
+  .reveal-row{ margin-top:8px; }
+  .reveal-link{
+    background:none; border:none; color:var(--ink-soft); font-size:12.5px;
+    text-decoration:underline; cursor:pointer; font-family:inherit; padding:0;
+  }
+  .solution-box{
+    margin-top:8px; font-size:14px; color:var(--ink); background:var(--paper);
+    border:1px dashed var(--grid); border-radius:8px; padding:8px 10px; display:none;
+  }
+  .solution-box.show{ display:block; }
+
+  .card-actions{ display:flex; gap:8px; margin-top:10px; align-items:center; }
+  .saved-tag{ font-size:12.5px; color:var(--good); font-weight:600; opacity:0; transition:opacity .3s; }
+  .saved-tag.show{ opacity:1; }
+  .done-check{ margin-left:auto; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  .done-dot{ width:8px; height:8px; border-radius:50%; background:var(--grid); display:inline-block; }
+  .done-dot.on{ background:var(--good); }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+  .nav-btn{
+    background:none; border:1px solid var(--grid); border-radius:8px;
+    padding:9px 14px; font-size:14px; font-family:inherit; color:var(--ink); cursor:pointer;
+  }
+  .nav-btn:disabled{ opacity:0.3; }
+  .nav-btn:active:not(:disabled){ background:var(--grid); }
+  .dots{ display:flex; gap:5px; flex-wrap:wrap; justify-content:center; max-width:150px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--grid); }
+  .dot.active{ background:var(--teal); width:16px; border-radius:3px; }
+  .dot.done{ background:var(--good); }
+
+  .reset-row{ margin-top:26px; text-align:center; }
+  .reset-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div id="app">
+
+  <header class="top">
+    <div class="eyebrow">Matemática básica · práctica guiada</div>
+    <h1>Cuaderno de cálculo</h1>
+    <p class="lede">Cien técnicas de matemática básica, en diez bloques. Lee el concepto, mira el ejemplo resuelto y comprueba tu respuesta en el ejercicio antes de avanzar.</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="progress-label" id="globalLabel">0/100 practicadas</div>
+    </div>
+  </header>
+
+  <section id="menuView">
+    <ul class="cat-list" id="catList"></ul>
+    <div class="reset-row">
+      <button class="reset-link" id="resetBtn">Borrar todo mi progreso</button>
+    </div>
+  </section>
+
+  <section id="deckView" class="hidden">
+    <div class="deck-header">
+      <button class="back-btn" id="backBtn">← Bloques</button>
+      <div class="deck-title" id="deckTitle"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">
+        <span id="cardNum"></span>
+        <span id="catName"></span>
+      </div>
+      <h2 class="card-title" id="cardTitle"></h2>
+
+      <div class="block-label">Concepto</div>
+      <p class="concept-text" id="cardConcept"></p>
+
+      <div class="block-label">Ejemplo resuelto</div>
+      <div class="example-box" id="cardExample"></div>
+
+      <div class="block-label">Ejercicio interactivo</div>
+      <p class="exercise-prompt" id="cardExercise"></p>
+
+      <div id="inputExercise">
+        <div class="answer-row">
+          <input type="text" id="cardInput" placeholder="Tu respuesta...">
+          <button class="check-btn" id="checkBtn">Comprobar</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="reveal-row"><button class="reveal-link" id="revealBtn">Ver solución</button></div>
+        <div class="solution-box" id="solutionBox"></div>
+      </div>
+
+      <div id="textExercise">
+        <textarea id="cardAnswer" placeholder="Escribe aquí tu respuesta o explicación..."></textarea>
+        <div class="card-actions">
+          <button class="save-btn" id="saveBtn">Guardar</button>
+          <span class="saved-tag" id="savedTag">Guardado ✓</span>
+        </div>
+      </div>
+
+      <div class="card-actions" id="doneRow">
+        <span class="done-check"><span class="done-dot" id="doneDot"></span><span id="doneLabel">sin practicar</span></span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">← Anterior</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">Siguiente →</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// item = [title, concepto, ejemplo, ejercicio, tipo, respuestas]
+// tipo "input": respuestas es un array de strings aceptadas (se normalizan)
+// tipo "text": respuestas es null (ejercicio abierto, se guarda sin corregir)
+
+const CATEGORIES = [
+{name:"Sentido numérico y conteo", sub:"Valor posicional, orden y estimación", items:[
+["Reconocer el valor posicional","Cada cifra de un número vale según su posición: unidades, decenas, centenas, etc.","En 452, el 4 vale 400, el 5 vale 50 y el 2 vale 2.","¿Cuánto vale el dígito 7 en el número 673?","input",["70"]],
+["Comparar números con <, > o =","Para comparar dos números, se observa primero la cantidad de cifras y luego, de izquierda a derecha, el valor de cada posición.","482 > 479 porque, aunque ambos empiezan con 4, en las decenas 8 es mayor que 7.","Compara 356 y 365 escribiendo el símbolo correcto: <, > o =.","input",["<"]],
+["Redondear a la decena o centena","Para redondear, se observa la cifra siguiente a la posición deseada; si es 5 o más, se sube; si es menor, se mantiene.","68 redondeado a la decena más cercana es 70, porque la cifra de las unidades (8) es mayor que 5.","Redondea 134 a la centena más cercana.","input",["100"]],
+["Ordenar números de menor a mayor","Ordenar consiste en comparar los números de a pares hasta ubicarlos correctamente en una secuencia.","45, 12 y 78 ordenados de menor a mayor son 12, 45, 78.","Ordena de menor a mayor: 90, 19, 9.","input",["9,19,90","9, 19, 90"]],
+["Identificar números pares e impares","Un número es par si termina en 0, 2, 4, 6 u 8, e impar si termina en 1, 3, 5, 7 o 9.","34 es par porque termina en 4; 57 es impar porque termina en 7.","¿89 es par o impar?","input",["impar"]],
+["Descomponer un número en sumandos","Descomponer un número significa expresarlo como la suma de sus valores posicionales.","246 se descompone como 200 + 40 + 6.","Descompón 358 en centenas, decenas y unidades (ej: 300+50+8).","input",["300+50+8"]],
+["Ubicar números en la recta numérica","La recta numérica ordena los números de izquierda a derecha; permite visualizar distancias y comparaciones.","En una recta numérica, el 3 está más cerca del 0 que el 8.","Imagina una recta del 0 al 10. Describe dónde ubicarías el 6 en relación con el 5 y el 8.","text",null],
+["Reconocer números negativos","Los números negativos representan cantidades menores que cero, como temperaturas bajo cero o deudas.","-5 grados significa 5 grados bajo cero.","¿Cuál es mayor: -3 o -8?","input",["-3"]],
+["Estimar antes de calcular","Estimar es dar un valor aproximado razonable antes del cálculo exacto, para verificar después si el resultado tiene sentido.","Para sumar 198 + 203, se puede estimar que el resultado rondará 400.","Antes de calcular 198 + 203 con exactitud, escribe tu estimación redondeada y explica cómo la obtuviste.","text",null],
+["Leer y escribir números en palabras","Todo número puede expresarse tanto en cifras como en palabras, respetando las reglas de escritura numérica.","245 se escribe «doscientos cuarenta y cinco».","Escribe en palabras el número 132.","input",["ciento treinta y dos"]]
+]},
+{name:"Suma y resta", sub:"Reagrupar, verificar y calcular mentalmente", items:[
+["Sumar con reagrupación","Al sumar, si una columna supera 9, se «lleva» 1 a la columna siguiente.","27 + 15: unidades 7+5=12, se escribe 2 y se lleva 1; decenas 2+1+1=4 → resultado 42.","Calcula 38 + 27.","input",["65"]],
+["Restar con reagrupación","Al restar, si el dígito de arriba es menor que el de abajo, se toma prestado del siguiente valor posicional.","52 - 27: como 2 es menor que 7, se pide prestado a las decenas → resultado 25.","Calcula 61 - 38.","input",["23"]],
+["Sumar y restar en la recta numérica","La recta numérica ayuda a visualizar la suma como avanzar y la resta como retroceder.","Para calcular 4 + 3, se avanza 3 pasos desde el 4 y se llega al 7.","Usando la recta numérica, ¿cuánto es 9 - 4?","input",["5"]],
+["Descomponer sumandos para sumar mentalmente","Separar un número en partes más fáciles de sumar simplifica el cálculo mental.","48 + 25 = 48 + 20 + 5 = 68 + 5 = 73.","Usa la descomposición para calcular 36 + 47.","input",["83"]],
+["Usar compensación en la resta","Sumar la misma cantidad a ambos números de una resta no cambia el resultado, y puede facilitar el cálculo.","63 - 29 se transforma en 64 - 30 = 34.","Usa compensación para calcular 82 - 39.","input",["43"]],
+["Verificar una resta con la suma inversa","Toda resta puede comprobarse sumando el resultado al sustraendo; si coincide con el minuendo, es correcta.","50 - 18 = 32; comprobación: 32 + 18 = 50.","Si 74 - 26 = 48, escribe la suma que lo comprueba.","input",["48+26=74"]],
+["Sumar y restar decenas completas mentalmente","Sumar o restar múltiplos de 10 se simplifica operando solo con las decenas.","40 + 30 = 70, porque 4 + 3 = 7 decenas.","Calcula mentalmente 70 - 20.","input",["50"]],
+["Resolver problemas de suma y resta combinadas","Algunos problemas requieren identificar si hay que sumar, restar o ambas cosas, según el contexto.","Si tenías 15 canicas, ganaste 8 y perdiste 5: 15+8-5=18.","Tenías 20 lápices, regalaste 6 y compraste 3 más. ¿Cuántos tienes ahora?","input",["17"]],
+["Reconocer los términos de la suma y la resta","En la suma existen sumandos y total; en la resta, minuendo, sustraendo y diferencia.","En 9 - 4 = 5, el 9 es el minuendo, el 4 el sustraendo y el 5 la diferencia.","En 8 + 6 = 14, ¿cómo se llama el resultado, 14?","input",["suma","total"]],
+["Sumar y restar con tres cifras","El procedimiento es el mismo que con dos cifras, extendiendo la reagrupación a las centenas.","456 + 278 = 734.","Calcula 512 - 236.","input",["276"]]
+]},
+{name:"Multiplicación y división", sub:"Tablas, reparto y operaciones inversas", items:[
+["Multiplicación como suma repetida","Multiplicar significa sumar un mismo número varias veces.","4 × 3 equivale a 4+4+4 = 12.","Calcula 5 × 3 pensándolo como una suma repetida.","input",["15"]],
+["Aplicar las tablas de multiplicar","Conocer las tablas de multiplicar de memoria agiliza cualquier cálculo posterior.","7 × 8 = 56 se recupera directamente de la tabla del 7 o del 8.","¿Cuánto es 9 × 6?","input",["54"]],
+["Multiplicar por 10, 100 y 1000","Al multiplicar por 10, 100 o 1000, se añaden tantos ceros como indique el multiplicador.","25 × 100 = 2500.","Calcula 34 × 10.","input",["340"]],
+["Multiplicar números de dos cifras","Se multiplica cada dígito del segundo factor por el primero y se suman los resultados parciales, alineados correctamente.","23 × 14 = 23×10 + 23×4 = 230 + 92 = 322.","Calcula 21 × 13.","input",["273"]],
+["División como reparto equitativo","Dividir significa repartir una cantidad en partes iguales.","Repartir 12 caramelos entre 4 niños da 3 caramelos a cada uno.","Reparte 20 galletas entre 5 amigos. ¿Cuántas recibe cada uno?","input",["4"]],
+["Multiplicación y división como inversas","Toda división puede comprobarse con una multiplicación inversa y viceversa.","Si 18 ÷ 3 = 6, se comprueba con 6 × 3 = 18.","Si 7 × 8 = 56, ¿cuál es el resultado de 56 ÷ 8?","input",["7"]],
+["Reconocer los términos de la división","En una división hay dividendo, divisor, cociente y, a veces, resto.","En 17 ÷ 5, el dividendo es 17, el divisor 5, el cociente 3 y el resto 2.","En 22 ÷ 4, ¿cuál es el resto?","input",["2"]],
+["Dividir por 10, 100 y 1000","Al dividir por 10, 100 o 1000, se quitan tantos ceros o se desplaza la coma decimal según corresponda.","4500 ÷ 100 = 45.","Calcula 3200 ÷ 10.","input",["320"]],
+["Identificar múltiplos y divisores","Un múltiplo se obtiene multiplicando un número por otro entero; un divisor lo divide exactamente, sin resto.","6 es divisor de 24 porque 24 ÷ 6 = 4 sin resto; 24 es múltiplo de 6.","¿12 es divisor de 36? Responde sí o no.","input",["si","sí"]],
+["Resolver problemas de multiplicación y división","Identificar si un problema pide repartir (división) o repetir grupos iguales (multiplicación) es clave para elegir la operación.","Si cada caja tiene 6 manzanas y hay 5 cajas, hay 6×5=30 manzanas en total.","Si 45 lápices se reparten en cajas de 9, ¿cuántas cajas se necesitan?","input",["5"]]
+]},
+{name:"Fracciones", sub:"Partes de un todo, equivalencias y operaciones", items:[
+["Qué representa una fracción","Una fracción representa una parte de un todo dividido en partes iguales; el numerador indica las partes tomadas y el denominador, el total.","3/4 significa 3 partes de un total de 4 partes iguales.","Si una pizza se divide en 8 partes y comes 3, ¿qué fracción de la pizza comiste?","input",["3/8"]],
+["Representar fracciones gráficamente","Dibujar una figura dividida en partes iguales y sombrear algunas ayuda a visualizar una fracción.","Para representar 1/2, se divide un rectángulo en dos partes iguales y se sombrea una.","Describe cómo dibujarías la fracción 2/5 en un rectángulo dividido en partes iguales.","text",null],
+["Reconocer fracciones equivalentes","Dos fracciones son equivalentes si representan la misma cantidad, aunque tengan números distintos.","1/2 es equivalente a 2/4 y a 4/8.","Escribe una fracción equivalente a 3/6.","input",["1/2","2/4","4/8"]],
+["Simplificar fracciones","Simplificar consiste en dividir numerador y denominador por su máximo común divisor hasta obtener la fracción más reducida.","8/12 se simplifica a 2/3, dividiendo ambos por 4.","Simplifica la fracción 6/9.","input",["2/3"]],
+["Comparar fracciones con igual denominador","Cuando el denominador es el mismo, la fracción mayor es la que tiene el numerador más alto.","5/8 es mayor que 3/8 porque 5 > 3.","¿Cuál es mayor, 4/9 o 7/9?","input",["7/9"]],
+["Sumar y restar con igual denominador","Con el mismo denominador, se suman o restan solo los numeradores y se mantiene el denominador.","2/5 + 1/5 = 3/5.","Calcula 4/7 - 2/7.","input",["2/7"]],
+["Sumar fracciones con distinto denominador","Para sumar fracciones con denominadores distintos, primero se busca un denominador común equivalente.","1/2 + 1/3 = 3/6 + 2/6 = 5/6.","Calcula 1/4 + 1/2.","input",["3/4"]],
+["Convertir fracciones a decimales","Dividir el numerador entre el denominador transforma una fracción en su equivalente decimal.","3/4 = 3 ÷ 4 = 0,75.","Convierte 1/2 en decimal.","input",["0,5","0.5"]],
+["Convertir fracciones impropias a mixtas","Una fracción impropia (numerador mayor que denominador) puede expresarse como un entero más una fracción propia.","7/3 equivale a 2 entero y 1/3, es decir 2 1/3.","Convierte 9/4 en número mixto (ej: 2 1/4).","input",["2 1/4"]],
+["Multiplicar fracciones simples","Para multiplicar fracciones, se multiplican los numeradores entre sí y los denominadores entre sí.","2/3 × 1/2 = 2/6 = 1/3.","Calcula 1/2 × 2/5.","input",["1/5","2/10"]]
+]},
+{name:"Decimales y porcentajes", sub:"Valor posicional decimal y cálculo de porcentajes", items:[
+["Valor posicional decimal","Después de la coma, cada posición representa décimos, centésimos, milésimos, en orden decreciente.","En 4,25, el 2 vale dos décimos y el 5 vale cinco centésimos.","¿Cuánto vale el 3 en 0,038? (responde en decimal, ej: 0,03)","input",["0,03","0.03"]],
+["Comparar números decimales","Para comparar decimales, se igualan las cifras después de la coma con ceros y se comparan como enteros.","0,50 es mayor que 0,45 porque 50 > 45 centésimos.","¿Cuál es mayor, 0,7 o 0,65?","input",["0,7","0.7"]],
+["Sumar y restar decimales","Al sumar o restar decimales, se alinean las comas y se opera como con números enteros.","3,25 + 1,7 = 4,95.","Calcula 5,4 - 2,15.","input",["3,25","3.25"]],
+["Multiplicar decimales","Se multiplican los números como si fueran enteros y luego se ubica la coma según la suma de decimales de los factores.","1,2 × 0,5 = 0,60.","Calcula 2,5 × 2.","input",["5","5,0","5.0"]],
+["Dividir decimales","Para dividir con decimales, conviene multiplicar dividendo y divisor por la misma potencia de 10 hasta eliminar la coma del divisor.","4,5 ÷ 0,5 = 45 ÷ 5 = 9.","Calcula 6,4 ÷ 2.","input",["3,2","3.2"]],
+["Convertir decimales a fracciones","Un decimal se convierte en fracción usando como denominador una potencia de 10 según la cantidad de cifras decimales.","0,75 = 75/100 = 3/4.","Convierte 0,2 en fracción simplificada.","input",["1/5"]],
+["El porcentaje como fracción de 100","Un porcentaje representa una cantidad de cada 100 unidades: «por ciento» significa «de cada cien».","25% significa 25 de cada 100, equivalente a 1/4.","¿A qué fracción simplificada equivale 50%?","input",["1/2"]],
+["Calcular el porcentaje de una cantidad","Para hallar el porcentaje de una cantidad, se multiplica la cantidad por el porcentaje expresado como fracción o decimal.","El 20% de 50 es 50 × 0,20 = 10.","Calcula el 10% de 90.","input",["9"]],
+["Convertir porcentajes y decimales","Para pasar de porcentaje a decimal se divide entre 100; para el proceso inverso, se multiplica por 100.","45% = 0,45; 0,08 = 8%.","Convierte 0,6 a porcentaje.","input",["60%","60"]],
+["Resolver problemas con porcentajes","Los porcentajes se usan en descuentos, impuestos e intereses; identificar la cantidad base es clave.","Un descuento del 30% sobre 200 equivale a restar 60, quedando 140.","Un producto de 80 soles tiene un descuento del 25%. ¿Cuánto se paga finalmente?","input",["60"]]
+]},
+{name:"Proporciones y razones", sub:"Comparar cantidades y repartir proporcionalmente", items:[
+["Entender qué es una razón","Una razón compara dos cantidades mediante una división, expresada como a:b o a/b.","Si hay 4 gatos y 2 perros, la razón de gatos a perros es 4:2, simplificada 2:1.","Escribe la razón simplificada de 6 manzanas a 3 naranjas.","input",["2:1","2/1"]],
+["Identificar una proporción","Una proporción es la igualdad entre dos razones, es decir, a/b = c/d.","2/4 = 3/6 es una proporción porque ambas razones son equivalentes.","¿Es 3/5 = 6/10 una proporción verdadera? Responde sí o no.","input",["si","sí"]],
+["Regla de tres simple","La regla de tres simple permite hallar un valor desconocido cuando dos razones son proporcionales.","Si 3 lápices cuestan 6 soles, 5 lápices cuestan (5×6)/3 = 10 soles.","Si 4 entradas cuestan 40 soles, ¿cuánto cuestan 7 entradas?","input",["70"]],
+["Proporcionalidad directa e inversa","En la proporcionalidad directa, ambas cantidades aumentan o disminuyen juntas; en la inversa, cuando una aumenta, la otra disminuye.","A más horas trabajadas, más pago (directa); a más obreros, menos tiempo para una obra (inversa).","Explica con un ejemplo propio la diferencia entre proporcionalidad directa e inversa.","text",null],
+["Usar tablas de proporcionalidad","Una tabla de proporcionalidad organiza pares de valores que mantienen la misma razón entre sí.","Si 1 kg cuesta 5 soles, 2 kg = 10 soles, 3 kg = 15 soles.","Si 2 kg de arroz cuestan 8 soles, ¿cuánto cuestan 5 kg?","input",["20"]],
+["Calcular escalas en mapas y planos","Una escala indica la relación entre una medida en el dibujo y su medida real, como 1:100.","En una escala 1:100, 2 cm en el mapa representan 200 cm reales.","En una escala 1:50, ¿a cuántos cm reales equivalen 3 cm en el plano?","input",["150"]],
+["Repartir proporcionalmente","Repartir proporcionalmente significa dividir una cantidad respetando una razón dada entre las partes.","Repartir 90 en partes proporcionales a 2 y 1 da 60 y 30.","Reparte 60 en partes proporcionales a 1 y 2. ¿Cuánto recibe la parte mayor?","input",["40"]],
+["Velocidad, tiempo y distancia","La velocidad es una razón entre la distancia recorrida y el tiempo empleado: v = d/t.","Si un auto recorre 180 km en 2 horas, su velocidad es 90 km/h.","Si un ciclista recorre 60 km en 3 horas, ¿cuál es su velocidad?","input",["20"]],
+["Proporciones en recetas y mezclas","Al aumentar o disminuir una receta, todos los ingredientes deben mantener la misma proporción entre sí.","Si una receta para 4 personas usa 2 tazas de harina, para 8 personas se necesitan 4 tazas.","Una receta para 3 personas usa 150 g de azúcar. ¿Cuántos gramos se necesitan para 6 personas?","input",["300"]],
+["Porcentaje como proporción","Un porcentaje puede resolverse como una proporción: parte/total = porcentaje/100.","Para hallar qué porcentaje es 15 de 60, se plantea 15/60 = x/100, y x=25.","¿Qué porcentaje representa 20 de 80?","input",["25%","25"]]
+]},
+{name:"Álgebra básica", sub:"Patrones, variables y ecuaciones simples", items:[
+["Reconocer patrones numéricos","Un patrón es una secuencia que sigue una regla constante, ya sea de suma, resta, multiplicación u otra operación.","En 3, 6, 9, 12, el patrón es sumar 3 cada vez.","¿Cuál es el siguiente número en la secuencia 5, 10, 15, 20?","input",["25"]],
+["Usar variables para cantidades desconocidas","Una letra (como x) puede representar un valor que aún no conocemos en una expresión o ecuación.","Si x representa la edad de una persona, x + 5 representa su edad dentro de 5 años.","Si x representa el número de manzanas y hay 3 más que x, ¿cómo se escribe esa cantidad?","input",["x+3"]],
+["Traducir un enunciado a expresión algebraica","Convertir palabras en símbolos matemáticos permite representar problemas de forma más manejable.","«El doble de un número más 4» se escribe como 2x + 4.","Escribe la expresión algebraica de «un número disminuido en 7».","input",["x-7"]],
+["Resolver ecuaciones simples","Resolver una ecuación significa encontrar el valor de la variable que hace verdadera la igualdad.","En x + 5 = 12, restando 5 a ambos lados se obtiene x = 7.","Resuelve la ecuación x + 8 = 15.","input",["7","x=7"]],
+["Ecuaciones con multiplicación o división","Para despejar una variable multiplicada o dividida, se aplica la operación inversa a ambos lados de la ecuación.","En 3x = 21, dividiendo ambos lados entre 3 se obtiene x = 7.","Resuelve 4x = 28.","input",["7","x=7"]],
+["Verificar la solución de una ecuación","Sustituir el valor hallado en la ecuación original confirma si la solución es correcta.","Si x = 6 en x + 4 = 10, al sustituir: 6 + 4 = 10, correcto.","Si x = 5, ¿es correcta la ecuación 2x + 1 = 11? Responde sí o no.","input",["si","sí"]],
+["Orden de las operaciones","Las operaciones se resuelven en un orden: paréntesis, potencias, multiplicación y división, y luego suma y resta.","En 3 + 4 × 2, primero se multiplica: 4×2=8, luego se suma: 3+8=11.","Calcula 2 + 3 × 4.","input",["14"]],
+["Simplificar términos semejantes","Los términos con la misma variable pueden sumarse o restarse entre sí para simplificar una expresión.","3x + 5x - 2 = 8x - 2.","Simplifica 4x + 2x.","input",["6x"]],
+["Tablas de valores","Una tabla de valores muestra cómo cambia una cantidad (y) en función de otra (x) según una regla.","Si y = x + 2, cuando x=1, y=3; cuando x=2, y=4.","Si y = 2x, ¿cuánto vale y cuando x = 5?","input",["10"]],
+["Interpretar gráficas simples","Una gráfica de puntos muestra visualmente cómo se relacionan dos cantidades, permitiendo identificar patrones de crecimiento.","Una línea que sube de izquierda a derecha indica que, a medida que x aumenta, y también aumenta.","Si una gráfica muestra que cuantas más horas trabajas más dinero ganas, describe si la línea sube o baja y por qué.","text",null]
+]},
+{name:"Geometría y medidas", sub:"Figuras, perímetro, área y unidades", items:[
+["Reconocer figuras geométricas básicas","Cada figura geométrica se identifica por su número de lados y ángulos.","Un triángulo tiene siempre 3 lados y 3 ángulos.","¿Cuántos lados tiene un hexágono?","input",["6"]],
+["Calcular el perímetro","El perímetro es la suma de las longitudes de todos los lados de una figura.","Un rectángulo de lados 5 y 3 tiene un perímetro de 2×(5+3)=16.","Calcula el perímetro de un cuadrado de lado 6.","input",["24"]],
+["Calcular el área de un rectángulo","El área de un rectángulo se calcula multiplicando su base por su altura.","Un rectángulo de 4 por 5 tiene un área de 20 unidades cuadradas.","Calcula el área de un rectángulo de base 7 y altura 3.","input",["21"]],
+["Calcular el área de un triángulo","El área de un triángulo es la mitad del producto entre su base y su altura.","Un triángulo de base 8 y altura 5 tiene un área de (8×5)/2 = 20.","Calcula el área de un triángulo de base 10 y altura 4.","input",["20"]],
+["Ángulos rectos, agudos y obtusos","Un ángulo recto mide exactamente 90°, uno agudo mide menos de 90° y uno obtuso mide más de 90°.","La esquina de una hoja de papel forma un ángulo recto de 90°.","Un ángulo de 45°, ¿es agudo, recto u obtuso?","input",["agudo"]],
+["Unidades de longitud y conversiones","Las unidades de longitud (mm, cm, m, km) se relacionan mediante múltiplos de 10, 100 o 1000.","1 metro equivale a 100 centímetros.","¿Cuántos centímetros hay en 3 metros?","input",["300"]],
+["Unidades de peso y capacidad","El peso se mide en gramos y kilogramos; la capacidad, en mililitros y litros, relacionados por múltiplos de 1000.","1 kilogramo equivale a 1000 gramos.","¿Cuántos gramos hay en 2 kilogramos?","input",["2000"]],
+["Calcular el volumen de un cubo","El volumen de un cubo se calcula elevando la longitud de su lado al cubo.","Un cubo de lado 3 tiene un volumen de 3×3×3=27.","Calcula el volumen de un cubo de lado 2.","input",["8"]],
+["Identificar simetría en figuras","Una figura es simétrica si puede dividirse en dos partes iguales que son reflejo una de la otra.","Una mariposa dibujada simétricamente tiene un ala igual a la otra, reflejada.","¿Un círculo tiene simetría? Responde sí o no.","input",["si","sí"]],
+["Leer relojes y calcular duraciones","Calcular una duración implica encontrar la diferencia entre una hora de inicio y una de finalización.","De las 3:15 a las 4:00 pasan 45 minutos.","Si una película empieza a las 5:00 y dura 90 minutos, ¿a qué hora termina?","input",["6:30","18:30"]]
+]},
+{name:"Resolución de problemas", sub:"Estrategias para enfrentar problemas verbales", items:[
+["Identificar los datos del problema","Antes de resolver, conviene subrayar qué información da el problema y qué pregunta realmente.","«Juan tiene 8 caramelos y le da 3 a su hermano»: los datos son 8 y 3.","Lee: «Ana compra 5 cuadernos a 4 soles cada uno y paga con un billete de 50». Identifica los datos relevantes.","text",null],
+["Reformular el problema con tus palabras","Explicar el problema con palabras propias confirma que se entendió antes de intentar resolverlo.","En vez de repetir el enunciado, decir «tengo que averiguar cuánto le sobra a Ana después de pagar».","Reformula con tus propias palabras el problema de la técnica anterior.","text",null],
+["Elegir la operación correcta según el contexto","Palabras como «en total», «reparto» o «cada uno» orientan sobre si sumar, restar, multiplicar o dividir.","«Reparto entre» sugiere división; «en total» sugiere suma o multiplicación.","La frase «cada uno recibe», en un reparto equitativo, ¿sugiere multiplicación o división?","input",["division","división"]],
+["Hacer un dibujo o esquema del problema","Representar visualmente un problema facilita ver las relaciones entre los datos.","Dibujar barras para representar cuántas manzanas tiene cada persona antes de repartir.","Describe cómo dibujarías un esquema para: «Pedro tiene el doble de canicas que Luis, y entre los dos tienen 30».","text",null],
+["Resolver el problema por partes","Dividir un problema complejo en pasos más pequeños facilita resolverlo sin perder el hilo.","Para calcular el vuelto, primero se suma el total de la compra y luego se resta del dinero entregado.","Compras un cuaderno de 6 soles y un lápiz de 2 soles, y pagas con 10 soles. ¿Cuánto vuelto recibes?","input",["2"]],
+["Verificar si la respuesta tiene sentido","Comparar el resultado obtenido con la estimación inicial ayuda a detectar errores evidentes.","Si se estimó un resultado cercano a 400 y el cálculo da 4000, probablemente hay un error.","Si estimaste que un problema daría «más o menos 50» pero tu cálculo dio 500, ¿qué revisarías primero?","text",null],
+["Detectar datos innecesarios","Algunos problemas incluyen datos que no son necesarios para la pregunta; identificarlos evita confusiones.","«Juan tiene 10 años y compró 3 helados de 2 soles cada uno»: la edad de Juan no es relevante.","En el problema anterior, ¿cuánto gastó Juan en helados?","input",["6"]],
+["Resolver problemas de varios pasos","Algunos problemas requieren más de una operación antes de llegar a la respuesta final.","Para saber cuánto falta ahorrar, primero se resta lo ahorrado de la meta y luego se divide entre las semanas.","María quiere ahorrar 100 soles en 5 semanas y ya tiene 20. ¿Cuánto debe ahorrar por semana?","input",["16"]],
+["Comprobar con la operación inversa","Usar la operación contraria a la que se aplicó confirma si el resultado del problema es correcto.","Si se resolvió una división, se puede comprobar multiplicando el cociente por el divisor.","Si resolviste que 48 ÷ 6 = 8, escribe la multiplicación que lo comprueba.","input",["8x6=48","8×6=48"]],
+["Cambiar de estrategia si el primer intento falla","Si un método no funciona, conviene probar otra estrategia (dibujo, ecuación, tanteo) antes de rendirse.","Si sumar directamente resulta confuso, se puede intentar resolver el problema con un dibujo o una tabla.","Describe qué otra estrategia probarías si, al resolver un problema con una ecuación, no logras encontrar la solución.","text",null]
+]},
+{name:"Cálculo mental y verificación", sub:"Agilidad numérica y revisión de errores", items:[
+["Redondear para calcular mentalmente","Redondear los números antes de operar mentalmente agiliza el cálculo aproximado.","Para sumar 198 + 302 mentalmente, se redondea a 200 + 300 = 500.","Redondea y suma mentalmente 397 + 205 (aproximado a centenas).","input",["600"]],
+["Descomponer para multiplicar mentalmente","Separar un número en partes más simples facilita multiplicar sin usar papel.","6 × 23 = 6×20 + 6×3 = 120+18 = 138.","Calcula mentalmente 4 × 32 descomponiendo el número.","input",["128"]],
+["Usar dobles y mitades","Conocer los dobles y mitades de números comunes acelera sumas, restas y divisiones simples.","Para calcular 25 × 4, se puede pensar como el doble de 25 dos veces: 50, luego 100.","Usa dobles para calcular 16 × 4.","input",["64"]],
+["Calcular el 10% mentalmente","El 10% de un número se halla moviendo la coma un lugar a la izquierda, y sirve de base para estimar otros porcentajes.","El 10% de 250 es 25; por lo tanto, el 20% sería el doble, 50.","Estima mentalmente el 20% de 150 usando el 10% como base.","input",["30"]],
+["Verificar con una operación aproximada","Comparar el resultado exacto con un cálculo aproximado detecta errores de cálculo evidentes.","Si 29 × 31 debería rondar 30×30=900, un resultado de 90 indicaría un error.","Si calculaste 48 × 52 y te dio 250, ¿qué estimación rápida te ayudaría a notar el error?","text",null],
+["Practicar con series numéricas","Contar de forma ascendente o descendente en saltos fijos entrena la agilidad mental con los números.","Contar de 5 en 5 desde 0: 0, 5, 10, 15, 20…","Continúa la serie contando de 7 en 7: 7, 14, 21, ¿siguiente?","input",["28"]],
+["Comparar distintos métodos de cálculo","Una misma operación puede resolverse de varias formas; comparar métodos ayuda a elegir el más eficiente.","25 × 4 puede resolverse con el algoritmo tradicional o mentalmente como «un cuarto de 100 veces 4».","Resuelve 18 + 27 de dos formas distintas y compara cuál te resultó más rápido.","text",null],
+["Detectar errores comunes de cálculo","Revisar los pasos de una operación ayuda a detectar errores frecuentes, como olvidar «llevar» o mal ubicar la coma decimal.","Un error común es sumar decimales sin alinear correctamente las comas.","Alguien calculó 4,2 + 1,3 y obtuvo 4,5. ¿Es correcto? Responde sí o no.","input",["no"]],
+["Calcular el paso del tiempo mentalmente","Calcular cuánto tiempo falta o ha pasado entre dos horas es una aplicación cotidiana del cálculo mental.","De las 10:45 a las 11:30 pasan 45 minutos.","¿Cuántos minutos pasan de las 2:20 a las 3:00?","input",["40"]],
+["Revisar qué estrategias te funcionan mejor","No todas las personas calculan igual de rápido con el mismo método; identificar las estrategias propias más eficaces mejora el desempeño.","Alguien puede descubrir que le resulta más fácil redondear que descomponer, o viceversa.","Después de practicar esta app, escribe qué dos técnicas de cálculo mental te resultaron más rápidas y por qué.","text",null]
+]}
+];
+
+// ---- normalización y comprobación ----
+function normalize(s){
+  if(s===null || s===undefined) return "";
+  s = s.toString().toLowerCase().trim();
+  s = s.replace(/\s+/g,"");
+  s = s.replace(/,/g,".");
+  s = s.replace(/á/g,"a").replace(/é/g,"e").replace(/í/g,"i").replace(/ó/g,"o").replace(/ú/g,"u");
+  return s;
+}
+function isCorrect(userText, accepted){
+  const u = normalize(userText);
+  if(u==="") return false;
+  return accepted.some(a => normalize(a)===u);
+}
+
+// ---- estado y almacenamiento ----
+let currentCat = null;
+let currentIdx = 0;
+let progress = {};
+
+function techKey(c,i){ return c+"-"+i; }
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('progreso-cuaderno-mate', false);
+    if(res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ progress = {}; }
+}
+async function saveProgressStore(){
+  try{ await window.storage.set('progreso-cuaderno-mate', JSON.stringify(progress), false); }catch(e){}
+}
+async function loadAnswer(c,i){
+  try{
+    const res = await window.storage.get('respuesta-mate-'+techKey(c,i), false);
+    return res && res.value ? res.value : "";
+  }catch(e){ return ""; }
+}
+async function saveAnswerStore(c,i,text){
+  try{ await window.storage.set('respuesta-mate-'+techKey(c,i), text, false); }catch(e){}
+}
+
+function renderMenu(){
+  const ul = document.getElementById('catList');
+  ul.innerHTML = "";
+  CATEGORIES.forEach((cat, ci)=>{
+    const done = cat.items.filter((_,ii)=>progress[techKey(ci,ii)]).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item';
+    li.innerHTML = `
+      <button class="cat-btn" data-cat="${ci}">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-text">
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </span>
+        <span class="cat-progress">${done}/10</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDeck(parseInt(btn.dataset.cat)));
+  });
+  renderGlobalProgress();
+}
+
+function renderGlobalProgress(){
+  const total = 100;
+  const done = Object.keys(progress).filter(k=>progress[k]).length;
+  document.getElementById('globalFill').style.width = (done/total*100)+"%";
+  document.getElementById('globalLabel').textContent = done+"/100 practicadas";
+}
+
+function openDeck(ci){
+  currentCat = ci;
+  currentIdx = 0;
+  document.getElementById('menuView').classList.add('hidden');
+  document.getElementById('deckView').classList.remove('hidden');
+  document.getElementById('deckTitle').textContent = CATEGORIES[ci].name;
+  renderCard();
+  window.scrollTo(0,0);
+}
+function closeDeck(){
+  document.getElementById('deckView').classList.add('hidden');
+  document.getElementById('menuView').classList.remove('hidden');
+  renderMenu();
+  window.scrollTo(0,0);
+}
+function renderDots(){
+  const wrap = document.getElementById('dots');
+  wrap.innerHTML = "";
+  CATEGORIES[currentCat].items.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===currentIdx? ' active':'') + (progress[techKey(currentCat,i)] && i!==currentIdx? ' done':'');
+    wrap.appendChild(d);
+  });
+}
+
+async function renderCard(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const [title, concept, example, exercise, type, answers] = item;
+  const globalNum = CATEGORIES.slice(0,currentCat).reduce((a,c)=>a+c.items.length,0) + currentIdx + 1;
+
+  document.getElementById('cardNum').textContent = "Técnica " + globalNum + " de 100";
+  document.getElementById('catName').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardConcept').textContent = concept;
+  document.getElementById('cardExample').textContent = example;
+  document.getElementById('cardExercise').textContent = exercise;
+
+  const feedback = document.getElementById('feedback');
+  feedback.className = 'feedback';
+  feedback.textContent = '';
+  const solBox = document.getElementById('solutionBox');
+  solBox.classList.remove('show');
+  document.getElementById('savedTag').classList.remove('show');
+
+  if(type==='input'){
+    document.getElementById('inputExercise').classList.remove('hidden');
+    document.getElementById('textExercise').classList.add('hidden');
+    document.getElementById('cardInput').value = "";
+    solBox.textContent = "Solución: " + answers[0];
+  } else {
+    document.getElementById('inputExercise').classList.add('hidden');
+    document.getElementById('textExercise').classList.remove('hidden');
+    const savedText = await loadAnswer(currentCat, currentIdx);
+    document.getElementById('cardAnswer').value = savedText;
+  }
+
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+
+  document.getElementById('prevBtn').disabled = currentIdx===0;
+  document.getElementById('nextBtn').disabled = currentIdx===CATEGORIES[currentCat].items.length-1;
+  renderDots();
+}
+
+async function markDone(){
+  progress[techKey(currentCat,currentIdx)] = true;
+  await saveProgressStore();
+  document.getElementById('doneDot').classList.add('on');
+  document.getElementById('doneLabel').textContent = 'practicada';
+  renderDots();
+  renderGlobalProgress();
+}
+
+function handleCheck(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const answers = item[5];
+  const val = document.getElementById('cardInput').value;
+  const feedback = document.getElementById('feedback');
+  if(isCorrect(val, answers)){
+    feedback.className = 'feedback ok';
+    feedback.textContent = '¡Correcto! Bien resuelto.';
+    markDone();
+  } else {
+    feedback.className = 'feedback bad';
+    feedback.textContent = 'Aún no. Revisa el ejemplo resuelto e inténtalo de nuevo.';
+  }
+}
+function handleReveal(){
+  document.getElementById('solutionBox').classList.toggle('show');
+}
+async function handleSaveText(){
+  const text = document.getElementById('cardAnswer').value;
+  await saveAnswerStore(currentCat, currentIdx, text);
+  if(text.trim().length>0){ await markDone(); }
+  const tag = document.getElementById('savedTag');
+  tag.classList.add('show');
+  setTimeout(()=>tag.classList.remove('show'), 1600);
+}
+
+document.getElementById('backBtn').addEventListener('click', closeDeck);
+document.getElementById('checkBtn').addEventListener('click', handleCheck);
+document.getElementById('revealBtn').addEventListener('click', handleReveal);
+document.getElementById('saveBtn').addEventListener('click', handleSaveText);
+document.getElementById('cardInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') handleCheck(); });
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(currentIdx>0){ currentIdx--; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(currentIdx<CATEGORIES[currentCat].items.length-1){ currentIdx++; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(confirm('¿Borrar todo tu progreso y tus respuestas guardadas?')){
+    try{
+      const list = await window.storage.list('respuesta-mate-', false);
+      if(list && list.keys){
+        for(const k of list.keys){ await window.storage.delete(k, false); }
+      }
+    }catch(e){}
+    progress = {};
+    await saveProgressStore();
+    renderMenu();
+  }
+});
+
+(async function init(){
+  await loadProgress();
+  renderMenu();
+})();
+</script>
+</body>
+</html>

@@ -5,6 +5,10 @@
   <div class="row">
     <aside class="col-md-2">
       <div class="list-group shadow-sm">
+        <a class="list-group-item list-group-item-action {% if '/recursos/' in request.path %}active{% endif %}"
+           href="{% url 'recursos:lista' %}">
+          <i class="fas fa-folder-open"></i> Recursos
+        </a>
         <a class="list-group-item list-group-item-action {% if request.path == '/estudiante/' or 'estudiante/estadisticas' not in request.path and 'estudiante/cursos' not in request.path and 'estudiante/evaluaciones' not in request.path and 'estudiante/logros' not in request.path and 'estudiante/certificados' not in request.path and 'estudiante/ranking' not in request.path %}active{% endif %}"
            href="{% url 'estudiante:dashboard' %}">
           <i class="fas fa-home"></i> Inicio

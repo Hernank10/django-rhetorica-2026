@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de comprensión lectora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF7EF;
+    --paper-line:#E4D9C4;
+    --ink:#1F2A3C;
+    --ink-soft:#5B6470;
+    --leather:#7A5A3A;
+    --leather-dark:#5E4429;
+    --moss:#3F6659;
+    --moss-soft:#DCE6DF;
+    --card-shadow: 0 1px 0 rgba(31,42,60,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .bg-lines{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 35px,
+      var(--paper-line) 35px,
+      var(--paper-line) 36px
+    );
+    opacity:0.55;
+  }
+  .margin-rule{
+    position:fixed; top:0; bottom:0; left:28px; width:1px;
+    background:#C98B7A; opacity:0.35; z-index:0;
+  }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    padding:22px 20px 60px 40px;
+  }
+  header.top{
+    margin-bottom:18px;
+  }
+  .eyebrow{
+    font-size:13px; color:var(--leather); font-weight:600;
+    letter-spacing:0.01em;
+  }
+  h1{
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:28px;
+    line-height:1.15;
+    margin:4px 0 6px;
+    color:var(--ink);
+  }
+  .lede{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    line-height:1.5;
+    margin:0 0 8px;
+    max-width:46ch;
+  }
+  .progress-wrap{
+    display:flex; align-items:center; gap:10px;
+    margin-top:14px;
+  }
+  .progress-track{
+    flex:1; height:6px; border-radius:3px;
+    background:var(--paper-line);
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%; background:var(--moss);
+    border-radius:3px;
+    transition:width .4s ease;
+  }
+  .progress-label{
+    font-size:12.5px; color:var(--ink-soft); white-space:nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* CATEGORY MENU */
+  .cat-list{
+    list-style:none; margin:22px 0 0; padding:0;
+    border-top:1px solid var(--paper-line);
+  }
+  .cat-item{
+    border-bottom:1px solid var(--paper-line);
+  }
+  .cat-btn{
+    width:100%; text-align:left; background:none; border:none;
+    padding:16px 4px; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    font-family:inherit; color:var(--ink);
+  }
+  .cat-num{
+    font-family:'Source Serif 4', serif;
+    font-size:15px; color:var(--leather);
+    width:22px; flex-shrink:0;
+  }
+  .cat-text{flex:1; min-width:0;}
+  .cat-name{
+    font-size:16px; font-weight:600; line-height:1.3;
+  }
+  .cat-sub{
+    font-size:12.5px; color:var(--ink-soft); margin-top:2px;
+  }
+  .cat-progress{
+    font-size:12px; color:var(--moss); font-weight:600;
+    white-space:nowrap; font-variant-numeric: tabular-nums;
+  }
+  .cat-btn:active{ opacity:0.6; }
+
+  /* DECK VIEW */
+  .deck-header{
+    display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .back-btn{
+    background:none; border:1px solid var(--paper-line); border-radius:8px;
+    padding:7px 12px; font-size:13px; color:var(--ink);
+    font-family:inherit; cursor:pointer;
+  }
+  .back-btn:active{ background:var(--paper-line); }
+  .deck-title{
+    font-family:'Source Serif 4', serif; font-size:18px; font-weight:600;
+    flex:1; min-width:0;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--paper-line);
+    border-radius:14px;
+    padding:20px 20px 18px;
+    box-shadow:var(--card-shadow);
+    margin-top:6px;
+  }
+  .card-eyebrow{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:12.5px; color:var(--leather); font-weight:600;
+    margin-bottom:6px;
+  }
+  .card-title{
+    font-family:'Source Serif 4', serif;
+    font-size:20px; font-weight:700; line-height:1.25;
+    margin:0 0 14px;
+  }
+  .block-label{
+    font-size:12px; font-weight:600; color:var(--ink-soft);
+    margin:16px 0 5px;
+  }
+  .block-label:first-of-type{ margin-top:0; }
+  .concept-text{
+    font-size:15px; line-height:1.55; margin:0;
+  }
+  .example-box{
+    background:var(--moss-soft);
+    border-left:3px solid var(--moss);
+    border-radius:0 8px 8px 0;
+    padding:10px 12px;
+    font-size:14px; line-height:1.5; color:#2C4238;
+  }
+  .exercise-prompt{
+    font-size:14.5px; line-height:1.5; margin:0 0 10px; color:var(--ink);
+  }
+  textarea{
+    width:100%; min-height:90px; resize:vertical;
+    border:1px solid var(--paper-line); border-radius:8px;
+    padding:10px 12px; font-family:inherit; font-size:14.5px;
+    background:#FEFDFB; color:var(--ink);
+  }
+  textarea:focus{ outline:2px solid var(--moss); outline-offset:1px; }
+
+  .card-actions{
+    display:flex; gap:8px; margin-top:10px; align-items:center;
+  }
+  .save-btn{
+    background:var(--leather); color:#fff; border:none;
+    border-radius:8px; padding:9px 16px; font-size:14px; font-weight:600;
+    font-family:inherit; cursor:pointer;
+  }
+  .save-btn:active{ background:var(--leather-dark); }
+  .saved-tag{
+    font-size:12.5px; color:var(--moss); font-weight:600;
+    opacity:0; transition:opacity .3s;
+  }
+  .saved-tag.show{ opacity:1; }
+  .done-check{
+    margin-left:auto; font-size:12.5px; color:var(--ink-soft);
+    display:flex; align-items:center; gap:5px;
+  }
+  .done-dot{
+    width:8px; height:8px; border-radius:50%; background:var(--paper-line);
+    display:inline-block;
+  }
+  .done-dot.on{ background:var(--moss); }
+
+  .nav-row{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:16px;
+  }
+  .nav-btn{
+    background:none; border:1px solid var(--paper-line); border-radius:8px;
+    padding:9px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+    cursor:pointer;
+  }
+  .nav-btn:disabled{ opacity:0.3; }
+  .nav-btn:active:not(:disabled){ background:var(--paper-line); }
+  .dots{
+    display:flex; gap:5px; flex-wrap:wrap; justify-content:center; max-width:150px;
+  }
+  .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--paper-line);
+  }
+  .dot.active{ background:var(--leather); width:16px; border-radius:3px; }
+  .dot.done{ background:var(--moss); }
+
+  .reset-row{
+    margin-top:26px; text-align:center;
+  }
+  .reset-link{
+    background:none; border:none; color:var(--ink-soft); font-size:12.5px;
+    text-decoration:underline; cursor:pointer; font-family:inherit;
+  }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="bg-lines"></div>
+<div class="margin-rule"></div>
+<div id="app">
+
+  <header class="top">
+    <div class="eyebrow">Lengua castellana · práctica guiada</div>
+    <h1>Cuaderno de comprensión lectora</h1>
+    <p class="lede">Cien técnicas para leer con más profundidad, organizadas en diez bloques. Elige un bloque, estudia cada tarjeta y practica con el ejercicio antes de pasar a la siguiente.</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="progress-label" id="globalLabel">0/100 practicadas</div>
+    </div>
+  </header>
+
+  <section id="menuView">
+    <ul class="cat-list" id="catList"></ul>
+    <div class="reset-row">
+      <button class="reset-link" id="resetBtn">Borrar todo mi progreso</button>
+    </div>
+  </section>
+
+  <section id="deckView" class="hidden">
+    <div class="deck-header">
+      <button class="back-btn" id="backBtn">← Bloques</button>
+      <div class="deck-title" id="deckTitle"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">
+        <span id="cardNum"></span>
+        <span id="catName"></span>
+      </div>
+      <h2 class="card-title" id="cardTitle"></h2>
+
+      <div class="block-label">Concepto</div>
+      <p class="concept-text" id="cardConcept"></p>
+
+      <div class="block-label">Ejemplo práctico</div>
+      <div class="example-box" id="cardExample"></div>
+
+      <div class="block-label">Ejercicio interactivo</div>
+      <p class="exercise-prompt" id="cardExercise"></p>
+      <textarea id="cardAnswer" placeholder="Escribe aquí tu respuesta o práctica..."></textarea>
+      <div class="card-actions">
+        <button class="save-btn" id="saveBtn">Guardar</button>
+        <span class="saved-tag" id="savedTag">Guardado ✓</span>
+        <span class="done-check"><span class="done-dot" id="doneDot"></span><span id="doneLabel">sin practicar</span></span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">← Anterior</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">Siguiente →</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const TEXTOS = {
+  A: `Marta llegó al pueblo cuando ya oscurecía. Llevaba solo una maleta pequeña y una fotografía vieja que su abuela le había dejado antes de morir. Preguntó por la casa azul de la plaza, pero nadie parecía recordarla. Un anciano sentado en un banco la miró largamente y, sin decir palabra, señaló hacia una calle estrecha que se perdía entre los árboles. Marta sintió que el corazón se le aceleraba: tal vez, después de tantos años, por fin encontraría las respuestas que buscaba.`,
+  B: `Las abejas son polinizadoras esenciales para los ecosistemas terrestres. Al trasladar polen de una flor a otra, permiten la reproducción de miles de especies vegetales, muchas de las cuales forman parte de la alimentación humana. En las últimas décadas, sin embargo, sus poblaciones han disminuido debido al uso de pesticidas, la pérdida de hábitat y el cambio climático. Los científicos advierten que, sin medidas urgentes de protección, esta disminución podría afectar gravemente la producción agrícola mundial.`,
+  C: `Algunos sostienen que la lectura en papel favorece una comprensión más profunda que la lectura en pantalla, porque el formato físico reduce las distracciones y facilita la memoria espacial del texto. Otros afirman que el soporte importa menos que el hábito y la atención del lector: una persona entrenada puede comprender igual de bien en cualquier formato. Lo cierto es que, mientras la discusión continúa, cada vez más estudios sugieren que la calidad de la lectura depende más de la práctica constante que del medio elegido.`
+};
+
+// Cada categoría: { name, sub, items:[ [title, concepto, ejemplo, ejercicio] ] }
+const CATEGORIES = [
+{name:"Preparación antes de leer", sub:"Anticipar el texto antes de leerlo", items:[
+["Observar el título y anticipar el tema","Antes de leer, el título ofrece pistas sobre el tema y el enfoque del texto.","Ante el título «La disminución de las abejas y sus consecuencias», el lector anticipa que hablará de un problema ecológico y sus efectos.","Lee solo este título: «Las abejas: guardianas silenciosas de los ecosistemas». Escribe qué esperas encontrar en el texto."],
+["Revisar subtítulos e índice","Los subtítulos y encabezados revelan la estructura antes de leer el contenido completo.","Un texto con los subtítulos «Causas», «Consecuencias» y «Soluciones» indica una estructura de problema-efecto-solución.","Imagina un texto sobre abejas con los subtítulos «Qué hacen», «Por qué desaparecen», «Qué podemos hacer». Escribe una pregunta que esperas que responda cada uno."],
+["Leer el primer y el último párrafo","El primer párrafo suele presentar el tema y el último resume o concluye, dando una vista previa del argumento completo.","En el Texto C, la primera oración plantea el debate y la última matiza que la práctica importa más que el soporte.","Lee solo la primera y la última oración del Texto C (más abajo). Escribe qué crees que dirá el resto del texto."],
+["Formular preguntas previas","Convertir el título o tema en preguntas activa la curiosidad y guía la lectura.","Ante «la disminución de las abejas», una buena pregunta previa es: ¿qué la está causando?","Escribe tres preguntas que te gustaría que respondiera un texto titulado «Leer en papel o en pantalla: ¿importa el soporte?»."],
+["Activar conocimientos previos","Recordar lo que ya sabes sobre el tema facilita conectar la nueva información.","Antes de leer sobre abejas, alguien puede recordar que ha visto colmenas o ha oído hablar de la miel.","Antes de leer el Texto B, escribe dos cosas que ya sabes sobre las abejas o la polinización."],
+["Identificar el tipo de texto","Reconocer si el texto es narrativo, expositivo o argumentativo cambia la estrategia de lectura.","El Texto A cuenta una historia (narrativo); el Texto B explica un fenómeno (expositivo); el Texto C defiende una postura (argumentativo).","Lee los tres fragmentos de esta app (A, B y C) y clasifica cada uno como narrativo, expositivo o argumentativo, con una razón breve."],
+["Establecer un propósito de lectura","Leer con un objetivo claro (estudiar, disfrutar, buscar un dato) orienta la atención.","Si el propósito es «responder un examen», el lector prestará más atención a fechas y definiciones que a los detalles estéticos.","Define tu propósito antes de leer el Texto C: ¿quieres formar tu propia opinión, memorizar argumentos o solo entender el debate? Escríbelo."],
+["Observar imágenes o gráficos","Los elementos visuales anticipan y refuerzan el contenido escrito.","Un gráfico de barras junto a un texto sobre abejas probablemente muestre la caída de población en los últimos años.","Si el Texto B tuviera un gráfico, ¿qué datos esperarías que mostrara? Descríbelo en una frase."],
+["Estimar la dificultad y ajustar el ritmo","Evaluar la complejidad del texto antes de leer permite planificar el tiempo y la atención necesarios.","Un texto con muchos tecnicismos científicos requiere una lectura más lenta que una noticia breve.","Observa el Texto B y el Texto C. ¿Cuál crees que exigirá más tiempo de lectura y por qué? Justifica tu respuesta."],
+["Preparar vocabulario previo","Anticipar palabras técnicas y buscar su significado antes de leer evita interrupciones durante la lectura.","Antes de leer sobre polinización, conviene tener claro qué significa «polinizador» y «ecosistema».","Antes de leer el Texto B, intuye el significado de «polinizadores» y «hábitat». Escribe tu propia definición de cada una."]
+]},
+{name:"Vocabulario y morfología", sub:"Descifrar palabras nuevas o difíciles", items:[
+["Deducir significado por contexto","El contexto de la oración suele revelar el significado de una palabra desconocida sin necesidad de diccionario.","En el Texto A, «sintió que el corazón se le aceleraba» permite deducir que «acelerar» indica que el corazón late más rápido por la emoción.","En el Texto C aparece la palabra «matiza». Sin buscarla, deduce su significado por el contexto y escríbelo."],
+["Analizar prefijos y sufijos","Descomponer una palabra en prefijo, raíz y sufijo ayuda a inferir su significado.","«Polinizadores» se descompone en «poliniz-» (relacionado con el polen) y «-adores» (que realizan una acción).","Descompón la palabra «disminución» en sus partes y explica qué aporta cada una al significado global."],
+["Identificar la raíz léxica","Relacionar una palabra con su familia léxica ayuda a comprenderla aunque sea desconocida.","«Reproducción» comparte raíz con «producir» y «producto».","Busca en el Texto B una palabra que comparta raíz con «protección» y explica la relación entre ambas."],
+["Distinguir sinónimos y antónimos en el texto","Encontrar sinónimos o antónimos dentro del propio texto ayuda a precisar significados.","En el Texto C, «afirman» funciona como sinónimo cercano de «sostienen».","Busca una palabra en el Texto B y propone un sinónimo que podría reemplazarla sin cambiar el sentido."],
+["Reconocer falsos amigos","Algunas palabras parecidas a otras lenguas tienen significados distintos en castellano y conviene verificarlos.","«Actual» en español significa «presente», no «verdadero» como el inglés «actual».","Escribe dos palabras en castellano que suelan confundirse por parecerse a otro idioma que conozcas, y aclara su significado correcto."],
+["Subrayar términos clave y anotarlos","Marcar palabras importantes y anotar su definición contextual fija el vocabulario nuevo.","En el Texto B, subrayar «pesticidas» y anotar al margen «sustancias químicas que eliminan plagas».","Elige una palabra del Texto A que no conozcas bien y escribe su definición según el contexto."],
+["Elaborar un glosario personal","Reunir en una lista las palabras nuevas de cada lectura consolida el vocabulario a largo plazo.","Después de leer el Texto B, un glosario incluiría: polinizador, hábitat, pesticida.","Crea tu propio glosario con tres palabras de los textos de esta app y sus significados."],
+["Leer tecnicismos separando morfemas","Leer una palabra técnica separando sus morfemas facilita pronunciarla y comprenderla.","«Bio-di-ver-si-dad» se lee y se entiende mejor dividida que de corrido.","Divide en morfemas la palabra «agricultura» y explica el significado de cada parte."],
+["Relacionar palabras nuevas con imágenes mentales","Asociar una palabra desconocida con una imagen concreta ayuda a recordarla.","Para «colmena», imaginar una estructura hexagonal llena de abejas.","Elige una palabra nueva del Texto B y describe la imagen mental que te ayuda a recordarla."],
+["Repetir en voz alta términos difíciles","Pronunciar una palabra difícil varias veces fija su forma y facilita reconocerla en el futuro.","Repetir «polinizadores» varias veces ayuda a no tropezar con ella al leer en voz alta.","Elige una palabra larga de cualquier texto de esta app, repítela varias veces y anota si te resultó más fácil de leer después."]
+]},
+{name:"Análisis sintáctico", sub:"Entender cómo se organizan las oraciones", items:[
+["Identificar sujeto y predicado","Encontrar el sujeto y el predicado en una oración compleja aclara quién hace qué.","En «Marta sintió que el corazón se le aceleraba», el sujeto es «Marta» y el predicado explica lo que sintió.","En la oración del Texto A «Un anciano sentado en un banco la miró largamente», identifica el sujeto y el predicado."],
+["Separar subordinadas de la principal","Distinguir la oración principal de las subordinadas evita perderse en frases largas.","En «las abejas… permiten la reproducción… muchas de las cuales forman parte de la alimentación humana», la subordinada añade información sobre las especies.","En el Texto B, localiza una oración con subordinada y separa mentalmente la idea principal de la secundaria."],
+["Marcar conectores lógicos","Los conectores (sin embargo, por lo tanto, además) señalan la relación entre ideas.","«Sin embargo» en el Texto B marca un contraste entre la importancia de las abejas y su disminución.","Busca los conectores del Texto C y explica qué relación lógica marca cada uno."],
+["Simplificar oraciones largas","Dividir mentalmente una oración larga en unidades menores facilita su comprensión.","La oración larga del Texto C sobre «algunos sostienen…» puede dividirse en «algunos piensan X» + «porque Y».","Toma la última oración del Texto C y divídela en dos oraciones más simples sin perder el sentido."],
+["Reconocer el hiperbatón","Algunos textos alteran el orden habitual de las palabras por efecto estético; reordenarlas mentalmente ayuda a comprender.","«Llevaba solo una maleta pequeña» puede reordenarse mentalmente como «solo llevaba una maleta pequeña» sin perder sentido.","Busca una frase del Texto A y reescríbela en un orden más habitual (sujeto-verbo-objeto)."],
+["Identificar el referente de los pronombres","Determinar a qué o quién se refiere un pronombre evita confusiones de sentido.","En el Texto A, «la miró largamente» se refiere a Marta, mencionada antes.","En el Texto B, localiza el pronombre «las cuales» y escribe a qué palabra se refiere."],
+["Distinguir voz activa y pasiva","Reconocer si el sujeto realiza la acción (activa) o la recibe (pasiva) evita confundir al agente.","«Las abejas polinizan las flores» es voz activa; «las flores son polinizadas por las abejas» es pasiva.","Reescribe en voz pasiva la idea «el anciano señaló la calle», tomada del Texto A."],
+["Detectar incisos y aposiciones","Los incisos entre comas añaden información secundaria que puede omitirse sin romper el sentido principal.","En «una fotografía vieja que su abuela le había dejado antes de morir», el inciso aporta información sobre el origen del objeto.","Busca un inciso en el Texto B y explica qué pasaría con el sentido de la frase si se eliminara."],
+["Reconstruir oraciones elípticas","Algunas oraciones omiten palabras que se sobreentienden; completarlas mentalmente aclara el sentido.","«Otros afirman que el soporte importa menos» omite «que la lectura en papel», sobreentendido por el contexto previo.","En el Texto C, encuentra una idea que dependa de algo mencionado antes y complétala con tus propias palabras."],
+["Releer frases complejas en orden más simple","Reescribir una frase difícil en un orden más natural facilita su comprensión inmediata.","«Preguntó por la casa azul de la plaza, pero nadie parecía recordarla» puede simplificarse como «preguntó por la casa azul; nadie la recordaba».","Elige la oración más larga del Texto C y reescríbela de forma más simple y directa."]
+]},
+{name:"Comprensión literal", sub:"Qué dice el texto exactamente", items:[
+["Responder qué dice el texto","Antes de interpretar, hay que asegurar qué información literal ofrece el texto.","El Texto B dice literalmente que las abejas son polinizadoras esenciales.","Responde en una frase: según el Texto B, ¿qué función cumplen las abejas?"],
+["Identificar hechos, datos y fechas","Los datos concretos (nombres, cifras, fechas) son información literal verificable en el texto.","El Texto B menciona «las últimas décadas» como dato temporal explícito.","Enumera todos los datos concretos (no opiniones) que aparecen en el Texto B."],
+["Localizar la idea principal de cada párrafo","Cada párrafo suele girar en torno a una idea central que puede identificarse con una pregunta simple.","La idea principal del Texto B es la importancia de las abejas y el riesgo de su disminución.","Escribe en una sola frase la idea principal del Texto C."],
+["Distinguir idea principal de secundarias","No toda la información tiene el mismo peso; separar lo esencial de lo accesorio ordena la comprensión.","En el Texto A, la idea principal es que Marta busca respuestas; los detalles del pueblo son secundarios.","En el Texto B, señala una idea principal y una idea secundaria que la acompaña."],
+["Resumir cada párrafo en una frase","Condensar un párrafo en una sola oración obliga a extraer lo esencial.","El Texto A puede resumirse: «Marta llega a un pueblo buscando una casa relacionada con su pasado».","Resume el Texto C en una sola frase."],
+["Elaborar un esquema jerárquico","Organizar la información en niveles (idea principal, secundarias, ejemplos) visualiza su estructura.","Texto B: idea principal (importancia de las abejas) → secundaria (causas de su disminución) → detalle (pesticidas, hábitat, clima).","Describe un esquema jerárquico simple del Texto B con al menos tres niveles."],
+["Subrayar con colores diferenciados","Usar un color para ideas centrales y otro para ejemplos ayuda a distinguir niveles de información al repasar.","Subrayar en un color «las abejas son polinizadoras esenciales» y en otro «pesticidas, pérdida de hábitat, cambio climático» como ejemplos de causas.","Indica qué frase del Texto B subrayarías como idea central y cuál como ejemplo."],
+["Enumerar los elementos mencionados","Listar los elementos explícitos (personas, lugares, objetos) organiza la información básica del texto.","En el Texto A: Marta, el anciano, la casa azul, la fotografía.","Enumera todos los elementos (personas, lugares u objetos) mencionados en el Texto A."],
+["Verificar con quién, qué, cuándo, dónde","Estas preguntas básicas comprueban si se captó la información esencial del texto.","¿Quién llega al pueblo? Marta. ¿Cuándo? Al oscurecer.","Responde quién, qué, cuándo y dónde a partir del Texto A."],
+["Reformular cada párrafo con tus palabras","Decir lo mismo que el texto pero con vocabulario propio confirma la comprensión real, no solo la memoria literal.","En vez de repetir «polinizadoras esenciales», decir «las abejas son imprescindibles para que las plantas se reproduzcan».","Reformula con tus propias palabras la primera oración del Texto B."]
+]},
+{name:"Comprensión inferencial", sub:"Leer lo que el texto no dice directamente", items:[
+["Deducir información implícita","Muchas veces el texto sugiere algo sin decirlo directamente; hay que leer entre líneas.","El Texto A no dice que Marta busca a un familiar perdido, pero la fotografía y su ansiedad lo sugieren.","¿Qué crees que busca realmente Marta en el Texto A, aunque el texto no lo diga explícitamente? Justifica tu respuesta."],
+["Inferir causas y consecuencias no explicitadas","El texto puede sugerir relaciones de causa-efecto sin nombrarlas directamente.","El Texto B sugiere que si desaparecen las abejas se afectará la producción agrícola, aunque no lo diga en cada frase.","¿Qué otra consecuencia, no mencionada en el Texto B, podría derivarse de la disminución de abejas?"],
+["Anticipar el desenlace antes de leerlo","Formular una hipótesis sobre cómo terminará el texto entrena la capacidad predictiva del lector.","Ante el Texto A, se puede anticipar que Marta encontrará la casa o descubrirá algo sobre su familia.","Escribe cómo crees que continuaría la historia de Marta después del fragmento del Texto A."],
+["Relacionar ideas de distintas partes del texto","Conectar información de un párrafo con otro revela relaciones que no son evidentes en una lectura fragmentada.","En el Texto B, la causa «pérdida de hábitat» del segundo párrafo se relaciona con la función «polinizadoras» del primero.","Relaciona una idea del inicio del Texto C con una idea del final del mismo texto."],
+["Identificar el propósito comunicativo del autor","Todo texto tiene una intención: informar, persuadir, narrar o entretener.","El propósito del Texto B es informar y alertar sobre un problema ecológico.","¿Cuál crees que es el propósito del Texto C: informar, persuadir o solo narrar un debate? Justifica."],
+["Reconocer el tono del texto","El tono (formal, irónico, afectivo) se percibe en las palabras y estructuras que elige el autor.","El Texto A tiene un tono íntimo y emotivo; el Texto B, un tono neutro e informativo.","Describe el tono del Texto C y señala una palabra o frase que lo demuestre."],
+["Detectar presuposiciones no declaradas","Algunos textos asumen ideas como verdaderas sin demostrarlas explícitamente.","El Texto C presupone que existe un debate real y relevante sobre el formato de lectura.","¿Qué da por hecho el Texto B sin explicarlo directamente? Escríbelo."],
+["Formular hipótesis y verificarlas después","Predecir contenido antes de leer y comprobarlo después entrena la lectura activa.","Antes de terminar el Texto B, se puede hipotetizar que propondrá soluciones; el final lo confirma parcialmente.","Antes de releer el Texto A completo, escribe una hipótesis sobre el final; luego revisa si se sostiene."],
+["Establecer comparaciones y contrastes","Comparar posturas o elementos dentro del texto profundiza la comprensión de sus matices.","El Texto C contrasta la postura de quienes prefieren el papel con la de quienes creen que el soporte no importa.","Compara el tono del Texto A con el del Texto B en dos o tres líneas."],
+["Completar vacíos con inferencias razonables","Cuando el texto no da toda la información, se puede completar el vacío con una deducción justificada, no arbitraria.","El Texto A no dice qué relación tenía la abuela con la casa azul, pero puede inferirse que allí vivió parte de su vida.","Completa con una inferencia razonable: ¿por qué nadie en el pueblo recuerda la casa azul en el Texto A?"]
+]},
+{name:"Comprensión crítica", sub:"Evaluar y cuestionar lo leído", items:[
+["Evaluar la validez de los argumentos","No basta con entender un argumento; hay que juzgar si sus razones sostienen realmente su conclusión.","En el Texto C, el argumento de que el papel «reduce distracciones» es plausible pero no está respaldado con datos.","Evalúa si el argumento principal del Texto C está bien sustentado o necesitaría más pruebas."],
+["Distinguir hechos de opiniones","Un hecho puede verificarse; una opinión expresa una valoración personal o subjetiva.","«Las abejas son polinizadoras» es un hecho; «la disminución de abejas es alarmante» incluye una valoración.","Señala una frase del Texto B que sea un hecho y otra que exprese o implique una opinión."],
+["Identificar sesgos o intenciones ocultas","Todo autor escribe desde una perspectiva; reconocerla ayuda a leer con distancia crítica.","El Texto C, al final, parece inclinarse hacia la idea de que la práctica importa más que el soporte, aunque presenta ambas posturas.","¿Hacia qué postura crees que se inclina el autor del Texto C, aunque intente parecer neutral? Justifica."],
+["Contrastar el texto con otras fuentes","Comparar la información con lo que ya se sabe de otras fuentes permite evaluar su fiabilidad y completitud.","Si otra fuente afirma que las abejas no son las únicas polinizadoras, el lector puede matizar lo dicho en el Texto B.","¿Qué otra fuente o información conoces que podría complementar o contradecir el Texto B?"],
+["Cuestionar la fiabilidad de los datos citados","Conviene preguntarse si los datos presentados están respaldados o son afirmaciones sin verificar.","El Texto B menciona que «los científicos advierten», pero no cita estudios específicos.","¿Qué preguntarías al autor del Texto B para verificar la fiabilidad de sus afirmaciones?"],
+["Detectar falacias lógicas","Algunas afirmaciones parecen lógicas pero contienen errores de razonamiento, como generalizar a partir de un solo caso.","Afirmar que «todos leen mejor en papel porque a mí me pasa» es una generalización apresurada.","Inventa un argumento falaz sobre el tema del Texto C y explica por qué falla su lógica."],
+["Evaluar si las conclusiones se sostienen","Una conclusión debe derivarse lógicamente de las razones presentadas, no ir más allá de lo que sustentan.","Concluir que «el papel es siempre mejor» no se sostiene solo con el argumento de las distracciones.","¿La conclusión final del Texto C se sostiene con lo argumentado antes, o va más allá? Explica."],
+["Formular una postura personal fundamentada","Tras leer críticamente, el lector puede tomar posición propia, apoyada en razones, no solo en preferencia.","«Creo que el soporte influye, pero menos que el hábito de lectura, porque ambos formatos permiten concentración con práctica.»","Escribe tu propia postura sobre el tema del Texto C, con al menos una razón que la sustente."],
+["Comparar la perspectiva del autor con tu experiencia","Contrastar lo leído con la propia vivencia enriquece y matiza la comprensión del texto.","Alguien que siempre lee en pantalla puede cuestionar la idea de que el papel favorece más la comprensión.","¿Tu experiencia personal coincide con lo que plantea el Texto C? Explica brevemente por qué."],
+["Redactar una breve crítica escrita","Escribir una valoración propia del texto —fortalezas, debilidades, utilidad— consolida la lectura crítica.","«El Texto B informa con claridad, pero podría citar estudios concretos para reforzar sus afirmaciones.»","Escribe una crítica breve (3-4 líneas) del Texto B, señalando un punto fuerte y uno débil."]
+]},
+{name:"Organización y esquemas", sub:"Reordenar visualmente la información", items:[
+["Elaborar un mapa conceptual","Un mapa conceptual conecta ideas mediante nodos y enlaces, mostrando relaciones jerárquicas o causales.","Un mapa del Texto B centraría «abejas» y ramificaría hacia «función» y «amenazas».","Describe con palabras cómo sería un mapa conceptual simple del Texto B (nodo central y dos ramas)."],
+["Construir una línea de tiempo","En textos narrativos o históricos, ordenar los eventos cronológicamente aclara la secuencia de hechos.","Texto A: 1) Marta llega al oscurecer, 2) pregunta por la casa, 3) el anciano señala una calle.","Construye una línea de tiempo con los eventos del Texto A en el orden en que ocurren."],
+["Diseñar un cuadro comparativo","Cuando un texto presenta varias posturas, un cuadro con columnas facilita comparar sus argumentos.","En el Texto C, una columna sería «a favor del papel» y otra «el soporte no importa».","Escribe en dos columnas los argumentos de cada postura presentada en el Texto C."],
+["Aplicar subrayado por niveles","Usar distintos estilos de marca para diferenciar ideas principales, secundarias y ejemplos.","Doble línea para «las abejas son esenciales», línea simple para las causas de su disminución.","Indica qué nivel de subrayado (principal, secundario o ejemplo) le darías a cada oración del Texto B."],
+["Elaborar fichas de resumen por sección","Una ficha breve por cada parte del texto ayuda a repasar sin releer todo el contenido.","Ficha del Texto B: «Tema: abejas y polinización. Problema: disminución. Causas: pesticidas, hábitat, clima.»","Elabora una ficha de resumen del Texto C con tema, postura A y postura B."],
+["Aplicar el método SQ3R","Explorar, preguntar, leer, recitar y repasar estructuran una lectura de estudio completa.","Antes de leer el Texto B a fondo: explorar el título, preguntar «¿por qué disminuyen las abejas?», leer, recitar la respuesta y repasar.","Aplica los cinco pasos del SQ3R al Texto B y anota brevemente qué hiciste en cada paso."],
+["Redactar un resumen final breve","Condensar todo el texto en pocas líneas obliga a distinguir lo esencial de lo accesorio.","Resumen del Texto A: «Marta llega a un pueblo al anochecer buscando la casa azul de su abuela. Nadie la recuerda, pero un anciano le señala una calle.»","Escribe un resumen del Texto B en no más de cinco líneas."],
+["Organizar en esquemas de llave o árbol","Los esquemas de llave agrupan visualmente ideas generales que se dividen en específicas.","«Causas de disminución» se abre en tres llaves: pesticidas, pérdida de hábitat, cambio climático.","Describe cómo organizarías en un esquema de llave las causas mencionadas en el Texto B."],
+["Usar colores o símbolos para categorizar","Asignar un color o símbolo fijo a cada tipo de información agiliza el repaso visual.","Un triángulo junto a las causas, un círculo junto a las consecuencias en el Texto B.","Propón un sistema de símbolos para marcar causas y consecuencias en el Texto B, y aplícalo a una frase."],
+["Elaborar una tabla de doble entrada","Para textos con datos comparables, una tabla con filas y columnas organiza la información.","Una tabla podría cruzar «causa» y «posible solución» para cada amenaza mencionada en el Texto B.","Diseña una tabla de doble entrada con las causas de disminución de abejas y una posible solución para cada una."]
+]},
+{name:"Metacognición", sub:"Vigilar tu propia comprensión mientras lees", items:[
+["Detenerse y preguntar si se entendió","Pausar la lectura periódicamente para verificar la comprensión evita avanzar sin entender.","Tras leer el segundo párrafo del Texto B, preguntarse: ¿puedo explicar por qué disminuyen las abejas?","Después de leer el Texto C, detente y responde: ¿podrías explicar el debate central sin mirar el texto?"],
+["Releer en voz alta ante la confusión","Leer en voz alta activa otro canal sensorial que puede ayudar a recuperar el sentido perdido.","Si una oración del Texto A resulta confusa, leerla en voz alta puede aclarar su ritmo y sentido.","Elige la oración que te resultó más difícil de los textos de esta app y léela en voz alta; anota si mejoró tu comprensión."],
+["Identificar el punto exacto de la confusión","Señalar con precisión dónde se perdió la comprensión permite resolver el problema puntual.","«Entendí todo hasta la palabra ‘presuponen’; ahí perdí el hilo.»","Si algo del Texto C te resultó confuso, señala la palabra u oración exacta donde ocurrió."],
+["Ajustar la velocidad según la dificultad","No toda la lectura merece el mismo ritmo; los fragmentos densos requieren más lentitud que los sencillos.","La primera oración del Texto C, más compleja, pide una lectura más pausada que una frase corta del Texto A.","Señala qué fragmento de los tres textos leerías más lento y cuál más rápido, y por qué."],
+["Verificar hipótesis previas con lo leído","Comparar lo que se anticipó antes de leer con lo que realmente dice el texto confirma o corrige expectativas.","Si se anticipó que el Texto B daría soluciones, comprobar si efectivamente las menciona.","Retoma tu respuesta sobre el título del Texto B (técnica 1) y compárala con lo que realmente dice."],
+["Reformular preguntas que no cuadran","Cuando una pregunta inicial no encaja con el texto, conviene reformularla en vez de forzar una respuesta.","Si «¿cuándo desaparecerán las abejas?» no tiene respuesta en el texto, reformular a «¿qué las amenaza actualmente?».","Formula una pregunta sobre el Texto A que el texto no responda, y reformúlala para que sí tenga respuesta."],
+["Autoevaluar el propio nivel de comprensión","Calificar honestamente cuánto se entendió orienta si conviene releer.","«Entendí bien la idea general del Texto C, pero no los matices del argumento final.»","Autoevalúa tu comprensión del Texto B en una escala de 1 a 5 y explica qué parte fue más difícil."],
+["Practicar lectura en dos tiempos","Una primera lectura rápida da una visión general; una segunda, detallada, profundiza en los matices.","Leer el Texto C rápido para captar el tema, y luego despacio para entender cada argumento.","Lee el Texto A una vez rápido y anota la idea general; luego léelo despacio y anota un detalle nuevo."],
+["Tomar notas breves de las dudas","Anotar las dudas en el momento evita que se olviden y permite resolverlas después.","«Duda: ¿por qué nadie recuerda la casa azul?» anotado al margen del Texto A.","Anota una duda que te haya surgido con cualquiera de los tres textos de esta app."],
+["Reflexionar al final sobre lo aprendido","Cerrar la lectura preguntando qué se aprendió y qué quedó pendiente consolida el proceso completo.","«Aprendí las causas de la disminución de abejas; me falta entender mejor las soluciones propuestas.»","Escribe qué aprendiste del Texto B y qué te gustaría investigar más."]
+]},
+{name:"Tipos de texto", sub:"Estrategias según narrativo, expositivo, argumentativo…", items:[
+["Estructura narrativa: inicio, nudo, desenlace","Los textos narrativos suelen organizarse en presentación, conflicto y resolución.","El Texto A presenta la llegada de Marta (inicio) y plantea un misterio sin resolver (nudo abierto).","Señala qué parte del Texto A corresponde al inicio y qué elemento anuncia el nudo de la historia."],
+["Ritmo, rima y figuras retóricas en poesía","En poesía, el sonido y las figuras literarias son tan importantes como el significado literal.","Una metáfora como «el corazón se le aceleraba» convierte la emoción en movimiento físico.","Reescribe una frase del Texto A usando una metáfora o comparación distinta a la original."],
+["Definiciones, clasificaciones y ejemplos","Los textos expositivos suelen definir términos, clasificar elementos y dar ejemplos para explicar un tema.","El Texto B define implícitamente «polinizadoras» y ejemplifica las causas de su disminución.","Señala en el Texto B una definición implícita y un ejemplo concreto."],
+["Tesis, argumentos y contraargumentos","Los textos argumentativos presentan una postura, razones que la sostienen y, a veces, posturas contrarias.","El Texto C presenta dos tesis opuestas sobre el soporte de lectura, cada una con su argumento.","Identifica la tesis de cada postura en el Texto C y el argumento principal que la sostiene."],
+["Orden secuencial en textos instructivos","Los textos instructivos deben leerse respetando el orden de los pasos, sin saltar información.","Una receta o manual pierde sentido si se ejecuta un paso antes que el anterior.","Convierte una de las técnicas de esta app en una instrucción paso a paso, numerada del 1 al 3."],
+["Pirámide invertida en textos periodísticos","Las noticias presentan primero lo más importante y luego los detalles, de mayor a menor relevancia.","Un titular sobre abejas diría primero «disminuyen las poblaciones de abejas» y luego explicaría causas y contexto.","Reescribe el Texto B como si fuera una noticia, comenzando por el dato más importante."],
+["Aislar cláusulas en textos técnicos o jurídicos","En textos con lenguaje técnico o legal, conviene separar cada cláusula antes de interpretarla en conjunto.","Una frase con varias condiciones debe descomponerse en «si ocurre A, entonces B, salvo que C».","Reescribe una oración larga del Texto C como si fuera una cláusula, separando sus condiciones con guiones."],
+["Identificar quién habla en diálogos","En diálogos, es esencial rastrear qué personaje dice cada línea para no confundir las voces.","Si el Texto A tuviera diálogo entre Marta y el anciano, habría que marcar claramente cada intervención.","Escribe un breve diálogo entre Marta y el anciano del Texto A, marcando claramente quién habla en cada línea."],
+["Seguir enlaces con criterio en textos digitales","Conviene terminar de comprender la idea central antes de saltar a un enlace externo, para no perder el hilo.","Antes de seguir un enlace sobre «pesticidas» dentro del Texto B, conviene terminar de leer el párrafo completo.","Si el Texto B tuviera un enlace en la palabra «pesticidas», ¿en qué momento de la lectura lo seguirías? Justifica."],
+["Adaptar vocabulario arcaico al actual","Ante textos clásicos, sustituir mentalmente palabras antiguas por su equivalente moderno facilita la comprensión.","«Vuestra merced» puede leerse mentalmente como «usted» para seguir el sentido con fluidez.","Si el Texto A estuviera escrito en un castellano más antiguo, ¿qué palabra usarías hoy en vez de «largamente»?"]
+]},
+{name:"Consolidación y práctica", sub:"Fijar lo aprendido a largo plazo", items:[
+["Practicar la relectura espaciada","Volver a un texto después de un tiempo refuerza la memoria a largo plazo.","Releer el Texto B una semana después ayuda a comprobar cuánto se recuerda sin apoyo.","Sin mirar el Texto C, escribe todo lo que recuerdes de su contenido; luego compáralo con el texto original."],
+["Enseñar el contenido a otra persona","Explicar lo leído a alguien más obliga a organizar y simplificar las ideas.","Explicar a un amigo por qué disminuyen las abejas, usando solo las propias palabras.","Escribe cómo le explicarías el Texto B a alguien que nunca lo ha leído, en tres frases simples."],
+["Elaborar preguntas propias como evaluador","Diseñar preguntas de examen sobre un texto entrena la comprensión desde una perspectiva más exigente.","«¿Cuáles son las tres causas de la disminución de abejas mencionadas en el texto?»","Escribe dos preguntas de examen que harías sobre el Texto A."],
+["Comparar tu resumen con otro","Contrastar el propio resumen con el de otra persona o fuente revela qué se omitió o malinterpretó.","Comparar un resumen propio del Texto C con el de un compañero puede mostrar matices distintos.","Escribe tu resumen del Texto A y señala qué detalle crees que otra persona podría haber incluido y tú no."],
+["Leer en voz alta para reforzar el oído","Escuchar el propio texto leído en voz alta activa la comprensión auditiva además de la visual.","Leer el Texto A en voz alta puede revelar matices emocionales que pasan desapercibidos en silencio.","Lee en voz alta el fragmento del Texto A y anota si notaste algo nuevo al escucharte."],
+["Practicar lectura cronometrada","Medir el tiempo de lectura sin perder comprensión entrena la fluidez lectora de forma progresiva.","Leer el Texto B en un minuto y luego verificar cuánto se comprendió realmente.","Cronometra cuánto tardas en leer el Texto C y luego responde de memoria cuál es su tema central."],
+["Releer los textos más difíciles cada semana","Volver periódicamente sobre los textos que costaron más consolida su comprensión y vocabulario.","Si el Texto C resultó difícil, releerlo la próxima semana puede mostrar una comprensión más fluida.","Elige el texto de esta app que más te costó y anota cuándo planeas releerlo."],
+["Llevar un diario de lecturas","Registrar cada lectura con notas de comprensión y vocabulario nuevo crea un historial útil de progreso.","«Hoy leí sobre abejas; aprendí la palabra polinizador.»","Escribe una entrada breve de diario sobre tu experiencia practicando con esta app hoy."],
+["Aplicar lo comprendido en un texto propio","Escribir un texto propio similar al leído demuestra que la comprensión se transformó en habilidad productiva.","Después de leer el Texto B, escribir un párrafo breve sobre otra especie en peligro, con la misma estructura.","Escribe un párrafo breve, inspirado en la estructura del Texto B, sobre otro tema ambiental que conozcas."],
+["Revisar qué técnicas resultan más eficaces","No todas las técnicas funcionan igual para cada persona; quedarse con las más útiles personaliza el método.","Alguien puede descubrir que el resumen por párrafos le funciona mejor que el subrayado por colores.","Después de usar esta app, escribe qué dos técnicas de todas las practicadas te resultaron más útiles y por qué."]
+]}
+];
+
+// ---- estado y almacenamiento ----
+let currentCat = null;
+let currentIdx = 0;
+let progress = {}; // "c-i" -> true
+
+function techKey(c,i){ return c+"-"+i; }
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('progreso-cuaderno', false);
+    if(res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ progress = {}; }
+}
+async function saveProgressStore(){
+  try{ await window.storage.set('progreso-cuaderno', JSON.stringify(progress), false); }catch(e){}
+}
+async function loadAnswer(c,i){
+  try{
+    const res = await window.storage.get('respuesta-'+techKey(c,i), false);
+    return res && res.value ? res.value : "";
+  }catch(e){ return ""; }
+}
+async function saveAnswer(c,i,text){
+  try{ await window.storage.set('respuesta-'+techKey(c,i), text, false); }catch(e){}
+}
+
+// ---- render menú ----
+function renderMenu(){
+  const ul = document.getElementById('catList');
+  ul.innerHTML = "";
+  CATEGORIES.forEach((cat, ci)=>{
+    const done = cat.items.filter((_,ii)=>progress[techKey(ci,ii)]).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item';
+    li.innerHTML = `
+      <button class="cat-btn" data-cat="${ci}">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-text">
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </span>
+        <span class="cat-progress">${done}/10</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDeck(parseInt(btn.dataset.cat)));
+  });
+  renderGlobalProgress();
+}
+
+function renderGlobalProgress(){
+  const total = 100;
+  const done = Object.keys(progress).filter(k=>progress[k]).length;
+  document.getElementById('globalFill').style.width = (done/total*100)+"%";
+  document.getElementById('globalLabel').textContent = done+"/100 practicadas";
+}
+
+// ---- deck / flashcards ----
+function openDeck(ci){
+  currentCat = ci;
+  currentIdx = 0;
+  document.getElementById('menuView').classList.add('hidden');
+  document.getElementById('deckView').classList.remove('hidden');
+  document.getElementById('deckTitle').textContent = CATEGORIES[ci].name;
+  renderDots();
+  renderCard();
+  window.scrollTo(0,0);
+}
+function closeDeck(){
+  document.getElementById('deckView').classList.add('hidden');
+  document.getElementById('menuView').classList.remove('hidden');
+  renderMenu();
+  window.scrollTo(0,0);
+}
+function renderDots(){
+  const wrap = document.getElementById('dots');
+  wrap.innerHTML = "";
+  CATEGORIES[currentCat].items.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===currentIdx? ' active':'') + (progress[techKey(currentCat,i)] && i!==currentIdx? ' done':'');
+    wrap.appendChild(d);
+  });
+}
+async function renderCard(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const [title, concept, example, exercise] = item;
+  const globalNum = CATEGORIES.slice(0,currentCat).reduce((a,c)=>a+c.items.length,0) + currentIdx + 1;
+
+  document.getElementById('cardNum').textContent = "Técnica " + globalNum + " de 100";
+  document.getElementById('catName').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardConcept').textContent = concept;
+  document.getElementById('cardExample').textContent = example;
+  document.getElementById('cardExercise').textContent = exercise;
+
+  const savedText = await loadAnswer(currentCat, currentIdx);
+  document.getElementById('cardAnswer').value = savedText;
+  document.getElementById('savedTag').classList.remove('show');
+
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+
+  document.getElementById('prevBtn').disabled = currentIdx===0;
+  document.getElementById('nextBtn').disabled = currentIdx===CATEGORIES[currentCat].items.length-1;
+  renderDots();
+}
+
+async function handleSave(){
+  const text = document.getElementById('cardAnswer').value;
+  await saveAnswer(currentCat, currentIdx, text);
+  if(text.trim().length>0){
+    progress[techKey(currentCat,currentIdx)] = true;
+  } else {
+    delete progress[techKey(currentCat,currentIdx)];
+  }
+  await saveProgressStore();
+  const tag = document.getElementById('savedTag');
+  tag.classList.add('show');
+  setTimeout(()=>tag.classList.remove('show'), 1600);
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+  renderDots();
+  renderGlobalProgress();
+}
+
+document.getElementById('backBtn').addEventListener('click', closeDeck);
+document.getElementById('saveBtn').addEventListener('click', handleSave);
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(currentIdx>0){ currentIdx--; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(currentIdx<CATEGORIES[currentCat].items.length-1){ currentIdx++; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(confirm('¿Borrar todo tu progreso y tus respuestas guardadas?')){
+    try{
+      const list = await window.storage.list('respuesta-', false);
+      if(list && list.keys){
+        for(const k of list.keys){ await window.storage.delete(k, false); }
+      }
+    }catch(e){}
+    progress = {};
+    await saveProgressStore();
+    renderMenu();
+  }
+});
+
+(async function init(){
+  await loadProgress();
+  renderMenu();
+})();
+</script>
+</body>
+</html>

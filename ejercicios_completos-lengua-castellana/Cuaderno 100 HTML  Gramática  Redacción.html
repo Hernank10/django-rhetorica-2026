@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuaderno 100 · HTML + Gramática + Redacción</title>
+  <!-- Bootstrap 5 (solo para componentes de utilidad, no dependemos de su JS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== VARIABLES Y TEMAS ===== */
+    :root {
+      --navy: #0b1e33;
+      --navy-light: #1a3a5c;
+      --bronce: #b38b5b;
+      --bronce-light: #d4b28c;
+      --bg-body: #f8f6f2;
+      --bg-card: #ffffff;
+      --text-primary: #1e2b3a;
+      --text-secondary: #4a5b6e;
+      --border-light: #ddd6cc;
+      --shadow: 0 8px 20px rgba(0,0,0,0.06);
+      --radius: 16px;
+      --font-ui: 'Public Sans', sans-serif;
+      --font-serif: 'PT Serif', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: 0.2s ease;
+      --progress-bar: #b38b5b;
+      --donut-color: #0b1e33;
+      --radar-color: #b38b5b;
+    }
+    [data-theme="dark"] {
+      --bg-body: #0e1a26;
+      --bg-card: #1a2a3a;
+      --text-primary: #eef2f6;
+      --text-secondary: #b0c4d9;
+      --border-light: #2e4055;
+      --shadow: 0 8px 20px rgba(0,0,0,0.4);
+      --navy: #0b1e33;
+      --navy-light: #1a3a5c;
+      --bronce: #c9a87c;
+      --bronce-light: #e0c9a8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg-body);
+      color: var(--text-primary);
+      transition: background var(--transition), color var(--transition);
+      line-height: 1.5;
+      padding-bottom: 2rem;
+    }
+    /* ===== BARRA SUPERIOR ===== */
+    .top-bar {
+      background: var(--navy);
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 3px solid var(--bronce);
+    }
+    .top-bar .logo {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #fff;
+      margin-right: 0.5rem;
+      white-space: nowrap;
+    }
+    .top-bar .logo span { color: var(--bronce-light); }
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-left: auto;
+      align-items: center;
+    }
+    .nav-tab {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .nav-tab:hover { background: rgba(255,255,255,0.12); }
+    .nav-tab.active {
+      background: var(--bronce);
+      border-color: var(--bronce);
+      color: #fff;
+    }
+    .top-actions {
+      display: flex;
+      gap: 0.4rem;
+      align-items: center;
+      margin-left: 0.5rem;
+    }
+    .btn-icon {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background var(--transition);
+    }
+    .btn-icon:hover { background: rgba(255,255,255,0.25); }
+    .conn-pill {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      background: #2e7d32;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      white-space: nowrap;
+    }
+    .conn-pill.offline { background: #b71c1c; }
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1.2rem;
+    }
+    .mode-section { display: none; }
+    .mode-section.active { display: block; }
+    /* ===== DASHBOARD ===== */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .kpi-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.2rem 1rem;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--bronce);
+      text-align: center;
+    }
+    .kpi-card .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      font-family: var(--font-serif);
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    [data-theme="dark"] .kpi-card .kpi-value { color: var(--bronce-light); }
+    .kpi-card .kpi-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+    .kpi-card .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.3rem;
+    }
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .chart-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+    .chart-card h3 {
+      font-size: 1rem;
+      font-family: var(--font-serif);
+      margin-bottom: 1rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--bronce-light);
+      padding-bottom: 0.4rem;
+    }
+    [data-theme="dark"] .chart-card h3 { color: var(--bronce-light); }
+    .bar-chart { display: flex; flex-direction: column; gap: 0.7rem; }
+    .bar-row { display: flex; align-items: center; gap: 0.7rem; }
+    .bar-label { width: 80px; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); }
+    .bar-track {
+      flex: 1;
+      height: 20px;
+      background: var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--bronce), var(--navy-light));
+      border-radius: 12px;
+      transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      width: 0%;
+    }
+    .bar-value { font-size: 0.75rem; font-weight: 600; min-width: 45px; text-align: right; }
+    .donut-container { display: flex; justify-content: center; align-items: center; }
+    .radar-container { display: flex; justify-content: center; }
+    /* ===== CUADERNO / TÉCNICAS ===== */
+    .cuaderno-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .cuaderno-header h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin: 0;
+    }
+    [data-theme="dark"] .cuaderno-header h2 { color: var(--bronce-light); }
+    .search-box {
+      margin-left: auto;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      min-width: 200px;
+    }
+    .bloque-container {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .bloque-header {
+      padding: 1rem 1.2rem;
+      background: var(--navy);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 600;
+      transition: background var(--transition);
+    }
+    .bloque-header:hover { background: var(--navy-light); }
+    .bloque-header .bloque-title { font-family: var(--font-serif); font-size: 1.1rem; }
+    .bloque-header .bloque-progress { font-size: 0.8rem; opacity: 0.9; }
+    .bloque-body { padding: 1.2rem; display: none; }
+    .bloque-body.open { display: block; }
+    .tecnica-card {
+      background: var(--bg-body);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--bronce);
+      transition: transform var(--transition);
+    }
+    .tecnica-card:hover { transform: translateX(4px); }
+    .tecnica-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .tecnica-num {
+      background: var(--navy);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .tecnica-title { font-weight: 700; font-size: 1rem; }
+    .tecnica-badge {
+      font-size: 0.65rem;
+      background: var(--bronce-light);
+      color: var(--navy);
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 600;
+      margin-left: auto;
+    }
+    .flashcard {
+      perspective: 1200px;
+      margin: 0.8rem 0;
+      cursor: pointer;
+      min-height: 100px;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      min-height: 100px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flashcard.flipped .flashcard-inner { transform: rotateY(180deg); }
+    .flashcard-front, .flashcard-back {
+      position: absolute;
+      width: 100%;
+      min-height: 100px;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .flashcard-front {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+    }
+    .flashcard-back {
+      background: #f0f4fa;
+      transform: rotateY(180deg);
+      border: 1px solid var(--bronce-light);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+    }
+    [data-theme="dark"] .flashcard-back { background: #1e2f42; }
+    .tecnica-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      margin-top: 0.6rem;
+    }
+    .btn-sm {
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn-sm:hover { background: var(--bronce-light); border-color: var(--bronce); }
+    .btn-sm.primary {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    .btn-sm.primary:hover { background: var(--navy-light); }
+    .notas-area {
+      width: 100%;
+      margin-top: 0.6rem;
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      resize: vertical;
+      min-height: 50px;
+    }
+    .progress-dots { display: flex; gap: 0.3rem; align-items: center; }
+    .dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--border-light);
+      cursor: pointer;
+      transition: background var(--transition);
+      border: 1px solid var(--border-light);
+    }
+    .dot.done { background: var(--bronce); border-color: var(--bronce); }
+    /* ===== TALLER ===== */
+    .taller-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+    .tool-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--bronce);
+      display: flex;
+      flex-direction: column;
+    }
+    .tool-card h4 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      color: var(--navy);
+    }
+    [data-theme="dark"] .tool-card h4 { color: var(--bronce-light); }
+    .tool-card input, .tool-card textarea, .tool-card select {
+      width: 100%;
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-body);
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      margin-bottom: 0.6rem;
+    }
+    .tool-card textarea { min-height: 80px; resize: vertical; font-family: var(--font-mono); }
+    .tool-output {
+      background: var(--bg-body);
+      border-radius: 8px;
+      padding: 0.7rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid var(--border-light);
+      margin-top: 0.5rem;
+    }
+    /* ===== CERTIFICADO ===== */
+    .certificado-portada {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 2px solid var(--bronce);
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .sello {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      border: 4px double var(--bronce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--bg-body);
+    }
+    [data-theme="dark"] .sello { color: var(--bronce-light); }
+    .cert-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--navy);
+      border-bottom: 3px double var(--bronce);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+    }
+    [data-theme="dark"] .cert-title { color: var(--bronce-light); }
+    .campo-editable {
+      display: inline-block;
+      border-bottom: 1px dashed var(--bronce);
+      padding: 0.1rem 0.5rem;
+      min-width: 150px;
+      outline: none;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: text;
+    }
+    .campo-editable:hover { background: rgba(179,139,91,0.08); }
+    .cert-indice { margin: 2rem 0; }
+    .cert-bloque {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--bronce);
+    }
+    .cert-tecnica {
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.8rem 0;
+    }
+    .cert-tecnica:last-child { border-bottom: none; }
+    .cert-tecnica .num {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--bronce);
+      margin-right: 0.5rem;
+    }
+    .cert-ejemplo {
+      background: var(--bg-body);
+      border-left: 4px solid var(--bronce);
+      padding: 0.6rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.4rem;
+      white-space: pre-wrap;
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .top-bar { flex-direction: column; align-items: stretch; }
+      .nav-tabs { justify-content: center; margin-left: 0; }
+      .top-actions { justify-content: center; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .chart-grid { grid-template-columns: 1fr; }
+      .taller-grid { grid-template-columns: 1fr; }
+    }
+    @media print {
+      .top-bar, .nav-tabs, .top-actions, .btn-icon, .conn-pill, .no-print { display: none !important; }
+      .mode-section { display: none !important; }
+      .mode-section.active { display: block !important; }
+      body { background: #fff; color: #000; }
+      .certificado-portada { border: 2px solid #000; page-break-after: always; }
+      .cert-bloque { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    }
+    .oculto { display: none !important; }
+    .text-muted { color: var(--text-secondary); font-size: 0.8rem; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .gap-1 { gap: 0.5rem; }
+    .flex { display: flex; flex-wrap: wrap; }
+    .flex-center { display: flex; align-items: center; justify-content: center; }
+  </style>
+</head>
+<body>
+  <!-- ===== BARRA SUPERIOR ===== -->
+  <header class="top-bar">
+    <div class="logo">📘 Cuaderno <span>100</span></div>
+    <nav class="nav-tabs" id="navTabs">
+      <button class="nav-tab active" data-mode="dashboard">📊 Dashboard</button>
+      <button class="nav-tab" data-mode="html">📖 100 HTML+CSS+JS</button>
+      <button class="nav-tab" data-mode="gramatica">📚 100 Gramática</button>
+      <button class="nav-tab" data-mode="redaccion">✍️ Redacción 4 tipos</button>
+      <button class="nav-tab" data-mode="taller">🛠 Taller</button>
+      <button class="nav-tab" data-mode="certificado">🎓 Certificado</button>
+    </nav>
+    <div class="top-actions">
+      <span class="conn-pill" id="connPill">🟢 En línea</span>
+      <button class="btn-icon" id="themeToggle" title="Modo oscuro/claro">🌙</button>
+      <button class="btn-icon" id="langToggle" title="ES/EN">🌐</button>
+      <button class="btn-icon" id="installBtn" title="Instalar app">⬇</button>
+      <button class="btn-icon" id="resetBtn" title="Reiniciar progreso">↺</button>
+    </div>
+  </header>
+
+  <!-- ===== CONTENEDOR PRINCIPAL ===== -->
+  <main class="app-container">
+
+    <!-- ===== DASHBOARD ===== -->
+    <section id="mode-dashboard" class="mode-section active">
+      <h2 style="font-family:var(--font-serif);margin-bottom:1.5rem;">📊 Panel de progreso</h2>
+      <div class="kpi-grid" id="kpiGrid"></div>
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Progreso por bloque HTML</h3>
+          <div class="bar-chart" id="barChartHtml"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Progreso por bloque Gramática</h3>
+          <div class="bar-chart" id="barChartGram"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Global completado</h3>
+          <div class="donut-container" id="donutContainer"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Radar de bloques (HTML + Gramática)</h3>
+          <div class="radar-container" id="radarContainer"></div>
+        </div>
+        <div class="chart-card">
+          <h3>Redacción · palabras por tipo</h3>
+          <div class="bar-chart" id="barChartRedaccion"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CUADERNO HTML ===== -->
+    <section id="mode-html" class="mode-section">
+      <div class="cuaderno-header">
+        <h2>📖 100 técnicas HTML + CSS + JS</h2>
+        <input type="text" class="search-box" id="searchHtml" placeholder="Buscar técnica...">
+      </div>
+      <div id="bloquesHtmlContainer"></div>
+    </section>
+
+    <!-- ===== CUADERNO GRAMÁTICA ===== -->
+    <section id="mode-gramatica" class="mode-section">
+      <div class="cuaderno-header">
+        <h2>📚 100 técnicas de Gramática Castellana</h2>
+        <input type="text" class="search-box" id="searchGram" placeholder="Buscar técnica...">
+      </div>
+      <div id="bloquesGramContainer"></div>
+    </section>
+
+    <!-- ===== REDACCIÓN 4 TIPOS ===== -->
+    <section id="mode-redaccion" class="mode-section">
+      <h2 style="font-family:var(--font-serif);margin-bottom:1.5rem;">✍️ Redacción · 4 tipos de párrafo</h2>
+      <div id="redaccionContainer" class="taller-grid"></div>
+    </section>
+
+    <!-- ===== TALLER ===== -->
+    <section id="mode-taller" class="mode-section">
+      <h2 style="font-family:var(--font-serif);margin-bottom:1.5rem;">🛠 Taller bilingüe · 11 herramientas</h2>
+      <div class="taller-grid" id="tallerGrid"></div>
+    </section>
+
+    <!-- ===== CERTIFICADO ===== -->
+    <section id="mode-certificado" class="mode-section">
+      <div class="certificado-portada" id="certificadoPortada">
+        <div class="sello">📜</div>
+        <h1 class="cert-title">Certificado de aprovechamiento</h1>
+        <p style="margin-bottom:0.8rem;">Se certifica que</p>
+        <p><span class="campo-editable" contenteditable="true" data-campo="nombre" id="campoNombre">Nombre del estudiante</span></p>
+        <p style="margin-top:0.8rem;">ha completado satisfactoriamente el</p>
+        <p style="font-weight:700;font-size:1.1rem;margin:0.5rem 0;">Cuaderno 100 · HTML + Gramática + Redacción</p>
+        <p style="margin-top:0.8rem;">con una duración de 200 técnicas + taller práctico</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:1.5rem;">
+          <div><span class="text-muted">Docente:</span><br><span class="campo-editable" contenteditable="true" data-campo="docente">Nombre docente</span></div>
+          <div><span class="text-muted">Institución:</span><br><span class="campo-editable" contenteditable="true" data-campo="institucion">Institución educativa</span></div>
+          <div><span class="text-muted">Ciudad:</span><br><span class="campo-editable" contenteditable="true" data-campo="ciudad">Ciudad</span></div>
+          <div><span class="text-muted">Fecha:</span><br><span class="campo-editable" contenteditable="true" data-campo="fecha">Fecha</span></div>
+          <div><span class="text-muted">Radicado:</span><br><span class="campo-editable" contenteditable="true" data-campo="radicado">Nº radicado</span></div>
+        </div>
+      </div>
+      <div class="flex-between mb-2 no-print">
+        <h2 style="font-family:var(--font-serif);">📄 Documento completo</h2>
+        <div class="flex gap-1">
+          <button class="btn-sm primary" onclick="window.print()">🖨 Guardar PDF</button>
+          <button class="btn-sm" id="downloadWordBtn">📄 Descargar Word</button>
+        </div>
+      </div>
+      <div class="cert-indice" id="certIndice"></div>
+      <div id="certDocumento"></div>
+    </section>
+
+  </main>
+
+  <script>
+    // ============================================================
+    // 1. DATOS: 100 técnicas HTML y 100 técnicas Gramática
+    // ============================================================
+    const BLOQUES_HTML = [
+      { id: 'html1', titulo: 'HTML semántico y estructura', rango: '1–20', icono: '🏗️',
+        tecnicas: [
+          { num: 1, titulo: 'Etiquetas semánticas', concepto: 'Uso de <header>, <nav>, <main>, <section>, <article>, <aside>, <footer> para estructurar el contenido.', ejemplo: '<header>...</header>\n<main>...</main>\n<footer>...</footer>' },
+          { num: 2, titulo: '<details> y <summary>', concepto: 'Contenido desplegable nativo sin JavaScript.', ejemplo: '<details><summary>Más info</summary>Texto oculto</details>' },
+          { num: 3, titulo: '<template>', concepto: 'Fragmento HTML reutilizable que no se renderiza hasta ser clonado.', ejemplo: '<template id="tpl"><p>Hola</p></template>' },
+          { num: 4, titulo: '<dialog>', concepto: 'Ventana modal nativa con showModal() y close().', ejemplo: '<dialog id="dlg"><p>Hola</p></dialog>\ndlg.showModal();' },
+          { num: 5, titulo: 'ARIA y accesibilidad', concepto: 'Atributos role, aria-label, aria-hidden para mejorar la accesibilidad.', ejemplo: '<button aria-label="Cerrar">✕</button>' },
+          { num: 6, titulo: 'Formularios accesibles', concepto: 'label for, fieldset, legend, autocomplete.', ejemplo: '<label for="nom">Nombre</label>\n<input id="nom" autocomplete="name">' },
+          { num: 7, titulo: 'data-* attributes', concepto: 'Almacenar datos personalizados en el DOM.', ejemplo: '<div data-id="42" data-role="admin"></div>' },
+          { num: 8, titulo: '<figure> y <figcaption>', concepto: 'Agrupar imágenes con su pie de foto.', ejemplo: '<figure><img src="foto.jpg"><figcaption>Pie</figcaption></figure>' },
+          { num: 9, titulo: '<mark> y <time>', concepto: 'Resaltar texto y marcar fechas legibles por máquinas.', ejemplo: '<mark>importante</mark>\n<time datetime="2024-01-01">1 enero</time>' },
+          { num: 10, titulo: '<aside>', concepto: 'Contenido tangencial relacionado con el principal.', ejemplo: '<aside><h3>Nota</h3><p>Info extra</p></aside>' },
+          { num: 11, titulo: 'Meta viewport', concepto: 'Adaptar la página a dispositivos móviles.', ejemplo: '<meta name="viewport" content="width=device-width, initial-scale=1">' },
+          { num: 12, titulo: 'Validación HTML5', concepto: 'Atributos required, pattern, min, max, type.', ejemplo: '<input type="email" required pattern=".+@.+">' },
+          { num: 13, titulo: '<progress> y <meter>', concepto: 'Mostrar progreso y medidas escalares.', ejemplo: '<progress value="70" max="100"></progress>' },
+          { num: 14, titulo: 'Enlaces de salto', concepto: 'Skip link para accesibilidad.', ejemplo: '<a href="#main" class="skip-link">Saltar al contenido</a>' },
+          { num: 15, titulo: 'Tablas accesibles', concepto: 'caption, scope, th para tablas semánticas.', ejemplo: '<table><caption>Datos</caption><tr><th scope="col">A</th></tr></table>' },
+          { num: 16, titulo: 'iframe y sandbox', concepto: 'Incrustar contenido externo de forma segura.', ejemplo: '<iframe src="..." sandbox="allow-scripts"></iframe>' },
+          { num: 17, titulo: 'Picture y srcset', concepto: 'Imágenes responsivas con diferentes formatos.', ejemplo: '<picture><source srcset="img.webp" type="image/webp"><img src="img.jpg"></picture>' },
+          { num: 18, titulo: 'Microdatos', concepto: 'itemscope, itemtype para SEO semántico.', ejemplo: '<div itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ana</span></div>' },
+          { num: 19, titulo: 'Atributos de internacionalización', concepto: 'lang y dir para idiomas y direccionalidad.', ejemplo: '<html lang="es" dir="ltr">' },
+          { num: 20, titulo: 'Comentarios y buenas prácticas', concepto: 'Comentar código y mantener estructura limpia.', ejemplo: '<!-- Comentario -->' }
+        ]
+      },
+      { id: 'html2', titulo: 'CSS moderno y diseño', rango: '21–40', icono: '🎨',
+        tecnicas: [
+          { num: 21, titulo: 'Custom properties', concepto: 'Variables CSS con --nombre y var().', ejemplo: ':root { --color: #b38b5b; }\n.btn { color: var(--color); }' },
+          { num: 22, titulo: 'clamp()', concepto: 'Tipografía fluida que se adapta al viewport.', ejemplo: 'font-size: clamp(1rem, 2.5vw, 2rem);' },
+          { num: 23, titulo: 'CSS Grid', concepto: 'Sistema de rejilla bidimensional.', ejemplo: 'display: grid;\ngrid-template-columns: repeat(3, 1fr);' },
+          { num: 24, titulo: 'gap', concepto: 'Espacio entre filas y columnas en grid y flex.', ejemplo: 'gap: 1rem;' },
+          { num: 25, titulo: 'prefers-color-scheme', concepto: 'Detectar preferencia de tema del usuario.', ejemplo: '@media (prefers-color-scheme: dark) { body { background: #111; } }' },
+          { num: 26, titulo: 'aspect-ratio', concepto: 'Mantener proporción de un elemento.', ejemplo: 'aspect-ratio: 16 / 9;' },
+          { num: 27, titulo: '@keyframes', concepto: 'Definir animaciones CSS.', ejemplo: '@keyframes girar { from { transform: rotate(0); } to { transform: rotate(360deg); } }' },
+          { num: 28, titulo: 'transition', concepto: 'Suavizar cambios de propiedades.', ejemplo: 'transition: background 0.3s ease;' },
+          { num: 29, titulo: 'backdrop-filter', concepto: 'Efecto de desenfoque en el fondo.', ejemplo: 'backdrop-filter: blur(10px);' },
+          { num: 30, titulo: ':focus-visible', concepto: 'Estilo de foco solo para navegación por teclado.', ejemplo: ':focus-visible { outline: 3px solid var(--bronce); }' },
+          { num: 31, titulo: 'line-clamp', concepto: 'Limitar número de líneas visibles.', ejemplo: 'display: -webkit-box;\n-webkit-line-clamp: 3;\n-webkit-box-orient: vertical;\noverflow: hidden;' },
+          { num: 32, titulo: 'grid-template-areas', concepto: 'Nombrar áreas del grid.', ejemplo: 'grid-template-areas: "header header" "sidebar main";' },
+          { num: 33, titulo: 'object-fit', concepto: 'Ajustar imágenes dentro de su contenedor.', ejemplo: 'object-fit: cover;' },
+          { num: 34, titulo: 'scroll-behavior', concepto: 'Desplazamiento suave.', ejemplo: 'scroll-behavior: smooth;' },
+          { num: 35, titulo: 'box-shadow', concepto: 'Sombras en cajas.', ejemplo: 'box-shadow: 0 4px 12px rgba(0,0,0,0.1);' },
+          { num: 36, titulo: 'border-radius', concepto: 'Redondear esquinas.', ejemplo: 'border-radius: 12px;' },
+          { num: 37, titulo: 'Flexbox', concepto: 'Distribución unidimensional.', ejemplo: 'display: flex;\njustify-content: space-between;' },
+          { num: 38, titulo: 'Media queries', concepto: 'Estilos condicionales según tamaño.', ejemplo: '@media (max-width: 768px) { .menu { display: none; } }' },
+          { num: 39, titulo: 'Variables en medios', concepto: 'Sobrescribir variables según contexto.', ejemplo: '@media (prefers-color-scheme: dark) { :root { --bg: #111; } }' },
+          { num: 40, titulo: 'Transiciones y animaciones combinadas', concepto: 'Combinar transition y @keyframes.', ejemplo: 'animation: girar 2s infinite;\ntransition: all 0.3s;' }
+        ]
+      },
+      { id: 'html3', titulo: 'JavaScript moderno', rango: '41–60', icono: '⚡',
+        tecnicas: [
+          { num: 41, titulo: 'querySelector / querySelectorAll', concepto: 'Seleccionar elementos del DOM.', ejemplo: 'const el = document.querySelector(".clase");' },
+          { num: 42, titulo: 'Delegación de eventos', concepto: 'Escuchar eventos en un contenedor padre.', ejemplo: 'lista.addEventListener("click", e => { if (e.target.matches("li")) ... });' },
+          { num: 43, titulo: 'Template literals', concepto: 'Cadenas con interpolación.', ejemplo: 'const saludo = `Hola ${nombre}`;' },
+          { num: 44, titulo: 'map / filter / reduce', concepto: 'Métodos funcionales de arrays.', ejemplo: '[1,2,3].map(x => x * 2);' },
+          { num: 45, titulo: 'fetch', concepto: 'Peticiones HTTP asíncronas.', ejemplo: 'fetch(url).then(res => res.json());' },
+          { num: 46, titulo: 'async / await', concepto: 'Manejo de promesas de forma síncrona.', ejemplo: 'const data = await fetch(url).then(r => r.json());' },
+          { num: 47, titulo: 'localStorage', concepto: 'Almacenamiento persistente en el navegador.', ejemplo: 'localStorage.setItem("clave", "valor");' },
+          { num: 48, titulo: 'IntersectionObserver', concepto: 'Detectar visibilidad de elementos.', ejemplo: 'new IntersectionObserver(cb).observe(el);' },
+          { num: 49, titulo: 'MutationObserver', concepto: 'Vigilar cambios en el DOM.', ejemplo: 'new MutationObserver(cb).observe(el, { childList: true });' },
+          { num: 50, titulo: 'debounce', concepto: 'Retrasar ejecución hasta que pase un tiempo.', ejemplo: 'const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };' },
+          { num: 51, titulo: 'Clases ES6', concepto: 'Sintaxis de clases y herencia.', ejemplo: 'class Persona { constructor(nombre) { this.nombre = nombre; } }' },
+          { num: 52, titulo: 'Set y Map', concepto: 'Colecciones avanzadas.', ejemplo: 'const s = new Set([1,2,2]); // {1,2}' },
+          { num: 53, titulo: 'FormData', concepto: 'Manejo de formularios.', ejemplo: 'const fd = new FormData(form);' },
+          { num: 54, titulo: 'Web Speech API', concepto: 'Reconocimiento y síntesis de voz.', ejemplo: 'const synth = window.speechSynthesis;' },
+          { num: 55, titulo: 'CustomEvent', concepto: 'Eventos personalizados.', ejemplo: 'el.dispatchEvent(new CustomEvent("miEvento", { detail: data }));' },
+          { num: 56, titulo: 'Destructuring', concepto: 'Extraer valores de objetos y arrays.', ejemplo: 'const { nombre, edad } = persona;' },
+          { num: 57, titulo: 'Spread / Rest', concepto: 'Expandir o agrupar elementos.', ejemplo: 'const nuevo = [...array, 4];' },
+          { num: 58, titulo: 'Optional chaining', concepto: 'Acceso seguro a propiedades.', ejemplo: 'const calle = persona?.direccion?.calle;' },
+          { num: 59, titulo: 'try / catch', concepto: 'Manejo de errores.', ejemplo: 'try { ... } catch (e) { console.error(e); }' },
+          { num: 60, titulo: 'Módulos ES6', concepto: 'import / export entre archivos.', ejemplo: 'import { saludar } from "./modulo.js";' }
+        ]
+      },
+      { id: 'html4', titulo: 'Full-stack, seguridad y despliegue', rango: '61–80', icono: '🔒',
+        tecnicas: [
+          { num: 61, titulo: 'PWA', concepto: 'Aplicación web progresiva con manifest y service worker.', ejemplo: '<link rel="manifest" href="manifest.json">' },
+          { num: 62, titulo: 'Service Worker', concepto: 'Script que corre en segundo plano para cachear recursos.', ejemplo: 'navigator.serviceWorker.register("sw.js");' },
+          { num: 63, titulo: 'CSRF', concepto: 'Protección contra Cross-Site Request Forgery.', ejemplo: '<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">' },
+          { num: 64, titulo: 'Hash de contraseñas', concepto: 'Almacenar contraseñas con hash seguro.', ejemplo: 'from django.contrib.auth.hashers import make_password' },
+          { num: 65, titulo: 'Middleware', concepto: 'Capa intermedia en peticiones/respuestas.', ejemplo: 'def middleware(get_response): def inner(request): ... return inner' },
+          { num: 66, titulo: 'Django REST Framework', concepto: 'APIs REST con serializers y viewsets.', ejemplo: 'class UserSerializer(serializers.ModelSerializer): ...' },
+          { num: 67, titulo: 'Tokens JWT', concepto: 'Autenticación basada en tokens.', ejemplo: 'Authorization: Bearer <token>' },
+          { num: 68, titulo: 'HTTPS', concepto: 'Cifrado de comunicaciones.', ejemplo: 'SECURE_SSL_REDIRECT = True' },
+          { num: 69, titulo: 'SQL Injection', concepto: 'Prevención usando consultas parametrizadas.', ejemplo: 'cursor.execute("SELECT * FROM users WHERE id = %s", [user_id])' },
+          { num: 70, titulo: 'pytest', concepto: 'Framework de pruebas en Python.', ejemplo: 'def test_suma(): assert suma(2,3) == 5' },
+          { num: 71, titulo: 'Gunicorn + Nginx', concepto: 'Despliegue de aplicaciones Python.', ejemplo: 'gunicorn proyecto.wsgi:application --bind 0.0.0.0:8000' },
+          { num: 72, titulo: 'WCAG', concepto: 'Pautas de accesibilidad web.', ejemplo: 'Contraste mínimo 4.5:1' },
+          { num: 73, titulo: 'Responsive design', concepto: 'Adaptación a múltiples dispositivos.', ejemplo: '@media (max-width: 600px) { ... }' },
+          { num: 74, titulo: 'Variables de entorno', concepto: 'Configuración segura fuera del código.', ejemplo: 'import os\nSECRET_KEY = os.getenv("SECRET_KEY")' },
+          { num: 75, titulo: 'Entornos virtuales', concepto: 'Aislamiento de dependencias.', ejemplo: 'python -m venv env\nsource env/bin/activate' },
+          { num: 76, titulo: 'Git y control de versiones', concepto: 'Gestión de cambios en el código.', ejemplo: 'git commit -m "mensaje"' },
+          { num: 77, titulo: 'Documentación', concepto: 'README y docstrings.', ejemplo: 'def suma(a, b):\n    """Suma dos números."""\n    return a + b' },
+          { num: 78, titulo: 'Pruebas unitarias', concepto: 'Verificar funciones individuales.', ejemplo: 'assert suma(1,2) == 3' },
+          { num: 79, titulo: 'Pruebas de integración', concepto: 'Verificar interacción entre módulos.', ejemplo: 'client.get("/api/usuarios/")' },
+          { num: 80, titulo: 'Logs', concepto: 'Registro de eventos del sistema.', ejemplo: 'import logging\nlogging.warning("Mensaje")' }
+        ]
+      },
+      { id: 'html5', titulo: 'Pedagogía digital del LMS', rango: '81–100', icono: '📚',
+        tecnicas: [
+          { num: 81, titulo: 'Corrector de tildes', concepto: 'Detectar errores de acentuación con regex.', ejemplo: '/\\b(él|más|sí)\\b/g' },
+          { num: 82, titulo: 'Coherencia textual', concepto: 'Analizar conectores y progresión temática.', ejemplo: 'Conectores: además, sin embargo, por tanto.' },
+          { num: 83, titulo: 'Banco dinámico de ejercicios', concepto: 'Generar preguntas aleatorias desde un JSON.', ejemplo: 'const pregunta = banco[Math.floor(Math.random() * banco.length)];' },
+          { num: 84, titulo: 'Retroalimentación automática', concepto: 'Mensajes personalizados según respuesta.', ejemplo: 'if (correcto) { mostrar("¡Bien!"); } else { mostrar("Intenta de nuevo"); }' },
+          { num: 85, titulo: 'Detección de plagio', concepto: 'Comparar cadenas con algoritmos de similitud.', ejemplo: 'Similitud de Jaccard sobre conjuntos de palabras.' },
+          { num: 86, titulo: 'Rúbricas digitales', concepto: 'Evaluar con criterios ponderados.', ejemplo: 'nota = ∑ (puntaje × peso)' },
+          { num: 87, titulo: 'Comprensión lectora', concepto: 'Preguntas de inferencia y vocabulario.', ejemplo: '¿Cuál es la idea principal?' },
+          { num: 88, titulo: 'Vocabulario contextual', concepto: 'Aprender palabras en contexto.', ejemplo: 'Sinónimos y antónimos.' },
+          { num: 89, titulo: 'Progreso del estudiante', concepto: 'Seguimiento visual con barras.', ejemplo: '<progress value="60" max="100">' },
+          { num: 90, titulo: 'Morfosintaxis', concepto: 'Análisis de categorías y funciones.', ejemplo: 'Sujeto + verbo + complemento.' },
+          { num: 91, titulo: 'Autoevaluación', concepto: 'El estudiante evalúa su propio trabajo.', ejemplo: 'Checklist de criterios.' },
+          { num: 92, titulo: 'Biblioteca de recursos', concepto: 'Repositorio de textos y audios.', ejemplo: 'Array de objetos con título y enlace.' },
+          { num: 93, titulo: 'Foro de discusión', concepto: 'Interacción asíncrona entre estudiantes.', ejemplo: 'Comentarios anidados.' },
+          { num: 94, titulo: 'Editor colaborativo', concepto: 'Edición en tiempo real (simulada).', ejemplo: 'contenteditable + eventos.' },
+          { num: 95, titulo: 'Etiquetado de textos', concepto: 'Marcar categorías gramaticales.', ejemplo: '<span class="sustantivo">casa</span>' },
+          { num: 96, titulo: 'Informes de progreso', concepto: 'Exportar resultados en texto.', ejemplo: 'Generar .txt con estadísticas.' },
+          { num: 97, titulo: 'Dictados interactivos', concepto: 'Reproducir audio y escribir.', ejemplo: 'SpeechSynthesis + input.' },
+          { num: 98, titulo: 'Línea de tiempo literaria', concepto: 'Organizar obras y autores.', ejemplo: 'Array ordenado por año.' },
+          { num: 99, titulo: 'Comparador de versiones', concepto: 'Diff entre dos textos.', ejemplo: 'Algoritmo de diferencias.' },
+          { num: 100, titulo: 'Palabras difíciles', concepto: 'Lista de términos con ortografía compleja.', ejemplo: 'Diccionario de dudas.' }
+        ]
+      }
+    ];
+
+    const BLOQUES_GRAM = [
+      { id: 'gram1', titulo: 'Categorías gramaticales', rango: '1–20', icono: '🔤',
+        tecnicas: [
+          { num: 1, titulo: 'Sustantivo', concepto: 'Palabra que nombra personas, cosas, lugares o ideas.', ejemplo: 'El sustantivo "casa" es común y concreto.' },
+          { num: 2, titulo: 'Adjetivo', concepto: 'Expresa cualidades del sustantivo.', ejemplo: 'La casa grande.' },
+          { num: 3, titulo: 'Verbo', concepto: 'Indica acción, estado o proceso.', ejemplo: 'Correr, ser, tener.' },
+          { num: 4, titulo: 'Adverbio', concepto: 'Modifica al verbo, adjetivo u otro adverbio.', ejemplo: 'Muy rápido, ayer.' },
+          { num: 5, titulo: 'Preposición', concepto: 'Enlaza palabras.', ejemplo: 'a, ante, bajo, con, contra.' },
+          { num: 6, titulo: 'Conjunción', concepto: 'Une palabras u oraciones.', ejemplo: 'y, o, pero, porque.' },
+          { num: 7, titulo: 'Locuciones', concepto: 'Grupos de palabras con significado unitario.', ejemplo: 'sin embargo, a fin de que.' },
+          { num: 8, titulo: 'Artículo', concepto: 'Determina al sustantivo.', ejemplo: 'el, la, los, las.' },
+          { num: 9, titulo: 'Pronombre', concepto: 'Sustituye al sustantivo.', ejemplo: 'él, ella, nosotros.' },
+          { num: 10, titulo: 'Interjección', concepto: 'Expresa emociones.', ejemplo: '¡ay!, ¡oh!' },
+          { num: 11, titulo: 'Género y número', concepto: 'Flexión nominal.', ejemplo: 'niño/niña, niños/niñas.' },
+          { num: 12, titulo: 'Grados del adjetivo', concepto: 'Positivo, comparativo, superlativo.', ejemplo: 'grande, más grande, grandísimo.' },
+          { num: 13, titulo: 'Concordancia nominal', concepto: 'Artículo y adjetivo concuerdan con el sustantivo.', ejemplo: 'Las casas bonitas.' },
+          { num: 14, titulo: 'Sustantivación', concepto: 'Adjetivo que funciona como sustantivo.', ejemplo: 'El sabio.' },
+          { num: 15, titulo: 'Apócope', concepto: 'Pérdida de sonidos al final.', ejemplo: 'grande → gran.' },
+          { num: 16, titulo: 'Verbos regulares', concepto: 'Siguen el modelo de conjugación.', ejemplo: 'amar, temer, partir.' },
+          { num: 17, titulo: 'Verbos irregulares', concepto: 'Cambian su raíz o desinencias.', ejemplo: 'ir, ser, estar.' },
+          { num: 18, titulo: 'Perífrasis verbales', concepto: 'Verbo auxiliar + forma no personal.', ejemplo: 'tener que + infinitivo.' },
+          { num: 19, titulo: 'Formas no personales', concepto: 'Infinitivo, gerundio, participio.', ejemplo: 'cantar, cantando, cantado.' },
+          { num: 20, titulo: 'Tiempos verbales', concepto: 'Presente, pasado, futuro y sus compuestos.', ejemplo: 'he amado, había amado.' }
+        ]
+      },
+      { id: 'gram2', titulo: 'El verbo y sus formas', rango: '21–40', icono: '⚙️',
+        tecnicas: [
+          { num: 21, titulo: 'Modo indicativo', concepto: 'Expresa hechos reales.', ejemplo: 'Canto, canté, cantaré.' },
+          { num: 22, titulo: 'Modo subjuntivo', concepto: 'Expresa duda, deseo o posibilidad.', ejemplo: 'Que cante, si cantara.' },
+          { num: 23, titulo: 'Modo imperativo', concepto: 'Expresa mandato.', ejemplo: '¡Canta!' },
+          { num: 24, titulo: 'Pretérito perfecto compuesto', concepto: 'Acción pasada relacionada con el presente.', ejemplo: 'He comido.' },
+          { num: 25, titulo: 'Pretérito pluscuamperfecto', concepto: 'Acción pasada anterior a otra pasada.', ejemplo: 'Había comido.' },
+          { num: 26, titulo: 'Futuro simple', concepto: 'Acción venidera.', ejemplo: 'Comeré.' },
+          { num: 27, titulo: 'Condicional simple', concepto: 'Acción hipotética.', ejemplo: 'Comería.' },
+          { num: 28, titulo: 'Presente de subjuntivo', concepto: 'Deseo o duda presente.', ejemplo: 'Que coma.' },
+          { num: 29, titulo: 'Imperfecto de subjuntivo', concepto: 'Duda o cortesía pasada.', ejemplo: 'Si comiera...' },
+          { num: 30, titulo: 'Futuro de subjuntivo', concepto: 'Arcaico, poco usado.', ejemplo: 'Si comiere...' },
+          { num: 31, titulo: 'Verbos pronominales', concepto: 'Se conjugan con pronombre reflexivo.', ejemplo: 'Me arrepiento.' },
+          { num: 32, titulo: 'Verbos impersonales', concepto: 'Sin sujeto léxico.', ejemplo: 'Llueve, hace frío.' },
+          { num: 33, titulo: 'Verbos defectivos', concepto: 'Conjugación incompleta.', ejemplo: 'Abolir, soler.' },
+          { num: 34, titulo: 'Verbos transitivos', concepto: 'Necesitan complemento directo.', ejemplo: 'Comprar algo.' },
+          { num: 35, titulo: 'Verbos intransitivos', concepto: 'No necesitan complemento directo.', ejemplo: 'Nacer, ir.' },
+          { num: 36, titulo: 'Voz activa', concepto: 'El sujeto realiza la acción.', ejemplo: 'El niño come pan.' },
+          { num: 37, titulo: 'Voz pasiva', concepto: 'El sujeto recibe la acción.', ejemplo: 'El pan es comido por el niño.' },
+          { num: 38, titulo: 'Pasiva refleja', concepto: 'Se + verbo en voz activa.', ejemplo: 'Se venden casas.' },
+          { num: 39, titulo: 'Aspecto verbal', concepto: 'Perfectivo o imperfectivo.', ejemplo: 'Comí (perfectivo) / comía (imperfectivo).' },
+          { num: 40, titulo: 'Correlación temporal', concepto: 'Concordancia de tiempos.', ejemplo: 'Si tuviera, daría.' }
+        ]
+      },
+      { id: 'gram3', titulo: 'Oración simple y compuesta', rango: '41–60', icono: '📝',
+        tecnicas: [
+          { num: 41, titulo: 'Sujeto y predicado', concepto: 'Estructura básica de la oración.', ejemplo: 'El perro (sujeto) ladra (predicado).' },
+          { num: 42, titulo: 'Sujeto elíptico', concepto: 'No aparece pero se sobreentiende.', ejemplo: 'Caminamos (nosotros).' },
+          { num: 43, titulo: 'Complemento directo', concepto: 'Recibe la acción del verbo.', ejemplo: 'Compré un libro.' },
+          { num: 44, titulo: 'Complemento indirecto', concepto: 'Destinatario de la acción.', ejemplo: 'Di el libro a María.' },
+          { num: 45, titulo: 'Complemento circunstancial', concepto: 'Indica lugar, tiempo, modo, etc.', ejemplo: 'Vivo en Madrid.' },
+          { num: 46, titulo: 'Atributo', concepto: 'Con verbos copulativos.', ejemplo: 'Ella es inteligente.' },
+          { num: 47, titulo: 'Predicativo', concepto: 'Complementa a la vez verbo y sujeto.', ejemplo: 'El niño corre cansado.' },
+          { num: 48, titulo: 'Complemento de régimen', concepto: 'Exigido por el verbo.', ejemplo: 'Confío en ti.' },
+          { num: 49, titulo: 'Oraciones impersonales', concepto: 'Sin sujeto.', ejemplo: 'Hay mucha gente.' },
+          { num: 50, titulo: 'Oraciones copulativas', concepto: 'Con ser, estar, parecer.', ejemplo: 'Estoy feliz.' },
+          { num: 51, titulo: 'Coordinación', concepto: 'Oraciones unidas por conjunciones.', ejemplo: 'Estudié y aprobé.' },
+          { num: 52, titulo: 'Subordinación sustantiva', concepto: 'Funciona como sustantivo.', ejemplo: 'Quiero que vengas.' },
+          { num: 53, titulo: 'Subordinación adjetiva', concepto: 'Funciona como adjetivo.', ejemplo: 'El libro que leí.' },
+          { num: 54, titulo: 'Subordinación adverbial', concepto: 'Funciona como adverbio.', ejemplo: 'Cuando llegues, avísame.' },
+          { num: 55, titulo: 'Yuxtaposición', concepto: 'Oraciones sin nexo.', ejemplo: 'Llegué, vi, vencí.' },
+          { num: 56, titulo: 'Estilo indirecto', concepto: 'Reproducir palabras con cambios.', ejemplo: 'Dijo que vendría.' },
+          { num: 57, titulo: 'Oraciones causales', concepto: 'Indican causa.', ejemplo: 'No fui porque llovía.' },
+          { num: 58, titulo: 'Oraciones consecutivas', concepto: 'Indican consecuencia.', ejemplo: 'Estudié tanto que aprobé.' },
+          { num: 59, titulo: 'Oraciones condicionales', concepto: 'Indican condición.', ejemplo: 'Si vienes, te veo.' },
+          { num: 60, titulo: 'Oraciones concesivas', concepto: 'Indican objeción.', ejemplo: 'Aunque llueva, iré.' }
+        ]
+      },
+      { id: 'gram4', titulo: 'Ortografía, puntuación y estilo', rango: '61–80', icono: '✏️',
+        tecnicas: [
+          { num: 61, titulo: 'Uso de la coma', concepto: 'Separa elementos y pausas breves.', ejemplo: 'Compré pan, leche y huevos.' },
+          { num: 62, titulo: 'Punto y coma', concepto: 'Pausa mayor que la coma.', ejemplo: 'Llegó tarde; no obstante, entró.' },
+          { num: 63, titulo: 'Dos puntos', concepto: 'Anuncian una cita o enumeración.', ejemplo: 'Dijo: "Ven".' },
+          { num: 64, titulo: 'Puntos suspensivos', concepto: 'Indican duda o suspenso.', ejemplo: 'No sé si...' },
+          { num: 65, titulo: 'Comillas', concepto: 'Citas textuales o ironía.', ejemplo: 'Dijo "hola".' },
+          { num: 66, titulo: 'Paréntesis', concepto: 'Información aclaratoria.', ejemplo: 'Llegó (por fin).' },
+          { num: 67, titulo: 'Guion y raya', concepto: 'Diálogos y palabras compuestas.', ejemplo: '—Hola —dijo.' },
+          { num: 68, titulo: 'Mayúsculas', concepto: 'Inicios y nombres propios.', ejemplo: 'Madrid, España.' },
+          { num: 69, titulo: 'Siglas', concepto: 'Se escriben sin puntos.', ejemplo: 'ONU, EE. UU.' },
+          { num: 70, titulo: 'Números', concepto: 'Se escriben con letras hasta cierto límite.', ejemplo: 'Veinte personas.' },
+          { num: 71, titulo: 'Dequeísmo', concepto: 'Uso incorrecto de "de que".', ejemplo: 'Pienso de que... (incorrecto)' },
+          { num: 72, titulo: 'Queísmo', concepto: 'Omisión incorrecta de "de".', ejemplo: 'Me di cuenta que... (incorrecto)' },
+          { num: 73, titulo: 'Laísmo / leísmo', concepto: 'Uso incorrecto de pronombres.', ejemplo: 'La di el libro (laísmo).' },
+          { num: 74, titulo: 'Pleonasmo', concepto: 'Repetición innecesaria.', ejemplo: 'Subir arriba.' },
+          { num: 75, titulo: 'Anfibología', concepto: 'Doble sentido.', ejemplo: 'Vi a Juan con prismáticos.' },
+          { num: 76, titulo: 'Cacofonía', concepto: 'Repetición de sonidos molestos.', ejemplo: 'Tres tristes tigres.' },
+          { num: 77, titulo: 'Barbarismo', concepto: 'Palabra mal formada.', ejemplo: 'Haiga por haya.' },
+          { num: 78, titulo: 'Ultracorrección', concepto: 'Corrección excesiva.', ejemplo: 'Bilbao por Bilbao.' },
+          { num: 79, titulo: 'Gerundio incorrecto', concepto: 'Gerundio de posterioridad.', ejemplo: 'Cayó rompiéndose el brazo.' },
+          { num: 80, titulo: 'Estilo y revisión', concepto: 'Claridad, orden SVO y revisión.', ejemplo: 'Leer en voz alta.' }
+        ]
+      },
+      { id: 'gram5', titulo: 'Análisis y argumentación', rango: '81–100', icono: '🧠',
+        tecnicas: [
+          { num: 81, titulo: 'Análisis morfológico', concepto: 'Identificar categorías.', ejemplo: 'El (artículo) perro (sustantivo) ladra (verbo).' },
+          { num: 82, titulo: 'Análisis sintáctico', concepto: 'Identificar funciones.', ejemplo: 'Sujeto: El perro.' },
+          { num: 83, titulo: 'Cohesión', concepto: 'Conectores y referencias.', ejemplo: 'Sin embargo, por tanto.' },
+          { num: 84, titulo: 'Coherencia', concepto: 'Unidad temática.', ejemplo: 'No mezclar temas.' },
+          { num: 85, titulo: 'Adecuación', concepto: 'Registro y contexto.', ejemplo: 'Formal vs informal.' },
+          { num: 86, titulo: 'Argumentación', concepto: 'Tesis, argumentos y conclusión.', ejemplo: 'Creo que... porque...' },
+          { num: 87, titulo: 'Conectores lógicos', concepto: 'Organizan el discurso.', ejemplo: 'Además, no obstante.' },
+          { num: 88, titulo: 'Falacias', concepto: 'Errores de razonamiento.', ejemplo: 'Ad hominem.' },
+          { num: 89, titulo: 'Texto expositivo', concepto: 'Informa objetivamente.', ejemplo: 'La fotosíntesis es...' },
+          { num: 90, titulo: 'Texto narrativo', concepto: 'Cuenta hechos.', ejemplo: 'Había una vez...' },
+          { num: 91, titulo: 'Texto descriptivo', concepto: 'Describe características.', ejemplo: 'Era alto y delgado.' },
+          { num: 92, titulo: 'Texto argumentativo', concepto: 'Defiende una idea.', ejemplo: 'Por lo tanto, se concluye...' },
+          { num: 93, titulo: 'Resumen', concepto: 'Síntesis de ideas principales.', ejemplo: 'En resumen...' },
+          { num: 94, titulo: 'Paráfrasis', concepto: 'Reescribir con otras palabras.', ejemplo: 'Dijo que...' },
+          { num: 95, titulo: 'Cita textual', concepto: 'Reproducir exactamente.', ejemplo: '"..." (Autor, año).' },
+          { num: 96, titulo: 'Bibliografía', concepto: 'Referencias consultadas.', ejemplo: 'Apellido, A. (Año). Título.' },
+          { num: 97, titulo: 'Revisión por capas', concepto: 'Ortografía, sintaxis, estilo.', ejemplo: 'Primero ortografía, luego estilo.' },
+          { num: 98, titulo: 'Lectura en voz alta', concepto: 'Detectar errores de ritmo.', ejemplo: 'Leer el texto final.' },
+          { num: 99, titulo: 'Rúbrica de escritura', concepto: 'Criterios de evaluación.', ejemplo: 'Claridad, cohesión, ortografía.' },
+          { num: 100, titulo: 'Portafolio de escritura', concepto: 'Recopilación de trabajos.', ejemplo: 'Carpeta con versiones.' }
+        ]
+      }
+    ];
+
+    // ============================================================
+    // 2. ESTADO Y PERSISTENCIA
+    // ============================================================
+    const STORAGE_KEYS = {
+      htmlProg: 'cuaderno_html_prog_v1',
+      gramProg: 'cuaderno_gram_prog_v1',
+      redaccion: 'cuaderno_100_html_redaccion',
+      campos: 'cuaderno_100_campos',
+      tema: 'cuaderno_100_tema',
+      lang: 'cuaderno_100_lang'
+    };
+
+    function loadJSON(key, fallback) {
+      try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : fallback; }
+      catch { return fallback; }
+    }
+    function saveJSON(key, data) {
+      try { localStorage.setItem(key, JSON.stringify(data)); } catch {}
+    }
+
+    let state = {
+      htmlProg: loadJSON(STORAGE_KEYS.htmlProg, {}), // { "1": true, ... }
+      gramProg: loadJSON(STORAGE_KEYS.gramProg, {}),
+      redaccion: loadJSON(STORAGE_KEYS.redaccion, { narrativo:'', descriptivo:'', expositivo:'', argumentativo:'' }),
+      campos: loadJSON(STORAGE_KEYS.campos, {}),
+      tema: loadJSON(STORAGE_KEYS.tema, 'light'),
+      lang: loadJSON(STORAGE_KEYS.lang, 'es')
+    };
+
+    function saveState() {
+      saveJSON(STORAGE_KEYS.htmlProg, state.htmlProg);
+      saveJSON(STORAGE_KEYS.gramProg, state.gramProg);
+      saveJSON(STORAGE_KEYS.redaccion, state.redaccion);
+      saveJSON(STORAGE_KEYS.campos, state.campos);
+      saveJSON(STORAGE_KEYS.tema, state.tema);
+      saveJSON(STORAGE_KEYS.lang, state.lang);
+    }
+
+    // ============================================================
+    // 3. UTILIDADES
+    // ============================================================
+    function totalTecnicas() { return 200; } // 100 html + 100 gram
+    function countCompleted(prog) { return Object.values(prog).filter(Boolean).length; }
+
+    function updateDashboard() {
+      const htmlDone = countCompleted(state.htmlProg);
+      const gramDone = countCompleted(state.gramProg);
+      const totalDone = htmlDone + gramDone;
+      const htmlBloques = BLOQUES_HTML.filter(b => b.tecnicas.every(t => state.htmlProg[t.num])).length;
+      const gramBloques = BLOQUES_GRAM.filter(b => b.tecnicas.every(t => state.gramProg[t.num])).length;
+      const notas = Object.keys(state.redaccion).filter(k => state.redaccion[k]?.length > 0).length;
+
+      document.getElementById('kpiGrid').innerHTML = `
+        <div class="kpi-card"><div class="kpi-value">${totalDone}/${totalTecnicas()}</div><div class="kpi-label">Técnicas completadas</div><div class="kpi-sub">${htmlDone} HTML + ${gramDone} Gramática</div></div>
+        <div class="kpi-card"><div class="kpi-value">${htmlBloques + gramBloques}</div><div class="kpi-label">Bloques completos</div><div class="kpi-sub">${htmlBloques} HTML + ${gramBloques} Gramática</div></div>
+        <div class="kpi-card"><div class="kpi-value">${notas}</div><div class="kpi-label">Tipos de párrafo escritos</div><div class="kpi-sub">de 4 posibles</div></div>
+        <div class="kpi-card"><div class="kpi-value">${Math.round((totalDone/totalTecnicas())*100)}%</div><div class="kpi-label">Aprovechamiento</div><div class="kpi-sub">${totalDone >= 180 ? 'Excelente' : totalDone >= 100 ? 'Bueno' : 'En progreso'}</div></div>
+      `;
+
+      // Barras HTML
+      const barHtml = document.getElementById('barChartHtml');
+      barHtml.innerHTML = BLOQUES_HTML.map(b => {
+        const done = b.tecnicas.filter(t => state.htmlProg[t.num]).length;
+        const pct = Math.round((done / b.tecnicas.length) * 100);
+        return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo.slice(0,15)}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><span class="bar-value">${done}/${b.tecnicas.length}</span></div>`;
+      }).join('');
+
+      // Barras Gramática
+      const barGram = document.getElementById('barChartGram');
+      barGram.innerHTML = BLOQUES_GRAM.map(b => {
+        const done = b.tecnicas.filter(t => state.gramProg[t.num]).length;
+        const pct = Math.round((done / b.tecnicas.length) * 100);
+        return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo.slice(0,15)}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><span class="bar-value">${done}/${b.tecnicas.length}</span></div>`;
+      }).join('');
+
+      // Donut
+      const pctGlobal = Math.round((totalDone/totalTecnicas())*100);
+      const radius = 50, circ = 2 * Math.PI * radius;
+      const dash = (pctGlobal / 100) * circ;
+      document.getElementById('donutContainer').innerHTML = `
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="${radius}" fill="none" stroke="var(--border-light)" stroke-width="16"/>
+          <circle cx="80" cy="80" r="${radius}" fill="none" stroke="var(--bronce)" stroke-width="16"
+            stroke-dasharray="${dash} ${circ}" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+          <text x="80" y="86" text-anchor="middle" font-size="28" font-weight="700" fill="var(--navy)" font-family="PT Serif">${pctGlobal}%</text>
+        </svg>`;
+
+      // Radar simple (polígono con 5 ejes por grupo)
+      const htmlCounts = BLOQUES_HTML.map(b => b.tecnicas.filter(t => state.htmlProg[t.num]).length / b.tecnicas.length);
+      const gramCounts = BLOQUES_GRAM.map(b => b.tecnicas.filter(t => state.gramProg[t.num]).length / b.tecnicas.length);
+      const allCounts = [...htmlCounts, ...gramCounts];
+      const n = allCounts.length; // 10
+      const cx = 150, cy = 140, maxR = 100;
+      const pts = allCounts.map((v, i) => {
+        const angle = (Math.PI * 2 * i / n) - Math.PI/2;
+        const r = maxR * v;
+        return `${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`;
+      }).join(' ');
+      let radarSvg = `<svg width="300" height="280" viewBox="0 0 300 280">`;
+      // Círculos de referencia
+      [0.25,0.5,0.75,1].forEach(f => {
+        const r = maxR * f;
+        const circlePts = Array.from({length:n}, (_,i) => {
+          const angle = (Math.PI * 2 * i / n) - Math.PI/2;
+          return `${cx + r*Math.cos(angle)},${cy + r*Math.sin(angle)}`;
+        }).join(' ');
+        radarSvg += `<polygon points="${circlePts}" fill="none" stroke="var(--border-light)" stroke-width="1"/>`;
+      });
+      // Ejes
+      for (let i = 0; i < n; i++) {
+        const angle = (Math.PI * 2 * i / n) - Math.PI/2;
+        radarSvg += `<line x1="${cx}" y1="${cy}" x2="${cx + maxR*Math.cos(angle)}" y2="${cy + maxR*Math.sin(angle)}" stroke="var(--border-light)" stroke-width="1"/>`;
+      }
+      radarSvg += `<polygon points="${pts}" fill="rgba(179,139,91,0.3)" stroke="var(--bronce)" stroke-width="2"/>`;
+      radarSvg += `</svg>`;
+      document.getElementById('radarContainer').innerHTML = radarSvg;
+
+      // Barras redacción
+      const palabras = {
+        narrativo: (state.redaccion.narrativo || '').trim().split(/\s+/).filter(Boolean).length,
+        descriptivo: (state.redaccion.descriptivo || '').trim().split(/\s+/).filter(Boolean).length,
+        expositivo: (state.redaccion.expositivo || '').trim().split(/\s+/).filter(Boolean).length,
+        argumentativo: (state.redaccion.argumentativo || '').trim().split(/\s+/).filter(Boolean).length
+      };
+      const barRed = document.getElementById('barChartRedaccion');
+      barRed.innerHTML = Object.entries(palabras).map(([tipo, num]) => {
+        const pct = Math.min(100, Math.round((num/60)*100));
+        return `<div class="bar-row"><span class="bar-label">${tipo}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><span class="bar-value">${num} pal.</span></div>`;
+      }).join('');
+    }
+
+    // ============================================================
+    // 4. RENDERIZADO DE CUADERNOS
+    // ============================================================
+    function renderCuaderno(containerId, bloques, progKey, searchTerm = '') {
+      const container = document.getElementById(containerId);
+      container.innerHTML = bloques.map(b => {
+        const tecnicasFiltradas = b.tecnicas.filter(t =>
+          t.titulo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          t.concepto.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          t.num.toString() === searchTerm
+        );
+        if (tecnicasFiltradas.length === 0 && searchTerm) return '';
+        const completadas = b.tecnicas.filter(t => state[progKey][t.num]).length;
+        return `
+          <div class="bloque-container">
+            <div class="bloque-header" onclick="toggleBloque('${b.id}')">
+              <span class="bloque-title">${b.icono} ${b.titulo} <span style="font-size:0.75rem;opacity:0.7;">(${b.rango})</span></span>
+              <span class="bloque-progress">${completadas}/${b.tecnicas.length} completadas ▼</span>
+            </div>
+            <div class="bloque-body" id="bloque-${b.id}">
+              ${tecnicasFiltradas.map(t => {
+                const done = state[progKey][t.num] || false;
+                return `
+                  <div class="tecnica-card" id="tec-${progKey}-${t.num}">
+                    <div class="tecnica-header">
+                      <span class="tecnica-num">${t.num}</span>
+                      <span class="tecnica-title">${t.titulo}</span>
+                      <span class="tecnica-badge">${done ? '✅ Completada' : '⬜ Pendiente'}</span>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                      <div class="flashcard-inner">
+                        <div class="flashcard-front"><strong>Concepto:</strong> ${t.concepto}</div>
+                        <div class="flashcard-back">${t.ejemplo}</div>
+                      </div>
+                    </div>
+                    <div class="tecnica-actions">
+                      <button class="btn-sm ${done ? 'primary' : ''}" onclick="toggleTecnica('${progKey}', ${t.num}, this)">${done ? '✅ Hecha' : 'Marcar como hecha'}</button>
+                      <div class="progress-dots">
+                        ${[1,2,3,4,5].map(i => `<span class="dot ${done && i <= 3 ? 'done' : ''}" onclick="..."></span>`).join('')}
+                      </div>
+                      <textarea class="notas-area" placeholder="Notas de esta técnica..." onchange="guardarNota('${progKey}', ${t.num}, this.value)">${loadNota(progKey, t.num)}</textarea>
+                    </div>
+                  </div>`;
+              }).join('')}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function toggleBloque(id) {
+      document.getElementById('bloque-' + id)?.classList.toggle('open');
+    }
+
+    function toggleTecnica(progKey, num, btn) {
+      state[progKey][num] = !state[progKey][num];
+      saveState();
+      renderCuaderno(progKey === 'htmlProg' ? 'bloquesHtmlContainer' : 'bloquesGramContainer',
+        progKey === 'htmlProg' ? BLOQUES_HTML : BLOQUES_GRAM, progKey,
+        document.getElementById(progKey === 'htmlProg' ? 'searchHtml' : 'searchGram').value);
+      updateDashboard();
+    }
+
+    function loadNota(progKey, num) {
+      const notas = loadJSON('notas_' + progKey, {});
+      return notas[num] || '';
+    }
+    function guardarNota(progKey, num, value) {
+      const notas = loadJSON('notas_' + progKey, {});
+      notas[num] = value;
+      saveJSON('notas_' + progKey, notas);
+    }
+
+    // ============================================================
+    // 5. REDACCIÓN 4 TIPOS
+    // ============================================================
+    const TIPOS_PARRAFO = [
+      { id: 'narrativo', titulo: 'Narrativo', concepto: 'Cuenta hechos reales o imaginarios en secuencia temporal.', pasos: ['Personajes', 'Acción', 'Tiempo', 'Lugar'], ejemplo: 'Ayer, Juan caminaba por el parque cuando vio a su amiga. Se saludaron y decidieron tomar un café juntos.' },
+      { id: 'descriptivo', titulo: 'Descriptivo', concepto: 'Presenta características de personas, lugares o cosas.', pasos: ['Objeto', 'Cualidades', 'Detalles sensoriales'], ejemplo: 'La casa era alta, de paredes blancas y ventanas grandes. En su jardín crecían rosas rojas y amarillas.' },
+      { id: 'expositivo', titulo: 'Expositivo', concepto: 'Informa y explica un tema de forma objetiva.', pasos: ['Tema', 'Definición', 'Desarrollo', 'Conclusión'], ejemplo: 'La fotosíntesis es el proceso por el cual las plantas convierten la luz solar en energía química.' },
+      { id: 'argumentativo', titulo: 'Argumentativo', concepto: 'Defiende una opinión con razones.', pasos: ['Tesis', 'Argumentos', 'Conclusión'], ejemplo: 'Considero que la lectura es fundamental porque amplía el vocabulario y mejora la comprensión.' }
+    ];
+
+    function renderRedaccion() {
+      const container = document.getElementById('redaccionContainer');
+      container.innerHTML = TIPOS_PARRAFO.map(t => `
+        <div class="tool-card">
+          <h4>✍️ Párrafo ${t.titulo}</h4>
+          <p style="font-size:0.85rem;margin-bottom:0.5rem;">${t.concepto}</p>
+          <p style="font-size:0.75rem;color:var(--text-secondary);margin-bottom:0.5rem;">Pasos: ${t.pasos.join(' → ')}</p>
+          <p style="font-size:0.8rem;font-style:italic;background:var(--bg-body);padding:0.5rem;border-radius:8px;">Ejemplo: ${t.ejemplo}</p>
+          <textarea class="notas-area" style="min-height:100px;margin-top:0.6rem;" placeholder="Escribe tu párrafo ${t.titulo}..." onchange="guardarRedaccion('${t.id}', this.value)">${state.redaccion[t.id] || ''}</textarea>
+          <div class="flex-between mt-1">
+            <span class="text-muted" id="contador-${t.id}">${(state.redaccion[t.id]||'').split(/\s+/).filter(Boolean).length} palabras</span>
+            <button class="btn-sm" onclick="exportarRedaccion('${t.id}')">📄 Exportar</button>
+          </div>
+        </div>
+      `).join('');
+      TIPOS_PARRAFO.forEach(t => {
+        const ta = document.querySelector(`#redaccionContainer textarea[onchange*="${t.id}"]`);
+        if (ta) ta.addEventListener('input', () => {
+          document.getElementById('contador-' + t.id).textContent = ta.value.split(/\s+/).filter(Boolean).length + ' palabras';
+        });
+      });
+    }
+
+    function guardarRedaccion(tipo, valor) {
+      state.redaccion[tipo] = valor;
+      saveState();
+      updateDashboard();
+    }
+
+    function exportarRedaccion(tipo) {
+      const texto = state.redaccion[tipo] || '';
+      const blob = new Blob([`Párrafo ${tipo}\n\n${texto}`], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `redaccion_${tipo}.txt`;
+      a.click();
+    }
+
+    // ============================================================
+    // 6. TALLER (11 herramientas)
+    // ============================================================
+    function renderTaller() {
+      const grid = document.getElementById('tallerGrid');
+      grid.innerHTML = `
+        <div class="tool-card"><h4>🔤 Corrector de tildes</h4><textarea id="toolTildes" placeholder="Escribe texto..."></textarea><button class="btn-sm primary mt-1" onclick="corregirTildes()">Corregir</button><div class="tool-output" id="outTildes"></div></div>
+        <div class="tool-card"><h4>🔢 Contador de palabras</h4><textarea id="toolContador" placeholder="Escribe texto..."></textarea><div class="tool-output" id="outContador"></div></div>
+        <div class="tool-card"><h4>🎲 Generador de oraciones</h4><button class="btn-sm primary" onclick="generarOracion()">Generar</button><div class="tool-output" id="outOracion"></div></div>
+        <div class="tool-card"><h4>📊 Rúbrica visual</h4><input id="rubCriterio1" placeholder="Criterio 1" value="Claridad"><input id="rubPeso1" type="number" placeholder="Peso" value="30"><input id="rubCriterio2" placeholder="Criterio 2" value="Cohesión"><input id="rubPeso2" type="number" placeholder="Peso" value="30"><input id="rubCriterio3" placeholder="Criterio 3" value="Ortografía"><input id="rubPeso3" type="number" placeholder="Peso" value="40"><button class="btn-sm primary mt-1" onclick="calcularRubrica()">Calcular</button><div class="tool-output" id="outRubrica"></div></div>
+        <div class="tool-card"><h4>📄 Exportar progreso</h4><button class="btn-sm primary" onclick="exportarProgreso()">Generar informe .txt</button><div class="tool-output" id="outProgreso"></div></div>
+        <div class="tool-card"><h4>🐍 Modelo Django</h4><input id="djModelo" placeholder="Nombre del modelo" value="Estudiante"><input id="djCampos" placeholder="campos separados por coma" value="nombre:CharField, edad:IntegerField"><button class="btn-sm primary mt-1" onclick="generarDjango()">Generar models.py</button><div class="tool-output" id="outDjango"></div></div>
+        <div class="tool-card"><h4>🗄️ Esquema SQL</h4><input id="sqlTabla" placeholder="Nombre tabla" value="estudiantes"><input id="sqlColumnas" placeholder="col:tipo, ..." value="id:INT PRIMARY KEY, nombre:VARCHAR(100)"><button class="btn-sm primary mt-1" onclick="generarSQL()">Generar CREATE TABLE</button><div class="tool-output" id="outSQL"></div></div>
+        <div class="tool-card"><h4>🧩 Snippet HTML+CSS</h4><input id="snipTitulo" placeholder="Título" value="Mi tarjeta"><input id="snipTexto" placeholder="Texto" value="Contenido de ejemplo"><button class="btn-sm primary mt-1" onclick="generarSnippet()">Generar</button><div class="tool-output" id="outSnippet"></div></div>
+        <div class="tool-card"><h4>📝 Analizador de párrafos</h4><textarea id="toolAnaliza" placeholder="Pega un párrafo..."></textarea><button class="btn-sm primary mt-1" onclick="analizarParrafo()">Analizar tipo</button><div class="tool-output" id="outAnaliza"></div></div>
+        <div class="tool-card"><h4>🌐 Traductor de consignas</h4><textarea id="toolTraduce" placeholder="Escribe una consigna en español..."></textarea><button class="btn-sm primary mt-1" onclick="traducirConsigna()">ES → EN</button><div class="tool-output" id="outTraduce"></div></div>
+        <div class="tool-card"><h4>📐 Analizador gramatical</h4><textarea id="toolGram" placeholder="Escribe una oración..."></textarea><button class="btn-sm primary mt-1" onclick="analizarGramatical()">Analizar</button><div class="tool-output" id="outGram"></div></div>
+      `;
+    }
+
+    // Herramientas (funciones globales)
+    window.corregirTildes = function() {
+      let txt = document.getElementById('toolTildes').value;
+      const errores = [];
+      // Detección básica de errores frecuentes
+      const regexes = [
+        { re: /\bmas\b/g, corr: 'más', msg: '"mas" → "más"' },
+        { re: /\bél\b/g, corr: 'el', msg: '"él" → "el" (artículo)' },
+        { re: /\bsi\b/g, corr: 'sí', msg: '"si" → "sí" (afirmación)' }
+      ];
+      regexes.forEach(r => {
+        if (r.re.test(txt)) errores.push(r.msg);
+      });
+      document.getElementById('outTildes').textContent = errores.length ? 'Posibles errores:\n' + errores.join('\n') : 'Sin errores frecuentes detectados.';
+    };
+
+    document.getElementById('toolContador')?.addEventListener('input', function() {
+      const txt = this.value;
+      const palabras = txt.trim().split(/\s+/).filter(Boolean).length;
+      const caracteres = txt.length;
+      const oraciones = txt.split(/[.!?]+/).filter(s => s.trim()).length;
+      const parrafos = txt.split(/\n\s*\n/).filter(p => p.trim()).length;
+      document.getElementById('outContador').textContent = `Palabras: ${palabras} | Caracteres: ${caracteres} | Oraciones: ${oraciones} | Párrafos: ${parrafos}`;
+    });
+
+    window.generarOracion = function() {
+      const sujetos = ['El estudiante', 'La profesora', 'Mi amigo', 'El equipo'];
+      const verbos = ['lee', 'escribe', 'analiza', 'comparte'];
+      const complementos = ['un libro nuevo', 'la lección', 'sus ideas', 'el proyecto'];
+      const s = sujetos[Math.floor(Math.random()*sujetos.length)];
+      const v = verbos[Math.floor(Math.random()*verbos.length)];
+      const c = complementos[Math.floor(Math.random()*complementos.length)];
+      const oracion = `${s} ${v} ${c}.`;
+      document.getElementById('outOracion').textContent = oracion + '\n\nAnálisis sintáctico:\nSujeto: ' + s + '\nVerbo: ' + v + '\nComplemento directo: ' + c;
+    };
+
+    window.calcularRubrica = function() {
+      const c1 = document.getElementById('rubCriterio1').value;
+      const p1 = parseFloat(document.getElementById('rubPeso1').value) || 0;
+      const c2 = document.getElementById('rubCriterio2').value;
+      const p2 = parseFloat(document.getElementById('rubPeso2').value) || 0;
+      const c3 = document.getElementById('rubCriterio3').value;
+      const p3 = parseFloat(document.getElementById('rubPeso3').value) || 0;
+      const total = p1 + p2 + p3;
+      const nota = (p1*4 + p2*3.5 + p3*4.5) / total; // simulación
+      document.getElementById('outRubrica').textContent = `Criterios: ${c1} (${p1}%), ${c2} (${p2}%), ${c3} (${p3}%)\nPeso total: ${total}%\nNota final calculada: ${nota.toFixed(1)}/5`;
+    };
+
+    window.exportarProgreso = function() {
+      const htmlDone = countCompleted(state.htmlProg);
+      const gramDone = countCompleted(state.gramProg);
+      let txt = `INFORME DE PROGRESO\nFecha: ${new Intl.DateTimeFormat('es').format(new Date())}\n\n`;
+      txt += `Técnicas HTML completadas: ${htmlDone}/100\n`;
+      txt += `Técnicas Gramática completadas: ${gramDone}/100\n`;
+      txt += `Tipos de párrafo escritos: ${Object.keys(state.redaccion).filter(k => state.redaccion[k]?.length > 0).length}/4\n\n`;
+      txt += `Detalle por bloque HTML:\n`;
+      BLOQUES_HTML.forEach(b => {
+        txt += `  ${b.titulo}: ${b.tecnicas.filter(t => state.htmlProg[t.num]).length}/${b.tecnicas.length}\n`;
+      });
+      txt += `\nDetalle por bloque Gramática:\n`;
+      BLOQUES_GRAM.forEach(b => {
+        txt += `  ${b.titulo}: ${b.tecnicas.filter(t => state.gramProg[t.num]).length}/${b.tecnicas.length}\n`;
+      });
+      document.getElementById('outProgreso').textContent = txt;
+      const blob = new Blob([txt], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'informe_progreso.txt';
+      a.click();
+    };
+
+    window.generarDjango = function() {
+      const modelo = document.getElementById('djModelo').value || 'Modelo';
+      const campos = document.getElementById('djCampos').value.split(',').map(c => c.trim());
+      let code = `from django.db import models\n\nclass ${modelo}(models.Model):\n`;
+      campos.forEach(c => {
+        const [nombre, tipo] = c.split(':').map(s => s.trim());
+        if (nombre && tipo) code += `    ${nombre} = models.${tipo}()\n`;
+      });
+      code += `\n    def __str__(self):\n        return self.${campos[0]?.split(':')[0] || 'id'}\n`;
+      document.getElementById('outDjango').textContent = code;
+    };
+
+    window.generarSQL = function() {
+      const tabla = document.getElementById('sqlTabla').value || 'tabla';
+      const cols = document.getElementById('sqlColumnas').value.split(',').map(c => c.trim());
+      let sql = `CREATE TABLE ${tabla} (\n`;
+      sql += cols.map(c => `  ${c}`).join(',\n');
+      sql += `\n);`;
+      document.getElementById('outSQL').textContent = sql;
+    };
+
+    window.generarSnippet = function() {
+      const titulo = document.getElementById('snipTitulo').value || 'Título';
+      const texto = document.getElementById('snipTexto').value || 'Texto';
+      const code = `<!-- HTML -->\n<div class="tarjeta" lang="es">\n  <h2>${titulo}</h2>\n  <p>${texto}</p>\n</div>\n\n/* CSS */\n.tarjeta {\n  background: var(--bg-card);\n  border-radius: 12px;\n  padding: 1rem;\n  box-shadow: 0 4px 12px rgba(0,0,0,0.1);\n}`;
+      document.getElementById('outSnippet').textContent = code;
+    };
+
+    window.analizarParrafo = function() {
+      const txt = document.getElementById('toolAnaliza').value.toLowerCase();
+      let tipo = 'Indeterminado';
+      if (/\b(ayer|entonces|después|luego|primero|finalmente)\b/.test(txt)) tipo = 'Narrativo';
+      else if (/\b(es|son|tiene|color|forma|alto|bajo|grande|pequeño)\b/.test(txt)) tipo = 'Descriptivo';
+      else if (/\b(porque|por lo tanto|en conclusión|considero|pienso)\b/.test(txt)) tipo = 'Argumentativo';
+      else if (/\b(es decir|se define|consiste|proceso)\b/.test(txt)) tipo = 'Expositivo';
+      document.getElementById('outAnaliza').textContent = `Tipo de párrafo probable: ${tipo}`;
+    };
+
+    window.traducirConsigna = function() {
+      const txt = document.getElementById('toolTraduce').value;
+      const dicc = {
+        'lee': 'read', 'escribe': 'write', 'analiza': 'analyze', 'completa': 'complete',
+        'el texto': 'the text', 'la oración': 'the sentence', 'párrafo': 'paragraph',
+        'responde': 'answer', 'preguntas': 'questions'
+      };
+      let trad = txt;
+      Object.entries(dicc).forEach(([es, en]) => {
+        trad = trad.replace(new RegExp(es, 'gi'), en);
+      });
+      document.getElementById('outTraduce').textContent = 'Traducción aproximada:\n' + trad;
+    };
+
+    window.analizarGramatical = function() {
+      const txt = document.getElementById('toolGram').value;
+      const palabras = txt.split(/\s+/).filter(Boolean);
+      let resultado = 'Análisis morfológico:\n';
+      palabras.forEach(p => {
+        let cat = 'desconocida';
+        if (/^(el|la|los|las|un|una)$/i.test(p)) cat = 'artículo';
+        else if (/^(y|o|pero|porque|aunque)$/i.test(p)) cat = 'conjunción';
+        else if (/^(en|a|de|con|por|para)$/i.test(p)) cat = 'preposición';
+        else if (/[aeiou]$/i.test(p) && p.length > 2) cat = 'posible sustantivo/adjetivo';
+        else if (/(ar|er|ir)$/i.test(p)) cat = 'verbo (infinitivo)';
+        resultado += `  ${p} → ${cat}\n`;
+      });
+      document.getElementById('outGram').textContent = resultado;
+    };
+
+    // ============================================================
+    // 7. CERTIFICADO (índice + documento)
+    // ============================================================
+    function renderCertificado() {
+      // Índice
+      const indice = document.getElementById('certIndice');
+      indice.innerHTML = `
+        <div class="cert-bloque"><h3>📖 100 HTML+CSS+JS</h3>${BLOQUES_HTML.map(b => `<div>${b.icono} ${b.titulo} <span class="text-muted">(${b.rango})</span></div>`).join('')}</div>
+        <div class="cert-bloque"><h3>📚 100 Gramática Castellana</h3>${BLOQUES_GRAM.map(b => `<div>${b.icono} ${b.titulo} <span class="text-muted">(${b.rango})</span></div>`).join('')}</div>
+        <div class="cert-bloque"><h3>✍️ Redacción · 4 tipos de párrafo</h3>${TIPOS_PARRAFO.map(t => `<div>📝 Párrafo ${t.titulo}</div>`).join('')}</div>
+      `;
+      // Documento completo
+      const doc = document.getElementById('certDocumento');
+      let html = '';
+      BLOQUES_HTML.forEach(b => {
+        html += `<div class="cert-bloque"><h3>${b.icono} ${b.titulo} (${b.rango})</h3>`;
+        b.tecnicas.forEach(t => {
+          html += `<div class="cert-tecnica"><span class="num">${t.num}</span><strong>${t.titulo}</strong><br><span class="text-muted">${t.concepto}</span><div class="cert-ejemplo">${t.ejemplo}</div></div>`;
+        });
+        html += `</div>`;
+      });
+      BLOQUES_GRAM.forEach(b => {
+        html += `<div class="cert-bloque"><h3>${b.icono} ${b.titulo} (${b.rango})</h3>`;
+        b.tecnicas.forEach(t => {
+          html += `<div class="cert-tecnica"><span class="num">${t.num}</span><strong>${t.titulo}</strong><br><span class="text-muted">${t.concepto}</span><div class="cert-ejemplo">${t.ejemplo}</div></div>`;
+        });
+        html += `</div>`;
+      });
+      html += `<div class="cert-bloque"><h3>✍️ Redacción · 4 tipos de párrafo</h3>`;
+      TIPOS_PARRAFO.forEach(t => {
+        html += `<div class="cert-tecnica"><strong>${t.titulo}</strong><br><span class="text-muted">${t.concepto}</span><div class="cert-ejemplo">${t.ejemplo}</div></div>`;
+      });
+      html += `</div>`;
+      doc.innerHTML = html;
+
+      // Cargar campos editables
+      document.querySelectorAll('[data-campo]').forEach(el => {
+        const campo = el.dataset.campo;
+        if (state.campos[campo]) el.textContent = state.campos[campo];
+        el.addEventListener('input', () => {
+          state.campos[campo] = el.textContent;
+          saveState();
+        });
+      });
+    }
+
+    // ============================================================
+    // 8. NAVEGACIÓN, TEMA, IDIOMA, PWA, RESET
+    // ============================================================
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mode = btn.dataset.mode;
+        document.querySelectorAll('.mode-section').forEach(s => s.classList.remove('active'));
+        document.getElementById('mode-' + mode).classList.add('active');
+        if (mode === 'dashboard') updateDashboard();
+        if (mode === 'html') renderCuaderno('bloquesHtmlContainer', BLOQUES_HTML, 'htmlProg', '');
+        if (mode === 'gramatica') renderCuaderno('bloquesGramContainer', BLOQUES_GRAM, 'gramProg', '');
+        if (mode === 'redaccion') renderRedaccion();
+        if (mode === 'taller') renderTaller();
+        if (mode === 'certificado') renderCertificado();
+      });
+    });
+
+    // Búsqueda
+    document.getElementById('searchHtml')?.addEventListener('input', function() {
+      renderCuaderno('bloquesHtmlContainer', BLOQUES_HTML, 'htmlProg', this.value);
+    });
+    document.getElementById('searchGram')?.addEventListener('input', function() {
+      renderCuaderno('bloquesGramContainer', BLOQUES_GRAM, 'gramProg', this.value);
+    });
+
+    // Tema
+    const themeToggle = document.getElementById('themeToggle');
+    function applyTheme() {
+      document.documentElement.setAttribute('data-theme', state.tema);
+      themeToggle.textContent = state.tema === 'dark' ? '☀' : '🌙';
+    }
+    themeToggle.addEventListener('click', () => {
+      state.tema = state.tema === 'dark' ? 'light' : 'dark';
+      saveState();
+      applyTheme();
+      updateDashboard();
+    });
+    applyTheme();
+
+    // Idioma (simulado)
+    document.getElementById('langToggle').addEventListener('click', () => {
+      state.lang = state.lang === 'es' ? 'en' : 'es';
+      saveState();
+      alert('Idioma cambiado a ' + (state.lang === 'es' ? 'Español' : 'English') + ' (simulación visual)');
+    });
+
+    // PWA: manifest dinámico + service worker
+    if ('serviceWorker' in navigator) {
+      const swCode = `
+        const CACHE = 'cuaderno100-v1';
+        self.addEventListener('install', e => {
+          e.waitUntil(caches.open(CACHE).then(c => c.addAll(['/'])));
+        });
+        self.addEventListener('fetch', e => {
+          e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+        });
+      `;
+      const blob = new Blob([swCode], { type: 'application/javascript' });
+      navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(() => {});
+    }
+    // Manifest dinámico
+    const manifest = {
+      name: 'Cuaderno 100 · HTML + Gramática',
+      short_name: 'Cuaderno100',
+      start_url: '.',
+      display: 'standalone',
+      background_color: '#0b1e33',
+      theme_color: '#0b1e33',
+      icons: [{ src: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 fill=%22%230b1e33%22/%3E%3Ctext x=%2250%22 y=%2265%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%23b38b5b%22%3E100%3C/text%3E%3C/svg%3E', sizes: '192x192', type: 'image/svg+xml' }]
+    };
+    const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = URL.createObjectURL(manifestBlob);
+    document.head.appendChild(link);
+
+    // Botón instalar
+    document.getElementById('installBtn').addEventListener('click', () => {
+      alert('Para instalar, usa el menú del navegador y selecciona "Instalar aplicación" o "Añadir a pantalla de inicio".');
+    });
+
+    // Conexión
+    function updateConn() {
+      const pill = document.getElementById('connPill');
+      if (navigator.onLine) { pill.textContent = '🟢 En línea'; pill.classList.remove('offline'); }
+      else { pill.textContent = '🔴 Sin conexión'; pill.classList.add('offline'); }
+    }
+    window.addEventListener('online', updateConn);
+    window.addEventListener('offline', updateConn);
+    updateConn();
+
+    // Reset
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      if (confirm('¿Reiniciar todo el progreso? Esta acción no se puede deshacer.')) {
+        state.htmlProg = {};
+        state.gramProg = {};
+        state.campos = {};
+        state.redaccion = { narrativo:'', descriptivo:'', expositivo:'', argumentativo:'' };
+        localStorage.removeItem('notas_htmlProg');
+        localStorage.removeItem('notas_gramProg');
+        saveState();
+        location.reload();
+      }
+    });
+
+    // Descarga Word (simulada)
+    document.getElementById('downloadWordBtn')?.addEventListener('click', () => {
+      const contenido = document.getElementById('certDocumento').innerText;
+      const blob = new Blob(['\ufeff' + contenido], { type: 'application/msword' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'certificado_cuaderno100.doc';
+      a.click();
+    });
+
+    // ============================================================
+    // 9. INICIALIZACIÓN
+    // ============================================================
+    updateDashboard();
+    renderCuaderno('bloquesHtmlContainer', BLOQUES_HTML, 'htmlProg', '');
+    renderCuaderno('bloquesGramContainer', BLOQUES_GRAM, 'gramProg', '');
+    renderRedaccion();
+    renderTaller();
+    renderCertificado();
+
+    // Abrir primer bloque por defecto
+    document.querySelector('.bloque-body')?.classList.add('open');
+  </script>
+</body>
+</html>

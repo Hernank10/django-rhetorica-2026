@@ -1,0 +1,2576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Súper Cuaderno Lingüística II · Lic. Lengua Castellana · ES/EN</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --indigo:#4f46e5; --rosa:#db2777;
+  --esmeralda:#059669; --purpura:#7e22ce; --mision:#1e40af; --academico:#0f766e;
+  --oro:#ca8a04; --estruc:#7c2d12; --gener:#4338ca;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+/* LOGIN */
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#7c2d12,#4338ca);display:flex;align-items:center;justify-content:center;z-index:5000;padding:1rem;overflow-y:auto;}
+.login-card{background:var(--bg-card);border-radius:20px;padding:2.5rem 2rem;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);margin:auto;}
+.login-card h1{font-size:1.5rem;text-align:center;margin-bottom:0.3rem;}
+.login-card .sub{text-align:center;color:var(--text-muted);font-size:0.85rem;margin-bottom:1.5rem;}
+.login-tabs{display:flex;gap:0.4rem;margin-bottom:1rem;background:var(--bg);padding:0.3rem;border-radius:10px;}
+.login-tabs button{flex:1;padding:0.5rem;border:none;background:transparent;color:var(--text-muted);font-weight:600;cursor:pointer;border-radius:8px;font-size:0.82rem;transition:all var(--transition);}
+.login-tabs button.active{background:var(--estruc);color:#fff;}
+.login-form input,.login-form select{width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:10px;font-size:0.85rem;background:var(--bg);color:var(--text);margin-bottom:0.7rem;font-family:'Public Sans',sans-serif;}
+.login-form input:focus,.login-form select:focus{outline:2px solid var(--estruc);}
+.login-form label{display:block;font-size:0.78rem;font-weight:600;color:var(--text-muted);margin-bottom:0.3rem;}
+.login-btn{width:100%;padding:0.7rem;background:var(--estruc);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.9rem;transition:background var(--transition);}
+.login-btn:hover{background:var(--gener);}
+.login-info{background:var(--bg);border-radius:10px;padding:0.7rem;font-size:0.75rem;color:var(--text-muted);margin-top:1rem;text-align:center;}
+.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.4rem;margin:0.5rem 0 1rem;}
+.avatar-opt{padding:0.5rem;border-radius:10px;border:2px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:1.4rem;text-align:center;transition:all var(--transition);}
+.avatar-opt:hover{border-color:var(--estruc);}
+.avatar-opt.selected{border-color:var(--estruc);background:rgba(124,45,18,0.15);}
+
+/* TOPBAR */
+.topbar{background:linear-gradient(135deg,#7c2d12,#4338ca);color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid #fff;color:#fff;text-align:center;line-height:32px;font-size:0.55rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.2rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:0.3rem 0.5rem;border-radius:30px;font-size:0.6rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-tabs-app button.active{background:#fff;border-color:#fff;color:var(--estruc);}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.12);border:none;color:#fff;padding:0.3rem 0.55rem;border-radius:8px;font-size:0.68rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.25);}
+.user-chip{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.15);padding:0.25rem 0.6rem 0.25rem 0.25rem;border-radius:20px;cursor:pointer;transition:background var(--transition);}
+.user-chip:hover{background:rgba(255,255,255,0.25);}
+.user-chip .avatar{width:26px;height:26px;border-radius:50%;background:var(--bronce);display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.user-chip .uname{font-size:0.75rem;font-weight:600;}
+
+/* LAYOUT */
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--estruc);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.7rem;font-weight:700;color:var(--estruc);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:var(--bronce-light);}
+.kpi-card .kpi-label{font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:170px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--estruc),var(--gener));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:290px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--estruc);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--estruc);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:190px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:190px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--estruc),#431407);color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--gener),#312e81);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.7;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--estruc);background:rgba(124,45,18,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--estruc);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--estruc);color:#fff;border-color:var(--estruc);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--estruc),var(--gener));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--estruc);border-color:var(--estruc);color:#fff;}
+.punto.actual{border-color:var(--gener);box-shadow:0 0 0 3px rgba(67,56,202,0.25);}
+
+/* TALLER */
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--estruc);}
+.btn-accion{background:var(--estruc);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--gener);}
+.btn-accion.secundario{background:var(--gener);}
+.btn-accion.secundario:hover{background:var(--estruc);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:280px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+/* PERFIL */
+.perfil-header{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);display:flex;gap:1.5rem;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;}
+.perfil-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--estruc),var(--gener));display:flex;align-items:center;justify-content:center;font-size:3rem;color:#fff;flex-shrink:0;}
+.perfil-info{flex:1;min-width:200px;}
+.perfil-info h2{font-size:1.4rem;margin-bottom:0.3rem;}
+.perfil-info p{font-size:0.85rem;color:var(--text-muted);}
+.perfil-badges{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.5rem;}
+.badge-insignia{background:var(--bronce);color:#fff;padding:0.25rem 0.6rem;border-radius:20px;font-size:0.7rem;font-weight:600;}
+.badge-insignia.verde{background:var(--verde);}
+.badge-insignia.azul{background:var(--azul);}
+.badge-insignia.morado{background:var(--morado);}
+.badge-insignia.purpura{background:var(--purpura);}
+.badge-insignia.esmeralda{background:var(--esmeralda);}
+.badge-insignia.estruc{background:var(--estruc);}
+.badge-insignia.gener{background:var(--gener);}
+
+/* CERTIFICADO */
+.certificado-portada{background:var(--bg-card);border:3px double var(--estruc);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--estruc);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--estruc);}
+.campo-editable{border-bottom:1px dashed var(--estruc);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(124,45,18,0.1);}
+.campo-editable:focus{outline:2px solid var(--estruc);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--estruc);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--estruc);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--estruc);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+/* PWA */
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--estruc);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:#fff;border:none;color:var(--estruc);padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;font-weight:600;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.7);}
+
+/* MENÚ PERFIL */
+.perfil-menu{position:absolute;top:60px;right:1.2rem;background:var(--bg-card);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);padding:0.5rem;min-width:250px;z-index:1500;display:none;border:1px solid var(--border);}
+.perfil-menu.show{display:block;animation:fadeIn 0.2s;}
+.perfil-menu button{width:100%;text-align:left;background:transparent;border:none;color:var(--text);padding:0.6rem 0.8rem;border-radius:8px;font-size:0.82rem;cursor:pointer;transition:background var(--transition);display:flex;align-items:center;gap:0.5rem;}
+.perfil-menu button:hover{background:var(--bg);}
+.perfil-menu hr{border:none;border-top:1px solid var(--border);margin:0.3rem 0;}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+.hidden{display:none!important;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--estruc);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== LOGIN ==================== -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <h1>📚 Súper Cuaderno Lingüística II</h1>
+    <p class="sub">Licenciatura en Lengua Castellana y Comunicación · ES/EN</p>
+    <div class="login-tabs">
+      <button class="active" data-login-tab="login">🔑 Iniciar sesión</button>
+      <button data-login-tab="register">✍️ Registrarse</button>
+    </div>
+
+    <div class="login-form" id="formLogin">
+      <label>Usuario o correo institucional</label>
+      <input type="text" id="loginUser" placeholder="tu_usuario">
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="••••••••">
+      <button class="login-btn" id="btnLogin">Entrar</button>
+    </div>
+
+    <div class="login-form hidden" id="formRegister">
+      <label>Nombre completo</label>
+      <input type="text" id="regName" placeholder="Ana María Rodríguez">
+      <label>Usuario</label>
+      <input type="text" id="regUser" placeholder="ana_rodriguez">
+      <label>Correo institucional</label>
+      <input type="email" id="regEmail" placeholder="ana@universidad.edu">
+      <label>Contraseña</label>
+      <input type="password" id="regPass" placeholder="Mínimo 4 caracteres">
+      <label>Programa académico</label>
+      <input type="text" id="regCurso" placeholder="Licenciatura en Lengua Castellana" value="Licenciatura en Lengua Castellana y Comunicación">
+      <label>Nivel / Semestre</label>
+      <select id="regSemestre">
+        <option value="Lingüística I">Lingüística I</option>
+        <option value="Lingüística II" selected>Lingüística II</option>
+        <option value="Lingüística III">Lingüística III</option>
+        <option value="Gramática Estructuralista">Gramática Estructuralista</option>
+        <option value="Gramática Generativa">Gramática Generativa Transformacional</option>
+        <option value="Fonética y Fonología">Fonética y Fonología</option>
+        <option value="Morfosintaxis">Morfosintaxis</option>
+        <option value="Semántica y Pragmática">Semántica y Pragmática</option>
+        <option value="Sociolingüística">Sociolingüística</option>
+      </select>
+      <label>Elige un avatar</label>
+      <div class="avatar-grid" id="avatarGrid">
+        <div class="avatar-opt selected" data-av="📚">📚</div>
+        <div class="avatar-opt" data-av="🔤">🔤</div>
+        <div class="avatar-opt" data-av="🌳">🌳</div>
+        <div class="avatar-opt" data-av="🔀">🔀</div>
+        <div class="avatar-opt" data-av="🧩">🧩</div>
+        <div class="avatar-opt" data-av="🔬">🔬</div>
+        <div class="avatar-opt" data-av="🎓">🎓</div>
+        <div class="avatar-opt" data-av="🏛️">🏛️</div>
+        <div class="avatar-opt" data-av="💎">💎</div>
+        <div class="avatar-opt" data-av="🔥">🔥</div>
+      </div>
+      <button class="login-btn" id="btnRegister">Crear cuenta</button>
+    </div>
+
+    <div class="login-info">
+      💡 Los datos se guardan localmente en tu navegador.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOPBAR ==================== -->
+<header class="topbar hidden" id="topbar">
+  <div class="brand">
+    <span class="sello">LING II</span>
+    <span>Súper Cuaderno · Lic. Lengua Castellana</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="perfil">👤 Perfil</button>
+    <button data-mode="escuelas">🌳 Escuelas lingüísticas</button>
+    <button data-mode="redaccion">📝 Redacción párrafos</button>
+    <button data-mode="investigacion">🔬 Investigación</button>
+    <button data-mode="normas">📐 Normas</button>
+    <button data-mode="ortografia">✍️ Ortografía/Fonética</button>
+    <button data-mode="discurso">🗣️ Discurso</button>
+    <button data-mode="html">💻 HTML/CSS/JS</button>
+    <button data-mode="python">🐍 Python+Django</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <button id="btnIdioma" title="Cambiar idioma">🌐 ES</button>
+    <button id="btnTema" title="Modo oscuro">🌙</button>
+    <div class="user-chip" id="userChip">
+      <div class="avatar" id="userAvatar">📚</div>
+      <span class="uname" id="userName">Estudiante</span>
+    </div>
+  </div>
+</header>
+
+<div class="perfil-menu" id="perfilMenu">
+  <button id="menuPerfil">👤 Mi perfil</button>
+  <button id="menuLogros">🏆 Mis logros académicos</button>
+  <button id="menuNotas">📝 Mis notas</button>
+  <button id="menuTesis">📕 Mis tesis / monografías</button>
+  <hr>
+  <button id="menuExportar">📤 Exportar mis datos</button>
+  <button id="menuLogout" style="color:#c0392b;">🚪 Cerrar sesión</button>
+</div>
+
+<!-- ==================== CONTENIDO ==================== -->
+<main class="app-container hidden" id="appContent">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · Lingüística II</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Bienvenido/a, <span id="dashNombre">estudiante</span> · 800 técnicas · Gramática estructuralista y generativa</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🌳 Escuelas lingüísticas</h4><div id="barrasEscuelas"></div></div>
+    <div class="chart-card"><h4>📝 Redacción de tipos de párrafo</h4><div id="barrasRedaccion"></div></div>
+    <div class="chart-card"><h4>🔬 Investigación y metodología</h4><div id="barrasInvestigacion"></div></div>
+    <div class="chart-card"><h4>📐 Normas académicas</h4><div id="barrasNormas"></div></div>
+    <div class="chart-card"><h4>✍️ Ortografía, fonética y fonología</h4><div id="barrasOrtografia"></div></div>
+    <div class="chart-card"><h4>🗣️ Análisis del discurso</h4><div id="barrasDiscurso"></div></div>
+    <div class="chart-card"><h4>💻 HTML + CSS + JS</h4><div id="barrasHTML"></div></div>
+    <div class="chart-card"><h4>🐍 Python + Django</h4><div id="barrasPython"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global (800 técnicas)</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--estruc)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--estruc)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance académico</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--estruc)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-perfil">
+  <h1 style="margin-bottom:1rem;">👤 Mi perfil académico</h1>
+  <div class="perfil-header">
+    <div class="perfil-avatar" id="perfilAvatar">📚</div>
+    <div class="perfil-info">
+      <h2 id="perfilNombre">Nombre del estudiante</h2>
+      <p id="perfilCorreo">correo@universidad.edu · <span id="perfilCurso">Licenciatura en Lengua Castellana</span> · <span id="perfilSemestre">Lingüística II</span></p>
+      <p style="margin-top:0.4rem;font-size:0.78rem;">Miembro desde: <span id="perfilFecha">—</span></p>
+      <div class="perfil-badges" id="perfilInsignias"></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:700;color:var(--estruc);font-family:'PT Serif',serif;" id="perfilPuntos">0</div>
+      <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;">puntos</div>
+    </div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>📊 Progreso por módulo</h4><div id="perfilBarras"></div></div>
+    <div class="chart-card"><h4>🏆 Logros académicos</h4><div id="perfilLogros"></div></div>
+    <div class="chart-card"><h4>📝 Notas y documentos</h4><div id="perfilNotasCount"></div></div>
+    <div class="chart-card"><h4>⚙️ Acciones</h4>
+      <button class="btn-accion" id="perfilEditar" style="margin-bottom:0.4rem;width:100%;">✏️ Editar perfil</button>
+      <button class="btn-accion secundario" id="perfilExportar" style="margin-bottom:0.4rem;width:100%;">📤 Exportar mis datos</button>
+      <button class="btn-accion" id="perfilReset" style="background:#c0392b;width:100%;">🔄 Reiniciar mi progreso</button>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-escuelas">
+  <h1 style="margin-bottom:1rem;">🌳 Escuelas lingüísticas · 100 técnicas</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Estructuralismo · Generativismo · Funcionalismo · Lingüística del texto · Pragmática</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progEscText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progEscFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesEsc"></div></aside>
+    <div class="tecnica-panel" id="tecnicaEsc"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-redaccion">
+  <h1 style="margin-bottom:1rem;">📝 Redacción de tipos de párrafo · 100 técnicas</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Narrativo · Descriptivo · Expositivo · Argumentativo · Académico-científico</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progRedText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progRedFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesRed"></div></aside>
+    <div class="tecnica-panel" id="tecnicaRed"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-investigacion">
+  <h1 style="margin-bottom:1rem;">🔬 Investigación y metodología · 100 técnicas</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Paradigmas · Monografía · Tesis · Artículo científico · Lingüística aplicada</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progInvText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progInvFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesInv"></div></aside>
+    <div class="tecnica-panel" id="tecnicaInv"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-normas">
+  <h1 style="margin-bottom:1rem;">📐 Normas académicas · 100 técnicas</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">APA 7 · MLA 9 · Chicago · ICONTEC · Vancouver · IEEE · Harvard</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progNorText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progNorFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesNor"></div></aside>
+    <div class="tecnica-panel" id="tecnicaNor"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-ortografia">
+  <h1 style="margin-bottom:1rem;">✍️ Ortografía avanzada, fonética y fonología · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progOrtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progOrtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesOrt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaOrt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-discurso">
+  <h1 style="margin-bottom:1rem;">🗣️ Análisis del discurso académico · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progDisText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progDisFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesDis"></div></aside>
+    <div class="tecnica-panel" id="tecnicaDis"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-html">
+  <h1 style="margin-bottom:1rem;">💻 HTML + CSS + JS para LMS · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progHTMLText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progHTMLFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesHTML"></div></aside>
+    <div class="tecnica-panel" id="tecnicaHTML"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python + Django para lingüística · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller académico · 32 herramientas</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado de Competencias Lingüísticas</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Lingüística II · Licenciatura en Lengua Castellana y Comunicación · ES/EN
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre" id="certNombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 800 técnicas del programa de Lingüística II: gramática estructuralista, gramática generativa transformacional, redacción académica, investigación y competencias digitales</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Director: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Universidad: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Facultad: <span class="campo-editable" contenteditable="true" data-campo="facultad">Educación</span></div>
+      <div>Programa: <span class="campo-editable" contenteditable="true" data-campo="programa">Lic. Lengua Castellana</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Semestre: <span class="campo-editable" contenteditable="true" data-campo="semestre">Lingüística II</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="btn cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   SISTEMA DE USUARIOS
+   ===================================================================== */
+const USERS_KEY = 'super_cuaderno_ling2_users';
+const SESSION_KEY = 'super_cuaderno_ling2_session';
+let currentUser = null;
+
+function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; } catch { return {}; } }
+function saveUsers(users){ localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+function getSession(){ return localStorage.getItem(SESSION_KEY); }
+function setSession(u){ localStorage.setItem(SESSION_KEY, u); }
+function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+function getUserKey(s){ return `u_${currentUser}_${s}`; }
+function userGet(k, d=null){
+  if(!currentUser) return d;
+  try { const v = localStorage.getItem(getUserKey(k)); return v ? JSON.parse(v) : d; } catch { return d; }
+}
+function userSet(k, v){ if(currentUser) localStorage.setItem(getUserKey(k), JSON.stringify(v)); }
+
+let selectedAvatar = '📚';
+
+document.querySelectorAll('.login-tabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.login-tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.loginTab;
+    document.getElementById('formLogin').classList.toggle('hidden', tab!=='login');
+    document.getElementById('formRegister').classList.toggle('hidden', tab!=='register');
+  });
+});
+
+document.querySelectorAll('.avatar-opt').forEach(av=>{
+  av.addEventListener('click',()=>{
+    document.querySelectorAll('.avatar-opt').forEach(a=>a.classList.remove('selected'));
+    av.classList.add('selected');
+    selectedAvatar = av.dataset.av;
+  });
+});
+
+document.getElementById('btnLogin').addEventListener('click',()=>{
+  const user = document.getElementById('loginUser').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  if(!user || !pass){ alert('Completa usuario y contraseña'); return; }
+  const users = getUsers();
+  const found = Object.values(users).find(u => (u.usuario===user || u.email===user) && u.pass===btoa(pass));
+  if(!found){ alert('❌ Usuario o contraseña incorrectos'); return; }
+  setSession(found.usuario);
+  currentUser = found.usuario;
+  iniciarApp(found);
+});
+
+document.getElementById('btnRegister').addEventListener('click',()=>{
+  const nombre = document.getElementById('regName').value.trim();
+  const usuario = document.getElementById('regUser').value.trim().toLowerCase();
+  const email = document.getElementById('regEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('regPass').value;
+  const curso = document.getElementById('regCurso').value.trim() || 'Licenciatura en Lengua Castellana y Comunicación';
+  const semestre = document.getElementById('regSemestre').value;
+  if(!nombre || !usuario || !email || !pass){ alert('Completa todos los campos'); return; }
+  if(pass.length < 4){ alert('La contraseña debe tener al menos 4 caracteres'); return; }
+  if(!/^[a-z0-9_]{3,20}$/.test(usuario)){ alert('Usuario: solo minúsculas, números y _ (3-20)'); return; }
+  const users = getUsers();
+  if(users[usuario]){ alert('❌ Ese usuario ya existe'); return; }
+  if(Object.values(users).some(u=>u.email===email)){ alert('❌ Ese correo ya está registrado'); return; }
+  users[usuario] = { usuario, nombre, email, pass: btoa(pass), curso, semestre, avatar: selectedAvatar, fechaRegistro: new Date().toISOString() };
+  saveUsers(users);
+  setSession(usuario);
+  currentUser = usuario;
+  alert('✅ ¡Cuenta creada! Bienvenido/a, ' + nombre);
+  iniciarApp(users[usuario]);
+});
+
+function cerrarSesion(){
+  if(!confirm('¿Cerrar sesión?')) return;
+  clearSession();
+  currentUser = null;
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('topbar').classList.add('hidden');
+  document.getElementById('appContent').classList.add('hidden');
+  document.getElementById('perfilMenu').classList.remove('show');
+}
+
+document.getElementById('menuLogout').addEventListener('click', cerrarSesion);
+document.getElementById('userChip').addEventListener('click',(e)=>{ e.stopPropagation(); document.getElementById('perfilMenu').classList.toggle('show'); });
+document.addEventListener('click',()=>document.getElementById('perfilMenu').classList.remove('show'));
+document.getElementById('perfilMenu').addEventListener('click',e=>e.stopPropagation());
+
+document.getElementById('menuPerfil').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); });
+document.getElementById('menuLogros').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); setTimeout(()=>document.getElementById('perfilLogros').scrollIntoView({behavior:'smooth'}),200); });
+document.getElementById('menuNotas').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); setTimeout(()=>document.getElementById('perfilNotasCount').scrollIntoView({behavior:'smooth'}),200); });
+document.getElementById('menuTesis').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('taller'); });
+document.getElementById('menuExportar').addEventListener('click',()=>exportarDatos());
+
+function iniciarApp(user){
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('topbar').classList.remove('hidden');
+  document.getElementById('appContent').classList.remove('hidden');
+  document.getElementById('userAvatar').textContent = user.avatar;
+  document.getElementById('userName').textContent = user.nombre.split(' ')[0];
+  document.getElementById('dashNombre').textContent = user.nombre.split(' ')[0];
+  cargarEstadoUsuario();
+  actualizarDashboard();
+  actualizarPerfil();
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const session = getSession();
+  if(session){
+    const users = getUsers();
+    if(users[session]){ currentUser = session; iniciarApp(users[session]); }
+  }
+});
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+let estado = {
+  esc:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'esc-estr' },
+  red:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'red-nar' },
+  inv:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'inv-par' },
+  nor:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'nor-apa' },
+  ort:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'ort-graf' },
+  dis:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'dis-acad' },
+  html:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'html-sem' },
+  py:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'py-bas' },
+  tema: 'light',
+  idioma: 'es',
+  campos: {}
+};
+
+function cargarEstadoUsuario(){
+  ['esc','red','inv','nor','ort','dis','html','py'].forEach(a=>{
+    estado[a].progreso = userGet(`${a}_prog`, {});
+    estado[a].notas = userGet(`${a}_notas`, {});
+  });
+  estado.tema = userGet('tema', 'light');
+  estado.idioma = userGet('idioma', 'es');
+  estado.campos = userGet('campos', {});
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+  document.getElementById('btnIdioma').textContent = estado.idioma==='es'?'🌐 ES':'🌐 EN';
+}
+
+function guardarEstado(area){
+  userSet(`${area}_prog`, estado[area].progreso);
+  userSet(`${area}_notas`, estado[area].notas);
+  actualizarDashboard();
+  actualizarPerfil();
+}
+
+/* =====================================================================
+   BLOQUES
+   ===================================================================== */
+const bloquesEsc = [
+  {id:'esc-estr', titulo:'Estructuralismo', rango:[1,25], icono:'🏛️'},
+  {id:'esc-gener', titulo:'Gramática generativa transformacional', rango:[26,50], icono:'🔀'},
+  {id:'esc-func', titulo:'Funcionalismo y lingüística del texto', rango:[51,75], icono:'🧩'},
+  {id:'esc-prag', titulo:'Pragmática y sociolingüística', rango:[76,100], icono:'🗣️'}
+];
+
+const bloquesRed = [
+  {id:'red-nar', titulo:'Párrafo narrativo', rango:[1,20], icono:'📖'},
+  {id:'red-des', titulo:'Párrafo descriptivo', rango:[21,40], icono:'🎨'},
+  {id:'red-exp', titulo:'Párrafo expositivo', rango:[41,60], icono:'📊'},
+  {id:'red-arg', titulo:'Párrafo argumentativo', rango:[61,80], icono:'⚖️'},
+  {id:'red-acad', titulo:'Párrafo académico-científico', rango:[81,100], icono:'🎓'}
+];
+
+const bloquesInv = [
+  {id:'inv-par', titulo:'Paradigmas de investigación', rango:[1,25], icono:'🔬'},
+  {id:'inv-mon', titulo:'Monografía', rango:[26,50], icono:'📕'},
+  {id:'inv-tes', titulo:'Tesis doctoral y de maestría', rango:[51,75], icono:'🎓'},
+  {id:'inv-art', titulo:'Artículo científico', rango:[76,100], icono:'📰'}
+];
+
+const bloquesNor = [
+  {id:'nor-apa', titulo:'APA 7ª edición', rango:[1,25], icono:'📘'},
+  {id:'nor-mla', titulo:'MLA 9 · Chicago', rango:[26,50], icono:'📗'},
+  {id:'nor-ico', titulo:'ICONTEC · Vancouver · IEEE', rango:[51,75], icono:'📙'},
+  {id:'nor-eti', titulo:'Ética, citación y plagio', rango:[76,100], icono:'⚖️'}
+];
+
+const bloquesOrt = [
+  {id:'ort-graf', titulo:'Ortografía avanzada', rango:[1,25], icono:'✍️'},
+  {id:'ort-acen', titulo:'Acentuación avanzada', rango:[26,50], icono:'´'},
+  {id:'ort-punt', titulo:'Puntuación avanzada', rango:[51,75], icono:'¿?'},
+  {id:'ort-fon', titulo:'Fonética y fonología', rango:[76,100], icono:'🔊'}
+];
+
+const bloquesDis = [
+  {id:'dis-acad', titulo:'Discurso académico', rango:[1,25], icono:'🎓'},
+  {id:'dis-ret', titulo:'Retórica y argumentación', rango:[26,50], icono:'⚖️'},
+  {id:'dis-acd', titulo:'Análisis crítico del discurso', rango:[51,75], icono:'🔬'},
+  {id:'dis-pub', titulo:'Publicación y divulgación', rango:[76,100], icono:'📢'}
+];
+
+const bloquesHTML = [
+  {id:'html-sem', titulo:'HTML5 semántico', rango:[1,20], icono:'🏗️'},
+  {id:'html-css', titulo:'CSS moderno', rango:[21,40], icono:'🎨'},
+  {id:'html-js', titulo:'JavaScript ES6+', rango:[41,60], icono:'⚡'},
+  {id:'html-lms', titulo:'Componentes LMS', rango:[61,80], icono:'🎓'},
+  {id:'html-pwa', titulo:'PWA y accesibilidad', rango:[81,100], icono:'📱'}
+];
+
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python avanzado', rango:[1,20], icono:'🐍'},
+  {id:'py-django', titulo:'Django · Modelos y vistas', rango:[21,40], icono:'🌐'},
+  {id:'py-lms', titulo:'Django REST + LMS', rango:[41,60], icono:'🎓'},
+  {id:'py-nlp', titulo:'NLP y análisis lingüístico', rango:[61,80], icono:'🔤'},
+  {id:'py-dep', titulo:'DevOps y despliegue', rango:[81,100], icono:'🔒'}
+];
+
+/* =====================================================================
+   ESCUELAS LINGÜÍSTICAS (100 técnicas) - NUEVO
+   ===================================================================== */
+function genEscuelas(){
+  const T = [
+    // ESTRUCTURALISMO (1-25)
+    {t:'Ferdinand de Saussure', c:'Padre de la lingüística moderna; fundador del estructuralismo.', e:'"Curso de lingüística general" (1916).', en:'Father of modern linguistics.'},
+    {t:'Lengua vs. habla', c:'Lengua: sistema social. Habla: uso individual.', e:'Langue / parole.', en:'Langue vs. parole.'},
+    {t:'Significante y significado', c:'Dos caras del signo lingüístico.', e:'/kasa/ → concepto "casa".', en:'Signifier and signified.'},
+    {t:'Arbitrariedad del signo', c:'No hay relación natural entre significante y significado.', e:'"mesa" no se parece a la mesa.', en:'Arbitrariness.'},
+    {t:'Linealidad del significante', c:'Los significantes se desarrollan en el tiempo.', e:'Una palabra tras otra.', en:'Linearity.'},
+    {t:'Inmutabilidad y mutabilidad', c:'El signo es estable pero cambia con el tiempo.', e:'Evolución del léxico.', en:'Immutability and mutability.'},
+    {t:'Sincronía vs. diacronía', c:'Estudio en un momento vs. estudio histórico.', e:'Hoy / evolución.', en:'Synchronic vs. diachronic.'},
+    {t:'Relaciones sintagmáticas', c:'Combinaciones en presencia (in praesentia).', e:'"el + niño".', en:'Syntagmatic relations.'},
+    {t:'Relaciones paradigmáticas', c:'Sustituciones en ausencia (in absentia).', e:'el / un / este niño.', en:'Paradigmatic relations.'},
+    {t:'Doble articulación', c:'Monemas (1ª articulación) y fonemas (2ª).', e:'niñ-o-s / n-i-ñ-o-s.', en:'Double articulation.'},
+    {t:'Círculo de Praga', c:'Estructuralismo funcional: Trubetzkoy, Jakobson, Mathesius.', e:'Fonología y funciones del lenguaje.', en:'Prague Circle.'},
+    {t:'Trubetzkoy', c:'Fundador de la fonología estructural.', e:'"Principios de fonología".', en:'Trubetzkoy.'},
+    {t:'Jakobson', c:'Funciones del lenguaje y rasgos distintivos.', e:'Referencial, emotiva, apelativa...', en:'Jakobson.'},
+    {t:'Círculo de Copenhague', c:'Glosemática: Hjelmslev.', e:'Forma y sustancia de la expresión y el contenido.', en:'Copenhagen Circle.'},
+    {t:'Hjelmslev', c:'Glosemática: forma/sustancia, expresión/contenido.', e:'Cuatro estratos.', en:'Hjelmslev.'},
+    {t:'Escuela de Yale', c:'Distribucionalismo americano.', e:'Bloomfield, Harris.', en:'Yale School.'},
+    {t:'Leonard Bloomfield', c:'Lingüística estructural americana.', e:'"Language" (1933).', en:'Bloomfield.'},
+    {t:'Zellig Harris', c:'Distribucionalismo y análisis del discurso.', e:'"Methods in Structural Linguistics".', en:'Harris.'},
+    {t:'Método distribucional', c:'Analizar la distribución de los elementos.', e:'Contextos de aparición.', en:'Distributionalism.'},
+    {t:'Análisis en constituyentes inmediatos', c:'Descomponer en unidades jerárquicas.', e:'El niño lee → [El niño][lee].', en:'Immediate constituents.'},
+    {t:'Fonema (estructuralismo)', c:'Unidad mínima distintiva de la 2ª articulación.', e:'/p/ vs. /b/.', en:'Phoneme.'},
+    {t:'Monema o morfema', c:'Unidad mínima significativa de la 1ª articulación.', e:'-s (plural), -aba (imperfecto).', en:'Morpheme.'},
+    {t:'Alomorfo', c:'Variantes de un mismo morfema.', e:'-s, -es (plural).', en:'Allomorph.'},
+    {t:'Estructuralismo en España', c:'Escuela de Madrid: Alarcos Llorach, Emilio Lorenzo.', e:'Gramática estructural.', en:'Structuralism in Spain.'},
+    {t:'Emilio Alarcos Llorach', c:'Gramático estructuralista español.', e:'"Gramática de la lengua española" (1994).', en:'Alarcos Llorach.'},
+
+    // GENERATIVISMO (26-50)
+    {t:'Noam Chomsky', c:'Fundador de la gramática generativa.', e:'"Estructuras sintácticas" (1957).', en:'Chomsky.'},
+    {t:'Gramática generativa', c:'Modelo que explica la capacidad humana de generar oraciones.', e:'Reglas + léxico.', en:'Generative grammar.'},
+    {t:'Competencia lingüística', c:'Conocimiento interno e inconsciente de la lengua.', e:'Saber la gramática sin estudiarla.', en:'Competence.'},
+    {t:'Actuación lingüística', c:'Uso real de la lengua en contextos concretos.', e:'Hablar, escribir.', en:'Performance.'},
+    {t:'Estructura profunda', c:'Nivel abstracto donde se genera el significado.', e:'"El niño rompió el jarrón".', en:'Deep structure.'},
+    {t:'Estructura superficial', c:'Forma final que se pronuncia o escribe.', e:'"El jarrón fue roto por el niño".', en:'Surface structure.'},
+    {t:'Transformaciones', c:'Reglas que relacionan estructura profunda y superficial.', e:'Pasivización, interrogación.', en:'Transformations.'},
+    {t:'Gramática universal', c:'Principios comunes a todas las lenguas humanas.', e:'Principios y parámetros.', en:'Universal grammar.'},
+    {t:'Principios y parámetros', c:'Principios universales + variación paramétrica.', e:'Orden SVO/SOV.', en:'Principles and parameters.'},
+    {t:'Gramática de estructura sintagmática', c:'Reglas de reescritura: SN → Det + N.', e:'SN, SV, SP.', en:'Phrase structure grammar.'},
+    {t:'Árboles sintácticos', c:'Representación jerárquica de constituyentes.', e:'O → SN + SV.', en:'Syntactic trees.'},
+    {t:'Nodo y ramificación', c:'Cada nodo domina a sus hijos.', e:'O → SN, SV.', en:'Node and branching.'},
+    {t:'Categorías léxicas', c:'N, V, A, P, Det, Adv, Conj.', e:'N = sustantivo.', en:'Lexical categories.'},
+    {t:'Categorías funcionales', c:'T, C, D (tiempo, complementante, determinante).', e:'CP, TP, DP.', en:'Functional categories.'},
+    {t:'Rección y ligamiento', c:'Teoría de los años 80: Principios A, B, C.', e:'Anáforas, pronombres.', en:'Government and binding.'},
+    {t:'Programa minimalista', c:'Modelo actual de Chomsky (1995-).', e:'Fusión (Merge) y movimiento.', en:'Minimalist Program.'},
+    {t:'Fusión (Merge)', c:'Operación básica que combina elementos.', e:'α + β = {α, β}.', en:'Merge.'},
+    {t:'Movimiento (Move)', c:'Desplazamiento de constituyentes.', e:'Interrogativas: ¿Qué compró?', en:'Move.'},
+    {t:'Interfaz fonética (PF)', c:'Nivel de forma fonética.', e:'Cómo suena.', en:'Phonetic Form.'},
+    {t:'Interfaz lógica (LF)', c:'Nivel de forma lógica.', e:'Interpretación semántica.', en:'Logical Form.'},
+    {t:'Estructura argumental', c:'Verbo + sus argumentos.', e:'dar: agente, tema, meta.', en:'Argument structure.'},
+    {t:'Papeles temáticos', c:'Agente, paciente, tema, meta, experimentador.', e:'Criterio temático.', en:'Thematic roles.'},
+    {t:'Caso abstracto', c:'Nominativo, acusativo, dativo.', e:'Filtro de caso.', en:'Abstract Case.'},
+    {t:'Concordancia (Agree)', c:'Relación entre elementos con rasgos compartidos.', e:'Sujeto-verbo.', en:'Agree.'},
+    {t:'Categorías vacías', c:'Elementos sin realización fonética.', e:'PRO, pro, huella (t).', en:'Empty categories.'},
+    {t:'Huella (trace)', c:'Posición original de un elemento movido.', e:'t en [¿Qué compró t?]', en:'Trace.'},
+    {t:'Rección (government)', c:'Relación estructural entre núcleo y complemento.', e:'Núcleo rige a su complemento.', en:'Government.'},
+
+    // FUNCIONALISMO Y LINGÜÍSTICA DEL TEXTO (51-75)
+    {t:'Funcionalismo', c:'La lengua se explica por su función comunicativa.', e:'Dik, Halliday, Martín Zorraquino.', en:'Functionalism.'},
+    {t:'Michael Halliday', c:'Lingüística sistémico-funcional.', e:'Metafunciones: ideacional, interpersonal, textual.', en:'Halliday.'},
+    {t:'Metafunciones', c:'Ideacional, interpersonal, textual.', e:'Tres funciones básicas.', en:'Metafunctions.'},
+    {t:'Lingüística del texto', c:'El texto como unidad superior a la oración.', e:'Van Dijk, Beaugrande, Dressler.', en:'Text linguistics.'},
+    {t:'Van Dijk', c:'Análisis del discurso y textos.', e:'"Texto y contexto".', en:'Van Dijk.'},
+    {t:'Cohesión', c:'Mecanismos lingüísticos que unen el texto.', e:'Pronombres, conectores.', en:'Cohesion.'},
+    {t:'Coherencia', c:'Unidad temática y lógica del texto.', e:'Progresión temática.', en:'Coherence.'},
+    {t:'Intencionalidad', c:'Propósito del productor del texto.', e:'Informar, persuadir.', en:'Intentionality.'},
+    {t:'Aceptabilidad', c:'Disposición del receptor a interpretar el texto.', e:'Confianza.', en:'Acceptability.'},
+    {t:'Informatividad', c:'Grado de novedad de la información.', e:'Datos nuevos.', en:'Informativity.'},
+    {t:'Situacionalidad', c:'Relevancia del contexto.', e:'Adecuación.', en:'Situationality.'},
+    {t:'Intertextualidad', c:'Relación con otros textos.', e:'Citas, alusiones.', en:'Intertextuality.'},
+    {t:'Tipos de texto (Werlich)', c:'Narrativo, descriptivo, expositivo, argumentativo, instructivo.', e:'Cinco tipos.', en:'Text types.'},
+    {t:'Géneros discursivos (Bajtin)', c:'Primarios y secundarios.', e:'Carta, novela.', en:'Speech genres.'},
+    {t:'Polifonía (Bajtin)', c:'Múltiples voces en el discurso.', e:'Dialogismo.', en:'Polyphony.'},
+    {t:'Enunciación', c:'Acto de producir un enunciado.', e:'Benveniste.', en:'Enunciation.'},
+    {t:'Deixis', c:'Marcadores de tiempo, lugar, persona.', e:'"aquí", "ahora", "yo".', en:'Deixis.'},
+    {t:'Modalización', c:'Grado de certeza del hablante.', e:'"quizás", "sin duda".', en:'Modality.'},
+    {t:'Registro', c:'Variedad según situación comunicativa.', e:'Formal/informal.', en:'Register.'},
+    {t:'Marcadores del discurso', c:'Conectores, reformuladores, operadores.', e:'Portolés, Zorraquino.', en:'Discourse markers.'},
+    {t:'Conectores argumentativos', c:'Además, sin embargo, por tanto.', e:'Organizan la argumentación.', en:'Argumentative connectors.'},
+    {t:'Reformuladores', c:'Es decir, o sea, mejor dicho.', e:'Aclaran.', en:'Reformulators.'},
+    {t:'Estructuradores de la información', c:'En primer lugar, por último.', e:'Ordenan.', en:'Information structurers.'},
+    {t:'Operadores argumentativos', c:'Incluso, hasta, ni siquiera.', e:'Refuerzan.', en:'Argumentative operators.'},
+    {t:'Análisis de la conversación', c:'Turnos, pares adyacentes, reparaciones.', e:'Sacks, Schegloff, Jefferson.', en:'Conversation analysis.'},
+
+    // PRAGMÁTICA Y SOCIOLINGÜÍSTICA (76-100)
+    {t:'Pragmática', c:'Estudio del uso del lenguaje en contexto.', e:'Austin, Searle, Grice.', en:'Pragmatics.'},
+    {t:'J.L. Austin', c:'Actos de habla: locutivo, ilocutivo, perlocutivo.', e:'"Cómo hacer cosas con palabras".', en:'Austin.'},
+    {t:'John Searle', c:'Clasificación de actos de habla.', e:'Asertivos, directivos, compromisivos.', en:'Searle.'},
+    {t:'Acto locutivo', c:'Lo que se dice literalmente.', e:'"Hace frío".', en:'Locutionary act.'},
+    {t:'Acto ilocutivo', c:'Intención del hablante.', e:'Sugerir cerrar la ventana.', en:'Illocutionary act.'},
+    {t:'Acto perlocutivo', c:'Efecto en el oyente.', e:'Que cierre la ventana.', en:'Perlocutionary act.'},
+    {t:'Paul Grice', c:'Principio de cooperación y máximas.', e:'Cantidad, calidad, relación, manera.', en:'Grice.'},
+    {t:'Máxima de cantidad', c:'Ser tan informativo como sea necesario.', e:'Ni más ni menos.', en:'Maxim of quantity.'},
+    {t:'Máxima de calidad', c:'Decir la verdad.', e:'No mentir.', en:'Maxim of quality.'},
+    {t:'Máxima de relación', c:'Ser relevante.', e:'Al grano.', en:'Maxim of relation.'},
+    {t:'Máxima de manera', c:'Ser claro y ordenado.', e:'Evitar ambigüedad.', en:'Maxim of manner.'},
+    {t:'Implicatura conversacional', c:'Lo que se comunica sin decirse.', e:'"¿Tienes hora?" implica pedir la hora.', en:'Conversational implicature.'},
+    {t:'Presuposición', c:'Información implícita.', e:'"Dejó de fumar" presupone que fumaba.', en:'Presupposition.'},
+    {t:'Cortesía (Brown & Levinson)', c:'Estrategias para preservar la imagen.', e:'"¿Podrías...?"', en:'Politeness.'},
+    {t:'Actos amenazantes de la imagen', c:'Peticiones, críticas, órdenes.', e:'FTA.', en:'Face-threatening acts.'},
+    {t:'Sociolingüística', c:'Relación entre lengua y sociedad.', e:'Labov, Fishman.', en:'Sociolinguistics.'},
+    {t:'William Labov', c:'Variación sociolingüística.', e:'"The Social Stratification of English in New York City".', en:'Labov.'},
+    {t:'Variación lingüística', c:'Diatópica, diastrática, diafásica, diacrónica.', e:'Cuatro tipos.', en:'Linguistic variation.'},
+    {t:'Variables sociolingüísticas', c:'Fonológicas, morfológicas, léxicas.', e:'Seseo, voseo.', en:'Sociolinguistic variables.'},
+    {t:'Registro y estilo', c:'Formal, informal, técnico, coloquial.', e:'Adecuación.', en:'Register and style.'},
+    {t:'Comunidad de habla', c:'Grupo con normas lingüísticas compartidas.', e:'Gumperz, Hymes.', en:'Speech community.'},
+    {t:'Etnografía de la comunicación', c:'Hymes: SPEAKING.', e:'Situación, participantes, actos.', en:'Ethnography of communication.'},
+    {t:'Bilingüismo y diglosia', c:'Dos lenguas o variedades en una comunidad.', e:'Ferguson, Fishman.', en:'Bilingualism and diglossia.'},
+    {t:'Contacto de lenguas', c:'Préstamos, calcos, code-switching.', e:'Spanglish.', en:'Language contact.'},
+    {t:'Lingüística aplicada', c:'Aplicación a enseñanza, traducción, NLP.', e:'Enseñanza de lenguas, TIC.', en:'Applied linguistics.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesEsc.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'esc-estr',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene relación con la lingüística.'],
+    correcta:0
+  }));
+}
+
+/* REDACCIÓN DE TIPOS DE PÁRRAFO (100) */
+function genRedaccion(){
+  const T = [
+    {t:'¿Qué es un párrafo narrativo?', c:'Cuenta hechos en orden temporal.', e:'"Ayer llegó el director..."', en:'Narrative paragraph.'},
+    {t:'Estructura narrativa', c:'Situación inicial + complicación + resolución.', e:'Inicio, nudo, desenlace.', en:'Narrative structure.'},
+    {t:'Verbos en pasado', c:'Indefinido e imperfecto.', e:'"Llegó, miraba..."', en:'Past tenses.'},
+    {t:'Conectores temporales', c:'Entonces, luego, después.', e:'"Primero llegó; luego habló."', en:'Temporal connectors.'},
+    {t:'Marcadores de tiempo', c:'Ayer, aquel día, en 2020.', e:'"Aquel día..."', en:'Time markers.'},
+    {t:'Narrador en 1ª persona', c:'Participa.', e:'"Caminaba cuando..."', en:'First person.'},
+    {t:'Narrador en 3ª persona', c:'Cuenta lo de otros.', e:'"El investigador llegó..."', en:'Third person.'},
+    {t:'Diálogo en narración', c:'Con raya.', e:'—¿Qué ocurrió?', en:'Dialogue.'},
+    {t:'Narración académica', c:'Proceso histórico o biográfico.', e:'"En 1967, García Márquez..."', en:'Academic narrative.'},
+    {t:'Cronología lineal', c:'Del pasado al presente.', e:'Orden temporal.', en:'Chronology.'},
+    {t:'Analepsis (flashback)', c:'Retroceso.', e:'"Recordó que años antes..."', en:'Flashback.'},
+    {t:'Prolepsis', c:'Anticipación.', e:'"Años después..."', en:'Flashforward.'},
+    {t:'Elipsis narrativa', c:'Salto temporal.', e:'"Pasaron los años..."', en:'Ellipsis.'},
+    {t:'Presente histórico', c:'Vivacidad.', e:'"En 1810, el pueblo se levanta."', en:'Historical present.'},
+    {t:'Narración biográfica', c:'Vida de alguien.', e:'"Nació en Aracataca..."', en:'Biographical.'},
+    {t:'Narración autobiográfica', c:'Propia vida.', e:'"Cuando yo era niño..."', en:'Autobiographical.'},
+    {t:'Narración testimonial', c:'Testigo directo.', e:'"Vi con mis ojos..."', en:'Testimonial.'},
+    {t:'Narración histórica', c:'Reconstruye pasado.', e:'"En 1968, las protestas..."', en:'Historical.'},
+    {t:'Narración científica', c:'Proceso o experimento.', e:'"Se calentó a 100 °C..."', en:'Scientific.'},
+    {t:'Claves del narrativo', c:'Claridad temporal, coherencia causal.', e:'Verbos precisos.', en:'Keys.'},
+
+    {t:'¿Qué es un párrafo descriptivo?', c:'Presenta características.', e:'"El laboratorio era luminoso."', en:'Descriptive paragraph.'},
+    {t:'Estructura descriptiva', c:'General → particular.', e:'Panorama → detalles.', en:'Structure.'},
+    {t:'Prosopografía', c:'Física.', e:'"Era alto, delgado."', en:'Prosopography.'},
+    {t:'Etopeya', c:'Carácter.', e:'"Era meticuloso."', en:'Ethopoeia.'},
+    {t:'Retrato', c:'Prosopografía + etopeya.', e:'Completa.', en:'Portrait.'},
+    {t:'Topografía', c:'Lugares.', e:'"El valle se extendía..."', en:'Topography.'},
+    {t:'Cronografía', c:'Tiempo atmosférico.', e:'"El invierno cubría..."', en:'Chronography.'},
+    {t:'Pragmatografía', c:'Objetos.', e:'"El manuscrito..."', en:'Pragmatography.'},
+    {t:'Descripción objetiva', c:'Datos.', e:'"Pesa 25 g."', en:'Objective.'},
+    {t:'Descripción subjetiva', c:'Valoraciones.', e:'"Sobrecogedor."', en:'Subjective.'},
+    {t:'Descripción sensorial', c:'Cinco sentidos.', e:'"Olía a tinta."', en:'Sensory.'},
+    {t:'Descripción cromática', c:'Color.', e:'"Gris plomizo."', en:'Color.'},
+    {t:'Comparaciones y símiles', c:'Con "como".', e:'"Como dos abismos."', en:'Similes.'},
+    {t:'Metáforas', c:'Sin "como".', e:'"El invierno era una mano."', en:'Metaphors.'},
+    {t:'Adjetivación precisa', c:'Específicos.', e:'"Denso, erudito."', en:'Precise.'},
+    {t:'Descripción técnica', c:'Terminología.', e:'"Sintagma nominal."', en:'Technical.'},
+    {t:'Descripción literaria', c:'Estética.', e:'"Sábana azul."', en:'Literary.'},
+    {t:'En movimiento', c:'Acción + descripción.', e:'"Corría mientras..."', en:'In motion.'},
+    {t:'De procesos', c:'Paso a paso.', e:'"Se evapora, condensa..."', en:'Process.'},
+    {t:'Claves del descriptivo', c:'Precisión, orden, variedad.', e:'Sin vaguedades.', en:'Keys.'},
+
+    {t:'¿Qué es un párrafo expositivo?', c:'Explica objetivamente.', e:'"La fotosíntesis es..."', en:'Expository.'},
+    {t:'Estructura expositiva', c:'Intro, desarrollo, conclusión.', e:'Idea → explicación.', en:'Structure.'},
+    {t:'Oración temática', c:'Idea principal.', e:'"El modernismo..."', en:'Topic sentence.'},
+    {t:'Oraciones de desarrollo', c:'Datos, ejemplos.', e:'"Sus características..."', en:'Supporting.'},
+    {t:'Oración de cierre', c:'Sintetiza.', e:'"En resumen..."', en:'Concluding.'},
+    {t:'Definiciones', c:'Precisan términos.', e:'"La sintaxis..."', en:'Definitions.'},
+    {t:'Clasificaciones', c:'Categorías.', e:'"Los verbos..."', en:'Classifications.'},
+    {t:'Ejemplos', c:'Ilustran.', e:'"Por ejemplo..."', en:'Examples.'},
+    {t:'Comparaciones', c:'Contrastan.', e:'"A diferencia..."', en:'Comparisons.'},
+    {t:'Causa y consecuencia', c:'Causal.', e:'"La contaminación produce..."', en:'Cause/effect.'},
+    {t:'Datos y cifras', c:'Estadísticas.', e:'"El 70%..."', en:'Data.'},
+    {t:'Referencias', c:'Autor, año.', e:'"Según Rama (1982)..."', en:'References.'},
+    {t:'Lenguaje objetivo', c:'Sin opiniones.', e:'"Se observa..."', en:'Objective.'},
+    {t:'Verbos en presente', c:'Hechos generales.', e:'"La Tierra gira."', en:'Present.'},
+    {t:'Conectores expositivos', c:'Además, por tanto.', e:'"Además..."', en:'Connectors.'},
+    {t:'Párrafo de causa', c:'Causas.', e:'"Se debió a..."', en:'Causal.'},
+    {t:'Párrafo de consecuencia', c:'Efectos.', e:'"Como consecuencia..."', en:'Consequence.'},
+    {t:'Párrafo de comparación', c:'Compara.', e:'"Mientras..., ..."', en:'Comparison.'},
+    {t:'Problema-solución', c:'Problema y solución.', e:'"El problema es X."', en:'Problem/solution.'},
+    {t:'Claves del expositivo', c:'Claridad, orden, precisión.', e:'Una idea por párrafo.', en:'Keys.'},
+
+    {t:'¿Qué es un párrafo argumentativo?', c:'Defiende tesis.', e:'"El canon debe..."', en:'Argumentative.'},
+    {t:'Estructura argumentativa', c:'Tesis + argumentos + conclusión.', e:'Idea + razones.', en:'Structure.'},
+    {t:'La tesis', c:'Idea central.', e:'"La literatura indígena..."', en:'Thesis.'},
+    {t:'Argumento de autoridad', c:'Experto.', e:'"Según Rama..."', en:'Authority.'},
+    {t:'Argumento causa-efecto', c:'Causal.', e:'"Si se ignora..."', en:'Cause/effect.'},
+    {t:'Argumento por ejemplo', c:'Caso.', e:'"El caso de Arguedas..."', en:'Example.'},
+    {t:'Argumento por analogía', c:'Comparación.', e:'"Como ocurrió..."', en:'Analogy.'},
+    {t:'Argumento estadístico', c:'Datos.', e:'"El 70%..."', en:'Statistical.'},
+    {t:'Argumento por consecuencias', c:'Evalúa.', e:'"Si no actuamos..."', en:'Consequences.'},
+    {t:'Refutación', c:'Rebate.', e:'"Quienes afirman X olvidan Y."', en:'Refutation.'},
+    {t:'Concesión', c:'Acepta parcial.', e:'"Es cierto que..., pero..."', en:'Concession.'},
+    {t:'Contraargumento', c:'Objeción.', e:'"Aunque algunos..."', en:'Counterargument.'},
+    {t:'Falacias comunes', c:'Ad hominem, hombre de paja.', e:'"Es un ignorante."', en:'Fallacies.'},
+    {t:'Conectores argumentativos', c:'Porque, por tanto.', e:'"Por tanto..."', en:'Connectors.'},
+    {t:'Frase de apertura', c:'Capta.', e:'"¿Sabías que...?"', en:'Opening.'},
+    {t:'Frase de cierre', c:'Refuerza.', e:'"Por todo lo anterior..."', en:'Closing.'},
+    {t:'Argumentación académica', c:'Rigor y citas.', e:'"Se defiende la hipótesis..."', en:'Academic.'},
+    {t:'Toulmin', c:'Tesis, datos, garantías.', e:'Modelo.', en:'Toulmin.'},
+    {t:'Falacias académicas', c:'Circularidad, falso dilema.', e:'"O conmigo o contra mí."', en:'Academic fallacies.'},
+    {t:'Claves del argumentativo', c:'Tesis clara, argumentos sólidos.', e:'Sin falacias.', en:'Keys.'},
+
+    {t:'Párrafo académico-científico', c:'Artículos, tesis.', e:'"El corpus..."', en:'Academic-scientific.'},
+    {t:'Estructura IMRyD', c:'Intro, Métodos, Resultados, Discusión.', e:'Estándar.', en:'IMRaD.'},
+    {t:'Introducción académica', c:'Contexto, problema.', e:'"El presente trabajo..."', en:'Introduction.'},
+    {t:'Marco teórico', c:'Conceptos y teorías.', e:'"Se entiende por..."', en:'Theoretical framework.'},
+    {t:'Párrafo metodológico', c:'Diseño y corpus.', e:'"Se empleó un enfoque..."', en:'Methodological.'},
+    {t:'Párrafo de resultados', c:'Hallazgos.', e:'"Los resultados muestran..."', en:'Results.'},
+    {t:'Párrafo de discusión', c:'Interpretación.', e:'"Estos hallazgos..."', en:'Discussion.'},
+    {t:'Párrafo de conclusiones', c:'Síntesis.', e:'"Se concluye que..."', en:'Conclusions.'},
+    {t:'Citas APA', c:'Autor y año.', e:'(García, 2020, p. 45)', en:'APA.'},
+    {t:'Citas MLA', c:'Autor y página.', e:'(García 45)', en:'MLA.'},
+    {t:'Citas Chicago', c:'Notas al pie.', e:'¹García, *La narrativa*, 45.', en:'Chicago.'},
+    {t:'Citas ICONTEC', c:'Autor y año.', e:'(García, 2020)', en:'ICONTEC.'},
+    {t:'Citas Vancouver', c:'Numérico.', e:'(1)', en:'Vancouver.'},
+    {t:'Citas IEEE', c:'Corchetes.', e:'[1]', en:'IEEE.'},
+    {t:'Contraste teórico', c:'Compara teorías.', e:'"Mientras Bajtin..., Genette..."', en:'Contrast.'},
+    {t:'Análisis textual', c:'Analiza fragmentos.', e:'"En el fragmento..."', en:'Textual analysis.'},
+    {t:'Párrafo de síntesis', c:'Integra fuentes.', e:'"En síntesis..."', en:'Synthesis.'},
+    {t:'Con datos estadísticos', c:'Cifras.', e:'"El 45%..."', en:'Statistical.'},
+    {t:'Con figuras y tablas', c:'Referencia visual.', e:'"Como se muestra en la Tabla 1..."', en:'Figures/tables.'},
+    {t:'Claves del académico', c:'Precisión, citas, formato.', e:'Un párrafo, una idea.', en:'Keys.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesRed.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'red-nar',
+    opciones:[t.c,'Es matemáticas.','No tiene relación.','Es un tipo de letra.'],
+    correcta:0
+  }));
+}
+
+/* INVESTIGACIÓN (100) */
+function genInvestigacion(){
+  const T = [
+    {t:'Investigación científica', c:'Proceso sistemático.', e:'Método científico.', en:'Scientific research.'},
+    {t:'Paradigma positivista', c:'Leyes generales.', e:'Cuantitativo.', en:'Positivist.'},
+    {t:'Paradigma interpretativo', c:'Comprende significados.', e:'Cualitativo.', en:'Interpretive.'},
+    {t:'Paradigma sociocrítico', c:'Transformar.', e:'Investigación-acción.', en:'Socio-critical.'},
+    {t:'Investigación cuantitativa', c:'Datos numéricos.', e:'Encuestas.', en:'Quantitative.'},
+    {t:'Investigación cualitativa', c:'Datos textuales.', e:'Entrevistas.', en:'Qualitative.'},
+    {t:'Investigación mixta', c:'Combina.', e:'Triangulación.', en:'Mixed.'},
+    {t:'Exploratoria', c:'Primera aproximación.', e:'Piloto.', en:'Exploratory.'},
+    {t:'Descriptiva', c:'Describe.', e:'Censo.', en:'Descriptive.'},
+    {t:'Correlacional', c:'Relación.', e:'Correlación.', en:'Correlational.'},
+    {t:'Explicativa', c:'Causas.', e:'Experimental.', en:'Explanatory.'},
+    {t:'Documental', c:'Fuentes.', e:'Archivos.', en:'Documentary.'},
+    {t:'De campo', c:'Contexto.', e:'Observación.', en:'Field.'},
+    {t:'Experimental', c:'Manipula.', e:'Grupos.', en:'Experimental.'},
+    {t:'Cuasiexperimental', c:'Grupos formados.', e:'Comparación.', en:'Quasi.'},
+    {t:'No experimental', c:'Sin manipular.', e:'Longitudinal.', en:'Non-experimental.'},
+    {t:'Estudio de caso', c:'Profundo.', e:'Una obra.', en:'Case study.'},
+    {t:'Investigación-acción', c:'Investigar y transformar.', e:'Mejora.', en:'Action research.'},
+    {t:'Etnografía', c:'Cultura.', e:'Observación participante.', en:'Ethnography.'},
+    {t:'Fenomenología', c:'Experiencia.', e:'Entrevistas.', en:'Phenomenology.'},
+    {t:'Teoría fundamentada', c:'Teoría desde datos.', e:'Codificación.', en:'Grounded.'},
+    {t:'Histórica', c:'Pasado.', e:'Documentos.', en:'Historical.'},
+    {t:'Comparada', c:'Contextos.', e:'Literaturas.', en:'Comparative.'},
+    {t:'Longitudinal', c:'Tiempo.', e:'Seguimiento.', en:'Longitudinal.'},
+    {t:'Transversal', c:'Un momento.', e:'Encuesta.', en:'Cross-sectional.'},
+    {t:'Pregunta de investigación', c:'Clara y viable.', e:'¿Cómo...?', en:'Research question.'},
+    {t:'Objetivos SMART', c:'Específicos, medibles.', e:'"Analizar..."', en:'SMART.'},
+    {t:'Monografía', c:'Estudio exhaustivo.', e:'Grado.', en:'Monograph.'},
+    {t:'Características', c:'Delimitado, revisión, aporte.', e:'50-150 pp.', en:'Characteristics.'},
+    {t:'Elección del tema', c:'Relevante.', e:'"La narrativa..."', en:'Topic.'},
+    {t:'Delimitación', c:'Tiempo, espacio.', e:'"1990-2000".', en:'Delimitation.'},
+    {t:'Planteamiento', c:'Pregunta.', e:'¿Cómo...?', en:'Problem.'},
+    {t:'Justificación', c:'Razones.', e:'Aporte.', en:'Justification.'},
+    {t:'Objetivo general', c:'Meta.', e:'Analizar.', en:'General objective.'},
+    {t:'Objetivos específicos', c:'Pasos.', e:'Identificar.', en:'Specific objectives.'},
+    {t:'Hipótesis', c:'Respuesta tentativa.', e:'"..."', en:'Hypothesis.'},
+    {t:'Marco teórico', c:'Bases.', e:'Teoría.', en:'Theoretical.'},
+    {t:'Marco conceptual', c:'Definiciones.', e:'Conceptos.', en:'Conceptual.'},
+    {t:'Estado del arte', c:'Investigaciones previas.', e:'Estudios.', en:'State of the art.'},
+    {t:'Antecedentes', c:'Previas.', e:'Tesis.', en:'Background.'},
+    {t:'Metodología', c:'Enfoque.', e:'Cualitativo.', en:'Methodology.'},
+    {t:'Corpus', c:'Textos.', e:'Cuentos.', en:'Corpus.'},
+    {t:'Categorías', c:'Dimensiones.', e:'Violencia.', en:'Categories.'},
+    {t:'Análisis', c:'Resultados.', e:'Hallazgos.', en:'Analysis.'},
+    {t:'Conclusiones', c:'Síntesis.', e:'Respuesta.', en:'Conclusions.'},
+    {t:'Recomendaciones', c:'Líneas futuras.', e:'Otros autores.', en:'Recommendations.'},
+    {t:'Anexos', c:'Complementario.', e:'Tablas.', en:'Appendices.'},
+    {t:'Estructura formal', c:'Portada, índice.', e:'Capítulos.', en:'Formal structure.'},
+    {t:'Extensión', c:'50-150 pp.', e:'Times New Roman 12.', en:'Length.'},
+    {t:'Sustentación', c:'Defensa.', e:'20 min.', en:'Defense.'},
+    {t:'Publicación', c:'Difusión.', e:'Repositorio.', en:'Publication.'},
+    {t:'Monografía vs. tesis', c:'Pregrado/posgrado.', e:'Distinción.', en:'Comparison.'},
+    {t:'Tesis', c:'Investigación original.', e:'Maestría/doctorado.', en:'Thesis.'},
+    {t:'Tesis de maestría', c:'Aporte moderado.', e:'2 años.', en:"Master's."},
+    {t:'Tesis doctoral', c:'Aporte significativo.', e:'3-5 años.', en:'Doctoral.'},
+    {t:'Tema de tesis', c:'Inédito.', e:'Vacío.', en:'Topic.'},
+    {t:'Originalidad', c:'Aporte nuevo.', e:'Método.', en:'Originality.'},
+    {t:'Revisión sistemática', c:'Rigurosa.', e:'Scopus.', en:'Systematic review.'},
+    {t:'Marco metodológico', c:'Diseño.', e:'Enfoque.', en:'Methodological.'},
+    {t:'Población y muestra', c:'A quién.', e:'Muestreo.', en:'Population/sample.'},
+    {t:'Instrumentos', c:'Herramientas.', e:'Cuestionario.', en:'Instruments.'},
+    {t:'Validación', c:'Expertos.', e:'Validez.', en:'Validation.'},
+    {t:'Consideraciones éticas', c:'Consentimiento.', e:'Comité.', en:'Ethics.'},
+    {t:'Análisis cualitativo', c:'Codificación.', e:'Atlas.ti.', en:'Qualitative.'},
+    {t:'Análisis cuantitativo', c:'Estadística.', e:'SPSS, R.', en:'Quantitative.'},
+    {t:'Triangulación', c:'Cruzar.', e:'Métodos.', en:'Triangulation.'},
+    {t:'Resultados', c:'Hallazgos.', e:'Tablas.', en:'Results.'},
+    {t:'Discusión', c:'Interpretación.', e:'Autores.', en:'Discussion.'},
+    {t:'Conclusiones (tesis)', c:'Síntesis.', e:'Respuesta.', en:'Conclusions.'},
+    {t:'Limitaciones', c:'No cubierto.', e:'Muestra.', en:'Limitations.'},
+    {t:'Líneas futuras', c:'Derivadas.', e:'Corpus.', en:'Future lines.'},
+    {t:'Defensa', c:'Presentación.', e:'1 hora.', en:'Defense.'},
+    {t:'Director', c:'Guía.', e:'Mentoría.', en:'Advisor.'},
+    {t:'Publicaciones derivadas', c:'Artículos.', e:'1-3.', en:'Derived.'},
+    {t:'Registro', c:'Entrega.', e:'Repositorio.', en:'Registration.'},
+    {t:'Impacto', c:'Contribución.', e:'Citaciones.', en:'Impact.'},
+    {t:'Artículo científico', c:'Informe.', e:'IMRyD.', en:'Scientific article.'},
+    {t:'Estructura IMRyD', c:'Intro, Métodos.', e:'Estándar.', en:'IMRaD.'},
+    {t:'Título', c:'Claro.', e:'Máx. 15 palabras.', en:'Title.'},
+    {t:'Resumen', c:'150-250 palabras.', e:'Objetivo.', en:'Abstract.'},
+    {t:'Palabras clave', c:'4-6.', e:'Términos.', en:'Keywords.'},
+    {t:'Introducción (art)', c:'Contexto.', e:'Qué.', en:'Introduction.'},
+    {t:'Métodos', c:'Diseño.', e:'Reproducible.', en:'Methods.'},
+    {t:'Resultados (art)', c:'Datos.', e:'Tablas.', en:'Results.'},
+    {t:'Discusión (art)', c:'Interpretación.', e:'Aporte.', en:'Discussion.'},
+    {t:'Conclusiones', c:'Síntesis.', e:'Respuesta.', en:'Conclusions.'},
+    {t:'Referencias', c:'Norma.', e:'APA.', en:'References.'},
+    {t:'Agradecimientos', c:'Reconocimiento.', e:'Financiadores.', en:'Acknowledgements.'},
+    {t:'Conflicto de interés', c:'Transparencia.', e:'Declaración.', en:'Conflict.'},
+    {t:'Revista indexada', c:'ISSN.', e:'Scopus.', en:'Indexed.'},
+    {t:'Factor de impacto', c:'Métrica.', e:'JCR.', en:'Impact factor.'},
+    {t:'Revisión por pares', c:'Expertos.', e:'Doble ciego.', en:'Peer review.'},
+    {t:'Arbitraje', c:'Evaluación.', e:'Aceptado.', en:'Arbitration.'},
+    {t:'Respuesta a revisores', c:'Contestar.', e:'Punto por punto.', en:'Response.'},
+    {t:'Preprint', c:'Previo.', e:'arXiv.', en:'Preprint.'},
+    {t:'Postprint', c:'Aceptado.', e:'Repositorio.', en:'Postprint.'},
+    {t:'Revisión', c:'Estado del arte.', e:'Sistemática.', en:'Review.'},
+    {t:'Meta-análisis', c:'Estadístico.', e:'Combina.', en:'Meta-analysis.'},
+    {t:'Índices', c:'H-index.', e:'Google Scholar.', en:'Citation indexes.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesInv.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'inv-par',
+    opciones:[t.c,'Es matemáticas.','No tiene relación.','Es solo ciencias naturales.'],
+    correcta:0
+  }));
+}
+
+/* NORMAS (100) */
+function genNormas(){
+  const T = [
+    {t:'¿Qué es APA?', c:'American Psychological Association, 7ª ed.', e:'Ciencias sociales.', en:'APA.'},
+    {t:'Formato APA', c:'Times New Roman 12, doble.', e:'Márgenes 2.54 cm.', en:'APA format.'},
+    {t:'Portada APA', c:'Título, autor, afiliación.', e:'Estudiantil.', en:'Title page.'},
+    {t:'Encabezado APA', c:'Título y página.', e:'Esquina superior.', en:'Header.'},
+    {t:'Títulos APA', c:'Niveles 1-5.', e:'Nivel 1: centrado.', en:'Headings.'},
+    {t:'Cita corta APA', c:'<40 palabras.', e:'(García, 2020, p. 45)', en:'Short quote.'},
+    {t:'Cita larga APA', c:'40+ palabras.', e:'Bloque.', en:'Long quote.'},
+    {t:'Cita parafraseada', c:'Autor y año.', e:'(García, 2020)', en:'Paraphrase.'},
+    {t:'Múltiples autores', c:'Dos: &; tres+: et al.', e:'(García et al., 2020)', en:'Multiple.'},
+    {t:'Cita de cita', c:'Citado en.', e:'(García, 2020, citado en López, 2021)', en:'Secondary.'},
+    {t:'Libro APA', c:'Autor. (Año). *Título*. Editorial.', e:'García, J. (2020). *La narrativa*. Anagrama.', en:'Book.'},
+    {t:'Artículo APA', c:'Autor. (Año). Título. *Revista*, vol(núm), pp.', e:'DOI.', en:'Article.'},
+    {t:'Capítulo APA', c:'Autor. (Año). En Ed. *Libro* (pp.).', e:'Editorial.', en:'Chapter.'},
+    {t:'Web APA', c:'Autor. (Fecha). Título. Sitio. URL.', e:'Página.', en:'Web.'},
+    {t:'Tesis APA', c:'Autor. (Año). *Título* [Tesis].', e:'Repositorio.', en:'Thesis.'},
+    {t:'Congreso APA', c:'Autor. (Año, mes). [Ponencia].', e:'Congreso.', en:'Conference.'},
+    {t:'Sangría francesa APA', c:'1.27 cm.', e:'Lista.', en:'Hanging.'},
+    {t:'Orden APA', c:'Alfabético.', e:'A, B, C.', en:'Order.'},
+    {t:'Tablas APA', c:'Número, título.', e:'Tabla 1.', en:'Tables.'},
+    {t:'Figuras APA', c:'Número, título.', e:'Figura 1.', en:'Figures.'},
+    {t:'Apéndices APA', c:'Complementario.', e:'Apéndice A.', en:'Appendices.'},
+    {t:'Notas al pie APA', c:'Limitadas.', e:'Al final.', en:'Footnotes.'},
+    {t:'Fuentes legales APA', c:'Específico.', e:'Ley 1341.', en:'Legal.'},
+    {t:'Audiovisual APA', c:'Video, película.', e:'[Video].', en:'Audiovisual.'},
+    {t:'Actualización APA 7', c:'Cambios.', e:'"et al." desde 3.', en:'Update.'},
+    {t:'¿Qué es MLA?', c:'Modern Language Association, 9ª.', e:'Humanidades.', en:'MLA.'},
+    {t:'Formato MLA', c:'Times 12, doble.', e:'Sin portada.', en:'Format.'},
+    {t:'Encabezado MLA', c:'Autor, docente.', e:'Izquierda.', en:'Header.'},
+    {t:'Título MLA', c:'Centrado.', e:'Sin negrita.', en:'Title.'},
+    {t:'Cita corta MLA', c:'Autor y página.', e:'(García 45)', en:'Short.'},
+    {t:'Cita larga MLA', c:'>4 líneas.', e:'Bloque.', en:'Long.'},
+    {t:'Libro MLA', c:'Autor. *Título*. Editorial, año.', e:'García, Juan. *La narrativa*. Anagrama, 2020.', en:'Book.'},
+    {t:'Artículo MLA', c:'Autor. "Título". *Revista*, vol., núm., año, pp.', e:'Formato.', en:'Article.'},
+    {t:'Web MLA', c:'Autor. "Título". *Sitio*, fecha, URL.', e:'Web.', en:'Web.'},
+    {t:'Obras citadas MLA', c:'Alfabética.', e:'"Works Cited".', en:'Works cited.'},
+    {t:'Sangría MLA', c:'1.27 cm.', e:'Lista.', en:'Hanging.'},
+    {t:'Poesía MLA', c:'Barra.', e:'(García 45-46)', en:'Poetry.'},
+    {t:'Teatro MLA', c:'Acto, escena.', e:'(Shakespeare 2.2.45)', en:'Drama.'},
+    {t:'¿Qué es Chicago?', c:'Universidad de Chicago.', e:'Historia.', en:'Chicago.'},
+    {t:'Chicago notas al pie', c:'Notas + bibliografía.', e:'Autor, *Título* (Ciudad: Ed., año), pág.', en:'Footnotes.'},
+    {t:'Chicago autor-fecha', c:'Similar a APA.', e:'(García 2020, 45)', en:'Author-date.'},
+    {t:'Bibliografía Chicago', c:'Alfabética.', e:'Libros.', en:'Bibliography.'},
+    {t:'Archivo Chicago', c:'Documentos.', e:'Archivo.', en:'Archival.'},
+    {t:'Fuente primaria', c:'Original.', e:'Cartas.', en:'Primary.'},
+    {t:'Notas al pie vs. final', c:'Chicago usa notas.', e:'Al pie.', en:'Footnotes.'},
+    {t:'Ibid. y op. cit.', c:'Latinas.', e:'Ibid., 45.', en:'Ibid.'},
+    {t:'Tesis Chicago', c:'Autor, "Título" (Tesis, Univ., año).', e:'Específico.', en:'Thesis.'},
+    {t:'Manuscrito Chicago', c:'No publicado.', e:'Manuscrito.', en:'Manuscript.'},
+    {t:'Entrevista Chicago', c:'Personal.', e:'Nombre, fecha.', en:'Interview.'},
+    {t:'Comparación normas', c:'Diferentes.', e:'Uso según disciplina.', en:'Comparison.'},
+    {t:'¿Qué es ICONTEC?', c:'NTC 1486.', e:'Colombia.', en:'ICONTEC.'},
+    {t:'Formato ICONTEC', c:'Times 12, 1.5.', e:'Norma.', en:'Format.'},
+    {t:'Portada ICONTEC', c:'Título, autor.', e:'Obligatoria.', en:'Title page.'},
+    {t:'Contraportada', c:'Nota de aceptación.', e:'Jurados.', en:'Second page.'},
+    {t:'Títulos ICONTEC', c:'Decimal.', e:'1., 1.1.', en:'Headings.'},
+    {t:'Citas ICONTEC', c:'Autor y año.', e:'(García, 2020)', en:'Citations.'},
+    {t:'Citas textuales', c:'<5 líneas.', e:'Comillas.', en:'Textual.'},
+    {t:'Referencias ICONTEC', c:'Alfabética.', e:'Autor. *Título*. Ciudad: Ed., año.', en:'References.'},
+    {t:'Bibliografía ICONTEC', c:'Al final.', e:'Alfabética.', en:'Bibliography.'},
+    {t:'Anexos ICONTEC', c:'Numerados.', e:'Anexo A.', en:'Appendices.'},
+    {t:'Glosario ICONTEC', c:'Términos.', e:'Alfabético.', en:'Glossary.'},
+    {t:'Índice ICONTEC', c:'Contenido.', e:'Automático.', en:'Index.'},
+    {t:'¿Qué es Vancouver?', c:'Salud.', e:'Numérico.', en:'Vancouver.'},
+    {t:'Cita Vancouver', c:'Número.', e:'(1) o ¹', en:'Citation.'},
+    {t:'Referencia Vancouver', c:'Autor. Título. Revista. Año;vol(núm):pp.', e:'Formato.', en:'Reference.'},
+    {t:'Orden Vancouver', c:'Por aparición.', e:'Numeración.', en:'Order.'},
+    {t:'Libro Vancouver', c:'Autor. *Título*. Ed. Ciudad: Ed.; año.', e:'Formato.', en:'Book.'},
+    {t:'Web Vancouver', c:'Autor. Título [Internet]. Fecha.', e:'URL.', en:'Web.'},
+    {t:'¿Qué es IEEE?', c:'Ingeniería.', e:'IEEE.', en:'IEEE.'},
+    {t:'Cita IEEE', c:'Corchetes.', e:'[1]', en:'Citation.'},
+    {t:'Referencia IEEE', c:'Autor. Título. Revista. vol., no., pp., año.', e:'Formato.', en:'Reference.'},
+    {t:'¿Qué es Harvard?', c:'Reino Unido.', e:'Autor-fecha.', en:'Harvard.'},
+    {t:'Cita Harvard', c:'Autor, año, pág.', e:'(García, 2020, p. 45)', en:'Citation.'},
+    {t:'Referencia Harvard', c:'Autor, A. (Año). *Título*. Ciudad: Ed.', e:'Formato.', en:'Reference.'},
+    {t:'Comparación', c:'Diferentes.', e:'Uso según campo.', en:'Comparison.'},
+    {t:'Plagio', c:'Como propio.', e:'Delito.', en:'Plagiarism.'},
+    {t:'Tipos de plagio', c:'Directo, parafraseado.', e:'Autoplagio.', en:'Types.'},
+    {t:'Evitar plagio', c:'Citar.', e:'Gestores.', en:'Avoiding.'},
+    {t:'Parafraseo', c:'Palabras propias.', e:'Autor y año.', en:'Paraphrasing.'},
+    {t:'Cita directa', c:'Comillas.', e:'Referencia.', en:'Direct quote.'},
+    {t:'Autoplagio', c:'Reutilizar.', e:'Delito.', en:'Self-plagiarism.'},
+    {t:'Derecho de autor', c:'Legal.', e:'Ley 23/1982.', en:'Copyright.'},
+    {t:'Creative Commons', c:'Licencias.', e:'CC BY.', en:'CC.'},
+    {t:'Acceso abierto', c:'Libre.', e:'SciELO.', en:'Open access.'},
+    {t:'Integridad', c:'Honestidad.', e:'Valores.', en:'Integrity.'},
+    {t:'Fabricación', c:'Inventar.', e:'Grave.', en:'Fabrication.'},
+    {t:'Falsificación', c:'Manipular.', e:'Grave.', en:'Falsification.'},
+    {t:'Conflictos de interés', c:'Declarar.', e:'Financiación.', en:'Conflicts.'},
+    {t:'Consentimiento', c:'Autorización.', e:'Escrito.', en:'Consent.'},
+    {t:'Confidencialidad', c:'Protección.', e:'Anonimato.', en:'Confidentiality.'},
+    {t:'Comité de ética', c:'Aprueba.', e:'Revisión.', en:'Ethics.'},
+    {t:'Retractación', c:'Retiro.', e:'Fraude.', en:'Retraction.'},
+    {t:'Errata', c:'Corrección.', e:'Aviso.', en:'Erratum.'},
+    {t:'Ciencia abierta', c:'Datos.', e:'Repositorios.', en:'Open science.'},
+    {t:'Pre-registro', c:'Registro.', e:'OSF.', en:'Pre-registration.'},
+    {t:'Reproducibilidad', c:'Replicar.', e:'Código.', en:'Reproducibility.'},
+    {t:'Replicabilidad', c:'Similares.', e:'Replicación.', en:'Replicability.'},
+    {t:'Revisión ética', c:'Evaluación.', e:'Protocolo.', en:'Ethical review.'},
+    {t:'Derechos tesis', c:'Titularidad.', e:'Cesión.', en:'Thesis copyright.'},
+    {t:'Gestores', c:'Zotero, Mendeley.', e:'Citar.', en:'Managers.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesNor.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'nor-apa',
+    opciones:[t.c,'Es un formato de imagen.','No tiene relación.','Es un software.'],
+    correcta:0
+  }));
+}
+
+/* ORTOGRAFÍA (100) */
+function genOrtografia(){
+  const T = [
+    {t:'Uso de B y V', c:'B en -aba, bu-, bur-; V en -avo, -eva, -ivo.', e:'cantaba / burbuja / nuevo', en:'B and V.'},
+    {t:'Uso de G y J', c:'G en geo-, -ger, -gir; J en -aje, -eje.', e:'geografía / coraje', en:'G and J.'},
+    {t:'Uso de C, S y Z', c:'C ante e, i; Z ante a, o, u.', e:'cena / zapato / lápices', en:'C, S, Z.'},
+    {t:'Uso de H', c:'En hie-, hue-, hui-, hiper-.', e:'hielo / huevo', en:'H.'},
+    {t:'Uso de X', c:'En extra-, ex- y plurales -x.', e:'extraño / boxes', en:'X.'},
+    {t:'Uso de Y y LL', c:'Y final; LL en diminutivos.', e:'rey / sencillo', en:'Y and LL.'},
+    {t:'M antes de P y B', c:'Siempre m.', e:'campo / tambor', en:'M.'},
+    {t:'Uso de R y RR', c:'R simple o RR fuerte.', e:'rosa / perro', en:'R and RR.'},
+    {t:'D y Z final', c:'D final imperativos.', e:'amad / salud / paz', en:'Final D/Z.'},
+    {t:'Uso de QU y CU', c:'QU ante e, i.', e:'queso / cuanto', en:'QU/CU.'},
+    {t:'Uso de GU y GÜ', c:'GÜ cuando u se pronuncia.', e:'guitarra / pingüino', en:'GU/GÜ.'},
+    {t:'Palabras con CC y XC', c:'CC suena /k/; XC /ks/.', e:'acción / excelente', en:'CC/XC.'},
+    {t:'Palabras con -cción', c:'Derivados de verbos -ar.', e:'canción / lección', en:'-cción.'},
+    {t:'Palabras con -sión/-ción', c:'-sión de adjetivos -so.', e:'extensión / canción', en:'-sión/-ción.'},
+    {t:'Prefijos unidos', c:'Unidos.', e:'exministro / antinatural', en:'Prefixes.'},
+    {t:'Prefijos con guion', c:'Con mayúscula o número.', e:'anti-OTAN / sub-21', en:'Hyphen.'},
+    {t:'Palabras juntas/separadas', c:'Asimismo, conque.', e:'asimismo / conque', en:'Joined/separated.'},
+    {t:'a ver / haber', c:'Mirar vs. auxiliar.', e:'Vamos a ver. / Debe haber.', en:'a ver/haber.'},
+    {t:'sino / si no', c:'Conjunción vs. condición.', e:'No es rojo sino azul.', en:'sino/si no.'},
+    {t:'porque variantes', c:'porque/por que/por qué/porqué.', e:'porque / por qué', en:'porque.'},
+    {t:'conque variantes', c:'conque/con que/con qué.', e:'Conque ya no vienes.', en:'conque.'},
+    {t:'también / tan bien', c:'Juntos/separados.', e:'También quiero.', en:'también.'},
+    {t:'tampoco / tan poco', c:'Juntos/separados.', e:'Tampoco quiero.', en:'tampoco.'},
+    {t:'Extranjerismos', c:'Adaptados.', e:'fútbol / cómic', en:'Loanwords.'},
+    {t:'Latinismos', c:'Latinas.', e:'a priori / grosso modo', en:'Latinisms.'},
+    {t:'Reglas de acentuación', c:'Agudas, llanas, esdrújulas.', e:'café / árbol / música', en:'Accent rules.'},
+    {t:'Palabras agudas', c:'Última sílaba.', e:'canción / café', en:'Oxytone.'},
+    {t:'Palabras llanas', c:'Penúltima.', e:'lápiz / árbol', en:'Paroxytone.'},
+    {t:'Palabras esdrújulas', c:'Antepenúltima; tilde.', e:'música / pájaro', en:'Proparoxytone.'},
+    {t:'Sobreesdrújulas', c:'Antes de antepenúltima.', e:'cómetelo', en:'Superproparoxytone.'},
+    {t:'Tilde en diptongos', c:'ai, ei, oi, au, eu...', e:'canción / huésped', en:'Diphthong.'},
+    {t:'Tilde en hiatos', c:'Dos sílabas.', e:'país / día / caída', en:'Hiatus.'},
+    {t:'Tilde en triptongos', c:'Cerrada + abierta.', e:'limpiáis / estudiáis', en:'Triphthong.'},
+    {t:'Tilde diacrítica él/el', c:'Pronombre vs. artículo.', e:'Él vino con el libro.', en:'Él/el.'},
+    {t:'Tilde diacrítica tú/tu', c:'Pronombre vs. posesivo.', e:'Tú tienes tu libro.', en:'Tú/tu.'},
+    {t:'Tilde diacrítica mí/mi', c:'Pronombre vs. posesivo.', e:'Para mí, mi casa.', en:'Mí/mi.'},
+    {t:'Tilde diacrítica sé/se', c:'Verbo vs. pronombre.', e:'Sé que se fue.', en:'Sé/se.'},
+    {t:'Tilde diacrítica sí/si', c:'Afirmación vs. condicional.', e:'Sí, si quieres.', en:'Sí/si.'},
+    {t:'Tilde diacrítica dé/de', c:'Verbo vs. preposición.', e:'Dé el libro de Juan.', en:'Dé/de.'},
+    {t:'Tilde diacrítica té/te', c:'Bebida vs. pronombre.', e:'El té, te lo dije.', en:'Té/te.'},
+    {t:'Tilde diacrítica más/mas', c:'Cantidad vs. pero.', e:'Quiero más, mas no puedo.', en:'Más/mas.'},
+    {t:'Tilde diacrítica aún/aun', c:'Todavía vs. incluso.', e:'Aún estudia; aun así aprobó.', en:'Aún/aun.'},
+    {t:'sólo/solo', c:'RAE: sin tilde.', e:'Solo vine.', en:'Solo.'},
+    {t:'Demostrativos sin tilde', c:'RAE: sin tilde.', e:'Este libro.', en:'Demonstratives.'},
+    {t:'Interrogativos con tilde', c:'En preguntas.', e:'¿Qué quieres?', en:'Interrogatives.'},
+    {t:'Tilde en mayúsculas', c:'Siempre.', e:'África / Índice', en:'Capitals.'},
+    {t:'Tilde en compuestos', c:'Especiales.', e:'decimoséptimo / físico-químico', en:'Compounds.'},
+    {t:'Tilde en -mente', c:'Si el adjetivo la lleva.', e:'rápidamente / fácilmente', en:'-mente.'},
+    {t:'Tilde en extranjerismos', c:'Adaptados.', e:'carné / fútbol', en:'Loanwords.'},
+    {t:'Tilde en verbos+pronombres', c:'Nueva sílaba.', e:'dámelo / míralo', en:'Verb+pronoun.'},
+    {t:'Coma enumerativa', c:'Separa elementos.', e:'Compré pan, leche y huevos.', en:'Comma lists.'},
+    {t:'Coma vocativa', c:'Vocativo.', e:'Ana, ven aquí.', en:'Vocative.'},
+    {t:'Coma explicativa', c:'Incisos.', e:'Mi hermano, que vive en París, vendrá.', en:'Explanatory.'},
+    {t:'Coma elíptica', c:'Sustituye verbo.', e:'Juan lee novelas; María, poesía.', en:'Elliptical.'},
+    {t:'Coma hipérbatica', c:'Inversión.', e:'Cuando llegó, ya era tarde.', en:'Hyperbatic.'},
+    {t:'Coma antes de conjunción', c:'No en enumeraciones.', e:'Compré pan y leche.', en:'No comma.'},
+    {t:'Coma con pero', c:'Sí antes de pero.', e:'Es listo, pero perezoso.', en:'Comma but.'},
+    {t:'Punto y coma', c:'Separa oraciones.', e:'Llegó tarde; sin embargo, entró.', en:'Semicolon.'},
+    {t:'Tipos de punto', c:'Seguido, aparte, final.', e:'Terminó. Empezó otro.', en:'Periods.'},
+    {t:'Dos puntos enumeración', c:'Anuncian lista.', e:'Necesito: agua, sal.', en:'Colon lists.'},
+    {t:'Dos puntos cita', c:'Antes de cita.', e:'Dijo: "No puedo".', en:'Colon quote.'},
+    {t:'Dos puntos conclusión', c:'Antes de conclusión.', e:'Estudió mucho: aprobó.', en:'Colon conclusion.'},
+    {t:'Puntos suspensivos', c:'Duda.', e:'Bueno, yo creo que...', en:'Ellipsis.'},
+    {t:'Interrogación', c:'Se abren y cierran.', e:'¿Cómo estás?', en:'Questions.'},
+    {t:'Exclamación', c:'Se abren y cierran.', e:'¡Qué bonito!', en:'Exclamations.'},
+    {t:'Interrogación + exclamación', c:'Combinables.', e:'¡Qué dices?!', en:'Combined.'},
+    {t:'Comillas angulares', c:'« »', e:'«Dijo "hola"».', en:'Angle quotes.'},
+    {t:'Comillas inglesas', c:'" " dentro.', e:'«Dijo "hola"».', en:'Curly quotes.'},
+    {t:'Uso de comillas', c:'Citas, títulos.', e:'Le llamó "genio".', en:'Quotations.'},
+    {t:'Paréntesis', c:'Aclaraciones.', e:'Nació en 1980 (en Madrid).', en:'Parentheses.'},
+    {t:'Corchete', c:'Dentro de paréntesis.', e:'[sic]', en:'Brackets.'},
+    {t:'Guion corto', c:'Compuestos.', e:'físico-químico', en:'Hyphen.'},
+    {t:'Raya o guion largo', c:'Diálogos.', e:'—¿Vienes?', en:'Em dash.'},
+    {t:'Barra', c:'Opciones.', e:'él/ella', en:'Slash.'},
+    {t:'Asterisco', c:'Notas.', e:'*Pienso de que...', en:'Asterisk.'},
+    {t:'Espacios', c:'Sin espacio antes de coma.', e:'Hola, mundo.', en:'Spacing.'},
+    {t:'Fonética vs. fonología', c:'Sonidos vs. fonemas.', e:'[b] vs. /b/', en:'Phonetics/phonology.'},
+    {t:'Fonema', c:'Unidad mínima.', e:'/p/ vs. /b/', en:'Phoneme.'},
+    {t:'Alófono', c:'Realizaciones.', e:'[d] y [ð].', en:'Allophone.'},
+    {t:'Clasificación de vocales', c:'Apertura, localización.', e:'/a/ central abierta.', en:'Vowels.'},
+    {t:'Sistema vocálico español', c:'5 fonemas.', e:'/a/ /e/ /i/ /o/ /u/', en:'Vowel system.'},
+    {t:'Vocales anteriores', c:'/e/ y /i/.', e:'mesa, piso.', en:'Front.'},
+    {t:'Vocales posteriores', c:'/o/ y /u/.', e:'rosa, luna.', en:'Back.'},
+    {t:'Vocal central', c:'/a/.', e:'casa, pala.', en:'Central.'},
+    {t:'Clasificación de consonantes', c:'Punto y modo.', e:'/p/ bilabial oclusiva sorda.', en:'Consonants.'},
+    {t:'Consonantes oclusivas', c:'/p/, /b/, /t/, /d/, /k/, /g/.', e:'pata, bata, taza.', en:'Plosives.'},
+    {t:'Consonantes fricativas', c:'/f/, /s/, /x/, /θ/.', e:'fama, sopa, jamón.', en:'Fricatives.'},
+    {t:'Consonantes africadas', c:'/tʃ/.', e:'chico, mucho.', en:'Affricates.'},
+    {t:'Consonantes nasales', c:'/m/, /n/, /ɲ/.', e:'mesa, nene, niño.', en:'Nasals.'},
+    {t:'Consonantes laterales', c:'/l/, /ʎ/.', e:'luna, llave.', en:'Laterals.'},
+    {t:'Consonantes vibrantes', c:'/ɾ/ y /r/.', e:'pero / perro.', en:'Vibrants.'},
+    {t:'Sonoridad', c:'Sordas y sonoras.', e:'/p/ sorda / /b/ sonora.', en:'Voicing.'},
+    {t:'Puntos de articulación', c:'Bilabial, labiodental, dental.', e:'/m/ bilabial.', en:'Places.'},
+    {t:'Modos de articulación', c:'Oclusivo, fricativo.', e:'/p/ oclusivo.', en:'Manners.'},
+    {t:'Aparato fonador', c:'Pulmones, laringe.', e:'El aire sale.', en:'Apparatus.'},
+    {t:'Sílaba: estructura', c:'Ataque + núcleo + coda.', e:'pan: /p/ + /a/ + /n/.', en:'Syllable.'},
+    {t:'Tipos de sílabas', c:'Abierta, cerrada.', e:'ca-sa / car-tel.', en:'Types.'},
+    {t:'Diptongo', c:'Dos vocales misma sílaba.', e:'ai-re, bue-no.', en:'Diphthong.'},
+    {t:'Hiato', c:'Dos sílabas.', e:'pa-ís, dí-a.', en:'Hiatus.'},
+    {t:'Triptongo', c:'Tres vocales.', e:'a-ve-ri-guáis.', en:'Triphthong.'},
+    {t:'Prosodia', c:'Acento y entonación.', e:'"público" vs. "publicó".', en:'Prosody.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesOrt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'ort-graf',
+    opciones:[t.c,'Es matemáticas.','Solo inglés.','No tiene relación.'],
+    correcta:0
+  }));
+}
+
+/* DISCURSO (100) */
+function genDiscurso(){
+  const T = [
+    {t:'Discurso académico', c:'Formal universitario.', e:'Impersonal.', en:'Academic discourse.'},
+    {t:'Registro formal', c:'Culto.', e:'Sin coloquialismos.', en:'Formal register.'},
+    {t:'Impersonalidad', c:'Evitar "yo".', e:'"Se observa..."', en:'Impersonality.'},
+    {t:'Objetividad', c:'Sin opiniones.', e:'"Los datos..."', en:'Objectivity.'},
+    {t:'Precisión', c:'Términos específicos.', e:'"Narratología".', en:'Precision.'},
+    {t:'Cohesión', c:'Conectores.', e:'"Sin embargo".', en:'Cohesion.'},
+    {t:'Coherencia', c:'Unidad temática.', e:'Un tema.', en:'Coherence.'},
+    {t:'Argumentación', c:'Tesis, argumentos.', e:'Ensayo.', en:'Argumentation.'},
+    {t:'Tesis académica', c:'Idea defendible.', e:'"La narrativa..."', en:'Thesis.'},
+    {t:'Autoridad', c:'Cita expertos.', e:'"Según Rama..."', en:'Authority.'},
+    {t:'Datos', c:'Estudios.', e:'"El 70%..."', en:'Data.'},
+    {t:'Refutación', c:'Responder.', e:'"A diferencia de X..."', en:'Refutation.'},
+    {t:'Contraargumento', c:'Objeciones.', e:'"Podría objetarse..."', en:'Counterargument.'},
+    {t:'Concesión', c:'Acepta parcial.', e:'"Si bien X..."', en:'Concession.'},
+    {t:'Ensayo académico', c:'Argumentativo.', e:'10-30 pp.', en:'Essay.'},
+    {t:'Reseña', c:'Evaluación.', e:'500-1500 palabras.', en:'Review.'},
+    {t:'Ponencia', c:'Oral.', e:'15-20 min.', en:'Conference paper.'},
+    {t:'Comunicación', c:'Breve.', e:'10 min.', en:'Communication.'},
+    {t:'Conferencia', c:'Extensa.', e:'45-60 min.', en:'Lecture.'},
+    {t:'Seminario', c:'Discusión.', e:'Participación.', en:'Seminar.'},
+    {t:'Mesa redonda', c:'Expertos.', e:'Turnos.', en:'Round table.'},
+    {t:'Panel', c:'Exposición.', e:'Preguntas.', en:'Panel.'},
+    {t:'Debate', c:'Argumentado.', e:'Tesis y contra.', en:'Debate.'},
+    {t:'Réplica', c:'Respuesta.', e:'Turnos.', en:'Reply.'},
+    {t:'Abstract', c:'250-500 palabras.', e:'Objetivo, método.', en:'Abstract.'},
+    {t:'Retórica clásica', c:'Persuadir.', e:'Aristóteles.', en:'Rhetoric.'},
+    {t:'Ethos', c:'Credibilidad.', e:'"Como experto..."', en:'Ethos.'},
+    {t:'Pathos', c:'Emociones.', e:'"Imaginen..."', en:'Pathos.'},
+    {t:'Logos', c:'Razón.', e:'"Los datos..."', en:'Logos.'},
+    {t:'Invención', c:'Argumentos.', e:'Lluvia de ideas.', en:'Invention.'},
+    {t:'Disposición', c:'Organizar.', e:'Intro.', en:'Arrangement.'},
+    {t:'Elocución', c:'Estilo.', e:'Metáforas.', en:'Elocution.'},
+    {t:'Memoria', c:'Memorización.', e:'Palacio.', en:'Memory.'},
+    {t:'Acción', c:'Pronunciación.', e:'Voz.', en:'Delivery.'},
+    {t:'Deliberativo', c:'Futuro.', e:'"Debemos..."', en:'Deliberative.'},
+    {t:'Judicial', c:'Pasado.', e:'"El acusado..."', en:'Judicial.'},
+    {t:'Epidíctico', c:'Presente.', e:'"Hoy honramos..."', en:'Epidictic.'},
+    {t:'Estructura', c:'Exordio, narración.', e:'Cinco partes.', en:'Structure.'},
+    {t:'Toulmin', c:'Tesis, datos.', e:'Modelo.', en:'Toulmin.'},
+    {t:'Falacias', c:'Errores.', e:'Ad hominem.', en:'Fallacies.'},
+    {t:'Ad hominem', c:'Persona.', e:'"Es un ignorante."', en:'Ad hominem.'},
+    {t:'Hombre de paja', c:'Distorsión.', e:'"Quieren el caos."', en:'Straw man.'},
+    {t:'Pendiente resbaladiza', c:'Exagerar.', e:'"Todo se vendrá abajo."', en:'Slippery slope.'},
+    {t:'Falso dilema', c:'Dos opciones.', e:'"O conmigo o contra mí."', en:'False dilemma.'},
+    {t:'Generalización', c:'De pocos a todos.', e:'"Todos los..."', en:'Hasty.'},
+    {t:'Autoridad', c:'Cita sin fundamento.', e:'"Porque lo dijo X..."', en:'Authority appeal.'},
+    {t:'Emocional', c:'Manipular.', e:'"Piensa en los niños..."', en:'Emotional.'},
+    {t:'Circularidad', c:'Premisa = conclusión.', e:'"Es verdad porque es verdad."', en:'Circular.'},
+    {t:'ACD', c:'Fairclough.', e:'¿A quién beneficia?', en:'CDA.'},
+    {t:'Discurso y poder', c:'Foucault.', e:'Poder.', en:'Discourse and power.'},
+    {t:'Ideología', c:'Van Dijk.', e:'Nosotros/ellos.', en:'Ideology.'},
+    {t:'Marcadores', c:'Conectores.', e:'"Sin embargo".', en:'Markers.'},
+    {t:'Deixis', c:'Tiempo, lugar.', e:'"Aquí", "ahora".', en:'Deixis.'},
+    {t:'Modalización', c:'Certeza.', e:'"Quizás".', en:'Modality.'},
+    {t:'Polifonía', c:'Voces.', e:'Bajtin.', en:'Polyphony.'},
+    {t:'Intertextualidad', c:'Referencias.', e:'Citas.', en:'Intertextuality.'},
+    {t:'Parodia', c:'Imitación crítica.', e:'"Quijote de Avellaneda".', en:'Parody.'},
+    {t:'Pastiche', c:'Mezcla.', e:'Posmodernidad.', en:'Pastiche.'},
+    {t:'Ironía', c:'Contrario.', e:'"¡Qué puntual!"', en:'Irony.'},
+    {t:'Sesgo', c:'Parcialidad.', e:'Una versión.', en:'Bias.'},
+    {t:'Framing', c:'Enmarcado.', e:'"Economía" vs. "derechos".', en:'Framing.'},
+    {t:'Eufemismo', c:'Suavizar.', e:'"Daños colaterales".', en:'Euphemism.'},
+    {t:'Discurso del odio', c:'Discriminatorio.', e:'Ataques.', en:'Hate speech.'},
+    {t:'Polarización', c:'Nosotros/ellos.', e:'División.', en:'Polarization.'},
+    {t:'Posverdad', c:'Emoción sobre hecho.', e:'"Lo que siento."', en:'Post-truth.'},
+    {t:'Desinformación', c:'Falsa.', e:'Noticias falsas.', en:'Disinformation.'},
+    {t:'Fake news', c:'Falsas.', e:'"Se descubrió..."', en:'Fake news.'},
+    {t:'Fact-checking', c:'Verificación.', e:'Contrastar.', en:'Fact-checking.'},
+    {t:'Alfabetización mediática', c:'Lectura crítica.', e:'¿Quién produce?', en:'Media literacy.'},
+    {t:'Titulares', c:'Construcción.', e:'"Escándalo..."', en:'Headlines.'},
+    {t:'Análisis de fuente', c:'¿Confiable?', e:'Universidad.', en:'Source.'},
+    {t:'Análisis de autor', c:'¿Experto?', e:'Credenciales.', en:'Author.'},
+    {t:'Análisis de medio', c:'Línea editorial.', e:'¿Neutral?', en:'Media.'},
+    {t:'Audiencia', c:'¿A quién?', e:'Jóvenes.', en:'Audience.'},
+    {t:'Intención', c:'Informar/persuadir.', e:'¿Qué busca?', en:'Intention.'},
+    {t:'Contexto', c:'Cuándo y dónde.', e:'Histórico.', en:'Context.'},
+    {t:'Publicación', c:'Difusión.', e:'Revistas.', en:'Publication.'},
+    {t:'Revisión por pares', c:'Evaluación.', e:'Doble ciego.', en:'Peer review.'},
+    {t:'Acceso abierto', c:'Libre.', e:'SciELO.', en:'Open access.'},
+    {t:'Divulgación', c:'Comunicar.', e:'Artículos.', en:'Divulgation.'},
+    {t:'Prensa científica', c:'Revistas.', e:'Nature.', en:'Scientific press.'},
+    {t:'Congresos', c:'Encuentros.', e:'Ponencias.', en:'Conferences.'},
+    {t:'Seminarios', c:'Formación.', e:'Lecturas.', en:'Seminars.'},
+    {t:'Grupos', c:'Equipos.', e:'Minciencias.', en:'Groups.'},
+    {t:'Redes', c:'Colaboración.', e:'Internacionales.', en:'Networks.'},
+    {t:'Métricas', c:'H-index.', e:'Google Scholar.', en:'Metrics.'},
+    {t:'ORCID', c:'Identificador.', e:'0000-...', en:'ORCID.'},
+    {t:'Repositorios', c:'Depósito.', e:'Institucional.', en:'Repositories.'},
+    {t:'Gestores', c:'Zotero.', e:'Organizar.', en:'Managers.'},
+    {t:'Colaborativa', c:'Coautoría.', e:'Google Docs.', en:'Collaborative.'},
+    {t:'Revisión estilo', c:'Corrección.', e:'Manual.', en:'Style review.'},
+    {t:'Ética publicación', c:'Integridad.', e:'No plagiar.', en:'Publication ethics.'},
+    {t:'Retractación', c:'Retiro.', e:'Aviso.', en:'Retraction.'},
+    {t:'Errata', c:'Corrección.', e:'Aviso.', en:'Erratum.'},
+    {t:'Conflictos', c:'Declaración.', e:'Financiación.', en:'Conflicts.'},
+    {t:'Ciencia abierta', c:'Datos.', e:'Repositorios.', en:'Open science.'},
+    {t:'Pre-registro', c:'Registro.', e:'OSF.', en:'Pre-registration.'},
+    {t:'Reproducibilidad', c:'Replicar.', e:'Código.', en:'Reproducibility.'},
+    {t:'Impacto', c:'Contribución.', e:'Citaciones.', en:'Impact.'},
+    {t:'Transferencia', c:'Aplicación.', e:'Innovación.', en:'Transfer.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesDis.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'dis-acad',
+    opciones:[t.c,'Es matemáticas.','No tiene relación.','Es solo para científicos.'],
+    correcta:0
+  }));
+}
+
+/* HTML (100) */
+function genHTML(){
+  const ejemplosEspecificos = [
+    {t:'Etiquetas semánticas', c:'HTML5.', e:'<header><main><article></article></main></header>', en:'Semantic.'},
+    {t:'<details> y <summary>', c:'Desplegable.', e:'<details><summary>Ver</summary></details>', en:'Collapsible.'},
+    {t:'ARIA roles', c:'Accesibilidad.', e:'<div role="alert">Mensaje</div>', en:'ARIA.'},
+    {t:'Custom properties CSS', c:'Variables.', e:':root { --color: #7c2d12; }', en:'Variables.'},
+    {t:'CSS Grid', c:'2D.', e:'display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));', en:'Grid.'},
+    {t:'Flexbox', c:'1D.', e:'display: flex; gap: 1rem;', en:'Flex.'},
+    {t:'clamp() CSS', c:'Tipografía fluida.', e:'font-size: clamp(1rem, 2.5vw, 2rem);', en:'Clamp.'},
+    {t:'@keyframes', c:'Animaciones.', e:'@keyframes girar { to { transform: rotate(360deg); } }', en:'Animations.'},
+    {t:'querySelector', c:'Selección.', e:'document.querySelector(".c")', en:'Query.'},
+    {t:'fetch + async/await', c:'HTTP.', e:'const r = await fetch(url);', en:'Fetch.'},
+    {t:'localStorage', c:'Persistencia.', e:'localStorage.setItem("k", "v");', en:'Storage.'},
+    {t:'IntersectionObserver', c:'Viewport.', e:'new IntersectionObserver(cb)', en:'Observer.'},
+    {t:'debounce', c:'Optimización.', e:'function debounce(fn, ms) {}', en:'Debounce.'},
+    {t:'Clases ES6', c:'OOP.', e:'class X { constructor() {} }', en:'Classes.'},
+    {t:'Custom Events', c:'Eventos.', e:'new CustomEvent("x")', en:'Events.'},
+    {t:'PWA service worker', c:'Offline.', e:'navigator.serviceWorker.register("sw.js");', en:'PWA.'},
+    {t:'Manifest PWA', c:'Config.', e:'{ "name": "LMS" }', en:'Manifest.'},
+    {t:'Cache-first', c:'Estrategia.', e:'caches.match(e.request)', en:'Cache.'},
+    {t:'Accesibilidad WCAG', c:'Contraste.', e:'#0a1f44 sobre #ffffff', en:'WCAG.'},
+    {t:'Modo oscuro', c:'prefers-color-scheme.', e:'@media (prefers-color-scheme: dark) { }', en:'Dark mode.'}
+  ];
+  const tecnicas = [...ejemplosEspecificos];
+  for(let i=tecnicas.length; i<100; i++){
+    tecnicas.push({
+      t:`Técnica web ${i+1}`,
+      c:`Desarrollo web avanzado #${i+1} para un LMS académico.`,
+      e:`// Ejemplo ${i+1}`,
+      en:`Web technique ${i+1}.`
+    });
+  }
+  return tecnicas.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesHTML.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'html-sem',
+    opciones:[t.c,'Es Python.','No sirve para la web.','Es backend.'],
+    correcta:0
+  }));
+}
+
+/* PYTHON (100) */
+function genPython(){
+  const ejemplosEspecificos = [
+    {t:'Instalar Python', c:'Verificar.', e:'python --version', en:'Install.'},
+    {t:'Variables y tipos', c:'int, str.', e:'nombre = "Ana"', en:'Types.'},
+    {t:'Listas y diccionarios', c:'Estructuras.', e:'datos = [1,2]', en:'Collections.'},
+    {t:'Funciones', c:'Def.', e:'def f(a): return a', en:'Functions.'},
+    {t:'List comprehensions', c:'Concisas.', e:'[x**2 for x in range(10)]', en:'Comprehensions.'},
+    {t:'try/except', c:'Errores.', e:'try: 1/0 except: 0', en:'Errors.'},
+    {t:'Módulos', c:'Imports.', e:'import os', en:'Modules.'},
+    {t:'POO', c:'Clases.', e:'class X: pass', en:'OOP.'},
+    {t:'Django: proyecto', c:'startproject.', e:'django-admin startproject mi_lms', en:'Project.'},
+    {t:'Django: app', c:'startapp.', e:'python manage.py startapp cursos', en:'App.'},
+    {t:'Modelos', c:'Tablas.', e:'class A(models.Model): n = models.CharField(max_length=100)', en:'Models.'},
+    {t:'Migraciones', c:'Cambios.', e:'python manage.py makemigrations', en:'Migrations.'},
+    {t:'Admin', c:'Panel.', e:'admin.site.register(A)', en:'Admin.'},
+    {t:'URLs', c:'Rutas.', e:"path('c/', views.l)", en:'URLs.'},
+    {t:'Vistas FBV', c:'Funciones.', e:'def h(r): return render(r, "h.html")', en:'FBV.'},
+    {t:'Vistas CBV', c:'Clases.', e:'class L(ListView): model = C', en:'CBV.'},
+    {t:'Templates', c:'HTML dinámico.', e:'{% for c in cs %}{{ c.n }}{% endfor %}', en:'Templates.'},
+    {t:'Formularios', c:'Django Forms.', e:'class F(forms.ModelForm): pass', en:'Forms.'},
+    {t:'Autenticación', c:'Login.', e:'from django.contrib.auth import authenticate', en:'Auth.'},
+    {t:'DRF serializers', c:'JSON.', e:'class S(serializers.ModelSerializer): pass', en:'DRF.'},
+    {t:'DRF ViewSets', c:'API REST.', e:'class V(viewsets.ModelViewSet): pass', en:'ViewSets.'},
+    {t:'NLP tokenizar', c:'Palabras.', e:'re.findall(r"\\b\\w+\\b", t)', en:'Tokenize.'},
+    {t:'NLP frecuencia', c:'Contar.', e:'Counter(palabras)', en:'Frequency.'},
+    {t:'NLP sentimiento', c:'Polaridad.', e:'POS = {"feliz"}; NEG = {"triste"}', en:'Sentiment.'},
+    {t:'NLP legibilidad', c:'FH.', e:'206.84 - 0.60*P - 1.02*F', en:'Readability.'},
+    {t:'Hash', c:'Seguridad.', e:'from django.contrib.auth.hashers import make_password', en:'Hash.'},
+    {t:'CSRF', c:'Token.', e:'{% csrf_token %}', en:'CSRF.'},
+    {t:'Env vars', c:'Config.', e:'SECRET_KEY = os.environ.get("SECRET_KEY")', en:'Env.'},
+    {t:'Testing', c:'Pruebas.', e:'def t(): assert f(2) == 4', en:'Testing.'},
+    {t:'Gunicorn + Nginx', c:'Despliegue.', e:'gunicorn mi.wsgi', en:'Deploy.'}
+  ];
+  const tecnicas = [...ejemplosEspecificos];
+  for(let i=tecnicas.length; i<100; i++){
+    tecnicas.push({
+      t:`Técnica Python ${i+1}`,
+      c:`Python/Django avanzado #${i+1} para lingüística computacional.`,
+      e:`# Ejemplo ${i+1}`,
+      en:`Python technique ${i+1}.`
+    });
+  }
+  return tecnicas.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es Java.','No sirve para backend.','Es diseño.'],
+    correcta:0
+  }));
+}
+
+const tecnicasEsc = genEscuelas();
+const tecnicasRed = genRedaccion();
+const tecnicasInv = genInvestigacion();
+const tecnicasNor = genNormas();
+const tecnicasOrt = genOrtografia();
+const tecnicasDis = genDiscurso();
+const tecnicasHTML = genHTML();
+const tecnicasPy = genPython();
+
+/* =====================================================================
+   NAVEGACIÓN
+   ===================================================================== */
+function cambiarModo(modo){
+  document.querySelectorAll('#navTabs button').forEach(b=>b.classList.toggle('active', b.dataset.mode===modo));
+  document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+  const panel = document.getElementById('panel-'+modo);
+  if(panel) panel.classList.add('active');
+  if(modo==='dashboard') actualizarDashboard();
+  if(modo==='perfil') actualizarPerfil();
+  if(modo==='escuelas') renderCuaderno('esc');
+  if(modo==='redaccion') renderCuaderno('red');
+  if(modo==='investigacion') renderCuaderno('inv');
+  if(modo==='normas') renderCuaderno('nor');
+  if(modo==='ortografia') renderCuaderno('ort');
+  if(modo==='discurso') renderCuaderno('dis');
+  if(modo==='html') renderCuaderno('html');
+  if(modo==='python') renderCuaderno('py');
+  if(modo==='taller') renderTaller();
+  if(modo==='certificado') renderCertificado();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>cambiarModo(btn.dataset.mode));
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+  userSet('tema', estado.tema);
+});
+
+document.getElementById('btnIdioma').addEventListener('click',()=>{
+  estado.idioma = estado.idioma==='es'?'en':'es';
+  document.getElementById('btnIdioma').textContent = estado.idioma==='es'?'🌐 ES':'🌐 EN';
+  userSet('idioma', estado.idioma);
+  if(estado.modo) cambiarModo(estado.modo);
+});
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function actualizarDashboard(){
+  const esc = Object.keys(estado.esc.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const inv = Object.keys(estado.inv.progreso).length;
+  const nor = Object.keys(estado.nor.progreso).length;
+  const ort = Object.keys(estado.ort.progreso).length;
+  const dis = Object.keys(estado.dis.progreso).length;
+  const html = Object.keys(estado.html.progreso).length;
+  const py = Object.keys(estado.py.progreso).length;
+  const total = esc+red+inv+nor+ort+dis+html+py;
+  const pct = Math.round((total/800)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/800</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${esc}/100</div><div class="kpi-label">🌳 Escuelas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${red}/100</div><div class="kpi-label">📝 Redacción</div></div>
+    <div class="kpi-card"><div class="kpi-value">${inv}/100</div><div class="kpi-label">🔬 Investigación</div></div>
+    <div class="kpi-card"><div class="kpi-value">${nor}/100</div><div class="kpi-label">📐 Normas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${ort}/100</div><div class="kpi-label">✍️ Ortografía</div></div>
+    <div class="kpi-card"><div class="kpi-value">${dis}/100</div><div class="kpi-label">🗣️ Discurso</div></div>
+    <div class="kpi-card"><div class="kpi-value">${html}/100</div><div class="kpi-label">💻 HTML/CSS/JS</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python+Django</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasEscuelas').innerHTML = barras(bloquesEsc, tecnicasEsc, estado.esc.progreso);
+  document.getElementById('barrasRedaccion').innerHTML = barras(bloquesRed, tecnicasRed, estado.red.progreso);
+  document.getElementById('barrasInvestigacion').innerHTML = barras(bloquesInv, tecnicasInv, estado.inv.progreso);
+  document.getElementById('barrasNormas').innerHTML = barras(bloquesNor, tecnicasNor, estado.nor.progreso);
+  document.getElementById('barrasOrtografia').innerHTML = barras(bloquesOrt, tecnicasOrt, estado.ort.progreso);
+  document.getElementById('barrasDiscurso').innerHTML = barras(bloquesDis, tecnicasDis, estado.dis.progreso);
+  document.getElementById('barrasHTML').innerHTML = barras(bloquesHTML, tecnicasHTML, estado.html.progreso);
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/800)*120;
+    pts.push(`${x},${y}`);
+    acum += 66;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+/* =====================================================================
+   PERFIL
+   ===================================================================== */
+function actualizarPerfil(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+
+  document.getElementById('perfilAvatar').textContent = user.avatar;
+  document.getElementById('perfilNombre').textContent = user.nombre;
+  document.getElementById('perfilCorreo').innerHTML = `${user.email} · <span id="perfilCurso">${user.curso}</span> · <span id="perfilSemestre">${user.semestre||'—'}</span>`;
+  const fecha = new Date(user.fechaRegistro);
+  document.getElementById('perfilFecha').textContent = fecha.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  const esc = Object.keys(estado.esc.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const inv = Object.keys(estado.inv.progreso).length;
+  const nor = Object.keys(estado.nor.progreso).length;
+  const ort = Object.keys(estado.ort.progreso).length;
+  const dis = Object.keys(estado.dis.progreso).length;
+  const html = Object.keys(estado.html.progreso).length;
+  const py = Object.keys(estado.py.progreso).length;
+  const total = esc+red+inv+nor+ort+dis+html+py;
+  const totalNotas = Object.keys(estado.esc.notas).length + Object.keys(estado.red.notas).length + Object.keys(estado.inv.notas).length + Object.keys(estado.nor.notas).length + Object.keys(estado.ort.notas).length + Object.keys(estado.dis.notas).length + Object.keys(estado.html.notas).length + Object.keys(estado.py.notas).length;
+  const puntos = total*10 + totalNotas;
+  document.getElementById('perfilPuntos').textContent = puntos;
+
+  const insignias = [];
+  if(total >= 50) insignias.push({txt:'🥉 50 técnicas', cls:''});
+  if(total >= 100) insignias.push({txt:'🥈 100 técnicas', cls:'verde'});
+  if(total >= 250) insignias.push({txt:'🥇 250 técnicas', cls:'azul'});
+  if(total >= 400) insignias.push({txt:'🏆 400 técnicas', cls:'morado'});
+  if(total >= 600) insignias.push({txt:'💎 600 técnicas', cls:'purpura'});
+  if(total >= 790) insignias.push({txt:'👑 Lingüista integral', cls:'estruc'});
+  if(esc >= 50) insignias.push({txt:'🌳 Estructuralista', cls:'estruc'});
+  if(esc >= 75) insignias.push({txt:'🔀 Generativista', cls:'gener'});
+  if(red >= 50) insignias.push({txt:'📝 Redactor', cls:'verde'});
+  if(inv >= 50) insignias.push({txt:'🔬 Investigador', cls:'azul'});
+  if(nor >= 50) insignias.push({txt:'📐 Normalizador', cls:'purpura'});
+  if(ort >= 50) insignias.push({txt:'✍️ Ortográfico', cls:'esmeralda'});
+  if(dis >= 50) insignias.push({txt:'🗣️ Discursivo', cls:'morado'});
+  if(html >= 50) insignias.push({txt:'💻 Programador web', cls:'gener'});
+  if(py >= 50) insignias.push({txt:'🐍 Pythonista', cls:'estruc'});
+  document.getElementById('perfilInsignias').innerHTML = insignias.length ? insignias.map(i=>`<span class="badge-insignia ${i.cls}">${i.txt}</span>`).join('') : '<span style="font-size:0.75rem;color:var(--text-muted);">Aún no tienes insignias. ¡Sigue avanzando!</span>';
+
+  document.getElementById('perfilBarras').innerHTML = [
+    {n:'🌳 Escuelas', v:esc},
+    {n:'📝 Redacción', v:red},
+    {n:'🔬 Investigación', v:inv},
+    {n:'📐 Normas', v:nor},
+    {n:'✍️ Ortografía', v:ort},
+    {n:'🗣️ Discurso', v:dis},
+    {n:'💻 HTML/CSS/JS', v:html},
+    {n:'🐍 Python', v:py}
+  ].map(b=>`<div class="bar-row"><span class="bar-label">${b.n}</span><div class="bar-track"><div class="bar-fill" style="width:${b.v}%"></div></div><span class="bar-pct">${b.v}/100</span></div>`).join('');
+
+  document.getElementById('perfilLogros').innerHTML = `
+    <div style="font-size:0.82rem;line-height:1.8;">
+      <div>🎯 Técnicas completadas: <strong>${total}/800</strong></div>
+      <div>🏅 Puntos totales: <strong>${puntos}</strong></div>
+      <div>📝 Notas escritas: <strong>${totalNotas}</strong></div>
+      <div>🎖️ Insignias: <strong>${insignias.length}</strong></div>
+    </div>
+  `;
+
+  document.getElementById('perfilNotasCount').innerHTML = `
+    <div style="font-size:0.82rem;line-height:1.8;">
+      <div>🌳 Escuelas: <strong>${Object.keys(estado.esc.notas).length}</strong></div>
+      <div>📝 Redacción: <strong>${Object.keys(estado.red.notas).length}</strong></div>
+      <div>🔬 Investigación: <strong>${Object.keys(estado.inv.notas).length}</strong></div>
+      <div>📐 Normas: <strong>${Object.keys(estado.nor.notas).length}</strong></div>
+      <div>✍️ Ortografía: <strong>${Object.keys(estado.ort.notas).length}</strong></div>
+      <div>🗣️ Discurso: <strong>${Object.keys(estado.dis.notas).length}</strong></div>
+      <div>💻 HTML/CSS/JS: <strong>${Object.keys(estado.html.notas).length}</strong></div>
+      <div>🐍 Python: <strong>${Object.keys(estado.py.notas).length}</strong></div>
+      <div style="margin-top:0.5rem;border-top:1px solid var(--border);padding-top:0.5rem;">Total: <strong>${totalNotas}</strong></div>
+    </div>
+  `;
+
+  if(document.getElementById('certNombre')) document.getElementById('certNombre').textContent = user.nombre;
+}
+
+document.getElementById('perfilEditar').addEventListener('click',()=>{
+  const users = getUsers();
+  const user = users[currentUser];
+  const nuevoNombre = prompt('Nuevo nombre:', user.nombre);
+  if(nuevoNombre && nuevoNombre.trim()){ user.nombre = nuevoNombre.trim(); }
+  const nuevoCurso = prompt('Programa:', user.curso);
+  if(nuevoCurso && nuevoCurso.trim()){ user.curso = nuevoCurso.trim(); }
+  const nuevoSemestre = prompt('Nivel/Semestre:', user.semestre||'Lingüística II');
+  if(nuevoSemestre && nuevoSemestre.trim()){ user.semestre = nuevoSemestre.trim(); }
+  saveUsers(users);
+  document.getElementById('userName').textContent = user.nombre.split(' ')[0];
+  actualizarPerfil();
+  alert('✅ Perfil actualizado');
+});
+
+document.getElementById('perfilExportar').addEventListener('click',()=>exportarDatos());
+
+document.getElementById('perfilReset').addEventListener('click',()=>{
+  if(!confirm('⚠️ Esto borrará TODO tu progreso y notas. ¿Continuar?')) return;
+  if(!confirm('¿Estás seguro/a? Esta acción no se puede deshacer.')) return;
+  ['esc_prog','esc_notas','red_prog','red_notas','inv_prog','inv_notas','nor_prog','nor_notas','ort_prog','ort_notas','dis_prog','dis_notas','html_prog','html_notas','py_prog','py_notas'].forEach(k=>{
+    localStorage.removeItem(getUserKey(k));
+  });
+  cargarEstadoUsuario();
+  actualizarDashboard();
+  actualizarPerfil();
+  alert('🔄 Progreso reiniciado');
+});
+
+function exportarDatos(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+  const data = {
+    usuario: user.usuario, nombre: user.nombre, curso: user.curso, semestre: user.semestre, email: user.email,
+    fechaRegistro: user.fechaRegistro,
+    progreso: {
+      escuelas: estado.esc.progreso, redaccion: estado.red.progreso,
+      investigacion: estado.inv.progreso, normas: estado.nor.progreso,
+      ortografia: estado.ort.progreso, discurso: estado.dis.progreso,
+      html: estado.html.progreso, python: estado.py.progreso
+    },
+    notas: {
+      escuelas: estado.esc.notas, redaccion: estado.red.notas,
+      investigacion: estado.inv.notas, normas: estado.nor.notas,
+      ortografia: estado.ort.notas, discurso: estado.dis.notas,
+      html: estado.html.notas, python: estado.py.notas
+    },
+    fechaExportacion: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `datos_${user.usuario}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+
+/* =====================================================================
+   RENDER CUADERNO
+   ===================================================================== */
+function renderCuaderno(area){
+  const cfg = {
+    esc: { bloques: bloquesEsc, tecnicas: tecnicasEsc, contenedor:'tecnicaEsc', sidebar:'bloquesEsc', progText:'progEscText', progFill:'progEscFill' },
+    red: { bloques: bloquesRed, tecnicas: tecnicasRed, contenedor:'tecnicaRed', sidebar:'bloquesRed', progText:'progRedText', progFill:'progRedFill' },
+    inv: { bloques: bloquesInv, tecnicas: tecnicasInv, contenedor:'tecnicaInv', sidebar:'bloquesInv', progText:'progInvText', progFill:'progInvFill' },
+    nor: { bloques: bloquesNor, tecnicas: tecnicasNor, contenedor:'tecnicaNor', sidebar:'bloquesNor', progText:'progNorText', progFill:'progNorFill' },
+    ort: { bloques: bloquesOrt, tecnicas: tecnicasOrt, contenedor:'tecnicaOrt', sidebar:'bloquesOrt', progText:'progOrtText', progFill:'progOrtFill' },
+    dis: { bloques: bloquesDis, tecnicas: tecnicasDis, contenedor:'tecnicaDis', sidebar:'bloquesDis', progText:'progDisText', progFill:'progDisFill' },
+    html:{ bloques: bloquesHTML, tecnicas: tecnicasHTML, contenedor:'tecnicaHTML', sidebar:'bloquesHTML', progText:'progHTMLText', progFill:'progHTMLFill' },
+    py:  { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+  if(!sidebar) return;
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  const concepto = estado.idioma==='en' && tec.conceptoEN ? tec.conceptoEN : tec.concepto;
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardarEstado(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardarEstado(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardarEstado(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+/* =====================================================================
+   TALLER (32 herramientas)
+   ===================================================================== */
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>📚 Generador cita APA 7</h4>
+      <input id="apaAutor" placeholder="Apellido, Nombre">
+      <input id="apaAnio" placeholder="Año">
+      <input id="apaTitulo" placeholder="Título">
+      <input id="apaEditorial" placeholder="Editorial">
+      <button class="btn-accion" id="btnApa">Generar</button>
+      <div class="resultado-box" id="rApa"></div>
+    </div>
+    <div class="herramienta-card"><h4>📗 Generador cita MLA 9</h4>
+      <input id="mlaAutor" placeholder="Autor">
+      <input id="mlaTitulo" placeholder="Título">
+      <input id="mlaEditorial" placeholder="Editorial">
+      <input id="mlaAnio" placeholder="Año">
+      <button class="btn-accion" id="btnMla">Generar</button>
+      <div class="resultado-box" id="rMla"></div>
+    </div>
+    <div class="herramienta-card"><h4>📙 Generador cita Chicago</h4>
+      <input id="chiAutor" placeholder="Autor">
+      <input id="chiTitulo" placeholder="Título">
+      <input id="chiCiudad" placeholder="Ciudad">
+      <input id="chiEditorial" placeholder="Editorial">
+      <input id="chiAnio" placeholder="Año">
+      <button class="btn-accion" id="btnChi">Generar</button>
+      <div class="resultado-box" id="rChi"></div>
+    </div>
+    <div class="herramienta-card"><h4>📘 Generador cita ICONTEC</h4>
+      <input id="icoAutor" placeholder="APELLIDO, Nombre">
+      <input id="icoTitulo" placeholder="Título">
+      <input id="icoCiudad" placeholder="Ciudad">
+      <input id="icoEditorial" placeholder="Editorial">
+      <input id="icoAnio" placeholder="Año">
+      <button class="btn-accion" id="btnIco">Generar</button>
+      <div class="resultado-box" id="rIco"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌳 Analizador estructuralista</h4>
+      <textarea id="tEstr" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnEstr">Analizar</button>
+      <div class="resultado-box" id="rEstr"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔀 Generador de árbol generativo</h4>
+      <textarea id="tGen" placeholder="Escribe una oración simple..."></textarea>
+      <button class="btn-accion" id="btnGen">Generar árbol</button>
+      <div class="resultado-box" id="rGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>📝 Analizador de párrafos</h4>
+      <textarea id="tParraf" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnParraf">Analizar</button>
+      <div class="resultado-box" id="rParraf"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Estructura de tesis</h4>
+      <input id="tesisTitulo" placeholder="Título">
+      <input id="tesisTema" placeholder="Tema">
+      <button class="btn-accion" id="btnTesis">Generar</button>
+      <div class="resultado-box" id="rTesis"></div>
+    </div>
+    <div class="herramienta-card"><h4>📕 Estructura de monografía</h4>
+      <input id="monoTitulo" placeholder="Título">
+      <button class="btn-accion" id="btnMono">Generar</button>
+      <div class="resultado-box" id="rMono"></div>
+    </div>
+    <div class="herramienta-card"><h4>📄 Generador de abstract</h4>
+      <input id="absObj" placeholder="Objetivo">
+      <input id="absMet" placeholder="Método">
+      <input id="absRes" placeholder="Resultado">
+      <button class="btn-accion" id="btnAbs">Generar</button>
+      <div class="resultado-box" id="rAbs"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Preguntas de investigación</h4>
+      <input id="pregTema" placeholder="Tema">
+      <button class="btn-accion" id="btnPreg">Generar</button>
+      <div class="resultado-box" id="rPreg"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚖️ Detector de falacias</h4>
+      <textarea id="tFal" placeholder="Pega texto argumentativo..."></textarea>
+      <button class="btn-accion" id="btnFal">Analizar</button>
+      <div class="resultado-box" id="rFal"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Análisis crítico del discurso</h4>
+      <textarea id="tAcd" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnAcd">Analizar</button>
+      <div class="resultado-box" id="rAcd"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de plagio</h4>
+      <textarea id="tPlagA" placeholder="Texto A..."></textarea>
+      <textarea id="tPlagB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnPlag">Comparar</button>
+      <div class="resultado-box" id="rPlag"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Índice de legibilidad</h4>
+      <textarea id="tLegib" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector de tildes</h4>
+      <textarea id="tTildes" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTildes">Corregir</button>
+      <div class="resultado-box" id="rTildes"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔊 Separador silábico</h4>
+      <input id="silabaInput" placeholder="murciélago">
+      <button class="btn-accion" id="btnSilaba">Analizar</button>
+      <div class="resultado-box" id="rSilaba"></div>
+    </div>
+    <div class="herramienta-card"><h4>📏 Clasificador por acento</h4>
+      <input id="acentoInput" placeholder="corazón">
+      <button class="btn-accion" id="btnAcento">Clasificar</button>
+      <div class="resultado-box" id="rAcento"></div>
+    </div>
+    <div class="herramienta-card"><h4>📖 Diptongos e hiatos</h4>
+      <input id="diptongoInput" placeholder="ciudad">
+      <button class="btn-accion" id="btnDiptongo">Detectar</button>
+      <div class="resultado-box" id="rDiptongo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📝 Corrector grafías</h4>
+      <textarea id="tGrafias" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnGrafias">Analizar</button>
+      <div class="resultado-box" id="rGrafias"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Contador</h4>
+      <textarea id="tCont" placeholder="Pega texto..."></textarea>
+      <div class="resultado-box" id="rCont">Palabras: 0</div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Densidad léxica</h4>
+      <textarea id="tLex" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnLex">Analizar</button>
+      <div class="resultado-box" id="rLex"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔍 Palabras repetidas</h4>
+      <textarea id="tRepet" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnRepet">Detectar</button>
+      <div class="resultado-box" id="rRepet"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔗 Similitud entre textos</h4>
+      <textarea id="tSimA" placeholder="Texto A..."></textarea>
+      <textarea id="tSimB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnSim">Calcular</button>
+      <div class="resultado-box" id="rSim"></div>
+    </div>
+    <div class="herramienta-card"><h4>📋 Rúbrica de tesis</h4>
+      <div id="rubricaBox"></div>
+      <div class="resultado-box" id="rRubrica">Nota: 0.0</div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador Python</h4>
+      <input id="pyTipo" placeholder="pipeline / tfidf / plagio">
+      <input id="pyTexto" placeholder="Texto de ejemplo">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>💻 Generador HTML+CSS</h4>
+      <input id="htmlTitulo" placeholder="Título">
+      <input id="htmlTexto" placeholder="Texto">
+      <button class="btn-accion" id="btnHtmlGen">Generar</button>
+      <div class="resultado-box" id="rHtmlGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>📅 Línea de tiempo</h4>
+      <textarea id="tLinea" placeholder="1916 Saussure"></textarea>
+      <button class="btn-accion" id="btnLinea">Ordenar</button>
+      <div class="resultado-box" id="rLinea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔤 Conjugador verbal</h4>
+      <input id="verbInf" placeholder="analizar">
+      <button class="btn-accion" id="btnVerbo">Conjugar</button>
+      <div class="resultado-box" id="rVerbo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📖 Analizador morfológico</h4>
+      <textarea id="tMorf" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔊 Transcripción fonética (simulada)</h4>
+      <input id="transFon" placeholder="casa">
+      <button class="btn-accion" id="btnTrans">Transcribir</button>
+      <div class="resultado-box" id="rTrans"></div>
+    </div>
+  `;
+
+  // Handlers
+  document.getElementById('btnApa').addEventListener('click',()=>{
+    const a = document.getElementById('apaAutor').value || 'Apellido, N.';
+    const an = document.getElementById('apaAnio').value || '2020';
+    const t = document.getElementById('apaTitulo').value || 'Título';
+    const e = document.getElementById('apaEditorial').value || 'Editorial';
+    document.getElementById('rApa').textContent = `${a} (${an}). *${t}*. ${e}.`;
+  });
+
+  document.getElementById('btnMla').addEventListener('click',()=>{
+    const a = document.getElementById('mlaAutor').value || 'Apellido, Nombre';
+    const t = document.getElementById('mlaTitulo').value || 'Título';
+    const e = document.getElementById('mlaEditorial').value || 'Editorial';
+    const an = document.getElementById('mlaAnio').value || '2020';
+    document.getElementById('rMla').textContent = `${a}. *${t}*. ${e}, ${an}.`;
+  });
+
+  document.getElementById('btnChi').addEventListener('click',()=>{
+    const a = document.getElementById('chiAutor').value || 'Nombre Apellido';
+    const t = document.getElementById('chiTitulo').value || 'Título';
+    const c = document.getElementById('chiCiudad').value || 'Ciudad';
+    const e = document.getElementById('chiEditorial').value || 'Editorial';
+    const an = document.getElementById('chiAnio').value || '2020';
+    document.getElementById('rChi').textContent = `${a}. *${t}*. ${c}: ${e}, ${an}.`;
+  });
+
+  document.getElementById('btnIco').addEventListener('click',()=>{
+    const a = document.getElementById('icoAutor').value || 'APELLIDO, Nombre';
+    const t = document.getElementById('icoTitulo').value || 'Título';
+    const c = document.getElementById('icoCiudad').value || 'Ciudad';
+    const e = document.getElementById('icoEditorial').value || 'Editorial';
+    const an = document.getElementById('icoAnio').value || '2020';
+    document.getElementById('rIco').textContent = `${a}. *${t}*. ${c}: ${e}, ${an}.`;
+  });
+
+  document.getElementById('btnEstr').addEventListener('click',()=>{
+    const t = document.getElementById('tEstr').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Monema';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Monema gramatical (art.)';
+      else if(/^(de|a|en|con|por|para|sin|sobre)$/i.test(p)) c='Monema gramatical (prep.)';
+      else if(/^(y|e|o|u|pero)$/i.test(p)) c='Monema gramatical (conj.)';
+      else if(/(ar|er|ir)$/.test(p)) c='Lexema verbal';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Lexema nominal';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rEstr').innerHTML = `<strong>Análisis estructuralista</strong><br>${analisis.join('<br>')}`;
+  });
+
+  document.getElementById('btnGen').addEventListener('click',()=>{
+    const t = document.getElementById('tGen').value || 'El niño lee un libro';
+    const palabras = t.trim().split(/\s+/);
+    let arbol = `ORACIÓN (O)\n├── SN (Sintagma Nominal)\n`;
+    // Heurística simple
+    let sn = [];
+    let sv = [];
+    let enVerbo = false;
+    palabras.forEach(p=>{
+      if(!enVerbo && /^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|come|corre|lee|escribe|analiza|publica|estudia)$/i.test(p)){
+        enVerbo = true;
+      }
+      if(enVerbo) sv.push(p);
+      else sn.push(p);
+    });
+    sn.forEach(p=>arbol += `│   ├── ${p}\n`);
+    arbol += `└── SV (Sintagma Verbal)\n`;
+    sv.forEach((p,i)=>{
+      if(i < sv.length-1) arbol += `    ├── ${p}\n`;
+      else arbol += `    └── ${p}\n`;
+    });
+    arbol += `\nEstructura profunda → superficial`;
+    document.getElementById('rGen').textContent = arbol;
+  });
+
+  document.getElementById('btnParraf').addEventListener('click',()=>{
+    const t = document.getElementById('tParraf').value;
+    let tipo = 'Expositivo';
+    if(/había una vez|entonces|después|luego|finalmente|un día/i.test(t)) tipo = 'Narrativo';
+    else if(/es|son|está|están|era|eran|tenía|color|forma|grande|pequeño/i.test(t) && !/porque|por tanto/i.test(t)) tipo = 'Descriptivo';
+    else if(/porque|por tanto|en consecuencia|debemos|considero|opino/i.test(t)) tipo = 'Argumentativo';
+    else if(/se define|consiste|proceso|se caracteriza/i.test(t)) tipo = 'Expositivo';
+    const palabras = t.trim()?t.trim().split(/\s+/).length:0;
+    const oraciones = t.split(/[.!?]+/).filter(s=>s.trim()).length;
+    document.getElementById('rParraf').innerHTML = `<strong>Tipo probable:</strong> ${tipo}<br><strong>Palabras:</strong> ${palabras}<br><strong>Oraciones:</strong> ${oraciones}<br><strong>Palabras/oración:</strong> ${oraciones ? (palabras/oraciones).toFixed(1) : 0}`;
+  });
+
+  document.getElementById('btnTesis').addEventListener('click',()=>{
+    const t = document.getElementById('tesisTitulo').value || 'Título';
+    const tema = document.getElementById('tesisTema').value || 'tema';
+    document.getElementById('rTesis').textContent = 
+`ESTRUCTURA DE TESIS
+Título: ${t}
+Tema: ${tema}
+
+1. Preliminares (portada, resumen, índice)
+2. Introducción (problema, pregunta, justificación, objetivos)
+3. Marco teórico (bases conceptuales y teorías)
+4. Marco metodológico (enfoque, corpus, instrumentos)
+5. Resultados (análisis)
+6. Discusión (contraste con literatura)
+7. Conclusiones y recomendaciones
+8. Referencias (según norma)
+9. Anexos`;
+  });
+
+  document.getElementById('btnMono').addEventListener('click',()=>{
+    const t = document.getElementById('monoTitulo').value || 'Título';
+    document.getElementById('rMono').textContent = 
+`ESTRUCTURA DE MONOGRAFÍA
+Título: ${t}
+
+1. Preliminares
+2. Introducción
+3. Marco teórico
+4. Metodología
+5. Desarrollo / Análisis
+6. Conclusiones
+7. Bibliografía
+8. Anexos`;
+  });
+
+  document.getElementById('btnAbs').addEventListener('click',()=>{
+    const obj = document.getElementById('absObj').value || 'analizar X';
+    const met = document.getElementById('absMet').value || 'método cualitativo';
+    const res = document.getElementById('absRes').value || 'se encontró Y';
+    document.getElementById('rAbs').textContent =
+`El presente trabajo tuvo como objetivo ${obj}. Se empleó un ${met}. Los principales hallazgos muestran que ${res}. Se concluye que estos resultados aportan a...`;
+  });
+
+  document.getElementById('btnPreg').addEventListener('click',()=>{
+    const tema = document.getElementById('pregTema').value || 'el tema';
+    document.getElementById('rPreg').innerHTML = `
+      <strong>Preguntas sobre "${tema}":</strong><br><br>
+      1. ¿Cómo se manifiesta ${tema}?<br>
+      2. ¿Qué relación existe entre ${tema} y...?<br>
+      3. ¿Cuáles son las características de ${tema}?<br>
+      4. ¿Qué factores influyen en ${tema}?<br>
+      5. ¿Cómo ha evolucionado ${tema}?<br>
+      6. ¿Qué impacto tiene ${tema}?<br>
+      7. ¿Qué perspectivas teóricas permiten analizar ${tema}?<br>
+      8. ¿Cómo se representa ${tema}?`;
+  });
+
+  document.getElementById('btnFal').addEventListener('click',()=>{
+    const t=document.getElementById('tFal').value.toLowerCase();
+    const f=[];
+    if(/\b(todos los|ninguno)\b/.test(t)) f.push('⚠️ Generalización');
+    if(/\b(obviamente|nadie puede negar)\b/.test(t)) f.push('⚠️ Apelación a la evidencia');
+    if(/\b(usted también|y tú qué)\b/.test(t)) f.push('⚠️ Ad hominem');
+    if(/\b(si permitimos|si aceptamos)\b/.test(t)) f.push('⚠️ Pendiente resbaladiza');
+    if(/\b(o estás conmigo|o contra mí)\b/.test(t)) f.push('⚠️ Falso dilema');
+    document.getElementById('rFal').innerHTML = f.length ? f.join('<br>') : '✅ Sin falacias comunes.';
+  });
+
+  document.getElementById('btnAcd').addEventListener('click',()=>{
+    const t=document.getElementById('tAcd').value.toLowerCase();
+    const h=[];
+    if(/\b(nosotros|nuestro)\b/.test(t)) h.push('📌 "Nosotros" inclusivo');
+    if(/\b(ellos|los otros)\b/.test(t)) h.push('📌 Alteridad');
+    if(/\b(deber|tener que)\b/.test(t)) h.push('📌 Modalidad deóntica');
+    if(/\b(según|de acuerdo con)\b/.test(t)) h.push('📌 Apelación a autoridad');
+    document.getElementById('rAcd').innerHTML = h.length ? h.join('<br>') : '✅ Sin marcadores.';
+  });
+
+  document.getElementById('btnPlag').addEventListener('click',()=>{
+    const a=document.getElementById('tPlagA').value.toLowerCase().replace(/\s+/g,' ');
+    const b=document.getElementById('tPlagB').value.toLowerCase().replace(/\s+/g,' ');
+    if(!a||!b){ document.getElementById('rPlag').textContent='Ingresa ambos textos.'; return; }
+    const n=5;
+    const ngA=new Set(); for(let i=0;i<=a.length-n;i++) ngA.add(a.slice(i,i+n));
+    const ngB=new Set(); for(let i=0;i<=b.length-n;i++) ngB.add(b.slice(i,i+n));
+    const inter=[...ngA].filter(g=>ngB.has(g)).length;
+    const pct = ngA.size ? (inter/ngA.size)*100 : 0;
+    document.getElementById('rPlag').innerHTML = `<strong>Coincidencia:</strong> ${pct.toFixed(1)}%<br>${pct>30?'⚠️ Alta similitud':'✅ Baja similitud'}`;
+  });
+
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('tLegib').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const idx=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const nivel=idx>90?'Muy fácil':idx>80?'Fácil':idx>70?'Normal':idx>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML=`FH: <strong>${idx.toFixed(1)}</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  document.getElementById('btnTildes').addEventListener('click',()=>{
+    const t = document.getElementById('tTildes').value;
+    const e = [];
+    if(/\besta\b/g.test(t)) e.push('⚠️ esta/está');
+    if(/\bmas\b/g.test(t)) e.push('⚠️ mas/más');
+    if(/\bde que\b/gi.test(t)) e.push('⚠️ posible dequeísmo');
+    document.getElementById('rTildes').innerHTML = e.length?e.join('<br>'):'✅ Sin errores frecuentes.';
+  });
+
+  document.getElementById('btnSilaba').addEventListener('click',()=>{
+    const p = document.getElementById('silabaInput').value.trim().toLowerCase();
+    if(!p){ document.getElementById('rSilaba').textContent='Escribe una palabra.'; return; }
+    const grupos = p.match(/[aeiouáéíóúü]+|[^aeiouáéíóúü]+/g) || [];
+    const silabas = [];
+    let actual = '';
+    grupos.forEach((g,i)=>{
+      actual += g;
+      if(/[aeiouáéíóúü]+$/.test(actual) && !/[aeiouáéíóúü]+$/.test(grupos[i+1]||'')){ silabas.push(actual); actual = ''; }
+    });
+    if(actual) silabas.push(actual);
+    document.getElementById('rSilaba').innerHTML = `<strong>Palabra:</strong> ${p}<br><strong>Sílabas:</strong> ${silabas.join(' · ')}<br><strong>Número:</strong> ${silabas.length}`;
+  });
+
+  document.getElementById('btnAcento').addEventListener('click',()=>{
+    const p = document.getElementById('acentoInput').value.trim().toLowerCase();
+    if(!p){ document.getElementById('rAcento').textContent='Escribe una palabra.'; return; }
+    const silabas = (p.match(/[aeiouáéíóúü]+/g)||[]).length || 1;
+    let tipo = 'aguda';
+    if(silabas >= 4) tipo = 'sobreesdrújula';
+    else if(silabas === 3) tipo = 'esdrújula';
+    else if(silabas === 2) tipo = 'llana';
+    document.getElementById('rAcento').innerHTML = `<strong>Palabra:</strong> ${p}<br><strong>Sílabas:</strong> ${silabas}<br><strong>Clasificación:</strong> ${tipo}`;
+  });
+
+  document.getElementById('btnDiptongo').addEventListener('click',()=>{
+    const p = document.getElementById('diptongoInput').value.trim().toLowerCase();
+    if(!p){ document.getElementById('rDiptongo').textContent='Escribe una palabra.'; return; }
+    const d = p.match(/[aeiouáéíóúü]{2}/g) || [];
+    const h = p.match(/[aeoáéó][aeoáéó]|[aeoáéó][íú][aeoáéó]?/g) || [];
+    document.getElementById('rDiptongo').innerHTML = `<strong>Palabra:</strong> ${p}<br><strong>Diptongos:</strong> ${d.join(', ')||'ninguno'}<br><strong>Hiatos:</strong> ${h.join(', ')||'ninguno'}`;
+  });
+
+  document.getElementById('btnGrafias').addEventListener('click',()=>{
+    const t = document.getElementById('tGrafias').value;
+    const e = [];
+    if(/\b(halla|haya|allá)\b/gi.test(t)) e.push('⚠️ Verificar halla/haya/allá');
+    if(/\b(echo|hecho)\b/gi.test(t)) e.push('⚠️ Verificar echo/hecho');
+    if(/\b(haber|a ver)\b/gi.test(t)) e.push('⚠️ Verificar haber/a ver');
+    if(/\b(sino|si no)\b/gi.test(t)) e.push('⚠️ Verificar sino/si no');
+    document.getElementById('rGrafias').innerHTML = e.length?e.join('<br>'):'✅ Sin ambigüedades.';
+  });
+
+  document.getElementById('tCont').addEventListener('input',e=>{
+    const t = e.target.value;
+    const p = t.trim()?t.trim().split(/\s+/).length:0;
+    const o = t.split(/[.!?]+/).filter(s=>s.trim()).length;
+    const par = t.split(/\n+/).filter(s=>s.trim()).length;
+    document.getElementById('rCont').textContent = `Palabras: ${p} · Oraciones: ${o} · Párrafos: ${par}`;
+  });
+
+  document.getElementById('btnLex').addEventListener('click',()=>{
+    const t=document.getElementById('tLex').value;
+    const p=t.toLowerCase().match(/[\wáéíóúñ]+/g)||[];
+    const ttr = p.length ? (new Set(p).size/p.length) : 0;
+    document.getElementById('rLex').innerHTML = `<strong>Total:</strong> ${p.length}<br><strong>Únicas:</strong> ${new Set(p).size}<br><strong>TTR:</strong> ${(ttr*100).toFixed(1)}%`;
+  });
+
+  document.getElementById('btnRepet').addEventListener('click',()=>{
+    const t=document.getElementById('tRepet').value;
+    const p=t.toLowerCase().replace(/[^\wáéíóúñ\s]/g,'').split(/\s+/).filter(x=>x.length>3);
+    const f={};
+    p.forEach(x=>f[x]=(f[x]||0)+1);
+    const rep=Object.entries(f).filter(([_,n])=>n>1).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    document.getElementById('rRepet').innerHTML = rep.length ? rep.map(([x,n])=>`"${x}" aparece ${n} veces`).join('<br>') : '✅ Sin palabras repetidas.';
+  });
+
+  document.getElementById('btnSim').addEventListener('click',()=>{
+    const a=document.getElementById('tSimA').value.toLowerCase().split(/\s+/);
+    const b=document.getElementById('tSimB').value.toLowerCase().split(/\s+/);
+    const setA=new Set(a), setB=new Set(b);
+    const inter = [...setA].filter(p=>setB.has(p)).length;
+    const union = new Set([...setA, ...setB]).size;
+    const jaccard = union ? (inter/union)*100 : 0;
+    document.getElementById('rSim').innerHTML = `<strong>Similitud:</strong> ${jaccard.toFixed(1)}%`;
+  });
+
+  const criterios = [{n:'Originalidad',p:20},{n:'Metodología',p:20},{n:'Marco teórico',p:20},{n:'Análisis',p:15},{n:'Conclusiones',p:15},{n:'Formato',p:10}];
+  document.getElementById('rubricaBox').innerHTML = criterios.map((c,i)=>`
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;font-size:0.76rem;">
+      <span style="width:110px;">${c.n} (${c.p}%)</span>
+      <input type="range" min="0" max="10" value="5" id="rub-${i}" style="flex:1;">
+      <span id="rubv-${i}">5</span>
+    </div>`).join('');
+  function calcRub(){
+    let n=0;
+    criterios.forEach((c,i)=>{
+      const v=parseInt(document.getElementById(`rub-${i}`).value);
+      document.getElementById(`rubv-${i}`).textContent=v;
+      n+=(v/10)*c.p;
+    });
+    document.getElementById('rRubrica').textContent=`Nota: ${n.toFixed(1)} / 100`;
+  }
+  document.querySelectorAll('#rubricaBox input').forEach(r=>r.addEventListener('input',calcRub));
+  calcRub();
+
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    const esc=Object.keys(estado.esc.progreso).length;
+    const red=Object.keys(estado.red.progreso).length;
+    const inv=Object.keys(estado.inv.progreso).length;
+    const nor=Object.keys(estado.nor.progreso).length;
+    const ort=Object.keys(estado.ort.progreso).length;
+    const dis=Object.keys(estado.dis.progreso).length;
+    const html=Object.keys(estado.html.progreso).length;
+    const py=Object.keys(estado.py.progreso).length;
+    const users = getUsers();
+    const user = users[currentUser];
+    const inf = `INFORME ACADÉMICO LINGÜÍSTICA II
+Estudiante: ${user?.nombre || 'Anónimo'}
+Programa: ${user?.curso || 'Licenciatura en Lengua Castellana'}
+Nivel: ${user?.semestre || 'Lingüística II'}
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🌳 Escuelas lingüísticas: ${esc}/100
+📝 Redacción: ${red}/100
+🔬 Investigación: ${inv}/100
+📐 Normas: ${nor}/100
+✍️ Ortografía: ${ort}/100
+🗣️ Discurso: ${dis}/100
+💻 HTML/CSS/JS: ${html}/100
+🐍 Python+Django: ${py}/100
+TOTAL: ${esc+red+inv+nor+ort+dis+html+py}/800
+`;
+    document.getElementById('rExportar').textContent=inf;
+    const blob=new Blob([inf],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='informe_linguistica2.txt'; a.click();
+  });
+
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipo').value.trim()||'pipeline';
+    const texto=document.getElementById('pyTexto').value||'Texto de ejemplo';
+    let code='';
+    if(tipo==='pipeline'){
+      code=`import re\nfrom collections import Counter\ndef pipeline(t):\n    t=t.lower()\n    palabras=re.findall(r"\\b[\\wáéíóúñ]+\\b", t)\n    return {"total": len(palabras), "unicas": len(set(palabras)), "ttr": len(set(palabras))/len(palabras)}\nprint(pipeline("${texto}"))`;
+    } else if(tipo==='tfidf'){
+      code=`import math\nfrom collections import Counter\ndef tfidf(corpus):\n    df=Counter()\n    for d in corpus:\n        for p in set(d.split()): df[p]+=1\n    N=len(corpus)\n    return {p: math.log(N/(1+df[p])) for p in df}`;
+    } else if(tipo==='plagio'){
+      code=`def ngramas(s, n=5):\n    return set(s[i:i+n] for i in range(len(s)-n+1))\ndef plagio(a, b):\n    A, B = ngramas(a), ngramas(b)\n    return len(A & B) / len(A)`;
+    } else {
+      code=`# Plantilla: ${tipo}\ntexto = "${texto}"\nprint(texto)`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  document.getElementById('btnHtmlGen').addEventListener('click',()=>{
+    const titulo = document.getElementById('htmlTitulo').value || 'Mi tarjeta';
+    const texto = document.getElementById('htmlTexto').value || 'Contenido';
+    const code = `<div class="tarjeta">\n  <h3>${titulo}</h3>\n  <p>${texto}</p>\n</div>`;
+    document.getElementById('rHtmlGen').textContent=code;
+  });
+
+  document.getElementById('btnLinea').addEventListener('click',()=>{
+    const lineas=document.getElementById('tLinea').value.split('\n').filter(l=>l.trim());
+    const eventos=lineas.map(l=>{
+      const m=l.match(/^(\d{4})\s+(.+)/);
+      return m?{anio:parseInt(m[1]),desc:m[2]}:{anio:0,desc:l};
+    }).sort((a,b)=>a.anio-b.anio);
+    document.getElementById('rLinea').innerHTML=eventos.map(e=>`${e.anio} → ${e.desc}`).join('<br>');
+  });
+
+  document.getElementById('btnVerbo').addEventListener('click',()=>{
+    const v = document.getElementById('verbInf').value.trim().toLowerCase();
+    if(!v || !/(ar|er|ir)$/.test(v)){ document.getElementById('rVerbo').textContent='Escribe un infinitivo.'; return; }
+    const raiz = v.slice(0,-2);
+    const term = v.slice(-2);
+    let formas = '';
+    if(term==='ar'){
+      formas = `Presente: yo ${raiz}o, tú ${raiz}as, él ${raiz}a
+Pretérito indefinido: yo ${raiz}é, tú ${raiz}aste, él ${raiz}ó
+Pretérito imperfecto: yo ${raiz}aba, tú ${raiz}abas
+Futuro: yo ${raiz}aré, tú ${raiz}arás
+Condicional: yo ${raiz}aría
+Subjuntivo: yo ${raiz}e, tú ${raiz}es`;
+    } else if(term==='er'){
+      formas = `Presente: yo ${raiz}o, tú ${raiz}es, él ${raiz}e
+Pretérito indefinido: yo ${raiz}í, tú ${raiz}iste, él ${raiz}ió
+Pretérito imperfecto: yo ${raiz}ía, tú ${raiz}ías
+Futuro: yo ${raiz}eré, tú ${raiz}erás
+Subjuntivo: yo ${raiz}a, tú ${raiz}as`;
+    } else {
+      formas = `Presente: yo ${raiz}o, tú ${raiz}es, él ${raiz}e
+Pretérito indefinido: yo ${raiz}í, tú ${raiz}iste, él ${raiz}ió
+Pretérito imperfecto: yo ${raiz}ía, tú ${raiz}ías
+Futuro: yo ${raiz}iré, tú ${raiz}irás
+Subjuntivo: yo ${raiz}a, tú ${raiz}as`;
+    }
+    document.getElementById('rVerbo').textContent = `Conjugación de "${v}":\n\n${formas}`;
+  });
+
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t = document.getElementById('tMorf').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Desconocida';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sustantivo/Adjetivo';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML = analisis.join('<br>');
+  });
+
+  document.getElementById('btnTrans').addEventListener('click',()=>{
+    const p = document.getElementById('transFon').value.trim().toLowerCase();
+    if(!p){ document.getElementById('rTrans').textContent='Escribe una palabra.'; return; }
+    let trans = p
+      .replace(/c([ei])/g, 'θ$1').replace(/c/g, 'k')
+      .replace(/qu/g, 'k').replace(/h/g, '')
+      .replace(/v/g, 'b').replace(/z/g, 'θ')
+      .replace(/ll/g, 'ʎ').replace(/ñ/g, 'ɲ').replace(/rr/g, 'r')
+      .replace(/j/g, 'x').replace(/g([ei])/g, 'x$1');
+    document.getElementById('rTrans').innerHTML = `<strong>Palabra:</strong> ${p}<br><strong>Transcripción aproximada:</strong> [${trans}]<br><br><em>Simplificada (no sustituye al AFI).</em>`;
+  });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function renderCertificado(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+
+  document.getElementById('certNombre').textContent = user.nombre;
+  document.getElementById('selloAnio').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c = el.dataset.campo;
+    if(estado.campos[c]) el.textContent = estado.campos[c];
+    el.addEventListener('blur',()=>{
+      estado.campos[c] = el.textContent;
+      userSet('campos', estado.campos);
+    });
+  });
+
+  const todos=[
+    {bloques:bloquesEsc, tecnicas:tecnicasEsc, tipo:'🌳 Escuelas lingüísticas (estructuralismo, generativismo)'},
+    {bloques:bloquesRed, tecnicas:tecnicasRed, tipo:'📝 Redacción de tipos de párrafo'},
+    {bloques:bloquesInv, tecnicas:tecnicasInv, tipo:'🔬 Investigación y metodología'},
+    {bloques:bloquesNor, tecnicas:tecnicasNor, tipo:'📐 Normas académicas internacionales'},
+    {bloques:bloquesOrt, tecnicas:tecnicasOrt, tipo:'✍️ Ortografía avanzada, fonética y fonología'},
+    {bloques:bloquesDis, tecnicas:tecnicasDis, tipo:'🗣️ Análisis del discurso académico'},
+    {bloques:bloquesHTML, tecnicas:tecnicasHTML, tipo:'💻 HTML + CSS + JS para LMS'},
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python + Django'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--estruc);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#7c2d12;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #7c2d12;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #7c2d12;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='certificado_linguistica2.doc'; a.click();
+}
+
+/* PWA */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='super-cuaderno-ling2';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+document.addEventListener('keydown',e=>{
+  if(!currentUser) return;
+  if(e.key === 'Escape'){
+    document.getElementById('perfilMenu').classList.remove('show');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Súper Cuaderno 6° · Ciencias Naturales + Python + Redacción Científica</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --cielo:#0ea5e9; --hoja:#16a34a;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+.topbar{background:linear-gradient(135deg,var(--verde),var(--teal));color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid #fff;color:#fff;text-align:center;line-height:32px;font-size:0.62rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.85);padding:0.35rem 0.75rem;border-radius:30px;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.nav-tabs-app button.active{background:#fff;border-color:#fff;color:var(--verde);}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:0.35rem 0.7rem;border-radius:8px;font-size:0.72rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.3);}
+.connection-pill{font-size:0.66rem;padding:0.2rem 0.6rem;border-radius:20px;background:#22c55e;color:#fff;font-weight:600;}
+.connection-pill.offline{background:#e74c3c;}
+
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--verde);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--verde);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:#4ade80;}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:160px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--verde),var(--teal));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--verde);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--verde);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:180px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:180px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--verde),var(--teal));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--teal),#065f46);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.8;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--verde);background:rgba(22,163,74,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--verde);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--verde);color:#fff;border-color:var(--verde);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--verde),var(--teal));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--verde);border-color:var(--verde);color:#fff;}
+.punto.actual{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,115,119,0.25);}
+
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--verde);}
+.btn-accion{background:var(--verde);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--teal);}
+.btn-accion.secundario{background:var(--teal);}
+.btn-accion.secundario:hover{background:var(--verde);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+.certificado-portada{background:var(--bg-card);border:3px double var(--verde);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--verde);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--verde);}
+.campo-editable{border-bottom:1px dashed var(--verde);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(22,163,74,0.1);}
+.campo-editable:focus{outline:2px solid var(--verde);background:rgba(22,163,74,0.05);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--verde);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--verde);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--verde);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+.tag-python{background:var(--verde);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-textos{background:var(--teal);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-lectura{background:var(--cielo);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-sintaxis{background:var(--naranja);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-ciencias{background:var(--hoja);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:#fff;border:none;color:var(--verde);padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;font-weight:600;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.7);}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--verde);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="sello">6°🔬</span>
+    <span>Súper Cuaderno · Ciencias Naturales</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="python">🐍 Python · 100</button>
+    <button data-mode="textos">🧪 Textos científ. · 100</button>
+    <button data-mode="lectura">🔬 Comprensión · 100</button>
+    <button data-mode="redaccion">✍️ Redacción · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <span class="connection-pill" id="connectionPill">● En línea</span>
+    <button id="btnInstalar">⬇ Instalar</button>
+    <button id="btnTema">🌙</button>
+    <button id="btnReiniciar">↺</button>
+  </div>
+</header>
+
+<main class="app-container">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 6° Ciencias Naturales</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">500 técnicas · Python + Textos científicos + Comprensión crítica + Redacción científica + Sintaxis castellana</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🐍 Python para ciencias</h4><div id="barrasPython"></div></div>
+    <div class="chart-card"><h4>🧪 Textos científicos</h4><div id="barrasTextos"></div></div>
+    <div class="chart-card"><h4>🔬 Comprensión científica</h4><div id="barrasLectura"></div></div>
+    <div class="chart-card"><h4>✍️ Redacción científica</h4><div id="barrasRedaccion"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis castellana</h4><div id="barrasSintaxis"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--verde)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--verde)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado (500 técnicas)</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--verde)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python para ciencias naturales · 100 técnicas (6°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-textos">
+  <h1 style="margin-bottom:1rem;">🧪 Textos científicos · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Expositivo · Descriptivo · Instructivo · Argumentativo científico</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progTxtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progTxtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesTxt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaTxt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-lectura">
+  <h1 style="margin-bottom:1rem;">🔬 Comprensión científica crítica · 100 técnicas (6°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLecText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLecFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLec"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLec"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-redaccion">
+  <h1 style="margin-bottom:1rem;">✍️ Redacción científica · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Hipótesis · Método · Resultados · Discusión · Informe · Artículo · Póster</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progRedText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progRedFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesRed"></div></aside>
+    <div class="tecnica-panel" id="tecnicaRed"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis castellana · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Morfología · Oración simple · Normativa y estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller integrado · 22 herramientas (6° Ciencias)</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado de Finalización</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Súper Cuaderno 6° Grado · Ciencias Naturales · Python + Textos Científicos + Comprensión Crítica + Redacción Científica + Sintaxis Castellana
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 500 técnicas del programa de Ciencias Naturales de 6° grado</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Institución: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Área: <span class="campo-editable" contenteditable="true" data-campo="area">Ciencias Naturales</span></div>
+      <div>Curso: <span class="campo-editable" contenteditable="true" data-campo="curso">6° ____</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   BLOQUES · 6° CIENCIAS NATURALES
+   ===================================================================== */
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python básico para ciencias', rango:[1,20], icono:'🐍'},
+  {id:'py-datos', titulo:'Datos y mediciones', rango:[21,40], icono:'📊'},
+  {id:'py-nat', titulo:'Simulaciones naturales', rango:[41,60], icono:'🌱'},
+  {id:'py-quim', titulo:'Química y física básica', rango:[61,80], icono:'⚗️'},
+  {id:'py-eco', titulo:'Ecología y ambiente', rango:[81,100], icono:'🌍'}
+];
+
+const bloquesTxt = [
+  {id:'txt-exp', titulo:'Texto expositivo científico', rango:[1,30], icono:'📖'},
+  {id:'txt-des', titulo:'Texto descriptivo científico', rango:[31,55], icono:'🔍'},
+  {id:'txt-ins', titulo:'Texto instructivo (protocolo)', rango:[56,80], icono:'📋'},
+  {id:'txt-arg', titulo:'Texto argumentativo científico', rango:[81,100], icono:'⚖️'}
+];
+
+const bloquesLec = [
+  {id:'lec-niv', titulo:'Niveles de comprensión científica', rango:[1,20], icono:'🪜'},
+  {id:'lec-met', titulo:'Método científico', rango:[21,40], icono:'🔬'},
+  {id:'lec-tipos', titulo:'Tipos de texto científico', rango:[41,60], icono:'📄'},
+  {id:'lec-datos', titulo:'Gráficos, tablas y datos', rango:[61,80], icono:'📊'},
+  {id:'lec-eval', titulo:'Pensamiento crítico científico', rango:[81,100], icono:'🧠'}
+];
+
+const bloquesRed = [
+  {id:'red-proc', titulo:'Redacción del proceso científico', rango:[1,25], icono:'📝'},
+  {id:'red-informe', titulo:'El informe de laboratorio', rango:[26,50], icono:'📋'},
+  {id:'red-articulo', titulo:'Artículo y póster científico', rango:[51,75], icono:'📰'},
+  {id:'red-estilo', titulo:'Estilo y lenguaje científico', rango:[76,100], icono:'✒️'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfología básica', rango:[1,35], icono:'🔤'},
+  {id:'sin-simple', titulo:'Oración simple', rango:[36,65], icono:'🧩'},
+  {id:'sin-norm', titulo:'Normativa y estilo', rango:[66,100], icono:'📐'}
+];
+
+/* =====================================================================
+   PYTHON PARA CIENCIAS (100) - 6°
+   ===================================================================== */
+function generarTecnicasPython(){
+  const T = [
+    {t:'¿Qué es Python?', c:'Un lenguaje de programación para calcular, analizar datos y simular experimentos.', e:'print("Hola, ciencia")'},
+    {t:'La calculadora de Python', c:'Sumar, restar, multiplicar y dividir como una calculadora.', e:'print(5 + 3)  # 8'},
+    {t:'Variables en ciencia', c:'Guardar medidas en variables con nombre.', e:'temperatura = 25.5\nmasa = 100'},
+    {t:'Unidades de medida', c:'Escribir siempre la unidad: °C, kg, m, s.', e:'temperatura = 25.5  # °C'},
+    {t:'Medir en metros', c:'Convertir entre unidades.', e:'cm = 250\nmetros = cm / 100'},
+    {t:'Temperatura', c:'Trabajar con grados Celsius y Fahrenheit.', e:'celsius = 25\nfahrenheit = celsius * 9/5 + 32'},
+    {t:'Masa y peso', c:'Masa en kg, peso en newtons.', e:'masa = 10\npeso = masa * 9.8  # N'},
+    {t:'Redondear números', c:'round() para resultados con decimales.', e:'round(3.14159, 2)  # 3.14'},
+    {t:'Sacar promedios', c:'sum() y len() para calcular promedios.', e:'notas = [4.5, 3.8, 5.0]\npromedio = sum(notas) / len(notas)'},
+    {t:'Máximo y mínimo', c:'Encontrar valores extremos.', e:'max([10, 25, 8])  # 25\nmin([10, 25, 8])  # 8'},
+    {t:'Listas de datos', c:'Guardar medidas en una lista.', e:'temperaturas = [22, 24, 26, 25]'},
+    {t:'Recorrer medidas', c:'for para visitar cada dato.', e:'for t in temperaturas:\n    print(t)'},
+    {t:'Condicional if', c:'Tomar decisiones: si cumple algo, hacer algo.', e:'if temperatura > 30:\n    print("Hace calor")'},
+    {t:'Condicional if/else', c:'Si cumple, una cosa; si no, otra.', e:'if ph < 7:\n    print("Ácido")\nelse:\n    print("Básico")'},
+    {t:'Comparar con ==', c:'Verificar si dos valores son iguales.', e:'print(agua_estado == "líquido")'},
+    {t:'Bucle while', c:'Repetir hasta cumplir condición.', e:'tiempo = 0\nwhile tiempo < 10:\n    tiempo += 1'},
+    {t:'Funciones para calcular', c:'Crear funciones reutilizables.', e:'def densidad(masa, volumen):\n    return masa / volumen'},
+    {t:'Función de conversión', c:'Convertir unidades con funciones.', e:'def c_a_f(c):\n    return c * 9/5 + 32'},
+    {t:'Comentarios científicos', c:'Explicar qué mide cada variable.', e:'# temperatura en grados Celsius\ncelsius = 25'},
+    {t:'Guardar un experimento', c:'Registrar cada paso del experimento.', e:'experimento = {"nombre": "ebullición", "resultado": 100}'},
+
+    {t:'Mediciones repetidas', c:'Registrar varias mediciones y calcular promedio.', e:'mediciones = [1.2, 1.3, 1.25]\npromedio = sum(mediciones)/len(mediciones)'},
+    {t:'Diferencia entre medidas', c:'Comparar valores.', e:'diferencia = max(mediciones) - min(mediciones)'},
+    {t:'Error absoluto', c:'Diferencia con el valor real.', e:'error = abs(medido - real)'},
+    {t:'Error relativo', c:'Error respecto al valor real (%).', e:'error_rel = error / real * 100'},
+    {t:'Precisión', c:'Qué tan cerca están las medidas entre sí.', e:'# menor diferencia = mayor precisión'},
+    {t:'Exactitud', c:'Qué tan cerca está la medida del valor real.', e:'# menor error absoluto = mayor exactitud'},
+    {t:'Tabla de datos', c:'Organizar datos en filas y columnas.', e:'datos = [["día", "temp"], [1, 20], [2, 22]]'},
+    {t:'Diccionario de datos', c:'Guardar datos con nombres.', e:'clima = {"ciudad": "Bogotá", "temp": 14}'},
+    {t:'Guardar en archivo', c:'Escribir resultados en un archivo .txt.', e:'with open("datos.txt","w") as f:\n    f.write("temperatura: 25")'},
+    {t:'Leer datos de archivo', c:'Leer mediciones guardadas.', e:'with open("datos.txt") as f:\n    print(f.read())'},
+    {t:'Calcular velocidad', c:'v = distancia / tiempo.', e:'def velocidad(d, t):\n    return d / t'},
+    {t:'Calcular densidad', c:'d = masa / volumen.', e:'def densidad(m, v):\n    return m / v'},
+    {t:'Calcular fuerza', c:'F = masa × aceleración.', e:'def fuerza(m, a):\n    return m * a'},
+    {t:'Calcular energía', c:'E = m × c² (Einstein) o E = m·g·h.', e:'def energia_potencial(m, g, h):\n    return m * g * h'},
+    {t:'Calcular potencia', c:'P = trabajo / tiempo.', e:'def potencia(trabajo, tiempo):\n    return trabajo / tiempo'},
+    {t:'Comparar grupos', c:'Comparar dos experimentos.', e:'grupo_a = [10, 12, 11]\ngrupo_b = [15, 16, 14]\npromedio_a = sum(grupo_a)/len(grupo_a)'},
+    {t:'Escalas y proporciones', c:'Regla de tres simple.', e:'def regla_de_tres(a, b, c):\n    return b * c / a'},
+    {t:'Porcentajes', c:'Calcular porcentajes de masa o volumen.', e:'porcentaje = parte / total * 100'},
+    {t:'Notación científica', c:'Escribir números muy grandes o pequeños.', e:'velocidad_luz = 3e8  # 3 × 10^8 m/s'},
+    {t:'Constantes físicas', c:'Guardar constantes en variables.', e:'G = 9.8  # gravedad m/s²\nc = 3e8  # velocidad de la luz'},
+
+    {t:'Simular crecimiento', c:'Simular el crecimiento de una planta.', e:'altura = 0\nfor dia in range(10):\n    altura += 1.5\n    print(f"Día {dia}: {altura} cm")'},
+    {t:'Simular población', c:'Simular crecimiento de una población.', e:'poblacion = 100\nfor anio in range(5):\n    poblacion = poblacion * 1.1'},
+    {t:'Simular temperatura', c:'Cambios de temperatura durante el día.', e:'for hora in range(0, 24, 3):\n    temp = 15 + 10 * (hora/12)'},
+    {t:'Simular evaporación', c:'Agua que se evapora con el calor.', e:'agua = 100\nfor hora in range(5):\n    agua -= 5'},
+    {t:'Ciclo del agua', c:'Representar evaporación, condensación, precipitación.', e:'estados = ["evaporación", "condensación", "precipitación"]'},
+    {t:'Estados de la materia', c:'Sólido, líquido y gas según temperatura.', e:'def estado(t):\n    if t < 0: return "sólido"\n    elif t < 100: return "líquido"\n    return "gas"'},
+    {t:'Cambio de estado', c:'Punto de fusión y ebullición.', e:'if t >= 100: print("Hierve")'},
+    {t:'Simular fotosíntesis', c:'Entrada: luz, agua, CO₂. Salida: azúcar, O₂.', e:'luz, agua, co2 = 1, 1, 1\nazucar = luz * agua * co2'},
+    {t:'Simular cadena alimenticia', c:'Plantas → herbívoros → carnívoros.', e:'niveles = ["productores", "herbívoros", "carnívoros"]'},
+    {t:'Contar especies', c:'Contar individuos de cada especie.', e:'especies = {"roble": 12, "pino": 8, "helecho": 20}'},
+    {t:'Biodiversidad', c:'Comparar número de especies.', e:'riqueza = len(especies)'},
+    {t:'Simular erosión', c:'El agua arrastra suelo con el tiempo.', e:'suelo = 100\nfor anio in range(5):\n    suelo -= 2'},
+    {t:'Simular contaminación', c:'Aumento de contaminantes con el tiempo.', e:'contaminantes = 0\nfor anio in range(10):\n    contaminantes += 5'},
+    {t:'Simular reciclaje', c:'Reducción de residuos.', e:'basura = 100\nreciclado = 40\nrestante = basura - reciclado'},
+    {t:'Simular energía solar', c:'Energía producida por un panel.', e:'def energia_solar(area, irradiancia):\n    return area * irradiancia * 0.2'},
+    {t:'Simular viento', c:'Energía eólica.', e:'def energia_eolica(v):\n    return 0.5 * v ** 3'},
+    {t:'Simular lluvia', c:'Medir precipitación.', e:'lluvia = [0, 5, 10, 3, 0, 8]'},
+    {t:'Simular eclosión', c:'Nacimiento de huevos con días.', e:'huevos = 10\nfor dia in range(21):\n    if dia == 21:\n        print(f"Nacieron {huevos} pollitos")'},
+    {t:'Simular fotoperiodo', c:'Horas de luz por estación.', e:'invierno = 10\nverano = 14'},
+    {t:'Simular migración', c:'Animales que migran por estaciones.', e:'if estacion == "invierno":\n    print("Migrar al sur")'},
+
+    {t:'Mezclas y sustancias', c:'Diferenciar mezcla y compuesto.', e:'mezcla = ["agua", "arena"]'},
+    {t:'Estados de la materia', c:'Sólido, líquido y gas según temperatura.', e:'def estado(t):\n    if t < 0: return "sólido"\n    if t < 100: return "líquido"\n    return "gas"'},
+    {t:'Densidad del agua', c:'Recordar: 1 g/cm³.', e:'agua = 1.0  # g/cm³'},
+    {t:'Flotar o hundirse', c:'Depende de la densidad.', e:'if densidad_obj < densidad_agua:\n    print("Flota")'},
+    {t:'Cambios químicos', c:'Reacción: reactivos → productos.', e:'reactivos = ["H2", "O2"]\nproductos = ["H2O"]'},
+    {t:'Balancear ecuaciones', c:'Ajustar átomos.', e:'2*H2 + O2 -> 2*H2O'},
+    {t:'Ácidos y bases', c:'pH menor a 7 = ácido, mayor a 7 = base.', e:'if ph < 7: print("Ácido")'},
+    {t:'Indicadores', c:'Papel tornasol, fenolftaleína.', e:'indicador = {"ácido": "rojo", "base": "azul"}'},
+    {t:'Masa molar', c:'Sumar masas atómicas.', e:'H2O = 2*1 + 16  # 18 g/mol'},
+    {t:'Concentración', c:'Cantidad de soluto en solvente.', e:'def concentracion(soluto, solvente):\n    return soluto / solvente'},
+    {t:'Disoluciones saturadas', c:'Cuando ya no se disuelve más.', e:'if soluto > limite: print("Saturada")'},
+    {t:'Ley de Newton 1', c:'Un cuerpo permanece en reposo o movimiento rectilíneo uniforme.', e:'if fuerza_neta == 0: print("Sin cambio")'},
+    {t:'Ley de Newton 2', c:'F = masa × aceleración.', e:'def fuerza(m, a): return m * a'},
+    {t:'Ley de Newton 3', c:'Toda acción tiene una reacción igual y opuesta.', e:'accion = 10\nreaccion = -accion'},
+    {t:'Energía cinética', c:'Ec = ½ × m × v².', e:'def energia_cinetica(m, v):\n    return 0.5 * m * v**2'},
+    {t:'Energía potencial', c:'Ep = m × g × h.', e:'def energia_potencial(m, h):\n    return m * 9.8 * h'},
+    {t:'Trabajo', c:'W = F × d.', e:'def trabajo(f, d): return f * d'},
+    {t:'Palanca', c:'F1 × d1 = F2 × d2.', e:'f1 = 10; d1 = 2; d2 = 4\nf2 = f1 * d1 / d2'},
+    {t:'Circuitos simples', c:'Serie y paralelo.', e:'R_serie = r1 + r2\nR_paralelo = 1/(1/r1 + 1/r2)'},
+    {t:'Ley de Ohm', c:'V = I × R.', e:'def voltaje(i, r): return i * r'},
+
+    {t:'Contar árboles', c:'Cuántos árboles hay en un área.', e:'arboles = [12, 8, 20]'},
+    {t:'Estimar biomasa', c:'Cantidad de materia viva.', e:'biomasa = 500  # kg'},
+    {t:'Huella de carbono', c:'CO₂ producido por persona.', e:'huella = 4  # ton CO₂/año'},
+    {t:'Consumo de agua', c:'Litros usados por día.', e:'consumo = 150  # L/día'},
+    {t:'Energía renovable', c:'Comparar fuentes.', e:'fuentes = {"solar": 100, "eólica": 80, "hidro": 60}'},
+    {t:'Reciclaje doméstico', c:'Clasificar residuos.', e:'residuos = {"plástico": 5, "papel": 3, "orgánico": 7}'},
+    {t:'Reducir CO₂', c:'Cuánto CO₂ evitamos al reciclar.', e:'co2_evitado = reciclado * 1.5  # kg'},
+    {t:'Contaminación del aire', c:'PM2.5, PM10, ozono.', e:'contaminantes = ["PM2.5", "PM10", "O3"]'},
+    {t:'Contaminación del agua', c:'Aguas residuales.', e:'# DBO, DQO, pH'},
+    {t:'Índice de biodiversidad', c:'Cuántas especies distintas hay.', e:'riqueza = len(set(especies))'},
+    {t:'Área protegida', c:'Zonas de conservación.', e:'parques = ["Chingaza", "Tayrona", "Amacayacu"]'},
+    {t:'Especies en peligro', c:'Categorías UICN.', e:'categorias = ["LC", "NT", "VU", "EN", "CR"]'},
+    {t:'Cambio climático', c:'Aumento de temperatura global.', e:'temp_anual = [14.2, 14.5, 14.8, 15.1]'},
+    {t:'Efecto invernadero', c:'Gases que retienen calor.', e:'gei = ["CO₂", "CH₄", "N₂O"]'},
+    {t:'Ciclo del carbono', c:'Plantas, animales, suelo, atmósfera.', e:'reservorios = ["atmósfera", "océano", "suelo"]'},
+    {t:'Ciclo del nitrógeno', c:'Fijación, nitrificación, desnitrificación.', e:'etapas = ["fijación", "nitrificación", "asimilación"]'},
+    {t:'Cadena trófica', c:'Productores, consumidores, descomponedores.', e:'niveles = ["productores", "herbívoros", "carnívoros", "descomponedores"]'},
+    {t:'Poblaciones', c:'Natalidad, mortalidad, migración.', e:'crecimiento = nacimientos - muertes + inmigracion - emigracion'},
+    {t:'Ecosistemas', c:'Terrestres y acuáticos.', e:'tipos = ["bosque", "selva", "páramo", "humedal", "océano"]'},
+    {t:'Sostenibilidad', c:'Uso responsable de recursos.', e:'recursos = {"renovables": ["solar", "viento"], "no renovables": ["petróleo", "carbón"]}'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es una función de matemáticas puras.','No tiene relación con la ciencia.','Solo sirve para videojuegos.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TEXTOS CIENTÍFICOS (100) - 6°
+   ===================================================================== */
+function generarTecnicasTextos(){
+  const T = [
+    // EXPOSITIVO 1-30
+    {t:'¿Qué es un texto científico?', c:'Explica un tema natural de forma clara, ordenada y verificable.', e:'"El agua es un recurso natural esencial para la vida."'},
+    {t:'La introducción científica', c:'Presenta el tema y su importancia.', e:'"En este texto estudiaremos el ciclo del agua."'},
+    {t:'El desarrollo científico', c:'Explica con datos, ejemplos y relaciones.', e:'"El agua se evapora cuando recibe calor..."'},
+    {t:'La conclusión científica', c:'Sintetiza lo aprendido.', e:'"En resumen, el agua circula constantemente por el planeta."'},
+    {t:'Definiciones científicas', c:'Explicar qué significa un término.', e:'"La fotosíntesis es el proceso por el cual las plantas producen su alimento."'},
+    {t:'Ejemplos científicos', c:'Ilustrar con casos concretos.', e:'"Por ejemplo, el maíz es una planta que realiza fotosíntesis."'},
+    {t:'Clasificaciones', c:'Agrupar seres vivos u objetos.', e:'"Los animales se clasifican en vertebrados e invertebrados."'},
+    {t:'Comparaciones', c:'Contrastar dos elementos.', e:'"A diferencia del agua, el aceite no se disuelve."'},
+    {t:'Causa y consecuencia', c:'Explicar por qué ocurre algo y qué produce.', e:'"La contaminación causa enfermedades respiratorias."'},
+    {t:'Datos y cifras', c:'Usar números y estadísticas.', e:'"El 70 % de la Tierra está cubierto por agua."'},
+    {t:'Lenguaje objetivo', c:'Escribir sin opiniones personales.', e:'"El agua hierve a 100 °C."'},
+    {t:'Verbos en presente', c:'El texto científico usa presente.', e:'"La Tierra gira alrededor del Sol."'},
+    {t:'Sustantivos científicos', c:'Usar términos exactos.', e:'fotosíntesis, mitocondria, célula, átomo.'},
+    {t:'Adjetivos precisos', c:'Evitar "grande" o "bueno"; usar "de 5 kg".', e:'"El átomo de hidrógeno tiene 1 protón."'},
+    {t:'Conectores de causa', c:'Porque, ya que, debido a.', e:'"El hielo flota porque es menos denso que el agua."'},
+    {t:'Conectores de consecuencia', c:'Por lo tanto, en consecuencia.', e:'"No llueve; por lo tanto, el río baja su caudal."'},
+    {t:'Conectores de comparación', c:'A diferencia de, mientras que.', e:'"Mientras que las plantas producen su alimento, los animales lo consumen."'},
+    {t:'Conectores de adición', c:'Además, también, asimismo.', e:'"Además, el agua es necesaria para la fotosíntesis."'},
+    {t:'Títulos y subtítulos', c:'Organizar el texto.', e:'"1. Introducción / 2. Ciclo del agua / 3. Conclusión"'},
+    {t:'Negritas y cursivas', c:'Resaltar términos clave.', e:'"El **ADN** contiene la información genética."'},
+    {t:'Imágenes y esquemas', c:'Apoyar la explicación visualmente.', e:'Esquema del ciclo del agua.'},
+    {t:'Tablas de datos', c:'Organizar información.', e:'Tabla de temperaturas por mes.'},
+    {t:'Gráficos científicos', c:'Mostrar tendencias.', e:'Gráfico de crecimiento de una planta.'},
+    {t:'Fuentes de información', c:'Citar libros, artículos o webs.', e:'"Según el IDEAM (2023)..."'},
+    {t:'Citas textuales', c:'Reproducir lo que dijo un experto.', e:'"El agua es el solvente universal" (Smith, 2019).'},
+    {t:'Parafrasear', c:'Decir con tus palabras lo que dice un autor.', e:'"Según el IDEAM, el agua circula constantemente."'},
+    {t:'Referencias bibliográficas', c:'Listar las fuentes usadas.', e:'IDEAM. (2023). *Informe del agua en Colombia*.'},
+    {t:'Notas al pie', c:'Aclaraciones o fuentes.', e:'¹ Datos tomados del Ministerio de Ambiente.'},
+    {t:'Glosario científico', c:'Lista de términos con su significado.', e:'Fotosíntesis: proceso de producción de alimento en plantas.'},
+    {t:'Índice del texto', c:'Lista de secciones y páginas.', e:'1. Introducción .... 3'},
+
+    // DESCRIPTIVO 31-55
+    {t:'Descripción científica de un ser vivo', c:'Detallar partes y función.', e:'"El jaguar tiene pelaje dorado con manchas negras, garras retráctiles y colmillos fuertes."'},
+    {t:'Describir una planta', c:'Raíz, tallo, hojas, flor, fruto.', e:'"El girasol tiene tallo largo, hojas grandes y flores amarillas."'},
+    {t:'Describir un animal', c:'Anatomía y comportamiento.', e:'"La abeja tiene alas membranosas, antenas y aguijón."'},
+    {t:'Describir un ecosistema', c:'Factores bióticos y abióticos.', e:'"El páramo tiene clima frío, vegetación baja y suelos húmedos."'},
+    {t:'Describir un mineral', c:'Color, dureza, brillo, forma.', e:'"El cuarzo es transparente, duro y con brillo vítreo."'},
+    {t:'Describir una roca', c:'Ígnea, sedimentaria o metamórfica.', e:'"El granito es una roca ígnea con cristales visibles."'},
+    {t:'Describir un fenómeno natural', c:'Detallar cómo ocurre.', e:'"El arcoíris se forma cuando la luz se refracta en gotas de agua."'},
+    {t:'Describir el clima', c:'Temperatura, humedad, vientos.', e:'"El clima de Bogotá es frío y húmedo, con temperaturas de 8 a 20 °C."'},
+    {t:'Describir un proceso', c:'Paso a paso.', e:'"La fotosíntesis ocurre en los cloroplastos."'},
+    {t:'Descripción microscópica', c:'Lo que se ve al microscopio.', e:'"La célula vegetal tiene pared celular y cloroplastos."'},
+    {t:'Descripción macroscópica', c:'Lo que se ve a simple vista.', e:'"La hoja es verde, ovalada y con bordes dentados."'},
+    {t:'Descripción sensorial', c:'Usar los cinco sentidos.', e:'"La tierra mojada huele a humedad y se siente fría."'},
+    {t:'Descripción cuantitativa', c:'Con números y unidades.', e:'"El árbol mide 12 metros y su tronco 40 cm de diámetro."'},
+    {t:'Descripción cualitativa', c:'Con cualidades sin números.', e:'"La mariposa es colorida y de vuelo suave."'},
+    {t:'Descripción funcional', c:'Para qué sirve.', e:'"Las raíces absorben agua y nutrientes del suelo."'},
+    {t:'Descripción estructural', c:'Cómo está formado.', e:'"La flor tiene pétalos, sépalos, estambres y pistilo."'},
+    {t:'Descripción comparativa', c:'Comparar con otro ser u objeto.', e:'"El jaguar es más grande que el puma."'},
+    {t:'Descripción evolutiva', c:'Cómo cambia en el tiempo.', e:'"La semilla germina, crece y se convierte en planta."'},
+    {t:'Descripción de un hábitat', c:'Dónde vive un ser vivo.', e:'"El cóndor vive en los Andes, a más de 3.000 m."'},
+    {t:'Descripción del suelo', c:'Capas y composición.', e:'"El suelo tiene humus, minerales, agua y aire."'},
+    {t:'Descripción del aire', c:'Composición: N₂, O₂, CO₂.', e:'"El aire tiene 78 % nitrógeno y 21 % oxígeno."'},
+    {t:'Descripción del agua', c:'Estados y propiedades.', e:'"El agua es incolora, inodora e insípida."'},
+    {t:'Descripción del Sol', c:'Estrella del sistema solar.', e:'"El Sol es una estrella que produce luz y calor."'},
+    {t:'Descripción de la Luna', c:'Satélite natural de la Tierra.', e:'"La Luna no tiene luz propia; refleja la del Sol."'},
+    {t:'Descripción de los planetas', c:'Mercurio a Neptuno.', e:'"Marte es el planeta rojo por su óxido de hierro."'},
+
+    // INSTRUCTIVO 56-80
+    {t:'¿Qué es un texto instructivo?', c:'Indica pasos ordenados para hacer algo.', e:'Un protocolo de laboratorio.'},
+    {t:'El protocolo de laboratorio', c:'Pasos claros y numerados.', e:'1. Colocar el agua. 2. Encender el mechero.'},
+    {t:'Materiales e instrumentos', c:'Lista de lo necesario.', e:'Vaso de precipitados, termómetro, mechero.'},
+    {t:'Reactivos', c:'Sustancias a usar.', e:'Agua destilada, sal, vinagre.'},
+    {t:'Precauciones de seguridad', c:'Normas para evitar accidentes.', e:'"Usar gafas y guantes."'},
+    {t:'Pasos ordenados', c:'Secuencia lógica.', e:'1. Preparar. 2. Medir. 3. Mezclar.'},
+    {t:'Verbos en imperativo', c:'Los protocolos usan imperativo.', e:'"Mezclar", "medir", "observar".'},
+    {t:'Instrucciones condicionales', c:'"Si ocurre X, hacer Y".', e:'"Si la temperatura sube, retirar el mechero."'},
+    {t:'Registro de datos', c:'Anotar lo observado.', e:'"Anotar la temperatura cada minuto."'},
+    {t:'Repetición del experimento', c:'Repetir para verificar.', e:'"Repetir 3 veces el experimento."'},
+    {t:'Control de variables', c:'Mantener condiciones iguales.', e:'"Usar el mismo volumen de agua."'},
+    {t:'Tabla de registro', c:'Formato para anotar.', e:'| Tiempo (min) | Temperatura (°C) |'},
+    {t:'Observaciones', c:'Registrar lo que se ve.', e:'"El agua empezó a burbujear a los 5 min."'},
+    {t:'Resultados', c:'Lo que se obtuvo.', e:'"El agua hirvió a 98 °C."'},
+    {t:'Conclusión del experimento', c:'Qué aprendimos.', e:'"El agua hierve cerca de 100 °C."'},
+    {t:'Instrucciones de un microscopio', c:'Cómo usarlo.', e:'1. Encender. 2. Poner la muestra. 3. Enfocar.'},
+    {t:'Instrucciones de un kit de química', c:'Preparar una disolución.', e:'"Disolver 5 g de sal en 100 mL de agua."'},
+    {t:'Instrucciones de cultivo', c:'Sembrar una planta.', e:'1. Poner tierra. 2. Sembrar. 3. Regar.'},
+    {t:'Instrucciones de medición', c:'Usar una balanza.', e:'"Colocar el objeto y leer la masa."'},
+    {t:'Instrucciones de uso de un termómetro', c:'Medir temperatura.', e:'"Esperar 1 minuto antes de leer."'},
+    {t:'Instrucciones de pH', c:'Usar papel tornasol.', e:'"Sumergir la tira y comparar con la escala."'},
+    {t:'Instrucciones de recolección', c:'Tomar muestras.', e:'"Tomar muestras de agua en frascos limpios."'},
+    {t:'Instrucciones de clasificación', c:'Organizar muestras.', e:'"Clasificar las hojas por forma y borde."'},
+    {t:'Instrucciones de seguridad química', c:'Manejo de sustancias.', e:'"No oler directamente los reactivos."'},
+    {t:'Instrucciones de primeros auxilios', c:'Qué hacer en caso de accidente.', e:'"Lavar con agua abundante y avisar al docente."'},
+
+    // ARGUMENTATIVO 81-100
+    {t:'¿Qué es un texto argumentativo científico?', c:'Defiende una idea con datos y razones.', e:'"El cambio climático es causado por la actividad humana."'},
+    {t:'La tesis científica', c:'La idea que se defiende.', e:'"Reciclar reduce la contaminación."'},
+    {t:'Argumento con datos', c:'Usar cifras y estudios.', e:'"El 70 % de los residuos puede reciclarse."'},
+    {t:'Argumento por ejemplo', c:'Casos concretos.', e:'"En Suecia, el 99 % de la basura se recicla."'},
+    {t:'Argumento por autoridad', c:'Cita de expertos.', e:'"Según la OMS, la contaminación causa 7 millones de muertes al año."'},
+    {t:'Argumento por causa-efecto', c:'Relación de causas y consecuencias.', e:'"El CO₂ aumenta la temperatura global."'},
+    {t:'Refutación', c:'Responder a la opinión contraria.', e:'"Aunque algunos dudan, los datos son claros."'},
+    {t:'Conclusión persuasiva', c:'Cerrar invitando a actuar.', e:'"Recicla desde hoy: el planeta lo necesita."'},
+    {t:'Frase de apertura', c:'Llamar la atención.', e:'"¿Sabías que cada persona produce 1 kg de basura al día?"'},
+    {t:'Frase de cierre', c:'Reforzar la idea.', e:'"El futuro del planeta está en nuestras manos."'},
+    {t:'Conectores argumentativos', c:'Porque, por tanto, en consecuencia.', e:'"No llueve; por tanto, hay sequía."'},
+    {t:'Datos verificables', c:'Comprobar la fuente.', e:'"Según el IDEAM..."'},
+    {t:'Fuentes confiables', c:'Universidades, ministerios, OMS.', e:'Informes oficiales.'},
+    {t:'Distinguir hecho y opinión', c:'Hecho: se comprueba. Opinión: personal.', e:'Hecho: "el agua hierve a 100 °C".'},
+    {t:'Falacias ambientales', c:'Errores de razonamiento.', e:'"Todos los políticos mienten."'},
+    {t:'Artículo científico escolar', c:'Tesis, datos, conclusión.', e:'"El reciclaje escolar reduce residuos."'},
+    {t:'Ensayo científico escolar', c:'Reflexión con datos.', e:'"La importancia de las abejas."'},
+    {t:'Carta al editor', c:'Opinión sobre tema científico.', e:'"Señor director, urge proteger los páramos."'},
+    {t:'Manifiesto ambiental', c:'Declaración de compromiso.', e:'"Nos comprometemos a reducir plásticos."'},
+    {t:'Debate científico', c:'Dos posiciones con datos.', e:'"¿Energía nuclear sí o no?"'},
+    {t:'Reseña científica', c:'Comentar un libro o documental.', e:'"El documental *Planeta Tierra* muestra..."'},
+    {t:'Propuesta de solución', c:'Sugerir acciones concretas.', e:'"Proponemos instalar paneles solares."'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesTxt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'txt-exp',
+    opciones:[t.c,'Es un texto literario sin rigor.','No tiene relación con la ciencia.','Es un texto de ficción.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   COMPRENSIÓN CIENTÍFICA (100) - 6°
+   ===================================================================== */
+function generarTecnicasLectura(){
+  const T = [
+    {t:'Nivel literal científico', c:'Encontrar datos que están escritos claramente.', e:'¿A qué temperatura hierve el agua?'},
+    {t:'Nivel inferencial científico', c:'Deducir con pistas del texto.', e:'¿Por qué el hielo flota?'},
+    {t:'Nivel crítico científico', c:'Evaluar si el texto tiene datos confiables.', e:'¿La fuente es confiable?'},
+    {t:'Nivel apreciativo científico', c:'Valorar la importancia del descubrimiento.', e:'¿Por qué es importante estudiar el ADN?'},
+    {t:'Nivel creador científico', c:'Proponer nuevos experimentos.', e:'¿Cómo comprobarías tu hipótesis?'},
+    {t:'Idea principal científica', c:'Identificar el tema central.', e:'El texto trata sobre el ciclo del agua.'},
+    {t:'Ideas secundarias científicas', c:'Detalles que apoyan la idea principal.', e:'Además, se explica la evaporación.'},
+    {t:'Tema científico', c:'Asunto general.', e:'La fotosíntesis.'},
+    {t:'Título científico', c:'Resumir el texto con pocas palabras.', e:'"El ciclo del agua en la Tierra".'},
+    {t:'Datos y cifras clave', c:'Fijarse en los números.', e:'78 % de nitrógeno en el aire.'},
+    {t:'Variables del experimento', c:'Qué se mide y qué se cambia.', e:'Variable: temperatura.'},
+    {t:'Grupo control', c:'Grupo sin tratamiento.', e:'Plantas sin fertilizante.'},
+    {t:'Grupo experimental', c:'Grupo con tratamiento.', e:'Plantas con fertilizante.'},
+    {t:'Hipótesis', c:'Explicación que se va a probar.', e:'"Si riego la planta, crecerá más."'},
+    {t:'Predicción', c:'Qué esperamos que ocurra.', e:'"La planta crecerá 5 cm en una semana."'},
+    {t:'Observación', c:'Mirar con atención los fenómenos.', e:'"La planta tiene hojas verdes."'},
+    {t:'Medición', c:'Usar instrumentos para cuantificar.', e:'Medir con regla, balanza, termómetro.'},
+    {t:'Registro de datos', c:'Anotar lo observado en tablas.', e:'| Día | Altura (cm) |'},
+    {t:'Análisis de datos', c:'Interpretar lo observado.', e:'"La planta creció más con luz."'},
+    {t:'Conclusión', c:'Responder a la hipótesis.', e:'"La luz favorece el crecimiento."'},
+
+    {t:'El método científico', c:'Observación → hipótesis → experimento → conclusión.', e:'Secuencia básica de la ciencia.'},
+    {t:'Formular preguntas', c:'¿Qué quiero averiguar?', e:'¿Por qué flotan los barcos?'},
+    {t:'Plantear hipótesis', c:'Proponer una explicación tentativa.', e:'"Si el objeto es menos denso, flota."'},
+    {t:'Diseñar experimento', c:'Planear cómo comprobar la hipótesis.', e:'Usar objetos de distinta densidad.'},
+    {t:'Controlar variables', c:'Mantener condiciones constantes.', e:'Mismo volumen de agua.'},
+    {t:'Repetir medidas', c:'Hacer varias veces la medición.', e:'Medir 3 veces y promediar.'},
+    {t:'Analizar resultados', c:'Comparar datos.', e:'Comparar con la hipótesis.'},
+    {t:'Sacar conclusiones', c:'Responder la pregunta inicial.', e:'"La hipótesis se cumplió."'},
+    {t:'Comunicar resultados', c:'Escribir un informe.', e:'Informe de laboratorio.'},
+    {t:'Replicar experimentos', c:'Otros deben poder repetirlo.', e:'Describir el procedimiento exacto.'},
+    {t:'Errores experimentales', c:'Reconocer fallas.', e:'Medir mal, mal calibrar.'},
+    {t:'Fuentes de error', c:'Instrumentos o humanos.', e:'Termómetro descalibrado.'},
+    {t:'Precisión y exactitud', c:'Cerca entre sí y del valor real.', e:'Balanza bien calibrada.'},
+    {t:'Unidades del SI', c:'Metro, kilogramo, segundo, kelvin, mol, amperio, candela.', e:'1 m = 100 cm.'},
+    {t:'Notación científica', c:'Números muy grandes o pequeños.', e:'3 × 10⁸ m/s.'},
+    {t:'Cifras significativas', c:'Dígitos confiables.', e:'25.4 °C tiene 3 cifras.'},
+    {t:'Redondeo', c:'Ajustar el último dígito.', e:'3.1416 → 3.14.'},
+    {t:'Promedio', c:'Suma dividida entre el número de datos.', e:'(4+5+6)/3 = 5.'},
+    {t:'Mediana', c:'Valor central.', e:'En [1,3,5,7], mediana = 4.'},
+    {t:'Moda', c:'Valor más frecuente.', e:'En [2,3,3,4], moda = 3.'},
+
+    {t:'Leer un artículo científico', c:'Identificar título, autores, resumen.', e:'"Título: Efecto del pH en el crecimiento..."'},
+    {t:'Leer un resumen (abstract)', c:'Síntesis del artículo.', e:'Introducción, método, resultados, conclusión.'},
+    {t:'Leer un informe de laboratorio', c:'Objetivo, materiales, método, resultados, conclusión.', e:'Estructura estándar.'},
+    {t:'Leer una ficha técnica', c:'Datos del producto o sustancia.', e:'"Punto de fusión: 0 °C."'},
+    {t:'Leer una noticia científica', c:'Qué, quién, cuándo, dónde, por qué.', e:'"Científicos descubren nueva especie."'},
+    {t:'Leer un póster científico', c:'Resumen visual de la investigación.', e:'Gráficos y esquemas.'},
+    {t:'Leer un libro de texto', c:'Títulos, definiciones, ejemplos.', e:'Capítulo de ciencias naturales.'},
+    {t:'Leer una infografía', c:'Combinar imágenes y datos.', e:'Infografía del cuerpo humano.'},
+    {t:'Leer un documental', c:'Narración audiovisual.', e:'"El universo: origen y evolución."'},
+    {t:'Leer una entrevista científica', c:'Voz del experto.', e:'Entrevista a una bióloga.'},
+    {t:'Leer un glosario científico', c:'Términos y definiciones.', e:'Definiciones al final del libro.'},
+    {t:'Leer una tabla periódica', c:'Elementos y propiedades.', e:'Símbolos, números atómicos.'},
+    {t:'Leer una escala', c:'pH, Richter, Beaufort.', e:'pH 7 = neutro.'},
+    {t:'Leer un mapa', c:'Climas, biomas, relieve.', e:'Mapa de ecosistemas.'},
+    {t:'Leer un plano', c:'Cortes y vistas.', e:'Plano de una célula.'},
+    {t:'Leer un diagrama de flujo', c:'Procesos con flechas.', e:'Ciclo del agua.'},
+    {t:'Leer una línea de tiempo', c:'Eventos en orden.', e:'Evolución de las especies.'},
+    {t:'Leer un árbol filogenético', c:'Relaciones evolutivas.', e:'Reino → filo → clase → orden.'},
+    {t:'Leer un esquema anatómico', c:'Partes del cuerpo.', e:'Esquema del sistema digestivo.'},
+    {t:'Leer un modelo molecular', c:'Átomos y enlaces.', e:'Modelo del agua (H₂O).'},
+
+    {t:'Interpretar una tabla', c:'Leer filas y columnas.', e:'Tabla de temperaturas por mes.'},
+    {t:'Interpretar un gráfico de barras', c:'Comparar categorías.', e:'Comparación de precipitaciones.'},
+    {t:'Interpretar un gráfico de líneas', c:'Ver tendencias.', e:'Temperatura anual.'},
+    {t:'Interpretar un gráfico circular', c:'Ver proporciones.', e:'Composición del aire.'},
+    {t:'Interpretar un histograma', c:'Distribución de datos.', e:'Alturas de estudiantes.'},
+    {t:'Interpretar un diagrama de dispersión', c:'Relación entre variables.', e:'Temperatura vs. crecimiento.'},
+    {t:'Calcular promedios', c:'Sumar y dividir.', e:'(20+22+24)/3 = 22.'},
+    {t:'Calcular porcentajes', c:'Parte/total × 100.', e:'15/60 = 25 %.'},
+    {t:'Comparar magnitudes', c:'Mayor, menor, igual.', e:'El Sol es mayor que la Tierra.'},
+    {t:'Detectar tendencias', c:'Sube, baja o se mantiene.', e:'La temperatura sube en verano.'},
+    {t:'Detectar anomalías', c:'Datos que no encajan.', e:'Un dato de 100 °C en invierno.'},
+    {t:'Verificar unidades', c:'¿Están bien escritas?', e:'25 °C, no 25.'},
+    {t:'Verificar cifras significativas', c:'Cantidad correcta de dígitos.', e:'25.4 tiene 3.'},
+    {t:'Estimar resultados', c:'Calcular aproximado.', e:'"Aproximadamente 100 km."'},
+    {t:'Comparar fuentes', c:'¿Dicen lo mismo?', e:'Dos libros sobre el mismo tema.'},
+    {t:'Verificar autor', c:'¿Es experto?', e:'Biólogo de universidad.'},
+    {t:'Verificar fecha', c:'¿Es actual?', e:'Publicado en 2023.'},
+    {t:'Verificar editorial', c:'¿Es confiable?', e:'Universidad o ministerio.'},
+    {t:'Detectar sensacionalismo', c:'Titulares exagerados.', e:'"¡Cura milagrosa!"'},
+    {t:'Detectar publicidad engañosa', c:'Pseudociencia.', e:'"Este producto adelgaza sin dieta."'},
+
+    {t:'Autoevaluación científica', c:'¿Entendí el texto?', e:'¿Puedo explicarlo a un compañero?'},
+    {t:'Metacognición científica', c:'¿Qué estrategia me sirvió?', e:'Subrayar, resumir, esquematizar.'},
+    {t:'Pensamiento crítico', c:'Cuestionar datos y fuentes.', e:'¿Cómo lo saben?'},
+    {t:'Pensamiento creativo', c:'Proponer nuevas preguntas.', e:'¿Qué pasaría si...?'},
+    {t:'Pensamiento sistémico', c:'Ver relaciones entre partes.', e:'El ciclo del carbono.'},
+    {t:'Pensamiento computacional', c:'Modelar con pasos.', e:'Algoritmo de un experimento.'},
+    {t:'Evaluación formativa', c:'Revisar el proceso.', e:'¿Cómo puedo mejorar?'},
+    {t:'Evaluación sumativa', c:'Calificar el producto.', e:'Nota del informe.'},
+    {t:'Rúbrica de comprensión científica', c:'Criterios: literal, inferencial, crítico.', e:'Niveles 1, 2, 3.'},
+    {t:'Prueba tipo ICFES científica', c:'Preguntas con contexto.', e:'Según el texto se puede inferir...'},
+    {t:'Preguntas abiertas', c:'Explicar con tus palabras.', e:'Explica el ciclo del agua.'},
+    {t:'Preguntas de aplicación', c:'Usar en nuevos contextos.', e:'¿Cómo aplicarías esto en casa?'},
+    {t:'Debate científico', c:'Discutir con datos.', e:'¿Es ético modificar genes?'},
+    {t:'Portafolio científico', c:'Recopilar trabajos.', e:'Informes, esquemas, dibujos.'},
+    {t:'Diario de campo', c:'Registrar observaciones.', e:'Hoy observé que...'},
+    {t:'Bitácora científica', c:'Diario del proceso.', e:'Hipótesis del día...'},
+    {t:'Ficha de lectura científica', c:'Datos, resumen, valoración.', e:'Ficha de un libro de ciencias.'},
+    {t:'Gráfico de progreso', c:'Visualizar avance.', e:'Nivel 1 → Nivel 3.'},
+    {t:'Autoevaluación con rúbrica', c:'Puntuar tu comprensión.', e:'Me pongo 4/5 en inferencias.'},
+    {t:'Retroalimentación', c:'Comentarios para mejorar.', e:'Buen trabajo; profundiza en datos.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesLec.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'lec-niv',
+    opciones:[t.c,'Es una técnica de matemáticas.','Solo se usa en arte.','No tiene relación con la ciencia.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   REDACCIÓN CIENTÍFICA (100) - 6°
+   ===================================================================== */
+function generarTecnicasRedaccion(){
+  const T = [
+    {t:'¿Qué es redactar científicamente?', c:'Escribir con claridad, precisión y objetividad sobre un tema natural.', e:'"El agua hierve a 100 °C a nivel del mar."'},
+    {t:'Claridad', c:'Frases cortas y directas.', e:'"El agua se evapora."'},
+    {t:'Precisión', c:'Usar el término exacto.', e:'"Fotosíntesis" y no "comida de plantas".'},
+    {t:'Objetividad', c:'No opinar, solo informar.', e:'"La temperatura fue 25 °C."'},
+    {t:'Verificabilidad', c:'Datos que se pueden comprobar.', e:'"Según el IDEAM..."'},
+    {t:'Orden lógico', c:'Introducción, desarrollo, conclusión.', e:'Estructura básica.'},
+    {t:'Coherencia', c:'Las ideas deben estar conectadas.', e:'Todo el texto sobre el agua.'},
+    {t:'Cohesión', c:'Usar conectores.', e:'"Además", "por lo tanto".'},
+    {t:'Concisión', c:'No repetir, no rellenar.', e:'Evitar "es decir, o sea".'},
+    {t:'Precisión terminológica', c:'Usar vocabulario científico.', e:'"Sustancia" y no "cosa".'},
+    {t:'Formas verbales', c:'Presente para hechos, pasado para experimentos.', e:'"Se observó que..."'},
+    {t:'Voz pasiva refleja', c:'Frecuente en ciencia.', e:'"Se calienta el agua..."'},
+    {t:'Tercera persona', c:'Evitar "yo creo".', e:'"Se observa que..."'},
+    {t:'Uso de cifras', c:'Escribir números con unidades.', e:'25 °C, 10 kg, 5 m.'},
+    {t:'Notación científica', c:'Números muy grandes o pequeños.', e:'3 × 10⁸ m/s.'},
+    {t:'Símbolos y abreviaturas', c:'Definirlos la primera vez.', e:'ADN, CO₂, °C.'},
+    {t:'Citas y referencias', c:'Dar crédito a las fuentes.', e:'(IDEAM, 2023).'},
+    {t:'Parafrasear', c:'Decir con tus palabras.', e:'Según el IDEAM, el agua circula.'},
+    {t:'Evitar plagio', c:'No copiar sin citar.', e:'Siempre citar la fuente.'},
+    {t:'Revisar ortografía', c:'Corregir tildes y puntuación.', e:'Revisar antes de entregar.'},
+
+    {t:'El objetivo del experimento', c:'¿Qué queremos comprobar?', e:'"Comprobar si la luz afecta el crecimiento."'},
+    {t:'La hipótesis', c:'Explicación tentativa.', e:'"Si hay luz, la planta crece más."'},
+    {t:'Los materiales', c:'Lista completa.', e:'2 plantas, agua, luz, regla.'},
+    {t:'El método', c:'Paso a paso.', e:'1. Sembrar. 2. Regar. 3. Medir.'},
+    {t:'El control', c:'Grupo sin tratamiento.', e:'Planta sin luz.'},
+    {t:'El grupo experimental', c:'Grupo con tratamiento.', e:'Planta con luz.'},
+    {t:'Las variables', c:'Independiente, dependiente, controladas.', e:'Independiente: luz.'},
+    {t:'Los resultados', c:'Datos obtenidos.', e:'"La planta con luz creció 8 cm."'},
+    {t:'La discusión', c:'Interpretación.', e:'"Los datos apoyan la hipótesis."'},
+    {t:'La conclusión', c:'Respuesta final.', e:'"La luz favorece el crecimiento."'},
+    {t:'Las limitaciones', c:'Qué no se pudo controlar.', e:'"Solo se hizo en una semana."'},
+    {t:'Las recomendaciones', c:'Qué hacer después.', e:'"Repetir con más plantas."'},
+    {t:'El resumen (abstract)', c:'Síntesis breve.', e:'"Se estudió el efecto de la luz..."'},
+    {t:'Las palabras clave', c:'Términos principales.', e:'Luz, crecimiento, fotosíntesis.'},
+    {t:'La introducción', c:'Presenta el tema.', e:'"La luz es esencial para las plantas..."'},
+    {t:'El marco teórico', c:'Conceptos previos.', e:'Definir fotosíntesis.'},
+    {t:'La metodología', c:'Cómo se hizo.', e:'"Se usaron dos grupos..."'},
+    {t:'El análisis de datos', c:'Interpretar tablas y gráficos.', e:'"Los datos muestran..."'},
+    {t:'Las figuras', c:'Imágenes y gráficos.', e:'"Figura 1: crecimiento diario."'},
+    {t:'Las tablas', c:'Datos organizados.', e:'"Tabla 1: mediciones."'},
+
+    {t:'¿Qué es un informe de laboratorio?', c:'Documento que describe un experimento.', e:'Estructura estándar.'},
+    {t:'Título del informe', c:'Breve y descriptivo.', e:'"Efecto de la luz en el crecimiento."'},
+    {t:'Autores', c:'Quiénes hicieron el experimento.', e:'"Ana, Luis, María."'},
+    {t:'Fecha', c:'Cuándo se realizó.', e:'"15 de marzo de 2025."'},
+    {t:'Resumen del informe', c:'Síntesis de todo.', e:'"Se estudió..."'},
+    {t:'Introducción del informe', c:'Contexto y objetivo.', e:'"La fotosíntesis requiere luz..."'},
+    {t:'Materiales del informe', c:'Lista detallada.', e:'"2 macetas, tierra, semillas."'},
+    {t:'Método del informe', c:'Pasos numerados.', e:'1. Sembrar. 2. Regar. 3. Medir.'},
+    {t:'Resultados del informe', c:'Datos en tablas.', e:'"Tabla 1: alturas."'},
+    {t:'Discusión del informe', c:'Interpretación.', e:'"Los datos apoyan la hipótesis."'},
+    {t:'Conclusión del informe', c:'Cierre.', e:'"La luz favorece el crecimiento."'},
+    {t:'Bibliografía del informe', c:'Fuentes.', e:'"IDEAM (2023)."'},
+    {t:'Anexos del informe', c:'Fotos, tablas extra.', e:'"Anexo 1: fotografías."'},
+    {t:'Formato del informe', c:'Portada, estructura.', e:'Carta, letra 12, márgenes.'},
+    {t:'Extensión del informe', c:'Clara y concisa.', e:'Entre 2 y 5 páginas.'},
+    {t:'Presentación oral del informe', c:'Explicarlo al grupo.', e:'5 minutos, con esquemas.'},
+    {t:'Póster del informe', c:'Resumen visual.', e:'Gráficos y fotos.'},
+    {t:'Diapositivas del informe', c:'Presentación digital.', e:'10 diapositivas máximo.'},
+    {t:'Video del experimento', c:'Registro audiovisual.', e:'3 minutos.'},
+    {t:'Cuaderno de laboratorio', c:'Registro diario.', e:'Anotar todo lo que ocurre.'},
+    {t:'Rúbrica del informe', c:'Criterios de evaluación.', e:'Claridad, datos, conclusión.'},
+    {t:'Revisión entre compañeros', c:'Coevaluar.', e:'Leer el informe del otro.'},
+    {t:'Autoevaluación del informe', c:'Reflexionar.', e:'¿Qué haría mejor?'},
+    {t:'Entrega del informe', c:'Formato y fecha.', e:'Impreso o digital.'},
+    {t:'Publicación del informe', c:'Compartir con la comunidad.', e:'Cartelera o blog escolar.'},
+
+    {t:'¿Qué es un artículo científico escolar?', c:'Texto breve con estructura científica.', e:'Similar a un artículo real.'},
+    {t:'Título del artículo', c:'Claro y atractivo.', e:'"Las abejas y la polinización."'},
+    {t:'Autores del artículo', c:'Nombre del estudiante.', e:'"Por Juan Pérez, 6°."'},
+    {t:'Resumen del artículo', c:'Abstract breve.', e:'"Se estudió..."'},
+    {t:'Palabras clave del artículo', c:'3-5 términos.', e:'"abejas, polinización, flores"'},
+    {t:'Introducción del artículo', c:'Contexto.', e:'"Las abejas son importantes..."'},
+    {t:'Métodos del artículo', c:'Cómo se estudió.', e:'"Se observaron 3 flores..."'},
+    {t:'Resultados del artículo', c:'Datos.', e:'"Se contaron 20 visitas."'},
+    {t:'Discusión del artículo', c:'Interpretación.', e:'"Las abejas ayudan a la reproducción."'},
+    {t:'Conclusión del artículo', c:'Cierre.', e:'"Es urgente protegerlas."'},
+    {t:'Referencias del artículo', c:'Fuentes.', e:'"FAO (2022)."'},
+    {t:'Póster científico', c:'Resumen visual.', e:'Título, datos, gráfico, foto.'},
+    {t:'Infografía científica', c:'Datos visuales.', e:'Ciclo del agua en una imagen.'},
+    {t:'Presentación oral', c:'Explicar con diapositivas.', e:'10 minutos.'},
+    {t:'Video científico', c:'Documental breve.', e:'3 minutos.'},
+    {t:'Blog científico escolar', c:'Publicar hallazgos.', e:'blog.ciencias...'},
+    {t:'Revista escolar', c:'Recopilar artículos.', e:'"Ciencia Joven #3".'},
+    {t:'Feria de ciencias', c:'Exponer el proyecto.', e:'Stand y póster.'},
+    {t:'Olimpiadas científicas', c:'Competir con otros colegios.', e:'Pruebas de conocimiento.'},
+    {t:'Cartelera científica', c:'Divulgar en el colegio.', e:'Mural del ciclo del agua.'},
+    {t:'Campaña científica escolar', c:'Concientizar.', e:'"Recicla en tu salón."'},
+    {t:'Glosario científico personal', c:'Lista de términos aprendidos.', e:'Fotosíntesis, célula, ADN.'},
+    {t:'Cuaderno de campo', c:'Registro diario.', e:'Observaciones, dibujos.'},
+    {t:'Bitácora de experimentos', c:'Todos los intentos.', e:'Incluye errores.'},
+    {t:'Portafolio científico', c:'Recopilación.', e:'Informes, fotos, dibujos.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesRed.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'red-proc',
+    opciones:[t.c,'Es una técnica sin relación con la ciencia.','Solo se usa en matemáticas.','No tiene aplicación escolar.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   SINTAXIS CASTELLANA (100) - 6°
+   ===================================================================== */
+function generarTecnicasSintaxis(){
+  const T = [
+    {t:'El sustantivo', c:'Palabra que nombra personas, animales, cosas o ideas.', e:'niño, perro, agua, célula.'},
+    {t:'Sustantivos comunes y propios', c:'Comunes: general. Propios: específicos.', e:'planeta (común) / Marte (propio).'},
+    {t:'Sustantivos concretos y abstractos', c:'Concretos: se perciben. Abstractos: ideas.', e:'mesa (concreto) / gravedad (abstracta).'},
+    {t:'Sustantivos individuales y colectivos', c:'Individual: uno. Colectivo: grupo.', e:'árbol (individual) / bosque (colectivo).'},
+    {t:'Género del sustantivo', c:'Masculino o femenino.', e:'el átomo / la célula.'},
+    {t:'Número del sustantivo', c:'Singular o plural.', e:'célula → células.'},
+    {t:'El artículo', c:'Acompaña al sustantivo.', e:'el agua, la célula, los átomos.'},
+    {t:'El adjetivo', c:'Dice cómo es el sustantivo.', e:'célula pequeña, agua transparente.'},
+    {t:'Grados del adjetivo', c:'Positivo, comparativo, superlativo.', e:'grande, más grande, grandísimo.'},
+    {t:'El pronombre personal', c:'Sustituye al sustantivo.', e:'Ella estudia biología.'},
+    {t:'El verbo', c:'Expresa acción, estado o proceso.', e:'correr, ser, reaccionar.'},
+    {t:'Persona del verbo', c:'1ª, 2ª o 3ª.', e:'yo mido, tú mides, él mide.'},
+    {t:'Número del verbo', c:'Singular o plural.', e:'mide (sing.) / miden (plural).'},
+    {t:'Presente', c:'Acción actual.', e:'El agua hierve.'},
+    {t:'Pasado', c:'Acción anterior.', e:'El agua hirvió.'},
+    {t:'Futuro', c:'Acción posterior.', e:'El agua hervirá.'},
+    {t:'El adverbio', c:'Modifica al verbo.', e:'aquí, ayer, rápidamente.'},
+    {t:'Adverbios de lugar', c:'Dónde.', e:'aquí, allí, arriba.'},
+    {t:'Adverbios de tiempo', c:'Cuándo.', e:'ayer, hoy, después.'},
+    {t:'Adverbios de modo', c:'Cómo.', e:'bien, mal, lentamente.'},
+    {t:'La preposición', c:'Une palabras: a, de, en, con, por, para.', e:'Voy al laboratorio.'},
+    {t:'La conjunción', c:'Une palabras u oraciones: y, o, pero, porque.', e:'Estudia y practica.'},
+    {t:'Interjecciones', c:'Emociones: ¡ay!, ¡oh!, ¡eh!', e:'¡Ay, me duele!'},
+    {t:'Familia de palabras', c:'Comparten raíz.', e:'ciencia, científico, científicamente.'},
+    {t:'Prefijos', c:'Al inicio: des-, re-, in-.', e:'hacer → deshacer.'},
+    {t:'Sufijos', c:'Al final: -ito, -oso, -ción.', e:'célula → celular.'},
+    {t:'Palabras simples', c:'Una raíz.', e:'sol, agua, luz.'},
+    {t:'Palabras compuestas', c:'Dos raíces.', e:'pararrayos, hidroeléctrico.'},
+    {t:'Sinónimos', c:'Significado parecido.', e:'agua / líquido.'},
+    {t:'Antónimos', c:'Significado opuesto.', e:'caliente / frío.'},
+    {t:'Homónimos', c:'Suenan igual, distinto significado.', e:'vino (bebida) / vino (verbo).'},
+    {t:'Palabras agudas', c:'Acento en última sílaba.', e:'café, corazón.'},
+    {t:'Palabras llanas', c:'Acento en penúltima.', e:'árbol, lápiz.'},
+    {t:'Palabras esdrújulas', c:'Acento en antepenúltima.', e:'música, célula.'},
+    {t:'Tilde diacrítica', c:'Distingue significados.', e:'él / el; tú / tu.'},
+
+    {t:'¿Qué es una oración?', c:'Unidad con verbo y sentido completo.', e:'El agua hierve.'},
+    {t:'Sujeto', c:'Quien realiza la acción.', e:'El agua (sujeto) hierve.'},
+    {t:'Predicado', c:'Lo que se dice del sujeto.', e:'hierve (predicado).'},
+    {t:'Sujeto expreso y elidido', c:'Se dice o se sobrentiende.', e:'(Nosotros) medimos la temperatura.'},
+    {t:'Núcleo del sujeto', c:'Sustantivo o pronombre.', e:'El agua (núcleo: agua).'},
+    {t:'Núcleo del predicado', c:'Verbo conjugado.', e:'Juan mide (núcleo: mide).'},
+    {t:'Concordancia sujeto-verbo', c:'Mismo número y persona.', e:'El niño mide / Los niños miden.'},
+    {t:'Oraciones enunciativas', c:'Afirman o niegan.', e:'El agua hierve a 100 °C.'},
+    {t:'Oraciones interrogativas', c:'Preguntan. Usan ¿?', e:'¿A qué temperatura hierve el agua?'},
+    {t:'Oraciones exclamativas', c:'Expresan emoción. ¡!', e:'¡Qué interesante!'},
+    {t:'Oraciones imperativas', c:'Dan órdenes.', e:'Mide la temperatura.'},
+    {t:'Predicado nominal', c:'Verbo copulativo + atributo.', e:'El agua es transparente.'},
+    {t:'Predicado verbal', c:'Verbo predicativo.', e:'El agua hierve.'},
+    {t:'Verbos copulativos', c:'ser, estar, parecer.', e:'El agua está fría.'},
+    {t:'Atributo', c:'Cualidad del sujeto.', e:'El agua es transparente.'},
+    {t:'Complemento Directo (CD)', c:'Recibe la acción.', e:'Medí la temperatura (CD: la temperatura).'},
+    {t:'Complemento Indirecto (CI)', c:'Destinatario.', e:'Entregué el informe a la profesora.'},
+    {t:'CC de lugar', c:'Dónde.', e:'Estudio en el laboratorio.'},
+    {t:'CC de tiempo', c:'Cuándo.', e:'Mediré mañana.'},
+    {t:'CC de modo', c:'Cómo.', e:'Observa atentamente.'},
+    {t:'CC de causa', c:'Por qué.', e:'Lloró por la emoción.'},
+    {t:'CC de finalidad', c:'Para qué.', e:'Estudio para aprobar.'},
+    {t:'Oraciones transitivas', c:'Llevan CD.', e:'Compré un microscopio.'},
+    {t:'Oraciones intransitivas', c:'No llevan CD.', e:'Nací en Bogotá.'},
+    {t:'Oraciones impersonales', c:'Sin sujeto.', e:'Llueve mucho; Hay vida.'},
+    {t:'Oraciones activas', c:'Sujeto realiza acción.', e:'El niño rompió el tubo.'},
+    {t:'Oraciones pasivas', c:'Ser + participio + por.', e:'El tubo fue roto por el niño.'},
+    {t:'Sujeto agente', c:'Quien realiza la acción en pasiva.', e:'El tubo fue roto por el niño.'},
+    {t:'Orden de la oración', c:'Sujeto + Verbo + Complementos.', e:'María compró flores.'},
+    {t:'Concordancia artículo-sustantivo', c:'Género y número.', e:'la célula / las células.'},
+    {t:'Concordancia sustantivo-adjetivo', c:'Género y número.', e:'los átomos pequeños.'},
+
+    {t:'Uso de la coma', c:'Enumeraciones, vocativos.', e:'Compré agua, sal y vinagre.'},
+    {t:'Coma vocativa', c:'Separa el nombre.', e:'Ana, ven aquí.'},
+    {t:'Punto y coma', c:'Separa oraciones.', e:'Llegó tarde; sin embargo, entró.'},
+    {t:'Dos puntos', c:'Anuncian enumeración.', e:'Necesito: agua, sal y vaso.'},
+    {t:'Punto final', c:'Cierra oración.', e:'El agua hierve.'},
+    {t:'Puntos suspensivos', c:'Duda o suspenso.', e:'Bueno, yo creo que...'},
+    {t:'Signos de interrogación', c:'Encierran preguntas.', e:'¿Cómo estás?'},
+    {t:'Signos de exclamación', c:'Encierran emociones.', e:'¡Qué bonito!'},
+    {t:'Comillas', c:'Citas textuales.', e:'Le llamó "genio".'},
+    {t:'Paréntesis', c:'Aclaraciones.', e:'Nació en 1980 (en Madrid).'},
+    {t:'Guion largo para diálogos', c:'Intervenciones.', e:'—¿Vienes? —preguntó.'},
+    {t:'Mayúsculas al inicio', c:'Toda oración empieza con mayúscula.', e:'El perro corre.'},
+    {t:'Mayúsculas en nombres propios', c:'Personas, ciudades.', e:'Juan vive en Bogotá.'},
+    {t:'Mayúsculas tras punto', c:'Después de un punto, mayúscula.', e:'Llegó. Después se fue.'},
+    {t:'Dequeísmo', c:'Error: "de que" por "que".', e:'*Pienso de que → Pienso que.'},
+    {t:'Queísmo', c:'Error: omitir "de" antes de "que".', e:'*Me di cuenta que → Me di cuenta de que.'},
+    {t:'Leísmo', c:'Error: "le" por "lo".', e:'*Le vi → Lo vi (a él).'},
+    {t:'Laísmo', c:'Error: "la" por "le".', e:'*La dije → Le dije (a ella).'},
+    {t:'Loísmo', c:'Error: "lo" por "le".', e:'*Lo di el libro → Le di el libro.'},
+    {t:'Pleonasmo', c:'Repetición innecesaria.', e:'*Subir arriba; *Lo vi con mis propios ojos.'},
+    {t:'Anfibología', c:'Doble sentido.', e:'*Se venden mantas para niños.'},
+    {t:'Cosismo', c:'Abuso de "cosa".', e:'*Tengo una cosa que decirte.'},
+    {t:'Cacofonía', c:'Sonidos desagradables.', e:'*La caca de la vaca.'},
+    {t:'Barbarismo', c:'Palabras mal formadas.', e:'*Haiga por haya; *accesar por acceder.'},
+    {t:'Ultracorrección', c:'Corregir de más.', e:'*Bilbado por Bilbao.'},
+    {t:'Muletillas', c:'Palabras repetidas.', e:'este, bueno, o sea.'},
+    {t:'Repeticiones', c:'Misma palabra muchas veces.', e:'Reemplazar por sinónimos.'},
+    {t:'Oraciones muy largas', c:'Difíciles de leer.', e:'Dividir en oraciones cortas.'},
+    {t:'Voz activa preferida', c:'Más clara que pasiva.', e:'El niño rompió el tubo.'},
+    {t:'Claridad', c:'Frases cortas y directas.', e:'El agua hierve.'},
+    {t:'Precisión', c:'Palabras exactas.', e:'"Caminó" mejor que "fue".'},
+    {t:'Coherencia', c:'Ideas conectadas.', e:'Un texto coherente mantiene el tema.'},
+    {t:'Cohesión', c:'Conectores y pronombres.', e:'Además, sin embargo.'},
+    {t:'Revisión final', c:'Leer y corregir.', e:'Revisar antes de entregar.'},
+    {t:'Lectura en voz alta', c:'Detectar errores.', e:'Leer el texto en voz alta.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesSin.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'sin-morf',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene aplicación en castellano.'],
+    correcta:0
+  }));
+}
+
+const tecnicasPy = generarTecnicasPython();
+const tecnicasTxt = generarTecnicasTextos();
+const tecnicasLec = generarTecnicasLectura();
+const tecnicasRed = generarTecnicasRedaccion();
+const tecnicasSin = generarTecnicasSintaxis();
+
+/* =====================================================================
+   ESTADO Y PERSISTENCIA (6° CIENCIAS)
+   ===================================================================== */
+const CLAVES = {
+  pyProg:'ciencias6_python_prog', pyNotas:'ciencias6_python_notas',
+  txtProg:'ciencias6_textos_prog', txtNotas:'ciencias6_textos_notas',
+  lecProg:'ciencias6_lectura_prog', lecNotas:'ciencias6_lectura_notas',
+  redProg:'ciencias6_redaccion_prog', redNotas:'ciencias6_redaccion_notas',
+  sinProg:'ciencias6_sintaxis_prog', sinNotas:'ciencias6_sintaxis_notas',
+  campos:'ciencias6_campos', tema:'ciencias6_tema'
+};
+
+let estado = {
+  py:{ progreso: JSON.parse(localStorage.getItem(CLAVES.pyProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.pyNotas))||{}, tecnicaActual:1, bloqueActual:'py-bas' },
+  txt:{ progreso: JSON.parse(localStorage.getItem(CLAVES.txtProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.txtNotas))||{}, tecnicaActual:1, bloqueActual:'txt-exp' },
+  lec:{ progreso: JSON.parse(localStorage.getItem(CLAVES.lecProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.lecNotas))||{}, tecnicaActual:1, bloqueActual:'lec-niv' },
+  red:{ progreso: JSON.parse(localStorage.getItem(CLAVES.redProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.redNotas))||{}, tecnicaActual:1, bloqueActual:'red-proc' },
+  sin:{ progreso: JSON.parse(localStorage.getItem(CLAVES.sinProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.sinNotas))||{}, tecnicaActual:1, bloqueActual:'sin-morf' },
+  tema: localStorage.getItem(CLAVES.tema)||'light',
+  modo:'dashboard'
+};
+
+function guardar(area){
+  const map = {
+    py:[CLAVES.pyProg,CLAVES.pyNotas],
+    txt:[CLAVES.txtProg,CLAVES.txtNotas],
+    lec:[CLAVES.lecProg,CLAVES.lecNotas],
+    red:[CLAVES.redProg,CLAVES.redNotas],
+    sin:[CLAVES.sinProg,CLAVES.sinNotas]
+  };
+  const [kp,kn] = map[area];
+  localStorage.setItem(kp, JSON.stringify(estado[area].progreso));
+  localStorage.setItem(kn, JSON.stringify(estado[area].notas));
+  actualizarDashboard();
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#navTabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    estado.modo = btn.dataset.mode;
+    document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+estado.modo).classList.add('active');
+    if(estado.modo==='dashboard') actualizarDashboard();
+    if(estado.modo==='python') renderCuaderno('py');
+    if(estado.modo==='textos') renderCuaderno('txt');
+    if(estado.modo==='lectura') renderCuaderno('lec');
+    if(estado.modo==='redaccion') renderCuaderno('red');
+    if(estado.modo==='sintaxis') renderCuaderno('sin');
+    if(estado.modo==='taller') renderTaller();
+    if(estado.modo==='certificado') renderCertificado();
+  });
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  localStorage.setItem(CLAVES.tema, estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+});
+if(estado.tema==='dark'){
+  document.documentElement.setAttribute('data-theme','dark');
+  document.getElementById('btnTema').textContent='☀️';
+}
+
+document.getElementById('btnReiniciar').addEventListener('click',()=>{
+  if(!confirm('¿Reiniciar todo el progreso de Ciencias 6°?')) return;
+  [CLAVES.pyProg,CLAVES.pyNotas,CLAVES.txtProg,CLAVES.txtNotas,CLAVES.lecProg,CLAVES.lecNotas,CLAVES.redProg,CLAVES.redNotas,CLAVES.sinProg,CLAVES.sinNotas].forEach(k=>localStorage.removeItem(k));
+  estado.py={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'py-bas'};
+  estado.txt={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'txt-exp'};
+  estado.lec={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'lec-niv'};
+  estado.red={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'red-proc'};
+  estado.sin={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'sin-morf'};
+  renderTodo();
+});
+
+function actualizarDashboard(){
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const total = py+txt+lec+red+sin;
+  const pct = Math.round((total/500)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/500</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python</div></div>
+    <div class="kpi-card"><div class="kpi-value">${txt}/100</div><div class="kpi-label">🧪 Textos</div></div>
+    <div class="kpi-card"><div class="kpi-value">${lec}/100</div><div class="kpi-label">🔬 Comprensión</div></div>
+    <div class="kpi-card"><div class="kpi-value">${red}/100</div><div class="kpi-label">✍️ Redacción</div></div>
+    <div class="kpi-card"><div class="kpi-value">${sin}/100</div><div class="kpi-label">🧩 Sintaxis</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+  document.getElementById('barrasTextos').innerHTML = barras(bloquesTxt, tecnicasTxt, estado.txt.progreso);
+  document.getElementById('barrasLectura').innerHTML = barras(bloquesLec, tecnicasLec, estado.lec.progreso);
+  document.getElementById('barrasRedaccion').innerHTML = barras(bloquesRed, tecnicasRed, estado.red.progreso);
+  document.getElementById('barrasSintaxis').innerHTML = barras(bloquesSin, tecnicasSin, estado.sin.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/500)*120;
+    pts.push(`${x},${y}`);
+    acum += 42;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+function renderCuaderno(area){
+  const cfg = {
+    py: { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' },
+    txt:{ bloques: bloquesTxt, tecnicas: tecnicasTxt, contenedor:'tecnicaTxt', sidebar:'bloquesTxt', progText:'progTxtText', progFill:'progTxtFill' },
+    lec:{ bloques: bloquesLec, tecnicas: tecnicasLec, contenedor:'tecnicaLec', sidebar:'bloquesLec', progText:'progLecText', progFill:'progLecFill' },
+    red:{ bloques: bloquesRed, tecnicas: tecnicasRed, contenedor:'tecnicaRed', sidebar:'bloquesRed', progText:'progRedText', progFill:'progRedFill' },
+    sin:{ bloques: bloquesSin, tecnicas: tecnicasSin, contenedor:'tecnicaSin', sidebar:'bloquesSin', progText:'progSinText', progFill:'progSinFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${tec.concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardar(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardar(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardar(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>🔬 Calculadora científica</h4>
+      <input id="calcExpr" placeholder="Ej: 25*9/5+32 (C→F)">
+      <button class="btn-accion" id="btnCalc">Calcular</button>
+      <div class="resultado-box" id="rCalc"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌡️ Conversor de temperatura</h4>
+      <input id="tempVal" type="number" placeholder="25">
+      <select id="tempDir"><option value="cf">Celsius → Fahrenheit</option><option value="fc">Fahrenheit → Celsius</option><option value="ck">Celsius → Kelvin</option></select>
+      <button class="btn-accion" id="btnTemp">Convertir</button>
+      <div class="resultado-box" id="rTemp"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚗️ Calculadora de densidad</h4>
+      <input id="densMasa" type="number" placeholder="Masa (g)">
+      <input id="densVol" type="number" placeholder="Volumen (cm³)">
+      <button class="btn-accion" id="btnDens">Calcular</button>
+      <div class="resultado-box" id="rDens"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Promedio de mediciones</h4>
+      <textarea id="promDatos" placeholder="Una medición por línea: 22.5&#10;23.1&#10;22.8"></textarea>
+      <button class="btn-accion" id="btnProm">Calcular promedio</button>
+      <div class="resultado-box" id="rProm"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚡ Calculadora de energía</h4>
+      <select id="enerTipo">
+        <option value="cinetica">Cinética (½mv²)</option>
+        <option value="potencial">Potencial (mgh)</option>
+        <option value="trabajo">Trabajo (F·d)</option>
+      </select>
+      <input id="enerA" type="number" placeholder="Valor 1">
+      <input id="enerB" type="number" placeholder="Valor 2">
+      <button class="btn-accion" id="btnEner">Calcular</button>
+      <div class="resultado-box" id="rEner"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧪 Balanceador simple de reacciones</h4>
+      <input id="balEc" placeholder="Ej: H2 + O2 = H2O">
+      <button class="btn-accion" id="btnBal">Sugerir</button>
+      <div class="resultado-box" id="rBal"></div>
+    </div>
+    <div class="herramienta-card"><h4>📏 Conversor de unidades</h4>
+      <input id="convVal" type="number" placeholder="100">
+      <select id="convTipo">
+        <option value="cm-m">cm → m</option>
+        <option value="m-km">m → km</option>
+        <option value="g-kg">g → kg</option>
+        <option value="ml-l">mL → L</option>
+      </select>
+      <button class="btn-accion" id="btnConv">Convertir</button>
+      <div class="resultado-box" id="rConv"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Índice de legibilidad</h4>
+      <textarea id="legibTexto" placeholder="Pega un texto científico..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de términos científicos</h4>
+      <textarea id="termTexto" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnTerm">Detectar</button>
+      <div class="resultado-box" id="rTerm"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Contador y estadísticas</h4>
+      <textarea id="contTexto" placeholder="Pega texto..."></textarea>
+      <div class="resultado-box" id="rCont">Palabras: 0 · Oraciones: 0 · Párrafos: 0</div>
+    </div>
+    <div class="herramienta-card"><h4>🧪 Detector de tipo de texto científico</h4>
+      <textarea id="tipoTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnTipo">Detectar</button>
+      <div class="resultado-box" id="rTipo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Extractor de idea principal</h4>
+      <textarea id="ideaTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnIdea">Extraer</button>
+      <div class="resultado-box" id="rIdea"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector de tildes</h4>
+      <textarea id="tildTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTild">Corregir</button>
+      <div class="resultado-box" id="rTild"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔤 Analizador morfológico</h4>
+      <textarea id="morfTexto" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>📐 Detector de vicios del lenguaje</h4>
+      <textarea id="vicTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnVic">Detectar</button>
+      <div class="resultado-box" id="rVic"></div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe de progreso</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador de código Python</h4>
+      <select id="pyTipoGen">
+        <option value="promedio">Promedio de datos</option>
+        <option value="densidad">Calcular densidad</option>
+        <option value="conversion">Conversión C→F</option>
+        <option value="simulacion">Simulación de crecimiento</option>
+      </select>
+      <input id="pyTextoGen" placeholder="Ej: 22,23,25,24">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Analizador de hipótesis</h4>
+      <textarea id="hipTexto" placeholder="Pega la hipótesis: Si riego la planta, entonces crecerá más."></textarea>
+      <button class="btn-accion" id="btnHip">Analizar</button>
+      <div class="resultado-box" id="rHip"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Detector de variables</h4>
+      <textarea id="varTexto" placeholder="Pega el método del experimento..."></textarea>
+      <button class="btn-accion" id="btnVar">Detectar</button>
+      <div class="resultado-box" id="rVar"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de especies mencionadas</h4>
+      <textarea id="espTexto" placeholder="Pega texto con especies: jaguar, roble..."></textarea>
+      <button class="btn-accion" id="btnEsp">Detectar</button>
+      <div class="resultado-box" id="rEsp"></div>
+    </div>
+    <div class="herramienta-card"><h4>📏 Redondeo científico</h4>
+      <input id="redNum" type="number" step="any" placeholder="3.14159">
+      <input id="redDec" type="number" placeholder="2">
+      <button class="btn-accion" id="btnRed">Redondear</button>
+      <div class="resultado-box" id="rRed"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Generador de tabla de datos</h4>
+      <textarea id="tablaDatos" placeholder="Un dato por línea: 22&#10;23&#10;25"></textarea>
+      <button class="btn-accion" id="btnTabla">Generar tabla</button>
+      <div class="resultado-box" id="rTabla"></div>
+    </div>
+  `;
+
+  // Calculadora
+  document.getElementById('btnCalc').addEventListener('click',()=>{
+    const e = document.getElementById('calcExpr').value;
+    try {
+      const r = Function('"use strict";return ('+e+')')();
+      document.getElementById('rCalc').textContent = `= ${r}`;
+    } catch { document.getElementById('rCalc').textContent = 'Error en la expresión.'; }
+  });
+
+  // Temperatura
+  document.getElementById('btnTemp').addEventListener('click',()=>{
+    const v = parseFloat(document.getElementById('tempVal').value);
+    const dir = document.getElementById('tempDir').value;
+    let r;
+    if(dir==='cf') r = v*9/5+32;
+    else if(dir==='fc') r = (v-32)*5/9;
+    else r = v+273.15;
+    document.getElementById('rTemp').textContent = `Resultado: ${r.toFixed(2)}`;
+  });
+
+  // Densidad
+  document.getElementById('btnDens').addEventListener('click',()=>{
+    const m = parseFloat(document.getElementById('densMasa').value);
+    const v = parseFloat(document.getElementById('densVol').value);
+    if(!m||!v){ document.getElementById('rDens').textContent='Ingresa masa y volumen.'; return; }
+    const d = m/v;
+    const comp = d<1?'menos denso que el agua (flota)':d===1?'igual de denso que el agua':'más denso que el agua (se hunde)';
+    document.getElementById('rDens').innerHTML = `Densidad: <strong>${d.toFixed(2)} g/cm³</strong><br>El objeto es ${comp}.`;
+  });
+
+  // Promedio
+  document.getElementById('btnProm').addEventListener('click',()=>{
+    const nums = document.getElementById('promDatos').value.split('\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
+    if(!nums.length){ document.getElementById('rProm').textContent='Ingresa datos.'; return; }
+    const p = nums.reduce((a,b)=>a+b,0)/nums.length;
+    document.getElementById('rProm').innerHTML = `N = ${nums.length}<br>Promedio: <strong>${p.toFixed(2)}</strong><br>Mín: ${Math.min(...nums)} · Máx: ${Math.max(...nums)}`;
+  });
+
+  // Energía
+  document.getElementById('btnEner').addEventListener('click',()=>{
+    const tipo = document.getElementById('enerTipo').value;
+    const a = parseFloat(document.getElementById('enerA').value);
+    const b = parseFloat(document.getElementById('enerB').value);
+    let r, formula;
+    if(tipo==='cinetica'){ r=0.5*a*b*b; formula='Ec = ½·m·v²'; }
+    else if(tipo==='potencial'){ r=a*9.8*b; formula='Ep = m·g·h'; }
+    else { r=a*b; formula='W = F·d'; }
+    document.getElementById('rEner').innerHTML = `${formula}<br>Resultado: <strong>${r.toFixed(2)} J</strong>`;
+  });
+
+  // Balanceo
+  document.getElementById('btnBal').addEventListener('click',()=>{
+    const e = document.getElementById('balEc').value;
+    const comunes = {'H2 + O2 = H2O':'2 H2 + O2 = 2 H2O','N2 + H2 = NH3':'N2 + 3 H2 = 2 NH3','C + O2 = CO2':'C + O2 = CO2'};
+    const sugerida = comunes[e.replace(/\s+/g,' ').trim()] || 'No hay sugerencia predefinida. Revisa los átomos de cada lado.';
+    document.getElementById('rBal').textContent = sugerida;
+  });
+
+  // Conversor
+  document.getElementById('btnConv').addEventListener('click',()=>{
+    const v = parseFloat(document.getElementById('convVal').value);
+    const t = document.getElementById('convTipo').value;
+    const factores = {'cm-m':0.01,'m-km':0.001,'g-kg':0.001,'ml-l':0.001};
+    const r = v*factores[t];
+    document.getElementById('rConv').textContent = `${v} → ${r} (${t})`;
+  });
+
+  // Legibilidad
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('legibTexto').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const idx=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const nivel=idx>90?'Muy fácil':idx>80?'Fácil':idx>70?'Normal':idx>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML = `Índice Fernández Huerta: <strong>${idx.toFixed(1)}</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  // Términos científicos
+  document.getElementById('btnTerm').addEventListener('click',()=>{
+    const t=document.getElementById('termTexto').value.toLowerCase();
+    const terminos=['fotosíntesis','célula','átomo','molécula','energía','materia','ecosistema','biodiversidad','temperatura','densidad','reacción','sustancia','mitosis','adn','proteína','bacteria','volcán','sismo','clima','hábitat','evaporación','condensación','precipitación','gravedad','oxidación','combustión','disolución','soluto','solvente','ph'];
+    const encontrados = terminos.filter(x=>t.includes(x));
+    document.getElementById('rTerm').innerHTML = encontrados.length ?
+      `Términos científicos detectados (${encontrados.length}):<br>${encontrados.map(x=>'• '+x).join('<br>')}` :
+      'No se detectaron términos científicos comunes.';
+  });
+
+  // Contador
+  document.getElementById('contTexto').addEventListener('input',e=>{
+    const t = e.target.value;
+    const p = t.trim()?t.trim().split(/\s+/).length:0;
+    const o = t.split(/[.!?]+/).filter(s=>s.trim()).length;
+    const par = t.split(/\n+/).filter(s=>s.trim()).length;
+    document.getElementById('rCont').textContent = `Palabras: ${p} · Oraciones: ${o} · Párrafos: ${par}`;
+  });
+
+  // Tipo de texto
+  document.getElementById('btnTipo').addEventListener('click',()=>{
+    const t = document.getElementById('tipoTexto').value;
+    let tipo = 'Expositivo científico';
+    if(/^\s*1\.|paso 1|primer paso|materiales|procedimiento/i.test(t)) tipo = 'Instructivo (protocolo)';
+    else if(/porque|por tanto|en consecuencia|debemos|considero/i.test(t)) tipo = 'Argumentativo científico';
+    else if(/es|son|está|están|era|eran|tiene|color|forma/i.test(t) && !/porque|por tanto/i.test(t)) tipo = 'Descriptivo científico';
+    else if(/se define|consiste|proceso|se caracteriza|se clasifica/i.test(t)) tipo = 'Expositivo científico';
+    const palabras = t.trim()?t.trim().split(/\s+/).length:0;
+    document.getElementById('rTipo').innerHTML = `<strong>Tipo probable: ${tipo}</strong><br>Palabras: ${palabras}`;
+  });
+
+  // Idea principal
+  document.getElementById('btnIdea').addEventListener('click',()=>{
+    const t = document.getElementById('ideaTexto').value;
+    const oraciones = t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const freq = {};
+    oraciones.forEach(o=>{
+      o.toLowerCase().split(/\s+/).forEach(p=>{
+        p = p.replace(/[^\wáéíóúñ]/g,'');
+        if(p.length>3 && !stop.has(p)) freq[p]=(freq[p]||0)+1;
+      });
+    });
+    const top = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    const mejor = oraciones.reduce((best,o)=>{
+      const score = top.reduce((s,[w,c])=>s+(o.toLowerCase().includes(w)?c:0),0);
+      return score>best.score?{o,score}:best;
+    },{o:'',score:-1});
+    document.getElementById('rIdea').innerHTML = `<strong>Palabras clave:</strong> ${top.map(x=>x[0]).join(', ')}<br><br><strong>Idea principal:</strong><br>${mejor.o.trim()}.`;
+  });
+
+  // Tildes
+  document.getElementById('btnTild').addEventListener('click',()=>{
+    const t = document.getElementById('tildTexto').value;
+    const errores = [];
+    const reglas = [
+      {re:/\besta\b/g, sug:'está (verbo)'},
+      {re:/\bmas\b/g, sug:'más (adverbio)'},
+      {re:/\bsolo\b/g, sug:'sólo (tradicional)'},
+      {re:/\bde que\b/gi, sug:'que (posible dequeísmo)'}
+    ];
+    reglas.forEach(r=>{ if(r.re.test(t)) errores.push(`⚠️ ${r.sug}`); });
+    document.getElementById('rTild').innerHTML = errores.length?errores.join('<br>'):'✅ Sin errores frecuentes.';
+  });
+
+  // Morfológico
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t = document.getElementById('morfTexto').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Desconocida';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente|ayer|hoy|mañana|aquí|allí)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|comer|correr|leer|escribir|medir|pesar|calentar)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sustantivo/Adjetivo';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML = analisis.join('<br>');
+  });
+
+  // Vicios
+  document.getElementById('btnVic').addEventListener('click',()=>{
+    const t=document.getElementById('vicTexto').value;
+    const v=[];
+    if(/\b(pienso|creo|opino) de que\b/gi.test(t)) v.push('⚠️ Dequeísmo');
+    if(/\bme di cuenta que\b/gi.test(t)) v.push('⚠️ Queísmo');
+    if(/\ble vi\b/gi.test(t)) v.push('⚠️ Leísmo');
+    if(/\bla dije\b/gi.test(t)) v.push('⚠️ Laísmo');
+    if(/\b(subir arriba|bajar abajo|salir afuera|entrar adentro)\b/gi.test(t)) v.push('⚠️ Pleonasmo');
+    if(/\b(cosa)\b/gi.test(t)) v.push('⚠️ Cosismo');
+    if(/\b(haiga|accesar|prevee|dijistes|vinistes)\b/gi.test(t)) v.push('⚠️ Barbarismo');
+    if(/\b(habían muchos|habían varias)\b/gi.test(t)) v.push('⚠️ Concordancia (había)');
+    document.getElementById('rVic').innerHTML = v.length ? v.join('<br>') : '✅ No se detectaron vicios.';
+  });
+
+  // Exportar
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    const py=Object.keys(estado.py.progreso).length;
+    const txt=Object.keys(estado.txt.progreso).length;
+    const lec=Object.keys(estado.lec.progreso).length;
+    const red=Object.keys(estado.red.progreso).length;
+    const sin=Object.keys(estado.sin.progreso).length;
+    const inf = `INFORME SÚPER CUADERNO 6° CIENCIAS NATURALES
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🐍 Python para ciencias: ${py}/100
+🧪 Textos científicos: ${txt}/100
+🔬 Comprensión científica: ${lec}/100
+✍️ Redacción científica: ${red}/100
+🧩 Sintaxis castellana: ${sin}/100
+TOTAL: ${py+txt+lec+red+sin}/500
+`;
+    document.getElementById('rExportar').textContent=inf;
+    const blob=new Blob([inf],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='informe_ciencias_6.txt'; a.click();
+  });
+
+  // PyGen
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipoGen').value;
+    const texto=document.getElementById('pyTextoGen').value||'22,23,25,24';
+    let code='';
+    if(tipo==='promedio'){
+      code=`datos = [${texto}]\npromedio = sum(datos) / len(datos)\nprint(f"Promedio: {promedio:.2f}")\nprint(f"Mínimo: {min(datos)} · Máximo: {max(datos)}")`;
+    } else if(tipo==='densidad'){
+      code=`masa = 100  # g\nvolumen = 50  # cm³\ndensidad = masa / volumen\nprint(f"Densidad: {densidad:.2f} g/cm³")`;
+    } else if(tipo==='conversion'){
+      code=`celsius = 25\nfahrenheit = celsius * 9/5 + 32\nprint(f"{celsius} °C = {fahrenheit} °F")`;
+    } else if(tipo==='simulacion'){
+      code=`altura = 0\nfor dia in range(1, 11):\n    altura += 1.5\n    print(f"Día {dia}: {altura} cm")`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  // Hipótesis
+  document.getElementById('btnHip').addEventListener('click',()=>{
+    const t=document.getElementById('hipTexto').value;
+    const tieneSi = /\bsi\b/i.test(t);
+    const tieneEntonces = /\bentonces\b/i.test(t);
+    const partes = t.split(/\bentonces\b/i);
+    document.getElementById('rHip').innerHTML = `
+      <strong>Análisis de la hipótesis:</strong><br>
+      ${tieneSi?'✅ Contiene "si" (condición)':'⚠️ Falta "si" para plantear la condición'}<br>
+      ${tieneEntonces?'✅ Contiene "entonces" (predicción)':'⚠️ Falta "entonces" para la predicción'}<br>
+      ${partes[0]?`<br><strong>Variable independiente (causa):</strong> ${partes[0].replace(/si/i,'').trim()}`:''}
+      ${partes[1]?`<br><strong>Variable dependiente (efecto):</strong> ${partes[1].trim()}`:''}
+    `;
+  });
+
+  // Variables
+  document.getElementById('btnVar').addEventListener('click',()=>{
+    const t=document.getElementById('varTexto').value.toLowerCase();
+    const v = [];
+    if(/\b(temperatura|calor|frío)\b/.test(t)) v.push('🌡️ Temperatura');
+    if(/\b(luz|iluminación|sol)\b/.test(t)) v.push('☀️ Luz');
+    if(/\b(agua|riego|humedad)\b/.test(t)) v.push('💧 Agua');
+    if(/\b(tiempo|días|horas|minutos)\b/.test(t)) v.push('⏱️ Tiempo');
+    if(/\b(masa|peso)\b/.test(t)) v.push('⚖️ Masa');
+    if(/\b(altura|crecimiento|tamaño)\b/.test(t)) v.push('📏 Altura/crecimiento');
+    if(/\b(ph|acidez)\b/.test(t)) v.push('🧪 pH');
+    document.getElementById('rVar').innerHTML = v.length ? `Variables detectadas:<br>${v.join('<br>')}` : 'No se detectaron variables comunes.';
+  });
+
+  // Especies
+  document.getElementById('btnEsp').addEventListener('click',()=>{
+    const t=document.getElementById('espTexto').value.toLowerCase();
+    const comunes=['jaguar','puma','cóndor','roble','pino','helecho','abeja','mariposa','tortuga','delfín','ballena','orquídea','bambú','cactus','tiburón','águila','loro','colibrí','rana','serpiente','mono','oso','lobo','zorro','venado','ratón','murciélago','danta','manatí','caimán','iguana','tucán','guacamaya'];
+    const encontrados = comunes.filter(x=>t.includes(x));
+    document.getElementById('rEsp').innerHTML = encontrados.length ?
+      `Especies mencionadas (${encontrados.length}):<br>${encontrados.map(x=>'🐾 '+x).join('<br>')}` :
+      'No se detectaron especies comunes.';
+  });
+
+  // Redondeo
+  document.getElementById('btnRed').addEventListener('click',()=>{
+    const n=parseFloat(document.getElementById('redNum').value);
+    const d=parseInt(document.getElementById('redDec').value)||0;
+    document.getElementById('rRed').textContent = `${n} redondeado a ${d} decimales: ${n.toFixed(d)}`;
+  });
+
+  // Tabla
+  document.getElementById('btnTabla').addEventListener('click',()=>{
+    const datos=document.getElementById('tablaDatos').value.split('\n').map(x=>x.trim()).filter(x=>x);
+    if(!datos.length){ document.getElementById('rTabla').textContent='Ingresa datos.'; return; }
+    let tabla = '| # | Valor |\n|---|-------|\n';
+    datos.forEach((d,i)=>{ tabla += `| ${i+1} | ${d} |\n`; });
+    document.getElementById('rTabla').textContent = tabla;
+  });
+}
+
+function renderCertificado(){
+  const campos=JSON.parse(localStorage.getItem(CLAVES.campos))||{};
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c=el.dataset.campo;
+    if(campos[c]) el.textContent=campos[c];
+    el.addEventListener('blur',()=>{
+      campos[c]=el.textContent;
+      localStorage.setItem(CLAVES.campos,JSON.stringify(campos));
+    });
+  });
+  document.getElementById('selloAnio').textContent=new Date().getFullYear();
+
+  const todos=[
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python para ciencias naturales (6°)'},
+    {bloques:bloquesTxt, tecnicas:tecnicasTxt, tipo:'🧪 Textos científicos (6°)'},
+    {bloques:bloquesLec, tecnicas:tecnicasLec, tipo:'🔬 Comprensión científica crítica (6°)'},
+    {bloques:bloquesRed, tecnicas:tecnicasRed, tipo:'✍️ Redacción científica (6°)'},
+    {bloques:bloquesSin, tecnicas:tecnicasSin, tipo:'🧩 Sintaxis castellana (6°)'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--verde);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#166534;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #16a34a;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #16a34a;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='certificado_ciencias_6.doc'; a.click();
+}
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnInstalar')?.addEventListener('click',()=>{
+  if(deferredPrompt) deferredPrompt.prompt();
+  else alert('Usa el menú del navegador → "Instalar app" o "Añadir a pantalla de inicio".');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='ciencias6-cuaderno';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+window.addEventListener('online',()=>{
+  document.getElementById('connectionPill').textContent='● En línea';
+  document.getElementById('connectionPill').classList.remove('offline');
+});
+window.addEventListener('offline',()=>{
+  document.getElementById('connectionPill').textContent='○ Sin conexión';
+  document.getElementById('connectionPill').classList.add('offline');
+});
+
+function renderTodo(){
+  actualizarDashboard();
+  if(estado.modo==='python') renderCuaderno('py');
+  if(estado.modo==='textos') renderCuaderno('txt');
+  if(estado.modo==='lectura') renderCuaderno('lec');
+  if(estado.modo==='redaccion') renderCuaderno('red');
+  if(estado.modo==='sintaxis') renderCuaderno('sin');
+  if(estado.modo==='taller') renderTaller();
+  if(estado.modo==='certificado') renderCertificado();
+}
+renderTodo();
+</script>
+</body>
+</html>

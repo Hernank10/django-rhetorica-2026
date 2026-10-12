@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno de Redacción Radial Comunitaria · 100 técnicas + Taller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e8e6e0; --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --ok-soft:#e0efe2; --bad:#8b1e1e; --bad-soft:#f8e0e0;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Public Sans",system-ui,sans-serif;background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 22px;background:linear-gradient(180deg,#fdfaf3,#f7f2e8);border-bottom:3px double var(--navy);box-shadow:0 1px 0 var(--bronze-line) inset;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:14px;min-width:0;}
+  .seal{width:50px;height:50px;flex:0 0 auto;border-radius:50%;padding:3px;border:1.5px dashed var(--bronze);display:grid;place-items:center;}
+  .seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:16px;position:relative;}
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:6px;color:var(--bronze);}
+  .seal-inner::before{top:5px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:5px;left:50%;transform:translateX(-50%);}
+  .brand h1{font-family:"PT Serif",Georgia,serif;font-size:15px;margin:0;font-weight:700;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand p{margin:2px 0 0;font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.6px;text-transform:uppercase;}
+  .topbar-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+
+  .tabs{display:flex;gap:0;border:1px solid var(--navy);background:var(--paper);}
+  .tab{
+    font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+    padding:8px 14px;cursor:pointer;border:none;background:transparent;color:var(--navy);
+    border-right:1px solid var(--navy);transition:.15s;font-family:"Public Sans",sans-serif;
+  }
+  .tab:last-child{border-right:none;}
+  .tab:hover{background:var(--navy-soft);}
+  .tab.active{background:var(--navy);color:var(--paper);}
+
+  .progress-wrap{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  .progress-bar{width:130px;height:6px;border:1px solid var(--line-2);background:#f0ece0;overflow:hidden;}
+  #progressFill{height:100%;width:0%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width .4s;}
+
+  .stat{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  .stat strong{font-family:"PT Serif",Georgia,serif;font-size:15px;color:var(--navy);font-weight:700;padding:0 5px;}
+
+  .btn{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:8px 14px;cursor:pointer;border:1px solid var(--navy);background:var(--paper);color:var(--navy);transition:.16s;font-family:"Public Sans",sans-serif;}
+  .btn:hover{background:var(--navy-soft);}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--navy);color:var(--paper);}
+  .btn.primary:hover{background:var(--navy-dark);}
+  .btn.ghost{background:transparent;border-color:var(--line-2);color:var(--muted);}
+  .btn.ghost:hover{background:#eee9dc;color:var(--navy);}
+  .btn.danger{border-color:var(--bad);color:var(--bad);}
+  .btn.danger:hover{background:var(--bad-soft);}
+  .only-mobile{display:none;}
+
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:22px;max-width:1400px;margin:0 auto;padding:22px;align-items:start;}
+  .sidebar{position:sticky;top:100px;max-height:calc(100vh - 124px);overflow-y:auto;background:var(--paper);border:1px solid var(--navy);padding:4px;box-shadow:var(--shadow);}
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:12px;background:linear-gradient(180deg,#fdfaf3,#f7f2e8);}
+  #search{width:100%;font-size:12px;padding:8px 11px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink);outline:none;margin-bottom:12px;font-family:"Public Sans",sans-serif;}
+  #search:focus{border-color:var(--navy);}
+  .cat{margin-bottom:4px;}
+  .cat-head{display:flex;align-items:center;gap:9px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;padding:9px 10px;font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--navy);text-transform:uppercase;border-left:3px solid transparent;font-family:"Public Sans",sans-serif;}
+  .cat-head:hover{background:var(--navy-soft);border-left-color:var(--bronze);}
+  .cat-head .chev{margin-left:auto;font-size:9px;color:var(--bronze);transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{font-family:"PT Serif",Georgia,serif;font-size:10.5px;font-weight:700;background:var(--bronze-soft);color:var(--bronze-dark);padding:1px 7px;border:1px solid var(--bronze-line);}
+  .cat-bar{height:3px;background:#e8e2d2;margin:0 10px 6px;overflow:hidden;border:1px solid var(--line);}
+  .cat-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width .4s;}
+  .cat-body{display:none;padding:2px 0 8px 4px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-size:10.5px;color:var(--muted);padding:0 10px 8px;line-height:1.5;font-style:italic;}
+  .tech-link{display:flex;align-items:flex-start;gap:8px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;font-size:11.5px;line-height:1.4;color:#3a3a3a;padding:7px 10px;border-left:3px solid transparent;font-family:"Public Sans",sans-serif;}
+  .tech-link:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .tech-link.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .tech-link .dot{flex:0 0 auto;width:13px;height:13px;margin-top:1px;border:1px solid var(--line-2);background:var(--paper);display:grid;place-items:center;font-size:8px;color:transparent;}
+  .tech-link.done .dot{background:var(--ok);border-color:var(--ok);color:#fff;}
+
+  /* Taller sidebar */
+  .sidebar-label{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);padding-bottom:6px;margin-bottom:8px;border-bottom:1px solid var(--bronze-line);}
+  .sidebar-section{margin-bottom:16px;}
+  .side-item{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;font-size:11.5px;line-height:1.4;color:#3a3a3a;padding:8px 10px;border-left:3px solid transparent;transition:.15s;font-family:"Public Sans",sans-serif;}
+  .side-item:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .side-item.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .side-item .icon{flex:0 0 auto;width:22px;height:22px;border:1px solid var(--line-2);background:var(--paper);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:11px;font-weight:700;color:var(--navy);}
+  .side-item.active .icon{background:var(--navy);color:var(--paper);border-color:var(--navy);}
+  .side-item .label{flex:1;min-width:0;}
+  .side-item .label small{display:block;font-size:10px;color:var(--muted);font-weight:500;margin-top:2px;}
+  .empty-mini{font-size:11px;color:var(--muted);font-style:italic;padding:10px;text-align:center;border:1px dashed var(--line-2);background:var(--paper-2);}
+  .draft-item{display:flex;align-items:flex-start;gap:6px;padding:8px 10px;border-left:3px solid transparent;cursor:pointer;transition:.15s;font-size:11px;line-height:1.35;font-family:"Public Sans",sans-serif;border-bottom:1px solid var(--line);}
+  .draft-item:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .draft-item.active{background:var(--navy-soft);border-left-color:var(--navy);}
+  .draft-item .di-title{flex:1;min-width:0;color:#3a3a3a;font-weight:600;}
+  .draft-item .di-title small{display:block;font-weight:400;font-size:10px;color:var(--muted);margin-top:2px;}
+  .draft-item .di-del{flex:0 0 auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:0 2px;line-height:1;}
+  .draft-item .di-del:hover{color:var(--bad);}
+
+  .panel{background:var(--paper);border:1px solid var(--navy);padding:6px;box-shadow:var(--shadow);}
+  .panel-inner{border:1px solid var(--bronze-line);padding:26px 30px 30px;background:radial-gradient(circle at 100% 0%,#f7f2e8 0%,transparent 40%),var(--paper);position:relative;}
+  .panel-seal{position:absolute;top:18px;right:22px;width:70px;height:70px;border-radius:50%;border:1.5px dashed var(--bronze);padding:3px;opacity:.75;}
+  .panel-seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:10px;text-align:center;line-height:1.1;}
+  .tech-head{margin-bottom:20px;padding-right:90px;}
+  .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);background:var(--bronze-soft);border:1px solid var(--bronze-line);padding:3px 10px;margin-bottom:12px;}
+  .tech-head h2{margin:0;font-family:"PT Serif",Georgia,serif;font-size:25px;line-height:1.2;letter-spacing:-.3px;font-weight:700;color:var(--navy);}
+  .tech-head p.lead{margin:8px 0 0;font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.6;color:var(--muted);}
+  .tech-pos{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;}
+  .rule{height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);margin:16px 0 20px;}
+  .block-dots{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+  .bdot{width:11px;height:11px;border:1px solid var(--line-2);background:var(--paper);cursor:pointer;transition:.15s;}
+  .bdot:hover{transform:scale(1.2);border-color:var(--bronze);}
+  .bdot.done{background:var(--ok);border-color:var(--ok);}
+  .bdot.current{background:var(--bronze);border-color:var(--bronze-dark);}
+
+  .flashcard{perspective:1600px;margin:0 0 14px;cursor:pointer;border:1px solid var(--navy);padding:4px;background:var(--paper);box-shadow:var(--shadow);}
+  .fc-inner{position:relative;min-height:clamp(270px,35vh,330px);transform-style:preserve-3d;transition:transform .68s cubic-bezier(.4,.15,.2,1);border:1px solid var(--bronze-line);}
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:22px 26px;display:flex;flex-direction:column;overflow:auto;background:var(--paper);background-image:linear-gradient(transparent 27px,rgba(20,33,61,.06) 27px 28px);background-size:100% 28px;background-position:0 14px;}
+  .fc-face p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:15.5px;line-height:28px;color:var(--ink);}
+  .fc-back{transform:rotateY(180deg);background:#faf6ec;}
+  .fc-back p{color:var(--navy-dark);font-style:italic;}
+  .fc-tag{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:12px;display:block;padding-bottom:6px;border-bottom:1px solid var(--bronze-line);}
+  .fc-hint{margin-top:auto;padding-top:14px;font-size:10.5px;color:#9c907c;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .flip-btn{margin:0 0 26px;}
+
+  .sec-title{display:flex;align-items:center;gap:10px;font-family:"PT Serif",Georgia,serif;font-size:16px;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--navy);position:relative;}
+  .sec-title::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--bronze-line);}
+  .sec-title span{font-size:10px;font-weight:700;color:var(--muted);margin-left:auto;letter-spacing:.6px;text-transform:uppercase;}
+  .consigna{font-family:"PT Serif",Georgia,serif;font-size:15px;line-height:1.6;color:var(--ink);background:var(--paper-2);border-left:3px solid var(--bronze);padding:12px 16px;margin:0 0 16px;}
+  .opciones{display:flex;flex-direction:column;gap:8px;}
+  .opcion{display:flex;gap:11px;align-items:flex-start;text-align:left;font:inherit;font-size:13.5px;line-height:1.5;background:var(--paper);border:1px solid var(--line-2);color:var(--ink);padding:12px 14px;cursor:pointer;transition:.15s;font-family:"Public Sans",sans-serif;}
+  .opcion:hover:not(:disabled){border-color:var(--navy);background:var(--navy-soft);}
+  .opcion:disabled{cursor:default;opacity:.9;}
+  .opcion .letra{flex:0 0 auto;width:22px;height:22px;background:var(--paper-2);color:var(--muted);border:1px solid var(--line-2);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:12px;font-weight:700;}
+  .opcion.correcta{border-color:var(--ok);background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok);color:#fff;border-color:var(--ok);}
+  .opcion.incorrecta{border-color:var(--bad);background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad);color:#fff;border-color:var(--bad);}
+
+  .fill-texto{font-family:"PT Serif",Georgia,serif;font-size:16px;line-height:2.4;margin:0 0 16px;color:var(--ink);}
+  .hueco{font:inherit;font-family:"PT Serif",Georgia,serif;font-size:15px;font-style:italic;border:none;border-bottom:1.5px solid var(--bronze);background:transparent;color:var(--bronze-dark);font-weight:700;padding:2px 6px;min-width:100px;text-align:center;outline:none;}
+  .hueco:focus{background:var(--bronze-soft);border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok);color:var(--ok);background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad);color:var(--bad);background:var(--bad-soft);text-decoration:line-through;}
+
+  .order-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+  .order-col h4{font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+  .pool,.seq{min-height:120px;padding:8px;display:flex;flex-direction:column;gap:8px;}
+  .pool{background:var(--paper-2);border:1px dashed var(--line-2);}
+  .seq{background:#f4efe2;border:1px solid var(--bronze-line);}
+  .pool:empty::after,.seq:empty::after{content:"···";color:#c9c2b2;font-size:16px;text-align:center;margin:auto;letter-spacing:4px;}
+  .ord-item{font:inherit;font-size:12.5px;line-height:1.4;text-align:left;background:var(--paper);border:1px solid var(--line-2);padding:9px 11px;cursor:pointer;color:var(--ink);transition:.15s;display:flex;gap:8px;align-items:flex-start;font-family:"Public Sans",sans-serif;}
+  .ord-item:hover{border-color:var(--navy);background:var(--navy-soft);}
+  .seq .ord-item{border-color:var(--bronze-line);}
+  .seq .ord-item .num{flex:0 0 auto;width:18px;height:18px;background:var(--navy);color:var(--paper);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:11px;font-weight:700;}
+  .ord-item.ok{border-color:var(--ok);background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad);background:var(--bad-soft);}
+
+  .cl-item{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line-2);padding:11px 13px;margin-bottom:8px;}
+  .cl-item p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.5;flex:1 1 260px;}
+  .chips{display:flex;gap:5px;flex-wrap:wrap;}
+  .chip{font-size:10.5px;font-weight:700;letter-spacing:.4px;padding:5px 10px;cursor:pointer;border:1px solid var(--line-2);background:var(--paper-2);color:var(--muted);transition:.14s;text-transform:uppercase;font-family:"Public Sans",sans-serif;}
+  .chip:hover{border-color:var(--navy);color:var(--navy);}
+  .chip.sel{background:var(--navy);border-color:var(--navy);color:var(--paper);}
+  .cl-item.ok{border-color:var(--ok);background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad);background:var(--bad-soft);}
+
+  .criterios{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:7px;}
+  .criterios li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#4a4a4a;line-height:1.55;}
+  .criterios input{margin-top:2px;accent-color:var(--navy);width:15px;height:15px;flex:0 0 auto;}
+
+  textarea{width:100%;font-family:"PT Serif",Georgia,serif;font-size:15px;line-height:26px;color:var(--ink);padding:12px 16px;border:1px solid var(--bronze-line);background-color:#fdfaf3;background-image:linear-gradient(transparent 25px,rgba(20,33,61,.07) 25px 26px);background-size:100% 26px;background-attachment:local;resize:vertical;outline:none;}
+  textarea:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  textarea::placeholder{color:#a1957e;font-style:italic;}
+
+  .feedback{margin-top:16px;padding:0;overflow:hidden;max-height:0;opacity:0;transition:.3s;border-left:3px solid transparent;}
+  .feedback.show{max-height:600px;opacity:1;padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft);border-left-color:var(--ok);color:#1d4526;}
+  .feedback.mal{background:var(--bad-soft);border-left-color:var(--bad);color:#5c1414;}
+  .feedback.info{background:var(--bronze-soft);border-left-color:var(--bronze);color:#5a3f22;}
+  .feedback strong{display:block;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:6px;}
+  .feedback p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:14.5px;line-height:1.6;}
+  .ej-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px;}
+
+  .modelo{display:none;margin-top:14px;background:var(--paper-2);border-left:3px solid var(--navy);padding:13px 16px;font-family:"PT Serif",Georgia,serif;font-size:14.5px;line-height:1.65;color:var(--navy-dark);}
+  .modelo.show{display:block;animation:fade .3s ease;}
+  .modelo strong{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:5px;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+
+  .cuaderno{margin-top:32px;padding-top:22px;border-top:1px solid var(--navy);position:relative;}
+  .cuaderno::before{content:"";position:absolute;left:0;right:0;top:2px;height:1px;background:var(--bronze-line);}
+  .cuaderno-foot{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted);margin-top:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;}
+  #notaStatus{color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+  .nav-foot{display:flex;justify-content:space-between;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--bronze-line);}
+  .nav-foot .btn{flex:1;max-width:220px;text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35;cursor:not-allowed;}
+
+  /* Taller */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-bottom:18px;}
+  .form-grid .full{grid-column:1/-1;}
+  .field{display:flex;flex-direction:column;gap:5px;}
+  .field label{font-size:10.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--bronze-dark);font-family:"Public Sans",sans-serif;}
+  .field input,.field textarea,.field select{font-family:"PT Serif",Georgia,serif;font-size:14px;padding:8px 11px;border:1px solid var(--bronze-line);background-color:#fdfaf3;color:var(--ink);outline:none;transition:.15s;width:100%;}
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  .field textarea{resize:vertical;min-height:70px;line-height:1.5;}
+  .field input::placeholder,.field textarea::placeholder{color:#a1957e;font-style:italic;}
+  .preview-wrap{border:1px solid var(--navy);padding:4px;background:var(--paper);margin-top:6px;}
+  .preview-inner{border:1px solid var(--bronze-line);padding:24px 26px;background:var(--paper);font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.7;color:var(--ink);white-space:pre-wrap;max-height:520px;overflow-y:auto;}
+  .preview-inner .placeholder{color:#a1957e;font-style:italic;}
+  .preview-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--bronze-line);}
+  .hint{font-family:"PT Serif",Georgia,serif;font-size:12.5px;font-style:italic;color:var(--muted);background:var(--paper-2);border-left:3px solid var(--bronze);padding:9px 13px;margin:0 0 16px;}
+  .hint strong{color:var(--navy);font-style:normal;}
+
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:var(--paper);padding:11px 20px;font-family:"Public Sans",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:1px solid var(--bronze-line);box-shadow:var(--shadow);opacity:0;transition:.28s;z-index:200;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  .mode{display:none;}
+  .mode.active{display:block;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr;padding:14px;gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:300px;max-height:100vh;z-index:100;padding:4px;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;top:0;}
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed;inset:0;background:rgba(20,33,61,.45);z-index:99;opacity:0;pointer-events:none;transition:.25s;}
+    .scrim.show{opacity:1;pointer-events:auto;}
+    .panel-inner{padding:20px 18px 24px;}
+    .panel-seal{display:none;}
+    .tech-head{padding-right:0;}
+    .tech-head h2{font-size:20px;}
+    .form-grid{grid-template-columns:1fr;}
+    .brand p{display:none;}
+    .brand h1{font-size:12.5px;}
+    .progress-wrap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="seal"><div class="seal-inner">RAD</div></div>
+    <div>
+      <h1>Cuaderno de Redacción Radial Comunitaria</h1>
+      <p>Colombia · 100 técnicas + Taller de Comunicaciones Reales</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <div class="tabs">
+      <button class="tab active" data-mode="cuaderno">📻 Cuaderno 100</button>
+      <button class="tab" data-mode="taller">✎ Taller real</button>
+    </div>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <div class="stat" id="statWrap" style="display:none;">
+      <span>Borradores</span><strong id="statCount">0</strong>
+    </div>
+    <button id="btnMenu" class="btn ghost only-mobile">☰</button>
+    <button id="btnNew" class="btn primary" style="display:none;">+ Nuevo</button>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <input id="search" type="search" placeholder="Buscar técnica…" autocomplete="off">
+      <nav id="menu"></nav>
+      <div id="menuTaller" style="display:none;">
+        <div class="sidebar-section">
+          <div class="sidebar-label">Plantillas radiales</div>
+          <div id="menuPlantillas"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-label">Mis guiones</div>
+          <div id="menuDrafts"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <article class="panel">
+      <div class="panel-inner" id="panelInner"></div>
+    </article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+<div id="toast" class="toast"></div>
+
+<script>
+/* =====================================================================
+   MODO 1 · CUADERNO DE 100 TÉCNICAS DE REDACCIÓN RADIAL COMUNITARIA
+   ===================================================================== */
+const CATEGORIAS = [
+/* ---------- Bloque 1 ---------- */
+{
+  id:"r1", nombre:"Fundamentos de la redacción radial", emoji:"📻",
+  desc:"La radio como medio sonoro, la comunidad como fuente y destinatario.",
+  tecnicas:[
+    {id:"rr1", nombre:"La radio como medio sonoro",
+     concepto:"En radio, el texto existe solo cuando se escucha. No hay lectores que puedan volver atrás. La escritura radial se diseña para el oído: frases que se entiendan a la primera.",
+     ejemplo:"En lugar de «Aproximadamente el 63,5 % de los encuestados manifestó inconformidad», se escribe: «Casi dos de cada tres personas dijeron que no están de acuerdo».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué característica define la escritura radial?",
+       opciones:["Se escribe para ser leída en voz alta una sola vez","Se escribe para ser analizada con calma","Se escribe solo para especialistas","Se escribe sin pensar en el oyente"],
+       correcta:0,
+       retro:"El oyente escucha una sola vez y sin posibilidad de volver atrás. La escritura radial debe ser clara a la primera."}},
+    {id:"rr2", nombre:"La comunidad como fuente y destinatario",
+     concepto:"La radio comunitaria escribe desde la comunidad y para la comunidad. Sus fuentes son vecinos, líderes, organizaciones locales. El lenguaje refleja el habla del territorio.",
+     ejemplo:"No se dice «la ciudadanía manifestó su inconformidad»; se dice «los vecinos del barrio La Esperanza dijeron que el servicio lleva tres semanas fallando».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el enfoque comunitario.",
+       texto:"La radio comunitaria escribe desde la ___ y para la ___. Sus fuentes son ___ del territorio.",
+       respuestas:[["comunidad"],["comunidad"],["vecinos","lideres","líderes","organizaciones","habitantes"]],
+       retro:"La radio comunitaria escribe con voz propia y con fuentes locales. No imita el estilo de la radio comercial ni el de la prensa."}},
+    {id:"rr3", nombre:"Claridad sonora",
+     concepto:"La claridad sonora se logra con palabras comunes, frases cortas y una sola idea por oración. Se evitan tecnicismos y siglas sin explicar.",
+     ejemplo:"En vez de «La personería jurídica de la JAC fue reconocida mediante resolución», se dice: «La Junta de Acción Comunal ya tiene personería jurídica, es decir, ya está reconocida legalmente».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reformula en clave sonora.",
+       texto:"«La personería jurídica de la JAC fue reconocida» → «La Junta de Acción Comunal ya tiene su ___ , es decir, ya está ___ ».",
+       respuestas:[["personeria","personería"],["reconocida","legal","legalizada"]],
+       retro:"La claridad sonora explica el tecnicismo con palabras comunes. Así lo entiende cualquier oyente."}},
+    {id:"rr4", nombre:"Precisión y verificación",
+     concepto:"En radio no hay tiempo de rectificar con calma. La precisión es un deber ético. Se verifica cada dato: nombres, cifras, fechas, cargos. Se citan las fuentes.",
+     ejemplo:"«Según la Secretaría de Salud, se registraron 47 casos en el último mes» es más sólido que «hay muchísimos casos, según lo que dicen».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la precisión.",
+       texto:"«Según la ___ de Salud, se registraron 47 ___ en el último mes».",
+       respuestas:[["secretaria","secretaría"],["casos","casos confirmados","casos reportados"]],
+       retro:"En radio, la fuente se nombra al inicio. La precisión protege la credibilidad de la emisora comunitaria."}},
+    {id:"rr5", nombre:"Objetividad y compromiso comunitario",
+     concepto:"La radio comunitaria no es neutral: está comprometida con su comunidad. Pero eso no la exime de rigor. Se informa con veracidad, se escuchan todas las voces y se evita el sectarismo.",
+     ejemplo:"En una controversia entre la JAC y la alcaldía, se escuchan las dos versiones antes de emitir un juicio.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué relación hay entre objetividad y compromiso comunitario en radio?",
+       opciones:["Son incompatibles","Se informa con rigor y se escuchan todas las voces, sin perder el compromiso con la comunidad","El compromiso exige ocultar información","La objetividad es solo para la radio comercial"],
+       correcta:1,
+       retro:"La radio comunitaria es rigurosa y a la vez comprometida. Escucha a todos y no oculta información."}},
+    {id:"rr6", nombre:"Función social de la radio comunitaria",
+     concepto:"La radio comunitaria informa, educa, entretiene y moviliza. Da voz a quienes no la tienen, acompaña procesos sociales, visibiliza problemas y soluciones locales.",
+     ejemplo:"Un programa que acompaña a campesinos con precios del mercado, otro que da voz a jóvenes, otro que difunde derechos.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada función.",
+       categorias:["Informar","Educar","Movilizar"],
+       items:[
+         {texto:"Difundir el precio del café en la plaza local.", cat:0},
+         {texto:"Explicar cómo prevenir el dengue en casa.", cat:1},
+         {texto:"Convocar a una jornada de limpieza del río.", cat:2},
+         {texto:"Informar sobre la jornada de vacunación.", cat:0},
+         {texto:"Explicar los derechos de las víctimas.", cat:1}
+       ],
+       retro:"La radio comunitaria cumple varias funciones a la vez: informa, educa y moviliza."}},
+    {id:"rr7", nombre:"Registro y tono radial",
+     concepto:"El tono en radio puede ser formal, cercano, festivo, reflexivo. Depende del programa y del público. Se evitan los extremos: ni solemne rígido ni coloquial vulgar.",
+     ejemplo:"Un noticiero comunitario: tono formal-cercano. Un programa juvenil: tono informal, con expresiones de la gente joven. Un programa campesino: tono pausado y respetuoso.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tono según el programa.",
+       categorias:["Formal-cercano","Informal-juvenil","Pausado-campesino"],
+       items:[
+         {texto:"Noticiero comunitario.", cat:0},
+         {texto:"Programa musical juvenil.", cat:1},
+         {texto:"Espacio para el sector rural.", cat:2},
+         {texto:"Emisión sobre derechos y deberes.", cat:0},
+         {texto:"Cápsula con estudiantes.", cat:1}
+       ],
+       retro:"El tono se ajusta al público. La radio comunitaria tiene muchos públicos y registros."}},
+    {id:"rr8", nombre:"Estructura del guion radial",
+     concepto:"El guion radial tiene: encabezado (programa, emisora, fecha), indicaciones técnicas (control, música, entrada), texto para el locutor y cierre. Se escribe a doble columna o en formato continuo con marcas.",
+     ejemplo:"Encabezado + indicaciones + texto del locutor + cierre musical. Cada parte se distingue con signos claros.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes del guion.",
+       items:[
+         "Encabezado del programa.",
+         "Indicación de entrada (música, ambiente).",
+         "Texto para el locutor.",
+         "Indicaciones intermedias (control, cortina).",
+         "Cierre y despedida."
+       ],
+       retro:"El guion radial organiza la emisión. Cada parte tiene su lugar y su función."}},
+    {id:"rr9", nombre:"Ética de la radiodifusión comunitaria",
+     concepto:"La ética radial se funda en la veracidad, el respeto, la protección de la intimidad, el derecho a la rectificación y la no discriminación. Es marco de la Ley 1341 de 2009 y de los códigos internos.",
+     ejemplo:"No se difunde el nombre de un menor implicado en un caso, ni se ridiculiza a una persona por su origen o su forma de hablar.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada práctica.",
+       categorias:["Ética","Antéica"],
+       items:[
+         {texto:"Nombrar la fuente al dar una noticia.", cat:0},
+         {texto:"Difundir el nombre de un menor víctima.", cat:1},
+         {texto:"Ofrecer derecho de réplica a quien se sintió afectado.", cat:0},
+         {texto:"Ridiculizar el acento de un entrevistado.", cat:1},
+         {texto:"Verificar los datos antes de emitir.", cat:0}
+       ],
+       retro:"La ética radial protege la dignidad de las personas y la credibilidad de la emisora."}},
+    {id:"rr10", nombre:"Voces locales y pluralidad",
+     concepto:"La radio comunitaria da voz a muchas voces: jóvenes, mujeres, campesinos, indígenas, afrodescendientes, adultos mayores, personas con discapacidad. La pluralidad es su razón de ser.",
+     ejemplo:"Un programa que alterna voces de distintos sectores: una lideresa comunitaria, un joven rapero, un campesino, una docente, un comerciante.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la pluralidad.",
+       texto:"La radio comunitaria da voz a ___, ___, ___ y a todos los sectores de la comunidad.",
+       respuestas:[["jovenes","jóvenes"],["mujeres"],["campesinos","indigenas","indígenas","afrodescendientes","adultos mayores","personas con discapacidad"]],
+       retro:"La pluralidad es la razón de ser de la radio comunitaria. Todas las voces cuentan."}}
+  ]
+},
+/* ---------- Bloque 2 ---------- */
+{
+  id:"r2", nombre:"Sintaxis para el oído", emoji:"🗣",
+  desc:"Oraciones cortas, voz activa, concordancia y ritmo sintáctico.",
+  tecnicas:[
+    {id:"rr11", nombre:"Una idea por oración",
+     concepto:"En radio, cada oración contiene una sola idea. Si hay dos ideas, se dividen en dos oraciones. El oyente procesa una idea a la vez.",
+     ejemplo:"No: «El alcalde anunció la pavimentación de tres vías y la construcción de un parque y la ampliación del hospital». Sí: «El alcalde anunció tres obras. Pavimentará tres vías. Construirá un parque. Ampliará el hospital».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuántas ideas debe llevar una oración radial?",
+       opciones:["Todas las posibles","Una sola idea","Al menos tres","No importa"],
+       correcta:1,
+       retro:"Una idea por oración. El oyente necesita procesar una idea a la vez."}},
+    {id:"rr12", nombre:"Orden lógico SVO",
+     concepto:"Sujeto + Verbo + Objeto es el orden natural del español. En radio se respeta siempre. Los hipérbatos confunden al oyente.",
+     ejemplo:"Correcto: «La comunidad organizó una jornada de limpieza». Incorrecto: «Una jornada de limpieza, la comunidad, organizó».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reordena según el orden lógico.",
+       texto:"Palabras: «la emisora / el programa / transmitió» → «La emisora ___ el programa».",
+       respuestas:[["transmitio","transmitió"]],
+       retro:"El orden SVO es la base de la claridad sonora. En radio no hay tiempo para reordenar mentalmente."}},
+    {id:"rr13", nombre:"Voz activa para el oído",
+     concepto:"La voz activa identifica quién hace qué. En radio es más fácil de seguir que la pasiva. Se reserva la pasiva para casos donde el agente no importa.",
+     ejemplo:"Activa: «Los bomberos controlaron el incendio». Pasiva: «El incendio fue controlado». La primera es más clara al oído.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración.",
+       categorias:["Voz activa","Voz pasiva"],
+       items:[
+         {texto:"Los vecinos arreglaron el parque.", cat:0},
+         {texto:"El parque fue arreglado.", cat:1},
+         {texto:"La docente organizó el acto.", cat:0},
+         {texto:"El acto fue organizado.", cat:1},
+         {texto:"El alcalde visitó el barrio.", cat:0}
+       ],
+       retro:"La voz activa es más fácil de seguir al oído. Se prefiere siempre que se pueda."}},
+    {id:"rr14", nombre:"Concordancia impecable",
+     concepto:"La concordancia entre sujeto y verbo es esencial. Errores como «los vecinos dijo» restan credibilidad y dificultan la comprensión al oído.",
+     ejemplo:"Correcto: «Los habitantes del barrio pidieron una reunión». Incorrecto: «Los habitantes del barrio pidió una reunión».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la concordancia.",
+       texto:"«Los vecinos del barrio pidió una solución» → «Los vecinos del barrio ___ una solución».",
+       respuestas:[["pidieron","pidio","pidió"]],
+       retro:"El sujeto plural exige verbo en plural. La concordancia es esencial para la credibilidad."}},
+    {id:"rr15", nombre:"Sin gerundios encadenados",
+     concepto:"Los gerundios encadenados («diciendo, caminando, mirando») dificultan el seguimiento. En radio se usan verbos conjugados.",
+     ejemplo:"No: «El alcalde llegó al barrio, saludando a los vecinos, escuchando sus quejas, prometiendo soluciones». Sí: «El alcalde llegó al barrio. Saludó a los vecinos. Escuchó sus quejas. Prometió soluciones».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye los gerundios.",
+       texto:"«El alcalde llegó al barrio saludando y escuchando» → «El alcalde llegó al barrio, ___ a los vecinos y ___ sus quejas».",
+       respuestas:[["saludo","saludó"],["escucho","escuchó"]],
+       retro:"Los gerundios encadenados confunden al oyente. Se sustituyen por verbos conjugados."}},
+    {id:"rr16", nombre:"Subordinación mínima",
+     concepto:"En radio, las subordinadas múltiples confunden. Se prefiere dividir en oraciones simples. Cada oración, una idea.",
+     ejemplo:"No: «El proyecto que fue aprobado por el concejo que sesiona los martes contempla obras que beneficiarán a barrios que llevan años sin pavimentar». Sí: «El concejo aprobó el proyecto. Beneficiará a varios barrios. Llevan años sin pavimentar».",
+     ejercicio:{tipo:"fill",
+       consigna:"Divide la oración.",
+       texto:"«El proyecto que aprobó el concejo que sesiona los martes beneficiará a varios barrios» → «El concejo aprobó el proyecto. Este beneficiará a varios ___ ».",
+       respuestas:[["barrios","sectores","habitantes"]],
+       retro:"La subordinación mínima facilita la comprensión sonora. Se divide en oraciones simples."}},
+    {id:"rr17", nombre:"Coordinación simple",
+     concepto:"En radio, la coordinación con «y», «o», «pero» une ideas paralelas. No se abusa de conectores rebuscados.",
+     ejemplo:"«La comunidad pidió más seguridad, mejores vías y un parque». Simple y claro.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector.",
+       categorias:["Copulativa","Adversativa","Disyuntiva"],
+       items:[
+         {texto:"y", cat:0},
+         {texto:"pero", cat:1},
+         {texto:"o", cat:2},
+         {texto:"e", cat:0},
+         {texto:"ni", cat:0}
+       ],
+       retro:"Los conectores simples son los mejores para el oído. La coordinación clara facilita la comprensión."}},
+    {id:"rr18", nombre:"Repetición intencional",
+     concepto:"En radio, la repetición es un recurso, no un vicio. Repetir un nombre, una cifra o una idea clave ayuda al oyente a fijarla.",
+     ejemplo:"«El proyecto es para el barrio La Esperanza. El barrio La Esperanza tendrá agua potable después de 20 años». Repetir el nombre ayuda a fijar.",
+     ejercicio:{tipo:"fill",
+       consigna:"Refuerza con repetición intencional.",
+       texto:"«El proyecto es para el barrio La Esperanza. ___ ___ tendrá agua potable».",
+       respuestas:[["El barrio","el barrio"],["La Esperanza","la esperanza"]],
+       retro:"La repetición intencional fija información clave. En radio, repetir no es redundar."}},
+    {id:"rr19", nombre:"Párrafos breves",
+     concepto:"En radio, los párrafos son de tres a cinco líneas. Cada párrafo una idea. Los párrafos extensos cansan al oyente y al locutor.",
+     ejemplo:"Un párrafo para el anuncio. Otro para el contexto. Otro para las voces. Otro para el cierre.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuántas líneas debe tener un párrafo radial?",
+       opciones:["Entre 3 y 5 líneas","Al menos 10 líneas","No importa","Solo una línea"],
+       correcta:0,
+       retro:"Los párrafos radiales son breves: entre 3 y 5 líneas. Cada párrafo desarrolla una sola idea."}},
+    {id:"rr20", nombre:"Sin perífrasis vacías",
+     concepto:"«Cúmpleme informar», «por medio de la presente», «en su momento oportuno» no caben en radio. El oyente necesita claridad inmediata.",
+     ejemplo:"En lugar de «Cúmpleme informar que la reunión fue aplazada», se dice: «La reunión fue aplazada».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye la perífrasis.",
+       texto:"«Cúmpleme informar que la reunión fue aplazada» → «La reunión fue ___ ».",
+       respuestas:[["aplazada","cancelada","pospuesta","movida"]],
+       retro:"Las perífrasis vacías no caben en radio. Se va directo a la información."}}
+  ]
+},
+/* ---------- Bloque 3 ---------- */
+{
+  id:"r3", nombre:"Puntuación y signos de oralidad", emoji:"¶",
+  desc:"Signos que marcan respiración, pausa, énfasis y control técnico.",
+  tecnicas:[
+    {id:"rr21", nombre:"Coma para respirar",
+     concepto:"En radio, la coma marca una pausa breve, casi una respiración. Se coloca donde el locutor debe respirar. Sin comas, el texto se lee atropellado.",
+     ejemplo:"«Vecinos del barrio La Esperanza, esta mañana, recibieron la noticia de la pavimentación». Las comas marcan respiraciones naturales.",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca las comas de respiración.",
+       texto:"«Vecinos del barrio La Esperanza___ esta mañana___ recibieron la noticia».",
+       respuestas:[[","],[","]],
+       retro:"La coma radial marca respiración. El locutor necesita respirar para no atropellar el texto."}},
+    {id:"rr22", nombre:"Punto y aparte entre ideas",
+     concepto:"El punto y aparte cierra una idea completa. En radio, cada cambio de tema o de voz se marca con punto y aparte. Facilita la lectura y la comprensión.",
+     ejemplo:"Punto y aparte tras la noticia. Punto y aparte antes de la voz del vecino. Punto y aparte antes del cierre.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuándo se usa el punto y aparte en radio?",
+       opciones:["Al terminar una oración","Al cambiar de tema o de voz","Al citar a alguien","Al saludar"],
+       correcta:1,
+       retro:"El punto y aparte marca un cambio: de tema, de voz, de sección. Facilita la lectura radial."}},
+    {id:"rr23", nombre:"Punto y seguido para el ritmo",
+     concepto:"El punto y seguido separa oraciones dentro de un mismo bloque. En radio, su uso marca un ritmo: frases cortas, ideas rápidas, fluidez sonora.",
+     ejemplo:"«El proyecto fue aprobado. Beneficiará a 200 familias. Comenzará en agosto».",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa con punto y seguido.",
+       texto:"«El proyecto fue aprobado___ beneficiará a 200 familias___ comenzará en agosto».",
+       respuestas:[["."],["."]],
+       retro:"El punto y seguido marca ritmo sonoro. Frases cortas, ideas rápidas."}},
+    {id:"rr24", nombre:"Dos puntos para anunciar",
+     concepto:"Los dos puntos anuncian lo que viene: una cita, una lista, una consecuencia. En radio, se usan para introducir la voz de un entrevistado o una declaración.",
+     ejemplo:"«El alcalde dijo: “La obra comenzará en agosto”». «Los vecinos piden tres cosas: seguridad, vías y un parque».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca los dos puntos.",
+       texto:"«El alcalde dijo___ “La obra comenzará en agosto”».",
+       respuestas:[[""],[""]],
+       retro:"Los dos puntos anuncian la cita textual. En radio, ayuda al locutor a preparar el cambio de voz."}},
+    {id:"rr25", nombre:"Comillas para citas",
+     concepto:"Las comillas encierran las palabras textuales de un entrevistado, funcionario o vecino. En radio, el locutor puede leer la cita o dar paso a la voz real.",
+     ejemplo:"«La lideresa afirmó: “Llevamos veinte años esperando esta obra”». Entre comillas: cita textual.",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca comillas donde correspondan.",
+       texto:"«La lideresa afirmó: ___Llevamos veinte años esperando esta obra___».",
+       respuestas:[["«","\""],[ "»","\""]],
+       retro:"Las comillas encierran citas textuales. El locutor da paso a la voz real o la lee como cita."}},
+    {id:"rr26", nombre:"Paréntesis en guiones técnicos",
+     concepto:"En guiones radiales, los paréntesis contienen indicaciones técnicas para el operador o el locutor: (música), (control), (bajada), (sube), (ambiente).",
+     ejemplo:"«(Entra música: cortina de 5 segundos) Locutor: Buenos días, comunidad...».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada indicación.",
+       categorias:["Indicación técnica","Texto del locutor"],
+       items:[
+         {texto:"(Entra música de entrada)", cat:0},
+         {texto:"Buenos días, comunidad.", cat:1},
+         {texto:"(Baja música al fondo)", cat:0},
+         {texto:"Hoy hablamos del agua.", cat:1},
+         {texto:"(Corte. Pausa de 2 segundos)", cat:0}
+       ],
+       retro:"En radio, el guion distingue el texto del locutor de las indicaciones técnicas."}},
+    {id:"rr27", nombre:"Guion largo para diálogos",
+     concepto:"En radioteatro y entrevistas con guion, la raya (—) introduce cada intervención. Ayuda al locutor a saber cuándo le toca hablar.",
+     ejemplo:"«—Buenos días, señora. —Buenos días, ¿en qué puedo ayudarle? —Vengo por el problema del agua».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca la raya en el diálogo.",
+       texto:"«___Buenos días. ___Buenos días, ¿en qué puedo ayudarle?»",
+       respuestas:[["—","-"],["—","-"]],
+       retro:"La raya introduce cada intervención. En radioteatro y guion de entrevista es esencial."}},
+    {id:"rr28", nombre:"Signos de interrogación",
+     concepto:"Los signos de interrogación (¿?) enmarcan las preguntas del entrevistador. Ayudan al locutor a preparar la entonación ascendente.",
+     ejemplo:"«¿Cuándo comenzará la obra? ¿Quiénes serán los beneficiarios? ¿Cuál es el presupuesto?».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca los signos.",
+       texto:"«___Cuándo comenzará la obra___»",
+       respuestas:[["¿"],["?"]],
+       retro:"Los signos dobles (¿?) preparan la entonación ascendente en el locutor."}},
+    {id:"rr29", nombre:"Signos de exclamación moderados",
+     concepto:"En radio, los signos de exclamación (¡!) se usan con moderación. Sirven para marcar énfasis genuino, no para forzar emoción.",
+     ejemplo:"«¡El agua llegó al barrio después de 20 años!» (énfasis genuino). No: «¡Buenos días, queridos oyentes!» (exagerado).",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cómo se usan los signos de exclamación en radio?",
+       opciones:["En cada oración","Con moderación, para énfasis genuino","Nunca","Solo en noticias"],
+       correcta:1,
+       retro:"Los signos de exclamación se usan con moderación. El énfasis excesivo suena artificial al oído."}},
+    {id:"rr30", nombre:"Barra y doble barra en guiones",
+     concepto:"En guiones radiales, la barra (/) marca pausa breve, y la doble barra (//) marca pausa larga o cambio de sección. Ayudan al locutor a dosificar el ritmo.",
+     ejemplo:"«La comunidad pidió / una solución al problema del agua // Ahora escucharemos a la lideresa».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca la barra o doble barra.",
+       texto:"«La comunidad pidió ___ una solución al agua ___ Ahora escucharemos a la lideresa».",
+       respuestas:[["/"],["//"]],
+       retro:"La barra marca pausa breve; la doble barra, pausa larga o cambio de sección. Ayudan al ritmo del locutor."}}
+  ]
+},
+/* ---------- Bloque 4 ---------- */
+{
+  id:"r4", nombre:"Ortografía y normativa avanzada", emoji:"✓",
+  desc:"Dequeísmo, queísmo, mayúsculas y tildes para el texto radial.",
+  tecnicas:[
+    {id:"rr31", nombre:"Dequeísmo",
+     concepto:"El dequeísmo es usar «de que» cuando el verbo no lo exige: «pienso de que», «creo de que». En radio, es un error muy audible.",
+     ejemplo:"Incorrecto: «Considero de que el proyecto es bueno». Correcto: «Considero que el proyecto es bueno».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina el dequeísmo.",
+       texto:"«Pienso de que la reunión será el viernes» → «Pienso ___ la reunión será el viernes».",
+       respuestas:[["que"]],
+       retro:"«Pensar» rige «que», no «de que». En radio, el dequeísmo se escucha y resta credibilidad."}},
+    {id:"rr32", nombre:"Queísmo",
+     concepto:"El queísmo es lo contrario: omitir «de» cuando el verbo la exige. «Me di cuenta que», «estoy seguro que».",
+     ejemplo:"Incorrecto: «Me di cuenta que faltaban recursos». Correcto: «Me di cuenta de que faltaban recursos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige el queísmo.",
+       texto:"«Estoy seguro que la obra comenzará» → «Estoy seguro ___ que la obra comenzará».",
+       respuestas:[["de"]],
+       retro:"«Estar seguro» rige «de que». En radio, el queísmo es tan audible como el dequeísmo."}},
+    {id:"rr33", nombre:"Laísmo, leísmo y loísmo",
+     concepto:"El laísmo usa «la» como complemento indirecto: «la dije». El leísmo usa «le» como directo de cosa. Ambos son errores en la norma culta.",
+     ejemplo:"Correcto: «Le dije a la vecina que viniera». Laísmo: «La dije a la vecina que viniera».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración.",
+       categorias:["Correcto","Laísmo","Leísmo"],
+       items:[
+         {texto:"Le entregué el micrófono a la locutora.", cat:0},
+         {texto:"La entregué el micrófono a la locutora.", cat:1},
+         {texto:"Le vi el equipo (a la emisora).", cat:2},
+         {texto:"Le dije al técnico que esperara.", cat:0},
+         {texto:"La dije al técnico que esperara.", cat:1}
+       ],
+       retro:"El laísmo y el leísmo se escuchan claramente en radio. La norma culta exige le/les para indirecto."}},
+    {id:"rr34", nombre:"Mayúsculas en instituciones",
+     concepto:"Los nombres oficiales van en mayúscula: Alcaldía de Medellín, Ministerio de las TIC, Universidad Nacional. Los genéricos van en minúscula: alcaldía, ministerio, universidad.",
+     ejemplo:"«La Alcaldía de Medellín firmó un convenio». «La alcaldía invertirá en obras».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada uso.",
+       categorias:["Correcto","Incorrecto"],
+       items:[
+         {texto:"«La Alcaldía de Medellín»,", cat:0},
+         {texto:"«La alcaldía de medellín»,", cat:1},
+         {texto:"«El Ministerio de las TIC»,", cat:0},
+         {texto:"«El ministerio de las tic»,", cat:1},
+         {texto:"«La Universidad Nacional»,", cat:0}
+       ],
+       retro:"Los nombres oficiales completos llevan mayúscula. Los genéricos, minúscula."}},
+    {id:"rr35", nombre:"Mayúsculas en cargos",
+     concepto:"Los cargos van en minúscula cuando acompañan al nombre: «el alcalde Gómez». En vocativo directo llevan mayúscula: «Señor Alcalde».",
+     ejemplo:"«El alcalde Gómez visitó el barrio». «Señor Alcalde, ¿qué responde a los vecinos?».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada uso.",
+       categorias:["Correcto","Incorrecto"],
+       items:[
+         {texto:"El alcalde Gómez visitó.", cat:0},
+         {texto:"El Alcalde Gómez visitó.", cat:1},
+         {texto:"Señor Alcalde, ¿qué responde?", cat:0},
+         {texto:"La Docente Martínez asistió.", cat:1},
+         {texto:"Señora Ministra, la escuchamos.", cat:0}
+       ],
+       retro:"Los cargos con nombre van en minúscula; en vocativo directo, en mayúscula."}},
+    {id:"rr36", nombre:"Tilde diacrítica",
+     concepto:"Distingue funciones: él/el, sí/si, más/mas, té/te, dé/de, sé/se, aún/aun. En radio es esencial.",
+     ejemplo:"«Él dijo que vendría» / «El alcalde vendrá». «Sí, aceptamos» / «Si aceptan, avisen».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la forma.",
+       texto:"___ alcalde llegó (él/el). · ___ aceptamos la invitación (Si/Sí). · ___ no ha llegado (Aún/Aun).",
+       respuestas:[["el","él"],["si","sí"],["aun","aún"]],
+       retro:"La tilde diacrítica distingue funciones. En radio, la pronunciación ayuda pero la escritura correcta es esencial."}},
+    {id:"rr37", nombre:"Números en radio",
+     concepto:"En radio, los números se escriben como se dicen. No «1 500 000», sino «un millón quinientos mil» o «1,5 millones». Los decimales se redondean.",
+     ejemplo:"«El proyecto cuesta 1 500 000 pesos» → en guion: «cuesta un millón quinientos mil pesos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe como se dice.",
+       texto:"«$1 500 000» → «___ pesos».",
+       respuestas:[["un millon quinientos mil","un millón quinientos mil"]],
+       retro:"Los números se escriben como se dicen. El locutor no debe traducir en vivo."}},
+    {id:"rr38", nombre:"Siglas en radio",
+     concepto:"En radio, las siglas se leen deletreadas o se dice su nombre completo. Se evita leer «ONG» como palabra. Se explica la primera vez.",
+     ejemplo:"En vez de «la ONG llegó al barrio», se dice: «La organización no gubernamental, conocida como ONG, llegó al barrio». O se deletrea: «o-ene-ge».",
+     ejercicio:{tipo:"fill",
+       consigna:"Explica la sigla.",
+       texto:"«La ___ , o sea la organización no gubernamental, llegó al barrio».",
+       respuestas:[["ong","ONG"]],
+       retro:"Las siglas se explican la primera vez. El oyente puede no saber qué significan."}},
+    {id:"rr39", nombre:"A ver / haber",
+     concepto:"«A ver» es preposición + verbo (mirar). «Haber» es auxiliar. La confusión es error frecuente en guiones radiales.",
+     ejemplo:"Correcto: «Vamos a ver los resultados». Correcto: «Debe haber respuesta».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con «a ver» o «haber».",
+       texto:"«Vamos ___ cómo responde la comunidad». · «Debe ___ más presencia institucional».",
+       respuestas:[["a ver"],["haber"]],
+       retro:"«A ver» es mirar; «haber» es auxiliar. La confusión resta seriedad al guion."}},
+    {id:"rr40", nombre:"Porque / por qué / porqué",
+     concepto:"«Porque» (causa), «por qué» (interrogativo), «porqué» (sustantivo). En entrevistas radiales, distinguirlos es esencial.",
+     ejemplo:"«No asistió porque estaba enfermo». «¿Por qué no asistió?». «Nadie explicó el porqué de la ausencia».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa.",
+       texto:"No asistió ___ estaba enfermo (porque). · ¿___ no asistió? (Por qué). · No hay ___ (porqué).",
+       respuestas:[["porque"],["por que","por qué"],["porque","porqué"]],
+       retro:"Cada forma tiene función. En entrevista radial, la confusión afecta la comprensión del oyente."}}
+  ]
+},
+/* ---------- Bloque 5 ---------- */
+{
+  id:"r5", nombre:"Vicios del lenguaje y claridad sonora", emoji:"⚠",
+  desc:"Pleonasmos, muletillas, anfibologías y otros vicios que restan claridad en radio.",
+  tecnicas:[
+    {id:"rr41", nombre:"Pleonasmo",
+     concepto:"Repetir ideas innecesariamente: «subir arriba», «lo vi con mis propios ojos». En radio ocupa tiempo valioso sin aportar información.",
+     ejemplo:"Incorrecto: «El alcalde subió arriba al escenario». Correcto: «El alcalde subió al escenario».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina la redundancia.",
+       texto:"«El informe debe ser breve y conciso» → «El informe debe ser ___ ».",
+       respuestas:[["breve","conciso"]],
+       retro:"La redundancia ocupa tiempo valioso en radio. Se elimina."}},
+    {id:"rr42", nombre:"Anfibología",
+     concepto:"Ambigüedad por doble interpretación. En radio, el oyente no puede releer, así que la ambigüedad es grave.",
+     ejemplo:"Ambiguo: «El alcalde habló con el líder sobre su proyecto». ¿«Su» = alcalde o líder? Correcto: «...sobre el proyecto del líder».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina la ambigüedad.",
+       texto:"«El alcalde habló con el líder sobre su propuesta» → «El alcalde habló con el líder sobre la propuesta del ___ ».",
+       respuestas:[["lider","líder"]],
+       retro:"La anfibología confunde al oyente. En radio, la claridad referencial es esencial."}},
+    {id:"rr43", nombre:"Cosismo",
+     concepto:"Usar «cosa» en lugar del término preciso. En radio, «cosa» es vago y confunde.",
+     ejemplo:"Incorrecto: «Sucedió una cosa en la reunión». Correcto: «Se aprobó una decisión en la reunión».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye «cosa».",
+       texto:"«Sucedió una cosa importante» → «Se presentó un ___ importante».",
+       respuestas:[["hecho","evento","incidente","acuerdo","problema","avance"]],
+       retro:"El cosismo es impreciso. En radio se exige el término exacto."}},
+    {id:"rr44", nombre:"Muletillas radiales",
+     concepto:"«Bueno», «este», «o sea», «eh» son muletillas del habla espontánea. En un guion escrito no caben. Se eliminan.",
+     ejemplo:"No: «Bueno, entonces, este, la reunión fue, o sea, ayer». Sí: «La reunión fue ayer».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina las muletillas.",
+       texto:"«Bueno, entonces, la reunión fue ayer» → «La reunión fue ___ ».",
+       respuestas:[["ayer"]],
+       retro:"Las muletillas restan profesionalismo. En un guion se eliminan por completo."}},
+    {id:"rr45", nombre:"Impropiedad léxica",
+     concepto:"Usar una palabra con significado distinto: «intoxicación» por «infección», «evaluación» por «calificación». En radio, confunde al oyente.",
+     ejemplo:"Incorrecto: «La evaluación del estudiante fue 4,5». Correcto: «La calificación del estudiante fue 4,5».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término.",
+       categorias:["Proceso completo","Asignación de nota"],
+       items:[
+         {texto:"evaluación", cat:0},
+         {texto:"calificación", cat:1},
+         {texto:"valoración", cat:0},
+         {texto:"nota", cat:1},
+         {texto:"seguimiento", cat:0}
+       ],
+       retro:"La impropiedad léxica confunde. En radio se exige el término exacto."}},
+    {id:"rr46", nombre:"Abuso del «que»",
+     concepto:"El encadenamiento de «que» dificulta la comprensión. En radio, la frase se pierde.",
+     ejemplo:"No: «Dijo que el alcalde que vino que trajo un proyecto que beneficiará...». Sí: «Dijo que el alcalde trajo un proyecto. Beneficiará...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina el «que» superfluo.",
+       texto:"«Dijo que el alcalde que vino que trajo un proyecto» → «Dijo que el alcalde vino y trajo un ___ ».",
+       respuestas:[["proyecto"]],
+       retro:"El abuso del «que» confunde al oyente. Se divide y se eliminan los superfluos."}},
+    {id:"rr47", nombre:"Cacofonía",
+     concepto:"Repetición de sonidos desagradables: «el área del área», «la coordinación coordina». En radio suena mal y distrae.",
+     ejemplo:"Cacofónico: «El área del área administrativa». Mejor: «El área administrativa».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reescribe sin cacofonía.",
+       texto:"«El acta del acto fue archivada en el archivo» → «El acta del acto fue archivada en el ___ ».",
+       respuestas:[["deposito","depósito","fondo documental","archivo central"]],
+       retro:"La cacofonía se corrige por sustitución. En radio, la eufonía es esencial."}},
+    {id:"rr48", nombre:"Barbarismos",
+     concepto:"«Haiga», «dijieron», «vinistes», «prevee» son barbarismos. En radio restan credibilidad inmediata.",
+     ejemplo:"Correcto: «Espero que haya asistencia». Correcto: «Ellos dijeron». Correcto: «El reglamento prevé».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige el barbarismo.",
+       texto:"«Se espera que haiga respuesta» → «Se espera que ___ respuesta».",
+       respuestas:[["haya"]],
+       retro:"Los barbarismos se escuchan claramente en radio. Restan credibilidad inmediata."}},
+    {id:"rr49", nombre:"Anacoluto",
+     concepto:"Ruptura de la estructura sintáctica: la oración empieza de una manera y termina de otra. En radio produce incoherencia.",
+     ejemplo:"Anacoluto: «Los vecinos que vinieron, sus quejas fueron escuchadas». Correcto: «A los vecinos que vinieron se les escucharon sus quejas».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reescribe sin anacoluto.",
+       texto:"«El informe que presentó el técnico, sus conclusiones son claras» → «Las conclusiones del informe presentado por el técnico son ___ ».",
+       respuestas:[["claras"]],
+       retro:"El anacoluto produce incoherencia. Se corrige reorganizando la oración."}},
+    {id:"rr50", nombre:"Ultracorrección",
+     concepto:"Corregir lo que no está mal: «Bogotà», «dijistes», «vinistes». En radio se escucha y confunde.",
+     ejemplo:"Incorrecto: «Tú vinistes ayer». Correcto: «Tú viniste ayer».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la ultracorrección.",
+       texto:"«Tú dijistes que sí» → «Tú ___ que sí».",
+       respuestas:[["dijiste"]],
+       retro:"La ultracorrección es un error por exceso de celo. La norma culta exige la forma correcta."}}
+  ]
+},
+/* ---------- Bloque 6 ---------- */
+{
+  id:"r6", nombre:"Estilo radial y sonoridad", emoji:"🎙",
+  desc:"Ritmo, musicalización, recursos sonoros y escritura para la voz.",
+  tecnicas:[
+    {id:"rr51", nombre:"Escribir como se habla",
+     concepto:"En radio, se escribe como se habla bien. No se imita el lenguaje de la prensa escrita ni el de los libros. Se escribe para la voz.",
+     ejemplo:"Prensa: «El mandatario local efectuó una visita a la comunidad». Radio: «El alcalde visitó la comunidad».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reescribe para la voz.",
+       texto:"«El mandatario local efectuó una visita a la comunidad» → «El ___ visitó la comunidad».",
+       respuestas:[["alcalde","mandatario"]],
+       retro:"En radio se escribe como se habla bien. La naturalidad no es descuido: es claridad."}},
+    {id:"rr52", nombre:"Ritmo y cadencia",
+     concepto:"El ritmo en radio se construye alternando frases cortas y medianas. Ni todas cortas (atropellado) ni todas largas (monótono). Se alterna.",
+     ejemplo:"«La obra comenzará en agosto. Durante tres meses se pavimentarán las vías principales. Los vecinos piden que se cumpla el plazo».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cómo se construye el ritmo radial?",
+       opciones:["Solo con frases cortas","Alternando frases cortas y medianas","Solo con frases largas","No importa el ritmo"],
+       correcta:1,
+       retro:"El ritmo radial se logra alternando frases. Ni atropellado ni monótono."}},
+    {id:"rr53", nombre:"Entonación implícita en el texto",
+     concepto:"El texto radial sugiere la entonación. Las preguntas suben, las afirmaciones bajan, las enumeraciones sostienen. Se escribe pensando en eso.",
+     ejemplo:"«¿Qué piden los vecinos? Seguridad. Vías. Un parque». El texto prepara la entonación.",
+     ejercicio:{tipo:"fill",
+       consigna:"Prepara la entonación.",
+       texto:"«¿Qué piden los vecinos? ___ , ___ y ___ » (tres cosas que pide la comunidad).",
+       respuestas:[["seguridad","vias","vías","agua","salud"],["vias","vías","educacion","educación","empleo","parque"],["parque","recreacion","recreación","alumbrado","transporte"]],
+       retro:"El texto sugiere la entonación. En radio, la escritura prepara la voz."}},
+    {id:"rr54", nombre:"Musicalización y silencio",
+     concepto:"La música en radio no es adorno: crea atmósfera, marca secciones, refuerza el mensaje. El silencio también comunica: da peso a lo dicho.",
+     ejemplo:"«(Entra música suave) Y ahora, la voz de los abuelos del barrio. (Sube música) Doña Marta, cuéntenos...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Indica la musicalización.",
+       texto:"«___Entra música suave___ Y ahora, la voz de los abuelos del barrio».",
+       respuestas:[["("],[" )",""]],
+       retro:"La música y el silencio son recursos. Las indicaciones técnicas se escriben entre paréntesis."}},
+    {id:"rr55", nombre:"Recursos sonoros",
+     concepto:"Ambientes, efectos y sonidos reales enriquecen la narración radial. Un reportaje sobre el río se acompaña con el sonido del agua. Una crónica sobre la plaza, con las voces del mercado.",
+     ejemplo:"«(Ambiente: sonido de agua de río) A orillas del río, los pescadores hablan...».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada recurso.",
+       categorias:["Ambiente","Efecto","Voz"],
+       items:[
+         {texto:"Sonido del agua del río.", cat:0},
+         {texto:"Sonido de una campana.", cat:1},
+         {texto:"Voz de una lideresa.", cat:2},
+         {texto:"Ruido del mercado.", cat:0},
+         {texto:"Voz de un funcionario.", cat:2}
+       ],
+       retro:"Ambientes, efectos y voces enriquecen el relato radial. Se marcan en el guion."}},
+    {id:"rr56", nombre:"Números redondeados",
+     concepto:"En radio, los números se redondean para facilitar la comprensión. No «un 47,3 %», sino «casi la mitad». No «1 234 567 pesos», sino «más de un millón de pesos».",
+     ejemplo:"«Casi la mitad de los encuestados dijo...». «Más de un millón de pesos se invertirán...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Redondea el número.",
+       texto:"«El 47,3 % de los vecinos» → «___ de los vecinos».",
+       respuestas:[["casi la mitad","la mitad","cerca de la mitad"]],
+       retro:"Los números redondeados son más comprensibles al oído. La exactitud se da en la fuente."}},
+    {id:"rr57", nombre:"Nombres pronunciables",
+     concepto:"Los nombres propios difíciles se escriben con apoyo fonético entre corchetes: [Huilá], [Yopal], [Guaicaramo]. El locutor agradece la ayuda.",
+     ejemplo:"«El resguardo indígena de [Guambía] pidió apoyo al gobierno».",
+     ejercicio:{tipo:"fill",
+       consigna:"Añade apoyo fonético.",
+       texto:"«El resguardo indígena de ___ pidió apoyo» (nombre: Guambía).",
+       respuestas:[["guambia","guambía","[guambia]","[guambía]"]],
+       retro:"Los nombres difíciles se escriben con apoyo fonético. El locutor agradece la ayuda."}},
+    {id:"rr58", nombre:"Siglas y su lectura",
+     concepto:"En radio, las siglas se leen deletreadas o se explica el nombre completo. Se evita leer «ONG» como palabra.",
+     ejemplo:"«La organización no gubernamental, conocida como ONG» o «o-ene-ge».",
+     ejercicio:{tipo:"fill",
+       consigna:"Explica la sigla.",
+       texto:"«La ___ , o sea la organización no gubernamental».",
+       respuestas:[["ong","ONG"]],
+       retro:"En radio, las siglas se leen o se explican. No se pronuncian como palabras."}},
+    {id:"rr59", nombre:"Pausas y respiración",
+     concepto:"El texto radial deja espacio para que el locutor respire. Se marcan pausas con comas, puntos o barras. Un guion sin pausas ahoga al locutor.",
+     ejemplo:"«La comunidad / después de veinte años / recibió la noticia».",
+     ejercicio:{tipo:"fill",
+       consigna:"Marca las pausas.",
+       texto:"«La comunidad después de veinte años recibió la noticia» → «La comunidad / ___ / recibió la noticia».",
+       respuestas:[["despues de veinte anos","después de veinte años"]],
+       retro:"Las pausas permiten respirar. Un guion sin pausas ahoga al locutor."}},
+    {id:"rr60", nombre:"Cierre circular",
+     concepto:"El cierre radial recupera el inicio. Si se abrió con una pregunta o una imagen, se cierra con la respuesta o la misma imagen. Esto da unidad al programa.",
+     ejemplo:"Apertura: «¿Llegará el agua al barrio La Esperanza?». Cierre: «El agua llegará al barrio La Esperanza. Después de veinte años».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el cierre circular.",
+       texto:"Apertura: «¿Llegará el agua?». Cierre: «El agua ___ ».",
+       respuestas:[["llegara","llegará"]],
+       retro:"El cierre circular da unidad al programa. Recupera la pregunta o imagen inicial."}}
+  ]
+},
+/* ---------- Bloque 7 ---------- */
+{
+  id:"r7", nombre:"Géneros radiofónicos", emoji:"🎼",
+  desc:"Noticia, crónica, reportaje, entrevista, cuña, spot, magazine, mesa redonda.",
+  tecnicas:[
+    {id:"rr61", nombre:"Noticia radial",
+     concepto:"La noticia radial responde qué, quién, cuándo, dónde, cómo y por qué. Se escribe en pirámide invertida: lo más importante primero. Dura entre 30 y 60 segundos.",
+     ejemplo:"«La alcaldía iniciará la pavimentación de tres vías del barrio La Esperanza. Las obras comenzarán en agosto y durarán tres meses. La inversión supera los 500 millones de pesos».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la noticia radial.",
+       items:[
+         "Qué: inicio de pavimentación.",
+         "Quién: la alcaldía.",
+         "Cuándo: en agosto.",
+         "Dónde: barrio La Esperanza.",
+         "Dato: inversión de 500 millones."
+       ],
+       retro:"La noticia radial ordena los datos según su importancia. Lo más importante primero."}},
+    {id:"rr62", nombre:"Crónica radial",
+     concepto:"La crónica narra los hechos con voz propia. Combina información y descripción. Tiene ritmo, imágenes sonoras y presencia del cronista.",
+     ejemplo:"«A las cinco de la mañana, las canoas ya están en el río. Los pescadores revisan las redes bajo un sol que apenas asoma. La jornada empieza antes del amanecer...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la crónica.",
+       texto:"«A las ___ de la mañana, las canoas ya están en el ___ ».",
+       respuestas:[["cinco","5","seis","6","cuatro","4"],["rio","río"]],
+       retro:"La crónica radial narra con imágenes sonoras. Combina información y descripción."}},
+    {id:"rr63", nombre:"Reportaje radial",
+     concepto:"El reportaje profundiza un tema con múltiples voces y ambientes reales. Dura más que la noticia. Se construye con entrevistas, sonidos del lugar y contexto.",
+     ejemplo:"Un reportaje sobre el agua del barrio: la voz de la lideresa, del funcionario, del fontanero, con ambientes reales del barrio.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el reportaje.",
+       texto:"El reportaje radial profundiza un tema con múltiples ___ , ___ reales y ___ .",
+       respuestas:[["voces"],["ambientes","sonidos"],["contexto","datos","investigacion","investigación"]],
+       retro:"El reportaje combina voces, ambientes y contexto. Es un género de profundidad."}},
+    {id:"rr64", nombre:"Entrevista radial",
+     concepto:"La entrevista radial da voz a una persona. Se prepara con preguntas abiertas y respetuosas. El entrevistador escucha y repregunta.",
+     ejemplo:"«Señora Marta, usted ha liderado esta lucha durante veinte años. ¿Cómo empezó todo? ¿Qué ha sido lo más difícil? ¿Qué le diría a las autoridades?».",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe una pregunta abierta.",
+       texto:"«¿Cómo ___ todo?» · «¿Qué ha sido lo más ___ ?» · «¿Qué le diría a las ___ ?»",
+       respuestas:[["empezo","empezó","comenzo","comenzó","inicio","inició"],["dificil","difícil","duro","complejo"],["autoridades","instituciones","alcaldia","alcaldía","entidades"]],
+       retro:"Las preguntas abiertas (cómo, qué, por qué) dan mejores respuestas que las cerradas (sí/no)."}},
+    {id:"rr65", nombre:"Cuña radial",
+     concepto:"La cuña radial es un mensaje breve (15-30 segundos) que promueve una idea, un servicio o una campaña. Tiene estructura: gancho, mensaje, cierre con identificación.",
+     ejemplo:"«(Sonido de gota de agua) Una gota. Otra. Miles. Cada gota cuenta. Cierra la llave cuando no la uses. Campaña de la emisora comunitaria El Río».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la cuña.",
+       items:[
+         "Gancho sonoro o frase inicial.",
+         "Mensaje central.",
+         "Llamada a la acción.",
+         "Identificación de la emisora."
+       ],
+       retro:"La cuña radial tiene gancho, mensaje, acción e identificación. Dura entre 15 y 30 segundos."}},
+    {id:"rr66", nombre:"Spot radial",
+     concepto:"El spot radial (30-60 segundos) promueve un producto, servicio o campaña con más desarrollo que la cuña. Combina voces, sonidos y música.",
+     ejemplo:"Un spot sobre vacunación: una madre preocupada, un médico que aclara, un cierre con la voz institucional.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el spot.",
+       texto:"El spot radial dura entre ___ y ___ segundos y combina voces, ___ y ___ .",
+       respuestas:[["30","treinta"],["60","sesenta"],["sonidos","musica","música"],["musica","música","efectos"]],
+       retro:"El spot tiene más desarrollo que la cuña. Combina varios recursos sonoros."}},
+    {id:"rr67", nombre:"Radiorevista",
+     concepto:"La radiorevista o magazine combina varios formatos: noticias, entrevistas, música, secciones. Dura de 30 a 60 minutos. Se estructura en bloques.",
+     ejemplo:"Bloque 1: noticias. Bloque 2: entrevista. Bloque 3: música. Bloque 4: sección de servicio comunitario.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los bloques de la radiorevista.",
+       items:[
+         "Bloque de apertura y noticias.",
+         "Bloque de entrevista o reportaje.",
+         "Bloque musical.",
+         "Bloque de servicio a la comunidad.",
+         "Bloque de cierre."
+       ],
+       retro:"La radiorevista organiza varios formatos en bloques. Cada bloque tiene su ritmo y su función."}},
+    {id:"rr68", nombre:"Mesa redonda",
+     concepto:"La mesa redonda reúne a varios participantes para discutir un tema. Un moderador ordena las intervenciones. Se preparan preguntas y se da tiempo equitativo.",
+     ejemplo:"Una mesa sobre el agua con la lideresa, el funcionario, el experto y la veedora. El moderador da la palabra y ordena.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la mesa redonda.",
+       texto:"La mesa redonda reúne a varios ___ , ordena las ___ con un moderador y da tiempo ___ .",
+       respuestas:[["participantes","invitados","voceros"],["intervenciones","palabras","opiniones"],["equitativo","igual","justo"]],
+       retro:"La mesa redonda requiere moderación. Todos los participantes deben tener voz."}},
+    {id:"rr69", nombre:"Radioteatro y radionovela",
+     concepto:"El radioteatro y la radionovela narran historias con voces, sonidos y música. Se construyen con diálogos, ambientes y efectos. Cada personaje tiene su voz.",
+     ejemplo:"«(Ambiente: lluvia) —Mamá, ya no aguanto más. —Tranquila, hija, ya falta poco».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el radioteatro.",
+       texto:"El radioteatro narra historias con ___ , sonidos y ___ . Cada personaje tiene su ___ .",
+       respuestas:[["voces"],["musica","música","efectos"],["voz","tono","caracter"]],
+       retro:"El radioteatro construye mundos con voz, sonido y música. La imaginación del oyente es el escenario."}},
+    {id:"rr70", nombre:"Comentario y editorial",
+     concepto:"El comentario y el editorial expresan la opinión de la emisora o del comentarista. Estructura: tesis, argumentos, conclusión. Se sostienen con hechos, no con descalificaciones.",
+     ejemplo:"«Hoy queremos comentar la situación del agua en el barrio. Es cierto que la obra es compleja. Pero veinte años es demasiado tiempo. Las comunidades tienen derecho a los servicios básicos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el comentario.",
+       texto:"El comentario radial tiene una ___ , varios ___ y una ___ . Se sostiene con ___ , no con descalificaciones.",
+       respuestas:[["tesis","opinion","opinión"],["argumentos","razones"],["conclusion","conclusión"],["hechos","datos","evidencia"]],
+       retro:"El comentario radial defiende una tesis con argumentos. La opinión se sostiene con hechos."}}
+  ]
+},
+/* ---------- Bloque 8 ---------- */
+{
+  id:"r8", nombre:"Técnica normativa y ética radial", emoji:"⚖",
+  desc:"Ley 1341, derechos, protección de menores y ética de la radiodifusión.",
+  tecnicas:[
+    {id:"rr71", nombre:"Ley 1341 de 2009",
+     concepto:"La Ley 1341 de 2009 regula las TIC en Colombia. Establece el marco de la radiodifusión sonora, los servicios comunitarios y las obligaciones de los operadores.",
+     ejemplo:"«La emisora comunitaria opera en el marco de la Ley 1341 de 2009 y las resoluciones del Ministerio de las TIC».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la referencia normativa.",
+       texto:"La radiodifusión sonora comunitaria en Colombia opera en el marco de la Ley ___ de ___ .",
+       respuestas:[["1341"],["2009"]],
+       retro:"La Ley 1341 de 2009 y sus resoluciones regulan la radiodifusión sonora comunitaria en Colombia."}},
+    {id:"rr72", nombre:"Radiodifusión sonora comunitaria",
+     concepto:"La radiodifusión sonora comunitaria es un servicio público sin ánimo de lucro, prestado por comunidades organizadas. Su fin es el desarrollo social y la participación ciudadana.",
+     ejemplo:"La emisora comunitaria no vende publicidad comercial como fin, sino que presta un servicio a la comunidad.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa los rasgos.",
+       texto:"La radiodifusión sonora comunitaria es un servicio público sin ___ , prestado por ___ organizadas, con fin ___ .",
+       respuestas:[["animo de lucro","ánimo de lucro","lucro"],["comunidades","organizaciones"],["social","comunitario","de desarrollo social"]],
+       retro:"La radio comunitaria no busca lucro. Su fin es el desarrollo social y la participación ciudadana."}},
+    {id:"rr73", nombre:"Derecho a la información veraz",
+     concepto:"Toda persona tiene derecho a recibir información veraz e imparcial (art. 20 C.P.). La emisora comunitaria garantiza ese derecho verificando sus fuentes.",
+     ejemplo:"«Verificamos cada dato con al menos dos fuentes antes de emitir».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el derecho.",
+       texto:"El artículo ___ de la Constitución consagra el derecho a la información ___ .",
+       respuestas:[["20"],["veraz","verdadera"]],
+       retro:"El artículo 20 de la Constitución consagra el derecho a la información veraz. La radio comunitaria lo garantiza."}},
+    {id:"rr74", nombre:"Rectificación y derecho de réplica",
+     concepto:"Quien se sienta afectado por una información tiene derecho a la rectificación en las mismas condiciones. La emisora debe ofrecer ese espacio.",
+     ejemplo:"«Si alguna persona considera que hemos afectado su buen nombre, ofrecemos el espacio de rectificación en el mismo horario».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el derecho de rectificación.",
+       texto:"Quien se sienta afectado tiene derecho a la ___ en las mismas ___ , en el mismo ___ .",
+       respuestas:[["rectificacion","rectificación"],["condiciones"],["horario","espacio","programa"]],
+       retro:"El derecho de rectificación está consagrado en el artículo 20 de la Constitución. La radio comunitaria lo respeta."}},
+    {id:"rr75", nombre:"Protección de menores",
+     concepto:"Los niños, niñas y adolescentes tienen protección reforzada. No se difunden sus nombres, imágenes ni datos en casos que los afecten. Se protege su intimidad.",
+     ejemplo:"En lugar de «el menor Juan Pérez del barrio X», se dice: «un adolescente del barrio».",
+     ejercicio:{tipo:"fill",
+       consigna:"Protege la intimidad del menor.",
+       texto:"«El menor Juan Pérez del barrio X» → «Un ___ del barrio».",
+       respuestas:[["adolescente","menor","joven","nino","niño","estudiante"]],
+       retro:"Los menores tienen protección reforzada. No se difunden sus nombres en casos que los afecten."}},
+    {id:"rr76", nombre:"Lenguaje no discriminatorio",
+     concepto:"La radio comunitaria evita expresiones que estigmatizan por origen, género, etnia, edad, discapacidad, orientación sexual o religión. Se usa lenguaje respetuoso.",
+     ejemplo:"Se prefiere «persona con discapacidad» a «discapacitado». «Persona adulta mayor» a «viejo». «Comunidad afrodescendiente» a «moreno».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión.",
+       categorias:["Respetuosa","Discriminatoria"],
+       items:[
+         {texto:"Persona con discapacidad.", cat:0},
+         {texto:"Discapacitado.", cat:1},
+         {texto:"Persona adulta mayor.", cat:0},
+         {texto:"Viejo inútil.", cat:1},
+         {texto:"Comunidad afrodescendiente.", cat:0}
+       ],
+       retro:"El lenguaje no discriminatorio reconoce la dignidad de todas las personas."}},
+    {id:"rr77", nombre:"Manejo de fuentes sensibles",
+     concepto:"Cuando la fuente es una víctima, un menor o una persona en riesgo, se protege su identidad y su integridad. Se evita revictimizar.",
+     ejemplo:"«Una víctima del conflicto, quien pidió reservar su nombre, contó que...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Protege la fuente.",
+       texto:"«Una víctima del conflicto, quien pidió reservar su ___ , contó que...».",
+       respuestas:[["nombre","identidad"]],
+       retro:"Las fuentes sensibles se protegen. La emisora no revictimiza ni expone a personas en riesgo."}},
+    {id:"rr78", nombre:"Participación comunitaria",
+     concepto:"La radio comunitaria es un espacio de participación. Los programas se construyen con la comunidad: cabildos abiertos, llamadas, mensajes, corresponsales locales.",
+     ejemplo:"«Este programa lo construimos entre todos. Llame y cuéntenos qué pasa en su barrio».",
+     ejercicio:{tipo:"fill",
+       consigna:"Promueve la participación.",
+       texto:"«Este programa lo construimos ___ . Llame y cuéntenos qué pasa en su ___ ».",
+       respuestas:[["entre todos","en comunidad","juntos"],["barrio","vereda","sector","comunidad"]],
+       retro:"La radio comunitaria es un espacio de participación. La comunidad es protagonista, no espectadora."}},
+    {id:"rr79", nombre:"Parrilla de programación",
+     concepto:"La parrilla de programación organiza los programas de la emisora por franjas y públicos. Cada franja tiene un propósito y un público destinatario.",
+     ejemplo:"Mañana: informativo y servicio. Mediodía: música y mensajes comunitarios. Tarde: juvenil y educativo. Noche: cultural y reflexivo.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la parrilla.",
+       texto:"La parrilla organiza los programas por ___ y públicos. La franja de la mañana suele ser ___ .",
+       respuestas:[["franjas","horarios","momentos"],["informativa","informativa y de servicio","de noticias","de servicio"]],
+       retro:"La parrilla radial organiza los programas según franjas y públicos. Cada franja tiene su propósito."}},
+    {id:"rr80", nombre:"Guion técnico radial",
+     concepto:"El guion técnico radial indica el texto del locutor, las señales de control (música, entrada, bajada), los tiempos y los recursos. Es la herramienta del operador y del locutor.",
+     ejemplo:"«0:00 - Entra cortina musical. 0:05 - Locutor 1: Buenos días... 0:30 - Baja cortina. 0:32 - Locutor 2: Hoy hablamos...».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las columnas del guion técnico.",
+       items:[
+         "Tiempo (minuto/segundo).",
+         "Indicación técnica (control, música, sonido).",
+         "Texto del locutor.",
+         "Duración del bloque."
+       ],
+       retro:"El guion técnico organiza tiempo, control y texto. Es la herramienta de la emisión."}}
+  ]
+},
+/* ---------- Bloque 9 ---------- */
+{
+  id:"r9", nombre:"Fuentes y verificación", emoji:"🔍",
+  desc:"Verificación, archivo sonoro, dos fuentes y manejo de rumores.",
+  tecnicas:[
+    {id:"rr81", nombre:"Verificación de fuentes",
+     concepto:"Antes de emitir, se verifica cada dato con al menos dos fuentes. Se registra quién lo dijo, cuándo y dónde. La verificación es deber ético y legal.",
+     ejemplo:"«El dato del 47 % de casos fue confirmado con la Secretaría de Salud y con el hospital local».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la verificación.",
+       texto:"Antes de emitir, cada dato se verifica con al menos ___ fuentes. Se registra quién lo ___ , cuándo y ___ .",
+       respuestas:[["dos","2"],["dijo","afirmo","afirmó","informo","informó"],["donde","dónde"]],
+       retro:"La verificación con dos fuentes es deber ético. La credibilidad de la emisora depende de ella."}},
+    {id:"rr82", nombre:"Fuentes vivas y documentales",
+     concepto:"Las fuentes vivas son personas (funcionarios, líderes, expertos, vecinos). Las documentales son informes, actas, resoluciones, archivos sonoros. Se combinan ambas.",
+     ejemplo:"«Según el informe de la Personería (documental) y el testimonio de la lideresa (viva), la obra no ha comenzado».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada fuente.",
+       categorias:["Viva","Documental"],
+       items:[
+         {texto:"Declaración de un funcionario.", cat:0},
+         {texto:"Informe de la Personería.", cat:0===1?0:1},
+         {texto:"Testimonio de una lideresa.", cat:0},
+         {texto:"Acta de una reunión.", cat:1},
+         {texto:"Resolución de la Alcaldía.", cat:1}
+       ],
+       retro:"Las fuentes vivas son personas; las documentales, documentos. Se combinan para verificar."}},
+    {id:"rr83", nombre:"Archivo sonoro",
+     concepto:"El archivo sonoro de la emisora guarda entrevistas, ambientes, cuñas y programas. Es memoria de la comunidad y fuente de consulta.",
+     ejemplo:"«Recuperamos del archivo sonoro la entrevista que hicimos hace diez años con la lideresa, cuando comenzaba la lucha».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el archivo.",
+       texto:"El archivo sonoro guarda ___ , ambientes y ___ . Es ___ de la comunidad.",
+       respuestas:[["entrevistas","voces","programas"],["cuñas","cuñas radiales","programas","sonidos"],["memoria","testimonio","historia"]],
+       retro:"El archivo sonoro es memoria de la comunidad. Es fuente de consulta y de identidad."}},
+    {id:"rr84", nombre:"Regla de dos fuentes",
+     concepto:"Regla básica del periodismo radial: una sola fuente no basta. Se confirma con al menos dos fuentes independientes antes de emitir un dato sensible.",
+     ejemplo:"«El rumor sobre el cierre de la escuela fue desmentido por la Secretaría de Educación y confirmado el funcionamiento normal por la rectora».",
+     ejercicio:{tipo:"fill",
+       consigna:"Aplica la regla.",
+       texto:"Antes de emitir un dato sensible, se confirma con al menos ___ fuentes ___ .",
+       respuestas:[["dos","2"],["independientes","distintas","separadas"]],
+       retro:"La regla de dos fuentes es básica. Una sola fuente no basta para emitir un dato sensible."}},
+    {id:"rr85", nombre:"Cita de funcionarios",
+     concepto:"Las declaraciones de funcionarios se citan textualmente, con nombre y cargo. Se registra la fecha y el lugar de la declaración.",
+     ejemplo:"«La secretaria de Salud, Ana Gómez, afirmó el martes: “Los casos están bajo control”».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita.",
+       texto:"«La secretaria de Salud, ___ , afirmó el ___ : “Los casos están bajo control”».",
+       respuestas:[["ana gomez","Ana Gómez","nombre del funcionario"],["martes","lunes","miercoles","miércoles","jueves","viernes","dia","día"]],
+       retro:"Las declaraciones de funcionarios se citan con nombre, cargo y fecha. Se registra la fuente."}},
+    {id:"rr86", nombre:"Cita de organizaciones sociales",
+     concepto:"Las organizaciones sociales (JAC, sindicatos, colectivos, resguardos) son fuentes fundamentales en radio comunitaria. Se cita su nombre completo y su vocero.",
+     ejemplo:"«El vocero de la Junta de Acción Comunal del barrio La Esperanza, Pedro Ruiz, afirmó...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita.",
+       texto:"«El vocero de la ___ de Acción Comunal, ___ , afirmó...».",
+       respuestas:[["junta"],["nombre del vocero","pedro ruiz","vocero"]],
+       retro:"Las organizaciones sociales son fuentes fundamentales. Se cita su nombre completo y su vocero."}},
+    {id:"rr87", nombre:"Cita de expertos",
+     concepto:"Los expertos (médicos, abogados, ingenieros, académicos) aportan contexto y análisis. Se cita su nombre, su cargo y su especialidad.",
+     ejemplo:"«El ingeniero civil Juan Pérez, especialista en obras públicas, explicó que...».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita del experto.",
+       texto:"«El ___ Juan Pérez, especialista en obras públicas, explicó que...».",
+       respuestas:[["ingeniero","ingeniero civil","doctor","experto","profesional"]],
+       retro:"Los expertos contextualizan y analizan. Se cita su nombre y su especialidad."}},
+    {id:"rr88", nombre:"Manejo de rumores",
+     concepto:"En radio comunitaria circulan rumores. El deber es verificar antes de emitir. Si el rumor no se confirma, no se emite como noticia. Se informa que se está verificando.",
+     ejemplo:"«Circuló el rumor de un posible cierre. Consultamos a las autoridades. Hasta ahora no hay confirmación oficial. Seguiremos verificando».",
+     ejercicio:{tipo:"fill",
+       consigna:"Maneja el rumor.",
+       texto:"«Circuló el rumor de un posible ___ . Consultamos a las ___ . Hasta ahora no hay ___ oficial».",
+       respuestas:[["cierre","problema","situacion","situación","cambio"],["autoridades","fuentes","instituciones","entidades"],["confirmacion","confirmación","respuesta","informacion","información"]],
+       retro:"El rumor no se emite como noticia. Se verifica y se informa que se está verificando."}},
+    {id:"rr89", nombre:"Corrección en vivo",
+     concepto:"Si se emite un error, se corrige de inmediato en el mismo programa. La corrección es deber ético. Se explica qué se dijo mal y cuál es el dato correcto.",
+     ejemplo:"«En el boletín anterior dijimos que la reunión sería el jueves. Rectificamos: será el viernes a las 3:00 p.m.».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la corrección.",
+       texto:"«En el boletín anterior dijimos que la reunión sería el ___ . Rectificamos: será el ___ ».",
+       respuestas:[["jueves"],["viernes","dia correcto","día correcto"]],
+       retro:"La corrección en vivo es deber ético. Se explica el error y se da el dato correcto."}},
+    {id:"rr90", nombre:"Verificación de cifras",
+     concepto:"Las cifras se verifican con la fuente oficial. Se contrastan con otras fuentes. En radio se redondean al aire pero se conservan exactas en el archivo.",
+     ejemplo:"«Según la Secretaría de Salud, se registraron 47 casos (casi cincuenta) en el último mes». En el guion: «casi cincuenta».",
+     ejercicio:{tipo:"fill",
+       consigna:"Redondea la cifra en el guion.",
+       texto:"«Según la fuente, 47 casos» → en el guion: «casi ___ casos».",
+       respuestas:[["cincuenta","50"]],
+       retro:"Las cifras se redondean al aire. Se conservan exactas en el archivo y en la fuente."}}
+  ]
+},
+/* ---------- Bloque 10 ---------- */
+{
+  id:"r10", nombre:"Revisión, corrección y emisión", emoji:"🎧",
+  desc:"Lectura en voz alta, cronometraje y emisión en vivo.",
+  tecnicas:[
+    {id:"rr91", nombre:"Revisión en voz alta",
+     concepto:"Leer el guion en voz alta revela problemas de ritmo, puntuación y sintaxis. Es la mejor prueba antes de emitir.",
+     ejemplo:"Al leer en voz alta se nota que una oración no respira: tiene demasiadas subordinadas. Se divide.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Para qué sirve leer el guion en voz alta?",
+       opciones:["Para memorizarlo","Para detectar problemas de ritmo y puntuación","Para impresionar al equipo","Para aumentar la velocidad"],
+       correcta:1,
+       retro:"La lectura en voz alta revela problemas que la lectura silenciosa oculta. Es esencial antes de emitir."}},
+    {id:"rr92", nombre:"Ensayo de lectura",
+     concepto:"El ensayo de lectura permite medir el tiempo, ajustar la respiración y coordinar con el operador. Se hace antes de la emisión.",
+     ejemplo:"El locutor lee el guion una vez completo. Se cronometra. Se ajustan las pausas.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el ensayo.",
+       texto:"El ensayo permite medir el ___ , ajustar la ___ y coordinar con el ___ .",
+       respuestas:[["tiempo"],["respiracion","respiración","entonacion","entonación"],["operador","control","tecnico","técnico"]],
+       retro:"El ensayo es parte de la preparación. Permite medir tiempo y ajustar la lectura."}},
+    {id:"rr93", nombre:"Cronometraje",
+     concepto:"En radio, el tiempo es estricto. Cada bloque tiene su duración. Se cronometra el guion para ajustar el contenido al tiempo real.",
+     ejemplo:"«El bloque de noticias dura 5 minutos. Tengo 3 noticias de 1 minuto y una de 2 minutos. Total: 5 minutos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el cronometraje.",
+       texto:"«El bloque dura ___ minutos. Tengo ___ noticias de 1 minuto y una de ___ minutos».",
+       respuestas:[["5","cinco"],["3","tres"],["2","dos"]],
+       retro:"El cronometraje es esencial. El tiempo radial no admite improvisación."}},
+    {id:"rr94", nombre:"Ajuste de ritmo",
+     concepto:"Al cronometrar, se ajusta el ritmo: se eliminan frases innecesarias, se acortan oraciones, se ajustan las pausas. Todo sin perder información.",
+     ejemplo:"Si el bloque queda largo, se elimina la frase «cabe destacar que» y se va directo al dato.",
+     ejercicio:{tipo:"fill",
+       consigna:"Ajusta el ritmo.",
+       texto:"Si el bloque queda largo, se eliminan frases como «___» y se va directo al ___ .",
+       respuestas:[["cabe destacar que","cabe resaltar","sin duda","es importante senalar","es importante señalar"],["dato","contenido","mensaje","punto"]],
+       retro:"El ajuste de ritmo elimina frases vacías sin perder contenido. Todo cabe en su tiempo."}},
+    {id:"rr95", nombre:"Revisión de pronunciación",
+     concepto:"Se revisan los nombres y palabras difíciles. Se marcan con apoyo fonético. Se consulta al entrevistado cómo se pronuncia su nombre.",
+     ejemplo:"«El resguardo indígena de [Guambía]». «El municipio de [Bojayá]».",
+     ejercicio:{tipo:"fill",
+       consigna:"Añade apoyo fonético.",
+       texto:"«El municipio de ___ » (nombre: Bojayá).",
+       respuestas:[["bojaya","bojayá","[bojaya]","[bojayá]"]],
+       retro:"La pronunciación de nombres propios se cuida. El respeto comienza por pronunciar bien."}},
+    {id:"rr96", nombre:"Corrección de cifras",
+     concepto:"Antes de emitir, se revisan las cifras. Se confirman con la fuente. Se redondean al aire. Se conservan exactas en el archivo.",
+     ejemplo:"En el guion: «casi cincuenta». En la ficha: «47 casos según Secretaría de Salud, 15 de julio».",
+     ejercicio:{tipo:"fill",
+       consigna:"Confirma la cifra.",
+       texto:"En el guion: «casi ___ ». En la ficha: « ___ casos según fuente, fecha ___ ».",
+       respuestas:[["cincuenta","50"],["47","cuarenta y siete","cifra exacta"],["15 de julio","fecha"]],
+       retro:"Las cifras se confirman con la fuente. Se redondean al aire y se conservan exactas en la ficha."}},
+    {id:"rr97", nombre:"Ajuste de cierre",
+     concepto:"El cierre del programa deja una idea, una pregunta o una imagen que resuena. Se revisa para que sea coherente con el inicio y con el tono del programa.",
+     ejemplo:"«Hoy hablamos del agua en el barrio La Esperanza. Los vecinos esperan respuesta. Nosotros seguiremos contándolo. Hasta la próxima».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el cierre.",
+       texto:"«Hoy hablamos del ___ en el barrio La Esperanza. Los vecinos esperan ___ . Nosotros seguiremos ___ ».",
+       respuestas:[["agua","problema","tema"],["respuesta","solucion","solución"],["contandolo","contándolo","informando","acompanando","acompañando"]],
+       retro:"El cierre deja una idea que resuena. Se articula con el inicio del programa."}},
+    {id:"rr98", nombre:"Verificación de fuentes",
+     concepto:"Antes de emitir, se verifica cada fuente: nombre, cargo, declaración y fecha. Se conservan las notas y los archivos. Si hay duda, se consulta.",
+     ejemplo:"«Declaración del ingeniero Juan Pérez, 15 de julio de 2024, en la Alcaldía. Grabación en archivo 2024-07-15-JP-01».",
+     ejercicio:{tipo:"fill",
+       consigna:"Verifica la fuente.",
+       texto:"«Declaración de ___ , cargo ___ , fecha ___ , grabación en archivo ___ ».",
+       respuestas:[["nombre del declarante","nombre","fuente"],["cargo","profesion","profesión"],["fecha","15 de julio","dia","día"],["numero","número","codigo","código","referencia"]],
+       retro:"La verificación de fuentes es deber ético. Se conservan notas y archivos."}},
+    {id:"rr99", nombre:"Emisión en vivo y monitoreo",
+     concepto:"Durante la emisión, se monitorea el tiempo, el nivel de audio y el desarrollo del programa. Se ajusta al aire si es necesario, sin perder la calma.",
+     ejemplo:"El operador monitorea niveles. El locutor ajusta tiempo. El productor verifica que se cumpla el guion.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el monitoreo.",
+       texto:"Durante la emisión, se monitorea el ___ , el nivel de ___ y el desarrollo del ___ .",
+       respuestas:[["tiempo"],["audio","sonido","volumen"],["programa","guion","guión"]],
+       retro:"El monitoreo en vivo garantiza la calidad. Cada rol cumple su función."}},
+    {id:"rr100", nombre:"Escritura radial como práctica comunitaria",
+     concepto:"Escribir para radio comunitaria no es un ejercicio técnico: es un acto de comunidad. Cada guion da voz a alguien, visibiliza un problema, abre un diálogo. La palabra escrita se vuelve voz colectiva.",
+     ejemplo:"Un guion sobre el agua es un acto de comunidad: la palabra escrita se convierte en voz que moviliza, informa y acompaña.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura radial contribuir a tu comunidad? Responde en 4-5 líneas.",
+       criterios:[
+         "Expliqué al menos una manera en que la escritura radial forma comunidad.",
+         "Relacioné la escritura radial con la voz de la comunidad.",
+         "Mencioné algún tipo de programa o género radial.",
+         "Reconocí el valor ético y comunitario del oficio radial."
+       ],
+       modelo:"Escribir para la radio comunitaria es dar voz a quienes no tienen espacio en otros medios. Cuando escribo un guion sobre el agua del barrio, no solo informo: pongo en el aire la voz de los vecinos que llevan veinte años esperando. Cuando preparo una entrevista con la lideresa, no solo pregunto: acompaño su lucha. La radio comunitaria construye comunidad porque habla de lo que a todos nos pasa y le da un lugar público. Escribir bien para la radio es una forma de cuidar la palabra colectiva."}}
+  ]
+}
+];
+
+/* =====================================================================
+   MODO 2 · TALLER DE COMUNICACIONES REALES (RADIALES)
+   ===================================================================== */
+const PLANTILLAS = [
+  {id:"noticiaRadial", icon:"N", nombre:"Noticia radial", sub:"30 a 60 segundos",
+   genero:"Noticia radial",
+   desc:"Noticia breve, en pirámide invertida. Responde qué, quién, cuándo, dónde, cómo, por qué. Duración 30-60 segundos.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río · 96.5 FM", full:false},
+     {id:"fecha", label:"Fecha de emisión", ph:"15 de julio de 2024", full:false},
+     {id:"locutor", label:"Locutor(a)", ph:"Ana Gómez", full:false},
+     {id:"duracion", label:"Duración estimada", ph:"45 segundos", full:false},
+     {id:"gancho", label:"Entrada o gancho", ph:"Atención, comunidad: hay noticias sobre el agua en el barrio La Esperanza.", full:true, textarea:true},
+     {id:"cuerpo", label:"Cuerpo de la noticia", ph:"La Alcaldía anunció la pavimentación de tres vías del barrio. Las obras comenzarán en agosto y durarán tres meses. La inversión supera los 500 millones de pesos. La comunidad pide que se cumpla el plazo.", full:true, textarea:true},
+     {id:"fuente", label:"Fuente", ph:"Secretaría de Infraestructura, 15 de julio de 2024.", full:true},
+     {id:"cierre", label:"Cierre", ph:"Seguiremos informando. Esta es su emisora comunitaria.", full:true}
+   ],
+   template:(d)=>`NOTICIA RADIAL · ${d.emisora||"____"}
+Fecha: ${d.fecha||"____"} · Locutor(a): ${d.locutor||"____"} · Duración: ${d.duracion||"____"}
+
+[ENTRADA]
+${d.gancho||"____"}
+
+[CUERPO]
+${d.cuerpo||"____"}
+
+[FUENTE]
+${d.fuente||"____"}
+
+[CIERRE]
+${d.cierre||"____"}
+
+(Fin del bloque)`},
+
+  {id:"cunaRadial", icon:"C", nombre:"Cuña radial 30''", sub:"Mensaje breve",
+   genero:"Cuña radial",
+   desc:"Mensaje de 15-30 segundos. Estructura: gancho sonoro, mensaje, llamado a la acción, identificación de la emisora.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"campana", label:"Campaña", ph:"Cuidado del agua", full:false},
+     {id:"duracion", label:"Duración", ph:"30 segundos", full:false},
+     {id:"gancho", label:"Gancho sonoro", ph:"(Sonido: gota de agua cayendo)", full:true},
+     {id:"mensaje", label:"Mensaje central", ph:"Una gota. Otra. Miles. Cada gota cuenta. Cierra la llave cuando no la uses.", full:true, textarea:true},
+     {id:"accion", label:"Llamado a la acción", ph:"Cuida el agua. Es un recurso de todos.", full:true},
+     {id:"cierre", label:"Identificación", ph:"Campaña de la Emisora Comunitaria El Río · 96.5 FM.", full:true}
+   ],
+   template:(d)=>`CUÑA RADIAL · ${d.campana||"____"}
+${d.emisora||"____"} · Duración: ${d.duracion||"____"}
+
+[GANCHO]
+${d.gancho||"____"}
+
+[MENSAJE]
+${d.mensaje||"____"}
+
+[ACCIÓN]
+${d.accion||"____"}
+
+[CIERRE]
+${d.cierre||"____"}
+
+(Fin de la cuña)`},
+
+  {id:"spotRadial", icon:"S", nombre:"Spot radial 60''", sub:"Mayor desarrollo",
+   genero:"Spot radial",
+   desc:"Mensaje de 30-60 segundos. Combina voces, sonidos y música. Se usa para campañas o servicios de mayor complejidad.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"tema", label:"Tema", ph:"Jornada de vacunación", full:false},
+     {id:"duracion", label:"Duración", ph:"60 segundos", full:false},
+     {id:"escena1", label:"Escena 1 (ambiente + voz)", ph:"(Ambiente: llanto de bebé) —Doctora, mi hijo tiene fiebre desde ayer.", full:true, textarea:true},
+     {id:"escena2", label:"Escena 2 (respuesta)", ph:"—Tranquila. La jornada de vacunación es mañana en el puesto de salud. Lleve su carné.", full:true, textarea:true},
+     {id:"escena3", label:"Escena 3 (cierre institucional)", ph:"Vacune a su hijo. Es gratis y lo protege. Jornada del 20 de julio, de 8 a.m. a 4 p.m.", full:true, textarea:true},
+     {id:"firma", label:"Firma", ph:"Emisora Comunitaria El Río · Alcaldía Municipal.", full:true}
+   ],
+   template:(d)=>`SPOT RADIAL · ${d.tema||"____"}
+${d.emisora||"____"} · Duración: ${d.duracion||"____"}
+
+[ESCENA 1]
+${d.escena1||"____"}
+
+[ESCENA 2]
+${d.escena2||"____"}
+
+[ESCENA 3]
+${d.escena3||"____"}
+
+[FIRMA]
+${d.firma||"____"}
+
+(Fin del spot)`},
+
+  {id:"cronicaRadial", icon:"R", nombre:"Crónica radial", sub:"Narrar con imágenes",
+   genero:"Crónica radial",
+   desc:"Narración con voz propia. Combina información, descripción e imágenes sonoras. El cronista está presente en el relato.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+     {id:"titulo", label:"Título", ph:"Amanecer en el río", full:true},
+     {id:"entrada", label:"Entrada (imagen sonora)", ph:"(Ambiente: sonido de río y remos) A las cinco de la mañana, las canoas ya están en el agua.", full:true, textarea:true},
+     {id:"desarrollo", label:"Desarrollo", ph:"Los pescadores revisan las redes bajo un sol que apenas asoma. La jornada empieza antes del amanecer. Cada uno conoce su lugar. El río es su casa.", full:true, textarea:true},
+     {id:"voz", label:"Voz o testimonio", ph:"(Voz real) —Aquí uno aprende a leer el río. Sabe cuándo viene la creciente, cuándo bajan los peces.", full:true, textarea:true},
+     {id:"cierre", label:"Cierre reflexivo", ph:"Cuando el sol calienta, las canoas ya regresan. El río sigue ahí, testigo de una vida que no se rinde.", full:true, textarea:true}
+   ],
+   template:(d)=>`CRÓNICA RADIAL · ${d.titulo||"____"}
+${d.emisora||"____"} · ${d.fecha||"____"}
+
+[ENTRADA]
+${d.entrada||"____"}
+
+[DESARROLLO]
+${d.desarrollo||"____"}
+
+[TESTIMONIO]
+${d.voz||"____"}
+
+[CIERRE]
+${d.cierre||"____"}
+
+(Fin de la crónica)`},
+
+  {id:"entrevistaRadial", icon:"E", nombre:"Guion de entrevista", sub:"Preguntas y estructura",
+   genero:"Entrevista radial",
+   desc:"Guion de entrevista con preguntas abiertas, bloques y tiempos. Se prepara antes de la emisión y se ajusta durante ella.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"programa", label:"Programa", ph:"Voces del barrio", full:false},
+     {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+     {id:"entrevistado", label:"Entrevistado(a)", ph:"Señora Marta Ruiz, lideresa del barrio La Esperanza", full:true},
+     {id:"presentacion", label:"Presentación del entrevistado", ph:"Marta Ruiz lleva veinte años liderando la lucha por el agua en el barrio La Esperanza.", full:true, textarea:true},
+     {id:"preguntas", label:"Preguntas (una por línea)", ph:"1. ¿Cómo empezó esta lucha?\n2. ¿Qué ha sido lo más difícil?\n3. ¿Qué le diría a las autoridades?\n4. ¿Qué sueña para su barrio?", full:true, textarea:true},
+     {id:"cierre", label:"Cierre", ph:"Gracias, señora Marta, por su testimonio. Seguimos acompañando esta lucha.", full:true}
+   ],
+   template:(d)=>`GUION DE ENTREVISTA · ${d.programa||"____"}
+${d.emisora||"____"} · ${d.fecha||"____"}
+
+ENTREVISTADO(A): ${d.entrevistado||"____"}
+
+[PRESENTACIÓN]
+${d.presentacion||"____"}
+
+[PREGUNTAS]
+${d.preguntas||"____"}
+
+[CIERRE]
+${d.cierre||"____"}
+
+(Fin de la entrevista)`},
+
+  {id:"radiorevista", icon:"M", nombre:"Radiorevista / Magazine", sub:"Programa por bloques",
+   genero:"Radiorevista",
+   desc:"Programa de varios bloques y formatos. Dura de 30 a 60 minutos. Cada bloque tiene su propósito y su ritmo.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"programa", label:"Nombre del programa", ph:"El Río Informa", full:false},
+     {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+     {id:"duracion", label:"Duración total", ph:"60 minutos", full:false},
+     {id:"bloque1", label:"Bloque 1 (apertura y noticias)", ph:"Saludo. Titulares del día. Noticia principal.", full:true, textarea:true},
+     {id:"bloque2", label:"Bloque 2 (entrevista o reportaje)", ph:"Entrevista a la lideresa del barrio La Esperanza sobre el agua.", full:true, textarea:true},
+     {id:"bloque3", label:"Bloque 3 (música o sección)", ph:"Selección musical. Sección de servicio comunitario.", full:true, textarea:true},
+     {id:"bloque4", label:"Bloque 4 (cierre)", ph:"Resumen del programa. Agenda de la semana. Despedida.", full:true, textarea:true}
+   ],
+   template:(d)=>`RADIOREVISTA · ${d.programa||"____"}
+${d.emisora||"____"} · ${d.fecha||"____"} · ${d.duracion||"____"}
+
+[BLOQUE 1 · Apertura y noticias]
+${d.bloque1||"____"}
+
+[BLOQUE 2 · Entrevista o reportaje]
+${d.bloque2||"____"}
+
+[BLOQUE 3 · Música o sección]
+${d.bloque3||"____"}
+
+[BLOQUE 4 · Cierre]
+${d.bloque4||"____"}
+
+(Fin del programa)`},
+
+  {id:"radioteatro", icon:"T", nombre:"Libreto de radioteatro", sub:"Voces, ambientes y diálogos",
+   genero:"Radioteatro",
+   desc:"Narración dramática con voces, sonidos y música. Cada personaje tiene su voz y su carácter. Se construye con escenas.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"titulo", label:"Título", ph:"El día que llegó el agua", full:true},
+     {id:"duracion", label:"Duración", ph:"15 minutos", full:false},
+     {id:"escena1", label:"Escena 1", ph:"(Ambiente: lluvia) —Mamá, ya no aguanto más.\n—Tranquila, hija. Ya falta poco. Los vecinos están organizados.", full:true, textarea:true},
+     {id:"escena2", label:"Escena 2", ph:"(Ambiente: voces de la comunidad) —¡Llegó el agua! ¡Llegó el agua!\n—Después de veinte años. Lo logramos.", full:true, textarea:true},
+     {id:"escena3", label:"Escena 3", ph:"(Música emotiva) —Mamá, ¿te acuerdas de esa noche?\n—Sí, hija. Y hoy el agua corre por la llave.", full:true, textarea:true},
+     {id:"cierre", label:"Cierre institucional", ph:"Esta historia es real. Es la historia de cientos de comunidades que siguen luchando por el agua. Emisora Comunitaria El Río.", full:true}
+   ],
+   template:(d)=>`LIBRETO DE RADIOTEATRO · ${d.titulo||"____"}
+${d.emisora||"____"} · Duración: ${d.duracion||"____"}
+
+[ESCENA 1]
+${d.escena1||"____"}
+
+[ESCENA 2]
+${d.escena2||"____"}
+
+[ESCENA 3]
+${d.escena3||"____"}
+
+[CIERRE]
+${d.cierre||"____"}
+
+(Fin del libreto)`},
+
+  {id:"promoID", icon:"P", nombre:"Promo / ID de emisora", sub:"Identificación breve",
+   genero:"Promo / ID",
+   desc:"Identificación breve de la emisora. Se emite entre bloques. Puede tener variantes según la franja horaria.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"frecuencia", label:"Frecuencia", ph:"96.5 FM", full:false},
+     {id:"lema", label:"Lema", ph:"La voz de nuestra comunidad", full:true},
+     {id:"duracion", label:"Duración", ph:"10 segundos", full:false},
+     {id:"texto", label:"Texto de la promo", ph:"Estás escuchando la Emisora Comunitaria El Río, 96.5 FM. La voz de nuestra comunidad. 24 horas contigo.", full:true, textarea:true},
+     {id:"musica", label:"Música de fondo", ph:"Cortina musical propia de la emisora.", full:true}
+   ],
+   template:(d)=>`PROMO / ID · ${d.emisora||"____"}
+${d.frecuencia||"____"} · Duración: ${d.duracion||"____"}
+
+[CORTINA MUSICAL]
+(${d.musica||"cortina propia de la emisora"})
+
+[LOCUTOR]
+${d.texto||"____"}
+
+[LEMA]
+${d.lema||"____"}
+
+(Fin de la promo)`},
+
+  {id:"guionTecnico", icon:"G", nombre:"Guion técnico radial", sub:"Locutor + control",
+   genero:"Guion técnico",
+   desc:"Guion a doble columna: tiempo, indicación técnica y texto del locutor. Es la herramienta del operador y del locutor durante la emisión.",
+   campos:[
+     {id:"emisora", label:"Emisora", ph:"Emisora Comunitaria El Río", full:false},
+     {id:"programa", label:"Programa", ph:"El Río Informa", full:false},
+     {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+     {id:"locutor", label:"Locutor(a)", ph:"Ana Gómez", full:false},
+     {id:"operador", label:"Operador(a)", ph:"Luis Pérez", full:false},
+     {id:"bloque1", label:"Bloque 1 · 00:00 – 01:00", ph:"0:00 Entra cortina.\n0:05 LOCUTOR: Buenos días, comunidad.\n0:30 Baja cortina.", full:true, textarea:true},
+     {id:"bloque2", label:"Bloque 2 · 01:00 – 03:00", ph:"1:00 Entra música suave.\n1:10 LOCUTOR: Hoy hablamos del agua.\n2:30 Sube música. Corte.", full:true, textarea:true},
+     {id:"bloque3", label:"Bloque 3 · 03:00 – 05:00", ph:"3:00 LOCUTOR: Ahora, la voz de la lideresa.\n4:30 Corte. Aviso.\n5:00 Despedida.", full:true, textarea:true}
+   ],
+   template:(d)=>`GUION TÉCNICO · ${d.programa||"____"}
+${d.emisora||"____"} · ${d.fecha||"____"}
+Locutor(a): ${d.locutor||"____"} · Operador(a): ${d.operador||"____"}
+
+[BLOQUE 1 · 00:00 – 01:00]
+${d.bloque1||"____"}
+
+[BLOQUE 2 · 01:00 – 03:00]
+${d.bloque2||"____"}
+
+[BLOQUE 3 · 03:00 – 05:00]
+${d.bloque3||"____"}
+
+(Fin del guion)`}
+];
+
+/* =====================================================================
+   ESTADO Y UTILIDADES COMPARTIDAS
+   ===================================================================== */
+const STORAGE_NOTEBOOK = "cuaderno_radial_100_v1";
+const STORAGE_TALLER   = "cuaderno_radial_taller_v1";
+
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_NOTEBOOK)) || {}; } catch(e){ progreso = {}; }
+let drafts = [];
+try { drafts = JSON.parse(localStorage.getItem(STORAGE_TALLER)) || []; } catch(e){ drafts = []; }
+
+let modo = "cuaderno";
+let actualId = null;
+let vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+let notaTimer = null;
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+if(TECNICAS_FLAT.length) actualId = TECNICAS_FLAT[0].id;
+
+/* ---------- Utilidades ---------- */
+function guardarProg(){ try{ localStorage.setItem(STORAGE_NOTEBOOK, JSON.stringify(progreso)); }catch(e){} }
+function guardarDrafts(){ try{ localStorage.setItem(STORAGE_TALLER, JSON.stringify(drafts)); }catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function nuevoId(){ return "d" + Date.now() + Math.random().toString(36).slice(2,7); }
+function getPlantilla(id){ return PLANTILLAS.find(p=>p.id===id); }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
+function el(tag, cls, txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
+function boton(txt, cls){ const b=document.createElement("button"); b.className="btn "+(cls||"primary"); b.textContent=txt; return b; }
+
+/* =====================================================================
+   RENDER · MODO CUADERNO
+   ===================================================================== */
+function renderMenu(){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(document.getElementById("search").value||"");
+
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>' + cat.emoji + '</span><span>' + cat.nombre + '</span>' +
+                     '<span class="cat-count">' + hechas + "/" + cat.tecnicas.length + '</span>' +
+                     '<span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+    const bar = el("div","cat-bar");
+    const bf = document.createElement("i");
+    bf.style.width = (hechas/cat.tecnicas.length*100)+"%";
+    bar.appendChild(bf); div.appendChild(bar);
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>' + t.nombre + '</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){ const t = TECNICAS_FLAT.find(x=>x.id===id); return t ? t.catId : null; }
+
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x=>x.id===id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner", "RADIO\nCOMUNITARIA");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bi = CATEGORIAS.findIndex(c=>c.id===t.catId)+1;
+  head.appendChild(el("div","tech-pos", "Técnica "+(idx+1)+" de "+TECNICAS_FLAT.length+" · Bloque "+bi+"/10"));
+  panel.appendChild(head);
+  panel.appendChild(el("div","rule"));
+
+  const block = CATEGORIAS.find(c=>c.id===t.catId);
+  const dots = el("div","block-dots");
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot"+(getProg(bt.id).ok?" done":"")+(bt.id===t.id?" current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  panel.appendChild(dots);
+
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","• Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Voltee la tarjeta para ver el ejemplo ↻"));
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","• Ejemplo práctico"));
+  back.appendChild(el("p", null, t.ejemplo));
+  back.appendChild(el("span","fc-hint","↻ Toque de nuevo para volver al concepto"));
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+  const flipBtn = boton("↻ Voltear tarjeta","ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "Ejercicio interactivo <span>compruebe su comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+  const body = el("div"); sec.appendChild(body);
+  const fb = el("div","feedback"); sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "Cuaderno radial <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+  const ta = document.createElement("textarea");
+  ta.rows = 5; ta.placeholder = "Escriba aquí sus notas, guiones, ideas de programas, dudas…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx===0;
+  next.disabled = idx===TECNICAS_FLAT.length-1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n===1?" palabra":" palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardarProg();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu();
+  actualizarProgreso();
+}
+
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo==="quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo==="fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo==="order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo==="classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo==="open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback "+tipo+" show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const L = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">'+L[i]+'</span><span>'+op+'</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i===ej.correcta;
+      Array.from(wrap.children).forEach((c,j) => {
+        c.disabled = true;
+        if(j===ej.correcta) c.classList.add("correcta");
+        if(j===i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok?"ok":"mal", ok?"✓ Correcto":"✗ Revise su respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length-1){
+      const inp = document.createElement("input");
+      inp.type="text"; inp.className="hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key==="Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i=>!i.value.trim())){
+      mostrarFeedback(fb,"info","Complete todos los huecos","Escriba una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i]||[]).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok?"ok":"mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos===total;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto ? "✓ "+aciertos+" de "+total+" correctas" : "✗ "+aciertos+" de "+total+" correctas",
+      ej.retro + (perfecto?"":" · Respuestas válidas: " + ej.respuestas.map((r,i)=>(i+1)+") "+r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i)=>({txt,i})));
+  const seq = [];
+  const wrap = el("div","order-wrap");
+  const cA = el("div","order-col");
+  cA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool"); cA.appendChild(poolEl);
+  const cB = el("div","order-col");
+  cB.appendChild(el("h4", null, "Su secuencia"));
+  const seqEl = el("div","seq"); cB.appendChild(seqEl);
+  wrap.appendChild(cA); wrap.appendChild(cB);
+  cont.appendChild(wrap);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML=""; seqEl.innerHTML="";
+    pool.forEach((o,k)=>{
+      const b = document.createElement("button");
+      b.className="ord-item"; b.textContent=o.txt;
+      b.onclick=()=>{ if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o,k)=>{
+      const b = document.createElement("button");
+      b.className="ord-item";
+      b.innerHTML = '<span class="num">'+(k+1)+'</span><span>'+o.txt+'</span>';
+      b.onclick=()=>{ if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length!==correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pase todos los elementos a la columna de la derecha.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo,k)=>{
+      const ok = seq[k].i===k;
+      nodo.classList.add(ok?"ok":"mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos===correcto.length;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto?"✓ Secuencia correcta":"✗ "+aciertos+" de "+correcto.length+" en su lugar",
+      perfecto ? ej.retro : "Empieza por: «"+correcto[0].slice(0,70)+"…». "+ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function renderClassify(ej, cont, fb, techId){
+  const sel = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it,i)=>{
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat,ci)=>{
+      const c = document.createElement("button");
+      c.className="chip"; c.textContent=cat;
+      c.onclick=()=>{
+        if(row.dataset.locked) return;
+        sel[i]=ci;
+        Array.from(chips.children).forEach((x,xi)=>x.classList.toggle("sel", xi===ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(sel.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigne una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila,i)=>{
+      fila.dataset.locked = "1";
+      const ok = sel[i]===ej.items[i].cat;
+      fila.classList.add(ok?"ok":"mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c=>c.disabled=true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-size:11px;color:#8b1e1e;font-weight:700;letter-spacing:.4px;";
+        nota.textContent = "→ Correcto: "+ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos===ej.items.length;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto?"✓ Clasificación correcta":"✗ "+aciertos+" de "+ej.items.length+" correctas",
+      ej.retro||"");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 6; ta.placeholder = "Redacte aquí su respuesta…";
+  cont.appendChild(ta);
+  const ul = el("ul","criterios"); ul.style.marginTop="14px";
+  ej.criterios.forEach((c,i)=>{
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type="checkbox"; cb.id = "crit_"+techId+"_"+i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+  const mod = el("div","modelo");
+  mod.innerHTML = "<strong>Respuesta modelo orientativa</strong>"+ej.modelo;
+  cont.appendChild(mod);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escriba primero su respuesta","Redacte al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados===total?"ok":"info",
+      marcados===total?"✓ Autoevaluación completa":"Autoevaluación: "+marcados+"/"+total,
+      "Compare su texto con el modelo: ¿qué ideas coinciden? ¿qué le falta? ¿qué aporta usted?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardarProg();
+    actualizarProgreso(); renderMenu();
+    const block = CATEGORIAS.find(c=>c.tecnicas.some(t=>t.id===id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i)=>{
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t=>getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas+" / "+total;
+  document.getElementById("progressFill").style.width = (hechas/total*100)+"%";
+}
+
+/* =====================================================================
+   RENDER · MODO TALLER
+   ===================================================================== */
+function renderMenuTaller(){
+  const mp = document.getElementById("menuPlantillas");
+  mp.innerHTML = "";
+  PLANTILLAS.forEach(p=>{
+    const b = document.createElement("button");
+    b.className = "side-item" + ((vistaTaller.tipo==="plantilla" && vistaTaller.id===p.id) ? " active":"");
+    b.innerHTML = `<span class="icon">${p.icon}</span><span class="label">${p.nombre}<small>${p.sub}</small></span>`;
+    b.onclick = () => { vistaTaller = { tipo:"plantilla", id:p.id }; cerrarSidebar(); abrirTaller(); };
+    mp.appendChild(b);
+  });
+
+  const md = document.getElementById("menuDrafts");
+  md.innerHTML = "";
+  if(!drafts.length){
+    md.appendChild(el("div","empty-mini","Aún no hay guiones guardados."));
+  } else {
+    drafts.slice().reverse().forEach(d=>{
+      const p = getPlantilla(d.plantillaId);
+      if(!p) return;
+      const wrap = el("div","draft-item" + (vistaTaller.tipo==="draft" && vistaTaller.id===d.id ? " active":""));
+      const title = el("div","di-title");
+      const t = (d.campos.titulo || d.campos.programa || d.campos.tema || d.campos.campana || p.nombre).slice(0,42);
+      title.innerHTML = `${t}<small>${p.nombre} · ${d.fecha}</small>`;
+      wrap.appendChild(title);
+      const del = el("button","di-del","×");
+      del.onclick = (ev)=>{ ev.stopPropagation(); eliminarDraft(d.id); };
+      wrap.appendChild(del);
+      wrap.onclick = () => { vistaTaller = { tipo:"draft", id:d.id }; cerrarSidebar(); abrirTaller(); };
+      md.appendChild(wrap);
+    });
+  }
+  document.getElementById("statCount").textContent = drafts.length;
+}
+function eliminarDraft(id){
+  if(!confirm("¿Eliminar este guion guardado? Esta acción no se puede deshacer.")) return;
+  drafts = drafts.filter(d=>d.id!==id);
+  guardarDrafts();
+  if(vistaTaller.tipo==="draft" && vistaTaller.id===id){
+    vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+  }
+  renderMenuTaller(); abrirTaller();
+}
+function abrirTaller(){
+  const panel = document.getElementById("panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner", "TALLER\nRADIAL");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  if(vistaTaller.tipo==="plantilla"){
+    const p = getPlantilla(vistaTaller.id);
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Plantilla · " + p.genero));
+    head.appendChild(el("h2", null, p.nombre));
+    head.appendChild(el("p","lead", p.desc));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "<strong>Cómo usar:</strong> complete los campos. La vista previa se genera en vivo. Puede guardar el guion en <em>Mis guiones</em>, copiarlo o descargarlo como archivo de texto.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      f.appendChild(el("label", null, c.label));
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_"+c.id;
+      input.addEventListener("input", actualizarPreviewTaller);
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bSave = boton("Guardar en Mis guiones","primary");
+    bSave.onclick = () => guardarDesdePlantilla(p);
+    const bCopy = boton("Copiar texto","ghost");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bClear = boton("Limpiar campos","ghost");
+    bClear.onclick = () => { p.campos.forEach(c=>{ const i=document.getElementById("field_"+c.id); if(i) i.value=""; }); actualizarPreviewTaller(); };
+    acts.appendChild(bSave); acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bClear);
+    panel.appendChild(acts);
+
+    setTimeout(actualizarPreviewTaller, 0);
+
+  } else if(vistaTaller.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaTaller.id);
+    if(!d){ vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; abrirTaller(); return; }
+    const p = getPlantilla(d.plantillaId);
+    if(!p){ vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; abrirTaller(); return; }
+
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Guion guardado · " + p.genero));
+    const t = (d.campos.titulo || d.campos.programa || d.campos.tema || d.campos.campana || p.nombre).slice(0,60);
+    head.appendChild(el("h2", null, t));
+    head.appendChild(el("p","lead", "Guardado el " + d.fecha + ". Puede editarlo; los cambios se guardan automáticamente."));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "Edite los campos y la vista previa se actualizará. Los cambios se guardan automáticamente.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      f.appendChild(el("label", null, c.label));
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_"+c.id;
+      input.value = d.campos[c.id] || "";
+      input.addEventListener("input", ()=>{
+        d.campos[c.id] = input.value;
+        d.textoGenerado = p.template(d.campos);
+        guardarDrafts();
+        actualizarPreviewTaller();
+      });
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bCopy = boton("Copiar texto","primary");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bNew = boton("Nueva con esta plantilla","ghost");
+    bNew.onclick = () => { vistaTaller = { tipo:"plantilla", id:p.id }; abrirTaller(); };
+    const bDel = boton("Eliminar guion","danger");
+    bDel.onclick = () => eliminarDraft(d.id);
+    acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bNew); acts.appendChild(bDel);
+    panel.appendChild(acts);
+
+    setTimeout(actualizarPreviewTaller, 0);
+  }
+}
+function actualizarPreviewTaller(){
+  const elPrev = document.getElementById("previewText");
+  if(!elPrev) return;
+  if(vistaTaller.tipo==="plantilla"){
+    const p = getPlantilla(vistaTaller.id);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value.trim() : "";
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+    elPrev.innerHTML = elPrev.textContent.replace(/____/g,'<span class="placeholder">____</span>');
+  } else if(vistaTaller.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaTaller.id);
+    if(!d) return;
+    const p = getPlantilla(d.plantillaId);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value : (d.campos[c.id]||"");
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+    elPrev.innerHTML = elPrev.textContent.replace(/____/g,'<span class="placeholder">____</span>');
+  }
+}
+function guardarDesdePlantilla(p){
+  const datos = {};
+  let vacio = true;
+  p.campos.forEach(c=>{
+    const inp = document.getElementById("field_"+c.id);
+    const v = inp ? inp.value.trim() : "";
+    datos[c.id] = v;
+    if(v) vacio = false;
+  });
+  if(vacio){ mostrarToast("Llene al menos un campo antes de guardar."); return; }
+  const nuevo = {
+    id: nuevoId(),
+    plantillaId: p.id,
+    campos: datos,
+    textoGenerado: p.template(datos),
+    fecha: new Date().toLocaleDateString("es-CO", { day:"numeric", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" })
+  };
+  drafts.push(nuevo);
+  guardarDrafts();
+  mostrarToast("✓ Guardado en Mis guiones");
+  vistaTaller = { tipo:"draft", id:nuevo.id };
+  renderMenuTaller();
+  abrirTaller();
+}
+function copiarTexto(txt){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>mostrarToast("✓ Texto copiado"), ()=>fallbackCopy(txt));
+  } else { fallbackCopy(txt); }
+}
+function fallbackCopy(txt){
+  const ta = document.createElement("textarea");
+  ta.value = txt; ta.style.position="fixed"; ta.style.left="-9999px";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); mostrarToast("✓ Texto copiado"); } catch(e){ mostrarToast("No se pudo copiar"); }
+  document.body.removeChild(ta);
+}
+function descargarTxt(txt, nombreBase){
+  const blob = new Blob([txt], { type:"text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const fecha = new Date().toISOString().slice(0,10);
+  a.download = `${nombreBase}_${fecha}.txt`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  mostrarToast("✓ Archivo descargado");
+}
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+let toastTimer = null;
+function mostrarToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* =====================================================================
+   CAMBIO DE MODO
+   ===================================================================== */
+function cambiarModo(m){
+  modo = m;
+  document.querySelectorAll(".tab").forEach(t=>{
+    t.classList.toggle("active", t.dataset.mode===m);
+  });
+  document.getElementById("progressWrap").style.display = m==="cuaderno" ? "flex" : "none";
+  document.getElementById("statWrap").style.display = m==="taller" ? "flex" : "none";
+  document.getElementById("btnNew").style.display = m==="taller" ? "inline-block" : "none";
+  document.getElementById("menu").style.display = m==="cuaderno" ? "block" : "none";
+  document.getElementById("menuTaller").style.display = m==="taller" ? "block" : "none";
+  document.getElementById("search").style.display = m==="cuaderno" ? "block" : "none";
+  cerrarSidebar();
+  if(m==="cuaderno"){ renderMenu(); abrirTecnica(actualId); actualizarProgreso(); }
+  else { renderMenuTaller(); abrirTaller(); }
+}
+
+document.querySelectorAll(".tab").forEach(t=>{
+  t.onclick = () => cambiarModo(t.dataset.mode);
+});
+document.getElementById("btnNew").onclick = () => {
+  vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+  cerrarSidebar();
+  renderMenuTaller();
+  abrirTaller();
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+
+/* =====================================================================
+   SIDEBAR / RESET / BÚSQUEDA
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("search").addEventListener("input", renderMenu);
+
+document.getElementById("btnReset").onclick = () => {
+  const msg = modo==="cuaderno"
+    ? "¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer."
+    : "¿Borrar todos los guiones guardados del taller? Esta acción no se puede deshacer.";
+  if(!confirm(msg)) return;
+  if(modo==="cuaderno"){ progreso = {}; guardarProg(); abrirTecnica(TECNICAS_FLAT[0].id); actualizarProgreso(); }
+  else { drafts = []; guardarDrafts(); vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; renderMenuTaller(); abrirTaller(); }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+cambiarModo("cuaderno");
+</script>
+</body>
+</html>

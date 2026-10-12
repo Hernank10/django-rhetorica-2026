@@ -165,4 +165,29 @@
         background-color: #667eea;
     }
 </style>
+
+{% if curso.recursos.all %}
+<div class="card shadow-sm mt-4">
+  <div class="card-header bg-white fw-bold">
+    <i class="fas fa-folder-open text-warning"></i> Recursos del curso ({{ curso.recursos.count }})
+  </div>
+  <div class="card-body">
+    <div class="row g-2">
+      {% for r in curso.recursos.all %}
+      <div class="col-md-4">
+        <a href="{% url 'recursos:ver' r.slug %}" class="text-decoration-none">
+          <div class="card h-100">
+            <div class="card-body py-2">
+              <small class="badge bg-{{ r.color_badge }} mb-1">{{ r.categoria }}</small>
+              <div class="text-dark small"><i class="fas {{ r.icono }}"></i> {{ r.nombre|truncatechars:55 }}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
 {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-3">
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <div>
+      <a href="{% url 'recursos:lista' %}" class="btn btn-sm btn-outline-secondary">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+      <span class="ms-2 fw-bold">{{ recurso.nombre }}</span>
+      <span class="badge bg-warning text-dark">JSON</span>
+    </div>
+    <a href="{{ url_descarga }}" download class="btn btn-sm btn-outline-success">
+      <i class="fas fa-download"></i> Descargar
+    </a>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <pre style="max-height:75vh;overflow:auto;background:#f8f9fa;padding:15px;border-radius:5px;"><code id="json-content">{{ contenido }}</code></pre>
+    </div>
+  </div>
+</div>
+
+<script>
+// Intento de pretty-print si es JSON válido
+try {
+  const el = document.getElementById('json-content');
+  const obj = JSON.parse(el.textContent);
+  el.textContent = JSON.stringify(obj, null, 2);
+} catch (e) {
+  // No es JSON válido, dejarlo como está
+}
+</script>
+{% endblock %}

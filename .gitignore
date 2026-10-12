@@ -58,4 +58,10 @@ cookies.txt
 requirements.txt.bak_*
 *.bak_*
 data/logs/*.txt 
-locale/*/LC_MESSAGES/*.mo 
+locale/*/LC_MESSAGES/*.mo
+ejercicios_completos-lengua-castellana/*.img
+ejercicios_completos-lengua-castellana/*.iso
+ejercicios_completos-lengua-castellana/*.exe
+ejercicios_completos-lengua-castellana/*.bin
+ejercicios_completos-lengua-castellana/*.zip
+ejercicios_completos-lengua-castellana/*.rar

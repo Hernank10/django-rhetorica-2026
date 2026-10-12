@@ -39,4 +39,7 @@ urlpatterns = [
     path('certificaciones/<int:certificado_id>/pdf/', prof.certificado_pdf, name='certificado_pdf'),
     path('certificaciones/<int:certificado_id>/docx/', prof.certificado_docx, name='certificado_docx'),
     path('certificaciones/<int:certificado_id>/preview/', prof.certificado_preview, name='certificado_preview'),
+    path('recursos/', prof.recursos_lista, name='recursos_lista'),
+    path('recursos/autovincular/', prof.recursos_autovincular, name='recursos_autovincular'),
+    path('recursos/<int:recurso_id>/asignar/', prof.recurso_asignar, name='recurso_asignar'),
 ]

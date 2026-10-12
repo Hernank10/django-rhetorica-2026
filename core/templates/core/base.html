@@ -123,6 +123,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if '/recursos/' in request.path %}active{% endif %}"
+                               href="{% url 'recursos:lista' %}">
+                                <i class="fas fa-folder-open"></i> Recursos
+                            </a>
+                        </li>
                         {% if user.is_staff %}
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'profesor:dashboard' %}" style="font-weight:700;">

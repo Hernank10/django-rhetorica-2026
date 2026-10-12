@@ -785,3 +785,105 @@ def certificado_preview(request, certificado_id):
         "huella_corta": huella_corta(cert),
         "folio": folio_unico(cert),
     })
+
+# ============================================================
+# RECURSOS DEL PROFESOR
+# ============================================================
+from .models import Recurso
+
+
+@profesor_required
+def recursos_lista(request):
+    """Lista de recursos con filtros."""
+    from django.db.models import Count, Q
+
+    q = request.GET.get("q", "").strip()
+    cat = request.GET.get("cat", "").strip()
+    ext = request.GET.get("ext", "").strip()
+    curso_id = request.GET.get("curso", "").strip()
+
+    qs = Recurso.objects.all()
+    if q:
+        qs = qs.filter(Q(nombre__icontains=q) | Q(archivo__icontains=q))
+    if cat:
+        qs = qs.filter(categoria=cat)
+    if ext:
+        qs = qs.filter(extension=ext)
+    if curso_id:
+        qs = qs.filter(curso_id=curso_id)
+
+    qs = qs.order_by("categoria", "nombre")[:500]
+
+    categorias = Recurso.objects.values("categoria").annotate(n=Count("id")).order_by("-n")
+    extensiones = Recurso.objects.values("extension").annotate(n=Count("id")).order_by("-n")
+
+    return render(request, "core/profesor/recursos/lista.html", {
+        "recursos": qs,
+        "categorias": categorias,
+        "extensiones": extensiones,
+        "cursos": Curso.objects.all().order_by("titulo"),
+        "q": q,
+        "cat": cat,
+        "ext": ext,
+        "curso_sel": curso_id,
+    })
+
+
+@profesor_required
+def recurso_asignar(request, recurso_id):
+    """Asignar un recurso a un curso."""
+    recurso = get_object_or_404(Recurso, id=recurso_id)
+    if request.method == "POST":
+        curso_id = request.POST.get("curso") or None
+        recurso.curso_id = curso_id
+        recurso.save(update_fields=["curso"])
+        messages.success(request, f'Recurso asignado a {recurso.curso.titulo if recurso.curso else "ninguno"}.')
+        return redirect("profesor:recursos_lista")
+    return render(request, "core/profesor/recursos/asignar.html", {
+        "recurso": recurso,
+        "cursos": Curso.objects.all().order_by("titulo"),
+    })
+
+
+@profesor_required
+def recursos_autovincular(request):
+    """Auto-vincular recursos a cursos por palabras clave en el nombre."""
+    if request.method == "POST":
+        reglas = {
+            "Morfología": ["morfolog", "morfema", "lexema", "raíces", "raices"],
+            "Sintaxis": ["sintax", "oración", "oracion", "sujeto", "predicado"],
+            "Ortografía": ["ortograf", "tildes", "puntuación", "puntuacion", "coma", "acento"],
+            "Redacción": ["redacc", "párrafo", "parrafo", "escritur", "caligraf"],
+            "Retórica": ["retóric", "retoric", "figura", "tropos", "metáfora", "metafora"],
+            "Etimología": ["etimolog", "grecolatin", "raíz", "helenism", "latinism"],
+            "Comprensión Lectora": ["comprensi", "lectura", "lector"],
+            "Literatura": ["literatur", "novel", "cuento", "poesía", "poesia"],
+            "Poesía": ["poesí", "poesia", "haiku", "verso", "poema"],
+            "Ensayo": ["ensay", "aforism"],
+            "Oratoria": ["orator", "discurso", "podcast", "teatr"],
+            "Argumentación": ["argument", "silogism", "falacia"],
+        }
+
+        asignados = 0
+        for curso_titulo, keywords in reglas.items():
+            try:
+                curso = Curso.objects.get(titulo=curso_titulo)
+            except Curso.DoesNotExist:
+                continue
+
+            from django.db.models import Q
+            q = Q()
+            for kw in keywords:
+                q |= Q(nombre__icontains=kw) | Q(archivo__icontains=kw)
+            n = Recurso.objects.filter(q, curso__isnull=True).update(curso=curso)
+            asignados += n
+            if n:
+                messages.info(request, f'{curso.titulo}: {n} recursos asignados')
+
+        messages.success(request, f'Total: {asignados} recursos vinculados.')
+        return redirect("profesor:recursos_lista")
+
+    # GET: mostrar previsualización
+    return render(request, "core/profesor/recursos/autovincular.html", {
+        "cursos": Curso.objects.all().order_by("titulo"),
+    })

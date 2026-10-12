@@ -180,3 +180,9 @@ if DEBUG:
     ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver", "[::1]"]
 else:
     ALLOWED_HOSTS = ["rhetorica.com", "www.rhetorica.com"]
+
+
+# -------------------------------------------------------------
+# Recursos educativos
+# -------------------------------------------------------------
+RECURSOS_DIR = BASE_DIR / 'ejercicios_completos-lengua-castellana'

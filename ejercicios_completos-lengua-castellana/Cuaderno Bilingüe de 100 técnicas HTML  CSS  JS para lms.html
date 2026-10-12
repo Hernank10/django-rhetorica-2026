@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<meta name="description" content="100 técnicas HTML + CSS + JS para LMS educativos · Cuaderno bilingüe español/inglés · Dashboard · Taller · PWA">
+<title>Cuaderno Bilingüe · 100 técnicas HTML + CSS + JS para LMS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --ok-soft:#e0efe2; --bad:#8b1e1e; --bad-soft:#f8e0e0;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+    --transition:.22s cubic-bezier(.4,.15,.2,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:"Public Sans",system-ui,sans-serif;
+    background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),#e8e6e0;
+    color:var(--ink);-webkit-font-smoothing:antialiased;font-size:.95rem;min-height:100vh;
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    position:sticky;top:0;z-index:1030;display:flex;align-items:center;
+    justify-content:space-between;gap:.9rem;padding:.6rem 1.1rem;
+    background:linear-gradient(180deg,#fdfaf3,#f7f2e8);
+    border-bottom:3px double var(--navy);
+    box-shadow:0 1px 0 var(--bronze-line) inset;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:.8rem;min-width:0;}
+  .seal{
+    width:44px;height:44px;flex:0 0 auto;border-radius:50%;padding:3px;
+    border:1.5px dashed var(--bronze);display:grid;place-items:center;
+  }
+  .seal-inner{
+    width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);
+    display:grid;place-items:center;
+    background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);
+    color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:11px;
+    position:relative;
+  }
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:4px;color:var(--bronze);}
+  .seal-inner::before{top:4px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:4px;left:50%;transform:translateX(-50%);}
+  .brand h1{
+    font-family:"PT Serif",Georgia,serif;font-size:.86rem;margin:0;font-weight:700;
+    color:var(--navy);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .brand small{font-size:.58rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:700;}
+
+  .modo-tabs{display:flex;border:1px solid var(--navy);background:var(--paper);flex-wrap:wrap;}
+  .modo-tab{
+    font-size:.66rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+    padding:.48rem .75rem;cursor:pointer;border:none;background:transparent;color:var(--navy);
+    border-right:1px solid var(--navy);transition:var(--transition);font-family:inherit;
+  }
+  .modo-tab:last-child{border-right:none;}
+  .modo-tab:hover{background:var(--navy-soft);}
+  .modo-tab.active{background:var(--navy);color:var(--paper);}
+
+  .btn-sm-custom{
+    font-size:.66rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+    padding:.4rem .75rem;border:1px solid var(--navy);background:var(--paper);color:var(--navy);
+    cursor:pointer;border-radius:3px;transition:var(--transition);font-family:inherit;
+  }
+  .btn-sm-custom:hover{background:var(--navy-soft);}
+  .btn-sm-custom.primary{background:var(--navy);color:var(--paper);}
+  .btn-sm-custom.primary:hover{background:var(--navy-dark);}
+  .btn-sm-custom.outline{border-color:var(--bronze);color:var(--bronze-dark);}
+  .btn-sm-custom.outline:hover{background:var(--bronze-soft);}
+  .btn-sm-custom.danger{border-color:var(--bad);color:var(--bad);}
+  .btn-sm-custom.danger:hover{background:var(--bad-soft);}
+  .btn-sm-custom.ok{border-color:var(--ok);color:var(--ok);}
+  .btn-sm-custom.ok:hover{background:var(--ok-soft);}
+
+  .status-pill{
+    display:inline-flex;align-items:center;gap:.3rem;font-size:.58rem;font-weight:800;
+    letter-spacing:.4px;text-transform:uppercase;padding:.28rem .55rem;border-radius:99px;
+    border:1px solid;background:var(--paper);
+  }
+  .status-pill.online{border-color:var(--ok);color:var(--ok);}
+  .status-pill.offline{border-color:var(--bad);color:var(--bad);}
+  .status-pill .dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+  .lang-pill{
+    display:inline-flex;align-items:center;gap:.3rem;font-size:.58rem;font-weight:800;
+    letter-spacing:.4px;text-transform:uppercase;padding:.28rem .55rem;border-radius:3px;
+    border:1px solid var(--bronze-line);background:var(--bronze-soft);color:var(--bronze-dark);
+    cursor:pointer;transition:var(--transition);
+  }
+  .lang-pill:hover{background:var(--bronze);color:var(--paper);}
+
+  /* ============ LAYOUT ============ */
+  .layout{display:grid;grid-template-columns:290px 1fr;gap:1.3rem;padding:1.3rem;max-width:1450px;margin:0 auto;align-items:start;}
+  @media (max-width:900px){.layout{grid-template-columns:1fr;padding:.8rem;gap:.8rem;}}
+
+  /* ============ SIDEBAR ============ */
+  .sidebar{
+    position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+    background:var(--paper);border:1px solid var(--navy);padding:4px;
+    box-shadow:var(--shadow);border-radius:4px;
+  }
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:.8rem;border-radius:3px;}
+  .side-label{
+    font-size:.58rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;
+    color:var(--bronze-dark);padding-bottom:.4rem;margin-bottom:.6rem;
+    border-bottom:1px solid var(--bronze-line);display:flex;justify-content:space-between;align-items:center;
+  }
+  .side-search{
+    width:100%;font-size:.8rem;padding:.4rem .6rem;border:1px solid var(--line);
+    background:var(--paper);color:var(--ink);margin-bottom:.7rem;border-radius:3px;outline:none;
+  }
+  .side-search:focus{border-color:var(--navy);}
+  .cat-block{margin-bottom:.3rem;}
+  .cat-toggle{
+    display:flex;align-items:center;gap:.5rem;width:100%;text-align:left;
+    background:none;border:none;padding:.5rem .55rem;
+    font-size:.66rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+    color:var(--navy);border-left:3px solid transparent;font-family:inherit;
+    transition:var(--transition);cursor:pointer;
+  }
+  .cat-toggle:hover{background:var(--navy-soft);border-left-color:var(--bronze);}
+  .cat-toggle[aria-expanded="true"] .chev{transform:rotate(90deg);}
+  .chev{margin-left:auto;font-size:.55rem;color:var(--bronze);transition:transform var(--transition);}
+  .cat-count{
+    font-family:"PT Serif",Georgia,serif;font-size:.64rem;font-weight:700;
+    background:var(--bronze-soft);color:var(--bronze-dark);
+    padding:.1rem .4rem;border:1px solid var(--bronze-line);
+  }
+  .cat-prog{height:3px;background:var(--paper-2);margin:0 .55rem .4rem;border:1px solid var(--line);}
+  .cat-prog > div{height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width var(--transition);}
+  .tech-btn{
+    display:flex;align-items:flex-start;gap:.4rem;width:100%;text-align:left;
+    background:none;border:none;padding:.35rem .55rem;
+    font-size:.72rem;line-height:1.35;color:var(--ink);
+    border-left:3px solid transparent;font-family:inherit;transition:var(--transition);cursor:pointer;
+    border-radius:0 3px 3px 0;
+  }
+  .tech-btn:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .tech-btn.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .tech-btn .done-mark{
+    flex:0 0 auto;width:12px;height:12px;margin-top:.15rem;
+    border:1px solid var(--line);background:var(--paper);
+    display:grid;place-items:center;font-size:.5rem;color:transparent;
+  }
+  .tech-btn.done .done-mark{background:var(--ok);border-color:var(--ok);color:#fff;}
+
+  /* ============ PANEL ============ */
+  .panel{background:var(--paper);border:1px solid var(--navy);padding:6px;box-shadow:var(--shadow);border-radius:4px;position:relative;}
+  .panel-inner{
+    border:1px solid var(--bronze-line);padding:1.8rem 2rem;border-radius:3px;
+    background:radial-gradient(circle at 100% 0%, var(--bronze-soft) 0%, transparent 45%), var(--paper);
+    position:relative;
+  }
+  @media (max-width:640px){.panel-inner{padding:1.1rem;}}
+  .panel-seal{
+    position:absolute;top:14px;right:18px;width:60px;height:60px;
+    border-radius:50%;border:1.5px dashed var(--bronze);padding:3px;opacity:.75;
+  }
+  .panel-seal-inner{
+    width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);
+    display:grid;place-items:center;color:var(--navy);
+    font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:8px;
+    text-align:center;line-height:1.1;
+  }
+
+  /* ============ DASHBOARD ============ */
+  .dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.6rem;}
+  .kpi{border:1px solid var(--bronze-line);padding:1rem;border-radius:4px;background:var(--paper);border-left:4px solid var(--navy);position:relative;overflow:hidden;}
+  .kpi .lbl{font-size:.58rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.3rem;}
+  .kpi .val{font-family:"PT Serif",Georgia,serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1;}
+  .kpi .sub{font-size:.68rem;color:var(--muted);margin-top:.35rem;}
+  .kpi .spark{position:absolute;right:8px;bottom:8px;opacity:.65;}
+
+  .chart-card{border:1px solid var(--navy);padding:4px;border-radius:4px;background:var(--paper);box-shadow:var(--shadow);margin-bottom:1.2rem;}
+  .chart-inner{border:1px solid var(--bronze-line);padding:1.2rem;border-radius:3px;background:var(--paper);}
+  .chart-inner h3{font-family:"PT Serif",Georgia,serif;font-size:1.05rem;color:var(--navy);margin:0 0 .2rem;font-weight:700;}
+  .chart-inner .sub{font-size:.68rem;color:var(--muted);margin:0 0 1rem;letter-spacing:.5px;text-transform:uppercase;font-weight:600;}
+
+  .bar-chart{display:flex;flex-direction:column;gap:.7rem;}
+  .bar-row{display:grid;grid-template-columns:200px 1fr 60px;gap:.7rem;align-items:center;}
+  @media (max-width:640px){.bar-row{grid-template-columns:1fr;gap:.3rem;}}
+  .bar-row .nombre{font-size:.76rem;font-weight:700;color:var(--navy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .bar-row .nombre small{display:block;font-weight:500;color:var(--muted);font-size:.62rem;}
+  .bar-track{height:22px;background:var(--paper-2);border:1px solid var(--line);border-radius:3px;overflow:hidden;position:relative;}
+  .bar-fill{
+    height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));
+    width:0;transition:width .8s cubic-bezier(.4,.15,.2,1);
+    display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;
+    color:var(--paper);font-size:.68rem;font-weight:700;letter-spacing:.5px;
+  }
+  .bar-row .pct{font-family:"PT Serif",Georgia,serif;font-size:.88rem;font-weight:700;color:var(--navy);text-align:right;}
+
+  .donut-wrap{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .donut-info{display:flex;flex-direction:column;gap:.5rem;font-size:.82rem;}
+  .donut-info div{display:flex;align-items:center;gap:.5rem;}
+  .donut-info .dot{width:11px;height:11px;border-radius:3px;}
+  .donut-info .lbl{flex:1;color:var(--ink);}
+  .donut-info .val{font-weight:700;color:var(--navy);font-family:"PT Serif",Georgia,serif;}
+  .line-chart svg{width:100%;height:auto;max-height:220px;}
+
+  /* ============ CUADERNO ============ */
+  .tech-header{padding-right:80px;margin-bottom:1rem;}
+  .tech-badge{
+    display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--bronze-dark);background:var(--bronze-soft);
+    border:1px solid var(--bronze-line);padding:.15rem .5rem;margin-bottom:.5rem;
+  }
+  .tech-title{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.05rem,2.6vw,1.5rem);font-weight:700;color:var(--navy);line-height:1.2;margin:0;}
+  .tech-sub{font-size:.66rem;color:var(--muted);margin-top:.3rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .rule-double{height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);margin:.8rem 0 1.1rem;}
+
+  .block-dots{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.5rem;}
+  .block-dot{width:10px;height:10px;border:1px solid var(--line);background:var(--paper);cursor:pointer;transition:var(--transition);}
+  .block-dot:hover{transform:scale(1.25);border-color:var(--bronze);}
+  .block-dot.done{background:var(--ok);border-color:var(--ok);}
+  .block-dot.current{background:var(--bronze);border-color:var(--bronze-dark);}
+
+  .flashcard{
+    perspective:1600px;margin:0 0 1rem;cursor:pointer;
+    border:1px solid var(--navy);padding:4px;background:var(--paper);
+    box-shadow:var(--shadow);border-radius:3px;
+  }
+  .flashcard-inner{
+    position:relative;min-height:clamp(220px,32vh,280px);
+    transform-style:preserve-3d;transition:transform .68s cubic-bezier(.4,.15,.2,1);
+    border:1px solid var(--bronze-line);
+  }
+  .flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+  .flashcard-face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    padding:1rem 1.2rem;display:flex;flex-direction:column;overflow:auto;background:var(--paper);
+    background-image:linear-gradient(transparent 27px, rgba(20,33,61,.06) 27px 28px);
+    background-size:100% 28px;background-position:0 14px;
+  }
+  .flashcard-back{transform:rotateY(180deg);background:var(--bronze-soft);}
+  .flashcard-tag{font-size:.58rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.5rem;padding-bottom:.35rem;border-bottom:1px solid var(--bronze-line);display:block;}
+  .flashcard-face p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.9rem;line-height:1.7;color:var(--ink);}
+  .flashcard-back p{font-style:italic;color:var(--navy-dark);}
+  .flashcard-hint{margin-top:auto;padding-top:.6rem;font-size:.58rem;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .biling{display:flex;gap:.4rem;flex-direction:column;margin:.4rem 0;}
+  .biling .lang{
+    display:inline-block;font-size:.55rem;font-weight:800;letter-spacing:1px;
+    text-transform:uppercase;padding:.1rem .35rem;border-radius:2px;
+    background:var(--navy-soft);color:var(--navy-dark);align-self:flex-start;margin-bottom:.15rem;
+  }
+  .biling .lang.en{background:var(--bronze-soft);color:var(--bronze-dark);}
+
+  .sec-title{display:flex;align-items:center;gap:.5rem;font-family:"PT Serif",Georgia,serif;font-size:.95rem;font-weight:700;color:var(--navy);margin:1.5rem 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--navy);position:relative;}
+  .sec-title::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--bronze-line);}
+  .sec-title small{font-size:.58rem;color:var(--muted);margin-left:auto;letter-spacing:.5px;text-transform:uppercase;}
+
+  .consigna{font-family:"PT Serif",Georgia,serif;font-size:.9rem;line-height:1.55;background:var(--paper-2);border-left:3px solid var(--bronze);padding:.65rem .9rem;margin:0 0 .9rem;border-radius:0 3px 3px 0;}
+
+  .opciones{display:flex;flex-direction:column;gap:.4rem;}
+  .opcion-btn{
+    display:flex;gap:.6rem;align-items:flex-start;width:100%;text-align:left;
+    background:var(--paper);border:1px solid var(--line);
+    color:var(--ink);padding:.65rem .8rem;cursor:pointer;transition:var(--transition);
+    font-family:inherit;font-size:.82rem;line-height:1.45;border-radius:3px;
+  }
+  .opcion-btn:hover:not(:disabled){border-color:var(--navy);background:var(--navy-soft);}
+  .opcion-btn:disabled{cursor:default;opacity:.9;}
+  .opcion-letra{
+    flex:0 0 auto;width:22px;height:22px;background:var(--paper-2);color:var(--muted);
+    border:1px solid var(--line);display:grid;place-items:center;
+    font-family:"PT Serif",Georgia,serif;font-size:.7rem;font-weight:700;
+  }
+  .opcion-btn.correcta{border-color:var(--ok);background:var(--ok-soft);}
+  .opcion-btn.correcta .opcion-letra{background:var(--ok);color:#fff;border-color:var(--ok);}
+  .opcion-btn.incorrecta{border-color:var(--bad);background:var(--bad-soft);}
+  .opcion-btn.incorrecta .opcion-letra{background:var(--bad);color:#fff;border-color:var(--bad);}
+
+  textarea.area-redaccion{
+    width:100%;font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.5;
+    color:var(--ink);padding:.7rem .9rem;border:1px solid var(--bronze-line);
+    background:var(--paper);border-radius:3px;resize:vertical;outline:none;transition:var(--transition);
+  }
+  textarea.area-redaccion:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-soft);}
+
+  .fb-box{margin-top:1rem;padding:0;overflow:hidden;max-height:0;opacity:0;transition:var(--transition);border-left:3px solid transparent;border-radius:0 3px 3px 0;}
+  .fb-box.show{max-height:600px;opacity:1;padding:.8rem 1rem;}
+  .fb-box.fb-ok{background:var(--ok-soft);border-left-color:var(--ok);color:var(--ok);}
+  .fb-box.fb-mal{background:var(--bad-soft);border-left-color:var(--bad);color:var(--bad);}
+  .fb-box.fb-info{background:var(--bronze-soft);border-left-color:var(--bronze);color:var(--bronze-dark);}
+  .fb-box strong{display:block;font-size:.62rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;}
+  .fb-box p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.86rem;line-height:1.55;}
+
+  .cuaderno-block{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--navy);position:relative;}
+  .cuaderno-block::before{content:"";position:absolute;left:0;right:0;top:2px;height:1px;background:var(--bronze-line);}
+  .cuaderno-foot{display:flex;justify-content:space-between;align-items:center;font-size:.62rem;color:var(--muted);margin-top:.4rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+  #notaStatus{color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex;justify-content:space-between;gap:.6rem;margin-top:1.3rem;padding-top:1rem;border-top:1px solid var(--bronze-line);}
+
+  /* ============ TALLER ============ */
+  .tool-card{background:var(--paper);border:1px solid var(--navy);padding:4px;border-radius:3px;box-shadow:var(--shadow);margin-bottom:1rem;}
+  .tool-inner{border:1px solid var(--bronze-line);padding:1rem;border-radius:3px;background:var(--paper);}
+  .tool-inner h4{font-family:"PT Serif",Georgia,serif;font-size:1rem;color:var(--navy);margin:0 0 .4rem;font-weight:700;}
+  .tool-inner > p{font-size:.78rem;color:var(--muted);margin:0 0 .8rem;}
+  .input-sm,.select-sm{font-size:.84rem;width:100%;padding:.4rem .6rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px;outline:none;transition:var(--transition);}
+  .input-sm:focus,.select-sm:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  .resultado-caja{
+    background:var(--paper-2);border:1px solid var(--bronze-line);padding:.8rem;
+    border-radius:3px;font-family:"JetBrains Mono",monospace;font-size:.76rem;line-height:1.6;
+    color:var(--ink);white-space:pre-wrap;max-height:420px;overflow-y:auto;margin-top:.7rem;
+  }
+
+  /* ============ CERTIFICADO ============ */
+  .certificado{text-align:center;padding:1.5rem 1rem 2.5rem;position:relative;}
+  .certificado::before,.certificado::after{
+    content:"";position:absolute;left:0;right:0;height:3px;
+    border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);
+  }
+  .certificado::before{top:0;}
+  .certificado::after{bottom:0;}
+  .cert-sello{width:100px;height:100px;margin:0 auto 1.2rem;border-radius:50%;padding:4px;border:2px dashed var(--bronze);display:grid;place-items:center;position:relative;}
+  .cert-sello-inner{width:100%;height:100%;border-radius:50%;border:2px solid var(--navy);display:grid;place-items:center;background:radial-gradient(circle, var(--paper) 55%, var(--bronze-soft) 100%);color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;text-align:center;line-height:1.2;}
+  .cert-sello-inner .anio{font-size:1.9rem;display:block;line-height:1;}
+  .cert-sello-inner .lbl{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--bronze-dark);font-weight:800;}
+  .cert-eyebrow{font-size:.66rem;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.5rem;}
+  .cert-titulo{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.2rem,3.2vw,1.9rem);color:var(--navy);line-height:1.15;margin:0 0 .9rem;font-weight:700;}
+  .cert-linea{width:60%;margin:1rem auto;height:1px;background:var(--bronze-line);position:relative;}
+  .cert-linea::before{content:"◆";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);padding:0 .5rem;color:var(--bronze);font-size:.7rem;}
+  .cert-otorgado{font-family:"PT Serif",Georgia,serif;font-style:italic;font-size:.88rem;color:var(--muted);margin:.9rem 0 .4rem;}
+  .cert-nombre{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.2rem,3.4vw,1.9rem);font-weight:700;color:var(--navy);line-height:1.15;padding:.35rem .7rem;border-bottom:1px dashed var(--bronze);display:inline-block;min-width:60%;outline:none;transition:var(--transition);}
+  .cert-nombre:hover,.cert-nombre:focus{background:var(--bronze-soft);}
+  .cert-desc{font-family:"PT Serif",Georgia,serif;font-size:.88rem;line-height:1.7;color:var(--ink);max-width:620px;margin:1rem auto 0;}
+  .cert-firmas{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;max-width:520px;margin:1.8rem auto 0;}
+  .cert-firma{border-top:1px solid var(--navy);padding-top:.5rem;text-align:center;}
+  .cert-firma strong{display:block;font-family:"PT Serif",Georgia,serif;font-size:.85rem;color:var(--navy);outline:none;padding:.1rem .3rem;min-width:60%;}
+  .cert-firma small{font-size:.58rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;font-weight:700;}
+  .cert-meta{display:flex;justify-content:space-between;gap:1rem;margin-top:1.6rem;font-size:.64rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:700;padding-top:.9rem;border-top:1px solid var(--bronze-line);}
+  .cert-meta span{outline:none;}
+  .cert-meta span:hover,.cert-meta span:focus{background:var(--bronze-soft);}
+
+  /* ============ PWA BANNER ============ */
+  .pwa-banner{
+    position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(200px);
+    background:var(--paper);border:1px solid var(--navy);box-shadow:var(--shadow);
+    padding:.8rem 1rem;border-radius:6px;display:flex;align-items:center;gap:.9rem;
+    max-width:520px;width:calc(100% - 2rem);z-index:2100;
+    transition:transform .35s cubic-bezier(.4,.15,.2,1);
+  }
+  .pwa-banner.show{transform:translateX(-50%) translateY(0);}
+  .pwa-banner .icon{width:44px;height:44px;border-radius:8px;background:var(--navy-soft);display:grid;place-items:center;font-size:1.3rem;flex:0 0 auto;}
+  .pwa-banner .text{flex:1;min-width:0;}
+  .pwa-banner .text strong{display:block;font-family:"PT Serif",Georgia,serif;color:var(--navy);font-size:.88rem;}
+  .pwa-banner .text small{font-size:.7rem;color:var(--muted);display:block;margin-top:.15rem;}
+  .pwa-banner .btns{display:flex;gap:.4rem;flex:0 0 auto;}
+
+  /* ============ TOAST ============ */
+  .app-toast{
+    position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--navy);color:var(--paper);padding:.6rem 1.1rem;
+    font-size:.7rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    border:1px solid var(--bronze-line);box-shadow:var(--shadow);
+    opacity:0;transition:var(--transition);z-index:2200;border-radius:3px;
+  }
+  .app-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* ============ PRINT ============ */
+  @media print{
+    @page{size:A4;margin:2cm;}
+    body{background:#fff !important;}
+    .topbar,.sidebar,.app-toast,.no-print,.pwa-banner{display:none !important;}
+    .layout{display:block;padding:0;gap:0;max-width:none;margin:0;}
+    .panel{border:none;box-shadow:none;padding:0;background:#fff;}
+    .panel-inner{border:none;padding:0;background:#fff;}
+    .panel-seal{display:none;}
+    .certificado{min-height:calc(297mm - 4cm);display:flex;flex-direction:column;justify-content:center;}
+    .cuaderno-interactivo,.taller-completo,.dashboard-view{display:none !important;}
+  }
+
+  @media (max-width:900px){
+    .sidebar{
+      position:fixed;top:0;left:0;bottom:0;width:290px;max-height:100vh;
+      z-index:1050;padding:4px;transform:translateX(-105%);
+      transition:transform .28s ease;overflow-y:auto;border-radius:0 6px 6px 0;
+    }
+    .sidebar.open{transform:none;}
+    .only-mobile{display:inline-block !important;}
+  }
+  .only-mobile{display:none;}
+
+  /* utilidades */
+  .d-flex{display:flex;}
+  .gap-2{gap:.5rem;}
+  .gap-3{gap:.7rem;}
+  .mt-2{margin-top:.5rem;}
+  .mt-3{margin-top:.8rem;}
+  .mb-2{margin-bottom:.5rem;}
+  .mb-3{margin-bottom:.8rem;}
+  .text-muted{color:var(--muted);}
+  .fw-bold{font-weight:700;}
+  .text-center{text-align:center;}
+</style>
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <div class="seal" aria-hidden="true"><div class="seal-inner">HTML</div></div>
+    <div>
+      <h1>Cuaderno Bilingüe · 100 técnicas HTML + CSS + JS</h1>
+      <small>LMS educativos en Lengua Castellana · Python + Django · ES/EN</small>
+    </div>
+  </div>
+
+  <nav class="modo-tabs" role="tablist" aria-label="Modo de la aplicación">
+    <button class="modo-tab active" data-modo="dashboard" role="tab" aria-selected="true">📊 Dashboard</button>
+    <button class="modo-tab" data-modo="cuaderno" role="tab">📖 Cuaderno</button>
+    <button class="modo-tab" data-modo="taller" role="tab">🛠 Taller</button>
+    <button class="modo-tab" data-modo="certificado" role="tab">🎓 Certificado</button>
+  </nav>
+
+  <div class="d-flex gap-2" style="align-items:center;flex-wrap:wrap;">
+    <span class="status-pill online" id="statusPill" title="Estado de conexión">
+      <span class="dot"></span><span id="statusText">En línea</span>
+    </span>
+    <span class="lang-pill" id="langPill" title="Cambiar idioma del cuaderno">
+      🌐 <span id="langLabel">ES / EN</span>
+    </span>
+    <button class="btn-sm-custom ok" id="btnInstall" style="display:none;" aria-label="Instalar app">⬇ Instalar</button>
+    <button class="btn-sm-custom outline" id="btnTheme" aria-label="Cambiar tema">🌙</button>
+    <button class="btn-sm-custom primary" id="btnPrint" aria-label="Guardar como PDF">🖨 PDF</button>
+    <button class="btn-sm-custom outline" id="btnWord" aria-label="Descargar Word">📄 Word</button>
+    <button class="btn-sm-custom danger" id="btnReset" aria-label="Reiniciar">↺</button>
+    <button class="btn-sm-custom only-mobile" id="btnMenu" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar no-print" id="sidebar" aria-label="Navegación">
+    <div class="sidebar-inner">
+      <div class="side-label">
+        <span id="sidebarTitle">Secciones</span>
+        <span class="cat-count" id="sidebarCount">100</span>
+      </div>
+      <input type="search" class="side-search" id="searchTecnica" placeholder="🔎 Buscar técnica…" aria-label="Buscar técnica" style="display:none;">
+      <nav id="menuDashboard" aria-label="Secciones del dashboard"></nav>
+      <nav id="menuCuaderno" aria-label="Bloques del cuaderno" style="display:none;"></nav>
+      <nav id="menuTaller" aria-label="Herramientas del taller" style="display:none;"></nav>
+      <nav id="menuCertificado" aria-label="Secciones del documento" style="display:none;"></nav>
+    </div>
+  </aside>
+
+  <main class="panel" id="panelPrincipal" tabindex="-1">
+    <div class="panel-inner" id="panelInner" role="region" aria-live="polite"></div>
+  </main>
+</div>
+
+<div class="pwa-banner no-print" id="pwaBanner">
+  <div class="icon" aria-hidden="true">📲</div>
+  <div class="text">
+    <strong>Instala el cuaderno en tu dispositivo</strong>
+    <small>Funciona sin conexión · más rápido · como app nativa.</small>
+  </div>
+  <div class="btns">
+    <button class="btn-sm-custom primary" id="pwaInstall">Instalar</button>
+    <button class="btn-sm-custom ghost" id="pwaDismiss" style="background:transparent;border-color:var(--line);color:var(--muted);">Ahora no</button>
+  </div>
+</div>
+
+<div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   CUADERNO BILINGÜE · 100 TÉCNICAS HTML + CSS + JS
+   5 bloques temáticos (1-20, 21-40, 41-60, 61-80, 81-100)
+   ===================================================================== */
+const BLOQUES = [
+{
+  id:"b1", emoji:"🧱", nombre:"HTML semántico y estructura", nombreEN:"Semantic HTML & structure", rango:"1–20",
+  desc:"Etiquetas con significado, accesibilidad, formularios y plantillas.",
+  descEN:"Meaningful tags, accessibility, forms and templates.",
+  tecnicas:[
+    {n:1, t:"Etiquetas semánticas", tEN:"Semantic tags",
+     c:"<header>, <nav>, <main>, <section>, <article> y <footer> dan significado estructural. Mejoran SEO, accesibilidad y mantenimiento.",
+     cEN:"<header>, <nav>, <main>, <section>, <article> and <footer> give structural meaning. They improve SEO, accessibility and maintenance.",
+     e:"<header>…</header>\n<nav>…</nav>\n<main>\n  <section>…</section>\n</main>\n<footer>…</footer>"},
+    {n:2, t:"Estructura de curso con <details>/<summary>", tEN:"Course structure with <details>/<summary>",
+     c:"Crea módulos colapsables sin JavaScript. El estudiante abre solo lo que necesita.",
+     cEN:"Creates collapsible modules without JavaScript. Students open only what they need.",
+     e:"<details>\n  <summary>Unidad 1</summary>\n  <p>Contenido…</p>\n</details>"},
+    {n:3, t:"Formularios accesibles con <label for>", tEN:"Accessible forms with <label for>",
+     c:"Cada campo debe tener <label for> vinculado al id del input. Los grupos se envuelven en <fieldset> con <legend>.",
+     cEN:"Every field must have <label for> linked to the input id. Groups are wrapped in <fieldset> with <legend>.",
+     e:"<fieldset>\n  <legend>Datos</legend>\n  <label for=\"nombre\">Nombre</label>\n  <input id=\"nombre\">\n</fieldset>"},
+    {n:4, t:"Atributos ARIA para lectores de pantalla", tEN:"ARIA attributes for screen readers",
+     c:"aria-label, aria-live, aria-expanded y role mejoran la experiencia de lectores de pantalla.",
+     cEN:"aria-label, aria-live, aria-expanded and role improve the screen reader experience.",
+     e:"<button aria-label=\"Cerrar\">×</button>\n<div aria-live=\"polite\">Guardado</div>"},
+    {n:5, t:"<template> para clonar contenido", tEN:"<template> to clone content",
+     c:"Guarda HTML inerte que se clona con JS. Base para tarjetas dinámicas de ejercicios.",
+     cEN:"Stores inert HTML that is cloned with JS. Base for dynamic exercise cards.",
+     e:"<template id=\"tarjeta\"><div class=\"card\"><h3></h3></div></template>\nconst c = tpl.content.cloneNode(true);"},
+    {n:6, t:"<progress> y <meter>", tEN:"<progress> and <meter>",
+     c:"<progress> muestra avance; <meter> muestra una medida dentro de un rango. Ideales para el progreso del estudiante.",
+     cEN:"<progress> shows progress; <meter> shows a measure within a range. Ideal for student progress.",
+     e:"<progress value=\"70\" max=\"100\">70%</progress>\n<meter value=\"8\" min=\"0\" max=\"10\">8/10</meter>"},
+    {n:7, t:"<dialog> nativo", tEN:"Native <dialog>",
+     c:"Modal sin librerías. Se abre con .showModal() y se cierra con .close().",
+     cEN:"Modal without libraries. Opens with .showModal() and closes with .close().",
+     e:"<dialog id=\"modal\">…</dialog>\ndocument.getElementById('modal').showModal();"},
+    {n:8, t:"Meta viewport responsiva", tEN:"Responsive viewport meta",
+     c:"width=device-width e initial-scale=1 activan el diseño responsivo en móviles.",
+     cEN:"width=device-width and initial-scale=1 enable responsive design on mobile.",
+     e:"<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"},
+    {n:9, t:"Validación HTML5 nativa", tEN:"Native HTML5 validation",
+     c:"required, pattern, minlength y maxlength validan sin JavaScript. El navegador bloquea el envío inválido.",
+     cEN:"required, pattern, minlength and maxlength validate without JavaScript. The browser blocks invalid submits.",
+     e:"<input type=\"text\" required minlength=\"3\" pattern=\"[A-Za-z]+\">"},
+    {n:10, t:"data-* para JS", tEN:"data-* for JS",
+     c:"Los atributos data-* guardan información leída por JS con dataset. Base de la delegación de eventos.",
+     cEN:"data-* attributes store info read by JS with dataset. Base of event delegation.",
+     e:"<button data-id=\"t1\" data-cat=\"html\">…</button>\nbtn.dataset.id // \"t1\""},
+    {n:11, t:"Tablas responsivas con <div>", tEN:"Responsive tables with <div>",
+     c:"Para datos con scroll horizontal, se combina table-responsive con tablas HTML.",
+     cEN:"For data with horizontal scroll, table-responsive combines with HTML tables.",
+     e:"<div class=\"table-responsive\">\n  <table class=\"table\">…</table>\n</div>"},
+    {n:12, t:"Enlaces internos con #id", tEN:"Internal links with #id",
+     c:"Navegación dentro de la página. Combinado con scroll-behavior:smooth se vuelve fluida.",
+     cEN:"In-page navigation. Combined with scroll-behavior:smooth it becomes fluid.",
+     e:"<a href=\"#leccion1\">Ir a lección 1</a>\n<section id=\"leccion1\">…</section>"},
+    {n:13, t:"Listas descriptivas <dl>/<dt>/<dd>", tEN:"Description lists <dl>/<dt>/<dd>",
+     c:"Perfectas para glosarios y definiciones de términos literarios o gramaticales.",
+     cEN:"Perfect for glossaries and definitions of literary or grammar terms.",
+     e:"<dl>\n  <dt>Metáfora</dt>\n  <dd>Identificación de dos realidades.</dd>\n</dl>"},
+    {n:14, t:"<figure> y <figcaption>", tEN:"<figure> and <figcaption>",
+     c:"Asocian una imagen con su pie. Imprescindible para ilustraciones y gráficos en apuntes.",
+     cEN:"Associate an image with its caption. Essential for illustrations and charts in notes.",
+     e:"<figure>\n  <img src=\"e.jpg\" alt=\"Esquema\">\n  <figcaption>Figura 1. Esquema…</figcaption>\n</figure>"},
+    {n:15, t:"Formularios con <datalist>", tEN:"Forms with <datalist>",
+     c:"Ofrece sugerencias al escribir sin limitar la entrada. Útil para listas largas de términos.",
+     cEN:"Offers suggestions while typing without limiting input. Useful for long term lists.",
+     e:"<input list=\"lenguas\">\n<datalist id=\"lenguas\">\n  <option value=\"Quechua\"><option value=\"Guaraní\">\n</datalist>"},
+    {n:16, t:"Marcar contenido importante <mark>", tEN:"Highlight important content <mark>",
+     c:"Resalta texto relevante. Útil para resaltar citas o palabras clave en apuntes.",
+     cEN:"Highlights relevant text. Useful to highlight quotes or keywords in notes.",
+     e:"<p>El concepto clave es <mark>cohesión textual</mark>.</p>"},
+    {n:17, t:"Citas con <blockquote> y <q>", tEN:"Quotes with <blockquote> and <q>",
+     c:"<blockquote> para citas extensas, <q> para citas cortas en línea. Con cite se indica la fuente.",
+     cEN:"<blockquote> for long quotes, <q> for short inline quotes. cite indicates the source.",
+     e:"<blockquote cite=\"https://…\">\n  La lengua es la casa del ser.\n</blockquote>"},
+    {n:18, t:"Código y muestra <code>/<pre>/<samp>", tEN:"Code and samples <code>/<pre>/<samp>",
+     c:"<code> para fragmentos cortos, <pre> para bloques, <samp> para salidas de programa.",
+     cEN:"<code> for short snippets, <pre> for blocks, <samp> for program output.",
+     e:"<pre><code>def prom(n):\n    return sum(n)/len(n)</code></pre>"},
+    {n:19, t:"Detalles de fecha con <time>", tEN:"Date details with <time>",
+     c:"Semántica de fecha legible por máquinas. Ideal para cronogramas y entregas.",
+     cEN:"Machine-readable date semantics. Ideal for schedules and deadlines.",
+     e:"<time datetime=\"2025-04-23\">23 de abril de 2025</time>"},
+    {n:20, t:"Contenido aparte con <aside>", tEN:"Side content with <aside>",
+     c:"Información complementaria. Perfecto para notas al margen, biografías o glosarios.",
+     cEN:"Complementary information. Perfect for marginal notes, biographies or glossaries.",
+     e:"<aside>\n  <h4>Nota</h4>\n  <p>Contexto histórico del autor…</p>\n</aside>"}
+  ]
+},
+{
+  id:"b2", emoji:"🎨", nombre:"CSS moderno y diseño", nombreEN:"Modern CSS & design", rango:"21–40",
+  desc:"Variables, grid, tipografía fluida, animaciones y accesibilidad.",
+  descEN:"Variables, grid, fluid typography, animations and accessibility.",
+  tecnicas:[
+    {n:21, t:"Custom properties (variables CSS)", tEN:"Custom properties (CSS variables)",
+     c:"--nombre se define en :root y se reutiliza con var(). Un solo cambio actualiza todo el tema.",
+     cEN:"--name is defined in :root and reused with var(). One change updates the whole theme.",
+     e:":root{ --navy:#14213d; }\n.btn{ background: var(--navy); }"},
+    {n:22, t:"Tipografía fluida con clamp()", tEN:"Fluid typography with clamp()",
+     c:"clamp(min, ideal, max) ajusta el tamaño al viewport sin media queries.",
+     cEN:"clamp(min, ideal, max) adjusts size to the viewport without media queries.",
+     e:"h1{ font-size: clamp(1rem, 2.5vw, 1.8rem); }"},
+    {n:23, t:"CSS Grid", tEN:"CSS Grid",
+     c:"display:grid organiza layouts complejos en filas y columnas. Ideal para tarjetas y dashboards.",
+     cEN:"display:grid organizes complex layouts into rows and columns. Ideal for cards and dashboards.",
+     e:".flashcards{ display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }"},
+    {n:24, t:"gap en flex y grid", tEN:"gap in flex and grid",
+     c:"gap separa elementos sin márgenes manuales. Simplifica el código y evita colapsos de margen.",
+     cEN:"gap separates elements without manual margins. Simplifies code and avoids margin collapse.",
+     e:".fila{ display:flex; gap:1rem; }"},
+    {n:25, t:"prefers-color-scheme", tEN:"prefers-color-scheme",
+     c:"Detecta la preferencia del usuario y adapta el tema. Combinado con variables CSS, todo se actualiza.",
+     cEN:"Detects the user preference and adapts the theme. Combined with CSS variables, everything updates.",
+     e:"@media (prefers-color-scheme: dark){\n  :root{ --bg:#1a2338; }\n}"},
+    {n:26, t:"aspect-ratio", tEN:"aspect-ratio",
+     c:"Fija la proporción de un elemento (16/9, 1/1) sin depender del padding. Uniforma miniaturas.",
+     cEN:"Fixes an element ratio (16/9, 1/1) without padding. Uniforms thumbnails.",
+     e:".miniatura{ aspect-ratio: 16/9; object-fit: cover; }"},
+    {n:27, t:"@keyframes para animaciones", tEN:"@keyframes for animations",
+     c:"Define animaciones reutilizables. Se aplican con animation. Perfectas para transiciones entre ejercicios.",
+     cEN:"Defines reusable animations. Applied with animation. Perfect for transitions between exercises.",
+     e:"@keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }"},
+    {n:28, t:"transition en hover/focus", tEN:"transition on hover/focus",
+     c:"transition suaviza los cambios de estado. Aplicado en botones, tarjetas y campos.",
+     cEN:"transition smooths state changes. Applied to buttons, cards and fields.",
+     e:".btn{ transition: background .2s ease; }"},
+    {n:29, t:"scroll-behavior:smooth", tEN:"scroll-behavior:smooth",
+     c:"Activa el desplazamiento suave en enlaces ancla. Mejora la navegación interna.",
+     cEN:"Enables smooth scrolling on anchor links. Improves internal navigation.",
+     e:"html{ scroll-behavior: smooth; }"},
+    {n:30, t:"backdrop-filter", tEN:"backdrop-filter",
+     c:"Aplica desenfoque al fondo del elemento. Se usa en modales y menús tipo «vidrio esmerilado».",
+     cEN:"Applies blur to the element's background. Used in modals and glass-like menus.",
+     e:".modal{ backdrop-filter: blur(8px); }"},
+    {n:31, t:":focus-visible", tEN:":focus-visible",
+     c:"Aplica estilos solo cuando el foco proviene del teclado, no del mouse. Mejora la accesibilidad.",
+     cEN:"Applies styles only when focus comes from the keyboard, not the mouse. Improves accessibility.",
+     e:".btn:focus-visible{ outline: 2px solid #a67c52; }"},
+    {n:32, t:":nth-child() para filas alternas", tEN:":nth-child() for alternating rows",
+     c:"Selecciona elementos según su posición. Útil para estilos alternos en listas.",
+     cEN:"Selects elements by position. Useful for alternating styles in lists.",
+     e:"li:nth-child(odd){ background:#f7f2e8; }"},
+    {n:33, t:"Variables de tipografía", tEN:"Typography variables",
+     c:"Se definen familias y tamaños en variables. Con @font-face o Google Fonts se mantiene la coherencia.",
+     cEN:"Families and sizes are defined as variables. With @font-face or Google Fonts consistency is kept.",
+     e:":root{ --font-body: 'Public Sans', sans-serif; }\nbody{ font-family: var(--font-body); }"},
+    {n:34, t:"object-fit: cover", tEN:"object-fit: cover",
+     c:"Recorta una imagen para llenar su contenedor sin deformarla. Mantiene la proporción.",
+     cEN:"Crops an image to fill its container without distorting it. Keeps the aspect ratio.",
+     e:"img{ object-fit: cover; width:100%; height:200px; }"},
+    {n:35, t:"Sombras suaves con box-shadow", tEN:"Soft shadows with box-shadow",
+     c:"Varias capas de sombra crean profundidad realista. Se aplican a tarjetas y modales.",
+     cEN:"Several shadow layers create realistic depth. Applied to cards and modals.",
+     e:".card{ box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 22px rgba(0,0,0,.08); }"},
+    {n:36, t:"scroll snap para carruseles", tEN:"scroll snap for carousels",
+     c:"overflow-x:auto con scroll-snap crea carruseles horizontales con puntos de anclaje.",
+     cEN:"overflow-x:auto with scroll-snap creates horizontal carousels with snap points.",
+     e:".carrusel{ overflow-x:auto; scroll-snap-type: x mandatory; }\n.item{ scroll-snap-align: start; }"},
+    {n:37, t:"Texto con degradado (background-clip)", tEN:"Gradient text (background-clip)",
+     c:"Recorta el fondo a la forma del texto. Ideal para títulos destacados.",
+     cEN:"Clips the background to the text shape. Ideal for highlighted headings.",
+     e:"h1{ background: linear-gradient(90deg,#14213d,#a67c52);\n  -webkit-background-clip: text;\n  color: transparent; }"},
+    {n:38, t:"line-clamp", tEN:"line-clamp",
+     c:"Recorta un texto a un número fijo de líneas con puntos suspensivos.",
+     cEN:"Trims text to a fixed number of lines with an ellipsis.",
+     e:".resumen{ display:-webkit-box; -webkit-line-clamp:3;\n  -webkit-box-orient:vertical; overflow:hidden; }"},
+    {n:39, t:"grid-template-areas", tEN:"grid-template-areas",
+     c:"Nombra áreas del grid y las coloca como un mapa. Ideal para el dashboard del LMS.",
+     cEN:"Names grid areas and places them like a map. Ideal for the LMS dashboard.",
+     e:".layout{\n  display:grid;\n  grid-template-areas: \"head head\" \"side main\";\n}"},
+    {n:40, t:"Media queries por rangos", tEN:"Range media queries",
+     c:"min-width y max-width permiten tres puntos de quiebre: móvil, tableta, escritorio.",
+     cEN:"min-width and max-width allow three breakpoints: mobile, tablet, desktop.",
+     e:"@media (min-width: 768px) and (max-width: 1023px){ … }"}
+  ]
+},
+{
+  id:"b3", emoji:"⚡", nombre:"JavaScript moderno", nombreEN:"Modern JavaScript", rango:"41–60",
+  desc:"DOM, fetch, async/await, observers y almacenamiento.",
+  descEN:"DOM, fetch, async/await, observers and storage.",
+  tecnicas:[
+    {n:41, t:"querySelector y querySelectorAll", tEN:"querySelector and querySelectorAll",
+     c:"Seleccionan elementos con selectores CSS. Base para manipular el DOM.",
+     cEN:"Select elements with CSS selectors. Base for DOM manipulation.",
+     e:"const btn = document.querySelector('.btn');\nconst all = document.querySelectorAll('.card');"},
+    {n:42, t:"Delegación de eventos", tEN:"Event delegation",
+     c:"Un solo listener en el contenedor maneja clics de hijos dinámicos. Evita registrar N listeners.",
+     cEN:"One listener on the container handles dynamic children clicks. Avoids registering N listeners.",
+     e:"lista.addEventListener('click', e => {\n  const btn = e.target.closest('button');\n  if(btn) abrir(btn.dataset.id);\n});"},
+    {n:43, t:"Template literals", tEN:"Template literals",
+     c:"Backticks y ${} permiten insertar variables. Base del HTML dinámico.",
+     cEN:"Backticks and ${} allow embedding variables. Base of dynamic HTML.",
+     e:"const html = `<div class=\"card\">${titulo}</div>`;"},
+    {n:44, t:"Array.map()", tEN:"Array.map()",
+     c:"Transforma un array en otro. Base del renderizado de tarjetas desde datos.",
+     cEN:"Transforms an array into another. Base of card rendering from data.",
+     e:"const tarjetas = datos.map(d => `<div>${d.titulo}</div>`).join('');"},
+    {n:45, t:"Array.filter()", tEN:"Array.filter()",
+     c:"Devuelve solo los elementos que cumplen una condición. Ideal para filtrar por categoría.",
+     cEN:"Returns only elements satisfying a condition. Ideal to filter by category.",
+     e:"const html = datos.filter(d => d.cat === 'html');"},
+    {n:46, t:"Array.reduce()", tEN:"Array.reduce()",
+     c:"Reduce un array a un único valor. Se usa para promedios y sumas.",
+     cEN:"Reduces an array to a single value. Used for averages and sums.",
+     e:"const prom = notas.reduce((a,b)=>a+b,0) / notas.length;"},
+    {n:47, t:"Destructuring", tEN:"Destructuring",
+     c:"Extrae campos de un objeto o array en variables. Simplifica el acceso a propiedades.",
+     cEN:"Extracts fields from an object or array into variables. Simplifies property access.",
+     e:"const { titulo, nivel } = ejercicio;"},
+    {n:48, t:"Arrow functions", tEN:"Arrow functions",
+     c:"Sintaxis corta. Perfectas para callbacks. No tienen su propio this.",
+     cEN:"Short syntax. Perfect for callbacks. They don't have their own this.",
+     e:"btn.addEventListener('click', () => console.log('clic'));"},
+    {n:49, t:"fetch()", tEN:"fetch()",
+     c:"Hace peticiones HTTP. En el LMS carga el banco de preguntas desde un JSON externo.",
+     cEN:"Makes HTTP requests. In the LMS it loads the question bank from external JSON.",
+     e:"const r = await fetch('banco.json');\nconst datos = await r.json();"},
+    {n:50, t:"async / await", tEN:"async / await",
+     c:"Convierte el código asíncrono en algo que se lee como síncrono, sin bloquear la interfaz.",
+     cEN:"Turns async code into something read like sync, without blocking the UI.",
+     e:"async function cargar(){\n  const r = await fetch(url);\n  return r.json();\n}"},
+    {n:51, t:"localStorage", tEN:"localStorage",
+     c:"Guarda datos en el navegador de forma persistente. Ideal para el progreso del estudiante.",
+     cEN:"Stores data persistently in the browser. Ideal for student progress.",
+     e:"localStorage.setItem('progreso', JSON.stringify(p));\nconst p = JSON.parse(localStorage.getItem('progreso'));"},
+    {n:52, t:"Manejo de errores con try/catch", tEN:"Error handling with try/catch",
+     c:"Captura errores al leer o guardar datos. Esencial para no perder el progreso.",
+     cEN:"Catches errors when reading or saving data. Essential to avoid losing progress.",
+     e:"try{\n  const p = JSON.parse(localStorage.getItem('progreso'));\n}catch(e){ progreso = {}; }"},
+    {n:53, t:"Custom Events", tEN:"Custom Events",
+     c:"dispatchEvent permite comunicar componentes sin acoplarlos. Un «progreso:actualizado» escuchado por otro módulo.",
+     cEN:"dispatchEvent lets components communicate without coupling. A «progress:updated» listened to by another module.",
+     e:"document.dispatchEvent(new CustomEvent('progreso:actualizado'));"},
+    {n:54, t:"IntersectionObserver", tEN:"IntersectionObserver",
+     c:"Detecta cuándo un elemento entra en pantalla. Se usa para animar tarjetas al aparecer.",
+     cEN:"Detects when an element enters the screen. Used to animate cards as they appear.",
+     e:"const io = new IntersectionObserver(entries =>\n  entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')));"},
+    {n:55, t:"MutationObserver", tEN:"MutationObserver",
+     c:"Vigila cambios en el DOM. Útil para reaccionar cuando se añaden tarjetas dinámicamente.",
+     cEN:"Watches DOM changes. Useful to react when cards are dynamically added.",
+     e:"new MutationObserver(cb).observe(panel, { childList: true });"},
+    {n:56, t:"Debounce en buscadores", tEN:"Debounce in search",
+     c:"Retrasa la ejecución hasta que el usuario deja de escribir. Esencial en el buscador de ejercicios.",
+     cEN:"Delays execution until the user stops typing. Essential in the exercise search.",
+     e:"let t; input.addEventListener('input', e => {\n  clearTimeout(t);\n  t = setTimeout(() => buscar(e.target.value), 250);\n});"},
+    {n:57, t:"Clases de JS", tEN:"JS classes",
+     c:"class modela entidades con atributos y métodos. La clase Ejercicio encapsula título, categoría y render.",
+     cEN:"class models entities with attributes and methods. The Exercise class encapsulates title, category and render.",
+     e:"class Ejercicio{\n  constructor(titulo){ this.titulo = titulo; }\n  render(){ return `<div>${this.titulo}</div>`; }\n}"},
+    {n:58, t:"Set y Map", tEN:"Set and Map",
+     c:"Set evita duplicados; Map guarda pares clave-valor. Útiles para registros únicos.",
+     cEN:"Set avoids duplicates; Map stores key-value pairs. Useful for unique registries.",
+     e:"const vistas = new Set();\nvistas.add('t1');\nvistas.has('t1'); // true"},
+    {n:59, t:"FormData y preventDefault", tEN:"FormData and preventDefault",
+     c:"FormData recoge los campos del formulario. Con preventDefault se evita el envío que recarga la página.",
+     cEN:"FormData collects form fields. With preventDefault the reloading submit is avoided.",
+     e:"form.addEventListener('submit', e => {\n  e.preventDefault();\n  const fd = new FormData(form);\n});"},
+    {n:60, t:"Web Speech API para dictado", tEN:"Web Speech API for dictation",
+     c:"Reproduce texto y reconoce voz. Se usa en dictados y ejercicios de pronunciación.",
+     cEN:"Plays text and recognizes voice. Used in dictations and pronunciation exercises.",
+     e:"const u = new SpeechSynthesisUtterance('Buenos días');\nspeechSynthesis.speak(u);"}
+  ]
+},
+{
+  id:"b4", emoji:"📚", nombre:"Lengua Castellana y didáctica", nombreEN:"Spanish Language & didactics", rango:"61–80",
+  desc:"Corrector, análisis, rúbricas, dictados y gamificación.",
+  descEN:"Proofreading, analysis, rubrics, dictations and gamification.",
+  tecnicas:[
+    {n:61, t:"Corrector de tildes con RegExp", tEN:"Accent checker with RegExp",
+     c:"RegExp detecta palabras frecuentes sin tilde: habia→había, tenia→tenía. Base del corrector integrado.",
+     cEN:"RegExp detects common missing accent words: habia→había, tenia→tenía. Base of the built-in checker.",
+     e:"const reglas = [[/\\bhabia\\b/g,'había'],[/\\btenia\\b/g,'tenía']];\nreglas.forEach(([re,ok]) => texto = texto.replace(re, ok));"},
+    {n:62, t:"Detector de dequeísmo", tEN:"Dequeísmo detector",
+     c:"Detecta el uso incorrecto de «de que» tras verbos que no lo exigen. Se corrige con un regex.",
+     cEN:"Detects the wrong use of «de que» after verbs that don't require it. Fixed with a regex.",
+     e:"texto.replace(/\\bpienso de que\\b/gi, 'pienso que');"},
+    {n:63, t:"Detector de queísmo", tEN:"Queísmo detector",
+     c:"Detecta la omisión incorrecta de «de» en expresiones que la exigen.",
+     cEN:"Detects the wrong omission of «de» in expressions that require it.",
+     e:"texto.replace(/\\bme di cuenta que\\b/gi, 'me di cuenta de que');"},
+    {n:64, t:"Analizador de cohesión textual", tEN:"Textual cohesion analyzer",
+     c:"Cuenta conectores, párrafos y repeticiones. Base del análisis de coherencia.",
+     cEN:"Counts connectors, paragraphs and repetitions. Base of coherence analysis.",
+     e:"const conectores = {'porque','sin embargo','además'};\nconst n = [...palabras].filter(p => conectores.has(p)).length;"},
+    {n:65, t:"Analizador morfosintáctico", tEN:"Morphosyntactic analyzer",
+     c:"El estudiante señala categorías y funciones; el sistema valida. Feedback por token.",
+     cEN:"The student marks categories and functions; the system validates. Feedback per token.",
+     e:"for(token of doc){ categoriaCorrecta = token.pos_; }"},
+    {n:66, t:"Comparador de versiones de ensayo", tEN:"Essay version comparator",
+     c:"Muestra el diff entre dos versiones del mismo trabajo. Ayuda a ver la reescritura.",
+     cEN:"Shows the diff between two versions of the same work. Helps see rewriting.",
+     e:"from difflib import unified_diff\nd = unified_diff(v1.splitlines(), v2.splitlines())"},
+    {n:67, t:"Detector básico de plagio", tEN:"Basic plagiarism detector",
+     c:"Compara entregas con similitud de cadenas (difflib).",
+     cEN:"Compares submissions with string similarity (difflib).",
+     e:"from difflib import SequenceMatcher\nsim = SequenceMatcher(None, a, b).ratio();\nif(sim > 0.8) marcar_posible_plagio();"},
+    {n:68, t:"Generador de cuestionarios de vocabulario", tEN:"Vocabulary quiz generator",
+     c:"Toma un campo semántico y genera preguntas de sinónimos, antónimos y contexto.",
+     cEN:"Takes a semantic field and generates synonym, antonym and context questions.",
+     e:"const pregunta = {\n  enunciado: `Sinónimo de ${palabra}`,\n  opciones: [sinonimo, ...distractores]\n};"},
+    {n:69, t:"Banco dinámico de ejercicios", tEN:"Dynamic exercise bank",
+     c:"Genera ejercicios aleatorios desde plantillas. Variedad en cada intento.",
+     cEN:"Generates random exercises from templates. Variety on each attempt.",
+     e:"const verbo = verbos[Math.floor(Math.random()*verbos.length)];"},
+    {n:70, t:"Comprensión lectora con corrección", tEN:"Reading comprehension with correction",
+     c:"Preguntas de nivel literal, inferencial y crítico. Corrección automática.",
+     cEN:"Literal, inferential and critical level questions. Automatic correction.",
+     e:"const niveles = ['literal', 'inferencial', 'crítico'];"},
+    {n:71, t:"Rúbrica visual con pesos", tEN:"Visual rubric with weights",
+     c:"Criterios con pesos; la nota se calcula ponderada. Feedback transparente.",
+     cEN:"Weighted criteria; the grade is computed. Transparent feedback.",
+     e:"const nota = criterios.reduce((s,c) => s + c.valor*c.peso/100, 0);"},
+    {n:72, t:"Dictado con audio", tEN:"Audio dictation",
+     c:"El sistema reproduce un audio; el estudiante escribe. Se compara con el original.",
+     cEN:"The system plays audio; the student writes. Compared with the original.",
+     e:"const u = new SpeechSynthesisUtterance(texto);\nspeechSynthesis.speak(u);"},
+    {n:73, t:"Contador de palabras en vivo", tEN:"Live word counter",
+     c:"Cuenta palabras y caracteres mientras se escribe. Ajusta la extensión al requisito.",
+     cEN:"Counts words and characters while typing. Adjusts length to the requirement.",
+     e:"const n = texto.trim().split(/\\s+/).filter(Boolean).length;"},
+    {n:74, t:"Resaltado de conectores", tEN:"Highlight connectors",
+     c:"Los conectores se resaltan automáticamente al escribir. Ayuda a ver la cohesión.",
+     cEN:"Connectors are automatically highlighted while typing. Helps see cohesion.",
+     e:"conectores.forEach(c => texto = texto.replace(\n  new RegExp(`\\\\b${c}\\\\b`,'gi'), `<mark>${c}</mark>`));"},
+    {n:75, t:"Modo lectura enfocada", tEN:"Focused reading mode",
+     c:"Oscurece todo menos el párrafo activo. Mejora la concentración.",
+     cEN:"Dims everything but the active paragraph. Improves concentration.",
+     e:".lectura p{opacity:.35;transition:opacity .3s;}\n.lectura p:hover{opacity:1;}"},
+    {n:76, t:"Temporizador visual", tEN:"Visual timer",
+     c:"Muestra el tiempo restante con una barra que decrece. Gestión del tiempo.",
+     cEN:"Shows remaining time with a decreasing bar. Time management.",
+     e:"const id = setInterval(() => restante--, 1000);"},
+    {n:77, t:"Generador de oraciones aleatorias", tEN:"Random sentence generator",
+     c:"Combina sujeto + verbo + complemento. Cada clic genera una nueva para analizar.",
+     cEN:"Combines subject + verb + complement. Each click generates a new one to analyze.",
+     e:"const o = `${pick(S)} ${pick(V)} ${pick(C)}.`;"},
+    {n:78, t:"Insignias y logros", tEN:"Badges and achievements",
+     c:"Al completar una unidad, el estudiante gana una insignia. Refuerza la motivación.",
+     cEN:"Upon completing a unit, the student earns a badge. Reinforces motivation.",
+     e:"if(completadas === total) desbloquear('maestro-ortografia');"},
+    {n:79, t:"Exportar progreso a PDF", tEN:"Export progress to PDF",
+     c:"Con window.print() o html2canvas se genera un informe visual del progreso.",
+     cEN:"With window.print() or html2canvas a visual progress report is generated.",
+     e:"document.getElementById('informe').innerHTML = generar();\nwindow.print();"},
+    {n:80, t:"Modo oscuro persistente", tEN:"Persistent dark mode",
+     c:"El botón cambia el tema y guarda la preferencia en localStorage.",
+     cEN:"The button switches the theme and stores the preference in localStorage.",
+     e:"document.documentElement.setAttribute('data-theme','dark');\nlocalStorage.setItem('theme','dark');"}
+  ]
+},
+{
+  id:"b5", emoji:"🔒", nombre:"Full-stack, seguridad y despliegue", nombreEN:"Full-stack, security & deployment", rango:"81–100",
+  desc:"PWA, seguridad, Django, pruebas, accesibilidad y buenas prácticas.",
+  descEN:"PWA, security, Django, testing, accessibility and best practices.",
+  tecnicas:[
+    {n:81, t:"Service Worker para PWA", tEN:"Service Worker for PWA",
+     c:"Guarda recursos en caché para que el cuaderno funcione sin conexión.",
+     cEN:"Caches resources so the notebook works offline.",
+     e:"navigator.serviceWorker.register('/sw.js');"},
+    {n:82, t:"Manifest para instalar como app", tEN:"Manifest to install as app",
+     c:"El manifest declara nombre, iconos y colores. Permite instalar la web como app.",
+     cEN:"The manifest declares name, icons and colors. Allows installing the site as an app.",
+     e:"<link rel=\"manifest\" href=\"manifest.json\">"},
+    {n:83, t:"Estrategia cache-first", tEN:"Cache-first strategy",
+     c:"El SW sirve desde caché y actualiza en segundo plano cuando hay red.",
+     cEN:"The SW serves from cache and updates in the background when online.",
+     e:"caches.match(req).then(c => c || fetch(req));"},
+    {n:84, t:"Eventos online/offline", tEN:"Online/offline events",
+     c:"Se detecta la conexión con window.addEventListener. Útil para avisar al usuario.",
+     cEN:"Connection is detected with window.addEventListener. Useful to inform the user.",
+     e:"window.addEventListener('offline', () => mostrarAviso());"},
+    {n:85, t:"CSRF en Django", tEN:"CSRF in Django",
+     c:"Django trae CSRF por defecto. Los formularios deben incluir {% csrf_token %}.",
+     cEN:"Django enables CSRF by default. Forms must include {% csrf_token %}.",
+     e:"<form method=\"post\">\n  {% csrf_token %}\n</form>"},
+    {n:86, t:"Hash de contraseñas en Django", tEN:"Password hashing in Django",
+     c:"Nunca en texto plano. Django usa PBKDF2 con sal por usuario.",
+     cEN:"Never in plain text. Django uses PBKDF2 with per-user salt.",
+     e:"from django.contrib.auth.hashers import make_password\nmake_password('secreta')"},
+    {n:87, t:"Middleware para actividad", tEN:"Middleware for activity",
+     c:"Intercepta peticiones y registra actividad del estudiante. Capa transversal.",
+     cEN:"Intercepts requests and logs student activity. Cross-cutting layer.",
+     e:"class ActividadMiddleware:\n    def __call__(self, request):\n        return self.get_response(request)"},
+    {n:88, t:"Plantillas Django con herencia", tEN:"Django templates with inheritance",
+     c:"extends y block reutilizan estructura. Un base.html contiene header, nav y footer.",
+     cEN:"extends and block reuse structure. A base.html contains header, nav and footer.",
+     e:"{% extends 'base.html' %}\n{% block contenido %}<h1>Cursos</h1>{% endblock %}"},
+    {n:89, t:"API REST con DRF", tEN:"REST API with DRF",
+     c:"Django REST Framework expone el LMS como API para apps móviles.",
+     cEN:"Django REST Framework exposes the LMS as an API for mobile apps.",
+     e:"class CursoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Curso\n        fields = ['id','nombre']"},
+    {n:90, t:"Autenticación por token", tEN:"Token authentication",
+     c:"DRF permite TokenAuthentication. Cada usuario recibe un token para el header.",
+     cEN:"DRF enables TokenAuthentication. Each user receives a token for the header.",
+     e:"'DEFAULT_AUTHENTICATION_CLASSES': [\n  'rest_framework.authentication.TokenAuthentication'\n]"},
+    {n:91, t:"Variables de entorno", tEN:"Environment variables",
+     c:"Las credenciales nunca van en el código. Se cargan con os.environ desde .env.",
+     cEN:"Credentials never go in code. Loaded with os.environ from .env.",
+     e:"import os\nSECRET_KEY = os.environ['DJANGO_SECRET_KEY']"},
+    {n:92, t:"HTTPS obligatorio", tEN:"Mandatory HTTPS",
+     c:"SECURE_SSL_REDIRECT y HSTS fuerzan el cifrado en producción.",
+     cEN:"SECURE_SSL_REDIRECT and HSTS enforce encryption in production.",
+     e:"SECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000"},
+    {n:93, t:"Prevención de inyección SQL", tEN:"SQL injection prevention",
+     c:"ORM o consultas parametrizadas. Nunca concatenar cadenas con datos del usuario.",
+     cEN:"ORM or parameterized queries. Never concatenate strings with user data.",
+     e:"Calificacion.objects.filter(valor__lt=3.0)"},
+    {n:94, t:"Pruebas unitarias con pytest", tEN:"Unit tests with pytest",
+     c:"Validan funciones aisladas. Aseguran que el cálculo de notas funcione siempre.",
+     cEN:"Validate isolated functions. Ensure the grade calculation always works.",
+     e:"def test_prom():\n    assert prom([4,5,3]) == 4.0"},
+    {n:95, t:"Pruebas de integración", tEN:"Integration tests",
+     c:"Flujos completos: crear usuario, entregar tarea, calificar, ver nota.",
+     cEN:"Full flows: create user, submit task, grade, view grade.",
+     e:"def test_flujo(c, u):\n    c.force_login(u)\n    r = c.post('/tareas/1/entregar', {'a': f})\n    assert r.status_code == 302"},
+    {n:96, t:"Gunicorn + Nginx en producción", tEN:"Gunicorn + Nginx in production",
+     c:"Gunicorn sirve Django como WSGI; Nginx actúa como proxy inverso.",
+     cEN:"Gunicorn serves Django as WSGI; Nginx acts as reverse proxy.",
+     e:"gunicorn lms.wsgi:application --bind 0.0.0.0:8000 --workers 3"},
+    {n:97, t:"Accesibilidad WCAG", tEN:"WCAG accessibility",
+     c:"Contraste, teclado, alt en imágenes, labels en formularios. Todas las personas deben poder usar el cuaderno.",
+     cEN:"Contrast, keyboard, image alt, form labels. Everyone must be able to use the notebook.",
+     e:"<img src=\"g.png\" alt=\"Gráfico de notas\">\n<label for=\"nota\">Nota</label>"},
+    {n:98, t:"Diseño responsivo real", tEN:"Real responsive design",
+     c:"El cuaderno debe verse bien en móvil, tableta y escritorio con flexbox, grid y media queries.",
+     cEN:"The notebook must look good on mobile, tablet and desktop with flexbox, grid and media queries.",
+     e:"@media (max-width: 600px){ .menu{ flex-direction: column; } }"},
+    {n:99, t:"Monitoreo de errores", tEN:"Error monitoring",
+     c:"Se registran errores en producción con LOGGING o se envían a Sentry.",
+     cEN:"Errors are logged in production with LOGGING or sent to Sentry.",
+     e:"LOGGING = {'handlers': {'file': {'class':'logging.FileHandler','filename':'err.log'}}}"},
+    {n:100, t:"Documentación y capacitación continua", tEN:"Documentation & continuous training",
+     c:"Docstrings, README y estudio continuo. Django, Python y las buenas prácticas evolucionan.",
+     cEN:"Docstrings, README and continuous study. Django, Python and best practices evolve.",
+     e:"def prom(notas):\n    \"\"\"Devuelve el promedio.\"\"\"\n    return sum(notas)/len(notas)"}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO + STORAGE
+   ===================================================================== */
+const STORAGE_PROG = "cuaderno_html_prog";
+const STORAGE_CAMPOS = "cuaderno_html_campos";
+const STORAGE_TEMA = "cuaderno_html_tema";
+const STORAGE_LANG = "cuaderno_html_lang";
+
+let progreso = {};
+let campos = {};
+let lang = "es";
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_PROG)) || {}; } catch(e){ progreso = {}; }
+try { campos = JSON.parse(localStorage.getItem(STORAGE_CAMPOS)) || {}; } catch(e){ campos = {}; }
+try { lang = localStorage.getItem(STORAGE_LANG) || "es"; } catch(e){}
+
+const TECNICAS_FLAT = [];
+BLOQUES.forEach(b => b.tecnicas.forEach(t => { t.bloqueId = b.id; t.bloqueNombre = b.nombre; TECNICAS_FLAT.push(t); }));
+
+let modo = "dashboard";
+let actualId = "t1";
+let herramientaActual = "h1";
+let notaTimer = null;
+
+/* =====================================================================
+   UTILIDADES
+   ===================================================================== */
+const $ = (s,c=document) => c.querySelector(s);
+const $$ = (s,c=document) => Array.from(c.querySelectorAll(s));
+function el(t,c,x){ const e=document.createElement(t); if(c) e.className=c; if(x!==undefined) e.textContent=x; return e; }
+function esc(s){ return (s||"").toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function guardarProg(){ try{ localStorage.setItem(STORAGE_PROG, JSON.stringify(progreso)); }catch(e){} }
+function guardarCampos(){ try{ localStorage.setItem(STORAGE_CAMPOS, JSON.stringify(campos)); }catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function norm(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()<>/]/g,"").replace(/\s+/g," ").trim();
+}
+function barajar(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
+function bloqueDe(id){ const t = TECNICAS_FLAT.find(x=>("t"+x.n)===id); return t ? t.bloqueId : null; }
+
+/* ---------- Etiquetas bilingües ---------- */
+const LBL = {
+  es: {
+    encabezado:"Cuaderno Bilingüe · 100 técnicas HTML + CSS + JS para LMS",
+    subencabezado:"Lengua Castellana · Python + Django · ES/EN",
+    dashboard:"📊 Dashboard", cuaderno:"📖 Cuaderno", taller:"🛠 Taller", certificado:"🎓 Certificado",
+    progreso:"Progreso por bloque", estado:"Estado global", avance:"Avance acumulado", aprovech:"Aprovechamiento por bloque",
+    completadas:"Técnicas completadas", bloques:"Bloques completos", notas:"Notas escritas", aprovechKpi:"Aprovechamiento",
+    escribeNombre:"[Escriba aquí su nombre completo]", docente:"[Nombre del docente]", institucion:"[Nombre de la institución]",
+    ciudad:"Ciudad", fecha:"Fecha de expedición", radicado:"____",
+    certTitulo:"Certificado de Finalización<br>100 técnicas HTML + CSS + JS para LMS",
+    certifica:"Certifica", otorgado:"Se otorga el presente certificado a", responsable:"Docente responsable", emisora:"Institución emisora",
+    certDesc:"por haber completado el programa de formación técnica compuesto por <strong>100 técnicas</strong> orientadas al diseño, desarrollo y despliegue de LMS educativos en Lengua Castellana con HTML, CSS, JavaScript, Python y Django, con énfasis en accesibilidad, seguridad y mantenimiento.",
+    índice:"Índice general", subíndice:"100 técnicas · 5 bloques temáticos",
+    tallerTitulo:"Taller bilingüe", seleccione:"Seleccione una herramienta",
+    español:"Español", inglés:"English"
+  },
+  en: {
+    encabezado:"Bilingual Notebook · 100 techniques HTML + CSS + JS for LMS",
+    subencabezado:"Spanish Language · Python + Django · EN/ES",
+    dashboard:"📊 Dashboard", cuaderno:"📖 Notebook", taller:"🛠 Workshop", certificado:"🎓 Certificate",
+    progreso:"Progress by block", estado:"Global status", avance:"Cumulative progress", aprovech:"Achievement by block",
+    completadas:"Techniques completed", bloques:"Blocks completed", notas:"Written notes", aprovechKpi:"Achievement",
+    escribeNombre:"[Type your full name here]", docente:"[Teacher's name]", institucion:"[Institution name]",
+    ciudad:"City", fecha:"Issue date", radicado:"____",
+    certTitulo:"Completion Certificate<br>100 techniques HTML + CSS + JS for LMS",
+    certifica:"Certifies", otorgado:"This certificate is awarded to", responsable:"Responsible teacher", emisora:"Issuing institution",
+    certDesc:"for having completed the technical training program made up of <strong>100 techniques</strong> oriented to the design, development and deployment of educational LMS in Spanish with HTML, CSS, JavaScript, Python and Django, with emphasis on accessibility, security and maintenance.",
+    índice:"General index", subíndice:"100 techniques · 5 thematic blocks",
+    tallerTitulo:"Bilingual workshop", seleccione:"Select a tool",
+    español:"Spanish", inglés:"English"
+  }
+};
+function t_(k){ return (LBL[lang] && LBL[lang][k]) || k; }
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+let toastTimer = null;
+function toast(msg){
+  const t = $("#appToast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+/* =====================================================================
+   TEMA
+   ===================================================================== */
+function aplicarTema(t){
+  document.documentElement.dataset.tema = t;
+  $("#btnTheme").textContent = t === "dark" ? "☀" : "🌙";
+  try { localStorage.setItem(STORAGE_TEMA, t); } catch(e){}
+  if(t === "dark"){
+    document.documentElement.style.setProperty('--paper', '#1f2740');
+    document.documentElement.style.setProperty('--paper-2', '#252f4a');
+    document.documentElement.style.setProperty('--ink', '#e9eef8');
+    document.documentElement.style.setProperty('--navy', '#e9eef8');
+    document.documentElement.style.setProperty('--navy-dark', '#f4f7fc');
+    document.documentElement.style.setProperty('--navy-soft', '#2c3a5e');
+    document.documentElement.style.setProperty('--bronze', '#d8b07c');
+    document.documentElement.style.setProperty('--bronze-dark', '#e6c197');
+    document.documentElement.style.setProperty('--bronze-soft', '#3a2f24');
+    document.documentElement.style.setProperty('--bronze-line', '#5f4c37');
+    document.documentElement.style.setProperty('--muted', '#9cabbf');
+    document.documentElement.style.setProperty('--line', '#33406a');
+    document.documentElement.style.setProperty('--line-2', '#4a5a85');
+    document.documentElement.style.setProperty('--ok', '#7bd88b');
+    document.documentElement.style.setProperty('--ok-soft', '#213b2a');
+    document.documentElement.style.setProperty('--bad', '#f0a0a0');
+    document.documentElement.style.setProperty('--bad-soft', '#3d1f1f');
+    document.body.style.background = "#131a2c";
+  } else {
+    document.documentElement.style.setProperty('--paper', '#fdfaf3');
+    document.documentElement.style.setProperty('--paper-2', '#f7f2e8');
+    document.documentElement.style.setProperty('--ink', '#14213d');
+    document.documentElement.style.setProperty('--navy', '#14213d');
+    document.documentElement.style.setProperty('--navy-dark', '#0a1528');
+    document.documentElement.style.setProperty('--navy-soft', '#dde5f0');
+    document.documentElement.style.setProperty('--bronze', '#a67c52');
+    document.documentElement.style.setProperty('--bronze-dark', '#7c5c39');
+    document.documentElement.style.setProperty('--bronze-soft', '#f0e4d3');
+    document.documentElement.style.setProperty('--bronze-line', '#c9a96e');
+    document.documentElement.style.setProperty('--muted', '#6b6355');
+    document.documentElement.style.setProperty('--line', '#d8d2c3');
+    document.documentElement.style.setProperty('--line-2', '#b8af99');
+    document.documentElement.style.setProperty('--ok', '#2f6b3a');
+    document.documentElement.style.setProperty('--ok-soft', '#e0efe2');
+    document.documentElement.style.setProperty('--bad', '#8b1e1e');
+    document.documentElement.style.setProperty('--bad-soft', '#f8e0e0');
+    document.body.style.background = "";
+  }
+}
+$("#btnTheme").addEventListener("click", () => {
+  aplicarTema(document.documentElement.dataset.tema === "dark" ? "light" : "dark");
+});
+
+/* =====================================================================
+   IDIOMA
+   ===================================================================== */
+function aplicarIdioma(l){
+  lang = l;
+  try { localStorage.setItem(STORAGE_LANG, l); } catch(e){}
+  $("#langLabel").textContent = l === "es" ? "ES / EN" : "EN / ES";
+  // Traducir tabs y elementos estáticos
+  $$(".modo-tab").forEach(tab => {
+    const k = tab.dataset.modo;
+    if(k === "dashboard") tab.textContent = t_("dashboard");
+    if(k === "cuaderno")   tab.textContent = t_("cuaderno");
+    if(k === "taller")     tab.textContent = t_("taller");
+    if(k === "certificado")tab.textContent = t_("certificado");
+  });
+  const h1 = $(".brand h1");
+  const small = $(".brand small");
+  if(h1) h1.textContent = t_("encabezado");
+  if(small) small.textContent = t_("subencabezado");
+  // Redibujar modo actual
+  cambiarModo(modo);
+}
+$("#langPill").addEventListener("click", () => {
+  aplicarIdioma(lang === "es" ? "en" : "es");
+});
+
+/* =====================================================================
+   CAMBIO DE MODO
+   ===================================================================== */
+function cambiarModo(m){
+  modo = m;
+  $$(".modo-tab").forEach(t => {
+    const a = t.dataset.modo === m;
+    t.classList.toggle("active", a);
+    t.setAttribute("aria-selected", a ? "true" : "false");
+  });
+  $("#menuDashboard").style.display = m === "dashboard" ? "block" : "none";
+  $("#menuCuaderno").style.display = m === "cuaderno" ? "block" : "none";
+  $("#menuTaller").style.display = m === "taller" ? "block" : "none";
+  $("#menuCertificado").style.display = m === "certificado" ? "block" : "none";
+  $("#searchTecnica").style.display = m === "cuaderno" ? "block" : "none";
+  $("#sidebarTitle").textContent =
+    m === "dashboard" ? (lang === "es" ? "Secciones" : "Sections") :
+    m === "certificado" ? (lang === "es" ? "Secciones del documento" : "Document sections") :
+    m === "cuaderno" ? (lang === "es" ? "Bloques y técnicas" : "Blocks and techniques") :
+    (lang === "es" ? "Herramientas" : "Tools");
+  cerrarSidebar();
+
+  if(m === "dashboard"){ renderMenuDashboard(); abrirDashboard(); }
+  if(m === "cuaderno"){ renderMenuCuaderno(); abrirTecnica(actualId); }
+  if(m === "taller"){ renderMenuTaller(); abrirHerramienta(); }
+  if(m === "certificado"){ renderMenuCertificado(); abrirCertificado(); }
+}
+
+/* =====================================================================
+   MENÚ DASHBOARD
+   ===================================================================== */
+function renderMenuDashboard(){
+  const menu = $("#menuDashboard");
+  menu.innerHTML = "";
+  const items = [
+    {id:"dash-kpis",    labelEs:"Indicadores generales",      labelEn:"General KPIs"},
+    {id:"dash-bloques", labelEs:"Progreso por bloque",         labelEn:"Progress by block"},
+    {id:"dash-estado",  labelEs:"Estado global",               labelEn:"Global status"},
+    {id:"dash-linea",   labelEs:"Avance acumulado",            labelEn:"Cumulative progress"},
+    {id:"dash-porcentaje", labelEs:"Aprovechamiento (radar)",  labelEn:"Achievement (radar)"}
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    const label = lang === "es" ? it.labelEs : it.labelEn;
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(label)}</span>`;
+    b.addEventListener("click", () => {
+      const target = document.getElementById(it.id);
+      if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+      cerrarSidebar();
+    });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "5";
+}
+
+/* =====================================================================
+   MENÚ CUADERNO
+   ===================================================================== */
+function renderMenuCuaderno(){
+  const menu = $("#menuCuaderno");
+  menu.innerHTML = "";
+  const f = norm($("#searchTecnica").value || "");
+  BLOQUES.forEach(bloque => {
+    const tecnicas = bloque.tecnicas.filter(t =>
+      !f || norm(t.t).includes(f) || norm(t.tEN).includes(f) || norm(bloque.nombre).includes(f)
+    );
+    if(!tecnicas.length) return;
+    const hechas = bloque.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    const abierto = f ? true : (bloque.id === bloqueDe(actualId));
+    const block = el("div","cat-block");
+    const toggle = el("button","cat-toggle");
+    toggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+    const nombreB = lang === "es" ? bloque.nombre : bloque.nombreEN;
+    toggle.innerHTML = `<span>${bloque.emoji}</span><span>${esc(nombreB)}</span><span class="cat-count">${hechas}/${bloque.tecnicas.length}</span><span class="chev">▶</span>`;
+    const body = el("div");
+    body.style.display = abierto ? "block" : "none";
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", open ? "false" : "true");
+      body.style.display = open ? "none" : "block";
+    });
+    block.appendChild(toggle);
+    const prog = el("div","cat-prog");
+    const fill = document.createElement("div");
+    fill.style.width = (hechas/bloque.tecnicas.length*100) + "%";
+    prog.appendChild(fill);
+    block.appendChild(prog);
+    tecnicas.forEach(t => {
+      const id = "t" + t.n;
+      const label = lang === "es" ? t.t : t.tEN;
+      const b = el("button","tech-btn" + (getProg(id).ok ? " done":"") + (id === actualId ? " active":""));
+      b.innerHTML = `<span class="done-mark">✓</span><span>${t.n}. ${esc(label)}</span>`;
+      b.addEventListener("click", () => { abrirTecnica(id); cerrarSidebar(); });
+      body.appendChild(b);
+    });
+    block.appendChild(body);
+    menu.appendChild(block);
+  });
+  $("#sidebarCount").textContent = TECNICAS_FLAT.length;
+}
+
+/* =====================================================================
+   MENÚ TALLER
+   ===================================================================== */
+const HERRAMIENTAS = [
+  {id:"h1", nombre:"Corrector de tildes", nombreEN:"Accent checker", desc:"Detecta palabras frecuentes sin tilde.", descEN:"Detects common missing accent words."},
+  {id:"h2", nombre:"Contador de palabras", nombreEN:"Word counter", desc:"Palabras, caracteres, oraciones y párrafos.", descEN:"Words, characters, sentences and paragraphs."},
+  {id:"h3", nombre:"Generador de oraciones", nombreEN:"Sentence generator", desc:"Combina sujeto + verbo + complemento.", descEN:"Combines subject + verb + complement."},
+  {id:"h4", nombre:"Rúbrica visual", nombreEN:"Visual rubric", desc:"Criterios con pesos y nota ponderada.", descEN:"Weighted criteria and computed grade."},
+  {id:"h5", nombre:"Exportar progreso", nombreEN:"Export progress", desc:"Informe .txt de técnicas completadas.", descEN:".txt report of completed techniques."},
+  {id:"h6", nombre:"Modelo Django", nombreEN:"Django model", desc:"Genera models.py desde campos.", descEN:"Generates models.py from fields."},
+  {id:"h7", nombre:"Esquema SQL", nombreEN:"SQL schema", desc:"Genera CREATE TABLE desde columnas.", descEN:"Generates CREATE TABLE from columns."},
+  {id:"h8", nombre:"Snippet HTML+CSS", nombreEN:"HTML+CSS snippet", desc:"Genera una tarjeta HTML+CSS bilingüe.", descEN:"Generates a bilingual HTML+CSS card."},
+  {id:"h9", nombre:"Traductor de consignas", nombreEN:"Prompt translator", desc:"Traduce consignas educativas ES↔EN.", descEN:"Translates educational prompts ES↔EN."}
+];
+function renderMenuTaller(){
+  const menu = $("#menuTaller");
+  menu.innerHTML = "";
+  HERRAMIENTAS.forEach(h => {
+    const b = el("button","tech-btn" + (h.id===herramientaActual ? " active":""));
+    const label = lang === "es" ? h.nombre : h.nombreEN;
+    b.innerHTML = `<span class="done-mark">✓</span><span>${esc(label)}</span>`;
+    b.addEventListener("click", () => { herramientaActual = h.id; renderMenuTaller(); abrirHerramienta(); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = HERRAMIENTAS.length;
+}
+
+/* =====================================================================
+   MENÚ CERTIFICADO
+   ===================================================================== */
+function renderMenuCertificado(){
+  const menu = $("#menuCertificado");
+  menu.innerHTML = "";
+  const items = [
+    {id:"certificado", labelEs:"Portada certificada", labelEn:"Certified cover"},
+    {id:"indice", labelEs:"Índice general", labelEn:"General index"},
+    ...BLOQUES.map((b,i) => ({
+      id:b.id,
+      labelEs:`Bloque ${i+1}. ${b.nombre}`,
+      labelEn:`Block ${i+1}. ${b.nombreEN}`,
+      rango:b.rango
+    }))
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    const label = lang === "es" ? it.labelEs : it.labelEn;
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(label)}</span>`;
+    b.addEventListener("click", () => {
+      abrirCertificado();
+      setTimeout(() => { const t = document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); }, 80);
+      cerrarSidebar();
+    });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "7";
+}
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function abrirDashboard(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","HTML\nDASH");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `
+    <span class="tech-badge">${lang === "es" ? "Panel de progreso" : "Progress panel"}</span>
+    <h2 class="tech-title">${lang === "es" ? "Dashboard visual · 100 técnicas" : "Visual Dashboard · 100 techniques"}</h2>
+    <div class="tech-sub">${lang === "es" ? "Estadísticas por bloque · actualización en vivo" : "Per-block statistics · live updates"}</div>
+  `;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).ok).length;
+  const pct = Math.round((hechas/total)*100);
+  const bloquesCompletos = BLOQUES.filter(b => b.tecnicas.every(t => getProg("t"+t.n).ok)).length;
+  const notas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).nota && getProg("t"+t.n).nota.trim()).length;
+
+  const kpiWrap = el("div","dash-grid");
+  kpiWrap.id = "dash-kpis";
+  kpiWrap.innerHTML = `
+    <div class="kpi">
+      <span class="lbl">${t_("completadas")}</span>
+      <div class="val">${hechas}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${total}</span></div>
+      <div class="sub">${pct}% ${lang === "es" ? "del programa" : "of the program"}</div>
+      <div class="spark">${svgSpark(hechas, total)}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">${t_("bloques")}</span>
+      <div class="val">${bloquesCompletos}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${BLOQUES.length}</span></div>
+      <div class="sub">${lang === "es" ? "Todos los temas cerrados" : "All topics closed"}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">${t_("notas")}</span>
+      <div class="val">${notas}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${total}</span></div>
+      <div class="sub">${lang === "es" ? "Apuntes del cuaderno" : "Notebook entries"}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">${t_("aprovechKpi")}</span>
+      <div class="val">${pct === 100 ? (lang === "es" ? "Excelente" : "Excellent") : pct >= 75 ? (lang === "es" ? "Muy bueno" : "Very good") : pct >= 50 ? (lang === "es" ? "Bueno" : "Good") : pct >= 25 ? (lang === "es" ? "En curso" : "In progress") : (lang === "es" ? "Inicial" : "Initial")}</div>
+      <div class="sub">${lang === "es" ? "Según progreso global" : "Based on global progress"}</div>
+    </div>
+  `;
+  panel.appendChild(kpiWrap);
+
+  const chart1 = el("div","chart-card");
+  chart1.innerHTML = `
+    <div class="chart-inner">
+      <h3>${t_("progreso")}</h3>
+      <p class="sub">${lang === "es" ? "Técnicas completadas por bloque temático" : "Completed techniques per thematic block"}</p>
+      <div class="bar-chart" id="dash-bloques"></div>
+    </div>
+  `;
+  panel.appendChild(chart1);
+  const chartBloques = chart1.querySelector("#dash-bloques");
+  BLOQUES.forEach(b => {
+    const h = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    const p = Math.round((h/b.tecnicas.length)*100);
+    const nombreB = lang === "es" ? b.nombre : b.nombreEN;
+    const row = el("div","bar-row");
+    row.innerHTML = `
+      <div class="nombre">${b.emoji} ${esc(nombreB)}<small>${b.rango} · ${h}/${b.tecnicas.length}</small></div>
+      <div class="bar-track"><div class="bar-fill" style="width:0%">${p > 15 ? p+'%' : ''}</div></div>
+      <div class="pct">${p}%</div>
+    `;
+    chartBloques.appendChild(row);
+    setTimeout(() => { const f = row.querySelector(".bar-fill"); if(f) f.style.width = p + "%"; }, 60);
+  });
+
+  const chart2 = el("div","chart-card");
+  chart2.id = "dash-estado";
+  const restantes = total - hechas;
+  chart2.innerHTML = `
+    <div class="chart-inner">
+      <h3>${t_("estado")}</h3>
+      <p class="sub">${lang === "es" ? "Distribución de técnicas por estado" : "Distribution of techniques by status"}</p>
+      <div class="donut-wrap">
+        ${svgDonut(hechas, restantes)}
+        <div class="donut-info">
+          <div><span class="dot" style="background:var(--navy);"></span><span class="lbl">${lang === "es" ? "Completadas" : "Completed"}</span><span class="val">${hechas}</span></div>
+          <div><span class="dot" style="background:var(--bronze);"></span><span class="lbl">${lang === "es" ? "Pendientes" : "Pending"}</span><span class="val">${restantes}</span></div>
+          <div><span class="dot" style="background:var(--paper-2);border:1px solid var(--line);"></span><span class="lbl">${lang === "es" ? "Total" : "Total"}</span><span class="val">${total}</span></div>
+        </div>
+      </div>
+    </div>
+  `;
+  panel.appendChild(chart2);
+
+  const chart3 = el("div","chart-card");
+  chart3.id = "dash-linea";
+  const acumulado = [];
+  let acc = 0;
+  TECNICAS_FLAT.forEach(t => { if(getProg("t"+t.n).ok) acc++; acumulado.push(acc); });
+  chart3.innerHTML = `
+    <div class="chart-inner line-chart">
+      <h3>${t_("avance")}</h3>
+      <p class="sub">${lang === "es" ? "Curva de técnicas completadas a lo largo del programa" : "Curve of completed techniques along the program"}</p>
+      ${svgLine(acumulado, total)}
+    </div>
+  `;
+  panel.appendChild(chart3);
+
+  const chart4 = el("div","chart-card");
+  chart4.id = "dash-porcentaje";
+  const porBloque = BLOQUES.map(b => {
+    const h = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    return { nombre: lang === "es" ? b.nombre : b.nombreEN, emoji: b.emoji, pct: (h/b.tecnicas.length)*100 };
+  });
+  chart4.innerHTML = `
+    <div class="chart-inner">
+      <h3>${t_("aprovech")}</h3>
+      <p class="sub">${lang === "es" ? "Comparación visual entre bloques (radar)" : "Visual comparison between blocks (radar)"}</p>
+      ${svgRadar(porBloque)}
+    </div>
+  `;
+  panel.appendChild(chart4);
+}
+
+/* ---------- SVG ---------- */
+function svgSpark(hechas, total){
+  const pct = total ? hechas/total : 0;
+  const w = 70, h = 30; const puntos = [];
+  for(let i=0;i<=10;i++){ puntos.push(`${(i/10)*w},${(h - pct*(i/10)*h).toFixed(1)}`); }
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true">
+    <polyline points="${puntos.join(" ")}" fill="none" stroke="#a67c52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+function svgDonut(hechas, restantes){
+  const total = hechas + restantes;
+  const radio = 60, grosor = 22, c = 2*Math.PI*radio;
+  const pct = total ? hechas/total : 0;
+  const largoHechas = c * pct; const largoRestantes = c - largoHechas;
+  return `
+    <svg width="160" height="160" viewBox="0 0 160 160" aria-label="${hechas}/${total}">
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="var(--paper-2)" stroke-width="${grosor}"/>
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="#a67c52" stroke-width="${grosor}"
+        stroke-dasharray="${largoRestantes} ${largoHechas}" stroke-dashoffset="${-largoHechas}"
+        transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="#14213d" stroke-width="${grosor}"
+        stroke-dasharray="${largoHechas} ${largoRestantes}" stroke-dashoffset="0"
+        transform="rotate(-90 80 80)"/>
+      <text x="80" y="76" text-anchor="middle" font-family="PT Serif,Georgia,serif" font-size="26" font-weight="700" fill="var(--navy)">${Math.round(pct*100)}%</text>
+      <text x="80" y="94" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="var(--muted)">${lang === "es" ? "COMPLETADO" : "COMPLETED"}</text>
+    </svg>`;
+}
+function svgLine(datos, total){
+  const w = 600, h = 180, pad = 30;
+  const au = w - pad*2, al = h - pad*2;
+  const puntos = datos.map((v,i) => [pad + (i/(datos.length-1 || 1))*au, h - pad - (v/total)*al]);
+  const path = puntos.map((p,i) => (i===0?"M":"L") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const area = path + ` L ${puntos[puntos.length-1][0].toFixed(1)} ${h-pad} L ${puntos[0][0].toFixed(1)} ${h-pad} Z`;
+  const grid = [0,25,50,75,100].map(p => {
+    const y = h - pad - (p/100)*al;
+    return `<line x1="${pad}" y1="${y}" x2="${w-pad}" y2="${y}" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="${pad-6}" y="${y+3}" text-anchor="end" font-family="Public Sans" font-size="9" fill="var(--muted)">${p}%</text>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${w} ${h}" aria-label="${lang === "es" ? "Curva de avance acumulado" : "Cumulative progress curve"}">
+    ${grid}
+    <path d="${area}" fill="rgba(20,33,61,0.08)"/>
+    <path d="${path}" fill="none" stroke="#14213d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${puntos.filter((_,i) => i%10===0 || i===puntos.length-1).map(p => `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="#a67c52"/>`).join("")}
+  </svg>`;
+}
+function svgRadar(bloques){
+  const cx = 250, cy = 180, r = 130;
+  const n = bloques.length;
+  const angles = bloques.map((_,i) => (Math.PI*2*i)/n - Math.PI/2);
+  const ejes = angles.map(a => [cx + Math.cos(a)*r, cy + Math.sin(a)*r]);
+  const puntos = bloques.map((b,i) => {
+    const rr = r * (b.pct/100);
+    return [cx + Math.cos(angles[i])*rr, cy + Math.sin(angles[i])*rr];
+  });
+  const polygon = puntos.map(p => p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ");
+  const ejesSvg = ejes.map(e => `<line x1="${cx}" y1="${cy}" x2="${e[0].toFixed(1)}" y2="${e[1].toFixed(1)}" stroke="var(--line)" stroke-width="1"/>`).join("");
+  const circ = [0.25,0.5,0.75,1].map(p => `<circle cx="${cx}" cy="${cy}" r="${(r*p).toFixed(1)}" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>`).join("");
+  const labels = bloques.map((b,i) => {
+    const lx = cx + Math.cos(angles[i])*(r+22);
+    const ly = cy + Math.sin(angles[i])*(r+22);
+    const anchor = Math.cos(angles[i]) > 0.3 ? "start" : Math.cos(angles[i]) < -0.3 ? "end" : "middle";
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" font-family="Public Sans" font-size="10" font-weight="700" fill="var(--navy)">${b.emoji} ${b.pct.toFixed(0)}%</text>`;
+  }).join("");
+  const puntosSvg = puntos.map(p => `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="#a67c52"/>`).join("");
+  return `<svg viewBox="0 0 500 360" aria-label="${lang === "es" ? "Comparación por bloque" : "Per-block comparison"}">
+    ${circ}${ejesSvg}
+    <polygon points="${polygon}" fill="rgba(20,33,61,0.15)" stroke="#14213d" stroke-width="2"/>
+    ${puntosSvg}${labels}
+  </svg>`;
+}
+
+/* =====================================================================
+   CUADERNO
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => ("t" + x.n) === id);
+  if(!t){ actualId = "t1"; return abrirTecnica("t1"); }
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","HTML\nCSS\nJS");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  const bloqueNombre = lang === "es" ? t.bloqueNombre : (BLOQUES.find(b=>b.id===t.bloqueId).nombreEN);
+  header.innerHTML = `
+    <span class="tech-badge">${bloqueNombre}</span>
+    <h2 class="tech-title">${esc(lang === "es" ? t.t : t.tEN)}</h2>
+    <div class="tech-sub">${lang === "es" ? "Técnica" : "Technique"} ${t.n} / ${TECNICAS_FLAT.length} · ${lang === "es" ? "Bloque" : "Block"} ${BLOQUES.findIndex(b=>b.id===t.bloqueId)+1}/5</div>
+  `;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  const bloque = BLOQUES.find(b => b.id === t.bloqueId);
+  const dots = el("div","block-dots");
+  bloque.tecnicas.forEach(bt => {
+    const btId = "t" + bt.n;
+    const d = el("button","block-dot" + (getProg(btId).ok ? " done":"") + (btId === id ? " current":""));
+    d.title = lang === "es" ? bt.t : bt.tEN;
+    d.addEventListener("click", () => abrirTecnica(btId));
+    dots.appendChild(d);
+  });
+  panel.appendChild(dots);
+
+  // Flashcard bilingüe
+  const fc = el("div","flashcard");
+  fc.tabIndex = 0;
+  fc.innerHTML = `
+    <div class="flashcard-inner">
+      <div class="flashcard-face">
+        <span class="flashcard-tag">• ${lang === "es" ? "Concepto" : "Concept"} (${lang === "es" ? "ES" : "EN"})</span>
+        <p>${esc(lang === "es" ? t.c : t.cEN)}</p>
+        <span class="flashcard-hint">${lang === "es" ? "Voltee la tarjeta para ver el ejemplo ↻" : "Flip the card to see the example ↻"}</span>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="flashcard-tag">• ${lang === "es" ? "Ejemplo" : "Example"}</span>
+        <p style="font-family:'JetBrains Mono',monospace;font-style:normal;font-size:.78rem;line-height:1.6;">${esc(t.e)}</p>
+        <span class="flashcard-hint">↻ ${lang === "es" ? "Toque de nuevo para volver al concepto" : "Tap again to return to the concept"}</span>
+      </div>
+    </div>
+  `;
+  fc.addEventListener("click", () => fc.classList.toggle("flipped"));
+  fc.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); fc.classList.toggle("flipped"); } });
+  panel.appendChild(fc);
+
+  // Bloque bilingüe completo
+  const biling = el("div","biling");
+  biling.innerHTML = `
+    <div>
+      <span class="lang">ES</span>
+      <p style="font-family:'PT Serif',Georgia,serif;font-size:.9rem;line-height:1.55;color:var(--ink);margin:.2rem 0 0;">${esc(t.c)}</p>
+    </div>
+    <div>
+      <span class="lang en">EN</span>
+      <p style="font-family:'PT Serif',Georgia,serif;font-size:.9rem;line-height:1.55;color:var(--ink);margin:.2rem 0 0;">${esc(t.cEN)}</p>
+    </div>
+  `;
+  panel.appendChild(biling);
+
+  const flipBtn = el("button","btn-sm-custom outline","↻ " + (lang === "es" ? "Voltear tarjeta" : "Flip card"));
+  flipBtn.addEventListener("click", () => fc.classList.toggle("flipped"));
+  panel.appendChild(flipBtn);
+
+  // Ejercicio
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = `${lang === "es" ? "Ejercicio interactivo" : "Interactive exercise"} <small>${lang === "es" ? "compruebe su comprensión" : "check your understanding"}</small>`;
+  sec.appendChild(st);
+  const ej = generarEjercicio(t);
+  sec.appendChild(el("p","consigna", ej.consigna));
+  const body = el("div"); sec.appendChild(body);
+  const fb = el("div","fb-box"); sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  // Cuaderno
+  const cuad = el("section","cuaderno-block");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = `${lang === "es" ? "Cuaderno técnico" : "Technical notebook"} <small>${lang === "es" ? "se guarda automáticamente" : "autosaved"}</small>`;
+  cuad.appendChild(ct);
+  const ta = document.createElement("textarea");
+  ta.className = "area-redaccion";
+  ta.rows = 5;
+  ta.placeholder = lang === "es" ? "Escriba aquí sus notas, código propio, dudas técnicas…" : "Write your notes, own code, technical questions…";
+  ta.value = getProg(id).nota || "";
+  cuad.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span");
+  const status = el("span","", "✓ " + (lang === "es" ? "Guardado" : "Saved"));
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  // Navegación
+  const nav = el("div","nav-foot");
+  const prev = el("button","btn-sm-custom outline","← " + (lang === "es" ? "Anterior" : "Previous"));
+  const next = el("button","btn-sm-custom primary", (lang === "es" ? "Siguiente" : "Next") + " →");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.addEventListener("click", () => { if(idx>0) abrirTecnica("t" + TECNICAS_FLAT[idx-1].n); });
+  next.addEventListener("click", () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica("t" + TECNICAS_FLAT[idx+1].n); });
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n===1 ? (lang === "es" ? " palabra" : " word") : (lang === "es" ? " palabras" : " words"));
+  };
+  ta.addEventListener("input", () => {
+    upd();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(id).nota = ta.value;
+      guardarProg();
+      status.classList.remove("show");
+    }, 600);
+  });
+  upd();
+
+  renderEjercicio(ej, body, fb, id);
+  renderMenuCuaderno();
+}
+
+/* ---------- Ejercicio ---------- */
+function generarEjercicio(t){
+  const correctaEs = t.c;
+  const correctaEn = t.cEN;
+  const distractoresEs = TECNICAS_FLAT.filter(x => x.bloqueId !== t.bloqueId).slice(0,3).map(x => x.c);
+  const opciones = barajar([
+    {texto: lang === "es" ? correctaEs : correctaEn, ok:true},
+    {texto: distractoresEs[0] || "…", ok:false},
+    {texto: distractoresEs[1] || "…", ok:false},
+    {texto: distractoresEs[2] || "…", ok:false}
+  ]);
+  const idxOk = opciones.findIndex(o => o.ok);
+  return {
+    tipo:"quiz",
+    consigna: lang === "es"
+      ? `Elija la afirmación correcta sobre «${t.t}».`
+      : `Choose the correct statement about "${t.tEN}".`,
+    opciones: opciones.map(o => o.texto),
+    correcta: idxOk,
+    retro: lang === "es" ? `${t.t}: ${t.c}` : `${t.tEN}: ${t.cEN}`
+  };
+}
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "fb-box";
+  const wrap = el("div","opciones");
+  const L = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = el("button","opcion-btn");
+    b.innerHTML = `<span class="opcion-letra">${L[i]}</span><span>${esc(op)}</span>`;
+    b.addEventListener("click", () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c,j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok?"ok":"mal",
+        ok ? (lang === "es" ? "✓ Correcto" : "✓ Correct") : (lang === "es" ? "✗ Revise su respuesta" : "✗ Check your answer"),
+        ej.retro);
+      if(ok) marcarCompletada(techId);
+      const reBtn = el("button","btn-sm-custom outline","↺ " + (lang === "es" ? "Intentar de nuevo" : "Try again"));
+      reBtn.style.marginTop = ".5rem";
+      reBtn.addEventListener("click", () => renderEjercicio(ej, cont, fb, techId));
+      cont.appendChild(reBtn);
+    });
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "fb-box fb-" + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){ p.ok = true; guardarProg(); renderMenuCuaderno(); }
+}
+
+/* =====================================================================
+   TALLER BILINGÜE
+   ===================================================================== */
+function abrirHerramienta(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","TALLER\nBILING");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const h = HERRAMIENTAS.find(x => x.id === herramientaActual);
+  const header = el("div","tech-header");
+  header.innerHTML = `
+    <span class="tech-badge">${t_("tallerTitulo")}</span>
+    <h2 class="tech-title">${esc(lang === "es" ? h.nombre : h.nombreEN)}</h2>
+    <div class="tech-sub">${esc(lang === "es" ? h.desc : h.descEN)}</div>
+  `;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  const card = el("div","tool-card");
+  const inner = el("div","tool-inner");
+  card.appendChild(inner);
+  panel.appendChild(card);
+
+  if(herramientaActual === "h1") toolCorrector(inner);
+  if(herramientaActual === "h2") toolContador(inner);
+  if(herramientaActual === "h3") toolGenerador(inner);
+  if(herramientaActual === "h4") toolRubrica(inner);
+  if(herramientaActual === "h5") toolExportar(inner);
+  if(herramientaActual === "h6") toolModeloDjango(inner);
+  if(herramientaActual === "h7") toolEsquemaSQL(inner);
+  if(herramientaActual === "h8") toolSnippetHTML(inner);
+  if(herramientaActual === "h9") toolTraductor(inner);
+}
+function toolCorrector(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Corrector de tildes" : "Accent checker"}</h4><p>${lang === "es" ? "Detecta patrones con expresiones regulares." : "Detects patterns with regular expressions."}</p>`;
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = lang === "es" ? "Escriba aquí su texto…" : "Write your text here…";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary", lang === "es" ? "Corregir" : "Proofread");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const reglas = [
+    [/\bhabia\b/gi, "había", "pretérito haber"],
+    [/\btenia\b/gi, "tenía", "pretérito tener"],
+    [/\bqueria\b/gi, "quería", "pretérito querer"],
+    [/\bvenia\b/gi, "venía", "pretérito venir"],
+    [/\bdecia\b/gi, "decía", "pretérito decir"],
+    [/\basi\b/gi, "así", "adverbio"],
+    [/\bde que estudiar\b/gi, "que estudiar", "posible dequeísmo"],
+    [/\bme di cuenta que\b/gi, "me di cuenta de que", "queísmo"],
+    [/\s{2,}/g, " ", "doble espacio"]
+  ];
+  btn.addEventListener("click", () => {
+    const orig = ta.value;
+    if(!orig.trim()){ out.textContent = lang === "es" ? "Escriba un texto." : "Write some text."; return; }
+    let corr = orig; const h = [];
+    reglas.forEach(([re, ok, m]) => {
+      const mm = orig.match(re);
+      if(mm){ h.push(`• ${mm.length}× «${mm[0].trim()}» → «${ok}» (${m})`); corr = corr.replace(re, ok); }
+    });
+    out.textContent = (lang === "es" ? "TEXTO CORREGIDO:\n\n" : "CORRECTED TEXT:\n\n") + corr + "\n\n---\n" + (lang === "es" ? "HALLAZGOS:\n" : "FINDINGS:\n") + (h.length ? h.join("\n") : (lang === "es" ? "Sin hallazgos." : "None."));
+    toast("✓ " + (lang === "es" ? "Corrección aplicada" : "Done"));
+  });
+  btnCopy.addEventListener("click", () => { navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+}
+function toolContador(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Contador de palabras" : "Word counter"}</h4><p>${lang === "es" ? "Estadísticas en vivo." : "Live statistics."}</p>`;
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 8; cont.appendChild(ta);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const upd = () => {
+    const txt = ta.value;
+    const palabras = (txt.match(/[a-záéíóúñü]+/gi) || []).length;
+    const car = txt.length, carSS = txt.replace(/\s/g,"").length;
+    const or = txt.split(/[.!?]+/).filter(x=>x.trim()).length;
+    const par = txt.split(/\n\s*\n/).filter(x=>x.trim()).length;
+    const prom = or ? (palabras/or).toFixed(1) : 0;
+    out.textContent = lang === "es"
+      ? `Palabras: ${palabras}\nCaracteres: ${car}\nSin espacios: ${carSS}\nOraciones: ${or}\nPárrafos: ${par}\nPromedio palabras/oración: ${prom}`
+      : `Words: ${palabras}\nCharacters: ${car}\nNo spaces: ${carSS}\nSentences: ${or}\nParagraphs: ${par}\nWords/sentence: ${prom}`;
+  };
+  ta.addEventListener("input", upd); upd();
+}
+function toolGenerador(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Generador de oraciones" : "Sentence generator"}</h4><p>${lang === "es" ? "Sujeto + verbo + complemento al azar." : "Subject + verb + complement at random."}</p>`;
+  const out = el("div","resultado-caja"); out.style.fontFamily = "'PT Serif',Georgia,serif"; cont.appendChild(out);
+  const btn = el("button","btn-sm-custom primary","🎲 " + (lang === "es" ? "Generar" : "Generate"));
+  cont.appendChild(btn);
+  const S_es = ["El niño","La maestra","Mi amigo","Los estudiantes","La abuela","El perro","Un poeta"];
+  const S_en = ["The boy","The teacher","My friend","The students","The grandmother","The dog","A poet"];
+  const V_es = ["escribe","lee","corrige","escucha","imagina","recita","reescribe"];
+  const V_en = ["writes","reads","corrects","listens","imagines","recites","rewrites"];
+  const C_es = ["un poema de amor","una novela larga","la lección del día","cuentos de hadas","una carta a su familia"];
+  const C_en = ["a love poem","a long novel","today's lesson","fairy tales","a letter to his family"];
+  const X_es = ["en la biblioteca","con mucha paciencia","todas las tardes","sin hacer ruido","junto a la ventana"];
+  const X_en = ["in the library","very patiently","every afternoon","without a sound","by the window"];
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  btn.addEventListener("click", () => {
+    if(lang === "es"){
+      out.textContent = `ORACIÓN GENERADA:\n\n${pick(S_es)} ${pick(V_es)} ${pick(C_es)} ${pick(X_es)}.\n\n---\nANÁLISIS:\n• Sujeto y núcleo\n• Predicado y núcleo\n• Complemento directo\n• Complemento circunstancial`;
+    } else {
+      out.textContent = `GENERATED SENTENCE:\n\n${pick(S_en)} ${pick(V_en)} ${pick(C_en)} ${pick(X_en)}.\n\n---\nANALYSIS:\n• Subject and head\n• Predicate and head\n• Direct object\n• Adverbial`;
+    }
+  });
+  btn.click();
+}
+function toolRubrica(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Rúbrica visual" : "Visual rubric"}</h4><p>${lang === "es" ? "Pesos deben sumar 100. Valores 0–5." : "Weights must add up to 100. Values 0–5."}</p>`;
+  const estado = { criterios: [
+    {nombre: lang === "es" ? "Tesis" : "Thesis", peso:30, valor:0},
+    {nombre: lang === "es" ? "Argumentos" : "Arguments", peso:40, valor:0},
+    {nombre: lang === "es" ? "Ortografía" : "Spelling", peso:15, valor:0},
+    {nombre: lang === "es" ? "Estilo" : "Style", peso:15, valor:0}
+  ]};
+  const contenedor = el("div");
+  const out = el("div","resultado-caja");
+  function render(){
+    contenedor.innerHTML = "";
+    estado.criterios.forEach((c, i) => {
+      const row = el("div","d-flex gap-2 mb-2"); row.style.flexWrap = "wrap";
+      const nom = document.createElement("input"); nom.className = "input-sm"; nom.value = c.nombre; nom.style.flex = "1 1 150px";
+      nom.addEventListener("input", () => { c.nombre = nom.value; });
+      const peso = document.createElement("input"); peso.type = "number"; peso.className = "input-sm"; peso.value = c.peso; peso.style.width = "80px";
+      peso.addEventListener("input", () => { c.peso = parseInt(peso.value||"0",10); upd(); });
+      const val = document.createElement("input"); val.type = "range"; val.min = 0; val.max = 5; val.value = c.valor; val.style.flex = "1 1 120px";
+      const valTxt = el("span", null, c.valor + "/5"); valTxt.style.cssText = "font-weight:700;font-family:'JetBrains Mono',monospace;min-width:40px;text-align:center;";
+      val.addEventListener("input", () => { c.valor = parseInt(val.value,10); valTxt.textContent = c.valor + "/5"; upd(); });
+      const del = el("button","btn-sm-custom danger","×");
+      del.addEventListener("click", () => { estado.criterios.splice(i,1); render(); });
+      row.appendChild(nom); row.appendChild(peso); row.appendChild(val); row.appendChild(valTxt); row.appendChild(del);
+      contenedor.appendChild(row);
+    });
+    upd();
+  }
+  function upd(){
+    const suma = estado.criterios.reduce((s,c) => s + (c.peso||0), 0);
+    const nota = estado.criterios.reduce((s,c) => s + (c.valor * c.peso / 100), 0);
+    out.textContent = lang === "es"
+      ? `PESOS: ${suma}%${suma===100?' ✓':' (deben sumar 100)'}\nNOTA: ${nota.toFixed(2)} / 5.0\nSobre 10: ${(nota*2).toFixed(1)}\nSobre 100: ${(nota*20).toFixed(0)}`
+      : `WEIGHTS: ${suma}%${suma===100?' ✓':' (must add up to 100)'}\nGRADE: ${nota.toFixed(2)} / 5.0\nOut of 10: ${(nota*2).toFixed(1)}\nOut of 100: ${(nota*20).toFixed(0)}`;
+  }
+  render();
+  cont.appendChild(contenedor);
+  const addBtn = el("button","btn-sm-custom outline","+ " + (lang === "es" ? "Añadir criterio" : "Add criterion"));
+  addBtn.addEventListener("click", () => { estado.criterios.push({nombre: lang === "es" ? "Nuevo" : "New", peso:0, valor:0}); render(); });
+  cont.appendChild(addBtn); cont.appendChild(out);
+}
+function toolExportar(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Exportar progreso" : "Export progress"}</h4><p>${lang === "es" ? "Informe .txt de técnicas completadas." : ".txt report of completed techniques."}</p>`;
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btnGen = el("button","btn-sm-custom primary", lang === "es" ? "📄 Generar" : "📄 Generate");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  const btnDown = el("button","btn-sm-custom outline", lang === "es" ? "Descargar .txt" : "Download .txt");
+  acciones.appendChild(btnGen); acciones.appendChild(btnCopy); acciones.appendChild(btnDown);
+  cont.appendChild(acciones);
+  const gen = () => {
+    const total = TECNICAS_FLAT.length;
+    const hechas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).ok).length;
+    let txt = (lang === "es" ? "INFORME DE PROGRESO · CUADERNO BILINGÜE HTML\n" : "PROGRESS REPORT · BILINGUAL HTML NOTEBOOK\n");
+    txt += (lang === "es" ? "Fecha: " : "Date: ") + new Intl.DateTimeFormat(lang === "es" ? "es-CO" : "en-US", { dateStyle:"long", timeStyle:"short" }).format(new Date()) + "\n\n";
+    txt += (lang === "es" ? `RESUMEN\nCompletadas: ${hechas} de ${total} (${((hechas/total)*100).toFixed(1)}%)\n\n` : `SUMMARY\nCompleted: ${hechas} of ${total} (${((hechas/total)*100).toFixed(1)}%)\n\n`);
+    BLOQUES.forEach(b => {
+      const h = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+      const nombreB = lang === "es" ? b.nombre : b.nombreEN;
+      txt += `${lang === "es" ? "BLOQUE" : "BLOCK"} ${b.emoji} ${nombreB} — ${h}/${b.tecnicas.length}\n`;
+      b.tecnicas.forEach(t => {
+        const p = getProg("t"+t.n);
+        txt += `  [${p.ok ? "✓" : " "}] ${t.n}. ${lang === "es" ? t.t : t.tEN}`;
+        if(p.nota && p.nota.trim()) txt += ` — "${p.nota.trim().slice(0,60)}${p.nota.trim().length>60?"…":""}"`;
+        txt += "\n";
+      });
+      txt += "\n";
+    });
+    return txt;
+  };
+  btnGen.addEventListener("click", () => { out.textContent = gen(); toast("✓ " + (lang === "es" ? "Generado" : "Generated")); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+  btnDown.addEventListener("click", () => {
+    const txt = out.textContent.trim() ? out.textContent : gen();
+    const blob = new Blob([txt], { type:"text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url;
+    a.download = "informe_cuaderno_html_" + new Date().toISOString().slice(0,10) + ".txt";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast("✓ " + (lang === "es" ? "Descargado" : "Downloaded"));
+  });
+  btnGen.click();
+}
+function toolModeloDjango(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Generador de modelo Django" : "Django model generator"}</h4><p>${lang === "es" ? "Complete clase y campos para models.py." : "Fill class and fields to get models.py."}</p>`;
+  const form = el("div","d-flex gap-2 mb-2"); form.style.flexWrap = "wrap";
+  const clase = document.createElement("input"); clase.className = "input-sm"; clase.placeholder = lang === "es" ? "Nombre de la clase" : "Class name"; clase.style.flex = "1 1 200px";
+  const app = document.createElement("input"); app.className = "input-sm"; app.placeholder = "App"; app.style.flex = "1 1 150px";
+  form.appendChild(clase); form.appendChild(app);
+  cont.appendChild(form);
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = "titulo, CharField, max_length=200\ncurso, ForeignKey, Curso, on_delete=CASCADE";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary", lang === "es" ? "Generar" : "Generate");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const gen = () => {
+    const nc = clase.value.trim() || "Modelo";
+    const na = app.value.trim() || "app";
+    let campos = "";
+    (ta.value || "").split("\n").forEach(l => {
+      const tt = l.trim(); if(!tt) return;
+      const p = tt.split(",").map(x => x.trim());
+      const [nombre, tipo, ...args] = p;
+      if(!nombre) return;
+      campos += `    ${nombre} = models.${tipo||"CharField"}(${args.join(", ")})\n`;
+    });
+    return `# ${na}/models.py\nfrom django.db import models\n\nclass ${nc}(models.Model):\n${campos||"    pass\n"}\n    def __str__(self):\n        return str(self.pk)\n`;
+  };
+  btn.addEventListener("click", () => { out.textContent = gen(); toast("✓ " + (lang === "es" ? "Generado" : "Generated")); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+}
+function toolEsquemaSQL(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Generador de esquema SQL" : "SQL schema generator"}</h4><p>${lang === "es" ? "Defina tabla, PK y columnas." : "Define table, PK and columns."}</p>`;
+  const form = el("div","d-flex gap-2 mb-2"); form.style.flexWrap = "wrap";
+  const tabla = document.createElement("input"); tabla.className = "input-sm"; tabla.placeholder = lang === "es" ? "Tabla" : "Table"; tabla.style.flex = "1 1 180px";
+  const pk = document.createElement("input"); pk.className = "input-sm"; pk.placeholder = "PK (id SERIAL PRIMARY KEY)"; pk.style.flex = "1 1 220px";
+  form.appendChild(tabla); form.appendChild(pk);
+  cont.appendChild(form);
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = "estudiante_id INT REFERENCES estudiantes(id)\nvalor NUMERIC(3,1) NOT NULL";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary", lang === "es" ? "Generar SQL" : "Generate SQL");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const gen = () => {
+    const t = tabla.value.trim() || "tabla";
+    const p = pk.value.trim() || "id SERIAL PRIMARY KEY";
+    let cols = "  " + p;
+    (ta.value || "").split("\n").forEach(l => { if(l.trim()) cols += ",\n  " + l.trim(); });
+    return `CREATE TABLE ${t} (\n${cols}\n);\n`;
+  };
+  btn.addEventListener("click", () => { out.textContent = gen(); toast("✓ " + (lang === "es" ? "SQL generado" : "SQL generated")); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+}
+function toolSnippetHTML(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Snippet HTML + CSS" : "HTML + CSS snippet"}</h4><p>${lang === "es" ? "Genera una tarjeta bilingüe HTML+CSS." : "Generates a bilingual HTML+CSS card."}</p>`;
+  const form = el("div","d-flex gap-2 mb-2"); form.style.flexWrap = "wrap";
+  const titulo = document.createElement("input"); titulo.className = "input-sm"; titulo.placeholder = lang === "es" ? "Título (ES)" : "Title (EN)"; titulo.style.flex = "1 1 200px";
+  const tituloEN = document.createElement("input"); tituloEN.className = "input-sm"; tituloEN.placeholder = "Title (EN)"; tituloEN.style.flex = "1 1 200px";
+  form.appendChild(titulo); form.appendChild(tituloEN);
+  cont.appendChild(form);
+  const tema = document.createElement("select"); tema.className = "input-sm mb-2";
+  tema.innerHTML = `<option value="navy">${lang === "es" ? "Tema navy" : "Navy theme"}</option>
+    <option value="bronze">${lang === "es" ? "Tema bronce" : "Bronze theme"}</option>
+    <option value="light">${lang === "es" ? "Tema claro" : "Light theme"}</option>`;
+  cont.appendChild(tema);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary", lang === "es" ? "Generar snippet" : "Generate snippet");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const gen = () => {
+    const t = titulo.value.trim() || (lang === "es" ? "Título" : "Title");
+    const tEN = tituloEN.value.trim() || "Title";
+    const th = tema.value;
+    const colors = {
+      navy:   {bg:"#14213d", fg:"#fdfaf3", accent:"#a67c52"},
+      bronze: {bg:"#f0e4d3", fg:"#14213d", accent:"#7c5c39"},
+      light:  {bg:"#fdfaf3", fg:"#14213d", accent:"#a67c52"}
+    }[th];
+    return `<article class="tarjeta-bilingue" data-tema="${th}">
+  <header>
+    <h3 lang="es">${t}</h3>
+    <h4 lang="en">${tEN}</h4>
+  </header>
+  <p class="cuerpo">${lang === "es" ? "Descripción breve de la técnica…" : "Brief description of the technique…"}</p>
+  <footer>
+    <button class="btn" aria-label="${lang === "es" ? "Ver detalle" : "View details"}">${lang === "es" ? "Ver detalle" : "View details"}</button>
+  </footer>
+</article>
+
+<style>
+.tarjeta-bilingue {
+  --bg: ${colors.bg};
+  --fg: ${colors.fg};
+  --accent: ${colors.accent};
+  background: var(--bg);
+  color: var(--fg);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  max-width: 480px;
+  font-family: "Public Sans", system-ui, sans-serif;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 22px rgba(0,0,0,.10);
+}
+.tarjeta-bilingue h3 { margin: 0 0 .15rem; font-size: 1rem; }
+.tarjeta-bilingue h4 { margin: 0 0 .6rem; font-size: .82rem; opacity: .75; font-style: italic; font-weight: 500; }
+.tarjeta-bilingue .cuerpo { font-size: .88rem; line-height: 1.55; margin: 0 0 .9rem; }
+.tarjeta-bilingue .btn {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: .45rem .9rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: .76rem;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter .2s;
+}
+.tarjeta-bilingue .btn:hover { filter: brightness(1.08); }
+.tarjeta-bilingue .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+</style>`;
+  };
+  btn.addEventListener("click", () => { out.textContent = gen(); toast("✓ " + (lang === "es" ? "Snippet generado" : "Snippet generated")); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+}
+function toolTraductor(cont){
+  cont.innerHTML = `<h4>${lang === "es" ? "Traductor de consignas educativas" : "Educational prompt translator"}</h4><p>${lang === "es" ? "Traduce consignas ES↔EN con plantillas frecuentes." : "Translates prompts ES↔EN with common templates."}</p>`;
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 4;
+  ta.placeholder = lang === "es" ? "Escriba una consigna…" : "Write a prompt…";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary", lang === "es" ? "Traducir ES→EN" : "Translate EN→ES");
+  const btnCopy = el("button","btn-sm-custom outline", lang === "es" ? "Copiar" : "Copy");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const plantillasES_EN = [
+    [/\bEscriba\b/g, "Write"], [/\bescriba\b/g, "write"],
+    [/\bLea\b/g, "Read"], [/\blea\b/g, "read"],
+    [/\bExplique\b/g, "Explain"], [/\bexplique\b/g, "explain"],
+    [/\bAnalice\b/g, "Analyze"], [/\banalice\b/g, "analyze"],
+    [/\bComplete\b/g, "Complete"], [/\bcomplete\b/g, "complete"],
+    [/\bResponda\b/g, "Answer"], [/\bresponda\b/g, "answer"],
+    [/\bEjercicio\b/g, "Exercise"], [/\bejercicio\b/g, "exercise"],
+    [/\bpregunta\b/g, "question"], [/\bPregunta\b/g, "Question"],
+    [/\boración\b/g, "sentence"], [/\bpalabra\b/g, "word"],
+    [/\btexto\b/g, "text"], [/\bejemplo\b/g, "example"],
+    [/\bsubraye\b/g, "underline"], [/\bSubraye\b/g, "Underline"]
+  ];
+  const plantillasEN_ES = plantillasES_EN.map(([re, ok]) => [new RegExp(ok, "g"), re.source.replace(/\\b/g, "").toLowerCase()]);
+  btn.addEventListener("click", () => {
+    const txt = ta.value.trim();
+    if(!txt){ out.textContent = lang === "es" ? "Escriba una consigna." : "Write a prompt."; return; }
+    let outTxt = txt;
+    if(lang === "es"){ plantillasES_EN.forEach(([re, ok]) => { outTxt = outTxt.replace(re, ok); }); }
+    else { plantillasES_EN.forEach(([re, ok]) => { outTxt = outTxt.replace(new RegExp(ok, "gi"), re.source.replace(/\\b/g, "").toLowerCase()); }); }
+    out.textContent = (lang === "es" ? "TRADUCCIÓN:\n\n" : "TRANSLATION:\n\n") + outTxt + "\n\n---\n" + (lang === "es" ? "(Traducción por plantillas de consignas frecuentes.)" : "(Template-based translation of frequent prompts.)");
+    toast("✓ " + (lang === "es" ? "Traducido" : "Translated"));
+  });
+  btnCopy.addEventListener("click", () => { navigator.clipboard.writeText(out.textContent).then(() => toast("✓ " + (lang === "es" ? "Copiado" : "Copied"))); });
+}
+
+/* =====================================================================
+   CERTIFICADO BILINGÜE
+   ===================================================================== */
+function abrirCertificado(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","HTML\nCERT");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const cert = el("section","certificado");
+  cert.id = "certificado";
+  cert.innerHTML = `
+    <div class="cert-sello" aria-hidden="true"><div class="cert-sello-inner"><div><span class="anio">2025</span><span class="lbl">${t_("certifica")}</span></div></div></div>
+    <div class="cert-eyebrow">${lang === "es" ? "República del Conocimiento · Formación Técnica" : "Knowledge Republic · Technical Training"}</div>
+    <h1 class="cert-titulo">${t_("certTitulo")}</h1>
+    <div class="cert-linea"></div>
+    <p class="cert-otorgado">${t_("otorgado")}</p>
+    <span class="cert-nombre" contenteditable="true" data-campo="nombre">${t_("escribeNombre")}</span>
+    <p class="cert-desc">${t_("certDesc")}</p>
+    <div class="cert-firmas">
+      <div class="cert-firma"><strong contenteditable="true" data-campo="docente">${t_("docente")}</strong><small>${t_("responsable")}</small></div>
+      <div class="cert-firma"><strong contenteditable="true" data-campo="institucion">${t_("institucion")}</strong><small>${t_("emisora")}</small></div>
+    </div>
+    <div class="cert-meta">
+      <span contenteditable="true" data-campo="ciudad">${t_("ciudad")}</span>
+      <span contenteditable="true" data-campo="fecha">${t_("fecha")}</span>
+      <span>${lang === "es" ? "Radicado" : "Record"}: <span contenteditable="true" data-campo="radicado">${t_("radicado")}</span></span>
+    </div>
+  `;
+  panel.appendChild(cert);
+
+  const idx = el("section");
+  idx.id = "indice";
+  idx.style.marginTop = "2.5rem";
+  idx.style.paddingTop = "1.5rem";
+  idx.style.borderTop = "3px double var(--navy)";
+  idx.innerHTML = `<h2 style="font-family:'PT Serif',Georgia,serif;text-align:center;color:var(--navy);font-size:1.3rem;margin:0 0 .3rem;">${t_("índice")}</h2>
+    <p style="text-align:center;font-size:.68rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:1.4rem;">${t_("subíndice")}</p>
+    <div class="row g-3" id="indiceGrid"></div>`;
+  panel.appendChild(idx);
+  const grid = idx.querySelector("#indiceGrid");
+  BLOQUES.forEach(b => {
+    const c = el("div","col-md-6");
+    const nombreB = lang === "es" ? b.nombre : b.nombreEN;
+    const descB = lang === "es" ? b.desc : b.descEN;
+    c.innerHTML = `
+      <div style="border:1px solid var(--bronze-line);padding:.85rem 1rem;border-left:3px solid var(--navy);border-radius:3px;background:var(--paper);">
+        <h3 style="font-family:'PT Serif',Georgia,serif;font-size:.92rem;color:var(--navy);margin:0 0 .3rem;display:flex;gap:.5rem;align-items:baseline;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.66rem;font-weight:700;color:var(--bronze-dark);background:var(--bronze-soft);padding:.1rem .35rem;border:1px solid var(--bronze-line);">${b.rango}</span>
+          ${b.emoji} ${esc(nombreB)}
+        </h3>
+        <p style="font-size:.74rem;color:var(--muted);margin:0;line-height:1.5;">${esc(descB)}</p>
+      </div>`;
+    grid.appendChild(c);
+  });
+
+  const cont = el("div"); cont.style.marginTop = "2rem";
+  BLOQUES.forEach((b, bi) => {
+    const sec = el("section","doc-bloque");
+    sec.id = b.id;
+    const nombreB = lang === "es" ? b.nombre : b.nombreEN;
+    const descB = lang === "es" ? b.desc : b.descEN;
+    sec.innerHTML = `
+      <header class="doc-bloque-header">
+        <h2>${b.emoji} ${lang === "es" ? "Bloque" : "Block"} ${bi+1}. ${esc(nombreB)} <span class="rango">${b.rango}</span></h2>
+        <p>${esc(descB)}</p>
+      </header>
+    `;
+    b.tecnicas.forEach(t => {
+      const art = el("article","doc-tecnica");
+      const tB = lang === "es" ? t.t : t.tEN;
+      const cB = lang === "es" ? t.c : t.cEN;
+      art.innerHTML = `
+        <div class="num" aria-hidden="true">${t.n}</div>
+        <div class="body">
+          <h3>${esc(tB)}</h3>
+          <p>${esc(cB)}</p>
+          <div class="ej">${esc(t.e)}</div>
+        </div>
+      `;
+      sec.appendChild(art);
+    });
+    cont.appendChild(sec);
+  });
+  panel.appendChild(cont);
+  bindCamposEditables(cert);
+}
+function bindCamposEditables(ctx){
+  (ctx || document).querySelectorAll("[data-campo]").forEach(elem => {
+    const k = elem.dataset.campo;
+    if(campos[k]) elem.textContent = campos[k];
+    elem.addEventListener("input", () => {
+      campos[k] = elem.textContent.trim();
+      guardarCampos();
+      toast("✓ " + (lang === "es" ? "Guardado" : "Saved"));
+    });
+  });
+}
+
+/* =====================================================================
+   IMPRIMIR / WORD / RESET
+   ===================================================================== */
+$("#btnPrint").addEventListener("click", () => {
+  if(modo !== "certificado"){ cambiarModo("certificado"); setTimeout(() => window.print(), 400); }
+  else window.print();
+});
+$("#btnWord").addEventListener("click", () => {
+  const nombre = campos.nombre || t_("escribeNombre");
+  const docente = campos.docente || t_("docente");
+  const inst = campos.institucion || t_("institucion");
+  const ciudad = campos.ciudad || t_("ciudad");
+  const fecha = campos.fecha || t_("fecha");
+  const radicado = campos.radicado || "____";
+  let html = `<!DOCTYPE html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="UTF-8"><title>Cuaderno bilingüe · 100 técnicas HTML+CSS+JS</title>
+<style>@page{size:A4;margin:2cm;} body{font-family:Georgia,serif;color:#14213d;line-height:1.5;} h1{font-family:Georgia,serif;font-size:22pt;text-align:center;} h2{font-size:14pt;margin:20pt 0 8pt;border-bottom:1pt solid #14213d;padding-bottom:4pt;} h3{font-size:11pt;} p{font-size:10.5pt;margin:0 0 6pt;} .cert{text-align:center;padding:40pt 20pt;} .cert-nombre{font-size:22pt;font-weight:bold;border-bottom:1pt dashed #a67c52;display:inline-block;padding:0 40pt 4pt;} .bloque{page-break-before:always;} .tecnica{padding:8pt 0;border-bottom:1pt solid #d8d2c3;} .num{display:inline-block;font-size:14pt;font-weight:bold;color:#a67c52;margin-right:6pt;} .body{display:inline-block;width:88%;vertical-align:top;} .ej{font-family:Consolas,monospace;font-size:9pt;background:#f7f2e8;border-left:3pt solid #a67c52;padding:6pt 10pt;white-space:pre-wrap;}</style></head><body>
+<div class="cert"><div style="font-size:9pt;letter-spacing:3pt;text-transform:uppercase;color:#7c5c39;font-weight:bold;">República del Conocimiento</div><h1>${lang === "es" ? "Certificado de Finalización" : "Completion Certificate"}<br>100 ${lang === "es" ? "técnicas" : "techniques"} HTML + CSS + JS</h1><p style="font-size:11pt;">${t_("otorgado")}</p><div class="cert-nombre">${esc(nombre)}</div><p style="font-size:11pt;">${t_("certDesc")}</p><div style="margin-top:50pt;"><div style="display:inline-block;width:45%;text-align:center;border-top:1pt solid #14213d;padding-top:6pt;margin:0 2%;"><b>${esc(docente)}</b><br><small>${t_("responsable")}</small></div><div style="display:inline-block;width:45%;text-align:center;border-top:1pt solid #14213d;padding-top:6pt;margin:0 2%;"><b>${esc(inst)}</b><br><small>${t_("emisora")}</small></div></div></div>
+<div style="page-break-before:always;"></div><h2>${t_("índice")}</h2>`;
+  BLOQUES.forEach(b => { html += `<div style="border-left:3pt solid #14213d;padding-left:8pt;margin-bottom:10pt;"><h3>${b.emoji} ${b.rango} — ${esc(lang === "es" ? b.nombre : b.nombreEN)}</h3><p style="font-size:10pt;color:#6b6355;">${esc(lang === "es" ? b.desc : b.descEN)}</p></div>`; });
+  BLOQUES.forEach((b, bi) => {
+    html += `<div class="bloque"><h2>${lang === "es" ? "Bloque" : "Block"} ${bi+1}. ${b.emoji} ${esc(lang === "es" ? b.nombre : b.nombreEN)} (${b.rango})</h2>`;
+    b.tecnicas.forEach(t => {
+      const tB = lang === "es" ? t.t : t.tEN;
+      const cB = lang === "es" ? t.c : t.cEN;
+      html += `<div class="tecnica"><span class="num">${t.n}.</span><div class="body"><h3>${esc(tB)}</h3><p>${esc(cB)}</p><div class="ej">${esc(t.e)}</div></div></div>`;
+    });
+    html += `</div>`;
+  });
+  html += `</body></html>`;
+  const blob = new Blob(['\ufeff', html], { type:"application/msword" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "cuaderno_bilingue_html.doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("✓ " + (lang === "es" ? "Word descargado" : "Word downloaded"));
+});
+
+$("#btnReset").addEventListener("click", () => {
+  if(!confirm(lang === "es" ? "¿Reiniciar todo? Se borran progreso y campos." : "Reset everything? Progress and fields will be deleted.")) return;
+  progreso = {}; campos = {};
+  try { localStorage.removeItem(STORAGE_PROG); localStorage.removeItem(STORAGE_CAMPOS); } catch(e){}
+  if(modo === "cuaderno") abrirTecnica("t1");
+  else if(modo === "certificado") abrirCertificado();
+  else if(modo === "dashboard") abrirDashboard();
+  else abrirHerramienta();
+  toast("✓ " + (lang === "es" ? "Reiniciado" : "Reset"));
+});
+
+/* =====================================================================
+   SIDEBAR MÓVIL + SEARCH
+   ===================================================================== */
+const sidebar = $("#sidebar");
+function cerrarSidebar(){ sidebar.classList.remove("open"); }
+$("#btnMenu").addEventListener("click", () => sidebar.classList.toggle("open"));
+document.addEventListener("click", e => {
+  if(window.innerWidth <= 900 && sidebar.classList.contains("open") &&
+     !sidebar.contains(e.target) && e.target.id !== "btnMenu"){
+    cerrarSidebar();
+  }
+});
+$("#searchTecnica").addEventListener("input", () => renderMenuCuaderno());
+
+/* =====================================================================
+   TABS DE MODO
+   ===================================================================== */
+$$(".modo-tab").forEach(t => {
+  t.addEventListener("click", () => cambiarModo(t.dataset.modo));
+});
+
+/* =====================================================================
+   PWA
+   ===================================================================== */
+function svgDataURI(size){
+  const s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14213d"/><stop offset="100%" stop-color="#a67c52"/>
+    </linearGradient></defs>
+    <rect width="512" height="512" rx="80" fill="url(#g)"/>
+    <text x="256" y="230" text-anchor="middle" font-family="Georgia, serif" font-size="100" font-weight="700" fill="#fdfaf3">&lt;/&gt;</text>
+    <text x="256" y="330" text-anchor="middle" font-family="Georgia, serif" font-size="90" font-weight="700" fill="#fdfaf3">100</text>
+    <text x="256" y="420" text-anchor="middle" font-family="Public Sans, sans-serif" font-size="40" font-weight="800" fill="#f0e4d3" letter-spacing="4">HTML</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(s);
+}
+(function buildManifest(){
+  const manifest = {
+    name: "Cuaderno Bilingüe · 100 técnicas HTML + CSS + JS",
+    short_name: "HTML 100",
+    description: "100 técnicas HTML + CSS + JS para LMS educativos · bilingüe ES/EN · PWA.",
+    start_url: ".",
+    scope: ".",
+    display: "standalone",
+    orientation: "portrait-primary",
+    background_color: "#fdfaf3",
+    theme_color: "#14213d",
+    lang: "es-CO",
+    icons: [
+      { src: svgDataURI(192), sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" },
+      { src: svgDataURI(512), sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+    ]
+  };
+  const blob = new Blob([JSON.stringify(manifest)], { type:"application/manifest+json" });
+  const link = document.createElement("link");
+  link.rel = "manifest";
+  link.href = URL.createObjectURL(blob);
+  document.head.appendChild(link);
+})();
+async function registrarSW(){
+  if(!("serviceWorker" in navigator)) return;
+  try {
+    const swCode = `
+      const CACHE = 'cuaderno-html-bilingue-v1';
+      const CORE = [
+        './',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+        'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap'
+      ];
+      self.addEventListener('install', e => {
+        e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE).catch(()=>{})).then(()=>self.skipWaiting()));
+      });
+      self.addEventListener('activate', e => {
+        e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(()=>self.clients.claim()));
+      });
+      self.addEventListener('fetch', e => {
+        if(e.request.method !== 'GET') return;
+        e.respondWith(
+          caches.match(e.request).then(cached => cached || fetch(e.request).then(res => {
+            const copy = res.clone();
+            caches.open(CACHE).then(c => c.put(e.request, copy)).catch(()=>{});
+            return res;
+          }).catch(() => caches.match('./')))
+        );
+      });
+    `;
+    const blob = new Blob([swCode], { type:"application/javascript" });
+    const swURL = URL.createObjectURL(blob);
+    await navigator.serviceWorker.register(swURL, { scope:"./" });
+    console.log("SW registrado");
+  } catch(e){ console.warn("SW no disponible:", e); }
+}
+function actualizarEstadoConexion(){
+  const pill = $("#statusPill"), txt = $("#statusText");
+  if(navigator.onLine){ pill.classList.remove("offline"); pill.classList.add("online"); txt.textContent = lang === "es" ? "En línea" : "Online"; }
+  else { pill.classList.remove("online"); pill.classList.add("offline"); txt.textContent = lang === "es" ? "Sin conexión" : "Offline"; }
+}
+window.addEventListener("online", actualizarEstadoConexion);
+window.addEventListener("offline", actualizarEstadoConexion);
+
+let deferredPrompt = null;
+const pwaBanner = $("#pwaBanner");
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault(); deferredPrompt = e;
+  if(!localStorage.getItem("cuaderno_html_installed") && !localStorage.getItem("cuaderno_html_dismissed")){
+    pwaBanner.classList.add("show");
+    $("#btnInstall").style.display = "inline-block";
+  }
+});
+$("#pwaInstall").addEventListener("click", async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if(outcome === "accepted"){ localStorage.setItem("cuaderno_html_installed", "1"); toast("✓ " + (lang === "es" ? "App instalada" : "App installed")); }
+  deferredPrompt = null; pwaBanner.classList.remove("show");
+});
+$("#pwaDismiss").addEventListener("click", () => { localStorage.setItem("cuaderno_html_dismissed","1"); pwaBanner.classList.remove("show"); });
+$("#btnInstall").addEventListener("click", () => { if(deferredPrompt) $("#pwaInstall").click(); else toast(lang === "es" ? "Use el menú del navegador" : "Use the browser menu"); });
+
+/* =====================================================================
+   INIT
+   ===================================================================== */
+function initTema(){
+  let t = "light";
+  try { t = localStorage.getItem(STORAGE_TEMA) || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch(e){}
+  aplicarTema(t);
+}
+initTema();
+actualizarEstadoConexion();
+aplicarIdioma(lang);
+registrarSW();
+</script>
+</body>
+</html>

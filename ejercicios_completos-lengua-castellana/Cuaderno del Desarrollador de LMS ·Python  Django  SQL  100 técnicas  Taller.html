@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno del Desarrollador de LMS · Python + Django + SQL · 100 técnicas + Taller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e8e6e0; --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --ok-soft:#e0efe2; --bad:#8b1e1e; --bad-soft:#f8e0e0;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Public Sans",system-ui,sans-serif;background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 22px;background:linear-gradient(180deg,#fdfaf3,#f7f2e8);border-bottom:3px double var(--navy);box-shadow:0 1px 0 var(--bronze-line) inset;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:14px;min-width:0;}
+  .seal{width:50px;height:50px;flex:0 0 auto;border-radius:50%;padding:3px;border:1.5px dashed var(--bronze);display:grid;place-items:center;}
+  .seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:14px;position:relative;}
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:6px;color:var(--bronze);}
+  .seal-inner::before{top:5px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:5px;left:50%;transform:translateX(-50%);}
+  .brand h1{font-family:"PT Serif",Georgia,serif;font-size:14px;margin:0;font-weight:700;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand p{margin:2px 0 0;font-size:10.5px;color:var(--muted);font-weight:600;letter-spacing:.6px;text-transform:uppercase;}
+  .topbar-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .tabs{display:flex;gap:0;border:1px solid var(--navy);background:var(--paper);}
+  .tab{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:8px 14px;cursor:pointer;border:none;background:transparent;color:var(--navy);border-right:1px solid var(--navy);transition:.15s;font-family:"Public Sans",sans-serif;}
+  .tab:last-child{border-right:none;}
+  .tab:hover{background:var(--navy-soft);}
+  .tab.active{background:var(--navy);color:var(--paper);}
+  .progress-wrap{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  .progress-bar{width:130px;height:6px;border:1px solid var(--line-2);background:#f0ece0;overflow:hidden;}
+  #progressFill{height:100%;width:0%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width .4s;}
+  .stat{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  .stat strong{font-family:"PT Serif",Georgia,serif;font-size:15px;color:var(--navy);font-weight:700;padding:0 5px;}
+  .btn{font-size:11.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:8px 14px;cursor:pointer;border:1px solid var(--navy);background:var(--paper);color:var(--navy);transition:.16s;font-family:"Public Sans",sans-serif;}
+  .btn:hover{background:var(--navy-soft);}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--navy);color:var(--paper);}
+  .btn.primary:hover{background:var(--navy-dark);}
+  .btn.ghost{background:transparent;border-color:var(--line-2);color:var(--muted);}
+  .btn.ghost:hover{background:#eee9dc;color:var(--navy);}
+  .btn.danger{border-color:var(--bad);color:var(--bad);}
+  .btn.danger:hover{background:var(--bad-soft);}
+  .only-mobile{display:none;}
+  .layout{display:grid;grid-template-columns:310px 1fr;gap:22px;max-width:1400px;margin:0 auto;padding:22px;align-items:start;}
+  .sidebar{position:sticky;top:100px;max-height:calc(100vh - 124px);overflow-y:auto;background:var(--paper);border:1px solid var(--navy);padding:4px;box-shadow:var(--shadow);}
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:12px;background:linear-gradient(180deg,#fdfaf3,#f7f2e8);}
+  #search{width:100%;font-size:12px;padding:8px 11px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink);outline:none;margin-bottom:12px;font-family:"Public Sans",sans-serif;}
+  #search:focus{border-color:var(--navy);}
+  .cat{margin-bottom:4px;}
+  .cat-head{display:flex;align-items:center;gap:9px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;padding:9px 10px;font-size:10.5px;font-weight:700;letter-spacing:.4px;color:var(--navy);text-transform:uppercase;border-left:3px solid transparent;font-family:"Public Sans",sans-serif;}
+  .cat-head:hover{background:var(--navy-soft);border-left-color:var(--bronze);}
+  .cat-head .chev{margin-left:auto;font-size:9px;color:var(--bronze);transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{font-family:"PT Serif",Georgia,serif;font-size:10.5px;font-weight:700;background:var(--bronze-soft);color:var(--bronze-dark);padding:1px 7px;border:1px solid var(--bronze-line);}
+  .cat-bar{height:3px;background:#e8e2d2;margin:0 10px 6px;overflow:hidden;border:1px solid var(--line);}
+  .cat-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width .4s;}
+  .cat-body{display:none;padding:2px 0 8px 4px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-size:10px;color:var(--muted);padding:0 10px 8px;line-height:1.45;font-style:italic;}
+  .tech-link{display:flex;align-items:flex-start;gap:8px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;font-size:11.3px;line-height:1.4;color:#3a3a3a;padding:7px 10px;border-left:3px solid transparent;font-family:"Public Sans",sans-serif;}
+  .tech-link:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .tech-link.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .tech-link .dot{flex:0 0 auto;width:13px;height:13px;margin-top:1px;border:1px solid var(--line-2);background:var(--paper);display:grid;place-items:center;font-size:8px;color:transparent;}
+  .tech-link.done .dot{background:var(--ok);border-color:var(--ok);color:#fff;}
+  .sidebar-label{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);padding-bottom:6px;margin-bottom:8px;border-bottom:1px solid var(--bronze-line);}
+  .sidebar-section{margin-bottom:16px;}
+  .side-item{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;cursor:pointer;background:none;border:none;font:inherit;font-size:11.3px;line-height:1.4;color:#3a3a3a;padding:8px 10px;border-left:3px solid transparent;transition:.15s;font-family:"Public Sans",sans-serif;}
+  .side-item:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .side-item.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .side-item .icon{flex:0 0 auto;width:22px;height:22px;border:1px solid var(--line-2);background:var(--paper);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:11px;font-weight:700;color:var(--navy);}
+  .side-item.active .icon{background:var(--navy);color:var(--paper);border-color:var(--navy);}
+  .side-item .label{flex:1;min-width:0;}
+  .side-item .label small{display:block;font-size:9.5px;color:var(--muted);font-weight:500;margin-top:2px;}
+  .empty-mini{font-size:11px;color:var(--muted);font-style:italic;padding:10px;text-align:center;border:1px dashed var(--line-2);background:var(--paper-2);}
+  .draft-item{display:flex;align-items:flex-start;gap:6px;padding:8px 10px;border-left:3px solid transparent;cursor:pointer;transition:.15s;font-size:11px;line-height:1.35;font-family:"Public Sans",sans-serif;border-bottom:1px solid var(--line);}
+  .draft-item:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .draft-item.active{background:var(--navy-soft);border-left-color:var(--navy);}
+  .draft-item .di-title{flex:1;min-width:0;color:#3a3a3a;font-weight:600;}
+  .draft-item .di-title small{display:block;font-weight:400;font-size:9.5px;color:var(--muted);margin-top:2px;}
+  .draft-item .di-del{flex:0 0 auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:0 2px;line-height:1;}
+  .draft-item .di-del:hover{color:var(--bad);}
+  .panel{background:var(--paper);border:1px solid var(--navy);padding:6px;box-shadow:var(--shadow);}
+  .panel-inner{border:1px solid var(--bronze-line);padding:26px 30px 30px;background:radial-gradient(circle at 100% 0%,#f7f2e8 0%,transparent 40%),var(--paper);position:relative;}
+  .panel-seal{position:absolute;top:18px;right:22px;width:70px;height:70px;border-radius:50%;border:1.5px dashed var(--bronze);padding:3px;opacity:.75;}
+  .panel-seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:9px;text-align:center;line-height:1.1;}
+  .tech-head{margin-bottom:20px;padding-right:90px;}
+  .badge{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);background:var(--bronze-soft);border:1px solid var(--bronze-line);padding:3px 10px;margin-bottom:12px;}
+  .tech-head h2{margin:0;font-family:"PT Serif",Georgia,serif;font-size:23px;line-height:1.2;letter-spacing:-.3px;font-weight:700;color:var(--navy);}
+  .tech-head p.lead{margin:8px 0 0;font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.6;color:var(--muted);}
+  .tech-pos{font-size:11px;color:var(--muted);margin-top:6px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;}
+  .rule{height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);margin:16px 0 20px;}
+  .block-dots{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+  .bdot{width:11px;height:11px;border:1px solid var(--line-2);background:var(--paper);cursor:pointer;transition:.15s;}
+  .bdot:hover{transform:scale(1.2);border-color:var(--bronze);}
+  .bdot.done{background:var(--ok);border-color:var(--ok);}
+  .bdot.current{background:var(--bronze);border-color:var(--bronze-dark);}
+  .flashcard{perspective:1600px;margin:0 0 14px;cursor:pointer;border:1px solid var(--navy);padding:4px;background:var(--paper);box-shadow:var(--shadow);}
+  .fc-inner{position:relative;min-height:clamp(260px,34vh,320px);transform-style:preserve-3d;transition:transform .68s cubic-bezier(.4,.15,.2,1);border:1px solid var(--bronze-line);}
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:22px 26px;display:flex;flex-direction:column;overflow:auto;background:var(--paper);background-image:linear-gradient(transparent 27px,rgba(20,33,61,.06) 27px 28px);background-size:100% 28px;background-position:0 14px;}
+  .fc-face p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:15px;line-height:27px;color:var(--ink);}
+  .fc-back{transform:rotateY(180deg);background:#faf6ec;}
+  .fc-back p{color:var(--navy-dark);font-style:italic;font-size:14px;}
+  .fc-back code,.fc-face code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:13px;background:#eef2f8;padding:1px 5px;border-radius:3px;color:#14213d;font-style:normal;}
+  .fc-tag{font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:12px;display:block;padding-bottom:6px;border-bottom:1px solid var(--bronze-line);}
+  .fc-hint{margin-top:auto;padding-top:14px;font-size:10.5px;color:#9c907c;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .flip-btn{margin:0 0 26px;}
+  .sec-title{display:flex;align-items:center;gap:10px;font-family:"PT Serif",Georgia,serif;font-size:16px;font-weight:700;color:var(--navy);margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--navy);position:relative;}
+  .sec-title::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--bronze-line);}
+  .sec-title span{font-size:10px;font-weight:700;color:var(--muted);margin-left:auto;letter-spacing:.6px;text-transform:uppercase;}
+  .consigna{font-family:"PT Serif",Georgia,serif;font-size:15px;line-height:1.6;color:var(--ink);background:var(--paper-2);border-left:3px solid var(--bronze);padding:12px 16px;margin:0 0 16px;}
+  .opciones{display:flex;flex-direction:column;gap:8px;}
+  .opcion{display:flex;gap:11px;align-items:flex-start;text-align:left;font:inherit;font-size:13px;line-height:1.5;background:var(--paper);border:1px solid var(--line-2);color:var(--ink);padding:12px 14px;cursor:pointer;transition:.15s;font-family:"Public Sans",sans-serif;}
+  .opcion:hover:not(:disabled){border-color:var(--navy);background:var(--navy-soft);}
+  .opcion:disabled{cursor:default;opacity:.9;}
+  .opcion .letra{flex:0 0 auto;width:22px;height:22px;background:var(--paper-2);color:var(--muted);border:1px solid var(--line-2);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:12px;font-weight:700;}
+  .opcion.correcta{border-color:var(--ok);background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok);color:#fff;border-color:var(--ok);}
+  .opcion.incorrecta{border-color:var(--bad);background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad);color:#fff;border-color:var(--bad);}
+  .fill-texto{font-family:"PT Serif",Georgia,serif;font-size:15.5px;line-height:2.4;margin:0 0 16px;color:var(--ink);}
+  .hueco{font:inherit;font-family:"SFMono-Regular",Consolas,monospace;font-size:14px;font-style:normal;border:none;border-bottom:1.5px solid var(--bronze);background:transparent;color:var(--bronze-dark);font-weight:700;padding:2px 6px;min-width:110px;text-align:center;outline:none;}
+  .hueco:focus{background:var(--bronze-soft);border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok);color:var(--ok);background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad);color:var(--bad);background:var(--bad-soft);text-decoration:line-through;}
+  .order-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;}
+  .order-col h4{font-size:10px;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);margin:0 0 8px;}
+  .pool,.seq{min-height:120px;padding:8px;display:flex;flex-direction:column;gap:8px;}
+  .pool{background:var(--paper-2);border:1px dashed var(--line-2);}
+  .seq{background:#f4efe2;border:1px solid var(--bronze-line);}
+  .pool:empty::after,.seq:empty::after{content:"···";color:#c9c2b2;font-size:16px;text-align:center;margin:auto;letter-spacing:4px;}
+  .ord-item{font:inherit;font-size:12.5px;line-height:1.4;text-align:left;background:var(--paper);border:1px solid var(--line-2);padding:9px 11px;cursor:pointer;color:var(--ink);transition:.15s;display:flex;gap:8px;align-items:flex-start;font-family:"Public Sans",sans-serif;}
+  .ord-item:hover{border-color:var(--navy);background:var(--navy-soft);}
+  .seq .ord-item{border-color:var(--bronze-line);}
+  .seq .ord-item .num{flex:0 0 auto;width:18px;height:18px;background:var(--navy);color:var(--paper);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:11px;font-weight:700;}
+  .ord-item.ok{border-color:var(--ok);background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad);background:var(--bad-soft);}
+  .cl-item{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line-2);padding:11px 13px;margin-bottom:8px;}
+  .cl-item p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:13.5px;line-height:1.5;flex:1 1 260px;}
+  .chips{display:flex;gap:5px;flex-wrap:wrap;}
+  .chip{font-size:10.5px;font-weight:700;letter-spacing:.4px;padding:5px 10px;cursor:pointer;border:1px solid var(--line-2);background:var(--paper-2);color:var(--muted);transition:.14s;text-transform:uppercase;font-family:"Public Sans",sans-serif;}
+  .chip:hover{border-color:var(--navy);color:var(--navy);}
+  .chip.sel{background:var(--navy);border-color:var(--navy);color:var(--paper);}
+  .cl-item.ok{border-color:var(--ok);background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad);background:var(--bad-soft);}
+  .criterios{list-style:none;padding:0;margin:0 0 14px;display:flex;flex-direction:column;gap:7px;}
+  .criterios li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:#4a4a4a;line-height:1.55;}
+  .criterios input{margin-top:2px;accent-color:var(--navy);width:15px;height:15px;flex:0 0 auto;}
+  textarea{width:100%;font-family:"SFMono-Regular",Consolas,monospace;font-size:13.5px;line-height:24px;color:var(--ink);padding:12px 16px;border:1px solid var(--bronze-line);background-color:#fdfaf3;background-image:linear-gradient(transparent 23px,rgba(20,33,61,.06) 23px 24px);background-size:100% 24px;background-attachment:local;resize:vertical;outline:none;}
+  textarea:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  textarea::placeholder{color:#a1957e;font-style:italic;}
+  .feedback{margin-top:16px;padding:0;overflow:hidden;max-height:0;opacity:0;transition:.3s;border-left:3px solid transparent;}
+  .feedback.show{max-height:700px;opacity:1;padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft);border-left-color:var(--ok);color:#1d4526;}
+  .feedback.mal{background:var(--bad-soft);border-left-color:var(--bad);color:#5c1414;}
+  .feedback.info{background:var(--bronze-soft);border-left-color:var(--bronze);color:#5a3f22;}
+  .feedback strong{display:block;font-size:11px;letter-spacing:1.1px;text-transform:uppercase;margin-bottom:6px;}
+  .feedback p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.6;}
+  .ej-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:6px;}
+  .modelo{display:none;margin-top:14px;background:var(--paper-2);border-left:3px solid var(--navy);padding:13px 16px;font-family:"PT Serif",Georgia,serif;font-size:14px;line-height:1.65;color:var(--navy-dark);}
+  .modelo.show{display:block;animation:fade .3s ease;}
+  .modelo strong{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--navy);display:block;margin-bottom:5px;}
+  .modelo code{font-family:"SFMono-Regular",Consolas,monospace;font-size:12.5px;background:#eef2f8;padding:1px 4px;border-radius:3px;}
+  @keyframes fade{from{opacity:0;transform:translateY(-4px);}to{opacity:1;transform:none;}}
+  .cuaderno{margin-top:32px;padding-top:22px;border-top:1px solid var(--navy);position:relative;}
+  .cuaderno::before{content:"";position:absolute;left:0;right:0;top:2px;height:1px;background:var(--bronze-line);}
+  .cuaderno-foot{display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted);margin-top:8px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;}
+  #notaStatus{color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+  .nav-foot{display:flex;justify-content:space-between;gap:12px;margin-top:26px;padding-top:20px;border-top:1px solid var(--bronze-line);}
+  .nav-foot .btn{flex:1;max-width:220px;text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35;cursor:not-allowed;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-bottom:18px;}
+  .form-grid .full{grid-column:1/-1;}
+  .field{display:flex;flex-direction:column;gap:5px;}
+  .field label{font-size:10.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--bronze-dark);font-family:"Public Sans",sans-serif;}
+  .field label small{font-weight:500;font-style:italic;letter-spacing:.2px;text-transform:none;color:var(--muted);margin-left:4px;}
+  .field input,.field textarea,.field select{font-family:"SFMono-Regular",Consolas,monospace;font-size:13px;padding:8px 11px;border:1px solid var(--bronze-line);background-color:#fdfaf3;color:var(--ink);outline:none;transition:.15s;width:100%;}
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  .field textarea{resize:vertical;min-height:70px;line-height:1.5;}
+  .field input::placeholder,.field textarea::placeholder{color:#a1957e;font-style:italic;}
+  .field select{cursor:pointer;}
+  .preview-wrap{border:1px solid var(--navy);padding:4px;background:var(--paper);margin-top:6px;}
+  .preview-inner{border:1px solid var(--bronze-line);padding:24px 26px;background:var(--paper);font-family:"SFMono-Regular",Consolas,monospace;font-size:12.5px;line-height:1.7;color:var(--ink);white-space:pre-wrap;max-height:560px;overflow-y:auto;}
+  .preview-inner .placeholder{color:#a1957e;font-style:italic;}
+  .preview-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--bronze-line);}
+  .hint{font-family:"PT Serif",Georgia,serif;font-size:12.5px;font-style:italic;color:var(--muted);background:var(--paper-2);border-left:3px solid var(--bronze);padding:9px 13px;margin:0 0 16px;}
+  .hint strong{color:var(--navy);font-style:normal;}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:var(--paper);padding:11px 20px;font-family:"Public Sans",sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;border:1px solid var(--bronze-line);box-shadow:var(--shadow);opacity:0;transition:.28s;z-index:200;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr;padding:14px;gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:300px;max-height:100vh;z-index:100;padding:4px;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;top:0;}
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed;inset:0;background:rgba(20,33,61,.45);z-index:99;opacity:0;pointer-events:none;transition:.25s;}
+    .scrim.show{opacity:1;pointer-events:auto;}
+    .panel-inner{padding:20px 18px 24px;}
+    .panel-seal{display:none;}
+    .tech-head{padding-right:0;}
+    .tech-head h2{font-size:20px;}
+    .form-grid{grid-template-columns:1fr;}
+    .brand p{display:none;}
+    .brand h1{font-size:12px;}
+    .progress-wrap{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="seal"><div class="seal-inner">LMS</div></div>
+    <div>
+      <h1>Cuaderno del Desarrollador de LMS · Python + Django + SQL</h1>
+      <p>100 técnicas · Taller del proyecto</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <div class="tabs">
+      <button class="tab active" data-mode="cuaderno">🧩 Cuaderno 100</button>
+      <button class="tab" data-mode="taller">✎ Taller</button>
+    </div>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <div class="stat" id="statWrap" style="display:none;">
+      <span>Artefactos</span><strong id="statCount">0</strong>
+    </div>
+    <button id="btnMenu" class="btn ghost only-mobile">☰</button>
+    <button id="btnNew" class="btn primary" style="display:none;">+ Nuevo</button>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <input id="search" type="search" placeholder="Buscar técnica…" autocomplete="off">
+      <nav id="menu"></nav>
+      <div id="menuTaller" style="display:none;">
+        <div class="sidebar-section">
+          <div class="sidebar-label">Herramientas</div>
+          <div id="menuPlantillas"></div>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-label">Mis artefactos</div>
+          <div id="menuDrafts"></div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <article class="panel">
+      <div class="panel-inner" id="panelInner"></div>
+    </article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+<div id="toast" class="toast"></div>
+
+<script>
+/* =====================================================================
+   100 TÉCNICAS · 5 BLOQUES (según la lista del proyecto)
+   ===================================================================== */
+const CATEGORIAS = [
+/* ======================== BLOQUE 1 · PYTHON (1-15) ======================== */
+{
+  id:"b1", nombre:"Python · Fundamentos y lógica", emoji:"🐍",
+  desc:"Del condicional al generador: la base del motor del LMS.",
+  tecnicas:[
+    {id:"t1", nombre:"if / elif / else para rutas adaptativas",
+     concepto:"Permiten que el sistema decida qué contenido mostrar según el desempeño del estudiante. Es la base de la personalización: rutas, niveles y desbloqueos.",
+     ejemplo:"if nota >= 4.5: ruta = 'avanzada'\nelif nota >= 3.0: ruta = 'estándar'\nelse: ruta = 'refuerzo'",
+     ejercicio:{tipo:"fill", consigna:"Completa la condición para la ruta avanzada.",
+       texto:"if nota >= ___: ruta = 'avanzada'\nelif nota >= 3.0: ruta = 'estándar'",
+       respuestas:[["4.5","4,5","4.6"]],
+       retro:"El umbral 4.5 desbloquea la ruta avanzada. Los condicionales son la base del aprendizaje adaptativo."}},
+    {id:"t2", nombre:"Bucles for / while en lote",
+     concepto:"Generan ejercicios, mensajes o tareas de forma masiva. El bucle for recorre secuencias; while repite mientras se cumpla una condición.",
+     ejemplo:"for i in range(1, 21):\n    print(f'Ejercicio {i}: conjuga el verbo')",
+     ejercicio:{tipo:"fill", consigna:"Completa el bucle para 20 ejercicios.",
+       texto:"for i in range(1, ___): print(f'Ejercicio {i}')",
+       respuestas:[["21","veintiuno"]],
+       retro:"range(1, 21) genera del 1 al 20. El bucle for es ideal para lotes de ejercicios."}},
+    {id:"t3", nombre:"Funciones reutilizables para calificar",
+     concepto:"Encapsulan la lógica de calificación. Reciben la respuesta y devuelven puntaje, retroalimentación o ambos. Evitan duplicar código.",
+     ejemplo:"def calificar(respuesta, correcta):\n    return 1.0 if respuesta == correcta else 0.0",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que devuelve 1 si acierta.",
+       texto:"def calificar(r, c):\n    return 1.0 if r == c ___ 0.0",
+       respuestas:[["else","sino"]],
+       retro:"La expresión ternaria devuelve 1.0 si coincide, 0.0 si no. Las funciones hacen el código mantenible."}},
+    {id:"t4", nombre:"try / except para validar entradas",
+     concepto:"Capturan errores en tiempo de ejecución. En un LMS, un estudiante puede enviar texto donde se espera un número; el programa no debe caerse.",
+     ejemplo:"try:\n    nota = float(input('Nota: '))\nexcept ValueError:\n    print('Debes ingresar un número')",
+     ejercicio:{tipo:"fill", consigna:"Completa el except para el error de conversión.",
+       texto:"try:\n    nota = float(input())\nexcept ___: print('Debes ingresar un número')",
+       respuestas:[["ValueError","valueerror"]],
+       retro:"ValueError captura errores al convertir texto a número. Es el uso más frecuente de try/except."}},
+    {id:"t5", nombre:"Listas y diccionarios para bancos",
+     concepto:"Las listas almacenan secuencias ordenadas; los diccionarios guardan pares clave-valor. Juntos modelan un banco de preguntas con sus opciones y respuestas.",
+     ejemplo:"banco = [\n  {'pregunta':'¿Qué es un sustantivo?', 'opciones':['a','b','c'], 'correcta': 0}\n]",
+     ejercicio:{tipo:"fill", consigna:"Completa el acceso a la clave de la respuesta correcta.",
+       texto:"banco[0][___]  # devuelve el índice de la opción correcta",
+       respuestas:[["'correcta'","correcta","\"correcta\""]],
+       retro:"banco[0]['correcta'] accede al valor asociado a esa clave en el primer diccionario."}},
+    {id:"t6", nombre:"Comprensión de listas para filtrar",
+     concepto:"Forma compacta de crear listas aplicando una condición. Ideal para filtrar estudiantes por desempeño o seleccionar tareas pendientes.",
+     ejemplo:"aprobados = [e for e in estudiantes if e['nota'] >= 3.0]",
+     ejercicio:{tipo:"fill", consigna:"Completa el filtro de aprobados.",
+       texto:"aprobados = [e for e in estudiantes if e['nota'] >= ___]",
+       respuestas:[["3.0","3","3,0"]],
+       retro:"La comprensión de listas filtra en una sola línea. Muy útil para paneles y reportes."}},
+    {id:"t7", nombre:"Regex para errores ortográficos",
+     concepto:"Las expresiones regulares permiten detectar patrones en texto: tildes faltantes, mayúsculas mal ubicadas, dobles espacios. Motor básico de un corrector automático.",
+     ejemplo:"import re\npatron = re.compile(r'\\bhabia\\b')\nprint(patron.sub('había', texto))",
+     ejercicio:{tipo:"fill", consigna:"Completa el patrón que detecta la palabra «habia» sin tilde.",
+       texto:"import re\npatron = re.compile(r'\\bhabia___')",
+       respuestas:[["\\b","]]","\\\\b"]],
+       retro:"\\b marca límite de palabra. El regex permite correcciones precisas sin falsos positivos."}},
+    {id:"t8", nombre:"Strings para análisis gramatical",
+     concepto:"Los métodos de cadena (.split, .strip, .lower, .replace) permiten limpiar y dividir el texto para análisis. Base del conteo de palabras y de la tokenización.",
+     ejemplo:"palabras = texto.lower().replace(',', '').split()\nprint(len(palabras))",
+     ejercicio:{tipo:"fill", consigna:"Completa la cadena para contar palabras.",
+       texto:"palabras = texto.lower().replace(',', '').___()\nprint(len(palabras))",
+       respuestas:[["split"]],
+       retro:".split() sin argumento divide por espacios. Es el primer paso de casi cualquier análisis textual."}},
+    {id:"t9", nombre:"Módulos y paquetes",
+     concepto:"Organizan el código en archivos. Un LMS tiene módulos por dominio: usuarios, cursos, tareas, evaluaciones. Los paquetes agrupan módulos relacionados.",
+     ejemplo:"# estructura típica\nlms/\n  usuarios/\n  cursos/\n  evaluaciones/\n  utils.py",
+     ejercicio:{tipo:"fill", consigna:"Completa la importación del módulo de utilidades.",
+       texto:"from lms import ___\nprint(utils.calcular_promedio(notas))",
+       respuestas:[["utils"]],
+       retro:"Los módulos agrupan funciones relacionadas. Los paquetes agrupan módulos: así crece el proyecto sin caos."}},
+    {id:"t10", nombre:"POO: clases del dominio",
+     concepto:"Las clases modelan entidades con atributos y métodos. En un LMS, «Estudiante», «Curso» y «Tarea» son clases del dominio que se relacionan entre sí.",
+     ejemplo:"class Estudiante:\n    def __init__(self, nombre):\n        self.nombre = nombre\n        self.notas = []",
+     ejercicio:{tipo:"fill", consigna:"Completa el método constructor.",
+       texto:"class Estudiante:\n    def ___(self, nombre):\n        self.nombre = nombre",
+       respuestas:[["init","__init__"]],
+       retro:"__init__ es el constructor: se ejecuta al crear el objeto. Es la base de la POO en Python."}},
+    {id:"t11", nombre:"Decoradores para permisos",
+     concepto:"Los decoradores envuelven funciones para añadir comportamiento: verificar rol, registrar accesos, medir tiempo. En Django se usan para proteger vistas.",
+     ejemplo:"def solo_profesor(f):\n    def wrapper(request, *a, **kw):\n        if not request.user.es_profesor: raise PermissionDenied\n        return f(request, *a, **kw)\n    return wrapper",
+     ejercicio:{tipo:"fill", consigna:"Completa el decorador que verifica el rol.",
+       texto:"def solo_profesor(f):\n    def wrapper(request, *a, **kw):\n        if not request.user.___: raise PermissionDenied\n        return f(request, *a, **kw)\n    return wrapper",
+       respuestas:[["es_profesor","esProfesor","es_profe"]],
+       retro:"Los decoradores protegen vistas sin duplicar código. Django trae user_passes_test para esto mismo."}},
+    {id:"t12", nombre:"Generadores para textos grandes",
+     concepto:"Los generadores producen valores uno a uno, sin cargar todo en memoria. Ideales para procesar miles de ensayos o preguntas sin saturar el servidor.",
+     ejemplo:"def leer_lineas(archivo):\n    with open(archivo) as f:\n        for linea in f:\n            yield linea.strip()",
+     ejercicio:{tipo:"fill", consigna:"Completa el generador con la palabra clave.",
+       texto:"def leer_lineas(archivo):\n    with open(archivo) as f:\n        for linea in f:\n            ___ linea.strip()",
+       respuestas:[["yield"]],
+       retro:"yield devuelve un valor y pausa la función. La siguiente llamada retoma donde se quedó."}},
+    {id:"t13", nombre:"datetime para plazos",
+     concepto:"Permite calcular fechas de entrega, comparar con la fecha actual, generar recordatorios y detectar entregas tardías.",
+     ejemplo:"from datetime import datetime, timedelta\nplazo = datetime.now() + timedelta(days=7)",
+     ejercicio:{tipo:"fill", consigna:"Completa el plazo de 7 días.",
+       texto:"from datetime import datetime, timedelta\nplazo = datetime.now() + timedelta(days=___)",
+       respuestas:[["7","siete"]],
+       retro:"timedelta(days=7) suma 7 días a la fecha actual. Se usa para plazos y vencimientos."}},
+    {id:"t14", nombre:"Archivos CSV / TXT para notas",
+     concepto:"La librería csv de Python permite importar y exportar calificaciones. Es la forma más simple de conectar el LMS con Excel o con sistemas institucionales.",
+     ejemplo:"import csv\nwith open('notas.csv', 'w', newline='') as f:\n    w = csv.writer(f)\n    w.writerow(['nombre', 'nota'])",
+     ejercicio:{tipo:"fill", consigna:"Completa el módulo estándar para escribir CSV.",
+       texto:"import ___\nwith open('notas.csv', 'w') as f:\n    w = ___.writer(f)",
+       respuestas:[["csv"],["csv"]],
+       retro:"El módulo csv viene en la biblioteca estándar. No requiere instalación."}},
+    {id:"t15", nombre:"NLP con NLTK / spaCy",
+     concepto:"Permiten tokenizar, lematizar y analizar morfológicamente texto en español. Base de un módulo de análisis gramatical automatizado.",
+     ejemplo:"import spacy\nnlp = spacy.load('es_core_news_sm')\ndoc = nlp('El niño corre rápido')\nfor token in doc: print(token.text, token.pos_)",
+     ejercicio:{tipo:"fill", consigna:"Completa la carga del modelo en español.",
+       texto:"import spacy\nnlp = spacy.load('es_core_news___')",
+       respuestas:[["_sm","sm"]],
+       retro:"es_core_news_sm es el modelo pequeño en español. spaCy devuelve categorías gramaticales por token."}}
+  ]
+},
+
+/* ======================== BLOQUE 2 · DJANGO (16-40) ======================== */
+{
+  id:"b2", nombre:"Django · Arquitectura del LMS", emoji:"🧱",
+  desc:"Modelos, vistas, plantillas, admin, API y todo el esqueleto del sistema.",
+  tecnicas:[
+    {id:"t16", nombre:"models.py para el dominio",
+     concepto:"Los modelos son clases que representan tablas. Django crea el esquema a partir de ellos. Cada modelo del LMS (Usuario, Curso, Tarea, Calificación) es una clase.",
+     ejemplo:"class Curso(models.Model):\n    nombre = models.CharField(max_length=100)\n    profesor = models.ForeignKey(User, on_delete=models.CASCADE)",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo de texto del modelo.",
+       texto:"class Curso(models.Model):\n    nombre = models.___(max_length=100)",
+       respuestas:[["CharField","charfield"]],
+       retro:"CharField es para textos cortos. TextField para textos largos. Cada campo tiene su tipo."}},
+    {id:"t17", nombre:"Migraciones",
+     concepto:"Versionan la base de datos. Cada cambio en los modelos se traduce en una migración que se aplica con migrate. Permiten reproducir el esquema en cualquier servidor.",
+     ejemplo:"python manage.py makemigrations\npython manage.py migrate",
+     ejercicio:{tipo:"fill", consigna:"Completa el comando que genera la migración.",
+       texto:"python manage.py ___  # genera la migración a partir de los modelos",
+       respuestas:[["makemigrations"]],
+       retro:"makemigrations genera; migrate aplica. Los dos van juntos, en ese orden."}},
+    {id:"t18", nombre:"Autenticación integrada",
+     concepto:"Django trae auth con login, logout, registro y gestión de contraseñas. Solo hay que activarlo en settings y usar las vistas que incluye.",
+     ejemplo:"from django.contrib.auth import authenticate, login\ndef ingresar(request):\n    user = authenticate(request, username=u, password=p)\n    if user: login(request, user)",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que registra la sesión.",
+       texto:"user = authenticate(request, username=u, password=p)\nif user: ___(request, user)",
+       respuestas:[["login"]],
+       retro:"login() crea la sesión. logout() la cierra. Django incluye ambas en django.contrib.auth."}},
+    {id:"t19", nombre:"Roles y permisos personalizados",
+     concepto:"Django tiene grupos y permisos. Para un LMS se suelen definir roles: estudiante, profesor, coordinador, administrador. Se verifican con decoradores o mixins.",
+     ejemplo:"class EsProfesorMixin(LoginRequiredMixin, UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.groups.filter(name='Profesor').exists()",
+     ejercicio:{tipo:"fill", consigna:"Completa el filtro de grupo del rol.",
+       texto:"return self.request.user.groups.filter(name='___').exists()",
+       respuestas:[["Profesor","profesor"]],
+       retro:"Los grupos de Django permiten definir roles. El mixin verifica antes de mostrar la vista."}},
+    {id:"t20", nombre:"Vistas basadas en clases (CBV)",
+     concepto:"Reutilizan lógica común: ListView, DetailView, CreateView, UpdateView, DeleteView. Ideales para el CRUD de cursos, tareas y calificaciones.",
+     ejemplo:"class TareaListView(LoginRequiredMixin, ListView):\n    model = Tarea\n    template_name = 'tareas/lista.html'",
+     ejercicio:{tipo:"fill", consigna:"Completa la clase para listar tareas.",
+       texto:"class TareaListView(ListView):\n    ___ = Tarea",
+       respuestas:[["model","modelo"]],
+       retro:"model define qué modelo se muestra. ListView trae la lógica de listado lista para usar."}},
+    {id:"t21", nombre:"Vistas basadas en funciones (FBV)",
+     concepto:"Para casos simples, las FBV son más directas. Reciben request y devuelven response. Se combinan con decoradores para login y permisos.",
+     ejemplo:"@login_required\ndef inicio(request):\n    return render(request, 'inicio.html')",
+     ejercicio:{tipo:"fill", consigna:"Completa el decorador de sesión.",
+       texto:"@___\ndef inicio(request):\n    return render(request, 'inicio.html')",
+       respuestas:[["login_required"]],
+       retro:"@login_required redirige al login si no hay sesión. Es el decorador más usado en Django."}},
+    {id:"t22", nombre:"Plantillas y herencia",
+     concepto:"Las plantillas Django usan {% extends %} y {% block %} para reutilizar la estructura. Un base.html contiene header, nav y footer; las demás extienden de él.",
+     ejemplo:"{% extends 'base.html' %}\n{% block contenido %}\n  <h1>Cursos</h1>\n{% endblock %}",
+     ejercicio:{tipo:"fill", consigna:"Completa la etiqueta que hereda de base.html.",
+       texto:"{% ___ 'base.html' %}\n{% block contenido %}{% endblock %}",
+       respuestas:[["extends"]],
+       retro:"extends hereda la estructura. block define qué se reemplaza en cada página."}},
+    {id:"t23", nombre:"Formularios (forms.py)",
+     concepto:"Los formularios de Django generan HTML, validan datos y se conectan con modelos (ModelForm). Son la vía estándar para que el estudiante entregue tareas.",
+     ejemplo:"class EntregaForm(forms.ModelForm):\n    class Meta:\n        model = Entrega\n        fields = ['archivo', 'comentario']",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo del formulario del modelo.",
+       texto:"class EntregaForm(forms.ModelForm):\n    class Meta:\n        model = Entrega\n        ___ = ['archivo', 'comentario']",
+       respuestas:[["fields","campos"]],
+       retro:"fields indica qué campos se incluyen. ModelForm conecta el formulario con el modelo."}},
+    {id:"t24", nombre:"Validación personalizada",
+     concepto:"Los formularios permiten validar reglas de negocio: extensión mínima, formato de archivo, puntaje dentro de rango. Se define con clean_<campo> o clean.",
+     ejemplo:"def clean_archivo(self):\n    a = self.cleaned_data['archivo']\n    if a.size > 5_000_000: raise ValidationError('Máx 5 MB')\n    return a",
+     ejercicio:{tipo:"fill", consigna:"Completa el método de validación del campo archivo.",
+       texto:"def clean___(self):\n    a = self.cleaned_data['archivo']\n    if a.size > 5_000_000: raise ValidationError('Máx 5 MB')",
+       respuestas:[["archivo"]],
+       retro:"clean_archivo valida ese campo en concreto. clean() valida el formulario completo."}},
+    {id:"t25", nombre:"Django Admin personalizado",
+     concepto:"El admin es una interfaz de gestión inmediata. Se personaliza con list_display, search_fields, list_filter y acciones masivas para calificar en lote.",
+     ejemplo:"@admin.register(Tarea)\nclass TareaAdmin(admin.ModelAdmin):\n    list_display = ('titulo', 'curso', 'fecha_entrega')\n    search_fields = ('titulo',)",
+     ejercicio:{tipo:"fill", consigna:"Completa la columna visible en el admin.",
+       texto:"@admin.register(Tarea)\nclass TareaAdmin(admin.ModelAdmin):\n    ___ = ('titulo', 'curso', 'fecha_entrega')",
+       respuestas:[["list_display","listdisplay"]],
+       retro:"list_display define qué columnas se ven. search_fields y list_filter completan la búsqueda."}},
+    {id:"t26", nombre:"urls.py por app",
+     concepto:"Cada app del proyecto tiene su propio urls.py. Las rutas se anidan con include() en el urls.py raíz. Esto mantiene la organización a medida que crece el LMS.",
+     ejemplo:"# lms/urls.py\nurlpatterns = [\n    path('cursos/', include('cursos.urls')),\n    path('tareas/', include('tareas.urls')),\n]",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que anida las rutas.",
+       texto:"path('cursos/', ___(('cursos.urls')),)",
+       respuestas:[["include"]],
+       retro:"include() anida las rutas de otra app. Así cada app es autónoma."}},
+    {id:"t27", nombre:"Middleware para actividad",
+     concepto:"El middleware intercepta cada petición. Se usa para registrar actividad, medir tiempos o identificar al usuario. Es una capa transversal.",
+     ejemplo:"class ActividadMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def __call__(self, request):\n        # registrar request\n        return self.get_response(request)",
+     ejercicio:{tipo:"fill", consigna:"Completa el método que procesa la petición.",
+       texto:"class ActividadMiddleware:\n    def __init__(self, get_response):\n        self.get_response = get_response\n    def ___(self, request):\n        return self.get_response(request)",
+       respuestas:[["call","__call__"]],
+       retro:"__call__ se ejecuta en cada petición. Es el corazón del middleware."}},
+    {id:"t28", nombre:"FileField para entregas",
+     concepto:"FileField y ImageField permiten subir archivos. Con upload_to se define la carpeta. Ideal para ensayos, trabajos escritos y evidencias.",
+     ejemplo:"class Entrega(models.Model):\n    archivo = models.FileField(upload_to='entregas/%Y/%m/')\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo para subir archivos.",
+       texto:"archivo = models.___(upload_to='entregas/%Y/%m/')",
+       respuestas:[["FileField","filefield"]],
+       retro:"FileField guarda el archivo y la ruta. upload_to organiza por año y mes automáticamente."}},
+    {id:"t29", nombre:"Paginación",
+     concepto:"Divide listados largos en páginas. Mejora el rendimiento y la experiencia. Django trae Paginator listo para usar con ListView.",
+     ejemplo:"class TareaListView(ListView):\n    model = Tarea\n    paginate_by = 20",
+     ejercicio:{tipo:"fill", consigna:"Completa la paginación de 20 elementos.",
+       texto:"class TareaListView(ListView):\n    model = Tarea\n    ___ = 20",
+       respuestas:[["paginate_by","paginateby"]],
+       retro:"paginate_by define cuántos elementos por página. La plantilla accede con page_obj."}},
+    {id:"t30", nombre:"Notificaciones internas",
+     concepto:"Modelo de Notificacion con destinatario, mensaje, leído y fecha. Se genera al calificar, comentar o recordar. Se muestra en un icono de campana.",
+     ejemplo:"class Notificacion(models.Model):\n    usuario = models.ForeignKey(User, on_delete=models.CASCADE)\n    mensaje = models.TextField()\n    leido = models.BooleanField(default=False)",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo que marca si se ha leído.",
+       texto:"leido = models.___(default=False)",
+       respuestas:[["BooleanField","booleanfield"]],
+       retro:"BooleanField guarda True/False. Con default=False, todas las notificaciones nacen sin leer."}},
+    {id:"t31", nombre:"Correos automáticos",
+     concepto:"send_mail() envía correos desde Django. Se usan para recordatorios de entrega, resultados o recuperación de contraseña.",
+     ejemplo:"from django.core.mail import send_mail\nsend_mail('Recordatorio', 'Tu tarea vence mañana', 'lms@x.co', [alumno.email])",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que envía el correo.",
+       texto:"from django.core.mail import ___\n___('Recordatorio', 'Vence mañana', 'lms@x.co', [alumno.email])",
+       respuestas:[["send_mail"],["send_mail"]],
+       retro:"send_mail es la función básica. En producción conviene un servicio SMTP o un proveedor externo."}},
+    {id:"t32", nombre:"Internacionalización (i18n)",
+     concepto:"Django trae i18n. Con gettext se marcan cadenas traducibles; con LocaleMiddleware se cambia el idioma según la sesión o el navegador.",
+     ejemplo:"from django.utils.translation import gettext as _\nmensaje = _('Bienvenido al curso')",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que marca la cadena como traducible.",
+       texto:"from django.utils.translation import gettext as ___\nmensaje = _('Bienvenido al curso')",
+       respuestas:[["_"]],
+       retro:"_() marca la cadena. Las traducciones se generan con makemessages y compilemessages."}},
+    {id:"t33", nombre:"Comentarios y retroalimentación",
+     concepto:"Modelo de Comentario con autor, entrega, texto y fecha. Permite que el docente retroalimente cada entrega en el hilo del estudiante.",
+     ejemplo:"class Comentario(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n    texto = models.TextField()",
+     ejercicio:{tipo:"fill", consigna:"Completa la clave foránea hacia la entrega.",
+       texto:"entrega = models.___(Entrega, on_delete=models.CASCADE)",
+       respuestas:[["ForeignKey","foreignkey"]],
+       retro:"ForeignKey conecta con otro modelo. on_delete define qué pasa si el referenciado se elimina."}},
+    {id:"t34", nombre:"Control de versiones de entregas",
+     concepto:"Cada vez que el estudiante sube un archivo se crea una nueva versión. Se conservan todas para ver la evolución y evitar pérdida de trabajos.",
+     ejemplo:"class VersionEntrega(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    archivo = models.FileField(upload_to='versiones/')\n    numero = models.PositiveIntegerField()",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo que guarda el número de versión.",
+       texto:"numero = models.___(default=1)",
+       respuestas:[["PositiveIntegerField","positiveintegerfield"]],
+       retro:"PositiveIntegerField solo acepta enteros positivos. Ideal para versiones o pesos."}},
+    {id:"t35", nombre:"Certificados en PDF",
+     concepto:"Con ReportLab o WeasyPrint se generan certificados al finalizar un curso. Django sirve el PDF con FileResponse.",
+     ejemplo:"from reportlab.pdfgen import canvas\ndef certificado(request):\n    c = canvas.Canvas('cert.pdf')\n    c.drawString(100, 750, f'Certifica a {request.user.username}')\n    c.save()",
+     ejercicio:{tipo:"fill", consigna:"Completa la librería que dibuja el PDF.",
+       texto:"from ___.pdfgen import canvas",
+       respuestas:[["reportlab"]],
+       retro:"ReportLab es la librería más usada para PDF en Python. WeasyPrint es alternativa basada en HTML."}},
+    {id:"t36", nombre:"Panel de estadísticas",
+     concepto:"Vistas que agregan datos por estudiante: promedio, tareas entregadas, avance, tiempo. Se combinan ORM y gráficos en la plantilla.",
+     ejemplo:"from django.db.models import Avg\npromedio = Calificacion.objects.filter(estudiante=u).aggregate(Avg('nota'))",
+     ejercicio:{tipo:"fill", consigna:"Completa la función de agregación del promedio.",
+       texto:"from django.db.models import ___\npromedio = Calificacion.objects.aggregate(___('nota'))",
+       respuestas:[["Avg","avg"],["Avg","avg"]],
+       retro:"Avg calcula el promedio. Sum, Count, Max y Min completan las agregaciones básicas."}},
+    {id:"t37", nombre:"Foros y mensajería",
+     concepto:"Modelos Hilo y Mensaje permiten conversación entre estudiante y profesor. Se usa para dudas, aclaraciones y tutorías asincrónicas.",
+     ejemplo:"class Hilo(models.Model):\n    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)\n    titulo = models.CharField(max_length=200)\n    creado = models.DateTimeField(auto_now_add=True)",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo que guarda la fecha automáticamente.",
+       texto:"creado = models.DateTimeField(auto_now_add=___)",
+       respuestas:[["True","true"]],
+       retro:"auto_now_add=True guarda la fecha de creación al insertar. auto_now=True la actualiza en cada save."}},
+    {id:"t38", nombre:"Calendario de actividades",
+     concepto:"Vista de calendario que muestra entregas, exámenes y eventos del curso. Se puede hacer con FullCalendar o con HTML+CSS propio.",
+     ejemplo:"class Evento(models.Model):\n    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)\n    titulo = models.CharField(max_length=100)\n    inicio = models.DateTimeField()",
+     ejercicio:{tipo:"fill", consigna:"Completa el campo que guarda el inicio del evento.",
+       texto:"inicio = models.___()",
+       respuestas:[["DateTimeField","datetimefield"]],
+       retro:"DateTimeField guarda fecha y hora. DateField solo fecha."}},
+    {id:"t39", nombre:"Django REST Framework (API)",
+     concepto:"DRF expone el LMS como API para apps móviles o externas. Los serializers traducen modelos a JSON; las vistas APIView o ViewSet manejan el CRUD.",
+     ejemplo:"from rest_framework import serializers\nclass CursoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Curso\n        fields = ['id', 'nombre', 'profesor']",
+     ejercicio:{tipo:"fill", consigna:"Completa la clase base del serializer.",
+       texto:"from rest_framework import serializers\nclass CursoSerializer(serializers.___):\n    class Meta:\n        model = Curso",
+       respuestas:[["ModelSerializer","modelserializer"]],
+       retro:"ModelSerializer genera campos automáticamente desde el modelo. Ahorra decenas de líneas."}},
+    {id:"t40", nombre:"Autenticación por token",
+     concepto:"DRF permite autenticar con TokenAuthentication. Cada usuario recibe un token que envía en el header Authorization. Ideal para apps móviles.",
+     ejemplo:"REST_FRAMEWORK = {\n  'DEFAULT_AUTHENTICATION_CLASSES': [\n    'rest_framework.authentication.TokenAuthentication'\n  ]\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa la clase de autenticación por token.",
+       texto:"'DEFAULT_AUTHENTICATION_CLASSES': [\n  'rest_framework.authentication.___'\n]",
+       respuestas:[["TokenAuthentication","tokenauthentication"]],
+       retro:"TokenAuthentication usa un token persistente. JWT es una alternativa más moderna."}}
+  ]
+},
+
+/* ======================== BLOQUE 3 · SQL (41-60) ======================== */
+{
+  id:"b3", nombre:"SQL · Gestión de datos", emoji:"🗄",
+  desc:"Esquemas, consultas, triggers, backups y optimización.",
+  tecnicas:[
+    {id:"t41", nombre:"Esquemas relacionales normalizados",
+     concepto:"Un esquema normalizado evita redundancia y anomalías. Cada tabla modela una entidad; las relaciones se expresan con claves foráneas.",
+     ejemplo:"-- estudiantes (id, nombre, email)\n-- cursos (id, nombre, profesor_id)\n-- inscripciones (estudiante_id, curso_id)",
+     ejercicio:{tipo:"fill", consigna:"Completa la tabla que relaciona estudiantes y cursos.",
+       texto:"-- estudiantes, cursos y ___(estudiante_id, curso_id)",
+       respuestas:[["inscripciones"]],
+       retro:"La tabla intermedia modela la relación muchos-a-muchos. Es la base del diseño normalizado."}},
+    {id:"t42", nombre:"Claves primarias y foráneas",
+     concepto:"La PK identifica cada fila. La FK conecta con otra tabla. Juntas garantizan integridad y permiten navegar el modelo relacional.",
+     ejemplo:"CREATE TABLE notas (\n  id SERIAL PRIMARY KEY,\n  estudiante_id INT REFERENCES estudiantes(id),\n  valor NUMERIC(3,1)\n);",
+     ejercicio:{tipo:"fill", consigna:"Completa la referencia hacia estudiantes.",
+       texto:"estudiante_id INT ___ estudiantes(id)",
+       respuestas:[["REFERENCES","references"]],
+       retro:"REFERENCES conecta con la PK de otra tabla. Si se borra el estudiante, la FK puede restringir o eliminar en cascada."}},
+    {id:"t43", nombre:"SELECT con WHERE",
+     concepto:"WHERE filtra filas. Se combina con operadores (=, >, <, BETWEEN, LIKE, IN). Es la consulta más frecuente del sistema.",
+     ejemplo:"SELECT nombre, nota FROM calificaciones\nWHERE nota < 3.0 AND curso_id = 5;",
+     ejercicio:{tipo:"fill", consigna:"Completa el filtro de notas menores a 3.0.",
+       texto:"SELECT nombre FROM calificaciones\nWHERE nota ___ 3.0;",
+       respuestas:[["<"]] ,
+       retro:"El operador < filtra los menores. BETWEEN, IN y LIKE permiten filtros más complejos."}},
+    {id:"t44", nombre:"JOIN para combinar tablas",
+     concepto:"JOIN une filas de dos o más tablas por una columna común. INNER JOIN devuelve coincidencias; LEFT JOIN incluye no coincidentes.",
+     ejemplo:"SELECT e.nombre, c.nombre AS curso, n.valor\nFROM notas n\nJOIN estudiantes e ON e.id = n.estudiante_id\nJOIN cursos c ON c.id = n.curso_id;",
+     ejercicio:{tipo:"fill", consigna:"Completa el JOIN entre notas y estudiantes.",
+       texto:"SELECT e.nombre, n.valor\nFROM notas n\n___ estudiantes e ON e.id = n.estudiante_id;",
+       respuestas:[["JOIN","INNER JOIN","join"]],
+       retro:"JOIN (o INNER JOIN) une por la condición ON. LEFT JOIN trae también las filas sin coincidencia."}},
+    {id:"t45", nombre:"GROUP BY para promedios",
+     concepto:"GROUP BY agrupa filas y permite aplicar funciones de agregación. Se usa para promedios por curso, por grupo o por período.",
+     ejemplo:"SELECT curso_id, AVG(valor) AS promedio\nFROM notas\nGROUP BY curso_id;",
+     ejercicio:{tipo:"fill", consigna:"Completa la agrupación por curso.",
+       texto:"SELECT curso_id, AVG(valor) FROM notas\n___ curso_id;",
+       respuestas:[["GROUP BY","group by"]],
+       retro:"GROUP BY agrupa. AVG, SUM, COUNT, MAX y MIN se aplican sobre cada grupo."}},
+    {id:"t46", nombre:"Subconsultas para riesgo académico",
+     concepto:"Una subconsulta dentro de WHERE o FROM permite identificar estudiantes con promedio bajo, sin tareas, o con más de N inasistencias.",
+     ejemplo:"SELECT nombre FROM estudiantes\nWHERE id IN (\n  SELECT estudiante_id FROM notas\n  GROUP BY estudiante_id\n  HAVING AVG(valor) < 3.0\n);",
+     ejercicio:{tipo:"fill", consigna:"Completa la condición de riesgo.",
+       texto:"GROUP BY estudiante_id\nHAVING AVG(valor) ___ 3.0;",
+       respuestas:[["<"]] ,
+       retro:"HAVING filtra sobre el resultado de la agregación. WHERE filtra antes de agrupar."}},
+    {id:"t47", nombre:"Índices para optimizar",
+     concepto:"Un índice acelera las búsquedas en columnas que se consultan mucho (email, curso_id, fecha). Se crea con CREATE INDEX.",
+     ejemplo:"CREATE INDEX idx_notas_estudiante ON notas(estudiante_id);",
+     ejercicio:{tipo:"fill", consigna:"Completa la creación del índice.",
+       texto:"CREATE ___ idx_notas_estudiante ON notas(estudiante_id);",
+       respuestas:[["INDEX","UNIQUE INDEX","index"]],
+       retro:"Los índices aceleran lecturas pero ralentizan escrituras. Hay que usarlos con criterio."}},
+    {id:"t48", nombre:"Vistas (VIEWS)",
+     concepto:"Una vista guarda una consulta con nombre. Simplifica reportes recurrentes y puede consultarse como una tabla.",
+     ejemplo:"CREATE VIEW promedio_por_curso AS\nSELECT curso_id, AVG(valor) AS promedio\nFROM notas GROUP BY curso_id;",
+     ejercicio:{tipo:"fill", consigna:"Completa la creación de la vista.",
+       texto:"CREATE ___ promedio_por_curso AS\nSELECT curso_id, AVG(valor) FROM notas GROUP BY curso_id;",
+       respuestas:[["VIEW","view"]],
+       retro:"Las vistas encapsulan consultas complejas. Se consultan con SELECT como cualquier tabla."}},
+    {id:"t49", nombre:"Triggers para promedios",
+     concepto:"Un trigger se ejecuta automáticamente al insertar, actualizar o borrar. Se usa para recalcular el promedio al ingresar una nota.",
+     ejemplo:"CREATE TRIGGER actualiza_promedio\nAFTER INSERT ON notas\nFOR EACH ROW EXECUTE FUNCTION recalcular();",
+     ejercicio:{tipo:"fill", consigna:"Completa el momento del trigger.",
+       texto:"CREATE TRIGGER actualiza_promedio\n___ INSERT ON notas\nFOR EACH ROW EXECUTE FUNCTION recalcular();",
+       respuestas:[["AFTER","after"]],
+       retro:"AFTER se ejecuta tras el cambio; BEFORE antes. Ambos tienen FOR EACH ROW."}},
+    {id:"t50", nombre:"Transacciones",
+     concepto:"Agrupan varias operaciones en una unidad atómica. Si algo falla, se revierte todo con ROLLBACK. Evita datos inconsistentes al guardar calificaciones.",
+     ejemplo:"BEGIN;\nUPDATE notas SET valor = 4.5 WHERE id = 10;\nINSERT INTO auditoria (accion) VALUES ('cambio');\nCOMMIT;",
+     ejercicio:{tipo:"fill", consigna:"Completa el cierre de la transacción.",
+       texto:"BEGIN;\nUPDATE notas SET valor = 4.5 WHERE id = 10;\n___;",
+       respuestas:[["COMMIT","commit"]],
+       retro:"COMMIT confirma; ROLLBACK revierte. Las transacciones garantizan atomicidad."}},
+    {id:"t51", nombre:"Backup y restauración",
+     concepto:"Un backup periódico protege contra pérdida de datos. Se programa con pg_dump/automysqlbackup o herramientas del proveedor.",
+     ejemplo:"pg_dump -U postgres lms > respaldo_$(date +%F).sql",
+     ejercicio:{tipo:"fill", consigna:"Completa el comando de respaldo de PostgreSQL.",
+       texto:"___ -U postgres lms > respaldo.sql",
+       respuestas:[["pg_dump","pgdump"]],
+       retro:"pg_dump exporta la base completa. La restauración se hace con psql < respaldo.sql."}},
+    {id:"t52", nombre:"Agregaciones (COUNT, AVG, MAX, MIN)",
+     concepto:"Calculan métricas sobre grupos de filas. Son la base de los paneles de desempeño y los reportes institucionales.",
+     ejemplo:"SELECT curso_id, COUNT(*) AS n, AVG(valor), MAX(valor), MIN(valor)\nFROM notas GROUP BY curso_id;",
+     ejercicio:{tipo:"fill", consigna:"Completa el conteo de filas.",
+       texto:"SELECT curso_id, ___(*) AS n FROM notas GROUP BY curso_id;",
+       respuestas:[["COUNT","count"]],
+       retro:"COUNT(*) cuenta filas. AVG, SUM, MAX y MIN calculan agregaciones sobre cada grupo."}},
+    {id:"t53", nombre:"Normalización 3FN",
+     concepto:"La tercera forma normal exige que no haya dependencias transitivas: cada atributo no clave debe depender solo de la clave primaria. Reduce redundancia.",
+     ejemplo:"-- mal: estudiantes(id, nombre, curso, profesor)\n-- bien: estudiantes(id, nombre)\n--       cursos(id, profesor)",
+     ejercicio:{tipo:"fill", consigna:"Completa la tabla que debe separarse.",
+       texto:"-- mal: estudiantes(id, nombre, curso, profesor)\n-- bien: estudiantes(id, nombre) y ___(id, profesor)",
+       respuestas:[["cursos","cursos(id, profesor)"]],
+       retro:"La 3FN separa atributos que dependen de otra clave. El profesor depende del curso, no del estudiante."}},
+    {id:"t54", nombre:"ORM de Django sobre SQL puro",
+     concepto:"El ORM traduce objetos a SQL. Es más seguro (evita inyección) y más portable. Se prefiere salvo casos de reportes muy complejos.",
+     ejemplo:"Calificacion.objects.filter(estudiante=u, valor__lt=3.0)",
+     ejercicio:{tipo:"fill", consigna:"Completa el filtro de notas menores a 3.0.",
+       texto:"Calificacion.objects.filter(estudiante=u, valor___=3.0)",
+       respuestas:[["__lt","lt"]],
+       retro:"__lt se traduce a < en SQL. El ORM tiene decenas de lookups: __gt, __lte, __contains, etc."}},
+    {id:"t55", nombre:"Consultas raw SQL",
+     concepto:"Cuando el ORM no alcanza, se usa raw() con consultas parametrizadas. Nunca se concatenan cadenas: eso abre la puerta a inyección SQL.",
+     ejemplo:"Calificacion.objects.raw(\n  'SELECT * FROM notas WHERE valor < %s', [3.0]\n)",
+     ejercicio:{tipo:"fill", consigna:"Completa el marcador de parámetro.",
+       texto:"Calificacion.objects.raw('SELECT * FROM notas WHERE valor < ___', [3.0])",
+       respuestas:[["%s","?"]],
+       retro:"Los marcadores (%s en psycopg2, ? en sqlite) evitan inyección. Nunca usar f-strings en SQL."}},
+    {id:"t56", nombre:"Integridad referencial",
+     concepto:"Las FK garantizan que no existan notas huérfanas. ON DELETE RESTRICT protege; ON DELETE CASCADE limpia; ON DELETE SET NULL desvincula.",
+     ejemplo:"FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)\n  ON DELETE CASCADE",
+     ejercicio:{tipo:"fill", consigna:"Completa la acción que elimina registros dependientes.",
+       texto:"FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)\n  ON DELETE ___",
+       respuestas:[["CASCADE","cascade"]],
+       retro:"CASCADE elimina las notas al eliminar el estudiante. RESTRICT y SET NULL son otras opciones."}},
+    {id:"t57", nombre:"Auditoría de cambios",
+     concepto:"Una tabla de auditoría registra quién cambió qué y cuándo. Se llena con triggers o con el ORM. Es indispensable en un LMS institucional.",
+     ejemplo:"CREATE TABLE auditoria (\n  id SERIAL PRIMARY KEY,\n  usuario TEXT, accion TEXT, fecha TIMESTAMP DEFAULT NOW()\n);",
+     ejercicio:{tipo:"fill", consigna:"Completa el valor por defecto de la fecha.",
+       texto:"fecha TIMESTAMP DEFAULT ___()",
+       respuestas:[["NOW","now"]],
+       retro:"NOW() devuelve el momento actual. La auditoría es obligatoria cuando hay calificaciones."}},
+    {id:"t58", nombre:"Exportación a Excel / CSV",
+     concepto:"Exportar resultados a CSV o Excel permite compartir con coordinación o entregar a las familias. Se hace desde SQL o desde Django.",
+     ejemplo:"COPY (SELECT * FROM notas WHERE curso_id = 5) TO 'notas_curso5.csv' WITH CSV HEADER;",
+     ejercicio:{tipo:"fill", consigna:"Completa el formato de salida.",
+       texto:"COPY (...) TO 'notas.csv' WITH ___ HEADER;",
+       respuestas:[["CSV","csv"]],
+       retro:"WITH CSV HEADER añade los nombres de columna. También existe la opción BINARY."}},
+    {id:"t59", nombre:"Optimización con EXPLAIN",
+     concepto:"EXPLAIN muestra el plan de ejecución de una consulta. Permite detectar escaneos completos, joins ineficientes y falta de índices.",
+     ejemplo:"EXPLAIN ANALYZE SELECT * FROM notas WHERE estudiante_id = 5;",
+     ejercicio:{tipo:"fill", consigna:"Completa la palabra clave que analiza el plan.",
+       texto:"EXPLAIN ___ SELECT * FROM notas WHERE estudiante_id = 5;",
+       respuestas:[["ANALYZE","analyze"]],
+       retro:"EXPLAIN ANALYZE ejecuta la consulta y muestra tiempos reales. Es la herramienta básica de optimización."}},
+    {id:"t60", nombre:"Particionamiento de tablas grandes",
+     concepto:"Cuando una tabla crece demasiado (histórico de varios años), se particiona por rango (año, mes). Mejora el rendimiento de consultas y de mantenimiento.",
+     ejemplo:"CREATE TABLE notas_2024 PARTITION OF notas\nFOR VALUES FROM ('2024-01-01') TO ('2025-01-01');",
+     ejercicio:{tipo:"fill", consigna:"Completa la cláusula que define el rango.",
+       texto:"CREATE TABLE notas_2024 PARTITION OF notas\nFOR VALUES ___ ('2024-01-01') TO ('2025-01-01');",
+       respuestas:[["FROM","from"]],
+       retro:"PARTITION BY RANGE + FOR VALUES FROM...TO divide la tabla. Cada partición se consulta más rápido."}}
+  ]
+},
+
+/* ======================== BLOQUE 4 · PEDAGOGÍA DIGITAL (61-80) ======================== */
+{
+  id:"b4", nombre:"Pedagogía digital aplicada a Lengua Castellana", emoji:"📚",
+  desc:"Corrector, rúbricas, banco de ejercicios, análisis gramatical y más.",
+  tecnicas:[
+    {id:"t61", nombre:"Corrector ortográfico integrado",
+     concepto:"Motor que detecta errores ortográficos frecuentes (tildes, b/v, ll/y) y los marca en la entrega. Se apoya en diccionarios y en reglas personalizadas.",
+     ejemplo:"palabras = texto.split()\nfor p in palabras:\n    if p not in diccionario: marcar(p)",
+     ejercicio:{tipo:"fill", consigna:"Completa la verificación.",
+       texto:"for p in palabras:\n    if p not in ___: marcar(p)",
+       respuestas:[["diccionario","dic"]],
+       retro:"El diccionario puede ser un set de palabras válidas. Con NLP se afina el análisis."}},
+    {id:"t62", nombre:"Analizador de coherencia y cohesión",
+     concepto:"Analiza si un texto mantiene un tema central y si usa conectores adecuados. Cuenta párrafos, conectores y repeticiones.",
+     ejemplo:"conectores = {'porque', 'sin embargo', 'además', 'por lo tanto'}\nn = sum(1 for p in palabras if p in conectores)",
+     ejercicio:{tipo:"fill", consigna:"Completa el conteo de conectores.",
+       texto:"n = ___(1 for p in palabras if p in conectores)",
+       respuestas:[["sum"]] ,
+       retro:"sum() con un generador cuenta cuántas palabras cumplen la condición. Muy útil para análisis de texto."}},
+    {id:"t63", nombre:"Banco dinámico de ejercicios",
+     concepto:"Genera ejercicios aleatorios desde plantillas y parámetros. Evita copiar y asegura variedad en cada intento.",
+     ejemplo:"import random\nverbos = ['hablar', 'comer', 'vivir']\nverbo = random.choice(verbos)\nformas = random.sample(preguntas, k=5)",
+     ejercicio:{tipo:"fill", consigna:"Completa la selección aleatoria.",
+       texto:"import random\nverbo = random.___(verbos)",
+       respuestas:[["choice"]],
+       retro:"random.choice elige uno; random.sample elige varios sin repetir. Son la base del banco dinámico."}},
+    {id:"t64", nombre:"Retroalimentación automática",
+     concepto:"El sistema devuelve un comentario según el tipo de error. Es más útil que un simple «incorrecto». Se define una biblioteca de mensajes.",
+     ejemplo:"mensajes = {\n  'tilde': 'Revisa la tilde en «habia → había».',\n  'concordancia': 'El verbo debe concordar con el sujeto.'\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa el acceso al mensaje de tilde.",
+       texto:"mensajes = {'tilde': 'Revisa la tilde...'}\nprint(mensajes['___'])",
+       respuestas:[["tilde"]],
+       retro:"Un diccionario de mensajes por tipo de error da retroalimentación útil y específica."}},
+    {id:"t65", nombre:"Detector básico de plagio",
+     concepto:"Compara la entrega con un corpus (otras entregas, internet o base interna) usando similitud de cadenas (difflib, cosine similarity).",
+     ejemplo:"from difflib import SequenceMatcher\nsim = SequenceMatcher(None, a, b).ratio()\nif sim > 0.8: marcar_posible_plagio()",
+     ejercicio:{tipo:"fill", consigna:"Completa la medida de similitud.",
+       texto:"from difflib import SequenceMatcher\nsim = SequenceMatcher(None, a, b).___()",
+       respuestas:[["ratio"]],
+       retro:"ratio() devuelve 0..1. Umbrales típicos: 0.8 alerta, 0.95 plagio casi seguro."}},
+    {id:"t66", nombre:"Rúbricas digitales configurables",
+     concepto:"El docente define criterios con pesos. El sistema calcula la nota final a partir de las valoraciones por criterio. Se guardan como modelo.",
+     ejemplo:"class Rubrica(models.Model):\n    tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)\nclass Criterio(models.Model):\n    rubrica = models.ForeignKey(Rubrica, on_delete=models.CASCADE)\n    peso = models.PositiveIntegerField()",
+     ejercicio:{tipo:"fill", consigna:"Completa el peso del criterio.",
+       texto:"peso = models.___(default=1)",
+       respuestas:[["PositiveIntegerField","positiveintegerfield"]],
+       retro:"El peso permite ponderar cada criterio. La nota final es la suma ponderada de los criterios."}},
+    {id:"t67", nombre:"Comprensión lectora con corrección",
+     concepto:"Módulo con textos y preguntas de distintos niveles: literal, inferencial, crítico. Corrección automática y retroalimentación por nivel.",
+     ejemplo:"niveles = ['literal', 'inferencial', 'crítico']\nfor p in preguntas:\n    p.nivel = random.choice(niveles)",
+     ejercicio:{tipo:"fill", consigna:"Completa el nivel más alto de comprensión.",
+       texto:"niveles = ['literal', 'inferencial', '___']",
+       respuestas:[["crítico","critico"]],
+       retro:"Los tres niveles clásicos son literal, inferencial y crítico. Cada uno exige una operación distinta."}},
+    {id:"t68", nombre:"Generador de cuestionarios de vocabulario",
+     concepto:"Toma un campo semántico y genera preguntas de sinónimos, antónimos, definiciones y uso en contexto. Aleatoriza distractores.",
+     ejemplo:"pregunta = {\n  'enunciado': f'Sinónimo de {palabra}',\n  'opciones': [sinonimo] + distractores\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa la opción correcta del cuestionario.",
+       texto:"'opciones': [___] + distractores",
+       respuestas:[["sinonimo","sinónimo"]],
+       retro:"El distractor debe ser plausible. Buenas opciones enseñan incluso cuando el estudiante falla."}},
+    {id:"t69", nombre:"Registro de progreso ortográfico",
+     concepto:"Cada vez que el estudiante comete un error, se registra por tipo (tildes, b/v, ll/y). Se consulta para ver evolución.",
+     ejemplo:"class ErrorOrtografico(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    tipo = models.CharField(max_length=30)\n    fecha = models.DateTimeField(auto_now_add=True)",
+     ejercicio:{tipo:"fill", consigna:"Completa el tipo de error.",
+       texto:"tipo = models.CharField(max_length=___)",
+       respuestas:[["30","treinta"]],
+       retro:"30 caracteres bastan para tipos como «tilde», «concordancia», «b-v». El registro permite ver tendencias."}},
+    {id:"t70", nombre:"Análisis morfosintáctico interactivo",
+     concepto:"El estudiante señala categorías y funciones sobre un texto. El sistema valida con spaCy y con reglas. Feedback por token.",
+     ejemplo:"for token in doc:\n    categoria_correcta = token.pos_\n    if respuesta_usuario == categoria_correcta: acertar()",
+     ejercicio:{tipo:"fill", consigna:"Completa el atributo de categoría gramatical.",
+       texto:"for token in doc:\n    categoria_correcta = token.___",
+       respuestas:[["pos_","pos"]],
+       retro:"pos_ devuelve la categoría (NOUN, VERB, ADJ…). tag_ da más detalle morfológico."}},
+    {id:"t71", nombre:"Autoevaluación",
+     concepto:"El estudiante evalúa su propio desempeño antes de recibir la nota. Se contrasta con la evaluación del docente. Mejora la metacognición.",
+     ejemplo:"class Autoevaluacion(models.Model):\n    entrega = models.OneToOneField(Entrega, on_delete=models.CASCADE)\n    nota_estimada = models.FloatField()",
+     ejercicio:{tipo:"fill", consigna:"Completa la relación uno a uno.",
+       texto:"entrega = models.___(Entrega, on_delete=models.CASCADE)",
+       respuestas:[["OneToOneField","onetoonemodel"]],
+       retro:"OneToOneField crea una relación 1:1. Cada entrega tiene una sola autoevaluación."}},
+    {id:"t72", nombre:"Biblioteca digital por niveles",
+     concepto:"Catálogo de lecturas etiquetadas por nivel, género, extensión y complejidad. El sistema recomienda según el desempeño del estudiante.",
+     ejemplo:"class Lectura(models.Model):\n    titulo = models.CharField(max_length=200)\n    nivel = models.CharField(max_length=20)\n    genero = models.CharField(max_length=50)",
+     ejercicio:{tipo:"fill", consigna:"Completa el nivel de la lectura.",
+       texto:"nivel = models.CharField(max_length=___)",
+       respuestas:[["20","veinte"]],
+       retro:"Niveles como «inicial», «intermedio», «avanzado» caben en 20 caracteres."}},
+    {id:"t73", nombre:"Foro de debate literario moderado",
+     concepto:"Espacio donde los estudiantes comentan una obra. El docente modera; el sistema alerta sobre lenguaje inapropiado.",
+     ejemplo:"palabras_prohibidas = ['idiota', 'estúpido']\nfor p in palabras_prohibidas:\n    if p in comentario.lower(): alertar()",
+     ejercicio:{tipo:"fill", consigna:"Completa la verificación del lenguaje.",
+       texto:"for p in palabras_prohibidas:\n    if p in comentario.___(): alertar()",
+       respuestas:[["lower","lower()"]],
+       retro:"lower() normaliza el texto a minúsculas. Así la comparación no falla por mayúsculas."}},
+    {id:"t74", nombre:"Editor de texto colaborativo",
+     concepto:"Varios estudiantes trabajan en un documento. Se registran cambios por autor y se permite comentar cada fragmento.",
+     ejemplo:"class Cambio(models.Model):\n    documento = models.ForeignKey(Documento, on_delete=models.CASCADE)\n    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n    fragmento = models.TextField()",
+     ejercicio:{tipo:"fill", consigna:"Completa el autor del cambio.",
+       texto:"autor = models.___(User, on_delete=models.CASCADE)",
+       respuestas:[["ForeignKey","foreignkey"]],
+       retro:"Cada cambio queda asociado a un autor. Así se ve el aporte de cada uno."}},
+    {id:"t75", nombre:"Etiquetas de errores comunes",
+     concepto:"Taxonomía de errores: tilde, concordancia, dequeísmo, puntuación. Cada error se etiqueta para agrupar y graficar.",
+     ejemplo:"ETIQUETAS = ['tilde', 'concordancia', 'dequeismo', 'puntuacion']",
+     ejercicio:{tipo:"fill", consigna:"Completa la etiqueta del fenómeno «de que» mal usado.",
+       texto:"ETIQUETAS = ['tilde', 'concordancia', '___', 'puntuacion']",
+       respuestas:[["dequeismo","dequeísmo"]],
+       retro:"El dequeísmo es el uso incorrecto de «de que». Se clasifica como error gramatical."}},
+    {id:"t76", nombre:"Informe de errores frecuentes por grupo",
+     concepto:"Agrega errores por curso o grupo. Permite al docente planear refuerzos según lo que más se repite.",
+     ejemplo:"from django.db.models import Count\ntop = ErrorOrtografico.objects.values('tipo').annotate(n=Count('id')).order_by('-n')[:5]",
+     ejercicio:{tipo:"fill", consigna:"Completa el conteo agregado.",
+       texto:"top = ErrorOrtografico.objects.values('tipo').annotate(n=___('id'))",
+       respuestas:[["Count","count"]],
+       retro:"Count agrupa y cuenta. order_by('-n') ordena de mayor a menor."}},
+    {id:"t77", nombre:"Dictados con corrección automática",
+     concepto:"El sistema reproduce un audio; el estudiante escribe. Se compara con el texto original y se marcan diferencias.",
+     ejemplo:"from difflib import ndiff\ndiferencias = list(ndiff(original.split(), escrito.split()))",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que muestra diferencias.",
+       texto:"from difflib import ___\ndiferencias = list(___((original.split(), escrito.split())",
+       respuestas:[["ndiff","ndiff"]],
+       retro:"ndiff resalta las diferencias palabra por palabra. Ideal para dictados."}},
+    {id:"t78", nombre:"Línea de tiempo de escritura",
+     concepto:"Cada entrega se marca en una línea temporal. Se ve la evolución de un estudiante a lo largo del curso.",
+     ejemplo:"entregas = Entrega.objects.filter(estudiante=u).order_by('fecha')\nfor e in entregas: print(e.fecha, e.nota)",
+     ejercicio:{tipo:"fill", consigna:"Completa el orden cronológico.",
+       texto:"entregas = Entrega.objects.filter(estudiante=u).order_by('___')",
+       respuestas:[["fecha","fecha_entrega"]],
+       retro:"order_by('fecha') ordena ascendente. Con '-fecha' se invierte el orden."}},
+    {id:"t79", nombre:"Comparador de versiones de un ensayo",
+     concepto:"Muestra el diff entre dos versiones del mismo trabajo. Ayuda a ver la reescritura y el progreso del estudiante.",
+     ejemplo:"from difflib import unified_diff\nd = unified_diff(v1.splitlines(), v2.splitlines(), lineterm='')",
+     ejercicio:{tipo:"fill", consigna:"Completa la función de diferencias unificadas.",
+       texto:"from difflib import ___\nd = ___((v1.splitlines(), v2.splitlines())",
+       respuestas:[["unified_diff","unified_diff"]],
+       retro:"unified_diff produce el formato clásico de parches. Ideal para ver cambios entre versiones."}},
+    {id:"t80", nombre:"Panel de «palabras difíciles»",
+     concepto:"Cada estudiante tiene una lista de palabras que le cuestan (tildes, uso, ortografía). El sistema las repite en ejercicios de refuerzo.",
+     ejemplo:"class PalabraDificil(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    palabra = models.CharField(max_length=50)\n    errores = models.PositiveIntegerField(default=1)",
+     ejercicio:{tipo:"fill", consigna:"Completa el contador de errores.",
+       texto:"errores = models.___(default=1)",
+       respuestas:[["PositiveIntegerField","positiveintegerfield"]],
+       retro:"El contador incrementa cada vez que se falla. A partir de cierto umbral, la palabra entra en refuerzo."}}
+  ]
+},
+
+/* ======================== BLOQUE 5 · SEGURIDAD Y DESPLIEGUE (81-100) ======================== */
+{
+  id:"b5", nombre:"Seguridad, despliegue y mantenimiento", emoji:"🔒",
+  desc:"Hash, CSRF, HTTPS, pruebas, despliegue, monitoreo y accesibilidad.",
+  tecnicas:[
+    {id:"t81", nombre:"Hash de contraseñas",
+     concepto:"Las contraseñas nunca se guardan en texto plano. Django usa PBKDF2 con sal por usuario y permite migrar el algoritmo sin perder datos.",
+     ejemplo:"from django.contrib.auth.hashers import make_password\npwd_hash = make_password('secreta')",
+     ejercicio:{tipo:"fill", consigna:"Completa la función que genera el hash.",
+       texto:"from django.contrib.auth.hashers import ___\npwd = ___('secreta')",
+       respuestas:[["make_password","make_password"]],
+       retro:"make_password genera el hash con sal. check_password verifica al iniciar sesión."}},
+    {id:"t82", nombre:"Protección CSRF",
+     concepto:"Django trae CSRF por defecto. Los formularios deben incluir {% csrf_token %}; el middleware valida el token en cada POST.",
+     ejemplo:"<form method=\"post\">\n  {% csrf_token %}\n  <input name=\"nota\">\n</form>",
+     ejercicio:{tipo:"fill", consigna:"Completa el token CSRF.",
+       texto:"<form method=\"post\">\n  {% ___ %}\n</form>",
+       respuestas:[["csrf_token","csrftoken"]],
+       retro:"Sin {% csrf_token %} el POST se rechaza. Es una defensa básica contra formularios falsificados."}},
+    {id:"t83", nombre:"Protección contra inyección SQL",
+     concepto:"Se previene usando el ORM o consultas parametrizadas. Nunca se concatenan cadenas con datos del usuario.",
+     ejemplo:"# Correcto\nCalificacion.objects.filter(valor__lt=3.0)\n# Incorrecto\nraw(f\"WHERE valor < {valor}\")",
+     ejercicio:{tipo:"fill", consigna:"Completa el lookup seguro.",
+       texto:"Calificacion.objects.filter(valor___=3.0)",
+       respuestas:[["__lt","lt"]],
+       retro:"El ORM parametriza internamente. Concatenar SQL es la vía directa a la inyección."}},
+    {id:"t84", nombre:"Control de sesiones y expiración",
+     concepto:"Las sesiones expiran automáticamente por inactividad. Se configura SESSION_COOKIE_AGE y SESSION_EXPIRE_AT_BROWSER_CLOSE.",
+     ejemplo:"SESSION_COOKIE_AGE = 60 * 60 * 2  # 2 horas\nSESSION_EXPIRE_AT_BROWSER_CLOSE = True",
+     ejercicio:{tipo:"fill", consigna:"Completa el tiempo de vida de la sesión (2 h).",
+       texto:"SESSION_COOKIE_AGE = 60 * 60 * ___",
+       respuestas:[["2","dos"]],
+       retro:"La sesión expira tras dos horas. En un LMS escolar, sesiones largas son aceptables; en banca, no."}},
+    {id:"t85", nombre:"HTTPS obligatorio",
+     concepto:"Todo el tráfico debe ir por HTTPS. Se configura SECURE_SSL_REDIRECT y HSTS para forzar el cifrado.",
+     ejemplo:"SECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000",
+     ejercicio:{tipo:"fill", consigna:"Completa la redirección a HTTPS.",
+       texto:"SECURE_SSL_REDIRECT = ___",
+       respuestas:[["True","true"]],
+       retro:"En producción, HTTPS es obligatorio. El certificado puede ser gratuito con Let's Encrypt."}},
+    {id:"t86", nombre:"Variables de entorno",
+     concepto:"Las credenciales (SECRET_KEY, contraseña de BD, API keys) nunca van en el código. Se cargan con os.environ o django-environ desde .env.",
+     ejemplo:"import os\nSECRET_KEY = os.environ['DJANGO_SECRET_KEY']\nDEBUG = os.environ.get('DEBUG', 'False') == 'True'",
+     ejercicio:{tipo:"fill", consigna:"Completa la lectura de la clave secreta.",
+       texto:"import os\nSECRET_KEY = os.___['DJANGO_SECRET_KEY']",
+       respuestas:[["environ"]],
+       retro:"os.environ lee variables del sistema. El archivo .env no se sube al repositorio."}},
+    {id:"t87", nombre:"Separación de entornos",
+     concepto:"Desarrollo, pruebas y producción deben tener configuración separada. Un settings.py por entorno, o un único settings con bloques condicionales.",
+     ejemplo:"# settings/base.py, settings/dev.py, settings/prod.py\n# manage.py --settings=settings.prod",
+     ejercicio:{tipo:"fill", consigna:"Completa el archivo de producción.",
+       texto:"# settings/base.py, settings/dev.py, settings/___",
+       respuestas:[["prod","production","produccion","producción"]],
+       retro:"Separar entornos evita que un DEBUG=True accidental llegue a producción."}},
+    {id:"t88", nombre:"Control de versiones con Git",
+     concepto:"Todo el código debe estar en Git. Ramas por funcionalidad, PRs, revisión, merge. Se etiquetan las versiones desplegadas.",
+     ejemplo:"git checkout -b feature/rubricas\ngit add .\ngit commit -m \"Añade rúbricas digitales\"\ngit push origin feature/rubricas",
+     ejercicio:{tipo:"fill", consigna:"Completa el comando que crea una rama.",
+       texto:"git checkout -b ___",
+       respuestas:[["feature/rubricas","feature/","nueva-rama"]],
+       retro:"Ramas por funcionalidad permiten trabajar en paralelo sin romper lo que ya funciona."}},
+    {id:"t89", nombre:"Documentación del código",
+     concepto:"Docstrings y README explican qué hace cada módulo. Es la memoria del proyecto cuando otros (o uno mismo en el futuro) lo retomen.",
+     ejemplo:"def calcular_promedio(notas):\n    \"\"\"Devuelve el promedio de una lista de notas.\"\"\"\n    return sum(notas) / len(notas)",
+     ejercicio:{tipo:"fill", consigna:"Completa el docstring.",
+       texto:"def calcular_promedio(notas):\n    \"\"\"___\"\"\"\n    return sum(notas) / len(notas)",
+       respuestas:[["devuelve el promedio de una lista de notas","devuelve el promedio","calcula el promedio"]],
+       retro:"El docstring describe qué hace la función, sin explicar cómo. Es la primera documentación."}},
+    {id:"t90", nombre:"Pruebas unitarias",
+     concepto:"Validan funciones aisladas. Con pytest o unittest se asegura que el cálculo de notas, la validación de formularios y las utilidades funcionen siempre.",
+     ejemplo:"def test_calcular_promedio():\n    assert calcular_promedio([4, 5, 3]) == 4.0",
+     ejercicio:{tipo:"fill", consigna:"Completa la aserción del test.",
+       texto:"def test_calcular_promedio():\n    ___(calcular_promedio([4, 5, 3]) == 4.0",
+       respuestas:[["assert"]] ,
+       retro:"assert es la palabra clave de las pruebas. Si la condición es falsa, el test falla."}},
+    {id:"t91", nombre:"Pruebas de integración",
+     concepto:"Simulan flujos completos: crear usuario, entregar tarea, calificar, ver nota. Detectan problemas entre módulos.",
+     ejemplo:"def test_flujo_entrega(client, usuario):\n    client.force_login(usuario)\n    r = client.post('/tareas/1/entregar', {'archivo': f})\n    assert r.status_code == 302",
+     ejercicio:{tipo:"fill", consigna:"Completa la verificación del flujo.",
+       texto:"r = client.post('/tareas/1/entregar', {'archivo': f})\nassert r.status_code == ___",
+       respuestas:[["302","redirect"]],
+       retro:"302 confirma que hubo redirección exitosa tras el POST. Es el patrón típico en Django."}},
+    {id:"t92", nombre:"Despliegue en servidor",
+     concepto:"El proyecto se despliega en VPS, Heroku, Render, Railway o PythonAnywhere. Cada plataforma tiene su método: git push, Docker, CI/CD.",
+     ejemplo:"# Ejemplo Heroku\ngit push heroku main\nheroku run python manage.py migrate",
+     ejercicio:{tipo:"fill", consigna:"Completa el comando que aplica migraciones en el servidor.",
+       texto:"heroku run python manage.py ___",
+       respuestas:[["migrate"]],
+       retro:"Siempre se aplican las migraciones tras desplegar. Es parte del flujo de puesta en producción."}},
+    {id:"t93", nombre:"Gunicorn (WSGI)",
+     concepto:"En producción, Django corre detrás de un servidor WSGI como Gunicorn. El servidor de desarrollo (runserver) no se usa en producción.",
+     ejemplo:"gunicorn lms.wsgi:application --bind 0.0.0.0:8000 --workers 3",
+     ejercicio:{tipo:"fill", consigna:"Completa el punto de entrada WSGI.",
+       texto:"gunicorn ___:application --bind 0.0.0.0:8000",
+       respuestas:[["lms.wsgi","wsgi"]],
+       retro:"lms.wsgi:application apunta al módulo WSGI de tu proyecto. Gunicorn lo sirve como proceso."}},
+    {id:"t94", nombre:"Nginx como proxy inverso",
+     concepto:"Nginx recibe las peticiones, sirve archivos estáticos y pasa las dinámicas a Gunicorn. Es la configuración estándar en producción.",
+     ejemplo:"server {\n  listen 80;\n  location / { proxy_pass http://127.0.0.1:8000; }\n  location /static/ { alias /var/www/lms/static/; }\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa el pase al servidor WSGI.",
+       texto:"location / { proxy_pass http://127.0.0.1:___; }",
+       respuestas:[["8000","8080","9000"]],
+       retro:"8000 es el puerto típico de Gunicorn. Nginx lo expone al exterior con HTTPS."}},
+    {id:"t95", nombre:"Monitoreo de errores (logs)",
+     concepto:"En producción se registran errores con LOGGING. Se revisan periódicamente o se envían a Sentry para detección proactiva.",
+     ejemplo:"LOGGING = {\n  'version': 1,\n  'handlers': {'file': {'class': 'logging.FileHandler', 'filename': 'errores.log'}},\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa el archivo de log.",
+       texto:"'handlers': {'file': {'class': 'logging.___', 'filename': 'errores.log'}}",
+       respuestas:[["FileHandler","filehandler"]],
+       retro:"FileHandler escribe en archivo. SentryHandler envía a un servicio de monitoreo."}},
+    {id:"t96", nombre:"Backups automatizados",
+     concepto:"Un cron o un servicio del proveedor hace backup diario y lo rota. Se prueban las restauraciones periódicamente.",
+     ejemplo:"0 2 * * * pg_dump lms > /backups/lms_$(date +\\%F).sql",
+     ejercicio:{tipo:"fill", consigna:"Completa la expresión cron diaria a las 2 a.m.",
+       texto:"0 ___ * * * pg_dump lms > /backups/lms.sql",
+       respuestas:[["2","02"]],
+       retro:"El formato cron es: minuto hora día mes día-semana. 0 2 * * * = todos los días a las 02:00."}},
+    {id:"t97", nombre:"Escalabilidad",
+     concepto:"Preparar el sistema para más usuarios: base de datos con réplicas, caché (Redis), CDN, workers asíncronos (Celery).",
+     ejemplo:"CACHES = {\n  'default': {'BACKEND': 'django_redis.cache.RedisCache',\n              'LOCATION': 'redis://127.0.0.1:6379/1'}\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa el backend de caché con Redis.",
+       texto:"'BACKEND': 'django_redis.cache.___',",
+       respuestas:[["RedisCache","rediscache"]],
+       retro:"RedisCache es uno de los backends más rápidos. Guarda sesiones, fragmentos y vistas."}},
+    {id:"t98", nombre:"Accesibilidad web (WCAG)",
+     concepto:"Diseño que todas las personas puedan usar: contraste suficiente, navegación por teclado, texto alternativo, etiquetas en formularios.",
+     ejemplo:"<img src=\"grafico.png\" alt=\"Gráfico de notas del curso 5.º\">\n<label for=\"nota\">Nota</label>",
+     ejercicio:{tipo:"fill", consigna:"Completa el texto alternativo de la imagen.",
+       texto:"<img src=\"grafico.png\" ___=\"Gráfico de notas del curso\">",
+       respuestas:[["alt","alternativo"]],
+       retro:"alt describe la imagen para lectores de pantalla. Es obligatorio en accesibilidad."}},
+    {id:"t99", nombre:"Diseño responsivo",
+     concepto:"El LMS debe verse bien en celular, tableta y escritorio. Se logra con CSS moderno: flexbox, grid y media queries.",
+     ejemplo:"@media (max-width: 600px) {\n  .menu { flex-direction: column; }\n}",
+     ejercicio:{tipo:"fill", consigna:"Completa la media query para móviles.",
+       texto:"@media (max-width: ___) {\n  .menu { flex-direction: column; }\n}",
+       respuestas:[["600px","600"]],
+       retro:"600px es un punto de corte típico para móviles. El diseño se adapta a pantallas pequeñas."}},
+    {id:"t100", nombre:"Capacitación continua",
+     concepto:"Django, Python y las buenas prácticas evolucionan. El docente desarrollador debe actualizarse: releases, blogs, comunidades y cursos.",
+     ejemplo:"# Buenas fuentes\n# docs.djangoproject.com\n# realpython.com\n# Comunidad Django Colombia",
+     ejercicio:{tipo:"open", consigna:"¿Cómo planearías tu capacitación continua como desarrollador del LMS? Responde en 4-5 líneas.",
+       criterios:[
+         "Mencioné al menos una fuente o comunidad.",
+         "Relacioné la capacitación con el proyecto concreto.",
+         "Reconocí que la tecnología cambia y que aprender es continuo.",
+         "Mencioné una práctica concreta (leer docs, hacer cursos, participar en comunidad)."
+       ],
+       modelo:"Planearía la capacitación con tres ejes. Primero, revisar las notas de la última versión de Django cada seis meses para actualizar el proyecto sin quedarme atrás. Segundo, mantener una cuenta activa en comunidades como Django Colombia o los foros oficiales, donde se resuelven dudas reales. Tercero, cada trimestre hacer un curso corto (Real Python, Pluralsight) sobre un tema puntual: pruebas, seguridad o escalabilidad. La capacitación no es un evento único: es una práctica continua que se integra al trabajo diario."}}
+  ]
+}
+];
+
+/* =====================================================================
+   TALLER DEL PROYECTO · 8 herramientas
+   ===================================================================== */
+const PLANTILLAS = [
+  {id:"modeloDjango", icon:"M", nombre:"Modelo Django", sub:"Diseñar modelo con campos",
+   genero:"Modelo Django",
+   desc:"Diseñe un modelo del LMS indicando el nombre de la clase y sus campos. Se genera el código models.py listo para pegar.",
+   campos:[
+    {id:"clase", label:"Nombre de la clase", ph:"Tarea", full:false},
+    {id:"app", label:"App", ph:"tareas", full:false},
+    {id:"campos", label:"Campos (uno por línea: nombre, TipoField, argumentos)", ph:"titulo, CharField, max_length=200\ncurso, ForeignKey, Curso, on_delete=CASCADE\nfecha_entrega, DateTimeField,\narchivo, FileField, upload_to='tareas/'", full:true, textarea:true},
+    {id:"meta", label:"Meta (opcional)", ph:"ordering = ['-fecha_entrega']\nverbose_name = 'Tarea'", full:true, textarea:true},
+    {id:"str", label:"Método __str__", ph:"return f'{self.titulo} ({self.curso})'", full:true}
+   ],
+   template:(d)=>{
+     let campos = "";
+     (d.campos||"").split("\n").forEach(l=>{
+       const t = l.trim();
+       if(!t) return;
+       const partes = t.split(",").map(x=>x.trim());
+       const [nombre, tipo, ...args] = partes;
+       if(!nombre) return;
+       campos += `    ${nombre} = models.${tipo||"CharField"}(${args.join(", ")})\n`;
+     });
+     let meta = "";
+     if(d.meta){
+       meta = `\n    class Meta:\n`;
+       d.meta.split("\n").forEach(l=>{ if(l.trim()) meta += `        ${l.trim()}\n`; });
+     }
+     return `# ${d.app||"app"}/models.py\nfrom django.db import models\n\nclass ${d.clase||"Modelo"}(models.Model):\n${campos||"    pass\n"}${meta}\n    def __str__(self):\n        ${d.str||"return self.nombre"}\n`;
+   }
+  },
+  {id:"esquemaSQL", icon:"S", nombre:"Esquema SQL", sub:"Diseñar tabla con columnas",
+   genero:"Esquema SQL",
+   desc:"Genere la sentencia CREATE TABLE indicando el nombre de la tabla y sus columnas.",
+   campos:[
+    {id:"tabla", label:"Nombre de la tabla", ph:"notas", full:false},
+    {id:"pk", label:"Clave primaria", ph:"id SERIAL PRIMARY KEY", full:false},
+    {id:"columnas", label:"Columnas (una por línea)", ph:"estudiante_id INT REFERENCES estudiantes(id) ON DELETE CASCADE\nvalor NUMERIC(3,1) NOT NULL\nfecha TIMESTAMP DEFAULT NOW()", full:true, textarea:true}
+   ],
+   template:(d)=>{
+     let cols = "  " + (d.pk||"id SERIAL PRIMARY KEY");
+     (d.columnas||"").split("\n").forEach(l=>{ if(l.trim()) cols += ",\n  " + l.trim(); });
+     return `CREATE TABLE ${d.tabla||"tabla"} (\n${cols}\n);\n`;
+   }
+  },
+  {id:"rubrica", icon:"R", nombre:"Rúbrica digital", sub:"Criterios con pesos",
+   genero:"Rúbrica",
+   desc:"Diseñe una rúbrica con criterios y pesos. El sistema calcula la nota final ponderada.",
+   campos:[
+    {id:"tarea", label:"Tarea / actividad", ph:"Ensayo argumentativo", full:true},
+    {id:"criterios", label:"Criterios (nombre, peso, descripción)", ph:"Tesis, 30, Claridad y pertinencia de la tesis\nArgumentos, 40, Solidez y evidencia\nOrtografía, 15, Corrección ortográfica y gramatical\nEstilo, 15, Claridad, cohesión y originalidad", full:true, textarea:true}
+   ],
+   template:(d)=>{
+     let total = 0;
+     let lineas = `RÚBRICA · ${d.tarea||"____"}\n\n`;
+     lineas += `Criterio | Peso | Descripción\n`;
+     lineas += `---------|------|-------------\n`;
+     (d.criterios||"").split("\n").forEach(l=>{
+       const t = l.trim(); if(!t) return;
+       const [nombre, peso, desc] = t.split(",").map(x=>x.trim());
+       total += parseInt(peso||"0", 10);
+       lineas += `${nombre||"____"} | ${peso||"0"}% | ${desc||""}\n`;
+     });
+     lineas += `\nTotal: ${total}%`;
+     if(total !== 100) lineas += ` (¡ajustar! debe sumar 100)`;
+     return lineas + "\n";
+   }
+  },
+  {id:"checkDespliegue", icon:"D", nombre:"Checklist de despliegue", sub:"Antes de subir a producción",
+   genero:"Checklist",
+   desc:"Marque los elementos que ya están listos antes de desplegar a producción.",
+   campos:[
+    {id:"proyecto", label:"Proyecto", ph:"LMS Lengua Castellana", full:false},
+    {id:"entorno", label:"Entorno destino", ph:"Producción · Render", full:false},
+    {id:"items", label:"Elementos (uno por línea: ✓ o ✗ , descripción)", ph:"✓, DEBUG=False en producción\n✓, SECRET_KEY en variable de entorno\n✓, HTTPS obligatorio con SECURE_SSL_REDIRECT\n✓, Base de datos con backup programado\n✗, Sentry configurado\n✗, Dominio con certificado SSL renovable\n✓, Migraciones aplicadas", full:true, textarea:true}
+   ],
+   template:(d)=>{
+     let listo = 0, pend = 0;
+     let lineas = `CHECKLIST DE DESPLIEGUE\n${d.proyecto||"____"} → ${d.entorno||"____"}\n\n`;
+     (d.items||"").split("\n").forEach(l=>{
+       const t = l.trim(); if(!t) return;
+       const ok = t.startsWith("✓");
+       if(ok) listo++; else pend++;
+       lineas += `${t}\n`;
+     });
+     lineas += `\nResumen: ${listo} listo(s), ${pend} pendiente(s).`;
+     return lineas + "\n";
+   }
+  },
+  {id:"planPruebas", icon:"P", nombre:"Plan de pruebas", sub:"Unitarias + integración",
+   genero:"Plan de pruebas",
+   desc:"Diseñe un plan de pruebas indicando qué se prueba, cómo y con qué resultado esperado.",
+   campos:[
+    {id:"modulo", label:"Módulo", ph:"Calificaciones", full:false},
+    {id:"unitarias", label:"Pruebas unitarias (una por línea)", ph:"calcular_promedio([4,5,3]) == 4.0\nvalidar_nota(6) lanza ValueError\nredondear_nota(3.75) == 3.8", full:true, textarea:true},
+    {id:"integracion", label:"Pruebas de integración", ph:"Un estudiante entrega tarea y recibe notificación\nUn profesor califica y el promedio se actualiza\nUn estudiante sin sesión no accede a /tareas/1/entregar", full:true, textarea:true}
+   ],
+   template:(d)=>`PLAN DE PRUEBAS · ${d.modulo||"____"}\n\nPRUEBAS UNITARIAS:\n${(d.unitarias||"").split("\n").map(x=>"  • "+x.trim()).join("\n")}\n\nPRUEBAS DE INTEGRACIÓN:\n${(d.integracion||"").split("\n").map(x=>"  • "+x.trim()).join("\n")}\n`
+  },
+  {id:"analizadorTexto", icon:"A", nombre:"Analizador de texto", sub:"Regex y estadísticas",
+   genero:"Analizador",
+   desc:"Pegue un texto en español y obtenga estadísticas y errores frecuentes detectados con reglas simples.",
+   campos:[
+    {id:"texto", label:"Texto a analizar", ph:"Habia una vez un niño que no queria estudiar. El niño, que era muy travieso, se fue a jugar. Sus padres le dijeron que de que estudiara...", full:true, textarea:true}
+   ],
+   template:(d)=>{
+     const t = d.texto||"";
+     const palabras = (t.toLowerCase().match(/[a-záéíóúñ]+/gi)||[]).length;
+     const parrafos = t.split(/\n\s*\n/).filter(x=>x.trim()).length || (t?1:0);
+     const oraciones = t.split(/[.!?]+/).filter(x=>x.trim()).length;
+     const errores = [];
+     const reglas = [
+       [/\bhabia\b/gi, 'tilde faltante en «había»'],
+       [/\bqueria\b/gi, 'tilde faltante en «quería»'],
+       [/\btenia\b/gi, 'tilde faltante en «tenía»'],
+       [/\bde que estudiar/gi, 'posible dequeísmo'],
+       [/\bme di cuenta que\b/gi, 'posible queísmo'],
+       [/\bmás sin embargo\b/gi, 'conector mal usado'],
+       [/\s{2,}/g, 'doble espacio'],
+       [/,,/g, 'coma duplicada']
+     ];
+     reglas.forEach(([re, msg])=>{
+       const matches = t.match(re);
+       if(matches) errores.push(`  • ${msg} (${matches.length} vez/veces)`);
+     });
+     let out = `ANÁLISIS DEL TEXTO\n\n`;
+     out += `Palabras: ${palabras}\n`;
+     out += `Oraciones: ${oraciones}\n`;
+     out += `Párrafos: ${parrafos}\n`;
+     out += `Promedio palabras/oración: ${oraciones?(palabras/oraciones).toFixed(1):0}\n\n`;
+     out += `POSIBLES ERRORES DETECTADOS:\n`;
+     out += errores.length ? errores.join("\n") : "  (no se detectaron errores con las reglas básicas)";
+     out += `\n\n(Análisis básico. Un corrector profesional usaría NLP y diccionarios.)\n`;
+     return out;
+   }
+  },
+  {id:"consultaSQL", icon:"Q", nombre:"Consulta SQL", sub:"SELECT, JOIN, GROUP BY",
+   genero:"Consulta SQL",
+   desc:"Arme una consulta SQL a partir de una plantilla: tabla, joins, filtros y agrupaciones.",
+   campos:[
+    {id:"objetivo", label:"Objetivo de la consulta", ph:"Promedio de notas por curso para el período 2024", full:true},
+    {id:"select", label:"Columnas (SELECT)", ph:"c.nombre AS curso, AVG(n.valor) AS promedio", full:true},
+    {id:"from", label:"Tabla base (FROM)", ph:"notas n", full:false},
+    {id:"joins", label:"Joins (uno por línea)", ph:"JOIN cursos c ON c.id = n.curso_id\nJOIN estudiantes e ON e.id = n.estudiante_id", full:true, textarea:true},
+    {id:"where", label:"Filtros (WHERE)", ph:"n.fecha >= '2024-01-01' AND n.fecha < '2025-01-01'", full:true},
+    {id:"group", label:"Agrupación (GROUP BY)", ph:"c.nombre", full:false},
+    {id:"order", label:"Orden (ORDER BY)", ph:"promedio DESC", full:false}
+   ],
+   template:(d)=>{
+     let q = `-- ${d.objetivo||"____"}\n`;
+     q += `SELECT ${d.select||"*"}\n`;
+     q += `FROM ${d.from||"____"}\n`;
+     (d.joins||"").split("\n").forEach(l=>{ if(l.trim()) q += l.trim()+"\n"; });
+     if(d.where) q += `WHERE ${d.where}\n`;
+     if(d.group) q += `GROUP BY ${d.group}\n`;
+     if(d.order) q += `ORDER BY ${d.order}\n`;
+     q += ";\n";
+     return q;
+   }
+  },
+  {id:"planSprint", icon:"V", nombre:"Plan de sprint", sub:"Roadmap del LMS",
+   genero:"Planificación",
+   desc:"Planifique un sprint indicando historias de usuario, tareas técnicas y criterios de aceptación.",
+   campos:[
+    {id:"sprint", label:"Sprint", ph:"Sprint 3 · Semanas 5-6", full:false},
+    {id:"objetivo", label:"Objetivo del sprint", ph:"Implementar rúbricas digitales para calificar tareas", full:true},
+    {id:"historias", label:"Historias de usuario (una por línea)", ph:"Como profesor quiero definir una rúbrica con criterios y pesos\nComo estudiante quiero ver la rúbrica antes de entregar\nComo profesor quiero calificar por criterio y obtener la nota final", full:true, textarea:true},
+    {id:"tareas", label:"Tareas técnicas", ph:"Modelo Rubrica y Criterio (FK a Tarea)\nVista de creación de rúbrica (CBV)\nCálculo de nota final ponderada\nFormulario de calificación por criterio", full:true, textarea:true},
+    {id:"criterios", label:"Criterios de aceptación", ph:"El profesor puede crear una rúbrica con N criterios\nCada criterio tiene peso configurable\nLa nota final es la suma ponderada\nEl estudiante ve la rúbrica antes de entregar", full:true, textarea:true}
+   ],
+   template:(d)=>`PLAN DE SPRINT · ${d.sprint||"____"}\n\nOBJETIVO:\n${d.objetivo||"____"}\n\nHISTORIAS DE USUARIO:\n${(d.historias||"").split("\n").map(x=>"  • "+x.trim()).join("\n")}\n\nTAREAS TÉCNICAS:\n${(d.tareas||"").split("\n").map(x=>"  • "+x.trim()).join("\n")}\n\nCRITERIOS DE ACEPTACIÓN:\n${(d.criterios||"").split("\n").map(x=>"  ✓ "+x.trim()).join("\n")}\n`
+  }
+];
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+const STORAGE_CUADERNO = "cuaderno_lms_100_v1";
+const STORAGE_TALLER   = "cuaderno_lms_taller_v1";
+
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_CUADERNO)) || {}; } catch(e){ progreso = {}; }
+let drafts = [];
+try { drafts = JSON.parse(localStorage.getItem(STORAGE_TALLER)) || []; } catch(e){ drafts = []; }
+
+let modo = "cuaderno";
+let actualId = null;
+let vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+let notaTimer = null;
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+if(TECNICAS_FLAT.length) actualId = TECNICAS_FLAT[0].id;
+
+function guardarProg(){ try{ localStorage.setItem(STORAGE_CUADERNO, JSON.stringify(progreso)); }catch(e){} }
+function guardarDrafts(){ try{ localStorage.setItem(STORAGE_TALLER, JSON.stringify(drafts)); }catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function nuevoId(){ return "l" + Date.now() + Math.random().toString(36).slice(2,7); }
+function getPlantilla(id){ return PLANTILLAS.find(p=>p.id===id); }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
+function el(tag, cls, txt){ const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
+function boton(txt, cls){ const b=document.createElement("button"); b.className="btn "+(cls||"primary"); b.textContent=txt; return b; }
+function escapeHtml(s){ return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+/* =====================================================================
+   CUADERNO · RENDER
+   ===================================================================== */
+function renderMenu(){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(document.getElementById("search").value||"");
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>'+cat.emoji+'</span><span>'+cat.nombre+'</span><span class="cat-count">'+hechas+"/"+cat.tecnicas.length+'</span><span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+    const bar = el("div","cat-bar");
+    const bf = document.createElement("i");
+    bf.style.width = (hechas/cat.tecnicas.length*100)+"%";
+    bar.appendChild(bf); div.appendChild(bar);
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>'+t.nombre+'</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){ const t = TECNICAS_FLAT.find(x=>x.id===id); return t ? t.catId : null; }
+
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x=>x.id===id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panelInner");
+  panel.innerHTML = "";
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner", "LMS\nPYTHON");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bi = CATEGORIAS.findIndex(c=>c.id===t.catId)+1;
+  head.appendChild(el("div","tech-pos", "Técnica "+(idx+1)+" de "+TECNICAS_FLAT.length+" · Bloque "+bi+"/5"));
+  panel.appendChild(head);
+  panel.appendChild(el("div","rule"));
+
+  const block = CATEGORIAS.find(c=>c.id===t.catId);
+  const dots = el("div","block-dots");
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot"+(getProg(bt.id).ok?" done":"")+(bt.id===t.id?" current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  panel.appendChild(dots);
+
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","• Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Voltee la tarjeta para ver el ejemplo ↻"));
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","• Ejemplo"));
+  const pre = el("p");
+  pre.innerHTML = escapeHtml(t.ejemplo).replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\n/g, "<br>");
+  back.appendChild(pre);
+  back.appendChild(el("span","fc-hint","↻ Toque de nuevo para volver al concepto"));
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+  const flipBtn = boton("↻ Voltear tarjeta","ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "Ejercicio interactivo <span>compruebe su comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+  const body = el("div"); sec.appendChild(body);
+  const fb = el("div","feedback"); sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "Cuaderno técnico <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+  const ta = document.createElement("textarea");
+  ta.rows = 6; ta.placeholder = "Escriba aquí sus notas, código propio, dudas técnicas, decisiones de diseño…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx===0;
+  next.disabled = idx===TECNICAS_FLAT.length-1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n===1?" palabra":" palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardarProg();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu();
+  actualizarProgreso();
+}
+
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo==="quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo==="fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo==="order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo==="classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo==="open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback "+tipo+" show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const L = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">'+L[i]+'</span><span>'+escapeHtml(op)+'</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i===ej.correcta;
+      Array.from(wrap.children).forEach((c,j) => {
+        c.disabled = true;
+        if(j===ej.correcta) c.classList.add("correcta");
+        if(j===i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok?"ok":"mal", ok?"✓ Correcto":"✗ Revise su respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length-1){
+      const inp = document.createElement("input");
+      inp.type="text"; inp.className="hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key==="Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i=>!i.value.trim())){
+      mostrarFeedback(fb,"info","Complete todos los huecos","Escriba una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i]||[]).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok?"ok":"mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos===total;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto ? "✓ "+aciertos+" de "+total+" correctas" : "✗ "+aciertos+" de "+total+" correctas",
+      ej.retro + (perfecto?"":" · Respuestas válidas: " + ej.respuestas.map((r,i)=>(i+1)+") "+r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i)=>({txt,i})));
+  const seq = [];
+  const wrap = el("div","order-wrap");
+  const cA = el("div","order-col");
+  cA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool"); cA.appendChild(poolEl);
+  const cB = el("div","order-col");
+  cB.appendChild(el("h4", null, "Su secuencia"));
+  const seqEl = el("div","seq"); cB.appendChild(seqEl);
+  wrap.appendChild(cA); wrap.appendChild(cB);
+  cont.appendChild(wrap);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML=""; seqEl.innerHTML="";
+    pool.forEach((o,k)=>{
+      const b = document.createElement("button");
+      b.className="ord-item"; b.textContent=o.txt;
+      b.onclick=()=>{ if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o,k)=>{
+      const b = document.createElement("button");
+      b.className="ord-item";
+      b.innerHTML = '<span class="num">'+(k+1)+'</span><span>'+o.txt+'</span>';
+      b.onclick=()=>{ if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length!==correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pase todos los elementos a la columna de la derecha.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo,k)=>{
+      const ok = seq[k].i===k;
+      nodo.classList.add(ok?"ok":"mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos===correcto.length;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto?"✓ Secuencia correcta":"✗ "+aciertos+" de "+correcto.length+" en su lugar",
+      perfecto ? ej.retro : "Empieza por: «"+correcto[0].slice(0,70)+"…». "+ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function renderClassify(ej, cont, fb, techId){
+  const sel = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it,i)=>{
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat,ci)=>{
+      const c = document.createElement("button");
+      c.className="chip"; c.textContent=cat;
+      c.onclick=()=>{
+        if(row.dataset.locked) return;
+        sel[i]=ci;
+        Array.from(chips.children).forEach((x,xi)=>x.classList.toggle("sel", xi===ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(sel.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigne una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila,i)=>{
+      fila.dataset.locked = "1";
+      const ok = sel[i]===ej.items[i].cat;
+      fila.classList.add(ok?"ok":"mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c=>c.disabled=true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-size:11px;color:#8b1e1e;font-weight:700;letter-spacing:.4px;";
+        nota.textContent = "→ Correcto: "+ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos===ej.items.length;
+    mostrarFeedback(fb, perfecto?"ok":"mal",
+      perfecto?"✓ Clasificación correcta":"✗ "+aciertos+" de "+ej.items.length+" correctas",
+      ej.retro||"");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 6; ta.placeholder = "Redacte aquí su respuesta…";
+  cont.appendChild(ta);
+  const ul = el("ul","criterios"); ul.style.marginTop="14px";
+  ej.criterios.forEach((c,i)=>{
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type="checkbox"; cb.id = "crit_"+techId+"_"+i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+  const mod = el("div","modelo");
+  const pre = el("div");
+  pre.innerHTML = "<strong>Respuesta modelo orientativa</strong>" + escapeHtml(ej.modelo);
+  mod.appendChild(pre);
+  cont.appendChild(mod);
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escriba primero su respuesta","Redacte al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados===total?"ok":"info",
+      marcados===total?"✓ Autoevaluación completa":"Autoevaluación: "+marcados+"/"+total,
+      "Compare su respuesta con el modelo: ¿qué ideas coinciden? ¿qué le falta? ¿qué aporta usted?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardarProg();
+    actualizarProgreso(); renderMenu();
+    const block = CATEGORIAS.find(c=>c.tecnicas.some(t=>t.id===id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i)=>{
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t=>getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas+" / "+total;
+  document.getElementById("progressFill").style.width = (hechas/total*100)+"%";
+}
+
+/* =====================================================================
+   TALLER · RENDER
+   ===================================================================== */
+function renderMenuTaller(){
+  const mp = document.getElementById("menuPlantillas");
+  mp.innerHTML = "";
+  PLANTILLAS.forEach(p=>{
+    const b = document.createElement("button");
+    b.className = "side-item" + ((vistaTaller.tipo==="plantilla" && vistaTaller.id===p.id) ? " active":"");
+    b.innerHTML = `<span class="icon">${p.icon}</span><span class="label">${p.nombre}<small>${p.sub}</small></span>`;
+    b.onclick = () => { vistaTaller = { tipo:"plantilla", id:p.id }; cerrarSidebar(); abrirTaller(); };
+    mp.appendChild(b);
+  });
+  const md = document.getElementById("menuDrafts");
+  md.innerHTML = "";
+  if(!drafts.length){
+    md.appendChild(el("div","empty-mini","Aún no hay artefactos guardados."));
+  } else {
+    drafts.slice().reverse().forEach(d=>{
+      const p = getPlantilla(d.plantillaId);
+      if(!p) return;
+      const wrap = el("div","draft-item" + (vistaTaller.tipo==="draft" && vistaTaller.id===d.id ? " active":""));
+      const title = el("div","di-title");
+      const t = (d.campos.clase || d.campos.tabla || d.campos.tarea || d.campos.sprint || d.campos.proyecto || d.campos.modulo || p.nombre).slice(0,42);
+      title.innerHTML = `${t}<small>${p.nombre} · ${d.fecha}</small>`;
+      wrap.appendChild(title);
+      const del = el("button","di-del","×");
+      del.onclick = (ev)=>{ ev.stopPropagation(); eliminarDraft(d.id); };
+      wrap.appendChild(del);
+      wrap.onclick = () => { vistaTaller = { tipo:"draft", id:d.id }; cerrarSidebar(); abrirTaller(); };
+      md.appendChild(wrap);
+    });
+  }
+  document.getElementById("statCount").textContent = drafts.length;
+}
+function eliminarDraft(id){
+  if(!confirm("¿Eliminar este artefacto guardado? Esta acción no se puede deshacer.")) return;
+  drafts = drafts.filter(d=>d.id!==id);
+  guardarDrafts();
+  if(vistaTaller.tipo==="draft" && vistaTaller.id===id){
+    vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+  }
+  renderMenuTaller(); abrirTaller();
+}
+function abrirTaller(){
+  const panel = document.getElementById("panelInner");
+  panel.innerHTML = "";
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner", "TALLER\nLMS");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  if(vistaTaller.tipo==="plantilla"){
+    const p = getPlantilla(vistaTaller.id);
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Taller · " + p.genero));
+    head.appendChild(el("h2", null, p.nombre));
+    head.appendChild(el("p","lead", p.desc));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "<strong>Cómo usar:</strong> complete los campos. La vista previa se genera en vivo con el código o texto resultante. Puede guardar el artefacto en <em>Mis artefactos</em>, copiarlo o descargarlo como archivo.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      f.appendChild(el("label", null, c.label));
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_"+c.id;
+      input.addEventListener("input", actualizarPreviewTaller);
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bSave = boton("Guardar en Mis artefactos","primary");
+    bSave.onclick = () => guardarDesdePlantilla(p);
+    const bCopy = boton("Copiar texto","ghost");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bClear = boton("Limpiar campos","ghost");
+    bClear.onclick = () => { p.campos.forEach(c=>{ const i=document.getElementById("field_"+c.id); if(i) i.value=""; }); actualizarPreviewTaller(); };
+    acts.appendChild(bSave); acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bClear);
+    panel.appendChild(acts);
+    setTimeout(actualizarPreviewTaller, 0);
+
+  } else if(vistaTaller.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaTaller.id);
+    if(!d){ vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; abrirTaller(); return; }
+    const p = getPlantilla(d.plantillaId);
+    if(!p){ vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; abrirTaller(); return; }
+
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Artefacto guardado · " + p.genero));
+    const t = (d.campos.clase || d.campos.tabla || d.campos.tarea || d.campos.sprint || d.campos.proyecto || d.campos.modulo || p.nombre).slice(0,60);
+    head.appendChild(el("h2", null, t));
+    head.appendChild(el("p","lead", "Guardado el " + d.fecha + ". Puede editarlo; los cambios se guardan automáticamente."));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "Edite los campos y la vista previa se actualizará. Los cambios se guardan automáticamente.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      f.appendChild(el("label", null, c.label));
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_"+c.id;
+      input.value = d.campos[c.id] || "";
+      input.addEventListener("input", ()=>{
+        d.campos[c.id] = input.value;
+        d.textoGenerado = p.template(d.campos);
+        guardarDrafts();
+        actualizarPreviewTaller();
+      });
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bCopy = boton("Copiar texto","primary");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bNew = boton("Nuevo con esta plantilla","ghost");
+    bNew.onclick = () => { vistaTaller = { tipo:"plantilla", id:p.id }; abrirTaller(); };
+    const bDel = boton("Eliminar artefacto","danger");
+    bDel.onclick = () => eliminarDraft(d.id);
+    acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bNew); acts.appendChild(bDel);
+    panel.appendChild(acts);
+    setTimeout(actualizarPreviewTaller, 0);
+  }
+}
+function actualizarPreviewTaller(){
+  const elPrev = document.getElementById("previewText");
+  if(!elPrev) return;
+  if(vistaTaller.tipo==="plantilla"){
+    const p = getPlantilla(vistaTaller.id);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value.trim() : "";
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+  } else if(vistaTaller.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaTaller.id);
+    if(!d) return;
+    const p = getPlantilla(d.plantillaId);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value : (d.campos[c.id]||"");
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+  }
+}
+function guardarDesdePlantilla(p){
+  const datos = {};
+  let vacio = true;
+  p.campos.forEach(c=>{
+    const inp = document.getElementById("field_"+c.id);
+    const v = inp ? inp.value.trim() : "";
+    datos[c.id] = v;
+    if(v) vacio = false;
+  });
+  if(vacio){ mostrarToast("Llene al menos un campo antes de guardar."); return; }
+  const nuevo = {
+    id: nuevoId(),
+    plantillaId: p.id,
+    campos: datos,
+    textoGenerado: p.template(datos),
+    fecha: new Date().toLocaleDateString("es-CO", { day:"numeric", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" })
+  };
+  drafts.push(nuevo);
+  guardarDrafts();
+  mostrarToast("✓ Guardado en Mis artefactos");
+  vistaTaller = { tipo:"draft", id:nuevo.id };
+  renderMenuTaller();
+  abrirTaller();
+}
+function copiarTexto(txt){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>mostrarToast("✓ Texto copiado"), ()=>fallbackCopy(txt));
+  } else { fallbackCopy(txt); }
+}
+function fallbackCopy(txt){
+  const ta = document.createElement("textarea");
+  ta.value = txt; ta.style.position="fixed"; ta.style.left="-9999px";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); mostrarToast("✓ Texto copiado"); } catch(e){ mostrarToast("No se pudo copiar"); }
+  document.body.removeChild(ta);
+}
+function descargarTxt(txt, nombreBase){
+  const blob = new Blob([txt], { type:"text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const fecha = new Date().toISOString().slice(0,10);
+  a.download = `${nombreBase}_${fecha}.txt`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  mostrarToast("✓ Archivo descargado");
+}
+let toastTimer = null;
+function mostrarToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* =====================================================================
+   CAMBIO DE MODO
+   ===================================================================== */
+function cambiarModo(m){
+  modo = m;
+  document.querySelectorAll(".tab").forEach(t=>{
+    t.classList.toggle("active", t.dataset.mode===m);
+  });
+  document.getElementById("progressWrap").style.display = m==="cuaderno" ? "flex" : "none";
+  document.getElementById("statWrap").style.display = m==="taller" ? "flex" : "none";
+  document.getElementById("btnNew").style.display = m==="taller" ? "inline-block" : "none";
+  document.getElementById("menu").style.display = m==="cuaderno" ? "block" : "none";
+  document.getElementById("menuTaller").style.display = m==="taller" ? "block" : "none";
+  document.getElementById("search").style.display = m==="cuaderno" ? "block" : "none";
+  cerrarSidebar();
+  if(m==="cuaderno"){ renderMenu(); abrirTecnica(actualId); actualizarProgreso(); }
+  else { renderMenuTaller(); abrirTaller(); }
+}
+document.querySelectorAll(".tab").forEach(t=>{
+  t.onclick = () => cambiarModo(t.dataset.mode);
+});
+document.getElementById("btnNew").onclick = () => {
+  vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id };
+  cerrarSidebar();
+  renderMenuTaller();
+  abrirTaller();
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+
+/* =====================================================================
+   SIDEBAR / RESET / BÚSQUEDA
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+document.getElementById("search").addEventListener("input", renderMenu);
+document.getElementById("btnReset").onclick = () => {
+  const msg = modo==="cuaderno"
+    ? "¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer."
+    : "¿Borrar todos los artefactos guardados del taller? Esta acción no se puede deshacer.";
+  if(!confirm(msg)) return;
+  if(modo==="cuaderno"){ progreso = {}; guardarProg(); abrirTecnica(TECNICAS_FLAT[0].id); actualizarProgreso(); }
+  else { drafts = []; guardarDrafts(); vistaTaller = { tipo:"plantilla", id:PLANTILLAS[0].id }; renderMenuTaller(); abrirTaller(); }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+cambiarModo("cuaderno");
+</script>
+</body>
+</html>

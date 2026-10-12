@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller de Comunicaciones Escolares · Cuaderno Docente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e8e6e0;
+    --paper:#fdfaf3;
+    --paper-2:#f7f2e8;
+    --ink:#14213d;
+    --navy:#14213d;
+    --navy-dark:#0a1528;
+    --navy-soft:#dde5f0;
+    --bronze:#a67c52;
+    --bronze-dark:#7c5c39;
+    --bronze-soft:#f0e4d3;
+    --bronze-line:#c9a96e;
+    --muted:#6b6355;
+    --line:#d8d2c3;
+    --line-2:#b8af99;
+    --ok:#2f6b3a;
+    --ok-soft:#e0efe2;
+    --bad:#8b1e1e;
+    --bad-soft:#f8e0e0;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Public Sans",system-ui,-apple-system,sans-serif;
+    background:radial-gradient(circle at 12% 0%, #f4f1ea 0%, transparent 55%), var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px 22px;
+    background:linear-gradient(180deg, #fdfaf3 0%, #f7f2e8 100%);
+    border-bottom:3px double var(--navy);
+    box-shadow:0 1px 0 var(--bronze-line) inset;
+  }
+  .brand{display:flex; align-items:center; gap:14px; min-width:0;}
+  .seal{
+    width:52px; height:52px; flex:0 0 auto;
+    border-radius:50%; padding:3px;
+    border:1.5px dashed var(--bronze);
+    display:grid; place-items:center;
+  }
+  .seal-inner{
+    width:100%; height:100%; border-radius:50%;
+    border:1px solid var(--navy);
+    display:grid; place-items:center;
+    background:radial-gradient(circle, var(--paper) 60%, var(--bronze-soft) 100%);
+    color:var(--navy);
+    font-family:"PT Serif",Georgia,serif; font-weight:700; font-size:17px;
+    position:relative;
+  }
+  .seal-inner::before,.seal-inner::after{content:"★"; position:absolute; font-size:6px; color:var(--bronze);}
+  .seal-inner::before{top:5px; left:50%; transform:translateX(-50%);}
+  .seal-inner::after{bottom:5px; left:50%; transform:translateX(-50%);}
+  .brand h1{
+    font-family:"PT Serif",Georgia,serif;
+    font-size:16px; margin:0; font-weight:700; letter-spacing:.2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    color:var(--navy);
+  }
+  .brand p{margin:2px 0 0; font-size:11px; color:var(--muted); font-weight:600; letter-spacing:.6px; text-transform:uppercase;}
+  .topbar-actions{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
+
+  .stat{
+    display:flex; align-items:center; gap:8px;
+    font-size:11px; color:var(--muted); font-weight:700;
+    letter-spacing:.4px; text-transform:uppercase;
+  }
+  .stat strong{
+    font-family:"PT Serif",Georgia,serif;
+    font-size:16px; color:var(--navy); font-weight:700;
+    padding:0 6px;
+  }
+
+  .btn{
+    font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+    padding:8px 14px; cursor:pointer;
+    border:1px solid var(--navy); background:var(--paper); color:var(--navy);
+    transition:.16s;
+  }
+  .btn:hover{background:var(--navy-soft);}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--navy); color:var(--paper);}
+  .btn.primary:hover{background:var(--navy-dark);}
+  .btn.ghost{background:transparent; border-color:var(--line-2); color:var(--muted);}
+  .btn.ghost:hover{background:#eee9dc; color:var(--navy);}
+  .btn.small{padding:6px 10px; font-size:10.5px; letter-spacing:.4px;}
+  .btn.danger{border-color:var(--bad); color:var(--bad);}
+  .btn.danger:hover{background:var(--bad-soft);}
+  .only-mobile{display:none;}
+
+  .layout{
+    display:grid; grid-template-columns:300px 1fr; gap:22px;
+    max-width:1400px; margin:0 auto; padding:22px; align-items:start;
+  }
+
+  .sidebar{
+    position:sticky; top:92px;
+    max-height:calc(100vh - 116px); overflow-y:auto;
+    background:var(--paper); border:1px solid var(--navy);
+    padding:4px; box-shadow:var(--shadow);
+  }
+  .sidebar-inner{
+    border:1px solid var(--bronze-line); padding:14px;
+    background:linear-gradient(180deg, #fdfaf3 0%, #f7f2e8 100%);
+  }
+  .sidebar-label{
+    font-family:"Public Sans",sans-serif;
+    font-size:10px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--bronze-dark); padding-bottom:6px; margin-bottom:8px;
+    border-bottom:1px solid var(--bronze-line);
+  }
+  .side-item{
+    display:flex; align-items:flex-start; gap:9px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    font-family:"Public Sans",sans-serif; font-size:12px; line-height:1.4;
+    color:#3a3a3a;
+    padding:9px 10px;
+    border-left:3px solid transparent;
+    transition:.15s;
+  }
+  .side-item:hover{background:var(--bronze-soft); border-left-color:var(--bronze);}
+  .side-item.active{background:var(--navy-soft); border-left-color:var(--navy); color:var(--navy-dark); font-weight:700;}
+  .side-item .icon{
+    flex:0 0 auto; width:22px; height:22px;
+    border:1px solid var(--line-2); background:var(--paper);
+    display:grid; place-items:center;
+    font-family:"PT Serif",Georgia,serif; font-size:11px; font-weight:700;
+    color:var(--navy);
+  }
+  .side-item.active .icon{background:var(--navy); color:var(--paper); border-color:var(--navy);}
+  .side-item .label{flex:1; min-width:0;}
+  .side-item .label small{display:block; font-size:10px; color:var(--muted); font-weight:500; margin-top:2px;}
+
+  .sidebar-section{margin-bottom:18px;}
+
+  .empty-mini{
+    font-size:11px; color:var(--muted); font-style:italic;
+    padding:10px; text-align:center;
+    border:1px dashed var(--line-2); background:var(--paper-2);
+  }
+
+  .draft-item{
+    display:flex; align-items:flex-start; gap:6px;
+    padding:8px 10px; border-left:3px solid transparent;
+    cursor:pointer; transition:.15s;
+    font-size:11.5px; line-height:1.35;
+    font-family:"Public Sans",sans-serif;
+    border-bottom:1px solid var(--line);
+  }
+  .draft-item:hover{background:var(--bronze-soft); border-left-color:var(--bronze);}
+  .draft-item.active{background:var(--navy-soft); border-left-color:var(--navy);}
+  .draft-item .di-title{flex:1; min-width:0; color:#3a3a3a; font-weight:600;}
+  .draft-item .di-title small{display:block; font-weight:400; font-size:10px; color:var(--muted); margin-top:2px;}
+  .draft-item .di-del{
+    flex:0 0 auto; background:none; border:none; color:var(--muted);
+    cursor:pointer; font-size:14px; padding:0 2px; line-height:1;
+  }
+  .draft-item .di-del:hover{color:var(--bad);}
+
+  /* PANEL */
+  .panel{background:var(--paper); border:1px solid var(--navy); padding:6px; box-shadow:var(--shadow);}
+  .panel-inner{
+    border:1px solid var(--bronze-line);
+    padding:26px 30px 30px;
+    background:radial-gradient(circle at 100% 0%, #f7f2e8 0%, transparent 40%), var(--paper);
+    position:relative;
+  }
+  .panel-seal{
+    position:absolute; top:18px; right:22px;
+    width:70px; height:70px; border-radius:50%;
+    border:1.5px dashed var(--bronze); padding:3px; opacity:.75;
+  }
+  .panel-seal-inner{
+    width:100%; height:100%; border-radius:50%;
+    border:1px solid var(--navy);
+    display:grid; place-items:center;
+    color:var(--navy);
+    font-family:"PT Serif",Georgia,serif; font-weight:700;
+    font-size:10px; text-align:center; line-height:1.1;
+  }
+  .tech-head{margin-bottom:20px; padding-right:90px;}
+  .badge{
+    display:inline-block; font-size:10px; font-weight:800;
+    letter-spacing:1.4px; text-transform:uppercase;
+    color:var(--bronze-dark); background:var(--bronze-soft);
+    border:1px solid var(--bronze-line);
+    padding:3px 10px; margin-bottom:12px;
+  }
+  .tech-head h2{
+    margin:0;
+    font-family:"PT Serif",Georgia,serif;
+    font-size:26px; line-height:1.2; letter-spacing:-.3px;
+    font-weight:700; color:var(--navy);
+  }
+  .tech-head p.lead{
+    margin:8px 0 0; font-family:"PT Serif",Georgia,serif;
+    font-size:14px; line-height:1.6; color:var(--muted);
+  }
+  .rule{
+    height:3px;
+    border-top:1px solid var(--navy);
+    border-bottom:1px solid var(--bronze-line);
+    margin:16px 0 20px;
+  }
+  .sec-title{
+    display:flex; align-items:center; gap:10px;
+    font-family:"PT Serif",Georgia,serif;
+    font-size:16px; font-weight:700; color:var(--navy);
+    margin:0 0 12px; padding-bottom:8px;
+    border-bottom:1px solid var(--navy);
+    position:relative;
+  }
+  .sec-title::after{
+    content:""; position:absolute; left:0; right:0; bottom:-3px; height:1px;
+    background:var(--bronze-line);
+  }
+  .sec-title span{
+    font-size:10px; font-weight:700; color:var(--muted);
+    margin-left:auto; letter-spacing:.6px; text-transform:uppercase;
+  }
+
+  /* FORM */
+  .form-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px 18px;
+    margin-bottom:18px;
+  }
+  .form-grid .full{grid-column:1/-1;}
+  .field{display:flex; flex-direction:column; gap:5px;}
+  .field label{
+    font-size:10.5px; font-weight:800; letter-spacing:.8px;
+    text-transform:uppercase; color:var(--bronze-dark);
+  }
+  .field label small{
+    font-weight:500; font-style:italic; letter-spacing:.2px;
+    text-transform:none; color:var(--muted); margin-left:4px;
+  }
+  .field input,
+  .field textarea,
+  .field select{
+    font-family:"PT Serif",Georgia,serif;
+    font-size:14px; padding:8px 11px;
+    border:1px solid var(--bronze-line);
+    background-color:#fdfaf3;
+    color:var(--ink);
+    outline:none;
+    transition:.15s;
+    width:100%;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus{border-color:var(--navy); box-shadow:0 0 0 2px var(--navy-soft);}
+  .field textarea{
+    resize:vertical; min-height:70px; line-height:1.5;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder{color:#a1957e; font-style:italic;}
+  .field select{cursor:pointer;}
+
+  /* PREVIEW */
+  .preview-wrap{
+    border:1px solid var(--navy); padding:4px;
+    background:var(--paper); margin-top:6px;
+  }
+  .preview-inner{
+    border:1px solid var(--bronze-line);
+    padding:24px 26px;
+    background:var(--paper);
+    font-family:"PT Serif",Georgia,serif;
+    font-size:14px; line-height:1.7; color:var(--ink);
+    white-space:pre-wrap;
+    max-height:520px; overflow-y:auto;
+  }
+  .preview-inner h3{
+    font-family:"PT Serif",Georgia,serif;
+    margin:0 0 12px; font-size:15px; color:var(--navy);
+    letter-spacing:.4px; text-align:center;
+    padding-bottom:8px; border-bottom:1px solid var(--bronze-line);
+  }
+  .preview-inner .placeholder{
+    color:#a1957e; font-style:italic;
+  }
+
+  .preview-actions{
+    display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;
+    padding-top:14px; border-top:1px solid var(--bronze-line);
+  }
+
+  .hint{
+    font-family:"PT Serif",Georgia,serif;
+    font-size:12.5px; font-style:italic;
+    color:var(--muted);
+    background:var(--paper-2);
+    border-left:3px solid var(--bronze);
+    padding:9px 13px;
+    margin:0 0 16px;
+  }
+  .hint strong{color:var(--navy); font-style:normal;}
+
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
+    background:var(--navy); color:var(--paper);
+    padding:11px 20px; font-family:"Public Sans",sans-serif;
+    font-size:12px; font-weight:700; letter-spacing:.6px; text-transform:uppercase;
+    border:1px solid var(--bronze-line);
+    box-shadow:var(--shadow);
+    opacity:0; transition:.28s;
+    z-index:200;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr; padding:14px; gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{
+      position:fixed; top:0; left:0; bottom:0; width:300px; max-height:100vh;
+      z-index:100; padding:4px;
+      transform:translateX(-105%); transition:transform .28s ease;
+      overflow-y:auto;
+    }
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed; inset:0; background:rgba(20,33,61,.45); z-index:99; opacity:0; pointer-events:none; transition:.25s;}
+    .scrim.show{opacity:1; pointer-events:auto;}
+    .panel-inner{padding:20px 18px 24px;}
+    .panel-seal{display:none;}
+    .tech-head{padding-right:0;}
+    .tech-head h2{font-size:20px;}
+    .form-grid{grid-template-columns:1fr;}
+    .brand p{display:none;}
+    .brand h1{font-size:13px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="seal"><div class="seal-inner">TLL</div></div>
+    <div>
+      <h1>Taller de Comunicaciones Escolares</h1>
+      <p>Plantillas y redacción guiada · Cuaderno docente</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="btnMenu" class="btn ghost only-mobile">☰ Panel</button>
+    <div class="stat">
+      <span>Borradores</span>
+      <strong id="statCount">0</strong>
+    </div>
+    <button id="btnNew" class="btn primary">+ Nueva</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Plantillas disponibles</div>
+        <div id="menuPlantillas"></div>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Mis comunicaciones</div>
+        <div id="menuDrafts"></div>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <article class="panel">
+      <div class="panel-inner" id="panelInner"></div>
+    </article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+<div id="toast" class="toast"></div>
+
+<script>
+/* =====================================================================
+   TALLER DE COMUNICACIONES ESCOLARES
+   Plantillas + editor guiado + guardado de borradores
+   ===================================================================== */
+const STORAGE_KEY = "cuaderno_escolar_taller_v1";
+
+/* ---------- Definición de plantillas ---------- */
+const PLANTILLAS = [
+  {
+    id:"circular",
+    icon:"C",
+    nombre:"Circular general",
+    sub:"Comunicado breve a familias",
+    genero:"Circular",
+    desc:"Documento breve y directo a toda la comunidad o a un grupo específico. Se usa para informar sobre fechas, actividades o decisiones.",
+    campos:[
+      {id:"num", label:"Número", ph:"15", full:false},
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"institucion", label:"Institución", ph:"Institución Educativa San Juan", full:true},
+      {id:"destinatario", label:"Destinatario", ph:"Apreciadas familias", full:false},
+      {id:"firmante", label:"Quien firma", ph:"Ana Gómez, Rectora", full:false},
+      {id:"motivo", label:"Motivo", ph:"Reunión de entrega de informes", full:true},
+      {id:"informacion", label:"Información detallada", ph:"La reunión se realizará el viernes 19 de julio a las 3:00 p.m. en el aula múltiple. Se requiere la asistencia de un acudiente por estudiante.", full:true, textarea:true},
+      {id:"cierre", label:"Cierre cordial", ph:"Agradecemos su puntual asistencia.", full:true}
+    ],
+    template: (d)=>`CIRCULAR N.º ${d.num||"____"} · ${d.fecha||"____"}
+${d.institucion||"____________________"}
+
+${d.destinatario||"Apreciadas familias"}:
+
+Por medio de la presente nos permitimos informarles sobre ${d.motivo||"____"}.
+
+${d.informacion||"____"}
+
+${d.cierre||"Agradecemos su atención."}
+
+Atentamente,
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"cartaFamilias",
+    icon:"F",
+    nombre:"Carta a familias",
+    sub:"Comunicación más extensa y cordial",
+    genero:"Carta",
+    desc:"Comunicación extensa y cordial a familias. Se usa para compartir procesos, solicitar acompañamiento o informar decisiones pedagógicas.",
+    campos:[
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"institucion", label:"Institución", ph:"Institución Educativa San Juan", full:false},
+      {id:"destinatario", label:"Saludo", ph:"Apreciadas familias del grado 6.º", full:true},
+      {id:"firmante", label:"Quien firma", ph:"Luis Pérez, Director de grupo", full:true},
+      {id:"apertura", label:"Apertura", ph:"Me dirijo a ustedes para compartirles los avances del grupo durante este período.", full:true, textarea:true},
+      {id:"cuerpo", label:"Cuerpo de la carta", ph:"Hemos trabajado en comprensión lectora y producción escrita. Los resultados muestran avances significativos en la mayoría de los estudiantes.", full:true, textarea:true},
+      {id:"solicitud", label:"Solicitud o cierre", ph:"Los invito a acompañar la lectura en casa, quince minutos diarios.", full:true, textarea:true},
+      {id:"despedida", label:"Despedida", ph:"Con aprecio,", full:false}
+    ],
+    template: (d)=>`${d.institucion||"____________________"}
+${d.fecha||"____"}
+
+${d.destinatario||"Apreciadas familias"}:
+
+${d.apertura||"____"}
+
+${d.cuerpo||"____"}
+
+${d.solicitud||"____"}
+
+${d.despedida||"Con aprecio,"}
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"citacion",
+    icon:"Z",
+    nombre:"Citación a reunión",
+    sub:"Convocatoria formal a acudientes",
+    genero:"Citación",
+    desc:"Convocatoria formal a una reunión. Incluye motivo, fecha, hora, lugar y orden del día. Debe enviarse con antelación.",
+    campos:[
+      {id:"fecha", label:"Fecha de emisión", ph:"15 de julio de 2024", full:false},
+      {id:"estudiante", label:"Estudiante", ph:"Juan Pérez Gómez", full:false},
+      {id:"acudiente", label:"Acudiente", ph:"Señora María Gómez", full:true},
+      {id:"motivo", label:"Motivo", ph:"entrega de informes del segundo período", full:true},
+      {id:"fechaReu", label:"Fecha de la reunión", ph:"viernes 19 de julio", full:false},
+      {id:"hora", label:"Hora", ph:"3:00 p.m.", full:false},
+      {id:"lugar", label:"Lugar", ph:"aula múltiple", full:false},
+      {id:"orden", label:"Orden del día", ph:"1) Informe académico. 2) Convivencia. 3) Varios.", full:true, textarea:true},
+      {id:"firmante", label:"Quien firma", ph:"Coordinación Académica", full:true}
+    ],
+    template: (d)=>`CITACIÓN A REUNIÓN
+
+${d.fecha||"____"}
+
+${d.acudiente||"Señor(a) acudiente"}:
+
+Se le cita a reunión con motivo de ${d.motivo||"____"}, correspondiente al estudiante ${d.estudiante||"____"}.
+
+Fecha: ${d.fechaReu||"____"}
+Hora: ${d.hora||"____"}
+Lugar: ${d.lugar||"____"}
+
+Orden del día:
+${d.orden||"____"}
+
+Su asistencia es obligatoria.
+
+Atentamente,
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"acta",
+    icon:"A",
+    nombre:"Acta de reunión",
+    sub:"Registro formal de una reunión",
+    genero:"Acta",
+    desc:"Registro formal de lo ocurrido en una reunión: asistentes, temas, decisiones y compromisos. Documento institucional con valor probatorio.",
+    campos:[
+      {id:"num", label:"Número de acta", ph:"05", full:false},
+      {id:"fecha", label:"Fecha y hora", ph:"15 de julio de 2024, 10:00 a.m.", full:false},
+      {id:"lugar", label:"Lugar", ph:"Sala de juntas", full:false},
+      {id:"organo", label:"Órgano que sesiona", ph:"Consejo Académico", full:false},
+      {id:"asistentes", label:"Asistentes", ph:"Rector, coordinadores y docentes de área.", full:true, textarea:true},
+      {id:"temas", label:"Temas tratados", ph:"1) Ajuste al cronograma. 2) Evaluación por rúbricas.", full:true, textarea:true},
+      {id:"decisiones", label:"Decisiones", ph:"Se aprueba el ajuste al cronograma por unanimidad.", full:true, textarea:true},
+      {id:"compromisos", label:"Compromisos", ph:"Los coordinadores informarán a los docentes antes del 20 de julio.", full:true, textarea:true}
+    ],
+    template: (d)=>`ACTA N.º ${d.num||"____"}
+
+${d.organo||"Reunión"}
+Fecha: ${d.fecha||"____"}
+Lugar: ${d.lugar||"____"}
+
+ASISTENTES
+${d.asistentes||"____"}
+
+TEMAS TRATADOS
+${d.temas||"____"}
+
+DECISIONES
+${d.decisiones||"____"}
+
+COMPROMISOS
+${d.compromisos||"____"}
+
+FIRMAS
+
+_______________________
+Presidente del órgano
+
+_______________________
+Secretario(a)`
+  },
+  {
+    id:"memorando",
+    icon:"M",
+    nombre:"Memorando interno",
+    sub:"Comunicación breve entre dependencias",
+    genero:"Memorando",
+    desc:"Comunicación interna breve y directa entre dependencias del colegio o universidad. Identifica destinatario, remitente y asunto.",
+    campos:[
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"para", label:"PARA", ph:"Coordinación Académica", full:false},
+      {id:"de", label:"DE", ph:"Rectoría", full:false},
+      {id:"asunto", label:"ASUNTO", ph:"Remisión de informe", full:true},
+      {id:"cuerpo", label:"Cuerpo del mensaje", ph:"Me permito remitir el informe solicitado sobre el proceso académico del segundo período.", full:true, textarea:true},
+      {id:"solicitud", label:"Solicitud o cierre", ph:"Quedo atento a sus comentarios.", full:true},
+      {id:"firmante", label:"Firmante", ph:"Ana Gómez, Rectora", full:true}
+    ],
+    template: (d)=>`MEMORANDO
+
+${d.fecha||"____"}
+
+PARA: ${d.para||"____"}
+DE: ${d.de||"____"}
+ASUNTO: ${d.asunto||"____"}
+
+${d.cuerpo||"____"}
+
+${d.solicitud||"Cordialmente,"}
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"dificultad",
+    icon:"D",
+    nombre:"Comunicación de dificultad",
+    sub:"Alerta académica o disciplinaria",
+    genero:"Comunicación",
+    desc:"Comunicación objetiva a familias sobre dificultades académicas o disciplinarias. Describe hechos con evidencias, cita la norma y propone diálogo.",
+    campos:[
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"acudiente", label:"Acudiente", ph:"Señora María Gómez", full:false},
+      {id:"estudiante", label:"Estudiante", ph:"Juan Pérez Gómez · Grado 7.º", full:false},
+      {id:"situacion", label:"Situación observada (con evidencia)", ph:"Ha entregado 4 de las 10 tareas asignadas en las últimas tres semanas.", full:true, textarea:true},
+      {id:"norma", label:"Norma o referente (opcional)", ph:"artículo 30 del manual de convivencia", full:true},
+      {id:"propuesta", label:"Propuesta de acompañamiento", ph:"Le proponemos una reunión el 20 de julio a las 10:00 a.m. para acordar estrategias conjuntas.", full:true, textarea:true},
+      {id:"firmante", label:"Firmante", ph:"Coordinación Académica", full:true}
+    ],
+    template: (d)=>`COMUNICACIÓN A FAMILIA
+
+${d.fecha||"____"}
+
+${d.acudiente||"Señor(a) acudiente"}:
+
+Le comunicamos respetuosamente la siguiente situación relacionada con el estudiante ${d.estudiante||"____"}:
+
+${d.situacion||"____"}
+
+Lo anterior se enmarca en lo previsto por ${d.norma||"los acuerdos institucionales"}.
+
+${d.propuesta||"Le proponemos un diálogo para acompañar el proceso del estudiante."}
+
+Atentamente,
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"felicitacion",
+    icon:"L",
+    nombre:"Carta de felicitación",
+    sub:"Reconocimiento de un logro",
+    genero:"Felicitación",
+    desc:"Reconocimiento de un logro específico del estudiante o su familia. Debe ser personalizada, concreta y cordial.",
+    campos:[
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"destinatario", label:"Destinatario", ph:"Apreciada familia Pérez Gómez", full:true},
+      {id:"logro", label:"Logro específico", ph:"el desempeño sobresaliente de Ana en el concurso de matemáticas", full:true, textarea:true},
+      {id:"detalle", label:"Detalle del reconocimiento", ph:"Su preparación, disciplina y capacidad para resolver problemas fueron admirables.", full:true, textarea:true},
+      {id:"cierre", label:"Cierre afectuoso", ph:"Los felicitamos de todo corazón y los animamos a seguir cultivando este talento.", full:true},
+      {id:"firmante", label:"Firmante", ph:"Dirección de grupo", full:true}
+    ],
+    template: (d)=>`CARTA DE FELICITACIÓN
+
+${d.fecha||"____"}
+
+${d.destinatario||"Apreciada familia"}:
+
+Nos complace felicitarlos por ${d.logro||"____"}.
+
+${d.detalle||"____"}
+
+${d.cierre||"Reciban nuestra felicitación sincera."}
+
+Con aprecio,
+
+${d.firmante||"____"}`
+  },
+  {
+    id:"autorizacion",
+    icon:"R",
+    nombre:"Autorización de salida",
+    sub:"Consentimiento del acudiente",
+    genero:"Autorización",
+    desc:"Documento mediante el cual el acudiente autoriza la participación del estudiante en una salida pedagógica. Incluye descripción, responsables y firma.",
+    campos:[
+      {id:"fecha", label:"Fecha", ph:"15 de julio de 2024", full:false},
+      {id:"acudiente", label:"Nombre del acudiente", ph:"María Gómez, CC 51.234.567", full:true},
+      {id:"estudiante", label:"Estudiante", ph:"Juan Pérez Gómez · Grado 7.º", full:false},
+      {id:"actividad", label:"Actividad", ph:"salida pedagógica al Museo Nacional", full:false},
+      {id:"fechaSalida", label:"Fecha de la salida", ph:"25 de julio de 2024", full:false},
+      {id:"horario", label:"Horario", ph:"de 8:00 a.m. a 2:00 p.m.", full:false},
+      {id:"responsable", label:"Docente responsable", ph:"Profesora Ana Martínez", full:false},
+      {id:"recomendaciones", label:"Recomendaciones", ph:"Llevar refrigerio, gorra y ropa cómoda. Portar el carné estudiantil.", full:true, textarea:true}
+    ],
+    template: (d)=>`AUTORIZACIÓN DE SALIDA PEDAGÓGICA
+
+${d.fecha||"____"}
+
+Yo, ${d.acudiente||"____"}, en calidad de acudiente del estudiante ${d.estudiante||"____"}, autorizo su participación en ${d.actividad||"____"}, que se realizará el ${d.fechaSalida||"____"} en el horario ${d.horario||"____"}.
+
+El docente responsable de la actividad es ${d.responsable||"____"}.
+
+Recomendaciones: ${d.recomendaciones||"____"}
+
+Autorizo libremente.
+
+Firma del acudiente: _______________________________
+
+Nombre: _______________________________
+C.C.: _______________________________`
+  }
+];
+
+/* ---------- Estado ---------- */
+let drafts = [];
+try { drafts = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e){ drafts = []; }
+
+let vistaActual = { tipo:"plantilla", id:PLANTILLAS[0].id };
+let draftActualId = null;
+
+function guardarDrafts(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts)); } catch(e){} }
+
+function nuevoId(){ return "d" + Date.now() + Math.random().toString(36).slice(2,7); }
+
+function getPlantilla(id){ return PLANTILLAS.find(p=>p.id===id); }
+
+function el(tag, cls, txt){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(txt !== undefined) e.textContent = txt;
+  return e;
+}
+function boton(txt, cls){
+  const b = document.createElement("button");
+  b.className = "btn " + (cls||"primary");
+  b.textContent = txt;
+  return b;
+}
+
+/* ---------- Menú lateral ---------- */
+function renderMenu(){
+  const mp = document.getElementById("menuPlantillas");
+  mp.innerHTML = "";
+  PLANTILLAS.forEach(p=>{
+    const b = document.createElement("button");
+    b.className = "side-item" + ((vistaActual.tipo==="plantilla" && vistaActual.id===p.id) ? " active" : "");
+    b.innerHTML = `<span class="icon">${p.icon}</span><span class="label">${p.nombre}<small>${p.sub}</small></span>`;
+    b.onclick = () => { vistaActual = { tipo:"plantilla", id:p.id }; draftActualId=null; cerrarSidebar(); abrir(); };
+    mp.appendChild(b);
+  });
+
+  const md = document.getElementById("menuDrafts");
+  md.innerHTML = "";
+  if(!drafts.length){
+    const e = el("div","empty-mini","Aún no hay comunicaciones guardadas.");
+    md.appendChild(e);
+  } else {
+    drafts.slice().reverse().forEach(d=>{
+      const p = getPlantilla(d.plantillaId);
+      const wrap = el("div","draft-item" + (vistaActual.tipo==="draft" && vistaActual.id===d.id ? " active":""));
+      const title = el("div","di-title");
+      const titulo = (d.campos.asunto || d.campos.motivo || d.campos.actividad || d.campos.logro || p.nombre).slice(0,45);
+      title.innerHTML = `${titulo}<small>${p.nombre} · ${d.fecha}</small>`;
+      wrap.appendChild(title);
+      const del = el("button","di-del","×");
+      del.title = "Eliminar";
+      del.onclick = (ev)=>{ ev.stopPropagation(); eliminarDraft(d.id); };
+      wrap.appendChild(del);
+      wrap.onclick = () => { vistaActual = { tipo:"draft", id:d.id }; draftActualId=d.id; cerrarSidebar(); abrir(); };
+      md.appendChild(wrap);
+    });
+  }
+  document.getElementById("statCount").textContent = drafts.length;
+}
+
+function eliminarDraft(id){
+  if(!confirm("¿Eliminar esta comunicación guardada? Esta acción no se puede deshacer.")) return;
+  drafts = drafts.filter(d=>d.id!==id);
+  guardarDrafts();
+  if(vistaActual.tipo==="draft" && vistaActual.id===id){ vistaActual = { tipo:"plantilla", id:PLANTILLAS[0].id }; draftActualId=null; }
+  renderMenu(); abrir();
+}
+
+/* ---------- Render principal ---------- */
+function abrir(){
+  const panel = document.getElementById("panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner", "COMUNIDAD\nEDUCATIVA");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn);
+  panel.appendChild(seal);
+
+  if(vistaActual.tipo==="plantilla"){
+    const p = getPlantilla(vistaActual.id);
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Plantilla · " + p.genero));
+    head.appendChild(el("h2", null, p.nombre));
+    head.appendChild(el("p","lead", p.desc));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "<strong>Cómo usar:</strong> complete los campos. La vista previa se genera en vivo. Al final puede guardar la comunicación en <em>Mis comunicaciones</em> o descargarla como archivo de texto.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      const lbl = el("label", null, c.label);
+      if(c.textarea) lbl.innerHTML = c.label;
+      f.appendChild(lbl);
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_" + c.id;
+      input.dataset.campo = c.id;
+      input.addEventListener("input", actualizarPreview);
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bSave = boton("Guardar en Mis comunicaciones","primary");
+    bSave.onclick = () => guardarDesdePlantilla(p);
+    const bCopy = boton("Copiar texto","ghost");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bClear = boton("Limpiar campos","ghost");
+    bClear.onclick = () => { p.campos.forEach(c=>document.getElementById("field_"+c.id).value=""); actualizarPreview(); };
+    acts.appendChild(bSave); acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bClear);
+    panel.appendChild(acts);
+
+    actualizarPreview();
+
+  } else if(vistaActual.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaActual.id);
+    if(!d){ vistaActual = { tipo:"plantilla", id:PLANTILLAS[0].id }; abrir(); return; }
+    const p = getPlantilla(d.plantillaId);
+
+    const head = el("div","tech-head");
+    head.appendChild(el("span","badge", "Borrador guardado · " + p.genero));
+    head.appendChild(el("h2", null, (d.campos.asunto || d.campos.motivo || d.campos.actividad || p.nombre).slice(0,60)));
+    head.appendChild(el("p","lead", "Guardado el " + d.fecha + ". Puede editarlo, copiarlo o descargarlo."));
+    panel.appendChild(head);
+    panel.appendChild(el("div","rule"));
+
+    const hint = el("p","hint");
+    hint.innerHTML = "Edite los campos y la vista previa se actualizará. Los cambios se guardan automáticamente.";
+    panel.appendChild(hint);
+
+    const form = el("div","form-grid");
+    p.campos.forEach(c=>{
+      const f = el("div","field" + (c.full?" full":""));
+      const lbl = el("label", null, c.label);
+      f.appendChild(lbl);
+      const input = document.createElement(c.textarea ? "textarea" : "input");
+      if(!c.textarea) input.type = "text";
+      input.placeholder = c.ph || "";
+      input.id = "field_" + c.id;
+      input.value = d.campos[c.id] || "";
+      input.addEventListener("input", ()=>{
+        d.campos[c.id] = input.value;
+        d.textoGenerado = p.template(d.campos);
+        guardarDrafts();
+        actualizarPreview();
+      });
+      f.appendChild(input);
+      form.appendChild(f);
+    });
+    panel.appendChild(form);
+
+    const st = el("h3","sec-title");
+    st.innerHTML = "Vista previa <span>se actualiza automáticamente</span>";
+    panel.appendChild(st);
+
+    const prev = el("div","preview-wrap");
+    const prevIn = el("div","preview-inner");
+    prevIn.id = "previewText";
+    prev.appendChild(prevIn);
+    panel.appendChild(prev);
+
+    const acts = el("div","preview-actions");
+    const bCopy = boton("Copiar texto","primary");
+    bCopy.onclick = () => copiarTexto(prevIn.textContent);
+    const bDl = boton("Descargar .txt","ghost");
+    bDl.onclick = () => descargarTxt(prevIn.textContent, p.id);
+    const bNew = boton("Crear nueva con esta plantilla","ghost");
+    bNew.onclick = () => { vistaActual={tipo:"plantilla",id:p.id}; draftActualId=null; abrir(); };
+    const bDel = boton("Eliminar borrador","danger");
+    bDel.onclick = () => eliminarDraft(d.id);
+    acts.appendChild(bCopy); acts.appendChild(bDl); acts.appendChild(bNew); acts.appendChild(bDel);
+    panel.appendChild(acts);
+
+    setTimeout(actualizarPreview, 0);
+  }
+}
+
+/* ---------- Vista previa en vivo ---------- */
+function actualizarPreview(){
+  const elPrev = document.getElementById("previewText");
+  if(!elPrev) return;
+
+  if(vistaActual.tipo==="plantilla"){
+    const p = getPlantilla(vistaActual.id);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value.trim() : "";
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+    // marcar placeholders visibles
+    elPrev.innerHTML = elPrev.textContent.replace(/____/g, '<span class="placeholder">____</span>');
+  } else if(vistaActual.tipo==="draft"){
+    const d = drafts.find(x=>x.id===vistaActual.id);
+    if(!d) return;
+    const p = getPlantilla(d.plantillaId);
+    const datos = {};
+    p.campos.forEach(c=>{
+      const inp = document.getElementById("field_"+c.id);
+      datos[c.id] = inp ? inp.value : (d.campos[c.id]||"");
+    });
+    elPrev.textContent = p.template(datos) + "\n\n";
+    elPrev.innerHTML = elPrev.textContent.replace(/____/g, '<span class="placeholder">____</span>');
+  }
+}
+
+/* ---------- Guardar, copiar, descargar ---------- */
+function guardarDesdePlantilla(p){
+  const datos = {};
+  let vacio = true;
+  p.campos.forEach(c=>{
+    const inp = document.getElementById("field_"+c.id);
+    const v = inp ? inp.value.trim() : "";
+    datos[c.id] = v;
+    if(v) vacio = false;
+  });
+  if(vacio){ mostrarToast("Llene al menos un campo antes de guardar."); return; }
+  const nuevo = {
+    id: nuevoId(),
+    plantillaId: p.id,
+    campos: datos,
+    textoGenerado: p.template(datos),
+    fecha: new Date().toLocaleDateString("es-CO", { day:"numeric", month:"short", year:"numeric", hour:"2-digit", minute:"2-digit" })
+  };
+  drafts.push(nuevo);
+  guardarDrafts();
+  mostrarToast("✓ Guardado en Mis comunicaciones");
+  vistaActual = { tipo:"draft", id:nuevo.id };
+  draftActualId = nuevo.id;
+  renderMenu();
+  abrir();
+}
+
+function copiarTexto(txt){
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>mostrarToast("✓ Texto copiado al portapapeles"), ()=>fallbackCopy(txt));
+  } else {
+    fallbackCopy(txt);
+  }
+}
+function fallbackCopy(txt){
+  const ta = document.createElement("textarea");
+  ta.value = txt; ta.style.position="fixed"; ta.style.left="-9999px";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); mostrarToast("✓ Texto copiado"); } catch(e){ mostrarToast("No se pudo copiar"); }
+  document.body.removeChild(ta);
+}
+
+function descargarTxt(txt, nombreBase){
+  const blob = new Blob([txt], { type:"text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  const fecha = new Date().toISOString().slice(0,10);
+  a.download = `${nombreBase}_${fecha}.txt`;
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  mostrarToast("✓ Archivo descargado");
+}
+
+/* ---------- Toast ---------- */
+let toastTimer = null;
+function mostrarToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* ---------- Sidebar móvil ---------- */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("btnNew").onclick = () => {
+  vistaActual = { tipo:"plantilla", id:PLANTILLAS[0].id };
+  draftActualId = null;
+  cerrarSidebar();
+  renderMenu();
+  abrir();
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+
+/* ---------- Arranque ---------- */
+renderMenu();
+abrir();
+</script>
+</body>
+</html>

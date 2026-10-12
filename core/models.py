@@ -236,3 +236,76 @@ class ContenidoJSON(models.Model):
     
     def __str__(self):
         return self.nombre[:100]
+
+
+# ============================================================
+# RECURSO (archivos HTML/JSON interactivos)
+# ============================================================
+class Recurso(models.Model):
+    """Archivo de recurso educativo (HTML interactivo, JSON, etc.)."""
+    nombre = models.CharField(max_length=300)
+    slug = models.SlugField(max_length=300, unique=True)
+    archivo = models.CharField(max_length=500, help_text="Ruta relativa a la carpeta de recursos")
+    categoria = models.CharField(max_length=100, db_index=True)
+    extension = models.CharField(max_length=10, db_index=True)
+    tamaño_bytes = models.BigIntegerField(default=0)
+    fecha_mod = models.DateTimeField(null=True, blank=True)
+    curso = models.ForeignKey(
+        'core.Curso', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='recursos',
+    )
+    creado_en = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["categoria", "nombre"]
+        indexes = [
+            models.Index(fields=["categoria"]),
+            models.Index(fields=["extension"]),
+        ]
+
+    def __str__(self):
+        return self.nombre
+
+    @property
+    def tamaño_legible(self):
+        b = self.tamaño_bytes
+        for u in ["B", "KB", "MB", "GB"]:
+            if b < 1024:
+                return f"{b:.1f} {u}"
+            b /= 1024
+        return f"{b:.1f} TB"
+
+    @property
+    def icono(self):
+        return {
+            "html": "fa-file-code text-danger",
+            "htm": "fa-file-code text-danger",
+            "json": "fa-file-code text-warning",
+            "md": "fa-file-alt text-info",
+            "txt": "fa-file-alt text-secondary",
+            "docx": "fa-file-word text-primary",
+            "py": "fa-file-code text-success",
+            "js": "fa-file-code text-warning",
+            "css": "fa-file-code text-info",
+            "sql": "fa-database text-secondary",
+            "sh": "fa-terminal text-dark",
+            "csv": "fa-file-csv text-success",
+            "xml": "fa-file-code text-info",
+            "pdf": "fa-file-pdf text-danger",
+        }.get(self.extension, "fa-file text-muted")
+
+    @property
+    def color_badge(self):
+        return {
+            "Súper Cuaderno": "primary",
+            "Cuaderno": "info",
+            "Flota": "warning",
+            "Vector": "success",
+            "Técnicas": "danger",
+            "Scriptorium": "dark",
+            "Datos JSON": "secondary",
+        }.get(self.categoria, "secondary")
+
+
+# Forzar a Django a cargar los modelos de cursos al iniciar
+from . import models_cursos  # noqa: F401,E402

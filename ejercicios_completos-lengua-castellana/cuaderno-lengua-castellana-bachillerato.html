@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de lengua castellana · Bachillerato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F1EF;
+    --rule:#E1CFC9;
+    --ink:#2A1E22;
+    --ink-soft:#6B5A5E;
+    --wine:#7A2E3B;
+    --wine-dark:#551F28;
+    --gold:#9C7A3C;
+    --parchment:#F1E7D6;
+    --good:#3F6B4B;
+    --bad:#A33B3B;
+    --bad-bg:#F7E6E4;
+    --card-shadow: 0 1px 0 rgba(42,30,34,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .bg-lines{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent, transparent 30px, var(--rule) 30px, var(--rule) 31px
+    );
+    opacity:0.55;
+  }
+  .margin-rule{ position:fixed; top:0; bottom:0; left:30px; width:1px; background:var(--wine); opacity:0.3; z-index:0; }
+  .margin-rule-2{ position:fixed; top:0; bottom:0; left:34px; width:1px; background:var(--gold); opacity:0.3; z-index:0; }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    padding:22px 20px 60px 44px;
+  }
+  header.top{ margin-bottom:18px; }
+  .eyebrow{ font-size:13px; color:var(--wine); font-weight:600; }
+  h1{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:28px;
+    line-height:1.15;
+    margin:4px 0 6px;
+    color:var(--ink);
+  }
+  .lede{ color:var(--ink-soft); font-size:14.5px; line-height:1.5; margin:0 0 8px; max-width:46ch; }
+  .progress-wrap{ display:flex; align-items:center; gap:10px; margin-top:14px; }
+  .progress-track{ flex:1; height:6px; border-radius:3px; background:var(--rule); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--wine); border-radius:3px; transition:width .4s ease; }
+  .progress-label{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; font-variant-numeric: tabular-nums; }
+
+  .cat-list{ list-style:none; margin:22px 0 0; padding:0; border-top:1px solid var(--rule); }
+  .cat-item{ border-bottom:1px solid var(--rule); }
+  .cat-btn{
+    width:100%; text-align:left; background:none; border:none;
+    padding:16px 4px; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    font-family:inherit; color:var(--ink);
+  }
+  .cat-num{ font-family:'Playfair Display', serif; font-size:15px; color:var(--wine); width:22px; flex-shrink:0; }
+  .cat-text{ flex:1; min-width:0; }
+  .cat-name{ font-size:16px; font-weight:600; line-height:1.3; }
+  .cat-sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  .cat-progress{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--good); font-weight:600; white-space:nowrap; }
+  .cat-btn:active{ opacity:0.6; }
+
+  .deck-header{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .back-btn{ background:none; border:1px solid var(--rule); border-radius:8px; padding:7px 12px; font-size:13px; color:var(--ink); font-family:inherit; cursor:pointer; }
+  .back-btn:active{ background:var(--rule); }
+  .deck-title{ font-family:'Playfair Display', serif; font-size:18px; font-weight:600; flex:1; min-width:0; }
+
+  .card{ background:#fff; border:1px solid var(--rule); border-radius:14px; padding:20px 20px 18px; box-shadow:var(--card-shadow); margin-top:6px; }
+  .card-eyebrow{ display:flex; justify-content:space-between; align-items:baseline; font-size:12.5px; color:var(--wine); font-weight:600; margin-bottom:6px; font-family:'IBM Plex Mono', monospace; }
+  .card-title{ font-family:'Playfair Display', serif; font-size:20px; font-weight:700; line-height:1.25; margin:0 0 14px; }
+  .block-label{ font-size:12px; font-weight:600; color:var(--ink-soft); margin:16px 0 5px; }
+  .block-label:first-of-type{ margin-top:0; }
+  .concept-text{ font-size:15px; line-height:1.55; margin:0; }
+  .example-box{
+    background:var(--parchment);
+    border-left:3px solid var(--gold);
+    border-radius:0 8px 8px 0;
+    padding:10px 12px;
+    font-size:14px; line-height:1.5; color:#3D2F1B;
+  }
+  .exercise-prompt{ font-size:14.5px; line-height:1.5; margin:0 0 10px; color:var(--ink); }
+
+  .answer-row{ display:flex; gap:8px; }
+  input[type="text"]{
+    flex:1; border:1px solid var(--rule); border-radius:8px; padding:10px 12px;
+    font-family:'Karla', sans-serif; font-size:15px; background:#FEFDFC; color:var(--ink);
+  }
+  input[type="text"]:focus{ outline:2px solid var(--wine); outline-offset:1px; }
+  textarea{
+    width:100%; min-height:90px; resize:vertical; border:1px solid var(--rule); border-radius:8px;
+    padding:10px 12px; font-family:inherit; font-size:14.5px; background:#FEFDFC; color:var(--ink);
+  }
+  textarea:focus{ outline:2px solid var(--wine); outline-offset:1px; }
+
+  .check-btn, .save-btn{
+    background:var(--wine); color:#fff; border:none; border-radius:8px; padding:9px 16px;
+    font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; white-space:nowrap;
+  }
+  .check-btn:active, .save-btn:active{ background:var(--wine-dark); }
+
+  .feedback{ margin-top:10px; padding:9px 12px; border-radius:8px; font-size:14px; font-weight:500; display:none; }
+  .feedback.ok{ display:block; background:#E5EFE7; color:var(--good); }
+  .feedback.bad{ display:block; background:var(--bad-bg); color:var(--bad); }
+
+  .reveal-row{ margin-top:8px; }
+  .reveal-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; padding:0; }
+  .solution-box{ margin-top:8px; font-size:14px; color:var(--ink); background:var(--paper); border:1px dashed var(--rule); border-radius:8px; padding:8px 10px; display:none; }
+  .solution-box.show{ display:block; }
+
+  .card-actions{ display:flex; gap:8px; margin-top:10px; align-items:center; }
+  .saved-tag{ font-size:12.5px; color:var(--good); font-weight:600; opacity:0; transition:opacity .3s; }
+  .saved-tag.show{ opacity:1; }
+  .done-check{ margin-left:auto; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  .done-dot{ width:8px; height:8px; border-radius:50%; background:var(--rule); display:inline-block; }
+  .done-dot.on{ background:var(--good); }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+  .nav-btn{ background:none; border:1px solid var(--rule); border-radius:8px; padding:9px 14px; font-size:14px; font-family:inherit; color:var(--ink); cursor:pointer; }
+  .nav-btn:disabled{ opacity:0.3; }
+  .nav-btn:active:not(:disabled){ background:var(--rule); }
+  .dots{ display:flex; gap:5px; flex-wrap:wrap; justify-content:center; max-width:150px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--rule); }
+  .dot.active{ background:var(--wine); width:16px; border-radius:3px; }
+  .dot.done{ background:var(--good); }
+
+  .reset-row{ margin-top:26px; text-align:center; }
+  .reset-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="bg-lines"></div>
+<div class="margin-rule"></div>
+<div class="margin-rule-2"></div>
+<div id="app">
+
+  <header class="top">
+    <div class="eyebrow">Lengua castellana · 6º a 11º · práctica guiada</div>
+    <h1>Cuaderno de lengua castellana</h1>
+    <p class="lede">Cien técnicas de lengua castellana para bachillerato, en diez bloques: desde ortografía y sintaxis hasta análisis literario y redacción académica.</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="progress-label" id="globalLabel">0/100 practicadas</div>
+    </div>
+  </header>
+
+  <section id="menuView">
+    <ul class="cat-list" id="catList"></ul>
+    <div class="reset-row">
+      <button class="reset-link" id="resetBtn">Borrar todo mi progreso</button>
+    </div>
+  </section>
+
+  <section id="deckView" class="hidden">
+    <div class="deck-header">
+      <button class="back-btn" id="backBtn">← Bloques</button>
+      <div class="deck-title" id="deckTitle"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">
+        <span id="cardNum"></span>
+        <span id="catName"></span>
+      </div>
+      <h2 class="card-title" id="cardTitle"></h2>
+
+      <div class="block-label">Concepto</div>
+      <p class="concept-text" id="cardConcept"></p>
+
+      <div class="block-label">Ejemplo</div>
+      <div class="example-box" id="cardExample"></div>
+
+      <div class="block-label">Ejercicio interactivo</div>
+      <p class="exercise-prompt" id="cardExercise"></p>
+
+      <div id="inputExercise">
+        <div class="answer-row">
+          <input type="text" id="cardInput" placeholder="Tu respuesta...">
+          <button class="check-btn" id="checkBtn">Comprobar</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="reveal-row"><button class="reveal-link" id="revealBtn">Ver solución</button></div>
+        <div class="solution-box" id="solutionBox"></div>
+      </div>
+
+      <div id="textExercise">
+        <textarea id="cardAnswer" placeholder="Escribe aquí tu respuesta..."></textarea>
+        <div class="card-actions">
+          <button class="save-btn" id="saveBtn">Guardar</button>
+          <span class="saved-tag" id="savedTag">Guardado ✓</span>
+        </div>
+      </div>
+
+      <div class="card-actions" id="doneRow">
+        <span class="done-check"><span class="done-dot" id="doneDot"></span><span id="doneLabel">sin practicar</span></span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">← Anterior</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">Siguiente →</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// item = [title, concepto, ejemplo, ejercicio, tipo, respuestas]
+// tipo "input": respuestas es un array de strings aceptadas (se normalizan)
+// tipo "text": respuestas es null (ejercicio abierto, se guarda sin corregir)
+
+const CATEGORIES = [
+{name:"Ortografía y acentuación", sub:"Tildes, puntuación y usos normativos", items:[
+["Reconocer la tilde diacrítica","La tilde diacrítica distingue palabras que se escriben igual pero cumplen funciones gramaticales distintas.","«Él» (pronombre) lleva tilde para diferenciarse de «el» (artículo).","Escribe la palabra correcta: «___ libro es interesante» (artículo, sin tilde).","input",["el"]],
+["Clasificar palabras según el acento","Las agudas llevan tilde si terminan en n, s o vocal; las graves si no terminan en esas letras; las esdrújulas siempre llevan tilde.","«Camión» es aguda y termina en n, por eso lleva tilde; «árbol» es grave y no termina en vocal, n o s, por eso también la lleva.","¿«Rápido» es aguda, grave o esdrújula?","input",["esdrújula","esdrujula"]],
+["Puntuar correctamente oraciones compuestas","La coma separa elementos e incisos; el punto y coma separa ideas relacionadas más extensas que una coma pero menos que un punto.","«Estudié toda la noche; sin embargo, no aprobé el examen» usa punto y coma antes de un conector de contraste.","Reescribe con las comas correctas: «Compré manzanas peras y uvas para la fiesta».","text",null],
+["Diferenciar por qué, porque, porqué y por que","«Por qué» pregunta causa, «porque» responde causa, «porqué» es un sustantivo (el motivo) y «por que» aparece en preposición + relativo.","«¿Por qué llegaste tarde? Porque el bus se retrasó. Nadie entendió el porqué de su decisión.»","Completa: «No sé ___ no viniste a la reunión» (forma para pregunta indirecta).","input",["por qué"]],
+["Aplicar las reglas de uso de mayúsculas","Se escriben con mayúscula los nombres propios, el inicio de un texto o de una oración tras punto, y la primera palabra de un título.","«Cien años de soledad» lleva mayúscula solo en la primera palabra y en los nombres propios que contenga.","Reescribe con las mayúsculas correctas: «el escritor gabriel garcía márquez nació en aracataca».","text",null],
+["Usar los dos puntos correctamente","Los dos puntos se usan antes de una enumeración, una cita textual o una explicación que amplía lo dicho.","«Necesito tres cosas: tiempo, paciencia y dedicación.»","Escribe una oración que use los dos puntos para introducir una enumeración de tres elementos.","text",null],
+["Usar la raya y el paréntesis","La raya introduce diálogos o incisos con más énfasis que la coma; el paréntesis añade información aclaratoria o secundaria.","«El profesor —siempre puntual— llegó tarde ese día» usa rayas para un inciso.","Escribe una oración con un inciso encerrado entre rayas.","text",null],
+["Corregir el uso de la b y la v","Existen reglas ortográficas, como los verbos terminados en -aba, que ayudan a decidir entre b y v.","Los verbos en pretérito imperfecto de la primera conjugación siempre se escriben con b: «caminaba», «jugaba».","Completa: «Cuando era niño, yo camina___ todos los días al colegio.»","input",["ba"]],
+["Diferenciar haber y a ver","«Haber» es un verbo auxiliar o impersonal; «a ver» es la preposición «a» más el verbo «ver».","«Debe haber una solución» (verbo); «vamos a ver qué pasa» (a ver).","Completa: «Voy ___ si llegó el paquete» (preposición + verbo ver).","input",["a ver"]],
+["Revisar la ortografía con relectura","Leer el propio texto en voz alta o después de un tiempo ayuda a detectar errores ortográficos que pasan desapercibidos al escribir.","Al releer un párrafo escrito el día anterior, es más fácil notar una tilde faltante o una palabra mal escrita.","Escribe un párrafo breve sobre cualquier tema y léelo en voz alta. Anota si encontraste algún error al hacerlo.","text",null]
+]},
+{name:"Morfología", sub:"Clases de palabras y formación léxica", items:[
+["Identificar las clases de palabras","Cada palabra pertenece a una categoría gramatical (sustantivo, verbo, adjetivo, adverbio, etc.) según su función y forma.","En «el perro corre rápido», «perro» es sustantivo, «corre» es verbo y «rápido» es adverbio.","En «La niña canta alegremente», ¿qué clase de palabra es «alegremente»?","input",["adverbio"]],
+["Reconocer los morfemas de una palabra","Una palabra se descompone en raíz (núcleo de significado) y morfemas que se añaden antes (prefijos) o después (sufijos).","En «deshacer», «des-» es un prefijo que indica negación y «hacer» es la raíz.","Identifica el prefijo en la palabra «imposible».","input",["im-","im"]],
+["Clasificar los sustantivos","Los sustantivos se clasifican según si nombran algo específico o general, algo tangible o una idea, o un conjunto.","«Colombia» es un sustantivo propio; «amor» es abstracto; «cardumen» es colectivo.","¿Qué tipo de sustantivo es «manada»?","input",["colectivo"]],
+["Conjugar verbos en distintos modos y tiempos","Los verbos cambian de forma según la persona, el tiempo y el modo (indicativo, subjuntivo, imperativo).","«Cantar» en pretérito perfecto simple, tercera persona: «cantó».","Conjuga el verbo «correr» en pretérito imperfecto, primera persona del singular.","input",["corría"]],
+["Distinguir verbos regulares e irregulares","Los verbos regulares siguen un patrón fijo de conjugación; los irregulares cambian su raíz o terminaciones.","«Amar» es regular («amo», «amas», «ama»); «tener» es irregular («tengo»).","¿El verbo «hacer» es regular o irregular?","input",["irregular"]],
+["Reconocer los grados del adjetivo","Los adjetivos pueden expresar una cualidad simple (positivo), una comparación (comparativo) o su grado máximo (superlativo).","«Alto» (positivo), «más alto que» (comparativo), «altísimo» (superlativo).","Escribe el superlativo de «fácil».","input",["facilísimo"]],
+["Identificar pronombres y su función","Los pronombres sustituyen a un sustantivo ya mencionado; existen personales, posesivos, demostrativos, entre otros.","En «María vino y ella trajo un regalo», «ella» sustituye a «María».","En «Ese libro es mío», ¿qué tipo de pronombre es «mío»?","input",["posesivo"]],
+["Reconocer preposiciones y conjunciones","Las preposiciones enlazan palabras indicando relación; las conjunciones unen oraciones o elementos de una misma categoría.","«El libro está sobre la mesa» (preposición); «quiero café pero no tengo tiempo» (conjunción).","En «El perro corre y ladra», ¿qué tipo de palabra es «y»?","input",["conjunción","conjuncion"]],
+["Analizar la derivación de palabras","A partir de una raíz se forman nuevas palabras añadiendo prefijos o sufijos, creando una familia léxica.","De «tierra» se derivan «terrestre», «territorio», «enterrar».","Escribe tres palabras derivadas de la raíz «flor» y explica brevemente su significado.","text",null],
+["Distinguir palabras simples, compuestas y parasintéticas","Una palabra simple tiene una raíz; una compuesta une dos raíces; una parasintética combina composición y derivación.","«Sacapuntas» es compuesta (saca + puntas); «picapedrero» es parasintética.","¿«Paraguas» es una palabra simple o compuesta?","input",["compuesta"]]
+]},
+{name:"Sintaxis", sub:"Estructura de la oración simple y compuesta", items:[
+["Identificar sujeto y predicado","Toda oración se divide en sujeto (de quién se habla) y predicado (lo que se dice del sujeto).","En «Los estudiantes presentaron el examen», «los estudiantes» es el sujeto y el resto es el predicado.","En «El profesor explicó la lección», ¿cuál es el sujeto?","input",["el profesor"]],
+["Reconocer el núcleo del sujeto y del predicado","El núcleo del sujeto suele ser un sustantivo o pronombre; el núcleo del predicado es el verbo conjugado.","En «La casa antigua se derrumbó», el núcleo del sujeto es «casa» y el del predicado es «derrumbó».","En «Los niños del barrio jugaron fútbol», ¿cuál es el núcleo del sujeto?","input",["niños"]],
+["Clasificar oraciones según la actitud del hablante","Las oraciones pueden ser enunciativas, interrogativas, exclamativas, imperativas, desiderativas o dubitativas.","«¡Qué hermoso día!» es una oración exclamativa.","«Ojalá llueva mañana», ¿qué tipo de oración es según la actitud del hablante?","input",["desiderativa"]],
+["Diferenciar oración simple y compuesta","Una oración simple tiene un solo verbo conjugado; una compuesta tiene dos o más verbos conjugados relacionados.","«Llovió toda la noche» es simple; «Llovió toda la noche y se inundaron las calles» es compuesta.","¿«Estudié mucho, pero no aprobé el examen» es simple o compuesta?","input",["compuesta"]],
+["Reconocer la coordinación entre oraciones","Las oraciones coordinadas están unidas por conjunciones (y, o, pero, ni) sin que una dependa gramaticalmente de la otra.","«Juan cocina y María lava los platos» son dos oraciones coordinadas por «y».","En «No fui a la fiesta ni avisé», ¿qué conjunción coordina las oraciones?","input",["ni"]],
+["Reconocer la subordinación entre oraciones","Una oración subordinada depende de otra principal y cumple una función dentro de ella.","En «Espero que vengas pronto», «que vengas pronto» es una subordinada que funciona como complemento directo.","Escribe una oración compuesta con una subordinada que funcione como sujeto (ej: «Me sorprende que...»).","text",null],
+["Clasificar oraciones subordinadas","Las sustantivas funcionan como sustantivo, las adjetivas como adjetivo y las adverbiales como adverbio.","«El libro que compré es interesante» tiene una subordinada adjetiva que modifica a «libro».","En «Iré al cine cuando termine mi tarea», ¿qué tipo de subordinada es «cuando termine mi tarea»?","input",["adverbial"]],
+["Identificar los complementos del verbo","El complemento directo recibe la acción, el indirecto indica el destinatario y el circunstancial añade información de tiempo, modo o lugar.","En «Le di un regalo a mi hermana ayer», «un regalo» es CD, «a mi hermana» es CI y «ayer» es CC de tiempo.","En «Compré flores para mi madre», ¿cuál es el complemento directo?","input",["flores"]],
+["Reconocer la voz activa y pasiva","En la voz activa, el sujeto realiza la acción; en la pasiva, la recibe y el agente aparece introducido por «por».","«El equipo ganó el partido» (activa); «El partido fue ganado por el equipo» (pasiva).","Convierte a voz pasiva: «El chef preparó la cena.»","input",["la cena fue preparada por el chef"]],
+["Realizar el análisis sintáctico completo","Analizar sintácticamente implica identificar sujeto, predicado, núcleos y complementos de una oración en su totalidad.","En «El perro del vecino ladró toda la noche», el sujeto es «el perro del vecino» y el predicado es «ladró toda la noche».","Realiza el análisis sintáctico completo de: «Los alumnos entregaron sus trabajos a tiempo.»","text",null]
+]},
+{name:"Semántica y léxico", sub:"Significado, vocabulario y relaciones entre palabras", items:[
+["Distinguir denotación y connotación","La denotación es el significado literal y objetivo; la connotación es el significado subjetivo o emocional según el contexto.","«Hogar» denota una vivienda, pero connota calidez y pertenencia.","Elige una palabra y explica su significado denotativo y un posible significado connotativo.","text",null],
+["Reconocer polisemia y homonimia","Una palabra polisémica tiene varios significados relacionados; los homónimos se escriben o suenan igual pero tienen orígenes distintos.","«Banco» (asiento) y «banco» (entidad financiera) son un caso de polisemia.","Escribe otro significado de la palabra «planta» además de «vegetal».","text",null],
+["Identificar campos semánticos","Un campo semántico agrupa palabras relacionadas por compartir un mismo ámbito de significado.","«Cuchara», «tenedor», «cuchillo» y «plato» pertenecen al campo semántico de la vajilla.","Escribe cinco palabras que pertenezcan al campo semántico de «la escuela».","text",null],
+["Reconocer sinónimos y antónimos según el contexto","Los sinónimos y antónimos pueden variar según el contexto, no siempre son intercambiables en todos los casos.","«Claro» puede ser sinónimo de «evidente» en un contexto y de «luminoso» en otro.","Escribe un antónimo de la palabra «generoso».","input",["tacaño","mezquino","avaro","tacano"]],
+["Identificar extranjerismos","Un extranjerismo es una palabra tomada de otro idioma; algunos se adaptan a la ortografía del castellano y otros no.","«Fútbol» es un extranjerismo adaptado del inglés «football»; «software» se mantiene sin adaptar.","Escribe dos extranjerismos que uses habitualmente y señala de qué idioma provienen.","text",null],
+["Reconocer tecnicismos","Los tecnicismos son términos propios de un área de conocimiento específica, usados con precisión en textos especializados.","«Fotosíntesis» es un tecnicismo del área de biología.","Escribe dos tecnicismos propios de una disciplina que conozcas y explica su significado.","text",null],
+["Analizar refranes y expresiones idiomáticas","Los refranes y modismos tienen un significado figurado que no se deduce de la suma literal de sus palabras.","«Más vale pájaro en mano que ciento volando» significa que es mejor tener algo seguro que arriesgarse por algo incierto.","Explica con tus palabras el significado del refrán «a caballo regalado no se le mira el diente».","text",null],
+["Diferenciar lenguaje literal y figurado","El lenguaje literal expresa el significado exacto de las palabras; el figurado usa las palabras con un sentido distinto al habitual.","«Se le rompió el corazón» no significa una rotura física, sino tristeza profunda en sentido figurado.","¿La expresión «llueve a cántaros» es literal o figurada?","input",["figurada"]],
+["Ampliar el vocabulario mediante el contexto","Deducir el significado de palabras nuevas por el contexto de lectura amplía el vocabulario de forma progresiva y duradera.","Al leer «el actor recibió una ovación estruendosa», se puede deducir que «ovación» es un aplauso entusiasta.","Elige una palabra desconocida de un texto que hayas leído recientemente y escribe su significado según el contexto.","text",null],
+["Usar el diccionario y el tesauro","El diccionario aclara significados; el tesauro ayuda a variar el vocabulario evitando repeticiones.","Para no repetir «importante», se puede buscar en el tesauro: «relevante», «trascendental», «significativo».","Busca tres sinónimos de la palabra «difícil» que podrías usar para variar tu vocabulario al escribir.","text",null]
+]},
+{name:"Tipologías textuales", sub:"Géneros y estructuras discursivas", items:[
+["Reconocer el texto narrativo","Un texto narrativo cuenta una serie de hechos protagonizados por personajes en un tiempo y espacio determinados.","Un cuento, una novela o una crónica periodística son ejemplos de textos narrativos.","Escribe un breve fragmento narrativo (3-4 líneas) con un personaje, un lugar y una acción.","text",null],
+["Reconocer el texto descriptivo","Un texto descriptivo detalla las características de un objeto, persona, lugar o situación, apelando a los sentidos.","Describir «la vieja casa de madera, con paredes agrietadas y un olor a humedad persistente» apela al tacto, la vista y el olfato.","Describe en 3-4 líneas un lugar que conozcas bien, apelando a al menos dos sentidos.","text",null],
+["Reconocer el texto expositivo","Un texto expositivo explica un tema de forma clara y objetiva, organizado en introducción, desarrollo y conclusión.","Un artículo enciclopédico sobre el ciclo del agua es un texto expositivo.","Elige un tema que domines y esboza cómo organizarías su introducción, desarrollo y conclusión.","text",null],
+["Reconocer el texto argumentativo","Un texto argumentativo defiende una postura mediante una tesis y argumentos que la sustentan.","Un artículo de opinión sobre el uso de plásticos es argumentativo si defiende una postura con razones.","Escribe una tesis breve sobre un tema que te interese y un argumento que la sustente.","text",null],
+["Reconocer el texto periodístico y sus géneros","Los textos periodísticos informan sobre hechos de actualidad: informativos (noticia), interpretativos (crónica) o de opinión (editorial).","Una noticia sobre un accidente de tránsito es un género informativo; un editorial sobre política es de opinión.","¿A qué género periodístico corresponde un texto que narra un hecho de actualidad con quién, qué, cuándo y dónde?","input",["noticia"]],
+["Reconocer el texto científico","Un texto científico usa un lenguaje objetivo, preciso y con tecnicismos, evitando la subjetividad.","Un artículo sobre los efectos del cambio climático en los ecosistemas marinos es un texto científico.","Reescribe «el agua se pone rara cuando hierve mucho» con un lenguaje más propio de un texto científico.","text",null],
+["Identificar el texto instructivo","Un texto instructivo da indicaciones ordenadas para realizar una tarea, generalmente en orden secuencial.","Un manual de usuario o una receta de cocina son textos instructivos.","Escribe tres pasos, en orden, para realizar una tarea cotidiana sencilla.","text",null],
+["Reconocer el texto dialógico","Un texto dialógico representa el intercambio de palabras entre interlocutores, marcado por rayas, comillas o signos de interrogación.","En una obra de teatro, cada intervención va precedida por el nombre del personaje o una raya.","Escribe un breve diálogo (3-4 líneas) entre dos personajes sobre un tema cotidiano.","text",null],
+["Diferenciar géneros discursivos según el contexto","Un mismo tema puede tratarse en géneros distintos según el contexto: carta, discurso, ensayo o publicación en redes.","Informar sobre un evento puede hacerse mediante una invitación formal, un cartel o una publicación en redes sociales.","Explica cómo presentarías el mismo tema en un discurso formal y en una publicación de redes sociales.","text",null],
+["Reconocer la intención comunicativa de un texto","Todo texto tiene una intención (informar, persuadir, narrar, instruir o expresar) que orienta su estructura y lenguaje.","Un anuncio publicitario tiene intención persuasiva; un informe técnico tiene intención informativa.","Un texto que busca convencer al lector de adoptar una mascota, ¿tiene intención informativa o persuasiva?","input",["persuasiva"]]
+]},
+{name:"Producción escrita", sub:"Redacción, cohesión y coherencia", items:[
+["Planificar un texto antes de escribirlo","Planificar implica definir el tema, el propósito, el destinatario y un esquema básico antes de redactar.","Antes de un ensayo sobre el cambio climático: introducción con el problema, desarrollo con causas y consecuencias, conclusión con una postura.","Elabora un esquema breve (introducción, desarrollo, conclusión) sobre un tema de tu interés.","text",null],
+["Redactar párrafos con unidad temática","Un buen párrafo desarrolla una sola idea principal, apoyada por ideas secundarias que la explican.","Un párrafo sobre «los beneficios del ejercicio» no debería mezclar información sobre alimentación sin conectarla.","Escribe un párrafo de al menos cuatro líneas que desarrolle una sola idea principal.","text",null],
+["Usar conectores para dar cohesión","Los conectores (sin embargo, además, por lo tanto) enlazan las ideas de un texto y muestran su relación lógica.","«Estudié mucho; sin embargo, el examen fue más difícil de lo esperado» usa un conector de contraste.","¿Qué conector usarías para introducir una conclusión al final de un texto?","input",["en conclusión","por lo tanto","en síntesis","finalmente","en conclusion"]],
+["Evitar repeticiones innecesarias","Repetir la misma palabra empobrece un texto; se puede variar usando sinónimos, pronombres o expresiones equivalentes.","En vez de repetir «el escritor», se puede alternar con «el autor», «él» o «dicho escritor».","Escribe un párrafo corto evitando repetir la misma palabra clave más de dos veces.","text",null],
+["Mantener la coherencia global de un texto","La coherencia asegura que todas las ideas se relacionen lógicamente entre sí y con el tema central.","Un texto sobre los beneficios de leer no debería incluir, sin conexión, un párrafo sobre recetas de cocina.","Escribe un texto breve y verifica que todas sus ideas se relacionen con el tema central.","text",null],
+["Revisar y corregir un borrador","Revisar implica leer el propio texto de forma crítica para detectar errores de ortografía, gramática o claridad.","Al revisar un párrafo, se puede notar que una oración es demasiado larga y conviene dividirla en dos.","Escribe un párrafo breve, reléelo y anota al menos una corrección que le harías.","text",null],
+["Adecuar el registro lingüístico","El registro (formal, informal, técnico) debe ajustarse según a quién va dirigido el texto y el contexto.","Una carta a un amigo puede usar lenguaje informal; una solicitud a una institución requiere lenguaje formal.","Escribe la idea «necesito información sobre un curso» en registro formal y en registro informal.","text",null],
+["Estructurar un ensayo argumentativo básico","Un ensayo se organiza en introducción (tesis), desarrollo (argumentos con evidencias) y conclusión (síntesis).","Un ensayo sobre la importancia de la lectura presenta la tesis, argumentos con ejemplos y una síntesis final.","Escribe la tesis de un posible ensayo sobre un tema de tu interés, en una sola oración clara.","text",null],
+["Escribir una introducción efectiva","Una buena introducción presenta el tema, capta el interés del lector y anticipa brevemente el desarrollo.","«En un mundo cada vez más digital, la lectura en papel enfrenta nuevos desafíos» presenta el tema y genera interés.","Escribe una introducción de dos o tres líneas para un texto sobre un tema que elijas.","text",null],
+["Escribir una conclusión que cierre con fuerza","Una buena conclusión retoma la idea central, sintetiza lo expuesto y puede dejar una reflexión final.","«Por todo lo anterior, cuidar el medioambiente no es una opción, sino una responsabilidad de todos» cierra con contundencia.","Escribe una conclusión breve para el texto que empezaste en la técnica anterior.","text",null]
+]},
+{name:"Recursos literarios", sub:"Figuras retóricas y efectos expresivos", items:[
+["Identificar la metáfora","La metáfora identifica dos elementos sin usar un nexo comparativo, atribuyendo las cualidades de uno al otro.","«Sus ojos son dos luceros» identifica los ojos con estrellas.","Identifica la figura literaria en «el tiempo es oro».","input",["metáfora","metafora"]],
+["Identificar el símil o comparación","El símil compara dos elementos usando un nexo comparativo explícito como «como», «cual» o «semejante a».","«Fuerte como un roble» compara la fuerza de alguien con la de un roble usando «como».","Identifica la figura literaria en «sus lágrimas caían como lluvia».","input",["símil","simil","comparación","comparacion"]],
+["Identificar la hipérbole","La hipérbole exagera intencionalmente una cualidad o acción para producir un efecto expresivo.","«Te lo he dicho un millón de veces» exagera la cantidad para enfatizar la insistencia.","Identifica la figura literaria en «me morí de la risa».","input",["hipérbole","hiperbole"]],
+["Identificar la personificación","La personificación atribuye cualidades humanas a seres inanimados o abstractos.","«El viento susurraba secretos entre los árboles» atribuye al viento la capacidad humana de susurrar.","Identifica la figura literaria en «la ciudad dormía en silencio».","input",["personificación","personificacion","prosopopeya"]],
+["Identificar la anáfora","La anáfora repite una misma palabra o expresión al inicio de versos o frases consecutivas para dar énfasis rítmico.","«Caminando por la vida, caminando sin cesar» repite «caminando» al inicio.","Escribe dos versos o frases que usen la anáfora, repitiendo una misma palabra al inicio de cada uno.","text",null],
+["Identificar la ironía","La ironía expresa lo contrario de lo que se piensa realmente, con intención crítica o humorística.","Decir «¡qué puntual llegaste!» a alguien que llegó una hora tarde es ironía.","Escribe una oración irónica sobre una situación cotidiana (por ejemplo, un día lluvioso).","text",null],
+["Identificar la onomatopeya","La onomatopeya es una palabra que imita un sonido de la realidad.","«Tic-tac» imita el sonido de un reloj; «cataplum» imita un golpe fuerte.","Escribe una onomatopeya que imite el sonido de una explosión.","input",["boom","bum","cataplum","pum"]],
+["Identificar la aliteración","La aliteración repite un mismo sonido consonántico en una frase o verso para producir un efecto sonoro.","«El ruido con que rueda la ronca tempestad» repite el sonido «r» para imitar el estruendo.","Escribe una frase breve que repita un mismo sonido consonántico varias veces.","text",null],
+["Identificar la antítesis","La antítesis contrapone dos ideas o palabras de significado opuesto dentro de una misma frase.","«Eres mi luz y mi oscuridad» contrapone luz y oscuridad.","Identifica la figura literaria en «un instante fue eterno».","input",["antítesis","antitesis","paradoja"]],
+["Reconocer figuras retóricas en textos cotidianos","Las figuras literarias no solo aparecen en poesía; también se usan en publicidad, titulares y el habla cotidiana.","Un anuncio que dice «vuela con nosotros» usa una metáfora para referirse a un viaje en avión.","Busca o inventa un eslogan publicitario que use una figura literaria y señala cuál es.","text",null]
+]},
+{name:"Análisis literario", sub:"Narrativa, poesía, teatro y movimientos", items:[
+["Identificar al narrador y su tipo","El narrador es la voz que cuenta la historia: puede narrar en primera, segunda o tercera persona.","«Yo caminaba por el parque cuando lo vi» usa narrador en primera persona.","¿En qué persona narrativa está escrito «Ella no sabía que ese día cambiaría su vida»?","input",["tercera persona","tercera"]],
+["Distinguir narrador omnisciente y testigo","El narrador omnisciente conoce los pensamientos de todos los personajes; el testigo solo relata lo que observa desde fuera.","«Juan sintió una tristeza profunda que no podía explicar» indica un narrador omnisciente.","Si el narrador solo describe lo que ve sin conocer los pensamientos de los personajes, ¿qué tipo de narrador es?","input",["testigo","narrador testigo"]],
+["Reconocer la estructura narrativa","Una narración se organiza en planteamiento, nudo (desarrollo del conflicto) y desenlace.","En un cuento, el planteamiento presenta a los personajes, el nudo desarrolla el conflicto y el desenlace lo resuelve.","Piensa en un cuento o película que conozcas y describe brevemente su planteamiento, nudo y desenlace.","text",null],
+["Analizar el tiempo narrativo","Una historia puede contarse en orden cronológico (lineal), en medio de la acción (in medias res) o con saltos al pasado (flashback).","Una novela que empieza en el clímax de una persecución y luego explica cómo llegaron ahí usa in medias res.","Describe brevemente una historia que use un flashback, y explica en qué momento ocurre.","text",null],
+["Reconocer el espacio y su función narrativa","El espacio no solo ubica la acción; puede reflejar el estado emocional de los personajes o el ambiente de la historia.","Una casa abandonada y en penumbra puede reforzar una atmósfera de misterio o tristeza.","Describe un espacio que refuerce un ambiente de alegría o de tensión, a tu elección.","text",null],
+["Identificar la métrica básica de un poema","Contar las sílabas de un verso (con sinalefas) permite identificar su métrica, como el octosílabo o el endecasílabo.","«Verde que te quiero verde» tiene ocho sílabas métricas, por lo que es un verso octosílabo.","Cuenta las sílabas métricas de un verso de tu elección y anota el resultado.","text",null],
+["Reconocer el tipo de rima","La rima consonante coincide en todos los sonidos desde la última vocal acentuada; la asonante solo en las vocales.","«Amor» y «dolor» riman en consonante; «amor» y «razón» riman en asonante.","¿«Cielo» y «vuelo» tienen rima consonante o asonante?","input",["consonante"]],
+["Identificar movimientos y géneros literarios","Cada movimiento literario tiene características propias de temática y estilo.","El romanticismo exalta las emociones y la naturaleza; el realismo representa la sociedad de forma objetiva.","Elige un movimiento literario que conozcas y describe dos de sus características principales.","text",null],
+["Analizar los elementos del texto dramático","Un texto dramático se compone de diálogos y acotaciones (indicaciones escénicas), organizado en actos y escenas.","«(Entra Juan, nervioso.) Juan: ¿Ya llegó?» combina una acotación con un diálogo.","Escribe un breve fragmento de texto dramático (2-3 líneas) con una acotación y un diálogo.","text",null],
+["Interpretar el tema y el mensaje de una obra","El tema es la idea central de una obra; el mensaje es la reflexión que el autor propone a partir de ella.","El tema de una fábula sobre la liebre y la tortuga puede ser «la constancia»; su mensaje, «la perseverancia vence a la velocidad sin esfuerzo».","Piensa en un cuento, fábula o película y escribe cuál crees que es su tema y su mensaje.","text",null]
+]},
+{name:"Comunicación oral", sub:"Exposición, debate y argumentación", items:[
+["Preparar y estructurar una exposición oral","Una buena exposición se organiza en introducción, desarrollo de ideas principales y conclusión, con un guion breve.","Antes de exponer sobre el cambio climático, conviene organizar: qué es, causas, consecuencias y soluciones.","Elabora un esquema breve (tres o cuatro puntos) para una exposición oral sobre un tema que domines.","text",null],
+["Usar la voz y el ritmo al hablar en público","Variar el volumen, el ritmo y las pausas mantiene la atención del público y enfatiza las ideas importantes.","Hacer una pausa antes de anunciar un dato importante genera expectativa en la audiencia.","Elige una frase de una exposición y describe en qué palabra harías una pausa o un cambio de énfasis.","text",null],
+["Mantener contacto visual y lenguaje corporal","El lenguaje corporal refuerza el mensaje oral y transmite seguridad al hablar.","Mirar alternadamente a distintos puntos del público, en vez de leer todo el tiempo, genera mayor conexión.","Describe qué gestos o postura usarías al presentar un tema que te genere entusiasmo.","text",null],
+["Formular argumentos con estructura clara","Un argumento sólido presenta una afirmación, una razón que la sustenta y, si es posible, un ejemplo.","«Se debe reciclar porque reduce la contaminación, como ocurre en ciudades que han disminuido sus residuos.»","Formula un argumento completo (afirmación, razón y ejemplo) sobre un tema que te interese defender.","text",null],
+["Identificar falacias argumentativas comunes","Una falacia es un razonamiento que parece válido pero contiene un error lógico, como el ataque personal (ad hominem).","Responder «no puedes opinar sobre educación porque no eres profesor» en vez de refutar el argumento es una falacia.","Si alguien dice «esa idea es mala porque la propuso una persona que no me cae bien», ¿qué falacia comete?","input",["ad hominem","ataque personal","ad-hominem"]],
+["Participar en un debate con respeto","Un debate efectivo requiere escuchar los argumentos contrarios, respetar los turnos y responder con argumentos, no ataques.","En un debate sobre uniformes escolares, cada participante expone su postura y responde con datos, no con descalificaciones.","Elige un tema de debate y escribe un argumento a favor y uno en contra, de forma respetuosa.","text",null],
+["Distinguir hechos de opiniones al hablar","Un hecho puede verificarse objetivamente; una opinión expresa una valoración personal discutible.","«El examen fue el jueves» es un hecho; «el examen fue demasiado difícil» es una opinión.","«La película dura dos horas», ¿es un hecho o una opinión?","input",["hecho"]],
+["Resumir oralmente las ideas principales","Resumir oralmente exige identificar y comunicar solo las ideas esenciales de lo escuchado.","Después de escuchar una noticia, resumirla en una o dos frases con lo más importante.","Piensa en algo que hayas escuchado recientemente y resúmelo oralmente en dos frases (escríbelas aquí).","text",null],
+["Adaptar el discurso según la audiencia","El lenguaje, el nivel de formalidad y los ejemplos deben ajustarse según quién escucha.","Explicar un tema científico a niños requiere ejemplos sencillos, distinto de una exposición ante especialistas.","Explica cómo presentarías un tema a un grupo de niños y a un grupo de adultos expertos.","text",null],
+["Formular preguntas efectivas en una discusión","Las buenas preguntas buscan profundizar, aclarar o cuestionar un argumento, no solo repetir lo dicho.","En vez de «¿por qué dices eso?», una pregunta más efectiva es «¿qué evidencia respalda esa afirmación?».","Formula una pregunta que profundice sobre un argumento a favor de reducir el uso de plástico.","text",null]
+]},
+{name:"Investigación académica", sub:"Fuentes, citas y trabajos escritos", items:[
+["Formular una pregunta de investigación clara","Una buena pregunta de investigación es específica, delimitada y orienta la búsqueda hacia un objetivo concreto.","En vez de «¿qué es la contaminación?», es mejor «¿cómo afecta la contaminación del aire la salud respiratoria en zonas urbanas?».","Formula una pregunta de investigación clara y delimitada sobre un tema que te interese.","text",null],
+["Distinguir fuentes primarias y secundarias","Una fuente primaria ofrece información de primera mano; una secundaria interpreta o analiza fuentes primarias.","Una entrevista original a un testigo es fuente primaria; un artículo que la analiza es fuente secundaria.","Un libro de texto que resume varias investigaciones sobre un tema, ¿es fuente primaria o secundaria?","input",["secundaria"]],
+["Evaluar la fiabilidad de una fuente","Conviene revisar quién escribió la fuente, cuándo se publicó, si cita evidencia y si tiene alguna intención particular.","Un artículo firmado por un especialista, reciente y con referencias verificables, es más fiable que un texto anónimo.","Evalúa la fiabilidad de una fuente que hayas usado recientemente, según autoría, fecha y evidencia.","text",null],
+["Citar textualmente respetando la fuente","Una cita textual reproduce exactamente las palabras del autor original, entre comillas y con su referencia.","«Según García Márquez (1967), ‘muchos años después, frente al pelotón de fusilamiento...’» incluye autor y año.","Elige una frase breve de un libro o artículo y escribe cómo la citarías correctamente, con autor y año.","text",null],
+["Parafrasear respetando el sentido original","Parafrasear consiste en expresar la idea de un autor con palabras propias, sin cambiar su significado, citando la fuente.","En vez de citar textualmente una definición extensa, se puede explicar la misma idea con palabras propias, citando al autor.","Elige una definición o idea que conozcas de algún texto y parafraséala con tus propias palabras.","text",null],
+["Elaborar una bibliografía básica","Una referencia bibliográfica incluye, según la norma usada, el autor, el año, el título y la fuente de publicación.","En formato APA: «García Márquez, G. (1967). Cien años de soledad. Editorial Sudamericana.»","Elige un libro que conozcas y escribe su referencia bibliográfica en formato APA.","text",null],
+["Evitar el plagio mediante atribución adecuada","El plagio consiste en presentar ideas o palabras ajenas como propias; se evita citando o parafraseando con referencia.","Copiar un párrafo de internet sin citarlo, aunque se cambien algunas palabras, sigue siendo plagio.","Explica con tus palabras la diferencia entre parafrasear correctamente una fuente y plagiarla.","text",null],
+["Organizar la información en un esquema","Antes de redactar un trabajo de investigación, organizar la información en un esquema ayuda a estructurar las ideas.","Un esquema sobre el cambio climático podría dividirse en causas, consecuencias y posibles soluciones.","Elabora un esquema breve (tres apartados) para organizar información sobre un tema de investigación.","text",null],
+["Redactar un trabajo académico con estructura formal","Un trabajo académico suele incluir portada, introducción, desarrollo, conclusiones y bibliografía.","Un informe de investigación escolar presenta: introducción, desarrollo con la información investigada, conclusiones y fuentes.","Escribe un esquema con las secciones que incluirías en un trabajo académico sobre un tema de tu elección.","text",null],
+["Revisar el trabajo final con una lista de cotejo","Revisar un trabajo con una lista de criterios antes de entregarlo mejora su calidad final.","Una lista de cotejo puede incluir: ¿tiene introducción clara? ¿las citas están bien referenciadas? ¿hay errores ortográficos?","Elabora una lista de cotejo con al menos cuatro criterios para revisar un trabajo académico antes de entregarlo.","text",null]
+]}
+];
+
+// ---- normalización y comprobación ----
+function stripAccents(s){
+  return s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+          .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+}
+function normalize(s){
+  if(s===null || s===undefined) return "";
+  s = s.toString().toLowerCase().trim();
+  s = stripAccents(s);
+  s = s.replace(/[¿¡!?.,;]+$/g,"");
+  s = s.replace(/^[¿¡]+/g,"");
+  s = s.replace(/\s+/g," ");
+  return s;
+}
+function isCorrect(userText, accepted){
+  const u = normalize(userText);
+  if(u==="") return false;
+  return accepted.some(a => normalize(a)===u);
+}
+
+// ---- estado y almacenamiento ----
+let currentCat = null;
+let currentIdx = 0;
+let progress = {};
+
+function techKey(c,i){ return c+"-"+i; }
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('progreso-cuaderno-lengua', false);
+    if(res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ progress = {}; }
+}
+async function saveProgressStore(){
+  try{ await window.storage.set('progreso-cuaderno-lengua', JSON.stringify(progress), false); }catch(e){}
+}
+async function loadAnswer(c,i){
+  try{
+    const res = await window.storage.get('respuesta-lengua-'+techKey(c,i), false);
+    return res && res.value ? res.value : "";
+  }catch(e){ return ""; }
+}
+async function saveAnswerStore(c,i,text){
+  try{ await window.storage.set('respuesta-lengua-'+techKey(c,i), text, false); }catch(e){}
+}
+
+function renderMenu(){
+  const ul = document.getElementById('catList');
+  ul.innerHTML = "";
+  CATEGORIES.forEach((cat, ci)=>{
+    const done = cat.items.filter((_,ii)=>progress[techKey(ci,ii)]).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item';
+    li.innerHTML = `
+      <button class="cat-btn" data-cat="${ci}">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-text">
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </span>
+        <span class="cat-progress">${done}/10</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDeck(parseInt(btn.dataset.cat)));
+  });
+  renderGlobalProgress();
+}
+
+function renderGlobalProgress(){
+  const total = 100;
+  const done = Object.keys(progress).filter(k=>progress[k]).length;
+  document.getElementById('globalFill').style.width = (done/total*100)+"%";
+  document.getElementById('globalLabel').textContent = done+"/100 practicadas";
+}
+
+function openDeck(ci){
+  currentCat = ci;
+  currentIdx = 0;
+  document.getElementById('menuView').classList.add('hidden');
+  document.getElementById('deckView').classList.remove('hidden');
+  document.getElementById('deckTitle').textContent = CATEGORIES[ci].name;
+  renderCard();
+  window.scrollTo(0,0);
+}
+function closeDeck(){
+  document.getElementById('deckView').classList.add('hidden');
+  document.getElementById('menuView').classList.remove('hidden');
+  renderMenu();
+  window.scrollTo(0,0);
+}
+function renderDots(){
+  const wrap = document.getElementById('dots');
+  wrap.innerHTML = "";
+  CATEGORIES[currentCat].items.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===currentIdx? ' active':'') + (progress[techKey(currentCat,i)] && i!==currentIdx? ' done':'');
+    wrap.appendChild(d);
+  });
+}
+
+async function renderCard(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const [title, concept, example, exercise, type, answers] = item;
+  const globalNum = CATEGORIES.slice(0,currentCat).reduce((a,c)=>a+c.items.length,0) + currentIdx + 1;
+
+  document.getElementById('cardNum').textContent = "Técnica " + globalNum + " de 100";
+  document.getElementById('catName').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardConcept').textContent = concept;
+  document.getElementById('cardExample').textContent = example;
+  document.getElementById('cardExercise').textContent = exercise;
+
+  const feedback = document.getElementById('feedback');
+  feedback.className = 'feedback';
+  feedback.textContent = '';
+  const solBox = document.getElementById('solutionBox');
+  solBox.classList.remove('show');
+  document.getElementById('savedTag').classList.remove('show');
+
+  if(type==='input'){
+    document.getElementById('inputExercise').classList.remove('hidden');
+    document.getElementById('textExercise').classList.add('hidden');
+    document.getElementById('cardInput').value = "";
+    solBox.textContent = "Solución: " + answers[0];
+  } else {
+    document.getElementById('inputExercise').classList.add('hidden');
+    document.getElementById('textExercise').classList.remove('hidden');
+    const savedText = await loadAnswer(currentCat, currentIdx);
+    document.getElementById('cardAnswer').value = savedText;
+  }
+
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+
+  document.getElementById('prevBtn').disabled = currentIdx===0;
+  document.getElementById('nextBtn').disabled = currentIdx===CATEGORIES[currentCat].items.length-1;
+  renderDots();
+}
+
+async function markDone(){
+  progress[techKey(currentCat,currentIdx)] = true;
+  await saveProgressStore();
+  document.getElementById('doneDot').classList.add('on');
+  document.getElementById('doneLabel').textContent = 'practicada';
+  renderDots();
+  renderGlobalProgress();
+}
+
+function handleCheck(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const answers = item[5];
+  const val = document.getElementById('cardInput').value;
+  const feedback = document.getElementById('feedback');
+  if(isCorrect(val, answers)){
+    feedback.className = 'feedback ok';
+    feedback.textContent = '¡Correcto! Bien resuelto.';
+    markDone();
+  } else {
+    feedback.className = 'feedback bad';
+    feedback.textContent = 'Aún no. Revisa el ejemplo e inténtalo de nuevo.';
+  }
+}
+function handleReveal(){
+  document.getElementById('solutionBox').classList.toggle('show');
+}
+async function handleSaveText(){
+  const text = document.getElementById('cardAnswer').value;
+  await saveAnswerStore(currentCat, currentIdx, text);
+  if(text.trim().length>0){ await markDone(); }
+  const tag = document.getElementById('savedTag');
+  tag.classList.add('show');
+  setTimeout(()=>tag.classList.remove('show'), 1600);
+}
+
+document.getElementById('backBtn').addEventListener('click', closeDeck);
+document.getElementById('checkBtn').addEventListener('click', handleCheck);
+document.getElementById('revealBtn').addEventListener('click', handleReveal);
+document.getElementById('saveBtn').addEventListener('click', handleSaveText);
+document.getElementById('cardInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') handleCheck(); });
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(currentIdx>0){ currentIdx--; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(currentIdx<CATEGORIES[currentCat].items.length-1){ currentIdx++; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(confirm('¿Borrar todo tu progreso y tus respuestas guardadas?')){
+    try{
+      const list = await window.storage.list('respuesta-lengua-', false);
+      if(list && list.keys){
+        for(const k of list.keys){ await window.storage.delete(k, false); }
+      }
+    }catch(e){}
+    progress = {};
+    await saveProgressStore();
+    renderMenu();
+  }
+});
+
+(async function init(){
+  await loadProgress();
+  renderMenu();
+})();
+</script>
+</body>
+</html>

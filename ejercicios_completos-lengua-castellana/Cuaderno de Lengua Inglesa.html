@@ -1,0 +1,2166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Notebook · 100 técnicas (6.º a 11.º)</title>
+<style>
+  :root{
+    --bg:#e9efe4;
+    --paper:#fdfefb;
+    --paper-2:#f5f9f2;
+    --ink:#15271a;
+    --muted:#5a6b5e;
+    --line:#cdd8c9;
+    --line-2:#b7c7b3;
+    --accent:#166534;
+    --accent-dark:#14532d;
+    --accent-soft:#dcfce7;
+    --amber:#b45309;
+    --amber-soft:#fef3c7;
+    --ok:#15803d;
+    --ok-soft:#dcfce7;
+    --bad:#b91c1c;
+    --bad-soft:#fee2e2;
+    --radius:16px;
+    --shadow:0 2px 4px rgba(20,50,25,.06), 0 12px 30px rgba(20,50,25,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 15% 0%, #f5f8ef 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px 20px;
+    background:rgba(253,254,251,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .logo{
+    font-size:22px; line-height:1; font-weight:800;
+    background:var(--accent-soft);
+    border:1px solid #b3e0c0;
+    border-radius:12px;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    color:var(--accent-dark);
+    flex:0 0 auto;
+  }
+  .brand h1{font-size:16.5px; margin:0; font-weight:800; letter-spacing:-.2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .brand p{margin:2px 0 0; font-size:12px; color:var(--muted);}
+  .topbar-actions{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
+
+  .progress-wrap{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); font-weight:600;}
+  .progress-bar{width:140px; height:8px; border-radius:99px; background:#d8e2d3; overflow:hidden;}
+  #progressFill{height:100%; width:0%; background:linear-gradient(90deg,#166534,#b45309); transition:width .4s;}
+
+  .btn{
+    font-family:inherit; font-size:13px; font-weight:700;
+    padding:9px 15px; border-radius:10px; cursor:pointer;
+    border:1px solid var(--line-2); background:#fff; color:var(--ink);
+    transition:.16s;
+  }
+  .btn:hover{background:#eff5ec; border-color:#8fa88a;}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.primary:hover{background:var(--accent-dark);}
+  .btn.ghost{background:transparent;}
+  .only-mobile{display:none;}
+
+  /* ---------- LAYOUT ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:22px;
+    max-width:1400px;
+    margin:0 auto;
+    padding:22px;
+    align-items:start;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    position:sticky; top:82px;
+    max-height:calc(100vh - 106px);
+    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px;
+  }
+  #search{
+    width:100%; font-family:inherit; font-size:13px;
+    padding:10px 12px; border-radius:10px;
+    border:1px solid var(--line-2); background:#f5f9f2; color:var(--ink);
+    outline:none; margin-bottom:12px;
+  }
+  #search:focus{border-color:var(--accent); background:#fff;}
+
+  .cat{margin-bottom:6px;}
+  .cat-head{
+    display:flex; align-items:center; gap:9px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    padding:10px; border-radius:10px;
+    font-size:13.6px; font-weight:800; color:var(--ink);
+  }
+  .cat-head:hover{background:#eff5ec;}
+  .cat-head .chev{margin-left:auto; font-size:11px; color:var(--muted); transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{
+    font-size:10.5px; font-weight:800;
+    background:var(--amber-soft); color:var(--amber);
+    padding:2px 8px; border-radius:99px;
+  }
+  .cat-bar{height:4px; border-radius:99px; background:#dbe6d6; margin:0 10px 6px; overflow:hidden;}
+  .cat-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--amber)); transition:width .4s;}
+  .cat-body{display:none; padding:2px 0 8px 6px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-size:11.5px; color:var(--muted); padding:0 10px 8px; line-height:1.45;}
+  .tech-link{
+    display:flex; align-items:flex-start; gap:8px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    font-size:13px; line-height:1.35; color:#31463a;
+    padding:8px 10px; border-radius:9px;
+    border-left:3px solid transparent;
+  }
+  .tech-link:hover{background:#eff5ec;}
+  .tech-link.active{background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent-dark); font-weight:700;}
+  .tech-link .dot{
+    flex:0 0 auto; width:15px; height:15px; margin-top:2px;
+    border-radius:50%; border:1.6px solid var(--line-2);
+    display:grid; place-items:center; font-size:9px; color:transparent;
+  }
+  .tech-link.done .dot{background:var(--ok); border-color:var(--ok); color:#fff;}
+
+  /* ---------- PANEL ---------- */
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 30px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .panel::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--amber));
+  }
+  .tech-head{margin-bottom:18px;}
+  .badge{
+    display:inline-block; font-size:10.5px; font-weight:800;
+    letter-spacing:.7px; text-transform:uppercase;
+    color:var(--accent-dark); background:var(--accent-soft);
+    border:1px solid #b3e0c0; padding:4px 10px; border-radius:99px;
+    margin-bottom:10px;
+  }
+  .tech-head h2{margin:0; font-size:25px; line-height:1.22; letter-spacing:-.4px; font-weight:800;}
+  .tech-pos{font-size:12px; color:var(--muted); margin-top:6px; font-weight:600;}
+
+  .block-dots{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;}
+  .bdot{
+    width:12px; height:12px; border-radius:50%;
+    border:1.6px solid var(--line-2); background:#fff;
+    cursor:pointer; transition:.15s;
+  }
+  .bdot:hover{transform:scale(1.25); border-color:var(--accent);}
+  .bdot.done{background:var(--ok); border-color:var(--ok);}
+  .bdot.current{box-shadow:0 0 0 3px rgba(22,101,52,.20); border-color:var(--accent);}
+
+  /* ---------- FLASHCARD (papel con renglones verdes) ---------- */
+  .flashcard{perspective:1600px; margin:18px 0 10px; cursor:pointer;}
+  .fc-inner{
+    position:relative;
+    min-height:clamp(280px, 36vh, 340px);
+    transform-style:preserve-3d;
+    transition:transform .68s cubic-bezier(.4,.15,.2,1);
+  }
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:14px; padding:22px 26px 22px 46px;
+    display:flex; flex-direction:column; overflow:auto;
+    background-color:#fffdf5;
+    background-image:
+      linear-gradient(transparent 27px, rgba(22,101,52,.16) 27px 28px);
+    background-size:100% 28px;
+    background-position:0 14px;
+    box-shadow:inset 22px 0 0 -21px #f0b97a;
+  }
+  .fc-front{border:1px solid var(--line-2);}
+  .fc-back{
+    transform:rotateY(180deg);
+    border:1px solid #b3e0c0;
+    background-color:#f5fdf6;
+    box-shadow:inset 22px 0 0 -21px #86d29b;
+  }
+  .fc-tag{
+    font-size:10.5px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase; color:var(--muted);
+    margin-bottom:12px; display:block;
+  }
+  .fc-back .fc-tag{color:var(--accent-dark);}
+  .fc-face p{margin:0; font-size:15.8px; line-height:28px; color:#1a2a1d;}
+  .fc-back p{color:#143a22;}
+  .fc-hint{
+    margin-top:auto; padding-top:14px;
+    font-size:11.5px; color:#94a692; font-weight:600;
+  }
+  .flip-btn{margin-bottom:26px;}
+
+  /* ---------- SECCIONES ---------- */
+  .sec-title{
+    display:flex; align-items:center; gap:9px;
+    font-size:15px; font-weight:800; letter-spacing:-.1px;
+    margin:0 0 12px; padding-bottom:9px;
+    border-bottom:2px solid var(--line);
+  }
+  .sec-title span{font-size:12px; font-weight:600; color:var(--muted); margin-left:auto;}
+
+  .consigna{
+    font-size:15px; line-height:1.6; color:#2b3e30;
+    background:#f5f9f2; border-left:3px solid var(--line-2);
+    padding:12px 16px; border-radius:0 10px 10px 0; margin:0 0 16px;
+  }
+
+  .opciones{display:flex; flex-direction:column; gap:9px;}
+  .opcion{
+    display:flex; gap:11px; align-items:flex-start;
+    text-align:left; font:inherit; font-size:14.5px; line-height:1.5;
+    background:#fff; border:1.5px solid var(--line-2);
+    color:var(--ink); padding:13px 15px; border-radius:12px; cursor:pointer;
+    transition:.15s;
+  }
+  .opcion:hover:not(:disabled){border-color:var(--accent); background:#f5fdf6; transform:translateX(2px);}
+  .opcion:disabled{cursor:default; opacity:.9;}
+  .opcion .letra{
+    flex:0 0 auto; width:23px; height:23px; border-radius:7px;
+    background:#dbe6d6; color:var(--muted);
+    display:grid; place-items:center;
+    font-size:11.5px; font-weight:800;
+  }
+  .opcion.correcta{border-color:var(--ok); background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok); color:#fff;}
+  .opcion.incorrecta{border-color:var(--bad); background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad); color:#fff;}
+
+  .fill-texto{font-size:16px; line-height:2.4; margin:0 0 16px; color:#1a2a1d;}
+  .hueco{
+    font:inherit; font-size:15px;
+    border:none; border-bottom:2px dashed var(--amber);
+    background:#fffaeb; color:var(--amber); font-weight:700;
+    padding:3px 8px; min-width:130px; text-align:center;
+    outline:none; border-radius:6px 6px 0 0;
+  }
+  .hueco:focus{background:#fef3c7; border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok); color:var(--ok); background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad); color:var(--bad); background:var(--bad-soft); text-decoration:line-through;}
+
+  .order-wrap{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .order-col h4{font-size:11px; font-weight:800; letter-spacing:.9px; text-transform:uppercase; color:var(--muted); margin:0 0 9px;}
+  .pool, .seq{min-height:120px; border-radius:12px; padding:9px; display:flex; flex-direction:column; gap:8px;}
+  .pool{background:#eff3eb; border:1.5px dashed var(--line-2);}
+  .seq{background:#f5fdf6; border:1.5px solid #b3e0c0;}
+  .pool:empty::after, .seq:empty::after{content:"…"; color:#b7c7b3; font-size:20px; text-align:center; margin:auto;}
+  .ord-item{
+    font:inherit; font-size:13.6px; line-height:1.42; text-align:left;
+    background:#fff; border:1.5px solid var(--line-2);
+    padding:10px 12px; border-radius:10px; cursor:pointer; color:var(--ink);
+    transition:.15s; display:flex; gap:9px; align-items:flex-start;
+  }
+  .ord-item:hover{border-color:var(--accent); background:#f5fdf6;}
+  .seq .ord-item{border-color:#b3e0c0;}
+  .seq .ord-item .num{
+    flex:0 0 auto; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:grid; place-items:center;
+    font-size:11px; font-weight:800;
+  }
+  .ord-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .cl-item{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    background:#fff; border:1.5px solid var(--line-2);
+    border-radius:12px; padding:12px 14px; margin-bottom:9px;
+  }
+  .cl-item p{margin:0; font-size:14.2px; line-height:1.45; flex:1 1 260px;}
+  .chips{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{
+    font-size:11.5px; font-weight:700;
+    padding:6px 11px; border-radius:99px; cursor:pointer;
+    border:1.5px solid var(--line-2); background:#eff3eb; color:var(--muted);
+    transition:.14s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent-dark);}
+  .chip.sel{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .cl-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .criterios{list-style:none; padding:0; margin:0 0 14px; display:flex; flex-direction:column; gap:7px;}
+  .criterios li{display:flex; gap:10px; align-items:flex-start; font-size:13px; color:#3e4e41; line-height:1.5;}
+  .criterios input{margin-top:2px; accent-color:var(--accent); width:16px; height:16px; flex:0 0 auto;}
+
+  textarea{
+    width:100%; font-family:inherit; font-size:15px; line-height:27px;
+    color:#1a2a1d; padding:12px 16px;
+    border:1px solid var(--line-2); border-radius:12px;
+    background-color:#fffdf5;
+    background-image:linear-gradient(transparent 26px, rgba(22,101,52,.16) 26px 27px);
+    background-size:100% 27px; background-attachment:local;
+    resize:vertical; outline:none;
+  }
+  textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(22,101,52,.12);}
+  textarea::placeholder{color:#94a692; font-style:italic;}
+
+  .feedback{margin-top:16px; border-radius:12px; padding:0; overflow:hidden; max-height:0; opacity:0; transition:.3s;}
+  .feedback.show{max-height:560px; opacity:1; padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft); border:1px solid #86efac; color:#14532d;}
+  .feedback.mal{background:var(--bad-soft); border:1px solid #fca5a5; color:#7f1d1d;}
+  .feedback.info{background:var(--amber-soft); border:1px solid #fcd34d; color:#78350f;}
+  .feedback strong{display:block; font-size:12.5px; letter-spacing:.4px; text-transform:uppercase; margin-bottom:6px;}
+  .feedback p{margin:0; font-size:14.4px; line-height:1.6;}
+
+  .ej-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+
+  .modelo{
+    display:none; margin-top:14px;
+    background:#f5f9f2; border-left:3px solid var(--amber);
+    padding:13px 16px; border-radius:0 10px 10px 0;
+    font-size:14.4px; line-height:1.65; color:#5a3b13;
+  }
+  .modelo.show{display:block; animation:fade .3s ease;}
+  .modelo strong{font-size:11px; letter-spacing:.8px; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:5px;}
+  @keyframes fade{from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;}}
+
+  .cuaderno{margin-top:32px; padding-top:22px; border-top:2px solid var(--line);}
+  .cuaderno-foot{display:flex; justify-content:space-between; align-items:center; font-size:11.5px; color:var(--muted); margin-top:8px; font-weight:600;}
+  #notaStatus{color:var(--ok); font-weight:700; opacity:0; transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex; justify-content:space-between; gap:12px; margin-top:26px; padding-top:20px; border-top:1px solid var(--line);}
+  .nav-foot .btn{flex:1; max-width:220px; text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35; cursor:not-allowed;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr; padding:14px; gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{
+      position:fixed; top:0; left:0; bottom:0; width:300px; max-height:100vh;
+      z-index:100; border-radius:0 18px 18px 0;
+      transform:translateX(-105%); transition:transform .28s ease;
+      padding-top:18px;
+    }
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed; inset:0; background:rgba(15,35,20,.45); z-index:99; opacity:0; pointer-events:none; transition:.25s;}
+    .scrim.show{opacity:1; pointer-events:auto;}
+    .panel{padding:20px 18px 24px;}
+    .tech-head h2{font-size:21px;}
+    .order-wrap{grid-template-columns:1fr;}
+    .progress-wrap{display:none;}
+    .brand p{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">EN</div>
+    <div>
+      <h1>English Notebook · 6.º a 11.º</h1>
+      <p>100 técnicas · 10 bloques · reading, grammar, listening, speaking &amp; writing</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="btnMenu" class="btn ghost only-mobile">☰ Bloques</button>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <input id="search" type="search" placeholder="🔎 Buscar técnica…" autocomplete="off">
+    <nav id="menu"></nav>
+  </aside>
+  <main class="main">
+    <article id="panel" class="panel"></article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+
+<script>
+/* =====================================================================
+   100 TÉCNICAS · LENGUA INGLESA · 10 BLOQUES
+   Instrucciones y explicaciones en castellano · ejemplos bilingües
+   ===================================================================== */
+const CATEGORIAS = [
+
+/* ============ BLOQUE 1 · READING LITERAL ============ */
+{
+  id:"b1", nombre:"Reading · Comprensión literal", emoji:"📖",
+  desc:"Leer lo que el texto inglés dice explícitamente: idea principal, detalles, referencia, estructura.",
+  tecnicas:[
+    {id:"e1", nombre:"Skimming (lectura panorámica)",
+     concepto:"Consiste en recorrer el texto inglés rápidamente para captar la idea general. Se leen títulos, primeras y últimas frases de cada párrafo. En inglés es una de las técnicas más útiles para saber 'what the text is about'.",
+     ejemplo:"Texto sobre 'climate change': con una hojeada en 60 segundos ya sabemos que trata de las causas y efectos del cambio climático. Título + primera línea de cada párrafo → idea general.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Para qué sirve principalmente el skimming al leer un texto en inglés?",
+       opciones:["Para memorizar todos los detalles","Para captar la idea general antes de profundizar","Para corregir la ortografía del texto","Para traducirlo literalmente al español"],
+       correcta:1,
+       retro:"Skimming = 'gist reading' (lectura de la idea general). No se detiene en detalles: busca el sentido global del texto."}},
+
+    {id:"e2", nombre:"Scanning (búsqueda de un dato concreto)",
+     concepto:"Es un barrido rápido del texto inglés buscando un dato específico: una fecha, un número, un nombre. No se lee palabra por palabra: los ojos saltan hasta encontrar la información.",
+     ejemplo:"Pregunta: 'When was the novel published?' → buscas en el texto palabras como 'published', 'in 1967', cifras de cuatro dígitos…",
+     ejercicio:{tipo:"fill",
+       consigna:"Localiza los datos concretos en el fragmento.",
+       texto:"'The novel was published in 1952 and translated into Spanish in 1968.' Published: ___ · Spanish translation: ___",
+       respuestas:[["1952"],["1968"]],
+       retro:"Scanning busca información concreta. Los años, cifras, nombres propios son fáciles de 'escanear' visualmente."}},
+
+    {id:"e3", nombre:"Identifying the main idea",
+     concepto:"Consiste en identificar la idea principal del texto o del párrafo en inglés. Suele aparecer en la 'topic sentence' (primera oración) o al final del párrafo.",
+     ejemplo:"'Reading is an active process. The reader constructs meaning using previous knowledge.' → Main idea: reading is active (the first sentence).",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la idea principal en inglés o castellano.",
+       texto:"'Learning a language requires daily practice. Twenty minutes a day is more useful than three hours once a week.' Main idea: ___",
+       respuestas:[["daily practice","la practica diaria","regular practice","practicar a diario","la practica constante","practice every day","constant practice","la constancia","la practica regular"]],
+       retro:"La 'topic sentence' es la primera: aprender idiomas exige práctica diaria. Las demás oraciones la apoyan."}},
+
+    {id:"e4", nombre:"Main vs supporting ideas",
+     concepto:"En inglés se distinguen la 'main idea' (idea principal) de las 'supporting ideas' (ideas secundarias: ejemplos, datos, razones). Reconocerlas ayuda a hacer un buen resumen.",
+     ejemplo:"Main: 'Recycling reduces waste.' Supporting: 'In 2022, 1.2 million tonnes of paper were recycled.' / 'Recycling requires separating materials.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración según sea main o supporting idea de un texto sobre 'plastic pollution'.",
+       categorias:["Main idea","Supporting idea"],
+       items:[
+         {texto:"Plastic pollution is one of the biggest environmental problems today.", cat:0},
+         {texto:"Every year, 8 million tonnes of plastic end up in the oceans.", cat:1},
+         {texto:"Microplastics have been found in fish, salt and even rain.", cat:1},
+         {texto:"Plastic pollution threatens marine life and human health.", cat:0}
+       ],
+       retro:"La main idea es general y sostiene el texto; las supporting ideas aportan datos o detalles concretos."}},
+
+    {id:"e5", nombre:"Wh-questions: who, what, when, where, why, how",
+     concepto:"En inglés las preguntas Wh- organizan la información básica de un texto: quién, qué, cuándo, dónde, por qué y cómo. Identificarlas facilita la comprensión literal.",
+     ejemplo:"'Yesterday, in Madrid, hundreds of students protested against climate change because they want action.' → Who? students. What? protested. When? yesterday. Where? Madrid. Why? climate change. How many? hundreds.",
+     ejercicio:{tipo:"fill",
+       consigna:"Responde en inglés con la información del fragmento.",
+       texto:"'Last Friday, in London, thousands of workers marched for better salaries because prices have risen.' Who? ___ · When? ___ · Why? ___",
+       respuestas:[["workers","thousands of workers"],["last friday","on friday","friday"],["prices have risen","better salaries","for better salaries","because prices have risen","salaries"]],
+       retro:"Las Wh-questions te ayudan a extraer la información esencial. Con práctica se vuelven automáticas."}},
+
+    {id:"e6", nombre:"Reference words (pronombres y anáfora)",
+     concepto:"En inglés los textos usan palabras que remiten a algo ya dicho: 'he, she, it, this, that, they'. Saber a qué se refieren es imprescindible para no perder el hilo.",
+     ejemplo:"'The Hubble telescope was launched in 1990. It has changed our view of the universe.' → 'It' refers to the Hubble telescope.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'The students studied hard for the exam. They wanted to pass with a high mark.' What does 'They' refer to?",
+       opciones:["The exam and the mark","The students","The teachers","The books"],
+       correcta:1,
+       retro:"'They' es el pronombre plural que remite al antecedente plural más próximo y coherente: 'the students'."}},
+
+    {id:"e7", nombre:"Recognizing text structure",
+     concepto:"Los textos en inglés suelen seguir estructuras reconocibles: 'problem-solution', 'cause-effect', 'chronological', 'compare-contrast'. Reconocerla ayuda a anticipar la información.",
+     ejemplo:"'First..., Then..., Finally...' → estructura cronológica. 'Both A and B share..., however, they differ...' → compare-contrast.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según la estructura a la que apunta.",
+       categorias:["Chronological","Compare-contrast","Cause-effect"],
+       items:[
+         {texto:"first / then / finally", cat:0},
+         {texto:"however / whereas / on the other hand", cat:1},
+         {texto:"because of / as a result / consequently", cat:2},
+         {texto:"before / after / meanwhile", cat:0},
+         {texto:"similarly / in contrast", cat:1}
+       ],
+       retro:"Los conectores revelan la estructura. Reconocerlos te permite anticipar la información del párrafo siguiente."}},
+
+    {id:"e8", nombre:"Linking words (conectores en inglés)",
+     concepto:"Los 'linking words' o 'connectors' enlazan ideas: adición (and, moreover), contraste (but, however), causa (because), consecuencia (so, therefore). Son las señales de tráfico del texto.",
+     ejemplo:"'It was raining. However, we went out.' 'She studied a lot, so she passed the exam.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su función.",
+       categorias:["Addition","Contrast","Cause","Consequence"],
+       items:[
+         {texto:"moreover", cat:0},
+         {texto:"however", cat:1},
+         {texto:"because", cat:2},
+         {texto:"therefore", cat:3},
+         {texto:"in addition", cat:0},
+         {texto:"although", cat:1},
+         {texto:"as a result", cat:3}
+       ],
+       retro:"Los conectores organizan el razonamiento. Sin ellos el lector no sabe cómo se relacionan las ideas."}},
+
+    {id:"e9", nombre:"Understanding definitions in context",
+     concepto:"Muchos textos en inglés definen términos técnicos. Las definiciones suelen aparecer con estructuras como 'X is…', 'X means…', 'X refers to…', 'X, that is, …'.",
+     ejemplo:"'Photosynthesis is the process by which plants convert sunlight into energy.' 'Photosynthesis' queda definido en la misma oración.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la definición usando el texto.",
+       texto:"'A habitat is the natural environment where an animal or plant lives.' A habitat is ___. A 'habitat' is the natural environment where ___.",
+       respuestas:[["the natural environment where an animal or plant lives","the natural environment where plants and animals live"],["an animal or plant lives","plants and animals live"]],
+       retro:"Reconocer el patrón 'X is…' permite identificar definiciones sin necesidad de diccionario."}},
+
+    {id:"e10", nombre:"Following instructions",
+     concepto:"Los textos instructivos en inglés usan el imperativo: 'Open… Cut… Add… Mix… Do not…'. Comprender las instrucciones exige atención al orden y a las palabras de acción.",
+     ejemplo:"'Preheat the oven to 180 °C. Mix the flour and sugar. Bake for 25 minutes.' Tres acciones en orden estricto.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las instrucciones de la receta según el texto original.",
+       items:[
+         "Preheat the oven to 180 °C.",
+         "Mix the flour, sugar and eggs in a bowl.",
+         "Pour the mixture into a greased tin.",
+         "Bake for 25 minutes.",
+         "Let it cool before removing from the tin."
+       ],
+       retro:"En inglés los verbos en imperativo indican acciones; el orden es esencial. Cambiar el orden cambia el resultado."}}
+  ]
+},
+
+/* ============ BLOQUE 2 · READING INFERENCIAL ============ */
+{
+  id:"b2", nombre:"Reading · Comprensión inferencial", emoji:"🧩",
+  desc:"Deducir lo que el texto inglés sugiere sin decirlo: causas, sentimientos, intención, tono.",
+  tecnicas:[
+    {id:"e11", nombre:"Inferring meaning from context",
+     concepto:"Deducir el significado de una palabra inglesa desconocida usando las pistas del contexto: otras palabras, la estructura de la frase, el tema general.",
+     ejemplo:"'The children were starving; they hadn't eaten for two days.' 'Starving' = very hungry (extremely hungry), como indican 'hadn't eaten for two days'.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'The old man was very thrifty: he saved every penny and never wasted anything.' What does 'thrifty' mean?",
+       opciones:["Wasteful","Careful with money, economical","Very rich","Generous"],
+       correcta:1,
+       retro:"Las pistas ('saved every penny', 'never wasted anything') indican que thrifty significa cuidadoso con el dinero, ahorrador."}},
+
+    {id:"e12", nombre:"Inferring causes and effects",
+     concepto:"Deducir por qué ocurre algo o qué consecuencia tendrá, aunque el texto no lo diga explícitamente. Se apoya en indicios y en el conocimiento del mundo.",
+     ejemplo:"'Maria looked at her watch again and stood up by the door.' → We can infer she is waiting for someone who is late.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'The team didn't practise all week. On Saturday, they lost 4-0.' What can we infer?",
+       opciones:["They practised very hard","Lack of practice probably affected their performance","The other team was worse","The match was cancelled"],
+       correcta:1,
+       retro:"El texto no dice que la falta de práctica causó la derrota, pero es la inferencia más razonable a partir de los hechos."}},
+
+    {id:"e13", nombre:"Inferring feelings and attitudes",
+     concepto:"Deducir cómo se sienten los personajes según sus palabras, gestos o acciones, aunque el texto no lo diga con adjetivos.",
+     ejemplo:"'She slammed the door and didn't say a word.' → We can infer she was angry or upset.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada fragmento según el sentimiento que sugiere.",
+       categorias:["Nervous","Angry","Sad"],
+       items:[
+         {texto:"'He kept checking his phone every minute.'", cat:0},
+         {texto:"'She threw the letter on the floor and left.'", cat:1},
+         {texto:"'He sat alone, staring at the old photograph.'", cat:2},
+         {texto:"'Her hands were shaking before the interview.'", cat:0},
+         {texto:"'He slammed his fist on the table.'", cat:1}
+       ],
+       retro:"Las acciones y los gestos son pistas del estado emocional. El narrador no siempre necesita nombrarlo."}},
+
+    {id:"e14", nombre:"Inferring the author's purpose",
+     concepto:"Deducir para qué escribió el autor: inform (informar), persuade (persuadir), entertain (entretener), warn (advertir), describe (describir). Se detecta por el léxico, el tono y la estructura.",
+     ejemplo:"'Nobody in their right mind would support this absurd proposal.' → Purpose: to persuade / criticise, not to inform (the language is evaluative).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada fragmento según el propósito del autor.",
+       categorias:["To inform","To persuade","To entertain"],
+       items:[
+         {texto:"'The water cycle involves evaporation, condensation and precipitation.'", cat:0},
+         {texto:"'We must act now to save our planet!'", cat:1},
+         {texto:"'Once upon a time there was a lonely dragon…'", cat:2},
+         {texto:"'Vaccines have reduced child mortality by 60% since 1990.'", cat:0}
+       ],
+       retro:"Los textos informativos usan datos; los persuasivos, valoraciones y llamadas a la acción; los de entretenimiento, narrativa."}},
+
+    {id:"e15", nombre:"Inferring tone and mood",
+     concepto:"El tono (actitud del autor) y el mood (atmósfera que crea el texto) pueden ser irónicos, solemnes, melancólicos, neutros… Se detectan en el léxico y las imágenes.",
+     ejemplo:"'Great idea: throwing your money away on useless things.' → Ironic tone: the praise is sarcastic.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'What a wonderful day: I lost my keys, missed the bus and it's raining.' What is the tone?",
+       opciones:["Sincere admiration","Ironic","Neutral","Formal"],
+       correcta:1,
+       retro:"El contraste entre 'wonderful day' y la lista de problemas indica ironía."}},
+
+    {id:"e16", nombre:"Making predictions",
+     concepto:"Predecir lo que vendrá después en el texto inglés usando la información ya leída y el conocimiento del mundo. Se confirma o se ajusta durante la lectura.",
+     ejemplo:"'The dark clouds gathered over the city…' → Prediction: it's going to rain.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe en inglés o castellano una predicción razonable.",
+       texto:"'The goalkeeper fell to the ground and didn't get up.' Prediction: ___",
+       respuestas:[["he is injured","the player is injured","esta lesionado","se ha lesionado","he will be substituted","the match will stop","el jugador esta lesionado","the goalkeeper is hurt","he is hurt"]],
+       retro:"Predecir es formular una hipótesis razonable. No es adivinar: se apoya en pistas del texto y del mundo real."}},
+
+    {id:"e17", nombre:"Understanding implied meaning",
+     concepto:"En inglés es frecuente el 'understatement' o lo implícito: se sugiere sin decir. Comprender lo implícito demuestra un nivel alto de lectura.",
+     ejemplo:"'It's a bit cold in here.' → Implied: 'Can you close the window / turn on the heating?'",
+     ejercicio:{tipo:"quiz",
+       consigna:"'Would you mind closing the door?' What is the speaker actually asking?",
+       opciones:["If you can close the door (a request)","Whether you have a door","To leave the room","To break the door"],
+       correcta:0,
+       retro:"'Would you mind + -ing?' es una petición cortés, no una pregunta literal sobre el 'mind'."}},
+
+    {id:"e18", nombre:"Understanding idioms and figurative language",
+     concepto:"Los 'idioms' y las expresiones figuradas no se traducen literalmente. Hay que reconocerlas como bloques con un significado propio.",
+     ejemplo:"'Break a leg!' = Good luck! (no 'romper una pierna'). 'It's raining cats and dogs' = It's raining heavily.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe el significado en castellano.",
+       texto:"'To pull someone's leg' = ___ · 'Once in a blue moon' = ___ · 'Under the weather' = ___",
+       respuestas:[["tomar el pelo","bromear","gastar una broma","burlarse"],["muy rara vez","casi nunca","de higos a brevas","rarisima vez","rarísima vez"],["sentirse mal","estar enfermo","no sentirse bien","estar pachucho","enfermo"]],
+       retro:"Los idioms son bloques léxicos: se aprenden enteros, no palabra por palabra."}},
+
+    {id:"e19", nombre:"Drawing conclusions",
+     concepto:"Sacar una conclusión razonada a partir de la información del texto. Distinto de inferir: la conclusión sintetiza varias inferencias en un juicio final.",
+     ejemplo:"Si el texto dice: 1) John studies every day, 2) takes notes in class, 3) practises listening… → Conclusion: John is a serious student.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'Ana gets up at 5 a.m., runs 10 km, works 9 hours and studies at night.' What conclusion can we draw?",
+       opciones:["She is lazy","She is a very disciplined person","She is rich","She has no interests"],
+       correcta:1,
+       retro:"Las tres evidencias apuntan a la misma conclusión: una persona disciplinada. La conclusión sintetiza, no repite."}},
+
+    {id:"e20", nombre:"Understanding presuppositions",
+     concepto:"Una presuposición es información que el autor da por sabida sin enunciarla. En inglés se detecta en construcciones como 'stop + -ing', 'again', 'too'.",
+     ejemplo:"'Have you stopped biting your nails?' presupposes that the person used to bite their nails.",
+     ejercicio:{tipo:"quiz",
+       consigna:"'My brother also passed the exam.' What does this presuppose?",
+       opciones:["That nobody passed the exam","That someone else passed the exam","That the exam was easy","That the brother failed"],
+       correcta:1,
+       retro:"'Also' presupone que otra persona (además del hermano) ha aprobado. La presuposición se activa por esa palabra."}}
+  ]
+},
+
+/* ============ BLOQUE 3 · READING CRÍTICO ============ */
+{
+  id:"b3", nombre:"Reading · Comprensión crítica", emoji:"⚖️",
+  desc:"Evaluar el texto inglés: hechos y opiniones, sesgo, argumentación, falacias y postura.",
+  tecnicas:[
+    {id:"e21", nombre:"Fact vs opinion",
+     concepto:"Distinguir en inglés 'facts' (verificables) de 'opinions' (valoraciones personales). Los adjetivos valorativos, 'I think', 'probably', 'should' son pistas de opinión.",
+     ejemplo:"Fact: 'The Earth orbits the Sun.' Opinion: 'This is the best film of the year.' 'Best' is a value judgement.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado como fact u opinion.",
+       categorias:["Fact","Opinion"],
+       items:[
+         {texto:"'Water boils at 100 °C at sea level.'", cat:0},
+         {texto:"'Modern music is worse than classical music.'", cat:1},
+         {texto:"'The novel was published in 1952.'", cat:0},
+         {texto:"'I think schools should ban mobile phones.'", cat:1},
+         {texto:"'The European Union has 27 member states.'", cat:0}
+       ],
+       retro:"Los facts se comprueban; las opinions expresan valoraciones. 'I think', 'should', 'the best' son pistas claras."}},
+
+    {id:"e22", nombre:"Recognizing bias",
+     concepto:"Reconocer sesgos en textos ingleses: qué se destaca, qué se omite, a quién se cita, qué palabras se eligen. Ninguna fuente es completamente neutral.",
+     ejemplo:"Un texto sobre inmigración que solo menciona crímenes tiene un sesgo de selección: está omitiendo otras realidades.",
+     ejercicio:{tipo:"quiz",
+       consigna:"Which question helps most to detect bias in an English text?",
+       opciones:["How long is the text?","What is highlighted, what is omitted, and who is quoted?","How many paragraphs does it have?","Is the vocabulary difficult?"],
+       correcta:1,
+       retro:"Detectar sesgos es preguntar por las ausencias y las voces: qué no se dice, a quién no se cita, qué se presenta como natural."}},
+
+    {id:"e23", nombre:"Evaluating source credibility",
+     concepto:"Valorar la fiabilidad de una fuente inglesa: autoría, institución, fecha, referencias, tono. Una fuente creíble cita, contextualiza y reconoce límites.",
+     ejemplo:"Un artículo firmado por un especialista con bibliografía y publicado en revista académica es más creíble que un post anónimo sin fuentes.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo como señal de fiabilidad o de poca fiabilidad.",
+       categorias:["Reliable","Unreliable"],
+       items:[
+         {texto:"Signed by a researcher with institutional affiliation.", cat:0},
+         {texto:"No author, no date, no references.", cat:1},
+         {texto:"Published in a peer-reviewed journal.", cat:0},
+         {texto:"Uses sensationalist language and CAPS.", cat:1},
+         {texto:"Cites sources and provides bibliography.", cat:0}
+       ],
+       retro:"La credibilidad se construye con transparencia: autoría, fuentes, contexto y tono mesurado."}},
+
+    {id:"e24", nombre:"Identifying argument and evidence",
+     concepto:"En textos argumentativos ingleses hay que distinguir la 'claim' (tesis) de la 'evidence' (datos, ejemplos, autoridades) que la sostiene.",
+     ejemplo:"Claim: 'Social media harms teenagers' mental health.' Evidence: 'A 2023 study found a 40% increase in anxiety among heavy users.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado como claim o evidence.",
+       categorias:["Claim","Evidence"],
+       items:[
+         {texto:"'Reading in print is better than reading on screen.'", cat:0},
+         {texto:"'According to a 2019 study, comprehension drops 20% on screens.'", cat:1},
+         {texto:"'Governments should invest more in public libraries.'", cat:0},
+         {texto:"'In Finland, library visits increased by 15% after the reform.'", cat:1}
+       ],
+       retro:"La claim es lo que se defiende; la evidence es lo que la sostiene. Un buen texto tiene claims con evidence."}},
+
+    {id:"e25", nombre:"Detecting logical fallacies",
+     concepto:"Una 'fallacy' es un razonamiento que parece válido pero no lo es. Las más frecuentes en inglés: ad hominem, hasty generalization, false dilemma, straw man.",
+     ejemplo:"Ad hominem: 'Don't listen to him: he's ignorant.' Hasty generalization: 'All teenagers are lazy; I saw one sleeping in class.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada falacia.",
+       categorias:["Ad hominem","Hasty generalization","False dilemma"],
+       items:[
+         {texto:"'Don't trust her: she's just a student.'", cat:0},
+         {texto:"'My neighbour is rude, so all French people are rude.'", cat:1},
+         {texto:"'Either you support this policy or you hate the country.'", cat:2},
+         {texto:"'His argument is invalid because he failed maths.'", cat:0},
+         {texto:"'I met two rude waiters, so service in this city is terrible.'", cat:1}
+       ],
+       retro:"Detectar falacias es la vacuna contra la manipulación: se ataca a la persona, se generaliza desde poco o se reducen las opciones."}},
+
+    {id:"e26", nombre:"Comparing multiple sources",
+     concepto:"Contrastar dos o más textos ingleses sobre el mismo tema: qué comparten, qué difieren, qué destacan, qué omiten. Técnica central de la lectura crítica.",
+     ejemplo:"Comparar un artículo de la BBC y uno del New York Times sobre el mismo suceso revela encuadres distintos.",
+     ejercicio:{tipo:"open",
+       consigna:"Describe en castellano cómo compararías dos fuentes en inglés sobre el mismo tema.",
+       criterios:[
+         "Elegí un tema y dos fuentes identificables.",
+         "Definí al menos tres criterios de comparación.",
+         "Explicitó qué diferencias esperaría encontrar y cómo interpretarlas."
+       ],
+       modelo:"Tema: una reforma educativa. Fuente A: The Guardian (línea progresista). Fuente B: The Telegraph (línea conservadora). Compararía: 1) titulares y adjetivos; 2) datos numéricos citados; 3) voces expertas convocadas; 4) aspectos omitidos. Si el Guardian destaca las críticas sindicales y el Telegraph las empresariales, cada uno encuadra el tema desde su línea editorial."}},
+
+    {id:"e27", nombre:"Recognizing stereotypes",
+     concepto:"Un estereotipo es una imagen rígida y generalizadora de un grupo. Se detecta en generalizaciones con 'all', 'every', 'always' aplicadas a colectivos.",
+     ejemplo:"'All British people drink tea at 5 pm' es un estereotipo: generaliza sin matices y sin evidencia.",
+     ejercicio:{tipo:"quiz",
+       consigna:"Which sentence contains a stereotype?",
+       opciones:["'Some British people enjoy tea in the afternoon.'","'All British people drink tea at 5 pm.'","'Tea is a popular drink in the UK.'","'Many British families have tea at home.'"],
+       correcta:1,
+       retro:"El uso de 'all' convierte una observación en estereotipo. Los enunciados con 'some', 'many', 'often' son más prudentes y verificables."}},
+
+    {id:"e28", nombre:"Understanding ideology",
+     concepto:"Todo texto refleja una visión del mundo: valores, creencias, intereses. Analizarla es preguntarse qué se da por supuesto y qué visión se transmite.",
+     ejemplo:"Un texto que presenta el éxito como fruto solo del esfuerzo individual transmite una ideología meritocrática.",
+     ejercicio:{tipo:"open",
+       consigna:"Analiza en castellano la ideología que podría haber detrás de: 'Anyone can succeed if they work hard enough'.",
+       criterios:[
+         "Identifiqué los valores que presupone la frase.",
+         "Expliqué qué visión de la sociedad transmite.",
+         "Reconocí algún posible límite o crítica."
+       ],
+       modelo:"La frase presupone que el éxito depende solo del esfuerzo individual. Transmite una ideología meritocrática que tiende a responsabilizar al individuo de su situación y a ignorar factores estructurales (acceso a educación, salud, contexto económico). Un análisis crítico señalaría que el esfuerzo es necesario pero no suficiente: las condiciones sociales también determinan las oportunidades."}},
+
+    {id:"e29", nombre:"Evaluating arguments",
+     concepto:"Valorar la solidez de un argumento inglés: ¿las premisas son verdaderas?, ¿la conclusión se sigue?, ¿qué tipo de evidencia se usa? Datos y autoridades son más sólidos que ejemplos aislados.",
+     ejemplo:"'According to the WHO, smoking causes cancer' (strong: authority + data). 'My uncle smoked and lived to 90' (weak: anecdotal).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tipo de evidencia.",
+       categorias:["Data","Authority","Anecdote","Analogy"],
+       items:[
+         {texto:"'78% of respondents support the measure.'", cat:0},
+         {texto:"'According to the WHO…'", cat:1},
+         {texto:"'My uncle smoked all his life and lived to 90.'", cat:2},
+         {texto:"'Banning phones is like banning books.'", cat:3},
+         {texto:"'According to a Harvard study…'", cat:1}
+       ],
+       retro:"Datos y autoridades reconocidas son más sólidos que anécdotas o analogías, que a menudo son falaces."}},
+
+    {id:"e30", nombre:"Taking a critical stance",
+     concepto:"Después de comprender y evaluar un texto inglés, el lector crítico formula su propia postura con razones. En inglés, expresiones útiles: 'I agree to some extent…', 'I partly disagree…', 'While X is true, …'.",
+     ejemplo:"'While I agree that social media can be harmful, I don't think banning it is the solution: education is more effective.'",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe en inglés (o castellano si lo prefieres) tu postura sobre: 'Mobile phones should be banned in schools'.",
+       criterios:[
+         "Expuse una postura clara.",
+         "Aporté al menos dos razones.",
+         "Consideré un contraargumento o matiz.",
+         "Cerré con una conclusión coherente."
+       ],
+       modelo:"I agree to some extent that mobile phones should be regulated in schools, but I don't think a total ban is the best solution. On the one hand, phones can distract students and facilitate cyberbullying. On the other hand, they are useful learning tools and banning them doesn't teach responsible use. A balanced policy would allow phones at specific times and teach digital skills. In conclusion, I would regulate rather than prohibit."}}
+  ]
+},
+
+/* ============ BLOQUE 4 · VOCABULARY & WORD FORMATION ============ */
+{
+  id:"b4", nombre:"Vocabulary & Word formation", emoji:"🔤",
+  desc:"Prefijos, sufijos, palabras compuestas, collocations, phrasal verbs, idioms y false friends.",
+  tecnicas:[
+    {id:"e31", nombre:"Prefixes (un-, re-, dis-, pre-, mis-, over-, under-)",
+     concepto:"Los prefijos ingleses modifican el significado de la raíz. Los más frecuentes: un- (negación), re- (repetición), dis- (negación), pre- (antes), mis- (error), over- (exceso), under- (insuficiencia).",
+     ejemplo:"happy → unhappy. do → redo. agree → disagree. view → preview. understand → misunderstand. cook → overcook. estimate → underestimate.",
+     ejercicio:{tipo:"fill",
+       consigna:"Forma la palabra añadiendo el prefijo adecuado.",
+       texto:"'un-' + 'happy' = ___ · 're-' + 'write' = ___ · 'dis-' + 'agree' = ___",
+       respuestas:[["unhappy"],["rewrite"],["disagree"]],
+       retro:"Conocer unos cuantos prefijos multiplica tu vocabulario. Es una inversión de alto rendimiento."}},
+
+    {id:"e32", nombre:"Suffixes (-tion, -ness, -able, -ful, -less, -ly)",
+     concepto:"Los sufijos ingleses cambian la categoría gramatical o añaden matices: -tion (sustantivo), -ness (cualidad), -able (posibilidad), -ful (lleno de), -less (sin), -ly (adverbio).",
+     ejemplo:"inform → information. happy → happiness. read → readable. care → careful / careless. quick → quickly.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con el sufijo correcto.",
+       texto:"'educate' + sufijo → '___' (sustantivo) · 'use' + sufijo → '___' (adjetivo: que se puede usar) · 'care' + sufijo → '___' (sin cuidado)",
+       respuestas:[["education"],["usable"],["careless"]],
+       retro:"Los sufijos transforman la palabra y su función. Aprenderlos permite formar familias léxicas completas."}},
+
+    {id:"e33", nombre:"Compound words",
+     concepto:"Las 'compound words' se forman uniendo dos palabras: 'bedroom' (bed + room), 'sunflower', 'football', 'toothbrush'. Su significado se deduce de las partes pero es unitario.",
+     ejemplo:"'rain' + 'bow' = rainbow. 'book' + 'shop' = bookshop. 'home' + 'work' = homework.",
+     ejercicio:{tipo:"fill",
+       consigna:"Forma la palabra compuesta a partir de las dos palabras.",
+       texto:"'tooth' + 'brush' = ___ · 'sun' + 'flower' = ___ · 'foot' + 'ball' = ___",
+       respuestas:[["toothbrush"],["sunflower"],["football"]],
+       retro:"Los compuestos son productivos en inglés. Reconocer las partes ayuda a deducir el significado global."}},
+
+    {id:"e34", nombre:"Collocations",
+     concepto:"Las 'collocations' son combinaciones de palabras que se usan juntas con frecuencia en inglés: 'make a decision' (no 'do a decision'), 'take a shower', 'heavy rain'.",
+     ejemplo:"'make a mistake', 'do homework', 'take a photo', 'give a presentation', 'have breakfast'.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada colocación según el verbo que la acompaña.",
+       categorias:["Make","Do","Take","Have"],
+       items:[
+         {texto:"___ a decision", cat:0},
+         {texto:"___ homework", cat:1},
+         {texto:"___ a photo", cat:2},
+         {texto:"___ breakfast", cat:3},
+         {texto:"___ a mistake", cat:0},
+         {texto:"___ a shower", cat:2},
+         {texto:"___ the dishes", cat:1}
+       ],
+       retro:"Las colocaciones no se traducen literalmente; se aprenden como bloques. Son uno de los mayores indicadores de nivel."}},
+
+    {id:"e35", nombre:"Phrasal verbs",
+     concepto:"Un 'phrasal verb' es un verbo + partícula (preposición o adverbio) que juntos tienen un significado nuevo: 'give up' (rendirse), 'look after' (cuidar), 'turn on' (encender).",
+     ejemplo:"'Look after' = cuidar. 'Give up' = rendirse. 'Put off' = posponer. 'Find out' = descubrir.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe el significado en castellano.",
+       texto:"'give up' = ___ · 'look after' = ___ · 'find out' = ___ · 'put off' = ___",
+       respuestas:[["rendirse","abandonar","dejar","renunciar"],["cuidar","cuidar a alguien","atender"],["descubrir","averiguar","enterarse de","enterarse"],["posponer","aplazar","dejar para despues","dejar para después"]],
+       retro:"Los phrasal verbs son frecuentísimos en inglés oral. Se aprenden como bloques, no como verbo + preposición suelta."}},
+
+    {id:"e36", nombre:"Synonyms and antonyms",
+     concepto:"Los sinónimos ingleses amplían el vocabulario y permiten matizar: 'big/large/huge/enormous'. Los antónimos ayudan a definir por contraste: 'hot / cold'.",
+     ejemplo:"Synonyms of 'happy': glad, cheerful, delighted, pleased. Antonyms: sad, unhappy, miserable.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe un sinónimo y un antónimo en inglés.",
+       texto:"'happy' → synonym: ___ · antonym: ___",
+       respuestas:[["glad","cheerful","delighted","pleased","joyful","content"],["sad","unhappy","miserable","sorrowful","depressed"]],
+       retro:"Los sinónimos comparten el significado central pero matizan. Aprenderlos en pares con sus antónimos los fija mejor."}},
+
+    {id:"e37", nombre:"Word families",
+     concepto:"Una familia de palabras comparte raíz: 'act, action, active, activity, actor, actress, activate'. Conocerla permite usar la palabra en distintas funciones gramaticales.",
+     ejemplo:"Familia de 'care': care, careful, careless, carefully, carer, caring.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la familia léxica.",
+       texto:"'beauty' (sustantivo) → 'beautiful' (adjetivo) → '___' (adverbio) · 'create' (verbo) → '___' (sustantivo: creación) → 'creative' (adjetivo)",
+       respuestas:[["beautifully"],["creation"]],
+       retro:"Conocer las familias léxicas evita errores frecuentes como 'I did it beautiful' (por 'beautifully')."}},
+
+    {id:"e38", nombre:"Idioms and expressions",
+     concepto:"Los 'idioms' no se traducen literalmente: tienen significado figurado. Conocerlos mejora la comprensión y da naturalidad a la expresión oral.",
+     ejemplo:"'Break a leg!' = ¡Suerte! 'Once in a blue moon' = casi nunca. 'Piece of cake' = muy fácil.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe el significado en castellano.",
+       texto:"'A piece of cake' = ___ · 'Hit the books' = ___ · 'Under the weather' = ___",
+       respuestas:[["muy facil","muy fácil","pan comido"],["ponerse a estudiar","estudiar mucho","hincar los codos","estudiar"],["sentirse mal","enfermo","indispuesto","no sentirse bien"]],
+       retro:"Los idioms forman parte de la competencia cultural. Aprenderlos con su equivalente castellano los fija mejor."}},
+
+    {id:"e39", nombre:"False friends (falsos amigos)",
+     concepto:"Los 'false friends' son palabras que se parecen al castellano pero significan otra cosa: 'actually' = en realidad (no 'actualmente'), 'library' = biblioteca (no 'librería'), 'parents' = padres (no 'parientes').",
+     ejemplo:"'I'm actually tired' = Estoy cansado en realidad (no 'actualmente'). 'The library is open' = La biblioteca está abierta (no la librería).",
+     ejercicio:{tipo:"fill",
+       consigna:"Traduce al castellano el significado real.",
+       texto:"'Actually' = ___ · 'Library' = ___ · 'Parents' = ___ · 'Embarrassed' = ___",
+       respuestas:[["en realidad","de hecho","realmente"],["biblioteca"],["padres","padre y madre","papa y mama"],["avergonzado","avergonzada","con verguenza","con vergüenza"]],
+       retro:"Los false friends provocan malentendidos frecuentes. Reconocerlos es imprescindible a partir de un nivel intermedio."}},
+
+    {id:"e40", nombre:"Vocabulary notebook & word maps",
+     concepto:"Un cuaderno de vocabulario inglés bien organizado incluye: la palabra, el contexto donde apareció, el significado, la pronunciación (IPA), un sinónimo, un antónimo y una frase propia. Los 'word maps' agrupan palabras por tema.",
+     ejemplo:"Palabra: 'thrilling'. Contexto: 'It was a thrilling match.' Significado: emocionante. IPA: /ˈθrɪlɪŋ/. Frase propia: 'The roller coaster was thrilling.'",
+     ejercicio:{tipo:"open",
+       consigna:"Crea una entrada completa de cuaderno de vocabulario para una palabra inglesa que hayas aprendido hoy.",
+       criterios:[
+         "Incluí la palabra y el contexto donde la encontré.",
+         "Escribí el significado con mis propias palabras.",
+         "Añadí una frase nueva en inglés de uso propio."
+       ],
+       modelo:"Word: 'breathtaking'. Context: 'The view from the mountain was breathtaking.' Meaning: extremely beautiful, so impressive that it takes your breath away. IPA: /ˈbreθˌteɪkɪŋ/. Synonym: stunning. My sentence: 'The sunset over the sea was absolutely breathtaking.'"}}
+  ]
+},
+
+/* ============ BLOQUE 5 · VERB TENSES ============ */
+{
+  id:"b5", nombre:"Grammar · Verb tenses", emoji:"⏱️",
+  desc:"Los tiempos verbales del inglés: presente, pasado, perfecto, futuro y condicionales.",
+  tecnicas:[
+    {id:"e41", nombre:"Present Simple",
+     concepto:"Se usa para rutinas, hábitos y verdades generales. Estructura: sujeto + verbo (con -s en 3.ª persona singular). Negativa e interrogativa con do/does.",
+     ejemplo:"'She works in a hospital.' 'They don't like coffee.' 'Do you speak English?' 'Water boils at 100 °C.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la forma correcta del Present Simple.",
+       texto:"He ___ (study) every day. · They ___ (not / like) fish. · ___ she ___ (speak) French?",
+       respuestas:[["studies"],["don't like","do not like"],["does",""],["speak"]],
+       retro:"En 3.ª persona singular se añade -s/-es. Las negativas e interrogativas usan do/does + infinitivo sin -s."}},
+
+    {id:"e42", nombre:"Present Continuous",
+     concepto:"Se usa para acciones que ocurren ahora, en este momento, o para planes futuros ya decididos. Estructura: sujeto + am/is/are + verbo-ing.",
+     ejemplo:"'She is studying right now.' 'They aren't listening.' 'I'm meeting Ana tomorrow at 5.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con Present Continuous.",
+       texto:"I ___ (read) a book right now. · They ___ (not / work) today. · What ___ you ___ (do)?",
+       respuestas:[["am reading","'m reading"],["aren't working","are not working"],["are"],["doing"]],
+       retro:"El Present Continuous expresa acciones en progreso o planes ya cerrados. Se forma con be + -ing."}},
+
+    {id:"e43", nombre:"Past Simple (regular & irregular)",
+     concepto:"Se usa para acciones terminadas en un momento pasado concreto. Los regulares añaden -ed; los irregulares tienen formas propias que hay que memorizar.",
+     ejemplo:"'I visited Rome in 2019.' 'She went to the party.' 'They didn't come.' 'Did you see the film?'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con Past Simple.",
+       texto:"I ___ (visit) London last year. · She ___ (go) to Paris. · They ___ (not / come) to the party.",
+       respuestas:[["visited"],["went"],["didn't come","did not come"]],
+       retro:"'Go → went' es irregular. Las negativas usan 'didn't + infinitivo' (sin pasado en el verbo principal)."}},
+
+    {id:"e44", nombre:"Past Continuous",
+     concepto:"Describe acciones en desarrollo en un momento pasado. Frecuente para narrar: 'While I was walking…'. Estructura: was/were + -ing.",
+     ejemplo:"'I was reading when she called.' 'They were playing football at 6 pm.' 'While I was cooking, he was watching TV.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con Past Continuous.",
+       texto:"I ___ (walk) home when I saw her. · They ___ (study) all evening. · While she ___ (cook), he set the table.",
+       respuestas:[["was walking"],["were studying"],["was cooking"]],
+       retro:"El Past Continuous sitúa la acción en desarrollo; el Past Simple interrumpe o cierra la escena."}},
+
+    {id:"e45", nombre:"Present Perfect",
+     concepto:"Conecta el pasado con el presente: experiencias, acciones recientes, estados que continúan. Estructura: have/has + participio. Marcadores: ever, never, just, already, yet, since, for.",
+     ejemplo:"'I have visited Japan twice.' 'She has just finished.' 'Have you ever been to London?' 'I've lived here for 5 years.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con Present Perfect.",
+       texto:"I ___ (never / be) to Canada. · She ___ (just / finish) her homework. · ___ you ever ___ (see) this film?",
+       respuestas:[["have never been","'ve never been"],["has just finished","'s just finished"],["have"],["seen"]],
+       retro:"El Present Perfect no indica un momento pasado concreto: se centra en la experiencia o el resultado presente."}},
+
+    {id:"e46", nombre:"Past Perfect",
+     concepto:"Indica una acción anterior a otra acción pasada. Estructura: had + participio. Se usa con 'before, after, when, by the time'.",
+     ejemplo:"'When I arrived, she had already left.' 'They had finished before we came.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con Past Perfect.",
+       texto:"When I arrived, they ___ (already / leave). · She ___ (not / see) the film before that day. · By the time we got there, the concert ___ (start).",
+       respuestas:[["had already left"],["hadn't seen","had not seen"],["had started"]],
+       retro:"El Past Perfect marca el 'pasado del pasado': una acción que ocurrió antes de otra acción pasada."}},
+
+    {id:"e47", nombre:"Future: will / going to",
+     concepto:"'Will' para decisiones espontáneas, predicciones y promesas. 'Be going to' para planes e intenciones y predicciones basadas en evidencia. Ambos proyectan al futuro.",
+     ejemplo:"'I'll help you.' (decisión) 'I'm going to study medicine.' (plan) 'Look at those clouds: it's going to rain.' (evidencia)",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración según el uso del futuro.",
+       categorias:["Will (decisión/predicción)","Going to (plan/intención)"],
+       items:[
+         {texto:"'I'll call you back in five minutes.'", cat:0},
+         {texto:"'We're going to travel to Italy next summer.'", cat:1},
+         {texto:"'I think it will be cold tomorrow.'", cat:0},
+         {texto:"'She's going to start a new job in May.'", cat:1}
+       ],
+       retro:"Will suele ser espontáneo o predictivo; going to expresa planes decididos o evidencia visible."}},
+
+    {id:"e48", nombre:"Future Continuous & Future Perfect",
+     concepto:"Future Continuous (will be + -ing) describe una acción en progreso en un momento futuro. Future Perfect (will have + participio) describe una acción ya completada antes de un momento futuro.",
+     ejemplo:"'At 8 pm I'll be watching the match.' 'By 2030 I'll have finished my degree.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con el futuro adecuado.",
+       texto:"This time tomorrow I ___ (travel) to Madrid. (Future Continuous) · By next June she ___ (finish) her thesis. (Future Perfect)",
+       respuestas:[["will be travelling","will be traveling","'ll be travelling","'ll be traveling"],["will have finished","'ll have finished"]],
+       retro:"Future Continuous: acción en progreso en un momento futuro. Future Perfect: acción terminada antes de un momento futuro."}},
+
+    {id:"e49", nombre:"Conditionals 0 & 1",
+     concepto:"Zero Conditional (If + present, present) expresa verdades generales. First Conditional (If + present, will + infinitivo) expresa situaciones reales o probables en el futuro.",
+     ejemplo:"'If you heat water, it boils.' (0) 'If it rains, we'll stay home.' (1)",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el condicional.",
+       texto:"If you ___ (mix) red and blue, you get purple. (0) · If it ___ (rain) tomorrow, we ___ (stay) home. (1)",
+       respuestas:[["mix"],["rains"],["will stay","'ll stay"]],
+       retro:"En ambos condicionales, la 'if-clause' va en presente (nunca 'will' tras 'if' en inglés estándar)."}},
+
+    {id:"e50", nombre:"Conditionals 2, 3 & Mixed",
+     concepto:"Second Conditional (If + past simple, would + inf.) expresa hipótesis improbables o imaginarias. Third Conditional (If + past perfect, would have + part.) expresa hipótesis sobre el pasado no realizado. Mixed combina ambos.",
+     ejemplo:"'If I were rich, I would travel the world.' (2) 'If I had studied, I would have passed.' (3)",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa los condicionales.",
+       texto:"If I ___ (be) you, I would accept the offer. (2) · If she ___ (study), she would have passed. (3)",
+       respuestas:[["were"],["had studied"]],
+       retro:"Second: hipótesis irreal presente ('if I were…'). Third: hipótesis irreal pasada ('if I had studied…'). En el segundo se usa 'were' con todas las personas."}}
+  ]
+},
+
+/* ============ BLOQUE 6 · STRUCTURES & SYNTAX ============ */
+{
+  id:"b6", nombre:"Grammar · Structures & syntax", emoji:"🧱",
+  desc:"Modales, pasiva, estilo indirecto, relativas, comparativos, gerundio/infinitivo, artículos, preposiciones.",
+  tecnicas:[
+    {id:"e51", nombre:"Modal verbs (can, must, should, might…)",
+     concepto:"Los modales expresan habilidad, obligación, posibilidad, permiso o consejo: can/could (habilidad, permiso), must (obligación), should (consejo), might/may (posibilidad), have to (obligación externa).",
+     ejemplo:"'I can swim.' 'You must wear a seatbelt.' 'You should rest.' 'It might rain.' 'I have to work tomorrow.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración según el valor del modal.",
+       categorias:["Ability","Obligation","Advice","Possibility"],
+       items:[
+         {texto:"'She can speak three languages.'", cat:0},
+         {texto:"'You must stop at the red light.'", cat:1},
+         {texto:"'You should drink more water.'", cat:2},
+         {texto:"'It might snow tomorrow.'", cat:3},
+         {texto:"'He could play the piano when he was five.'", cat:0}
+       ],
+       retro:"Los modales no cambian de forma por persona ni llevan -s. Su significado depende del contexto."}},
+
+    {id:"e52", nombre:"Passive voice",
+     concepto:"La pasiva pone el foco en la acción o en el objeto, no en quien la realiza. Estructura: be + participio (+ by + agente). Muy frecuente en textos académicos y periodísticos.",
+     ejemplo:"Active: 'They built the bridge in 1890.' Passive: 'The bridge was built in 1890.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Transforma a pasiva.",
+       texto:"'Shakespeare wrote Hamlet.' → 'Hamlet ___ ___ by Shakespeare.' · 'They will announce the results tomorrow.' → 'The results ___ ___ announced tomorrow.'",
+       respuestas:[["was"],["written"],["will"],["be"]],
+       retro:"La pasiva en inglés: be en el tiempo correspondiente + participio pasado. El agente se introduce con 'by'."}},
+
+    {id:"e53", nombre:"Reported speech",
+     concepto:"El estilo indirecto reproduce lo que dijo alguien sin citarlo literalmente. En inglés hay que retroceder un tiempo verbal: present → past, past → past perfect, will → would, can → could.",
+     ejemplo:"Direct: 'I am tired,' she said. Reported: She said (that) she was tired. Direct: 'I will come,' he said. Reported: He said he would come.",
+     ejercicio:{tipo:"fill",
+       consigna:"Transforma a estilo indirecto.",
+       texto:"'I live in London,' she said. → She said she ___ in London. · 'I will help you,' he said. → He said he ___ help me.",
+       respuestas:[["lived"],["would"]],
+       retro:"En inglés el retroceso temporal es obligatorio. Los pronombres también cambian según quién habla y a quién se refiere."}},
+
+    {id:"e54", nombre:"Relative clauses (who, which, that, whose, where)",
+     concepto:"Las oraciones de relativo añaden información sobre un sustantivo. 'Who' para personas, 'which' para cosas, 'that' para ambos (en defining), 'whose' para posesión, 'where' para lugares.",
+     ejemplo:"'The man who called you is my uncle.' 'The book which I bought is fascinating.' 'The city where I was born is small.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con el relativo adecuado.",
+       texto:"The woman ___ called you is my aunt. (persona) · The book ___ I read was amazing. (cosa) · The boy ___ father is a doctor lives here. (posesión)",
+       respuestas:[["who","that"],["which","that"],["whose"]],
+       retro:"'Who' persona, 'which' cosa, 'that' ambos en defining, 'whose' posesión. En non-defining solo who/which, entre comas."}},
+
+    {id:"e55", nombre:"Comparatives & superlatives",
+     concepto:"Comparativos: adjetivos cortos + -er… than (bigger than); largos con 'more… than'. Superlativos: the + -est o the most. Irregulares: good → better → the best; bad → worse → the worst.",
+     ejemplo:"'She is taller than me.' 'This is more interesting than that.' 'He is the best student in the class.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con comparativo o superlativo.",
+       texto:"This book is ___ (interesting) than that one. · She is the ___ (tall) girl in class. · My phone is ___ (good) than yours.",
+       respuestas:[["more interesting"],["tallest"],["better"]],
+       retro:"Los adjetivos cortos usan -er/-est; los largos, more/most. 'Good' y 'bad' son irregulares."}},
+
+    {id:"e56", nombre:"Gerunds & infinitives",
+     concepto:"Algunos verbos van seguidos de gerundio (-ing): enjoy, finish, avoid, mind. Otros, de infinitivo (to + verbo): want, decide, hope, need. Algunos admiten ambos con matiz distinto: remember, stop.",
+     ejemplo:"'I enjoy reading.' (gerundio) 'I want to travel.' (infinitivo) 'Remember to lock the door.' vs 'I remember locking the door.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada verbo según la forma que exige.",
+       categorias:["+ gerund (-ing)","+ infinitive (to + verb)"],
+       items:[
+         {texto:"enjoy", cat:0},
+         {texto:"want", cat:1},
+         {texto:"finish", cat:0},
+         {texto:"decide", cat:1},
+         {texto:"avoid", cat:0},
+         {texto:"hope", cat:1},
+         {texto:"mind", cat:0}
+       ],
+       retro:"No hay regla absoluta: se aprenden con el uso. 'Enjoy + -ing', 'want + to', son bloques fijos."}},
+
+    {id:"e57", nombre:"Articles: a / an / the / zero article",
+     concepto:"'A/an' para primera mención o seres indeterminados. 'The' para específicos o ya mencionados. 'Zero article' con plurales genéricos y nombres propios. 'An' antes de sonido vocálico.",
+     ejemplo:"'I saw a dog. The dog was black.' 'Cats are independent.' (zero) 'I live in Spain.' (zero) 'An apple' / 'a university' (por el sonido, no la letra).",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con a, an, the o nada.",
+       texto:"I bought ___ book yesterday. ___ book is fascinating. She is ___ honest person. I love ___ music.",
+       respuestas:[["a"],["the","The"],["an"],["", "nothing"]],
+       retro:"'An' antes de sonido vocálico: 'an honest person' (la h es muda). Sin artículo con generalizaciones ('I love music')."}},
+
+    {id:"e58", nombre:"Prepositions of time & place",
+     concepto:"'In' con meses, años, estaciones, ciudades, países y espacios cerrados. 'On' con días, fechas y superficies. 'At' con horas, momentos concretos y lugares específicos.",
+     ejemplo:"'In July', 'in 2020', 'in London'. 'On Monday', 'on 5th May', 'on the table'. 'At 5 o'clock', 'at night', 'at the bus stop'.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con in, on o at.",
+       texto:"I was born ___ 1990. · The meeting is ___ Monday. · We met ___ the bus stop. · She arrived ___ 8 pm.",
+       respuestas:[["in"],["on"],["at"],["at"]],
+       retro:"In (periodos largos), on (días y fechas), at (horas y puntos concretos). Es una de las áreas más difíciles del inglés."}},
+
+    {id:"e59", nombre:"Question formation",
+     concepto:"En inglés las preguntas requieren inversión o auxiliar: 'Do you…?', 'Did she…?', 'Have they…?'. En las Wh-questions, primero la partícula, luego el auxiliar, luego el sujeto.",
+     ejemplo:"'Do you like coffee?' 'Where did you go?' 'What are you doing?' 'Have you ever been to London?'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las palabras para formar una pregunta correcta.",
+       items:[
+         "Where",
+         "did",
+         "you",
+         "go",
+         "last summer?"
+       ],
+       retro:"Estructura: Wh- + auxiliar + sujeto + verbo principal + complementos. Sin auxiliar la pregunta no es correcta."}},
+
+    {id:"e60", nombre:"Word order (SVO) & inversion",
+     concepto:"El inglés es una lengua de orden fijo: Sujeto + Verbo + Objeto. Cambiar el orden cambia el significado. La inversión ocurre en preguntas, tras 'never, rarely, hardly' y en condicionales enfáticos.",
+     ejemplo:"'The dog bit the man' ≠ 'The man bit the dog'. 'Never have I seen such a thing.' (inversión enfática).",
+     ejercicio:{tipo:"quiz",
+       consigna:"Which sentence has correct English word order?",
+       opciones:["'Yesterday I went to the cinema with my friends.'","'Yesterday went I to the cinema with my friends.'","'To the cinema yesterday I with my friends went.'","'With my friends to the cinema yesterday went I.'"],
+       correcta:0,
+       retro:"El inglés respeta SVO + complementos. Los adverbios de tiempo pueden ir al principio, pero el orden sujeto-verbo se mantiene."}}
+  ]
+},
+
+/* ============ BLOQUE 7 · LISTENING & PRONUNCIATION ============ */
+{
+  id:"b7", nombre:"Listening & Pronunciation", emoji:"🎧",
+  desc:"Escucha, reconocimiento de sonidos, acento, ritmo, entonación y formas débiles.",
+  tecnicas:[
+    {id:"e61", nombre:"Listening for gist",
+     concepto:"Escuchar un audio en inglés para captar la idea general sin detenerse en cada palabra. Se reconocen el tema, la situación y la intención del hablante.",
+     ejemplo:"En un podcast de 3 minutos sobre viajes, con una escucha rápida ya sabemos que habla de un viaje a Japón y de las dificultades del idioma.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué se busca al hacer 'listening for gist'?",
+       opciones:["Transcribir palabra por palabra","Captar el tema y la idea general","Corregir la pronunciación del hablante","Aprender vocabulario nuevo"],
+       correcta:1,
+       retro:"La primera escucha debe ser global. Los detalles vienen en escuchas posteriores."}},
+
+    {id:"e62", nombre:"Listening for specific information",
+     concepto:"Escuchar buscando datos concretos: un número, un nombre, una hora, un precio. Se filtra la información y se ignoran los detalles irrelevantes.",
+     ejemplo:"Un anuncio de tren: buscamos hora de salida, andén y precio del billete. El resto (publicidad, etc.) se ignora.",
+     ejercicio:{tipo:"fill",
+       consigna:"Extrae los datos del anuncio.",
+       texto:"'The train to Manchester leaves at 7:45 from platform 3.' Time: ___ · Platform: ___",
+       respuestas:[["7:45","7.45","seven forty five","7 45"],["3","three","platform 3"]],
+       retro:"Escuchar buscando datos concretos es una habilidad esencial en situaciones reales (viajes, aeropuertos, clases)."}},
+
+    {id:"e63", nombre:"Connected speech (linking, elision)",
+     concepto:"El inglés oral une palabras: 'an apple' suena /əˈnæpl̩/. Se enlazan consonante-vocal (linking) y se eliden sonidos (elision): 'next day' → /neks deɪ/.",
+     ejemplo:"'What are you doing?' → 'Whatcha doin'?' en habla rápida. 'Give it to him' → 'givitutim'.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Por qué el habla rápida del inglés suena tan distinta al escrito?",
+       opciones:["Porque los nativos hablan mal","Porque hay fenómenos de enlace, elisión y reducción vocálica","Porque el inglés tiene reglas secretas","Porque el diccionario está mal"],
+       correcta:1,
+       retro:"El connected speech explica por qué entender inglés nativo requiere mucha escucha: el sonido real difiere del escrito."}},
+
+    {id:"e64", nombre:"Word stress",
+     concepto:"Cada palabra inglesa tiene una sílaba tónica. Colocarla mal puede cambiar el significado o dificultar la comprensión: 'PREsent (regalo)' vs 'preSENT (presentar)'.",
+     ejemplo:"'PHOtograph' → 'phoTOgrapher' → 'photoGRAPHic'. La sílaba tónica cambia al cambiar de categoría.",
+     ejercicio:{tipo:"fill",
+       consigna:"Marca la sílaba tónica (en mayúsculas).",
+       texto:"En 'computer' la tónica es ___ · En 'important' la tónica es ___ · En 'banana' la tónica es ___",
+       respuestas:[["comPUter","puter","second","segunda"],["imPORtant","portant","second","segunda"],["baNAna","nana","second","segunda"]],
+       retro:"El 'stress' en inglés es distintivo: comPUter, imPORtant, baNAna. Escuchar y repetir es la mejor forma de interiorizarlo."}},
+
+    {id:"e65", nombre:"Sentence stress & rhythm",
+     concepto:"En inglés las palabras con significado (sustantivos, verbos, adjetivos) llevan el acento; las palabras funcionales (artículos, preposiciones, pronombres) se reducen. Esto crea el ritmo característico.",
+     ejemplo:"'I WANT to GO to the CInema toNIght.' Las palabras importantes se acentúan; las otras se 'comen'.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué palabras suelen llevar el acento en una oración inglesa?",
+       opciones:["Artículos y preposiciones","Sustantivos, verbos principales, adjetivos y adverbios","Todos por igual","Solo los nombres propios"],
+       correcta:1,
+       retro:"Las 'content words' se acentúan; las 'function words' se reducen. Ese contraste crea el ritmo del inglés."}},
+
+    {id:"e66", nombre:"Intonation (rising / falling)",
+     concepto:"La entonación cambia el significado: 'rising' en preguntas sí/no, 'falling' en afirmaciones y en preguntas Wh-. También expresa actitud: sorpresa, duda, ironía.",
+     ejemplo:"'Are you coming? ↗' (rising). 'Where are you going? ↘' (falling). 'Really? ↗' puede ser duda o ironía.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tipo de pregunta según la entonación típica.",
+       categorias:["Rising ↗","Falling ↘"],
+       items:[
+         {texto:"'Are you tired?'", cat:0},
+         {texto:"'Where do you live?'", cat:1},
+         {texto:"'Do you like coffee?'", cat:0},
+         {texto:"'What time is it?'", cat:1},
+         {texto:"'Can you help me?'", cat:0}
+       ],
+       retro:"Yes/No questions: entonación ascendente. Wh-questions: descendente. La entonación también expresa actitud."}},
+
+    {id:"e67", nombre:"Minimal pairs (vowels & consonants)",
+     concepto:"Los 'minimal pairs' son pares de palabras que solo difieren en un sonido: 'ship/sheep', 'bit/beat', 'think/sink'. Reconocerlos es clave para la pronunciación y la comprensión.",
+     ejemplo:"'ship' /ʃɪp/ vs 'sheep' /ʃiːp/ (vocal corta vs larga). 'think' /θɪŋk/ vs 'sink' /sɪŋk/ (θ vs s).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada par según el contraste fonético.",
+       categorias:["Vocal corta / larga","Consonante θ / s","Consonante b / v"],
+       items:[
+         {texto:"ship / sheep", cat:0},
+         {texto:"think / sink", cat:1},
+         {texto:"berry / very", cat:2},
+         {texto:"bit / beat", cat:0},
+         {texto:"thin / sin", cat:1}
+       ],
+       retro:"Los minimal pairs entrenan el oído. Distinguirlos es esencial para una pronunciación clara y una buena comprensión."}},
+
+    {id:"e68", nombre:"Silent letters",
+     concepto:"En inglés muchas letras no se pronuncian: 'k' en 'knight', 'b' en 'climb', 'l' en 'walk', 'w' en 'write', 'h' en 'hour'. Reconocerlas mejora la pronunciación y la ortografía.",
+     ejemplo:"'climb' /klaɪm/, 'know' /nəʊ/, 'island' /ˈaɪlənd/, 'hour' /ˈaʊə/, 'write' /raɪt/.",
+     ejercicio:{tipo:"fill",
+       consigna:"Indica qué letra es muda en cada palabra.",
+       texto:"'knife' → letra muda: ___ · 'climb' → letra muda: ___ · 'hour' → letra muda: ___",
+       respuestas:[["k"],["b"],["h"]],
+       retro:"Las letras mudas son frecuentes en inglés. Reconocerlas evita errores de pronunciación y de ortografía."}},
+
+    {id:"e69", nombre:"-ed pronunciation rules",
+     concepto:"El sufijo -ed del pasado se pronuncia de tres formas distintas según el sonido final del verbo: /t/ (después de sonidos sordos), /d/ (después de sonoros), /ɪd/ (después de t o d).",
+     ejemplo:"'worked' /wɜːkt/, 'played' /pleɪd/, 'wanted' /ˈwɒntɪd/. Tres pronunciaciones distintas.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada verbo pasado por su pronunciación de -ed.",
+       categorias:["/t/","/d/","/ɪd/"],
+       items:[
+         {texto:"worked", cat:0},
+         {texto:"played", cat:1},
+         {texto:"wanted", cat:2},
+         {texto:"kissed", cat:0},
+         {texto:"lived", cat:1},
+         {texto:"needed", cat:2}
+       ],
+       retro:"Regla: /t/ tras sonido sordo (k, s, p, f, ʃ, tʃ), /d/ tras sonoro (b, g, v, z, l, m, n, r, vocal), /ɪd/ tras t o d."}},
+
+    {id:"e70", nombre:"Schwa /ə/ & weak forms",
+     concepto:"El schwa /ə/ es el sonido vocálico más frecuente del inglés y aparece en sílabas átonas: 'banana' /bəˈnɑːnə/. Las 'weak forms' son reducciones de palabras funcionales: 'and' → /ən/, 'to' → /tə/, 'for' → /fə/.",
+     ejemplo:"'I want to go to the cinema for a coffee.' En habla rápida: /aɪ wɒnə ɡəʊ tə ðə ˈsɪnəmə fər ə ˈkɒfi/.",
+     ejercicio:{tipo:"fill",
+       consigna:"Indica el número de schwas /ə/ en cada palabra.",
+       texto:"'banana' → ___ schwas · 'computer' → ___ schwa · 'about' → ___ schwa",
+       respuestas:[["2","dos"],["1","uno"],["1","uno"]],
+       retro:"El schwa es el sonido más frecuente del inglés. Reproducirlo bien marca la diferencia entre sonar 'de libro' y sonar natural."}}
+  ]
+},
+
+/* ============ BLOQUE 8 · SPEAKING & FUNCTIONS ============ */
+{
+  id:"b8", nombre:"Speaking & Communicative functions", emoji:"💬",
+  desc:"Saludos, opiniones, sugerencias, acuerdo/desacuerdo, describir, narrar, negociar y exponer.",
+  tecnicas:[
+    {id:"e71", nombre:"Greetings & introductions",
+     concepto:"Fórmulas inglesas para saludar y presentarse según el registro: informal ('Hi, what's up?'), neutral ('Hello, how are you?'), formal ('Good morning, pleased to meet you.').",
+     ejemplo:"Informal: 'Hi! I'm Ana.' Neutral: 'Hello, nice to meet you.' Formal: 'Good morning. May I introduce myself? I'm Mr. Smith.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada saludo según el registro.",
+       categorias:["Informal","Neutral","Formal"],
+       items:[
+         {texto:"'Hey, what's up?'", cat:0},
+         {texto:"'Hello, how are you?'", cat:1},
+         {texto:"'Good morning, pleased to meet you.'", cat:2},
+         {texto:"'Hi! Long time no see!'", cat:0},
+         {texto:"'How do you do? May I introduce myself?'", cat:2}
+       ],
+       retro:"El registro depende del contexto y del interlocutor. Reconocerlo y usarlo adecuadamente es parte de la competencia comunicativa."}},
+
+    {id:"e72", nombre:"Asking for & giving opinions",
+     concepto:"En inglés: 'What do you think of…?', 'How do you feel about…?' para preguntar; 'In my opinion…', 'I think…', 'As far as I'm concerned…' para dar opinión.",
+     ejemplo:"'What do you think of the new policy?' 'In my opinion, it's too strict.' 'From my point of view, it has some advantages.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la expresión adecuada.",
+       texto:"___ do you think of this film? (preguntar) · ___, it's a great idea. (dar opinión) · As far as I'm ___, we should wait.",
+       respuestas:[["what"],["in my opinion","i think","personally"],["concerned"]],
+       retro:"Las fórmulas para dar opinión en inglés son variadas: In my opinion, I think, From my point of view, As far as I'm concerned…"}},
+
+    {id:"e73", nombre:"Making suggestions & offers",
+     concepto:"'Shall we…?', 'How about + -ing?', 'Why don't we…?', 'Let's…' para sugerir. 'Would you like…?', 'Can I…?', 'Shall I…?' para ofrecer.",
+     ejemplo:"'Shall we go to the cinema?' 'How about eating out tonight?' 'Would you like some coffee?' 'Can I help you?'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión según su función.",
+       categorias:["Suggestion","Offer"],
+       items:[
+         {texto:"'Shall we go for a walk?'", cat:0},
+         {texto:"'Would you like some tea?'", cat:1},
+         {texto:"'Why don't we try that new restaurant?'", cat:0},
+         {texto:"'Can I carry your bags?'", cat:1},
+         {texto:"'How about watching a film?'", cat:0}
+       ],
+       retro:"Sugerir implica proponer una actividad conjunta; ofrecer implica dar algo al interlocutor."}},
+
+    {id:"e74", nombre:"Agreeing & disagreeing politely",
+     concepto:"En inglés el desacuerdo suele ser indirecto para no ofender: 'I see your point, but…', 'I'm not sure I agree…'. Fórmulas de acuerdo: 'I completely agree', 'That's exactly how I feel'.",
+     ejemplo:"Acuerdo: 'I couldn't agree more.' Desacuerdo suave: 'I see what you mean, but I have a different view.' Desacuerdo firme: 'I'm afraid I have to disagree.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión.",
+       categorias:["Agreeing","Disagreeing politely"],
+       items:[
+         {texto:"'I completely agree with you.'", cat:0},
+         {texto:"'I see your point, but I have a different view.'", cat:1},
+         {texto:"'That's exactly how I feel.'", cat:0},
+         {texto:"'I'm afraid I have to disagree.'", cat:1},
+         {texto:"'I couldn't agree more.'", cat:0}
+       ],
+       retro:"En inglés el desacuerdo tiende a suavizarse con 'I see your point, but…' o 'I'm afraid…'. La cortesía es parte de la competencia comunicativa."}},
+
+    {id:"e75", nombre:"Asking for clarification",
+     concepto:"Fórmulas para pedir aclaración o repetición: 'Sorry, could you repeat that?', 'What do you mean by…?', 'Could you say that again, please?', 'I don't quite follow you.'",
+     ejemplo:"'Sorry, I didn't catch that.' 'Could you speak more slowly, please?' 'What do you mean by "sustainable"?'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las peticiones de aclaración.",
+       texto:"Sorry, could you ___ that, please? · What do you ___ by 'fair trade'? · I don't quite ___ you.",
+       respuestas:[["repeat","say again"],["mean"],["follow","understand","get"]],
+       retro:"Pedir aclaración no es señal de debilidad: es parte de una conversación eficaz y de la cortesía comunicativa."}},
+
+    {id:"e76", nombre:"Describing people, places & things",
+     concepto:"En inglés se describe con adjetivos y preposiciones: 'She's tall, with dark hair.' 'It's a quiet town near the coast.' 'It's a small wooden box.' Orden típico: opinión, tamaño, edad, forma, color, origen, material.",
+     ejemplo:"'An old Italian leather bag.' Orden: edad (old) → origen (Italian) → material (leather).",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los adjetivos según el orden típico del inglés.",
+       items:[
+         "opinion (beautiful)",
+         "size (big)",
+         "age (old)",
+         "colour (black)",
+         "origin (Italian)"
+       ],
+       retro:"El orden de los adjetivos en inglés es fijo: opinión, tamaño, edad, forma, color, origen, material. Violarlo suena extraño al nativo."}},
+
+    {id:"e77", nombre:"Narrating a story / anecdote",
+     concepto:"Para narrar en inglés se combinan past simple y past continuous, se usan marcadores temporales (First…, Then…, Finally…) y expresiones de reacción (It was amazing, I couldn't believe it).",
+     ejemplo:"'Last summer I was travelling in Italy when I met an old friend. At first I didn't recognise him, but then…'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos para narrar una anécdota en inglés.",
+       items:[
+         "Set the scene: 'Last summer, I was…'",
+         "Introduce the main event: 'Suddenly, …'",
+         "Describe reactions and details: 'I couldn't believe it…'",
+         "Conclude with a comment or reflection."
+       ],
+       retro:"La narración oral en inglés sigue una estructura clara: escena → evento → reacción → conclusión. Los marcadores ayudan al oyente a seguir el hilo."}},
+
+    {id:"e78", nombre:"Giving instructions & directions",
+     concepto:"En inglés se usa el imperativo y fórmulas de cortesía: 'Turn left.', 'Go straight on.', 'Take the second turning.', 'Could you tell me how to get to…?'.",
+     ejemplo:"'Go straight on for 200 metres, then turn left at the traffic lights. The museum is on your right.'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las indicaciones para llegar al museo.",
+       items:[
+         "Go straight on for 200 metres.",
+         "Turn left at the traffic lights.",
+         "Walk past the bank.",
+         "Take the second turning on the right.",
+         "The museum is on your left."
+       ],
+       retro:"Las indicaciones en inglés siguen un orden lógico y usan imperativos y preposiciones de lugar (on the left/right, next to, opposite)."}},
+
+    {id:"e79", nombre:"Negotiating & problem-solving",
+     concepto:"En inglés para negociar se usan condicionales y modales: 'If you could lower the price, I would buy it.', 'Would you be willing to…?', 'Let's find a compromise.'.",
+     ejemplo:"'If you could deliver by Friday, we would sign the contract today.' 'Could we split the difference?'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las expresiones de negociación.",
+       texto:"If you could lower the price, I ___ buy it. · Would you be ___ to change the date? · Let's find a ___.",
+       respuestas:[["would","'d"],["willing","able","prepared"],["compromise","solution","middle ground","agreement"]],
+       retro:"La negociación en inglés combina condicionales (If you could…, I would…) con modales de cortesía (could, would, might)."}},
+
+    {id:"e80", nombre:"Giving a short presentation",
+     concepto:"Una presentación oral en inglés tiene estructura fija: saludo, presentación del tema, desarrollo con puntos claros, conclusión y agradecimiento. Fórmulas útiles: 'Today I'm going to talk about…', 'Firstly…, Secondly…, Finally…', 'To sum up…'.",
+     ejemplo:"'Good morning everyone. Today I'm going to talk about climate change. Firstly, I'll explain the causes. Secondly, the effects. Finally, some solutions. To sum up… Thank you for listening.'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una presentación oral en inglés.",
+       items:[
+         "Greet the audience and introduce the topic.",
+         "Present the structure: 'Firstly…, Secondly…, Finally…'",
+         "Develop each point with examples or data.",
+         "Summarise: 'To sum up…' or 'In conclusion…'",
+         "Thank the audience and invite questions."
+       ],
+       retro:"Las presentaciones orales en inglés siguen un guion previsible. Dominar sus fórmulas da seguridad y claridad."}}
+  ]
+},
+
+/* ============ BLOQUE 9 · WRITING & TEXT TYPES ============ */
+{
+  id:"b9", nombre:"Writing & Text types", emoji:"✍️",
+  desc:"Párrafos, cohesión, registro, emails, narración, descripción, ensayo, informe, reseña y edición.",
+  tecnicas:[
+    {id:"e81", nombre:"Paragraph structure & topic sentence",
+     concepto:"Un párrafo inglés bien construido tiene 'topic sentence' (idea principal), 'supporting sentences' (desarrollo) y a veces 'concluding sentence'. La topic sentence suele abrir el párrafo.",
+     ejemplo:"Topic: 'Recycling has several benefits.' Supporting: 'First, it reduces waste… Second, it saves energy…' Concluding: 'In short, recycling is essential.'",
+     ejercicio:{tipo:"quiz",
+       consigna:"Where is the topic sentence usually placed in an English paragraph?",
+       opciones:["In the middle","At the beginning (first sentence)","Never in the first line","Only at the end"],
+       correcta:1,
+       retro:"La topic sentence encabeza el párrafo en la mayoría de textos expositivos ingleses. Es la idea que el resto desarrolla."}},
+
+    {id:"e82", nombre:"Linking words & cohesion",
+     concepto:"Los conectores y marcadores en inglés cohesionan el texto: 'firstly, secondly, in addition, however, therefore, in conclusion'. Sin ellos, el texto parece una lista de frases sueltas.",
+     ejemplo:"'Firstly, we need funding. In addition, we need trained staff. However, without political support, nothing will change. Therefore, we must lobby.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con el conector adecuado.",
+       texto:"___, we need to define the problem. (inicio) · ___, the costs are too high. (contraste) · ___, we must act now. (conclusión)",
+       respuestas:[["first","firstly","to begin with","first of all"],["however","nevertheless","on the other hand","but"],["in conclusion","to sum up","finally","therefore","in short"]],
+       retro:"Los conectores organizan el discurso y guían al lector. Son imprescindibles en la escritura académica en inglés."}},
+
+    {id:"e83", nombre:"Formal vs informal register",
+     concepto:"El registro formal evita contracciones, usa vocabulario culto y estructuras completas. El informal admite contracciones, expresiones coloquiales y frases cortas.",
+     ejemplo:"Formal: 'I am writing to request further information.' Informal: 'Just wanted to ask you something.'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión según el registro.",
+       categorias:["Formal","Informal"],
+       items:[
+         {texto:"'I am writing to request further information.'", cat:0},
+         {texto:"'Just wanted to ask you something.'", cat:1},
+         {texto:"'Yours sincerely,'", cat:0},
+         {texto:"'Cheers,'", cat:1},
+         {texto:"'I would be grateful if you could…'", cat:0},
+         {texto:"'Can't wait to hear from you!'", cat:1}
+       ],
+       retro:"El registro se elige según el destinatario y el contexto. Mezclarlos produce extrañeza o incluso descortesía."}},
+
+    {id:"e84", nombre:"Email writing (formal & informal)",
+     concepto:"Un email formal tiene: saludo (Dear Mr/Ms…), motivo, desarrollo, despedida (Yours sincerely / Best regards) y firma. Un email informal usa 'Hi…', contracciones y despedidas más cercanas (Cheers, Take care).",
+     ejemplo:"Formal: 'Dear Ms Smith, I am writing to apply for the position advertised… Yours sincerely, Ana López.' Informal: 'Hi John, How's it going? Just a quick note about… Cheers, Ana.'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un email formal.",
+       items:[
+         "Greeting: 'Dear Mr Smith,'",
+         "Opening: 'I am writing to…'",
+         "Body: main message in clear paragraphs.",
+         "Closing formula: 'I look forward to your reply.'",
+         "Sign-off: 'Yours sincerely,' + name"
+       ],
+       retro:"El email formal en inglés tiene una estructura fija. Reconocerla y respetarla es parte de la competencia escrita."}},
+
+    {id:"e85", nombre:"Narrative writing (story)",
+     concepto:"Un relato en inglés sigue una estructura: setting (situación inicial), complicación (conflicto), climax, resolution. Se usa past simple y past continuous, con marcadores temporales y conectores.",
+     ejemplo:"'Last summer, I was travelling in Italy. One evening, while I was walking alone, something strange happened…'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un relato breve en inglés.",
+       items:[
+         "Setting: introduce the time, place and characters.",
+         "Complication: something happens that changes the situation.",
+         "Climax: the most intense or decisive moment.",
+         "Resolution: how the situation is resolved.",
+         "Coda: a final comment or reflection."
+       ],
+       retro:"La estructura narrativa es previsible. Dominarla permite escribir relatos coherentes y atractivos."}},
+
+    {id:"e86", nombre:"Descriptive writing",
+     concepto:"Un texto descriptivo en inglés usa adjetivos precisos, verbos sensoriales y orden espacial: 'from top to bottom', 'in the foreground', 'behind'. Puede ser objetivo o subjetivo.",
+     ejemplo:"'The old house stood at the end of the street. Its windows were dark and its door, half-open, creaked in the wind.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye 'good' por un adjetivo más preciso.",
+       texto:"'The view was very good.' → 'The view was ___' · 'The food was good.' → 'The food was ___'",
+       respuestas:[["breathtaking","stunning","spectacular","magnificent","impressive","beautiful"],["delicious","tasty","exquisite","mouth-watering","scrumptious"]],
+       retro:"La descripción gana con adjetivos precisos. 'Good' es tan general que apenas comunica nada."}},
+
+    {id:"e87", nombre:"Opinion essay / argumentative writing",
+     concepto:"Un 'opinion essay' en inglés tiene introducción con tesis, 2-3 párrafos con argumentos y ejemplos, y conclusión que retoma la tesis. Fórmulas: 'It is often argued that…', 'On the one hand… on the other hand…', 'In conclusion…'.",
+     ejemplo:"'It is often argued that technology improves education. On the one hand, it provides instant access to information. On the other hand, it can distract students. In conclusion, technology is a tool: its value depends on how we use it.'",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las fórmulas típicas del ensayo de opinión.",
+       texto:"It is often ___ that… · On the one ___, … On the other ___, … · In ___, …",
+       respuestas:[["argued","said","claimed","believed"],["hand"],["hand"],["conclusion"]],
+       retro:"Estas fórmulas dan estructura y registro formal al ensayo. Son la base de la escritura argumentativa en inglés."}},
+
+    {id:"e88", nombre:"Report & article writing",
+     concepto:"Un 'report' en inglés es objetivo, con secciones y datos. Un 'article' puede ser más personal y atractivo, con título llamativo y estilo más libre. Ambos requieren introducción, desarrollo y conclusión.",
+     ejemplo:"Report: 'Introduction — The aim of this report is to… Findings — The survey shows that… Recommendations — It is recommended that…'",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo según corresponda a un report o a un article.",
+       categorias:["Report","Article"],
+       items:[
+         {texto:"Objective tone, sections and headings.", cat:0},
+         {texto:"Catchy title, personal style, engaging.", cat:1},
+         {texto:"'The aim of this report is to…'", cat:0},
+         {texto:"Rhetorical questions and vivid language.", cat:1},
+         {texto:"Recommendations and findings.", cat:0}
+       ],
+       retro:"El report es objetivo y estructurado; el article es más libre y busca atraer al lector. Ambos son géneros frecuentes en el ámbito académico anglosajón."}},
+
+    {id:"e89", nombre:"Review (book, film, restaurant)",
+     concepto:"Una 'review' en inglés resume y valora una obra o experiencia: introduce (título, autor/director), resume brevemente, valora (con razones) y recomienda (o no) al público adecuado.",
+     ejemplo:"'This novel, written by…, tells the story of… What I liked most was… I would recommend it to anyone who enjoys…'",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una review.",
+       items:[
+         "Introduce the work: title, author or director, genre.",
+         "Brief plot summary (without spoilers).",
+         "Evaluate: what works and what doesn't.",
+         "Recommend: who would enjoy it and why."
+       ],
+       retro:"Una review equilibra información y valoración. No es solo un resumen: incluye juicio razonado y recomendación."}},
+
+    {id:"e90", nombre:"Editing & proofreading",
+     concepto:"Editar es revisar el propio texto en varios niveles: ortografía, gramática, puntuación, cohesión, registro y claridad. Se recomienda leer en voz alta y dejar reposar el texto.",
+     ejemplo:"Primera pasada: spelling & grammar. Segunda: coherence and connectors. Tercera: register and style. Cuarta: read aloud.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una revisión eficaz en inglés.",
+       items:[
+         "Let the text rest before revising it.",
+         "Check spelling and grammar.",
+         "Check punctuation and sentence structure.",
+         "Check coherence and connectors between paragraphs.",
+         "Read the text aloud to catch awkward phrasing."
+       ],
+       retro:"Revisar por capas es más eficaz que intentar corregirlo todo a la vez. El inglés escrito gana con revisiones sucesivas."}}
+  ]
+},
+
+/* ============ BLOQUE 10 · CULTURE, LITERATURE & ICT ============ */
+{
+  id:"b10", nombre:"Culture, Literature & ICT", emoji:"🌍",
+  desc:"Cultura anglosajona, literatura, música, cine, alfabetización mediática y aprendizaje autónomo.",
+  tecnicas:[
+    {id:"e91", nombre:"English-speaking countries overview",
+     concepto:"El inglés es lengua oficial o mayoritaria en más de 60 países: Reino Unido, EE. UU., Canadá, Australia, Nueva Zelanda, Irlanda, India, Nigeria, Jamaica… Cada uno tiene variedades propias (British, American, Australian English).",
+     ejemplo:"Diferencias: 'flat' (BrE) / 'apartment' (AmE); 'lorry' / 'truck'; 'autumn' / 'fall'; 'football' / 'soccer'.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra según la variedad del inglés.",
+       categorias:["British English","American English"],
+       items:[
+         {texto:"flat", cat:0},
+         {texto:"apartment", cat:1},
+         {texto:"lorry", cat:0},
+         {texto:"truck", cat:1},
+         {texto:"autumn", cat:0},
+         {texto:"fall", cat:1},
+         {texto:"football", cat:0},
+         {texto:"soccer", cat:1}
+       ],
+       retro:"El inglés tiene muchas variedades. Reconocerlas ayuda a entender cualquier acento y a elegir una norma coherente al escribir."}},
+
+    {id:"e92", nombre:"Cultural differences & etiquette",
+     concepto:"Conocer las normas culturales de los países anglosajones evita malentendidos: puntualidad, uso de 'please/thank you', 'small talk', distancia personal, temas tabú.",
+     ejemplo:"En el Reino Unido, la puntualidad es muy valorada y el 'small talk' sobre el tiempo es frecuente. Preguntar el sueldo o la edad puede ser inapropiado.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tema como apropiado o inapropiado en una conversación inicial en un país anglosajón.",
+       categorias:["Appropriate small talk","Inappropriate"],
+       items:[
+         {texto:"The weather.", cat:0},
+         {texto:"How much do you earn?", cat:1},
+         {texto:"Your weekend plans.", cat:0},
+         {texto:"How old are you?", cat:1},
+         {texto:"Where are you from?", cat:0}
+       ],
+       retro:"El 'small talk' es un arte cultural. Temas como sueldo, edad, religión o política se evitan en conversaciones iniciales."}},
+
+    {id:"e93", nombre:"Literary genres in English",
+     concepto:"Los géneros literarios en inglés: fiction, non-fiction, poetry, drama, novel, short story, essay, biography. Cada uno tiene rasgos propios y convenciones reconocibles.",
+     ejemplo:"'Novel' (novela), 'short story' (cuento), 'poem' (poema), 'play' (obra de teatro), 'essay' (ensayo), 'biography' (biografía).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada género según su forma principal.",
+       categorias:["Narrative","Poetry","Drama","Non-fiction"],
+       items:[
+         {texto:"novel", cat:0},
+         {texto:"sonnet", cat:1},
+         {texto:"play", cat:2},
+         {texto:"biography", cat:3},
+         {texto:"short story", cat:0},
+         {texto:"essay", cat:3},
+         {texto:"tragedy", cat:2}
+       ],
+       retro:"Reconocer el género orienta la lectura: qué esperar, qué buscar y cómo interpretarlo."}},
+
+    {id:"e94", nombre:"Reading poetry in English",
+     concepto:"La poesía inglesa trabaja con ritmo, rima, imágenes y figuras. Reconocer metro (iambic pentameter), rima y recursos ayuda a interpretarla. No basta con traducir palabra a palabra.",
+     ejemplo:"'Shall I compare thee to a summer's day?' (Shakespeare). El ritmo y la comparación son parte del significado.",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica la figura retórica.",
+       texto:"'My love is like a red, red rose.' → ___ · 'The wind whispered through the trees.' → ___",
+       respuestas:[["simile","comparacion","comparación","símil"],["personification","personificacion","personificación"]],
+       retro:"La poesía inglesa usa mucho el 'simile' (comparación con like/as) y la 'personification'. Reconocerlos ayuda a interpretar."}},
+
+    {id:"e95", nombre:"Shakespeare & classic authors",
+     concepto:"Conocer los grandes autores anglosajones ayuda a comprender referencias culturales: Shakespeare, Dickens, Austen, Orwell, Woolf, Hemingway, Faulkner… Sus obras aparecen continuamente en la cultura popular.",
+     ejemplo:"'To be or not to be' (Shakespeare, Hamlet). 'Big Brother is watching you' (Orwell, 1984). 'It was the best of times, it was the worst of times' (Dickens).",
+     ejercicio:{tipo:"fill",
+       consigna:"Relaciona cada cita con su autor.",
+       texto:"'To be or not to be' → ___ · 'Big Brother is watching you' → ___ · 'It was the best of times, it was the worst of times' → ___",
+       respuestas:[["shakespeare","william shakespeare"],["orwell","george orwell"],["dickens","charles dickens"]],
+       retro:"Reconocer las citas clásicas del inglés cultiva la competencia literaria y cultural."}},
+
+    {id:"e96", nombre:"Popular music & lyrics analysis",
+     concepto:"Las canciones en inglés son una fuente inagotable de vocabulario, expresiones y gramática real. Analizar sus letras ayuda a comprender idioms, phrasal verbs y estructuras coloquiales.",
+     ejemplo:"'I can't get you out of my head' → 'get out of' (phrasal verb). 'I'm gonna love you' → 'gonna' = going to (reducción oral).",
+     ejercicio:{tipo:"fill",
+       consigna:"Traduce al inglés estándar las reducciones coloquiales.",
+       texto:"'gonna' = ___ · 'wanna' = ___ · 'gotta' = ___",
+       respuestas:[["going to"],["want to"],["got to","have got to","have to"]],
+       retro:"Las reducciones (gonna, wanna, gotta) son típicas del inglés oral y de las canciones. Reconocerlas facilita la comprensión auditiva."}},
+
+    {id:"e97", nombre:"Film & TV in English",
+     concepto:"Ver cine y series en inglés (con o sin subtítulos) es una de las mejores formas de mejorar la comprensión auditiva y la expresión. Se recomienda empezar con subtítulos en inglés y pasar después a sin subtítulos.",
+     ejemplo:"Estrategia progresiva: 1) subtítulos en castellano, 2) subtítulos en inglés, 3) sin subtítulos. Repetir escenas clave.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la progresión recomendada para ver cine en inglés.",
+       items:[
+         "Ver con subtítulos en castellano para comprender la trama.",
+         "Ver de nuevo con subtítulos en inglés para asociar sonido y grafía.",
+         "Ver escenas clave sin subtítulos, repitiendo si es necesario.",
+         "Ver un capítulo completo sin subtítulos para medir el progreso."
+       ],
+       retro:"La progresión gradual evita la frustración. Cada paso consolida la comprensión antes de dar el siguiente."}},
+
+    {id:"e98", nombre:"Digital literacy & fake news in English",
+     concepto:"Detectar 'fake news' en inglés exige verificar la fuente, comprobar el titular, buscar la imagen original y contrastar con otras fuentes. El sensacionalismo y la falta de autor son señales de alarma.",
+     ejemplo:"Titular: 'SHOCKING: Scientists discover chocolate cures cancer!!!' → mayúsculas, exclamaciones, fuente anónima: señales claras de bulo.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo como señal de bulo o de información fiable.",
+       categorias:["Fake news signal","Reliable indicator"],
+       items:[
+         {texto:"Headline in CAPS with many exclamation marks.", cat:0},
+         {texto:"Author with affiliation and date.", cat:1},
+         {texto:"Image without source or context.", cat:0},
+         {texto:"References and citations to verifiable sources.", cat:1},
+         {texto:"Urgent call to share before it is deleted.", cat:0}
+       ],
+       retro:"Los bulos apelan a la emoción y la urgencia. La información fiable da contexto, autoría y fuentes verificables."}},
+
+    {id:"e99", nombre:"Online communication & netiquette",
+     concepto:"La netiqueta en inglés incluye normas como: no escribir todo en mayúsculas (se interpreta como grito), usar 'please' y 'thank you', revisar antes de enviar, respetar la privacidad.",
+     ejemplo:"Email: 'Dear Professor, I hope this email finds you well. I am writing to ask…' (formal). Chat: 'Hey! Are you free later?' (informal).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conducta digital como apropiada o inapropiada.",
+       categorias:["Appropriate","Inappropriate"],
+       items:[
+         {texto:"Use 'please' and 'thank you' in emails.", cat:0},
+         {texto:"Write all messages in capital letters.", cat:1},
+         {texto:"Reply calmly, without insults.", cat:0},
+         {texto:"Share other people's photos without permission.", cat:1},
+         {texto:"Cite the source when sharing information.", cat:0}
+       ],
+       retro:"La netiqueta aplica al ámbito digital las mismas normas de respeto y cuidado que rigen la comunicación cara a cara."}},
+
+    {id:"e100", nombre:"Autonomous learning strategies",
+     concepto:"Aprender inglés de forma autónoma requiere estrategias: fijar objetivos, crear rutinas, usar apps, ver series, leer, escuchar podcasts, hablar con nativos en línea, llevar un diario de aprendizaje.",
+     ejemplo:"Rutina semanal: 15 min de vocabulario al día, un podcast de 10 min, una serie con subtítulos, un intercambio de conversación a la semana.",
+     ejercicio:{tipo:"open",
+       consigna:"Diseña en castellano tu plan personal de aprendizaje del inglés para las próximas cuatro semanas.",
+       criterios:[
+         "Definí objetivos concretos y realistas.",
+         "Incluí actividades variadas (escuchar, leer, hablar, escribir).",
+         "Establecí una rutina semanal verificable.",
+         "Mencioné cómo mediré mi progreso."
+       ],
+       modelo:"Objetivo: mejorar mi comprensión auditiva y mi vocabulario. Rutina: 15 minutos diarios de vocabulario con una app; un podcast en inglés de 10 minutos cada día al ir al instituto; una serie con subtítulos en inglés dos veces por semana; un intercambio de conversación por videollamada los sábados; un pequeño diario en inglés los domingos. Medición: al final de cada semana anotaré tres expresiones nuevas que haya usado activamente."}}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO Y UTILIDADES
+   ===================================================================== */
+const STORAGE_KEY = "english_notebook_100_v1";
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ progreso = {}; }
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+
+let actualId = TECNICAS_FLAT[0].id;
+let notaTimer = null;
+
+function guardar(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progreso)); } catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){
+  const r = a.slice();
+  for(let i=r.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; }
+  return r;
+}
+function el(tag, cls, txt){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(txt !== undefined) e.textContent = txt;
+  return e;
+}
+function boton(txt, cls){
+  const b = document.createElement("button");
+  b.className = "btn " + (cls||"primary");
+  b.textContent = txt;
+  return b;
+}
+
+/* =====================================================================
+   MENÚ
+   ===================================================================== */
+function renderMenu(filtro){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(filtro||"");
+
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    div.dataset.cat = cat.id;
+
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>' + cat.emoji + '</span><span>' + cat.nombre + '</span>' +
+                     '<span class="cat-count">' + hechas + "/" + cat.tecnicas.length + '</span>' +
+                     '<span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+
+    const bar = el("div","cat-bar");
+    const barFill = document.createElement("i");
+    barFill.style.width = (hechas/cat.tecnicas.length*100) + "%";
+    bar.appendChild(barFill);
+    div.appendChild(bar);
+
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>' + t.nombre + '</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  return t ? t.catId : null;
+}
+
+/* =====================================================================
+   PANEL
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panel");
+  panel.innerHTML = "";
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bloqueIdx = CATEGORIAS.findIndex(c => c.id === t.catId) + 1;
+  head.appendChild(el("div","tech-pos", "Técnica " + (idx+1) + " de " + TECNICAS_FLAT.length +
+                     " · Bloque " + bloqueIdx + "/10"));
+
+  const block = CATEGORIAS.find(c => c.id === t.catId);
+  const dots = el("div","block-dots");
+  dots.title = "Puntos de avance del bloque";
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot" + (getProg(bt.id).ok ? " done":"") + (bt.id === t.id ? " current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  head.appendChild(dots);
+  panel.appendChild(head);
+
+  /* flashcard */
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","💡 Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Toca la tarjeta para ver el ejemplo práctico ↻"));
+
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","🔎 Ejemplo práctico (EN / ES)"));
+  back.appendChild(el("p", null, t.ejemplo));
+  back.appendChild(el("span","fc-hint","↻ Toca de nuevo para volver al concepto"));
+
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+
+  const flipBtn = boton("↻ Voltear tarjeta", "ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  /* ejercicio */
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "✍️ Ejercicio interactivo <span>comprueba tu comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+
+  const body = el("div");
+  sec.appendChild(body);
+  const fb = el("div","feedback");
+  sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  /* cuaderno */
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "📓 My notebook <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+
+  const ta = document.createElement("textarea");
+  ta.rows = 5;
+  ta.placeholder = "Escribe aquí tus notas, dudas, ejemplos propios, palabras nuevas en inglés…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  /* navegación */
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  /* eventos */
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n === 1 ? " palabra" : " palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardar();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu(document.getElementById("search").value);
+  actualizarProgreso();
+}
+
+/* =====================================================================
+   EJERCICIOS
+   ===================================================================== */
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo === "quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo === "fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo === "order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo === "classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo === "open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback " + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const letras = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">' + letras[i] + '</span><span>' + op + '</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c, j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok ? "ok" : "mal", ok ? "✓ ¡Correcto!" : "✗ Revisa tu respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length - 1){
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.className = "hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key === "Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i => !i.value.trim())){
+      mostrarFeedback(fb,"info","Completa todos los huecos","Escribe una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i] || []).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok ? "ok" : "mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos === total;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Perfecto! " + aciertos + "/" + total : "✗ " + aciertos + " de " + total + " correctas",
+      ej.retro + (perfecto ? "" : " · Respuestas válidas: " + ej.respuestas.map((r,i) => (i+1) + ") " + r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i) => ({txt, i})));
+  const seq = [];
+
+  const wrap = el("div","order-wrap");
+  const colA = el("div","order-col");
+  colA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool");
+  colA.appendChild(poolEl);
+  const colB = el("div","order-col");
+  colB.appendChild(el("h4", null, "Tu secuencia"));
+  const seqEl = el("div","seq");
+  colB.appendChild(seqEl);
+  wrap.appendChild(colA); wrap.appendChild(colB);
+  cont.appendChild(wrap);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML = ""; seqEl.innerHTML = "";
+    pool.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item"; b.textContent = o.txt;
+      b.onclick = () => { if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item";
+      b.innerHTML = '<span class="num">' + (k+1) + '</span><span>' + o.txt + '</span>';
+      b.onclick = () => { if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length !== correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pasa todos los elementos a «Tu secuencia».");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo, k) => {
+      const ok = seq[k].i === k;
+      nodo.classList.add(ok ? "ok" : "mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos === correcto.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Secuencia correcta!" : "✗ " + aciertos + " de " + correcto.length + " en su lugar",
+      perfecto ? ej.retro : "Empieza por: «" + correcto[0].slice(0,70) + "…». " + ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderClassify(ej, cont, fb, techId){
+  const seleccion = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it, i) => {
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat, ci) => {
+      const c = document.createElement("button");
+      c.className = "chip"; c.textContent = cat;
+      c.onclick = () => {
+        if(row.dataset.locked) return;
+        seleccion[i] = ci;
+        Array.from(chips.children).forEach((x,xi) => x.classList.toggle("sel", xi === ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seleccion.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigna una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila, i) => {
+      fila.dataset.locked = "1";
+      const ok = seleccion[i] === ej.items[i].cat;
+      fila.classList.add(ok ? "ok" : "mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c => c.disabled = true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-size:12px;color:#b91c1c;font-weight:700;";
+        nota.textContent = "→ Correcto: " + ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos === ej.items.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Clasificación perfecta!" : "✗ " + aciertos + " de " + ej.items.length + " correctas",
+      ej.retro || "");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 5; ta.placeholder = "Redacta aquí tu respuesta…";
+  cont.appendChild(ta);
+
+  const ul = el("ul","criterios"); ul.style.marginTop = "14px";
+  ej.criterios.forEach((c, i) => {
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.id = "crit_" + techId + "_" + i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+
+  const mod = el("div","modelo");
+  mod.innerHTML = "<strong>Respuesta modelo orientativa</strong>" + ej.modelo;
+  cont.appendChild(mod);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escribe primero tu respuesta","Redacta al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados === total ? "ok" : "info",
+      marcados === total ? "✓ Autoevaluación completa" : "Autoevaluación: " + marcados + "/" + total,
+      "Compara tu texto con el modelo: ¿qué ideas coinciden? ¿qué te falta? ¿qué aportas tú?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+
+/* =====================================================================
+   PROGRESO
+   ===================================================================== */
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardar();
+    actualizarProgreso();
+    renderMenu(document.getElementById("search").value);
+    const block = CATEGORIAS.find(c => c.tecnicas.some(t => t.id === id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i) => {
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas + " / " + total;
+  document.getElementById("progressFill").style.width = (hechas/total*100) + "%";
+}
+
+/* =====================================================================
+   SIDEBAR / BÚSQUEDA / RESET
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("search").addEventListener("input", e => {
+  renderMenu(e.target.value);
+  if(e.target.value.trim()){
+    document.querySelectorAll(".cat").forEach(c => c.classList.add("open"));
+  }
+});
+
+document.getElementById("btnReset").onclick = () => {
+  if(confirm("¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer.")){
+    progreso = {}; guardar();
+    abrirTecnica(TECNICAS_FLAT[0].id);
+  }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+renderMenu("");
+abrirTecnica(actualId);
+actualizarProgreso();
+</script>
+</body>
+</html>
