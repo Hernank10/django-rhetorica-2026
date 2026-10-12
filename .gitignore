@@ -69,3 +69,6 @@ django_retorica/*.bak
 django_retorica/*.bak_*
 pytest_out.txt
 .pytest_cache/
+diag_fase3.txt
+diag_*.txt
+pytest_out.txt
