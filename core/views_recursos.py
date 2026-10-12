@@ -127,3 +127,135 @@ def servir_recurso_raw(request, slug):
         return response
 
     return FileResponse(open(archivo, "rb"), content_type=ct)
+
+# ============================================================
+# VINCULACIÓN DE RECURSOS A OBJETOS DE APRENDIZAJE
+# ============================================================
+from django.contrib import messages
+from django.shortcuts import redirect
+
+from .models import EjercicioLinguistico
+from .models_cursos import Curso, Modulo, Leccion, EvaluacionCurso
+
+
+def _catalogo_objetos():
+    """Devuelve dicts para los selects del formulario."""
+    return {
+        "cursos": Curso.objects.all().order_by("titulo"),
+        "modulos": Modulo.objects.select_related("curso").order_by("curso__titulo", "titulo"),
+        "lecciones": Leccion.objects.select_related("modulo__curso").order_by("modulo__curso__titulo", "orden"),
+        "evaluaciones": EvaluacionCurso.objects.select_related("curso").order_by("curso__titulo", "titulo"),
+        "ejercicios": EjercicioLinguistico.objects.all().order_by("titulo")[:500],
+    }
+
+
+@login_required
+def vincular_recurso(request, slug):
+    """Formulario único para vincular un Recurso a curso/modulo/leccion/evaluacion/ejercicio."""
+    recurso = get_object_or_404(Recurso, slug=slug)
+
+    if request.method == "POST":
+        recurso.curso_id = request.POST.get("curso") or None
+        recurso.modulo_id = request.POST.get("modulo") or None
+        recurso.leccion_id = request.POST.get("leccion") or None
+        recurso.evaluacion_curso_id = request.POST.get("evaluacion_curso") or None
+        recurso.ejercicio_id = request.POST.get("ejercicio") or None
+        try:
+            recurso.orden = int(request.POST.get("orden") or 0)
+        except ValueError:
+            recurso.orden = 0
+        recurso.destacado = "destacado" in request.POST
+        recurso.save()
+        messages.success(request, f"Recurso «{recurso.nombre}» vinculado correctamente.")
+        return redirect("recursos:ver", slug=recurso.slug)
+
+    ctx = {"recurso": recurso}
+    ctx.update(_catalogo_objetos())
+    return render(request, "core/recursos/vincular.html", ctx)
+
+
+@login_required
+def desvincular_recurso(request, slug, tipo):
+    """Quita un vínculo específico del recurso."""
+    recurso = get_object_or_404(Recurso, slug=slug)
+    campos = {"curso", "modulo", "leccion", "evaluacion_curso", "ejercicio"}
+    if tipo not in campos:
+        raise Http404("Tipo inválido")
+
+    if request.method == "POST":
+        setattr(recurso, f"{tipo}_id", None)
+        recurso.save(update_fields=[tipo])
+        messages.info(request, f"Vínculo «{tipo}» eliminado.")
+    return redirect("recursos:ver", slug=recurso.slug)
+
+
+@login_required
+def recursos_para_objeto(request, tipo, obj_id):
+    """Lista los recursos vinculados a un objeto (curso/modulo/leccion/evaluacion/ejercicio)."""
+    mapa = {
+        "curso": (Curso, "curso"),
+        "modulo": (Modulo, "modulo"),
+        "leccion": (Leccion, "leccion"),
+        "evaluacion": (EvaluacionCurso, "evaluacion_curso"),
+        "ejercicio": (EjercicioLinguistico, "ejercicio"),
+    }
+    if tipo not in mapa:
+        raise Http404("Tipo inválido")
+    modelo, campo = mapa[tipo]
+    obj = get_object_or_404(modelo, pk=obj_id)
+
+    vinculados = Recurso.objects.filter(**{campo: obj}).order_by("orden", "nombre")
+    disponibles = Recurso.objects.exclude(pk__in=[r.pk for r in vinculados]).order_by("categoria", "nombre")[:500]
+
+    return render(request, "core/recursos/para_objeto.html", {
+        "tipo": tipo,
+        "objeto": obj,
+        "vinculados": vinculados,
+        "disponibles": disponibles,
+        "campo": campo,
+    })
+
+
+@login_required
+def asignar_recursos(request, tipo, obj_id):
+    """POST: recibe [recurso_ids] y los asigna al objeto."""
+    mapa = {
+        "curso": (Curso, "curso"),
+        "modulo": (Modulo, "modulo"),
+        "leccion": (Leccion, "leccion"),
+        "evaluacion": (EvaluacionCurso, "evaluacion_curso"),
+        "ejercicio": (EjercicioLinguistico, "ejercicio"),
+    }
+    if tipo not in mapa:
+        raise Http404("Tipo inválido")
+    modelo, campo = mapa[tipo]
+    obj = get_object_or_404(modelo, pk=obj_id)
+
+    if request.method == "POST":
+        ids = request.POST.getlist("recurso_ids")
+        if ids:
+            Recurso.objects.filter(pk__in=ids).update(**{campo: obj})
+            messages.success(request, f"{len(ids)} recurso(s) asignado(s).")
+        else:
+            messages.warning(request, "No seleccionaste ningún recurso.")
+    return redirect("recursos:para_objeto", tipo=tipo, obj_id=obj_id)
+
+
+@login_required
+def quitar_recurso(request, tipo, obj_id, recurso_id):
+    """POST: quita un recurso específico del objeto."""
+    mapa = {
+        "curso": "curso",
+        "modulo": "modulo",
+        "leccion": "leccion",
+        "evaluacion": "evaluacion_curso",
+        "ejercicio": "ejercicio",
+    }
+    if tipo not in mapa:
+        raise Http404("Tipo inválido")
+    campo = mapa[tipo]
+    recurso = get_object_or_404(Recurso, pk=recurso_id)
+    setattr(recurso, f"{campo}_id", None)
+    recurso.save(update_fields=[campo])
+    messages.info(request, f"Recurso «{recurso.nombre}» desvinculado.")
+    return redirect("recursos:para_objeto", tipo=tipo, obj_id=obj_id)

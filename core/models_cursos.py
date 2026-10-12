@@ -96,7 +96,7 @@ class Leccion(models.Model):
     tipo = models.CharField(max_length=20, choices=TIPOS, default='teoria')
     orden = models.IntegerField(default=0)
     
-    ejercicios_relacionados = models.ManyToManyField(EjercicioLinguistico, blank=True)
+    ejercicios_relacionados = models.ManyToManyField(EjercicioLinguistico, blank=True, related_name='lecciones_relacionadas')
     tecnicas_relacionadas = models.ManyToManyField(TecnicaLinguistica, blank=True)
     
     duracion_estimada = models.IntegerField(help_text="Duración en minutos", default=15)

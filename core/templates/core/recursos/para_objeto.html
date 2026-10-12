@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">
+      <i class="fas fa-folder-open text-warning"></i>
+      Recursos para {{ tipo }}: {{ objeto }}
+    </h2>
+    <span class="badge bg-secondary">{{ vinculados|length }} vinculados</span>
+  </div>
+
+  <div class="row g-3">
+    <!-- VINCULADOS -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-white fw-bold">
+          <i class="fas fa-check-circle text-success"></i> Vinculados
+        </div>
+        <div class="list-group list-group-flush" style="max-height:60vh;overflow:auto;">
+          {% for r in vinculados %}
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <div>
+                <span class="badge bg-{{ r.color_badge }}">{{ r.categoria }}</span>
+                <div class="mt-1">{{ r.nombre|truncatechars:70 }}</div>
+                <small class="text-muted">.{{ r.extension }} · {{ r.tamaño_legible }}</small>
+              </div>
+              <form method="post" action="{% url 'recursos:quitar' tipo=tipo obj_id=objeto.id recurso_id=r.id %}"
+                    onsubmit="return confirm('¿Quitar este recurso?');">
+                {% csrf_token %}
+                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+              </form>
+            </div>
+          {% empty %}
+            <div class="list-group-item text-muted text-center py-4">
+              Sin recursos vinculados aún.
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- DISPONIBLES -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-white fw-bold">
+          <i class="fas fa-plus-circle text-primary"></i> Disponibles para asignar
+        </div>
+        <form method="post" action="{% url 'recursos:asignar' tipo=tipo obj_id=objeto.id %}">
+          {% csrf_token %}
+          <div class="list-group list-group-flush" style="max-height:50vh;overflow:auto;">
+            {% for r in disponibles %}
+              <label class="list-group-item d-flex align-items-center">
+                <input type="checkbox" name="recurso_ids" value="{{ r.id }}" class="form-check-input me-2">
+                <div>
+                  <span class="badge bg-{{ r.color_badge }}">{{ r.categoria }}</span>
+                  <div class="mt-1">{{ r.nombre|truncatechars:70 }}</div>
+                </div>
+              </label>
+            {% empty %}
+              <div class="list-group-item text-muted text-center py-4">
+                Todos los recursos ya están vinculados.
+              </div>
+            {% endfor %}
+          </div>
+          <div class="card-footer bg-white text-end">
+            <button class="btn btn-primary" {% if not disponibles %}disabled{% endif %}>
+              <i class="fas fa-check"></i> Asignar seleccionados
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

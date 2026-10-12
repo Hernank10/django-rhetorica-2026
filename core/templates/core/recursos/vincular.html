@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <a href="{% url 'recursos:ver' recurso.slug %}" class="btn btn-sm btn-outline-secondary mb-3">
+    <i class="fas fa-arrow-left"></i> Volver al recurso
+  </a>
+
+  <h2 class="mb-3"><i class="fas fa-link"></i> Vincular recurso</h2>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <h5 class="mb-1">{{ recurso.nombre }}</h5>
+      <small class="text-muted">
+        <span class="badge bg-{{ recurso.color_badge }}">{{ recurso.categoria }}</span>
+        .{{ recurso.extension }} · {{ recurso.tamaño_legible }}
+      </small>
+    </div>
+  </div>
+
+  <form method="post" class="card shadow-sm">
+    {% csrf_token %}
+    <div class="card-body">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label class="form-label">Curso</label>
+          <select name="curso" class="form-select">
+            <option value="">— sin curso —</option>
+            {% for c in cursos %}
+              <option value="{{ c.id }}" {% if recurso.curso_id == c.id %}selected{% endif %}>
+                {{ c.titulo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Módulo</label>
+          <select name="modulo" class="form-select">
+            <option value="">— sin módulo —</option>
+            {% for m in modulos %}
+              <option value="{{ m.id }}" {% if recurso.modulo_id == m.id %}selected{% endif %}>
+                {{ m.curso.titulo }} → {{ m.titulo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Lección</label>
+          <select name="leccion" class="form-select">
+            <option value="">— sin lección —</option>
+            {% for l in lecciones %}
+              <option value="{{ l.id }}" {% if recurso.leccion_id == l.id %}selected{% endif %}>
+                {{ l.modulo.curso.titulo }} → {{ l.titulo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Evaluación de curso</label>
+          <select name="evaluacion_curso" class="form-select">
+            <option value="">— sin evaluación —</option>
+            {% for e in evaluaciones %}
+              <option value="{{ e.id }}" {% if recurso.evaluacion_curso_id == e.id %}selected{% endif %}>
+                {{ e.curso.titulo }} → {{ e.titulo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Ejercicio (práctica)</label>
+          <select name="ejercicio" class="form-select">
+            <option value="">— sin ejercicio —</option>
+            {% for e in ejercicios %}
+              <option value="{{ e.id }}" {% if recurso.ejercicio_id == e.id %}selected{% endif %}>
+                {{ e.titulo }}
+              </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label">Orden</label>
+          <input type="number" name="orden" value="{{ recurso.orden|default:0 }}" min="0" class="form-control">
+        </div>
+
+        <div class="col-md-3 d-flex align-items-end">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="destacado" id="destacado"
+                   {% if recurso.destacado %}checked{% endif %}>
+            <label class="form-check-label" for="destacado">Destacado</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card-footer bg-white text-end">
+      <a href="{% url 'recursos:ver' recurso.slug %}" class="btn btn-secondary">Cancelar</a>
+      <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar vínculos</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

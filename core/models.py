@@ -254,6 +254,25 @@ class Recurso(models.Model):
         'core.Curso', on_delete=models.SET_NULL,
         null=True, blank=True, related_name='recursos',
     )
+
+    modulo = models.ForeignKey(
+        'core.Modulo', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='recursos',
+    )
+    leccion = models.ForeignKey(
+        'core.Leccion', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='recursos',
+    )
+    evaluacion_curso = models.ForeignKey(
+        'core.EvaluacionCurso', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='recursos',
+    )
+    ejercicio = models.ForeignKey(
+        'core.EjercicioLinguistico', on_delete=models.SET_NULL,
+        null=True, blank=True, related_name='recursos',
+    )
+    orden = models.PositiveIntegerField(default=0)
+    destacado = models.BooleanField(default=False)
     creado_en = models.DateTimeField(auto_now_add=True)
 
     class Meta:
