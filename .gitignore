@@ -67,3 +67,5 @@ ejercicios_completos-lengua-castellana/*.zip
 ejercicios_completos-lengua-castellana/*.rar
 django_retorica/*.bak
 django_retorica/*.bak_*
+pytest_out.txt
+.pytest_cache/
