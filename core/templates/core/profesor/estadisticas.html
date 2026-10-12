@@ -1,0 +1,221 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0"><i class="fas fa-chart-line"></i> Estadísticas</h2>
+  <a href="{% url 'profesor:ranking' %}" class="btn btn-primary">
+    <i class="fas fa-trophy"></i> Ver Ranking
+  </a>
+</div>
+
+<!-- KPIs -->
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.total_est }}</div>
+        <div><i class="fas fa-users"></i> Estudiantes</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.total_progresos }}</div>
+        <div><i class="fas fa-check-circle"></i> Lecciones completadas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-info text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.total_resp }}</div>
+        <div><i class="fas fa-clipboard-list"></i> Respuestas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.tasa_global }}%</div>
+        <div><i class="fas fa-percent"></i> Tasa de aciertos</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gráficos -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-chart-bar"></i> Top cursos por inscritos
+      </div>
+      <div class="card-body">
+        <canvas id="chartCursos" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-chart-line"></i> Actividad últimos 30 días
+      </div>
+      <div class="card-body">
+        <canvas id="chartActividad" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-chart-pie"></i> Distribución por nivel
+      </div>
+      <div class="card-body">
+        <canvas id="chartNiveles" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-chart-bar"></i> Promedio por curso
+      </div>
+      <div class="card-body">
+        <canvas id="chartPromedios" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Top rankings mini -->
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-trophy"></i> Top 10 por progreso
+      </div>
+      <ol class="list-group list-group-numbered">
+        {% for u in top_por_progreso %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span>{{ u.username }}</span>
+          <span class="badge bg-primary">{{ u.num_progresos }} lecciones</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin datos</li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold">
+        <i class="fas fa-star"></i> Top 10 por aciertos
+      </div>
+      <ol class="list-group list-group-numbered">
+        {% for u in top_por_aciertos %}
+        <li class="list-group-item d-flex justify-content-between">
+          <span>{{ u.username }}</span>
+          <span class="badge bg-success">{{ u.correctas }} correctas</span>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-muted">Sin datos</li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// Datos
+const cursosLabels = [{% for c in cursos_stats %}"{{ c.curso.titulo|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const cursosInscritos = [{% for c in cursos_stats %}{{ c.inscritos }}{% if not forloop.last %},{% endif %}{% endfor %}];
+const cursosPromedios = [{% for c in cursos_stats %}{{ c.promedio }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+const actividadLabels = [{% for a in actividad_diaria %}"{{ a.dia }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const actividadData = [{% for a in actividad_diaria %}{{ a.count }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+const nivelesLabels = [{% for n in niveles_data %}"{{ n.nivel|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const nivelesData = [{% for n in niveles_data %}{{ n.count }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+// Chart 1: Top cursos
+new Chart(document.getElementById('chartCursos'), {
+  type: 'bar',
+  data: {
+    labels: cursosLabels,
+    datasets: [{
+      label: 'Inscritos',
+      data: cursosInscritos,
+      backgroundColor: 'rgba(54, 162, 235, 0.6)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+// Chart 2: Actividad
+new Chart(document.getElementById('chartActividad'), {
+  type: 'line',
+  data: {
+    labels: actividadLabels,
+    datasets: [{
+      label: 'Lecciones completadas',
+      data: actividadData,
+      borderColor: 'rgba(75, 192, 192, 1)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      tension: 0.3,
+      fill: true,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+
+// Chart 3: Niveles (dona)
+new Chart(document.getElementById('chartNiveles'), {
+  type: 'doughnut',
+  data: {
+    labels: nivelesLabels,
+    datasets: [{
+      data: nivelesData,
+      backgroundColor: [
+        '#4ade80', '#60a5fa', '#fbbf24', '#f472b6', '#a855f7', '#06b6d4'
+      ],
+    }]
+  },
+  options: { responsive: true }
+});
+
+// Chart 4: Promedios por curso
+new Chart(document.getElementById('chartPromedios'), {
+  type: 'bar',
+  data: {
+    labels: cursosLabels,
+    datasets: [{
+      label: 'Promedio',
+      data: cursosPromedios,
+      backgroundColor: 'rgba(255, 159, 64, 0.6)',
+      borderColor: 'rgba(255, 159, 64, 1)',
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, max: 100 } }
+  }
+});
+</script>
+{% endblock %}

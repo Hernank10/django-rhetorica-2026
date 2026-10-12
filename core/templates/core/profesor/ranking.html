@@ -1,0 +1,76 @@
+{% extends 'core/profesor/base.html' %}
+{% block panel %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2 class="mb-0"><i class="fas fa-trophy"></i> Ranking de Estudiantes</h2>
+  <a href="{% url 'profesor:estadisticas' %}" class="btn btn-outline-primary">
+    <i class="fas fa-chart-line"></i> Ver Estadísticas
+  </a>
+</div>
+
+<!-- Filtros -->
+<div class="btn-group mb-3" role="group">
+  <a href="?orden=progreso" class="btn btn-{% if orden == 'progreso' or not orden %}primary{% else %}outline-primary{% endif %}">
+    <i class="fas fa-graduation-cap"></i> Por progreso
+  </a>
+  <a href="?orden=correctas" class="btn btn-{% if orden == 'correctas' %}primary{% else %}outline-primary{% endif %}">
+    <i class="fas fa-check-circle"></i> Por aciertos
+  </a>
+  <a href="?orden=logros" class="btn btn-{% if orden == 'logros' %}primary{% else %}outline-primary{% endif %}">
+    <i class="fas fa-trophy"></i> Por logros
+  </a>
+  <a href="?orden=certificados" class="btn btn-{% if orden == 'certificados' %}primary{% else %}outline-primary{% endif %}">
+    <i class="fas fa-certificate"></i> Por certificados
+  </a>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th style="width:60px;">#</th>
+        <th>Estudiante</th>
+        <th class="text-center">Lecciones</th>
+        <th class="text-center">Respuestas</th>
+        <th class="text-center">Correctas</th>
+        <th class="text-center">Tasa</th>
+        <th class="text-center">Logros</th>
+        <th class="text-center">Certif.</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in ranking %}
+      <tr>
+        <td>
+          {% if r.pos == 1 %}<span class="badge bg-warning text-dark fs-6">🥇</span>
+          {% elif r.pos == 2 %}<span class="badge bg-secondary fs-6">🥈</span>
+          {% elif r.pos == 3 %}<span class="badge bg-danger fs-6">🥉</span>
+          {% else %}<strong>{{ r.pos }}</strong>{% endif %}
+        </td>
+        <td>
+          <strong>{{ r.user.username }}</strong><br>
+          <small class="text-muted">{{ r.user.get_full_name|default:"—" }}</small>
+        </td>
+        <td class="text-center"><span class="badge bg-primary">{{ r.progresos }}</span></td>
+        <td class="text-center">{{ r.respuestas }}</td>
+        <td class="text-center"><span class="badge bg-success">{{ r.correctas }}</span></td>
+        <td class="text-center">
+          {% if r.tasa >= 80 %}<span class="badge bg-success">{{ r.tasa }}%</span>
+          {% elif r.tasa >= 50 %}<span class="badge bg-warning text-dark">{{ r.tasa }}%</span>
+          {% else %}<span class="badge bg-danger">{{ r.tasa }}%</span>{% endif %}
+        </td>
+        <td class="text-center"><span class="badge bg-warning text-dark">{{ r.logros }}</span></td>
+        <td class="text-center"><span class="badge bg-info text-dark">{{ r.certificados }}</span></td>
+        <td>
+          <a href="{% url 'profesor:estudiante_detalle' r.user.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-eye"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="9" class="text-center text-muted py-4">Sin datos</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

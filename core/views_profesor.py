@@ -559,3 +559,229 @@ def detalle_estudiante_completo(request, estudiante_id):
         },
     }
     return render(request, "core/profesor/estudiantes/detalle.html", context)
+
+
+# ============================================================
+# ESTADÍSTICAS Y RANKING
+# ============================================================
+from django.db.models import Count, Avg, Sum, Q
+from datetime import timedelta
+
+
+@profesor_required
+def estadisticas_dashboard(request):
+    """Estadísticas globales con datos para gráficos."""
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    # --- KPIs globales ---
+    total_est = User.objects.filter(groups__name="Estudiante").count()
+    total_progresos = ProgresoUsuario.objects.filter(completado=True).count()
+    total_resp = Respuesta.objects.count()
+    total_correctas = Respuesta.objects.filter(es_correcta=True).count()
+    tasa_global = round((total_correctas / total_resp) * 100, 1) if total_resp else 0
+
+    # --- Top 10 estudiantes por progreso ---
+    top_por_progreso = (
+        User.objects.filter(groups__name="Estudiante")
+        .annotate(num_progresos=Count("progreso_lecciones", filter=Q(progreso_lecciones__completado=True)))
+        .order_by("-num_progresos")[:10]
+    )
+
+    # --- Top 10 por respuestas correctas ---
+    top_por_aciertos = (
+        User.objects.filter(groups__name="Estudiante")
+        .annotate(
+            correctas=Count("respuestas", filter=Q(respuestas__es_correcta=True)),
+            total=Count("respuestas"),
+        )
+        .filter(total__gt=0)
+        .order_by("-correctas")[:10]
+    )
+
+    # --- Estadísticas por curso ---
+    cursos = Curso.objects.all()
+    cursos_stats = []
+    for curso in cursos:
+        total_lecciones = Leccion.objects.filter(modulo__curso=curso).count()
+        total_inscritos = ProgresoUsuario.objects.filter(
+            leccion__modulo__curso=curso
+        ).values("usuario").distinct().count()
+        completadas = ProgresoUsuario.objects.filter(
+            leccion__modulo__curso=curso, completado=True
+        ).count()
+        prom = ProgresoUsuario.objects.filter(
+            leccion__modulo__curso=curso, completado=True
+        ).aggregate(p=Avg("puntaje_obtenido"))["p"] or 0
+        cursos_stats.append({
+            "curso": curso,
+            "inscritos": total_inscritos,
+            "completadas": completadas,
+            "promedio": round(prom, 1),
+        })
+    cursos_stats.sort(key=lambda x: x["inscritos"], reverse=True)
+
+    # --- Actividad últimos 30 días ---
+    hoy = timezone.now()
+    hace_30 = hoy - timedelta(days=30)
+    actividad_diaria = []
+    for i in range(30):
+        dia = hoy - timedelta(days=29 - i)
+        inicio = dia.replace(hour=0, minute=0, second=0, microsecond=0)
+        fin = inicio + timedelta(days=1)
+        n = ProgresoUsuario.objects.filter(
+            completado=True, completado_en__gte=inicio, completado_en__lt=fin
+        ).count()
+        actividad_diaria.append({
+            "dia": inicio.strftime("%d/%m"),
+            "count": n,
+        })
+
+    # --- Distribución por nivel de actividad (rangos de progreso) ---
+    estudiantes_qs = User.objects.filter(groups__name="Estudiante").annotate(
+        num_progresos=Count("progreso_lecciones", filter=Q(progreso_lecciones__completado=True))
+    )
+    rangos = [
+        ("Sin actividad", 0, 0),
+        ("Principiante (1-5)", 1, 5),
+        ("Intermedio (6-20)", 6, 20),
+        ("Avanzado (21-50)", 21, 50),
+        ("Experto (51+)", 51, 10**9),
+    ]
+    niveles_data = []
+    for nombre, min_, max_ in rangos:
+        n = estudiantes_qs.filter(num_progresos__gte=min_, num_progresos__lte=max_).count()
+        niveles_data.append({"nivel": nombre, "count": n})
+
+    context = {
+        "kpis": {
+            "total_est": total_est,
+            "total_progresos": total_progresos,
+            "total_resp": total_resp,
+            "total_correctas": total_correctas,
+            "tasa_global": tasa_global,
+        },
+        "top_por_progreso": top_por_progreso,
+        "top_por_aciertos": top_por_aciertos,
+        "cursos_stats": cursos_stats,
+        "actividad_diaria": actividad_diaria,
+        "niveles_data": niveles_data,
+    }
+    return render(request, "core/profesor/estadisticas.html", context)
+
+
+@profesor_required
+def ranking_estudiantes(request):
+    """Ranking completo de estudiantes con filtros."""
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    orden = request.GET.get("orden", "progreso")
+
+    qs = User.objects.filter(groups__name="Estudiante").annotate(
+        num_progresos=Count("progreso_lecciones", filter=Q(progreso_lecciones__completado=True), distinct=True),
+        num_respuestas=Count("respuestas", distinct=True),
+        correctas=Count("respuestas", filter=Q(respuestas__es_correcta=True), distinct=True),
+        num_logros=Count("logros_obtenidos", distinct=True),
+        num_certificados=Count("certificaciones_obtenidas", distinct=True),
+    )
+
+    if orden == "correctas":
+        qs = qs.order_by("-correctas", "-num_progresos")
+    elif orden == "logros":
+        qs = qs.order_by("-num_logros", "-num_progresos")
+    elif orden == "certificados":
+        qs = qs.order_by("-num_certificados", "-num_progresos")
+    else:  # progreso
+        qs = qs.order_by("-num_progresos", "-correctas")
+
+    ranking = qs[:100]
+
+    # Calcular tasa de aciertos para cada uno
+    data = []
+    for i, u in enumerate(ranking, start=1):
+        tasa = round((u.correctas / u.num_respuestas) * 100, 1) if u.num_respuestas else 0
+        data.append({
+            "pos": i,
+            "user": u,
+            "progresos": u.num_progresos,
+            "respuestas": u.num_respuestas,
+            "correctas": u.correctas,
+            "tasa": tasa,
+            "logros": u.num_logros,
+            "certificados": u.num_certificados,
+        })
+
+    return render(request, "core/profesor/ranking.html", {
+        "ranking": data,
+        "orden": orden,
+    })
+
+
+# ============================================================
+# DESCARGAR CERTIFICADOS (PDF / DOCX)
+# ============================================================
+from django.http import HttpResponse
+
+
+@profesor_required
+def certificado_pdf(request, certificado_id):
+    """Descarga el certificado en PDF tipo diploma."""
+    from .utils_certificados import generar_certificado_pdf
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
+    alumno = cert.user
+
+    try:
+        pdf_bytes = generar_certificado_pdf(cert, alumno)
+    except Exception as e:
+        messages.error(request, f"Error generando PDF: {e}")
+        return redirect("profesor:certificaciones")
+
+    response = HttpResponse(pdf_bytes, content_type="application/pdf")
+    response["Content-Disposition"] = f'attachment; filename="certificado_{cert.codigo_verificacion}.pdf"'
+    return response
+
+
+@profesor_required
+def certificado_docx(request, certificado_id):
+    """Descarga el certificado en Word editable."""
+    from .utils_certificados import generar_certificado_docx
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+
+    cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
+    alumno = cert.user
+
+    try:
+        docx_bytes = generar_certificado_docx(cert, alumno)
+    except Exception as e:
+        messages.error(request, f"Error generando DOCX: {e}")
+        return redirect("profesor:certificaciones")
+
+    response = HttpResponse(
+        docx_bytes,
+        content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    )
+    response["Content-Disposition"] = f'attachment; filename="certificado_{cert.codigo_verificacion}.docx"'
+    return response
+
+
+# ============================================================
+# VISTA PREVIA HTML DEL CERTIFICADO
+# ============================================================
+@profesor_required
+def certificado_preview(request, certificado_id):
+    """Vista previa HTML del certificado (diseño diploma)."""
+    from .utils_certificados import huella_certificado, huella_corta, folio_unico
+
+    cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
+    return render(request, "core/profesor/certificados/preview.html", {
+        "cert": cert,
+        "alumno": cert.user,
+        "huella": huella_certificado(cert),
+        "huella_corta": huella_corta(cert),
+        "folio": folio_unico(cert),
+    })

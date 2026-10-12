@@ -1655,3 +1655,32 @@ def dashboard_gamificacion(request):
     }
     
     return render(request, 'core/dashboard_gamificacion.html', context)
+
+
+# ============================================================
+# VERIFICACIÓN PÚBLICA DE CERTIFICADO (sin login)
+# ============================================================
+def verificar_certificado_publico(request, codigo):
+    """Página pública para verificar un certificado por su código."""
+    from .models import CertificacionObtenida
+    from .utils_certificados import huella_certificado, huella_corta, folio_unico
+    from django.http import Http404
+
+    try:
+        cert = CertificacionObtenida.objects.select_related(
+            "user", "certificacion"
+        ).get(codigo_verificacion=codigo)
+    except CertificacionObtenida.DoesNotExist:
+        return render(request, "core/profesor/certificados/publico.html", {
+            "encontrado": False,
+            "codigo": codigo,
+        }, status=404)
+
+    return render(request, "core/profesor/certificados/publico.html", {
+        "encontrado": True,
+        "cert": cert,
+        "alumno": cert.user,
+        "huella": huella_certificado(cert),
+        "huella_corta": huella_corta(cert),
+        "folio": folio_unico(cert),
+    })

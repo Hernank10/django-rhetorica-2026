@@ -1,0 +1,87 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de certificado — Rhetorica+</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body style="background:#f3f4f6;">
+  <div class="container py-5" style="max-width:900px;">
+
+    <div class="text-center mb-4">
+      <h1 style="color:#1e3a8a;font-weight:bold;letter-spacing:2px;">RHETORICA+</h1>
+      <p class="text-muted">Verificación de certificados</p>
+    </div>
+
+    {% if encontrado %}
+
+      <div class="alert alert-success text-center">
+        <i class="fas fa-check-circle fa-3x mb-2 text-success"></i>
+        <h3 class="mb-0">Certificado VÁLIDO</h3>
+        <p class="mb-0">Este certificado fue emitido por Rhetorica+ y es auténtico.</p>
+      </div>
+
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white fw-bold">
+          <i class="fas fa-certificate"></i> Datos del certificado
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <tr><th style="width:35%;">Titular</th>
+                <td><strong>{{ alumno.get_full_name|default:alumno.username }}</strong></td></tr>
+            <tr><th>Certificación</th>
+                <td><strong>{{ cert.certificacion.nombre }}</strong></td></tr>
+            <tr><th>Nivel</th>
+                <td><span class="badge bg-info text-dark">{{ cert.certificacion.nivel|capfirst }}</span></td></tr>
+            <tr><th>Fecha de emisión</th>
+                <td>{{ cert.fecha_obtenida|date:"d/m/Y H:i" }}</td></tr>
+            <tr><th>Folio único</th>
+                <td><code>{{ folio }}</code></td></tr>
+            <tr><th>Código</th>
+                <td><code>{{ cert.codigo_verificacion }}</code></td></tr>
+            <tr><th>Huella (SHA-256)</th>
+                <td><code style="word-break:break-all;font-size:0.8rem;">{{ huella }}</code></td></tr>
+            <tr><th>Huella corta</th>
+                <td><code>{{ huella_corta }}</code></td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <p class="mb-2 text-muted">Escanea este código para verificar desde otro dispositivo:</p>
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data={{ request.scheme }}://{{ request.get_host }}/verificar/{{ cert.codigo_verificacion }}/"
+               alt="QR verificación" style="width:180px;height:180px;">
+        </div>
+      </div>
+
+    {% else %}
+
+      <div class="alert alert-danger text-center">
+        <i class="fas fa-times-circle fa-3x mb-2"></i>
+        <h3 class="mb-0">Certificado NO encontrado</h3>
+        <p class="mb-0">El código <code>{{ codigo }}</code> no corresponde a ningún certificado emitido.</p>
+      </div>
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>¿Qué puedes hacer?</h5>
+          <ul>
+            <li>Verifica que el código esté completo y sin espacios.</li>
+            <li>Solicita al titular que revise su certificado.</li>
+            <li>Contacta a <a href="mailto:info@rhetorica.com">info@rhetorica.com</a> si crees que es un error.</li>
+          </ul>
+        </div>
+      </div>
+
+    {% endif %}
+
+    <div class="text-center mt-4 text-muted">
+      <small>Rhetorica+ · Plataforma de aprendizaje retórico basada en IA</small>
+    </div>
+  </div>
+</body>
+</html>

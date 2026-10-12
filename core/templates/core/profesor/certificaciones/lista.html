@@ -15,7 +15,23 @@
             <strong>{{ c.certificacion.nombre }}</strong><br>
             <small class="text-muted">{{ c.user.username }} · {{ c.codigo_verificacion }}</small>
           </div>
-          <span class="badge bg-success">{{ c.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</span>
+          <div class="d-flex flex-column gap-1 align-items-end">
+              <span class="badge bg-success">{{ c.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</span>
+              <div class="btn-group btn-group-sm">
+                <a href="{% url 'profesor:certificado_preview' c.id %}"
+                   class="btn btn-outline-info" title="Vista previa HTML">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a href="{% url 'profesor:certificado_pdf' c.id %}"
+                   class="btn btn-outline-danger" title="Descargar PDF diploma" target="_blank">
+                  <i class="fas fa-file-pdf"></i> PDF
+                </a>
+                <a href="{% url 'profesor:certificado_docx' c.id %}"
+                   class="btn btn-outline-primary" title="Descargar Word editable">
+                  <i class="fas fa-file-word"></i> Word
+                </a>
+              </div>
+            </div>
         </li>
         {% empty %}
         <li class="list-group-item text-muted">Sin certificados emitidos</li>

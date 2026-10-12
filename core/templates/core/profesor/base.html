@@ -33,6 +33,14 @@
            href="{% url 'profesor:certificaciones' %}">
           <i class="fas fa-certificate"></i> Certificaciones
         </a>
+        <a class="list-group-item list-group-item-action {% if '/estadisticas/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:estadisticas' %}">
+          <i class="fas fa-chart-line"></i> Estadísticas
+        </a>
+        <a class="list-group-item list-group-item-action {% if '/ranking/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:ranking' %}">
+          <i class="fas fa-trophy"></i> Ranking
+        </a>
       </div>
     </aside>
     <main class="col-md-10">

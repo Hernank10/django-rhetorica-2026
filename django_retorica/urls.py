@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
 
 from core.views import (
+    verificar_certificado_publico,
     index, login_view, registro_view, logout_view,
     dashboard_estudiante, dashboard_gamificacion,
     perfil_usuario, editar_perfil, cambiar_contrasena,
@@ -35,6 +36,7 @@ urlpatterns = [
 
 # Rutas con prefijo de idioma (/, /en/, /ja/, /ar/, ...)
 urlpatterns += i18n_patterns(
+    path('verificar/<str:codigo>/', verificar_certificado_publico, name='verificar_certificado_publico'),
     path('profesor/', include('core.urls_profesor')),
     path('', index, name='index'),
     path('login/', login_view, name='login'),

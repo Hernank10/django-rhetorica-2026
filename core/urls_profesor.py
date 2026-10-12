@@ -34,4 +34,9 @@ urlpatterns = [
     path('evaluaciones/<int:evaluacion_id>/preguntas/<int:pregunta_id>/editar/', prof.pregunta_form, name='pregunta_editar'),
     path('evaluaciones/<int:evaluacion_id>/preguntas/<int:pregunta_id>/eliminar/', prof.pregunta_eliminar, name='pregunta_eliminar'),
     path('cursos/<int:curso_id>/toggle/', prof.curso_toggle_publicar, name='curso_toggle'),
+    path('estadisticas/', prof.estadisticas_dashboard, name='estadisticas'),
+    path('ranking/', prof.ranking_estudiantes, name='ranking'),
+    path('certificaciones/<int:certificado_id>/pdf/', prof.certificado_pdf, name='certificado_pdf'),
+    path('certificaciones/<int:certificado_id>/docx/', prof.certificado_docx, name='certificado_docx'),
+    path('certificaciones/<int:certificado_id>/preview/', prof.certificado_preview, name='certificado_preview'),
 ]
