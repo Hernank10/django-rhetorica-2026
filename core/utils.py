@@ -34,8 +34,8 @@ TAGS_PERMITIDOS = {
 
 # Atributos permitidos por tag (mas atributos globales aparte)
 ATRIBUTOS_PERMITIDOS = {
-    "*": {"class", "id", "style", "title", "dir", "lang"},
-    "a": {"href", "title", "target", "rel"},
+    "*": {"class", "id", "title", "dir", "lang"},  # SIN "style" (XSS via url(javascript:))
+    "a": {"href", "title", "target"},  # nh3 gestiona "rel" via link_rel
     "img": {"src", "alt", "title", "width", "height", "loading"},
     "td": {"colspan", "rowspan", "headers"},
     "th": {"colspan", "rowspan", "scope", "headers"},
