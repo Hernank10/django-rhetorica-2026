@@ -27,8 +27,9 @@
              value="{{ leccion.titulo|default:'' }}">
     </div>
     <div class="mb-3">
-      <label class="form-label">Contenido (HTML permitido)</label>
+      <label class="form-label">Contenido</label>
       <textarea name="contenido" class="form-control" rows="10" id="id_contenido">{{ leccion.contenido|default:'' }}</textarea>
+<small class="form-text text-muted">Usa la barra de herramientas para dar formato. Acepta negritas, listas, enlaces, imagenes y tablas.</small>
     </div>
     <div class="row">
       <div class="col-md-3 mb-3">

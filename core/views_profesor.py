@@ -14,6 +14,7 @@ from .models import (
 from .models_cursos import (
     Curso, Modulo, Leccion, ProgresoUsuario, EvaluacionCurso, PreguntaEvaluacion,
 )
+from .utils import sanitizar_html
 
 User = get_user_model()
 
@@ -233,7 +234,8 @@ def leccion_form(request, leccion_id=None):
     if request.method == "POST":
         modulo_id = request.POST.get("modulo")
         titulo = request.POST.get("titulo", "").strip()
-        contenido = request.POST.get("contenido", "")
+        
+        contenido = sanitizar_html(request.POST.get("contenido", ""))
         tipo = request.POST.get("tipo", "lectura")
         orden = request.POST.get("orden", 1) or 1
         duracion = request.POST.get("duracion_estimada", 15) or 15
