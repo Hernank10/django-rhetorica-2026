@@ -169,8 +169,12 @@
 {% if curso.recursos.all %}
 <div class="card shadow-sm mt-4">
   <div class="card-header bg-white fw-bold">
-    <i class="fas fa-folder-open text-warning"></i> Recursos del curso ({{ curso.recursos.count }})
-  </div>
+     {{ curso.recursos.count }}
+        <a href="{% url 'recursos:para_objeto' tipo='curso' obj_id=curso.id %}"
+           class="btn btn-sm btn-warning float-end">
+          <i class="fas fa-plus"></i> Añadir recursos
+        </a>
+        <span style="display:none"></div>
   <div class="card-body">
     <div class="row g-2">
       {% for r in curso.recursos.all %}
