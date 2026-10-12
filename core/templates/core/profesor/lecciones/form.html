@@ -28,7 +28,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">Contenido (HTML permitido)</label>
-      <textarea name="contenido" class="form-control" rows="10">{{ leccion.contenido|default:'' }}</textarea>
+      <textarea name="contenido" class="form-control" rows="10" id="id_contenido">{{ leccion.contenido|default:'' }}</textarea>
     </div>
     <div class="row">
       <div class="col-md-3 mb-3">
@@ -58,4 +58,45 @@
     <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
   </div>
 </form>
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/tinymce@7/tinymce.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof tinymce === "undefined") return;
+
+    var selector = "textarea#id_contenido, textarea[name=contenido], textarea.tinymce-editor";
+    if (!document.querySelector(selector)) return;
+
+    tinymce.init({
+        selector: selector,
+        height: 550,
+        menubar: true,
+        branding: false,
+        promotion: false,
+        plugins: [
+            "advlist", "autolink", "lists", "link", "image", "charmap",
+            "preview", "anchor", "searchreplace", "visualblocks", "code",
+            "fullscreen", "insertdatetime", "media", "table", "help",
+            "wordcount", "codesample"
+        ],
+        toolbar: "undo redo | blocks | " +
+                 "bold italic forecolor backcolor | " +
+                 "alignleft aligncenter alignright alignjustify | " +
+                 "bullist numlist outdent indent | " +
+                 "link image media table | " +
+                 "removeformat code fullscreen preview | help",
+        content_style: "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.6; }",
+        language: "es",
+        skin: "oxide",
+        setup: function (editor) {
+            editor.on("change keyup", function () {
+                editor.save();
+            });
+        }
+    });
+});
+</script>
+{% endblock %}
+
 {% endblock %}
