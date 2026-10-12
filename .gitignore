@@ -75,3 +75,5 @@ pytest_out.txt
 diag_wysiwyg*.txt
 pytest_*.txt
 pytest_sanitize.txt
+xss_report.txt
+pytest_*.txt
