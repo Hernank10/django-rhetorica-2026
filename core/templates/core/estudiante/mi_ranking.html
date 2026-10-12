@@ -1,0 +1,45 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-medal"></i> Mi Ranking</h2>
+
+{% if mi_fila %}
+<div class="card shadow-sm border-primary mb-4">
+  <div class="card-body text-center">
+    <h5 class="text-muted mb-2">Tu posición actual</h5>
+    <div class="display-3 fw-bold text-primary">#{{ mi_posicion }}</div>
+    <p class="text-muted">de {{ total_estudiantes }} estudiantes</p>
+    <div class="row mt-3">
+      <div class="col-6">
+        <div class="fs-4 fw-bold text-success">{{ mi_fila.progresos }}</div>
+        <small class="text-muted">Lecciones completadas</small>
+      </div>
+      <div class="col-6">
+        <div class="fs-4 fw-bold text-info">{{ mi_fila.correctas }}</div>
+        <small class="text-muted">Respuestas correctas</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<h4 class="mb-3"><i class="fas fa-trophy text-warning"></i> Top 10</h4>
+<div class="table-responsive">
+  <table class="table table-hover align-middle">
+    <thead class="table-light">
+      <tr><th>#</th><th>Estudiante</th><th class="text-center">Lecciones</th><th class="text-center">Correctas</th></tr>
+    </thead>
+    <tbody>
+      {% for r in top10 %}
+      <tr {% if r.user.id == user.id %}class="table-primary"{% endif %}>
+        <td>
+          {% if r.pos == 1 %}🥇{% elif r.pos == 2 %}🥈{% elif r.pos == 3 %}🥉{% else %}<strong>{{ r.pos }}</strong>{% endif %}
+        </td>
+        <td><strong>{{ r.user.username }}</strong>{% if r.user.id == user.id %} <span class="badge bg-primary">Tú</span>{% endif %}</td>
+        <td class="text-center"><span class="badge bg-primary">{{ r.progresos }}</span></td>
+        <td class="text-center"><span class="badge bg-success">{{ r.correctas }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

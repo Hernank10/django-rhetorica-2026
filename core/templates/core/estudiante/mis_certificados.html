@@ -1,0 +1,59 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-certificate"></i> Mis Certificados</h2>
+
+<h4><i class="fas fa-award text-success"></i> Obtenidos ({{ total }})</h4>
+<div class="row g-3 mb-4">
+  {% for c in obtenidos %}
+  <div class="col-md-6">
+    <div class="card shadow-sm border-success h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <span class="badge bg-info text-dark mb-2">{{ c.certificacion.nivel|capfirst }}</span>
+            <h5 class="mb-1">{{ c.certificacion.nombre }}</h5>
+            <small class="text-muted">{{ c.certificacion.descripcion|truncatechars:100 }}</small>
+          </div>
+          <i class="fas fa-certificate fa-2x text-success"></i>
+        </div>
+        <hr>
+        <div class="small text-muted">
+          <div><strong>Código:</strong> {{ c.codigo_verificacion }}</div>
+          <div><strong>Emitido:</strong> {{ c.fecha_obtenida|date:"d/m/Y" }}</div>
+        </div>
+        <div class="btn-group btn-group-sm mt-3 w-100">
+          <a href="{% url 'estudiante:certificado_pdf' c.id %}" class="btn btn-outline-danger" target="_blank">
+            <i class="fas fa-file-pdf"></i> PDF
+          </a>
+          <a href="{% url 'estudiante:certificado_docx' c.id %}" class="btn btn-outline-primary">
+            <i class="fas fa-file-word"></i> Word
+          </a>
+          <a href="/verificar/{{ c.codigo_verificacion }}/" class="btn btn-outline-info" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Verificar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">Aún no tienes certificados. ¡Sigue completando cursos!</div>
+  {% endfor %}
+</div>
+
+<h4 class="mt-4"><i class="fas fa-bullseye text-muted"></i> Disponibles por obtener ({{ disponibles|length }})</h4>
+<div class="row g-3">
+  {% for c in disponibles %}
+  <div class="col-md-6">
+    <div class="card shadow-sm border-secondary opacity-75 h-100">
+      <div class="card-body">
+        <span class="badge bg-info text-dark">{{ c.nivel|capfirst }}</span>
+        <h5 class="mt-2">{{ c.nombre }}</h5>
+        <p class="small text-muted mb-0">{{ c.descripcion|truncatechars:110 }}</p>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">¡Ya tienes todas las certificaciones disponibles!</div>
+  {% endfor %}
+</div>
+{% endblock %}

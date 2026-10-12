@@ -1,0 +1,163 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-home"></i> Hola, {{ user.username }} 👋</h2>
+
+<!-- KPIs -->
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.cursos_activos }}</div>
+        <div><i class="fas fa-book"></i> Cursos activos</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.lecciones }}</div>
+        <div><i class="fas fa-check-circle"></i> Lecciones completadas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.logros }}</div>
+        <div><i class="fas fa-trophy"></i> Logros</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-info text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.certificados }}</div>
+        <div><i class="fas fa-certificate"></i> Certificados</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs secundarios -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-2">Tasa de aciertos global</h6>
+        <div class="fs-1 fw-bold
+          {% if kpis.tasa >= 80 %}text-success{% elif kpis.tasa >= 50 %}text-warning{% else %}text-danger{% endif %}">
+          {{ kpis.tasa }}%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-2">Certificados obtenidos</h6>
+        <div class="fs-1 fw-bold text-primary">{{ kpis.certificados }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gráficos -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Progreso por curso</div>
+      <div class="card-body">
+        <canvas id="chartCursos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-line"></i> Actividad últimos 30 días</div>
+      <div class="card-body">
+        <canvas id="chartActividad" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-award"></i> Últimos logros</div>
+      <ul class="list-group list-group-flush">
+        {% for l in ultimos_logros %}
+          <li class="list-group-item">
+            <span class="fs-5">{{ l.logro.icono }}</span>
+            <strong class="ms-2">{{ l.logro.nombre }}</strong>
+            <small class="text-muted d-block">{{ l.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</small>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted">Sin logros todavía</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-lightbulb"></i> Próximas lecciones sugeridas</div>
+      <ul class="list-group list-group-flush">
+        {% for l in proximas %}
+          <li class="list-group-item d-flex justify-content-between">
+            <div>
+              <strong>{{ l.titulo|truncatechars:45 }}</strong><br>
+              <small class="text-muted">{{ l.modulo.curso.titulo }}</small>
+            </div>
+            <a href="{% url 'ver_leccion' l.modulo.curso.slug l.modulo.id l.id %}"
+               class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-play"></i>
+            </a>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted">¡Felicidades, sin lecciones pendientes!</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+const cLabels = [{% for c in cursos_progreso %}"{{ c.curso.titulo|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const cData = [{% for c in cursos_progreso %}{{ c.pct }}{% if not forloop.last %},{% endif %}{% endfor %}];
+const aLabels = [{% for a in actividad %}"{{ a.dia }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const aData = [{% for a in actividad %}{{ a.count }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+new Chart(document.getElementById('chartCursos'), {
+  type: 'bar',
+  data: {
+    labels: cLabels,
+    datasets: [{
+      label: '% completado',
+      data: cData,
+      backgroundColor: 'rgba(75, 192, 192, 0.6)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+});
+
+new Chart(document.getElementById('chartActividad'), {
+  type: 'line',
+  data: {
+    labels: aLabels,
+    datasets: [{
+      label: 'Lecciones',
+      data: aData,
+      borderColor: 'rgba(54, 162, 235, 1)',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      tension: 0.3,
+      fill: true,
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+</script>
+{% endblock %}

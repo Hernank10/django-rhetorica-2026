@@ -1,0 +1,95 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-clipboard-check"></i> Mis Evaluaciones</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ pendientes|length }}</div>
+        <div>Pendientes</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ completadas|length }}</div>
+        <div>Completadas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ total }}</div>
+        <div>Total disponibles</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4><i class="fas fa-hourglass-half"></i> Pendientes ({{ pendientes|length }})</h4>
+<div class="row g-3 mb-4">
+  {% for p in pendientes %}
+  <div class="col-md-6">
+    <div class="card shadow-sm border-warning">
+      <div class="card-body">
+        <span class="badge bg-secondary">{{ p.ev.get_tipo_display|default:p.ev.tipo }}</span>
+        <h6 class="mt-2">{{ p.ev.titulo }}</h6>
+        <small class="text-muted d-block mb-2">{{ p.ev.curso.titulo }}</small>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="small text-muted">
+            <i class="fas fa-clock"></i> {{ p.ev.tiempo_limite }} min |
+            <i class="fas fa-star"></i> {{ p.ev.puntaje_maximo }} pts
+          </div>
+          <a href="{% url 'ver_evaluacion' p.ev.id %}" class="btn btn-sm btn-warning">
+            <i class="fas fa-play"></i> Empezar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">¡No tienes evaluaciones pendientes! 🎉</div>
+  {% endfor %}
+</div>
+
+<h4><i class="fas fa-check-circle text-success"></i> Completadas ({{ completadas|length }})</h4>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Evaluación</th>
+        <th>Curso</th>
+        <th>Intentos</th>
+        <th>Mejor puntaje</th>
+        <th>Último intento</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in completadas %}
+      <tr>
+        <td><strong>{{ c.ev.titulo }}</strong></td>
+        <td>{{ c.ev.curso.titulo }}</td>
+        <td><span class="badge bg-info text-dark">{{ c.intentos }}</span></td>
+        <td>
+          <span class="badge {% if c.mejor >= 80 %}bg-success{% elif c.mejor >= 50 %}bg-warning text-dark{% else %}bg-danger{% endif %}">
+            {{ c.mejor }}/{{ c.max }}
+          </span>
+        </td>
+        <td>{{ c.ultimo|date:"SHORT_DATETIME_FORMAT" }}</td>
+        <td>
+          <a href="{% url 'ver_evaluacion' c.ev.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-redo"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="6" class="text-center text-muted">Sin evaluaciones completadas</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-chart-line"></i> Mis Estadísticas</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ total_resp }}</div>
+        <div>Respuestas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ correctas }}</div>
+        <div>Correctas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ tasa }}%</div>
+        <div>Tasa de aciertos</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Promedio por curso</div>
+      <div class="card-body"><canvas id="chartProm" height="150"></canvas></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-line"></i> Actividad (30 días)</div>
+      <div class="card-body"><canvas id="chartAct" height="150"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div class="card shadow-sm mb-4">
+  <div class="card-header bg-white fw-bold"><i class="fas fa-list"></i> Aciertos por tipo de ejercicio</div>
+  <div class="table-responsive">
+    <table class="table table-hover mb-0">
+      <thead class="table-light">
+        <tr><th>Tipo</th><th>Total</th><th>Correctas</th><th>Tasa</th></tr>
+      </thead>
+      <tbody>
+        {% for t in tipos_data %}
+        <tr>
+          <td><strong>{{ t.tipo }}</strong></td>
+          <td>{{ t.total }}</td>
+          <td><span class="badge bg-success">{{ t.correctas }}</span></td>
+          <td>
+            <div class="progress" style="height:20px;min-width:120px;">
+              <div class="progress-bar {% if t.tasa >= 80 %}bg-success{% elif t.tasa >= 50 %}bg-warning{% else %}bg-danger{% endif %}"
+                   style="width:{{ t.tasa }}%;">{{ t.tasa }}%</div>
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="4" class="text-center text-muted">Sin datos</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+const pLabels = [{% for c in cursos_stats %}"{{ c.curso.titulo|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const pData = [{% for c in cursos_stats %}{{ c.promedio }}{% if not forloop.last %},{% endif %}{% endfor %}];
+const aLabels = [{% for a in actividad %}"{{ a.dia }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const aData = [{% for a in actividad %}{{ a.count }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+new Chart(document.getElementById('chartProm'), {
+  type: 'bar',
+  data: { labels: pLabels, datasets: [{ label: 'Promedio', data: pData,
+    backgroundColor: 'rgba(255, 159, 64, 0.6)', borderColor: 'rgba(255, 159, 64, 1)', borderWidth: 1 }] },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+});
+
+new Chart(document.getElementById('chartAct'), {
+  type: 'line',
+  data: { labels: aLabels, datasets: [{ label: 'Lecciones', data: aData,
+    borderColor: 'rgba(75, 192, 192, 1)', backgroundColor: 'rgba(75, 192, 192, 0.2)', tension: 0.3, fill: true }] },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+</script>
+{% endblock %}

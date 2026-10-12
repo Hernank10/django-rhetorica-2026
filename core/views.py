@@ -77,7 +77,7 @@ def dashboard_estudiante(request):
         try:
             user = User.objects.get(id=request.user.id)
         except User.DoesNotExist:
-            messages.error(request, 'Usuario no encontrado.')
+            pass  # silenciado (usar /estudiante/ en su lugar)
             return redirect('core:index')
     
     total_ejercicios = EjercicioLinguistico.objects.count()
@@ -186,7 +186,7 @@ def dashboard_gamificacion(request):
         usuario = CoreUser.objects.get(username=request.user.username)
         print(f"✅ Usuario core: {usuario.username} (ID: {usuario.id})")
     except CoreUser.DoesNotExist:
-        messages.error(request, '❌ Usuario no encontrado en core')
+        pass  # silenciado
         return redirect('login')
     
     # ✅ Filtrar con el objeto usuario de core.models
@@ -1259,7 +1259,7 @@ def dashboard_gamificacion(request):
         usuario = CoreUser.objects.get(username=request.user.username)
         print(f"✅ Usuario core: {usuario.username} (ID: {usuario.id})")
     except CoreUser.DoesNotExist:
-        messages.error(request, '❌ Usuario no encontrado en core')
+        pass  # silenciado
         return redirect('login')
     
     # ✅ Filtrar con el objeto usuario de core.models
@@ -1426,7 +1426,7 @@ def login_view(request):
     if request.user.is_authenticated:
         if request.user.is_staff:
             return redirect("profesor:dashboard")
-        return redirect("dashboard_estudiante")
+        return redirect("estudiante:dashboard")
     
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -1592,7 +1592,7 @@ def dashboard_gamificacion(request):
         usuario = CoreUser.objects.get(username=request.user.username)
         print(f"✅ Usuario core: {usuario.username} (ID: {usuario.id})")
     except CoreUser.DoesNotExist:
-        messages.error(request, '❌ Usuario no encontrado en core')
+        pass  # silenciado
         return redirect('login')
     
     # ✅ Filtrar con el objeto usuario de core.models

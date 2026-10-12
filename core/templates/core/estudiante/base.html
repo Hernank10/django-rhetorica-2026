@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container-fluid mt-4">
+  <div class="row">
+    <aside class="col-md-2">
+      <div class="list-group shadow-sm">
+        <a class="list-group-item list-group-item-action {% if request.path == '/estudiante/' or 'estudiante/estadisticas' not in request.path and 'estudiante/cursos' not in request.path and 'estudiante/evaluaciones' not in request.path and 'estudiante/logros' not in request.path and 'estudiante/certificados' not in request.path and 'estudiante/ranking' not in request.path %}active{% endif %}"
+           href="{% url 'estudiante:dashboard' %}">
+          <i class="fas fa-home"></i> Inicio
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/cursos' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:cursos' %}">
+          <i class="fas fa-book"></i> Mis Cursos
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/evaluaciones' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:evaluaciones' %}">
+          <i class="fas fa-clipboard-check"></i> Evaluaciones
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/logros' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:logros' %}">
+          <i class="fas fa-trophy"></i> Logros
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/certificados' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:certificados' %}">
+          <i class="fas fa-certificate"></i> Certificados
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/estadisticas' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:estadisticas' %}">
+          <i class="fas fa-chart-line"></i> Estadísticas
+        </a>
+        <a class="list-group-item list-group-item-action {% if 'estudiante/ranking' in request.path %}active{% endif %}"
+           href="{% url 'estudiante:ranking' %}">
+          <i class="fas fa-medal"></i> Ranking
+        </a>
+      </div>
+    </aside>
+    <main class="col-md-10">
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-{{ m.tags|default:'info' }} alert-dismissible fade show">
+            {{ m }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% block panel %}{% endblock %}
+    </main>
+  </div>
+</div>
+{% endblock %}

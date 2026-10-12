@@ -1,0 +1,61 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-trophy"></i> Mis Logros</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ total_obtenidos }} / {{ total_logros }}</div>
+        <div>Logros desbloqueados</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0 bg-secondary text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ por_obtener|length }}</div>
+        <div>Por desbloquear</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4><i class="fas fa-check-circle text-success"></i> Obtenidos ({{ total_obtenidos }})</h4>
+<div class="row g-3 mb-4">
+  {% for l in obtenidos %}
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center h-100 border-warning">
+      <div class="card-body">
+        <div class="fs-1">{{ l.logro.icono }}</div>
+        <strong>{{ l.logro.nombre }}</strong>
+        <p class="small text-muted mb-1">{{ l.logro.descripcion|truncatechars:60 }}</p>
+        <small class="text-muted">{{ l.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</small>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">Aún no tienes logros. ¡Sigue avanzando!</div>
+  {% endfor %}
+</div>
+
+<h4><i class="fas fa-lock text-secondary"></i> Por desbloquear ({{ por_obtener|length }})</h4>
+<div class="row g-3">
+  {% for l in por_obtener %}
+  <div class="col-md-3">
+    <div class="card shadow-sm text-center h-100 border-secondary opacity-75">
+      <div class="card-body">
+        <div class="fs-1 grayscale" style="filter:grayscale(1); opacity:0.5;">{{ l.icono|default:"🔒" }}</div>
+        <strong>{{ l.nombre }}</strong>
+        <p class="small text-muted mb-1">{{ l.descripcion|truncatechars:60 }}</p>
+        {% if l.puntos_requeridos %}
+        <small class="text-muted">{{ l.puntos_requeridos }} pts</small>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">¡Felicidades, has desbloqueado todos los logros!</div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-book"></i> Mis Cursos</h2>
+
+<div class="row g-3">
+  {% for c in cursos_data %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-2">
+          <span class="badge bg-info text-dark">{{ c.curso.nivel|capfirst }}</span>
+          <span class="badge bg-secondary">{{ c.curso.duracion_estimada }}h</span>
+        </div>
+        <h5 class="card-title">{{ c.curso.titulo }}</h5>
+        <p class="text-muted small">{{ c.curso.descripcion|truncatechars:110 }}</p>
+        <div class="d-flex justify-content-between small text-muted mb-2">
+          <span><i class="fas fa-layer-group"></i> {{ c.modulos }} módulos</span>
+          <span><i class="fas fa-file-alt"></i> {{ c.total }} lecciones</span>
+        </div>
+        <div class="progress mb-2" style="height:22px;">
+          <div class="progress-bar bg-success" style="width:{{ c.pct }}%;">
+            {% if c.pct > 10 %}{{ c.pct }}%{% endif %}
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <small class="text-muted">{{ c.completadas }}/{{ c.total }} completadas</small>
+          <a href="{% url 'detalle_curso' c.curso.slug %}" class="btn btn-sm btn-primary">
+            {% if c.pct > 0 and c.pct < 100 %}Continuar{% elif c.pct == 100 %}Repasar{% else %}Comenzar{% endif %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-center text-muted py-5">
+    <i class="fas fa-inbox fa-3x mb-3"></i>
+    <p>No hay cursos disponibles.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
