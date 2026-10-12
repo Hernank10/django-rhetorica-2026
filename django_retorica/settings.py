@@ -186,3 +186,10 @@ else:
 # Recursos educativos
 # -------------------------------------------------------------
 RECURSOS_DIR = BASE_DIR / 'ejercicios_completos-lengua-castellana'
+
+# -------------------------------------------------------------
+# Autenticación — redirecciones
+# -------------------------------------------------------------
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/'

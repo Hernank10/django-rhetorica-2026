@@ -305,6 +305,13 @@
                 <ul class="navbar-nav me-auto">
 {% load i18n %}
                     {% if user.is_authenticated %}
+
+                        <li class="nav-item">
+                            <a class="nav-link {% if '/recursos/' in request.path %}active{% endif %}"
+                               href="{% url 'recursos:lista' %}">
+                                <i class="fas fa-folder-open"></i> Recursos
+                            </a>
+                        </li>
 {% load i18n %}
                     <li class="nav-item">
 {% load i18n %}
