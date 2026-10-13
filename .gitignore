@@ -80,3 +80,5 @@ pytest_*.txt
 pytest_wysiwyg.txt
 .coverage
 cobertura*.txt
+cob_final.txt
+cob_*.txt
