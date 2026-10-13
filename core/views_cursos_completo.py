@@ -80,13 +80,18 @@ def ver_evaluacion(request, evaluacion_id):
     
     curso = evaluacion.curso
     modulo = evaluacion.modulo
+
+    # Primera leccion del modulo (para breadcrumb y boton Volver)
+    leccion = None
+    if modulo is not None:
+        leccion = modulo.lecciones.order_by('orden').first()
     
     context = {
         'evaluacion': evaluacion,
         'preguntas': preguntas,
         'curso': curso,
         'modulo': modulo,
-        'leccion': None,
+        'leccion': leccion,
         'total_preguntas': preguntas.count(),
         'intento_actual': 1,
     }
