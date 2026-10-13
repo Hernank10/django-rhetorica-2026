@@ -18,40 +18,41 @@ from core.models_cursos import (
 # seed_content
 # ============================================================
 class TestSeedContent:
+    """seed_content requiere que exista un admin (lo crea seed_and_test)."""
+
     def test_comando_existe(self):
         from django.core.management import get_commands
         assert "seed_content" in get_commands()
 
-    def test_ejecuta_sin_crash(self, db):
+    def test_ejecuta_sin_crash(self, db, admin_user):
         out = StringIO()
         call_command("seed_content", reset=True, stdout=out)
-        # No crashea
 
-    def test_crea_cursos(self, db):
+    def test_crea_cursos(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert Curso.objects.count() > 0
 
-    def test_crea_modulos(self, db):
+    def test_crea_modulos(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert Modulo.objects.count() > 0
 
-    def test_crea_lecciones(self, db):
+    def test_crea_lecciones(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert Leccion.objects.count() > 0
 
-    def test_crea_evaluaciones(self, db):
+    def test_crea_evaluaciones(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert EvaluacionCurso.objects.count() > 0
 
-    def test_crea_logros(self, db):
+    def test_crea_logros(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert Logro.objects.count() > 0
 
-    def test_crea_certificaciones(self, db):
+    def test_crea_certificaciones(self, db, admin_user):
         call_command("seed_content", reset=True, stdout=StringIO())
         assert Certificacion.objects.count() > 0
 
-    def test_imprime_output(self, db):
+    def test_imprime_output(self, db, admin_user):
         out = StringIO()
         call_command("seed_content", reset=True, stdout=out)
         assert len(out.getvalue()) > 0
@@ -61,6 +62,8 @@ class TestSeedContent:
 # seed_and_test
 # ============================================================
 class TestSeedAndTest:
+    """seed_and_test crea usuarios, grupos y luego corre seed_content."""
+
     def test_comando_existe(self):
         from django.core.management import get_commands
         assert "seed_and_test" in get_commands()
@@ -78,12 +81,12 @@ class TestSeedAndTest:
 
     def test_crea_grupos(self, db):
         from django.contrib.auth.models import Group
-        # Asegurar grupos base
         call_command("seed_and_test", reset=True, stdout=StringIO())
         nombres = set(Group.objects.values_list("name", flat=True))
         assert len(nombres) >= 3
 
     def test_crea_cursos(self, db):
+        # seed_and_test crea admin + llama a seed_content internamente
         call_command("seed_and_test", reset=True, stdout=StringIO())
         assert Curso.objects.count() > 0
 
