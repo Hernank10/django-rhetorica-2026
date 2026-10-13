@@ -112,16 +112,13 @@ class TestEnviarEvaluacion:
 # ============================================================
 class TestResultadoEvaluacion:
     def test_login_sin_resultado(self, cliente_est, evaluacion):
-        # BUG CONOCIDO: falta template 'core/cursos/resultado_evaluacion.html'
-        # Permitimos 500 para no romper el test hasta que se arregle.
-        cliente_est.raise_request_exception = False
+        # El template existe ahora; el render debe ser 200 limpio
         r = cliente_est.get(f"/evaluacion/{evaluacion.id}/resultados/")
-        assert r.status_code in (200, 302, 404, 500)
+        assert r.status_code in (200, 302, 404)
 
     def test_evaluacion_inexistente(self, cliente_est):
-        cliente_est.raise_request_exception = False
         r = cliente_est.get("/evaluacion/999999/resultados/")
-        assert r.status_code in (200, 302, 404, 500)
+        assert r.status_code in (200, 302, 404)
 
 
 # ============================================================
