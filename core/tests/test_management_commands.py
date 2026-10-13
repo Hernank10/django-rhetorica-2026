@@ -24,36 +24,36 @@ class TestSeedContent:
 
     def test_ejecuta_sin_crash(self, db):
         out = StringIO()
-        call_command("seed_content", stdout=out)
+        call_command("seed_content", reset=True, stdout=out)
         # No crashea
 
     def test_crea_cursos(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert Curso.objects.count() > 0
 
     def test_crea_modulos(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert Modulo.objects.count() > 0
 
     def test_crea_lecciones(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert Leccion.objects.count() > 0
 
     def test_crea_evaluaciones(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert EvaluacionCurso.objects.count() > 0
 
     def test_crea_logros(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert Logro.objects.count() > 0
 
     def test_crea_certificaciones(self, db):
-        call_command("seed_content", stdout=StringIO())
+        call_command("seed_content", reset=True, stdout=StringIO())
         assert Certificacion.objects.count() > 0
 
     def test_imprime_output(self, db):
         out = StringIO()
-        call_command("seed_content", stdout=out)
+        call_command("seed_content", reset=True, stdout=out)
         assert len(out.getvalue()) > 0
 
 
@@ -67,24 +67,24 @@ class TestSeedAndTest:
 
     def test_ejecuta_sin_crash(self, db):
         out = StringIO()
-        call_command("seed_and_test", stdout=out)
+        call_command("seed_and_test", reset=True, stdout=out)
 
     def test_crea_usuarios(self, db):
         from django.contrib.auth import get_user_model
         User = get_user_model()
         antes = User.objects.count()
-        call_command("seed_and_test", stdout=StringIO())
+        call_command("seed_and_test", reset=True, stdout=StringIO())
         assert User.objects.count() > antes
 
     def test_crea_grupos(self, db):
         from django.contrib.auth.models import Group
         # Asegurar grupos base
-        call_command("seed_and_test", stdout=StringIO())
+        call_command("seed_and_test", reset=True, stdout=StringIO())
         nombres = set(Group.objects.values_list("name", flat=True))
         assert len(nombres) >= 3
 
     def test_crea_cursos(self, db):
-        call_command("seed_and_test", stdout=StringIO())
+        call_command("seed_and_test", reset=True, stdout=StringIO())
         assert Curso.objects.count() > 0
 
 
