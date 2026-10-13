@@ -78,3 +78,5 @@ pytest_sanitize.txt
 xss_report.txt
 pytest_*.txt
 pytest_wysiwyg.txt
+.coverage
+cobertura*.txt
