@@ -1,0 +1,67 @@
+
+
+# ============================================================
+# Ruff - Linter de Python (conservador)
+# ============================================================
+# Reglas activas (solo las que detectan bugs reales):
+#   E   - Pycodestyle errors (solo errores graves)
+#   F   - Pyflakes (variables no usadas, imports rotos)
+#   W   - Warnings (espacios trailing, etc.)
+#   I   - isort (orden de imports)
+#   B   - Bugbear (bugs comunes de Python)
+#
+# Reglas DESACTIVADAS intencionalmente:
+#   E501 - Line too long (mucho ruido en templates)
+#   E402 - Module import not at top (comun en Django)
+#
+# Por archivo:
+#   - scripts/       → ignorado (son one-shot)
+#   - migrations/    → ignorado (autogeneradas)
+#   - tests/         → mas permisivo
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "__pycache__",
+    "migrations",
+    "scripts",
+    "ejercicios_completos-lengua-castellana",
+    "locale",
+    "staticfiles",
+    "media",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # Pycodestyle errors
+    "F",   # Pyflakes
+    "W",   # Warnings
+    "I",   # isort
+    "B",   # Bugbear
+]
+ignore = [
+    "E501",  # line too long
+    "E402",  # import not at top of file
+    "E731",  # lambda assignment
+    "E741",  # ambiguous variable name (l, I, O)
+    "F401",  # imported but unused (manejado manualmente)
+    "F403",  # import *
+    "F405",  # maybe undefined from star
+    "B008",  # function call in default arg (Django usa esto)
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests pueden tener imports no usados por fixtures
+"core/tests/*.py" = ["F811", "F841"]
+# Settings de Django tienen imports raros
+"django_retorica/settings.py" = ["F401", "F403"]
+"django_retorica/*.py" = ["F401", "F403"]
+# conftest tiene fixtures globales
+"conftest.py" = ["F401", "F811"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["core", "django_retorica"]
