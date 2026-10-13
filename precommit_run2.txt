@@ -1,0 +1,180 @@
+[INFO] Initializing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Installing environment for https://github.com/pre-commit/pre-commit-hooks.
+[INFO] Once installed this environment will be reused.
+[INFO] This may take a few minutes...
+trim trailing whitespace.................................................Passed
+fix end of files.........................................................Failed
+- hook id: end-of-file-fixer
+- exit code: 1
+- files were modified by this hook
+
+Fixing scripts/diag_wysiwyg.py
+Fixing scripts/fix_import_timezone.py
+Fixing scripts/tests_fase3.py
+Fixing scripts/diag_aviso_core.py
+Fixing scripts/fix_cursos_navbar.py
+Fixing scripts/fix_selector4.py
+Fixing scripts/fix_tests_commands.py
+Fixing scripts/diag_final_v2.py
+Fixing scripts/fix_views_safe.py
+Fixing scripts/panel_fase1.py
+Fixing scripts/fix_selector3.py
+Fixing scripts/add_seccion_recursos_curso.py
+Fixing scripts/ver_leccion_field.py
+Fixing scripts/diag_gamif_repr.py
+Fixing scripts/diag_resultado_evaluacion.py
+Fixing scripts/verificar_sidebar_profesor.py
+Fixing core/management/commands/seed_content.py
+Fixing scripts/fix_userid.py
+Fixing scripts/ver_template_curso.py
+Fixing scripts/silenciar_ultimo.py
+Fixing scripts/diag_codigo_muerto.py
+Fixing scripts/diag_views_principal.py
+Fixing scripts/fix_bug_evaluacion.py
+Fixing scripts/fix_extends.py
+Fixing scripts/diag_fase3.py
+Fixing scripts/fix_import_models_cursos.py
+Fixing scripts/diag_estudiante.py
+Fixing scripts/force_allowed.py
+Fixing scripts/diag_views_prof.py
+Fixing scripts/fix_vista_evaluacion_regex.py
+Fixing scripts/diag_detalle_estructura.py
+Fixing scripts/fix_nh3_style.py
+Fixing core/tests/test_utils_sanitize.py
+Fixing scripts/fix_selector.py
+Fixing scripts/fix_allowed.py
+Fixing scripts/panel_fase2.py
+Fixing scripts/add_include_en_django_retorica.py
+Fixing scripts/ocultar_cursos_staff.py
+Fixing scripts/diag_seed_verbose.py
+Fixing scripts/diag_xfails.py
+Fixing scripts/fix_navbar_cursos.py
+Fixing scripts/add_boton_recursos.py
+Fixing scripts/faseE1_borrar_muertos.py
+Fixing core/tests/test_resultado_evaluacion.py
+Fixing scripts/inspect_models.py
+Fixing scripts/fix_dashboard_anon.py
+Fixing scripts/fix_tests_commands2.py
+Fixing scripts/add_recursos_detalle_completo.py
+Fixing scripts/fix_linea441.py
+Fixing scripts/wysiwyg_fase2.py
+Fixing scripts/fix_tests_commands3.py
+Fixing scripts/fix_xfail_evaluacion.py
+Fixing scripts/clean_settings.py
+Fixing scripts/diag_leccion.py
+Fixing scripts/diag_urls_rotas.py
+Fixing core/tests/test_wysiwyg.py
+Fixing scripts/crear_panel_profesor.py
+Fixing scripts/diag_user.py
+Fixing scripts/diag_imports.py
+Fixing scripts/fix_cursos_completo.py
+Fixing scripts/fix_login_redirect.py
+Fixing scripts/fix_import_views_recursos.py
+Fixing scripts/add_include_profesor.py
+Fixing scripts/diag_modelos.py
+Fixing scripts/fix_chart_local.py
+Fixing scripts/fix_views_principal_tests.py
+Fixing scripts/crear_test_smoke.py
+Fixing scripts/wysiwyg_fase1.py
+Fixing scripts/panel_fase3.py
+Fixing scripts/panel_estudiante.py
+Fixing scripts/fix_leccion_related_name.py
+Fixing scripts/fix_save.py
+Fixing scripts/fix_langcode.py
+Fixing scripts/crear_test_urls.py
+Fixing scripts/add_menu_modulos.py
+Fixing scripts/ver_boton_navbar.py
+Fixing scripts/tests_fase_views.py
+Fixing scripts/fix_nh3_rel.py
+Fixing scripts/fix_xfail3_quitar_marca.py
+Fixing scripts/fix_views_profesor.py
+Fixing scripts/test_xss_todos_cursos.py
+Fixing scripts/fix_extends_all.py
+Fixing scripts/tests_faseC_recursos.py
+Fixing scripts/diag_comandos.py
+Fixing scripts/test_vincular_recurso.py
+Fixing scripts/fix_fase3.py
+Fixing scripts/add_recursos_navbar.py
+Fixing scripts/recursos_fase2.py
+Fixing scripts/fix_nivel_field.py
+Fixing scripts/fix_botones_recursos.py
+Fixing scripts/diag_final.py
+Fixing scripts/fix_todo_de_una.py
+Fixing scripts/diag_resultado2.py
+Fixing scripts/fix_bug_resultado_evaluacion.py
+Fixing scripts/fix_navbar_boton.py
+Fixing scripts/tests_fase1.py
+Fixing scripts/certificados_pdf_word.py
+Fixing scripts/fix_fuentes_directo.py
+Fixing scripts/diag_tpls_en_uso.py
+Fixing scripts/add_seccion_a_detalle.py
+Fixing scripts/faseD2_borrar_tpls.py
+Fixing scripts/fix_aviso_y_chart.py
+Fixing scripts/diag_urls.py
+Fixing scripts/wrap_trans.py
+Fixing scripts/diag_profesor.py
+Fixing scripts/diag_wysiwyg2.py
+Fixing scripts/fix_tests_endurecer.py
+Fixing scripts/fix_xfail2_template.py
+Fixing scripts/add_allowed.py
+Fixing scripts/diag_muerto2.py
+Fixing scripts/diag_admin_check.py
+Fixing scripts/ver_mensaje_core.py
+Fixing scripts/diag_template_curso.py
+Fixing scripts/diag_evaluacion_bug.py
+Fixing scripts/faseD_urls_rotas.py
+Fixing scripts/inspect_login.py
+Fixing scripts/fix_settings_final.py
+Fixing scripts/diag_cert_utils.py
+Fixing scripts/clean_settings_v3.py
+Fixing scripts/fix_selector2.py
+
+check yaml...............................................................Passed
+check for merge conflicts................................................Passed
+check for added large files..............................................Passed
+mixed line ending........................................................Failed
+- hook id: mixed-line-ending
+- exit code: 1
+
+.pre-commit-config.yaml: fixed mixed line endings
+.github/workflows/tests.yml: fixed mixed line endings
+
+check python ast.........................................................Failed
+- hook id: check-ast
+- exit code: 1
+
+scripts/fix_tests_commands3.py:1: SyntaxWarning: invalid escape sequence '\d'
+  """Fix definitivo: seed_content requiere usuarios con nombres concretos.
+scripts/tests_fase3.py:9: SyntaxWarning: invalid escape sequence '\-'
+  test_utils = '''"""Tests de core/utils_certificados.py: huella, folio, url publica."""
+scripts/add_seccion_recursos_curso.py: failed parsing with CPython 3.12.4:
+
+    Traceback (most recent call last):
+      File "C:\Users\14-AX026LA\.cache\pre-commit\repojigkgq3p\py_env-default\Lib\site-packages\pre_commit_hooks\check_ast.py", line 21, in main
+        ast.parse(f.read(), filename=filename)
+      File "ast.py", line 52, in parse
+      File "scripts/add_seccion_recursos_curso.py", line 76
+        print(f"     - {% if curso.recursos.exists %}")
+                        ^
+    SyntaxError: f-string: expecting a valid expression after '{'
+
+debug statements (python)................................................Failed
+- hook id: debug-statements
+- exit code: 1
+
+scripts/fix_tests_commands3.py:1: SyntaxWarning: invalid escape sequence '\d'
+  """Fix definitivo: seed_content requiere usuarios con nombres concretos.
+scripts/tests_fase3.py:9: SyntaxWarning: invalid escape sequence '\-'
+  test_utils = '''"""Tests de core/utils_certificados.py: huella, folio, url publica."""
+scripts/add_seccion_recursos_curso.py - Could not parse ast
+
+	Traceback (most recent call last):
+	  File "C:\Users\14-AX026LA\.cache\pre-commit\repojigkgq3p\py_env-default\Lib\site-packages\pre_commit_hooks\debug_statement_hook.py", line 57, in check_file
+	    ast_obj = ast.parse(f.read(), filename=filename)
+	              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	  File "ast.py", line 52, in parse
+	  File "scripts/add_seccion_recursos_curso.py", line 76
+	    print(f"     - {% if curso.recursos.exists %}")
+	                    ^
+	SyntaxError: f-string: expecting a valid expression after '{'
+

@@ -30,13 +30,13 @@ class Color:
 def generar_ejercicios():
     """Generar ejercicios de prueba"""
     ejercicios_existentes = EjercicioLinguistico.objects.count()
-    
+
     if ejercicios_existentes >= 10:
         print(f"{Color.VERDE}✅ Ya hay {ejercicios_existentes} ejercicios{Color.FIN}")
         return
-    
+
     print(f"{Color.AMARILLO}⚠️ Generando ejercicios de prueba...{Color.FIN}")
-    
+
     ejercicios = [
         {
             "titulo": "Uso de 'acorde'",
@@ -104,19 +104,19 @@ def generar_ejercicios():
             }
         }
     ]
-    
+
     for data in ejercicios:
         EjercicioLinguistico.objects.create(**data)
-    
+
     print(f"{Color.VERDE}✅ Generados {len(ejercicios)} ejercicios{Color.FIN}")
 
 def generar_tecnicas():
     """Generar técnicas de prueba"""
     if TecnicaLinguistica.objects.count() >= 3:
         return
-    
+
     print(f"{Color.AMARILLO}⚠️ Generando técnicas de prueba...{Color.FIN}")
-    
+
     tecnicas = [
         {'nombre': 'Metáfora', 'descripcion': 'Comparación implícita entre dos elementos', 'categoria': 'Figuras Retóricas'},
         {'nombre': 'Anáfora', 'descripcion': 'Repetición de palabras al inicio de versos', 'categoria': 'Figuras Retóricas'},
@@ -124,10 +124,10 @@ def generar_tecnicas():
         {'nombre': 'Ironía', 'descripcion': 'Decir lo contrario de lo que se piensa', 'categoria': 'Figuras Retóricas'},
         {'nombre': 'Sinécdoque', 'descripcion': 'Designar el todo por la parte o viceversa', 'categoria': 'Tropos'},
     ]
-    
+
     for t in tecnicas:
         TecnicaLinguistica.objects.create(**t)
-    
+
     print(f"{Color.VERDE}✅ Generadas {len(tecnicas)} técnicas{Color.FIN}")
 
 def main():
@@ -135,22 +135,22 @@ def main():
     print(f"{Color.NEGRITA}🚀 GENERADOR DE DATOS DE PRUEBA{Color.FIN}")
     print(f"{Color.CYAN}{'='*60}{Color.FIN}")
     print(f"📂 Directorio raíz: {BASE_DIR}\n")
-    
+
     generar_ejercicios()
     generar_tecnicas()
-    
+
     # Mostrar estadísticas
     print(f"\n{Color.VERDE}📊 ESTADÍSTICAS FINALES:{Color.FIN}")
     print(f"  ✅ Ejercicios: {EjercicioLinguistico.objects.count()}")
     print(f"  ✅ Técnicas: {TecnicaLinguistica.objects.count()}")
     print(f"  ✅ Usuarios: {User.objects.count()}")
-    
+
     print(f"\n{Color.AZUL}💡 PRÓXIMOS PASOS:{Color.FIN}")
     print(f"  1. Inicia el servidor: python manage.py runserver")
     print(f"  2. Accede al dashboard: http://localhost:8000/dashboard/")
     print(f"  3. Ver ejercicios: http://localhost:8000/biblioteca/")
     print(f"  4. Ver técnicas: http://localhost:8000/tecnicas/")
-    
+
     print(f"\n{Color.VERDE}✅ ¡Listo!{Color.FIN}")
 
 if __name__ == "__main__":

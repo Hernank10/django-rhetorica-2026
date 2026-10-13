@@ -34,24 +34,24 @@ class Color:
 class GeneradorPreguntas:
     def __init__(self):
         self.tipos_preguntas = [
-            'correccion', 'completar', 'reescribir', 'elegir', 
+            'correccion', 'completar', 'reescribir', 'elegir',
             'explicar', 'verdadero_falso', 'relacionar', 'ordenar',
             'multiple_choice', 'desarrollo'
         ]
         self.preguntas_generadas = []
         self.estadisticas = {}
-        
+
     def generar_100_preguntas(self):
         """Generar 100 preguntas automáticas"""
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}📚 GENERADOR AUTOMÁTICO DE PREGUNTAS{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+
         ejercicios_base = list(EjercicioLinguistico.objects.all())
         if len(ejercicios_base) < 100:
             print(f"{Color.AMARILLO}⚠️ Solo hay {len(ejercicios_base)} ejercicios base{Color.FIN}")
-        
+
         # Distribuir preguntas
         distribucion = {
             'correccion': 20,
@@ -65,7 +65,7 @@ class GeneradorPreguntas:
             'multiple_choice': 5,
             'desarrollo': 5,
         }
-        
+
         for tipo, cantidad in distribucion.items():
             print(f"\n{Color.MAGENTA}📌 Generando {cantidad} preguntas de tipo: {tipo}{Color.FIN}")
             for i in range(cantidad):
@@ -76,10 +76,10 @@ class GeneradorPreguntas:
                     if pregunta:
                         self.preguntas_generadas.append(pregunta)
                         self.estadisticas[tipo] = self.estadisticas.get(tipo, 0) + 1
-        
+
         print(f"\n{Color.VERDE}✅ Generadas {len(self.preguntas_generadas)} preguntas{Color.FIN}")
         return self.preguntas_generadas
-    
+
     def _generar_pregunta_segura(self, tipo, base, contenido):
         """Generar pregunta con manejo de errores"""
         try:
@@ -105,13 +105,13 @@ class GeneradorPreguntas:
                 return self._generar_desarrollo(base, contenido)
         except Exception as e:
             return None
-    
+
     def _generar_correccion(self, base, contenido):
         """Generar pregunta de corrección"""
         ejercicio = contenido.get('ejercicio', '')
         if not ejercicio:
             return None
-            
+
         return {
             'tipo': 'correccion',
             'id': f"corr_{base.id}",
@@ -124,15 +124,15 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_completar(self, base, contenido):
         """Generar pregunta de completar"""
         ejercicio = contenido.get('ejercicio', '')
         respuesta = contenido.get('suggestedAnswer', '')
-        
+
         if not ejercicio:
             return None
-        
+
         # Si tiene ___, usarlo; si no, crear un espacio
         if '___' in ejercicio:
             enunciado = ejercicio
@@ -149,7 +149,7 @@ class GeneradorPreguntas:
             else:
                 enunciado = ejercicio + " ___"
                 respuesta = respuesta if respuesta else 'palabra_faltante'
-        
+
         return {
             'tipo': 'completar',
             'id': f"comp_{base.id}",
@@ -162,13 +162,13 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_reescribir(self, base, contenido):
         """Generar pregunta de reescribir"""
         ejemplo = contenido.get('ejemplo', '')
         if not ejemplo:
             ejemplo = contenido.get('teoria', '')[:100]
-        
+
         return {
             'tipo': 'reescribir',
             'id': f"rees_{base.id}",
@@ -181,16 +181,16 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_elegir(self, base, contenido):
         """Generar pregunta de elegir"""
         teoria = contenido.get('teoria', '')
         if not teoria:
             return None
-            
+
         respuesta = contenido.get('suggestedAnswer', 'Opción correcta')
         opciones = [respuesta]
-        
+
         # Crear opciones falsas
         palabras = teoria.split()
         for _ in range(3):
@@ -198,9 +198,9 @@ class GeneradorPreguntas:
                 opcion = ' '.join(random.sample(palabras, min(3, len(palabras))))
                 if opcion not in opciones and len(opcion) > 3:
                     opciones.append(opcion)
-        
+
         random.shuffle(opciones)
-        
+
         return {
             'tipo': 'elegir',
             'id': f"ele_{base.id}",
@@ -214,7 +214,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_explicar(self, base, contenido):
         """Generar pregunta de explicar"""
         nombre = contenido.get('name', 'el concepto')
@@ -230,13 +230,13 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_vf(self, base, contenido):
         """Generar pregunta de Verdadero/Falso"""
         teoria = contenido.get('teoria', '')
         if not teoria:
             return None
-            
+
         es_verdadero = random.choice([True, False])
         if es_verdadero:
             afirmacion = teoria[:100]
@@ -250,7 +250,7 @@ class GeneradorPreguntas:
             else:
                 afirmacion = teoria + ' (afirmación modificada)'
             respuesta = 'Falso'
-        
+
         return {
             'tipo': 'verdadero_falso',
             'id': f"vf_{base.id}",
@@ -263,14 +263,14 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_relacionar(self, base, contenido):
         """Generar pregunta de relacionar"""
         teoria = contenido.get('teoria', '')
         conceptos = [c.strip() for c in teoria.split('.') if len(c.strip()) > 15][:4]
         if len(conceptos) < 2:
             conceptos = ['Concepto 1', 'Concepto 2', 'Concepto 3', 'Concepto 4']
-        
+
         return {
             'tipo': 'relacionar',
             'id': f"rel_{base.id}",
@@ -284,17 +284,17 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_ordenar(self, base, contenido):
         """Generar pregunta de ordenar"""
         teoria = contenido.get('teoria', '')
         pasos = [p.strip() for p in teoria.split('.') if len(p.strip()) > 10][:5]
         if len(pasos) < 3:
             pasos = ['Primer paso', 'Segundo paso', 'Tercer paso', 'Cuarto paso']
-        
+
         orden_original = pasos.copy()
         random.shuffle(pasos)
-        
+
         return {
             'tipo': 'ordenar',
             'id': f"ord_{base.id}",
@@ -308,25 +308,25 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_multiple(self, base, contenido):
         """Generar pregunta de opción múltiple"""
         teoria = contenido.get('teoria', '')
         if not teoria:
             return None
-            
+
         respuesta = contenido.get('suggestedAnswer', teoria[:50])
         opciones = [respuesta]
-        
+
         palabras = teoria.split()
         for _ in range(3):
             if len(palabras) > 10:
                 opcion = ' '.join(random.sample(palabras, min(5, len(palabras))))
                 if opcion not in opciones and len(opcion) > 10:
                     opciones.append(opcion)
-        
+
         random.shuffle(opciones)
-        
+
         return {
             'tipo': 'multiple_choice',
             'id': f"mult_{base.id}",
@@ -340,7 +340,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_desarrollo(self, base, contenido):
         """Generar pregunta de desarrollo"""
         nombre = contenido.get('name', 'el tema')
@@ -356,11 +356,11 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def guardar_preguntas(self):
         """Guardar preguntas generadas"""
         fecha = datetime.now().strftime('%Y%m%d_%H%M%S')
-        
+
         with open(f'preguntas_generadas_{fecha}.json', 'w', encoding='utf-8') as f:
             json.dump({
                 'fecha': fecha,
@@ -368,7 +368,7 @@ class GeneradorPreguntas:
                 'estadisticas': self.estadisticas,
                 'preguntas': self.preguntas_generadas
             }, f, ensure_ascii=False, indent=2)
-        
+
         print(f"\n{Color.VERDE}✅ Preguntas guardadas en preguntas_generadas_{fecha}.json{Color.FIN}")
         return fecha
 
@@ -376,9 +376,9 @@ def main():
     print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
     print(f"{Color.NEGRITA}🚀 GENERADOR AUTOMÁTICO DE PREGUNTAS - RHETORICA PLUS{Color.FIN}")
     print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-    
+
     generador = GeneradorPreguntas()
-    
+
     while True:
         print(f"""
 {Color.AMARILLO}Selecciona una opción:{Color.FIN}
@@ -388,9 +388,9 @@ def main():
 4. 🔄 Ver muestra de 5 tipos
 0. ❌ Salir
 """)
-        
+
         opcion = input(f"{Color.CYAN}Opción: {Color.FIN}")
-        
+
         if opcion == '0':
             print(f"\n{Color.VERDE}👋 ¡Hasta luego!{Color.FIN}")
             break
@@ -418,11 +418,11 @@ def main():
             print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
             print(f"{Color.NEGRITA}📖 MUESTRA DE 5 TIPOS DE PREGUNTAS{Color.FIN}")
             print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-            
+
             generador.preguntas_generadas = []
             generador.estadisticas = {}
             generador.generar_100_preguntas()
-            
+
             for i, tipo in enumerate(['correccion', 'completar', 'reescribir', 'elegir', 'explicar'], 1):
                 preguntas_tipo = [p for p in generador.preguntas_generadas if p['tipo'] == tipo]
                 if preguntas_tipo:
@@ -433,7 +433,7 @@ def main():
                     print(f"   Respuesta: {p['respuesta_correcta'][:80]}...")
         else:
             print(f"{Color.ROJO}❌ Opción no válida{Color.FIN}")
-        
+
         input(f"\n{Color.AMARILLO}Presiona Enter para continuar...{Color.FIN}")
 
 if __name__ == "__main__":

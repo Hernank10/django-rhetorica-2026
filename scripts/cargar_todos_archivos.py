@@ -13,28 +13,28 @@ from core.models import EjercicioLinguistico
 def extraer_contenido_html(html_content):
     """Extrae el contenido relevante de un archivo HTML"""
     soup = BeautifulSoup(html_content, 'html.parser')
-    
+
     title = soup.find('title')
     titulo = title.text.strip() if title else 'Sin título'
-    
+
     contenido = {}
-    
+
     headers = soup.find_all(['h1', 'h2', 'h3', 'h4'])
     if headers:
         contenido['encabezados'] = [h.text.strip() for h in headers[:5]]
-    
+
     paragraphs = soup.find_all('p')
     if paragraphs:
         contenido['parrafos'] = [p.text.strip() for p in paragraphs[:10]]
-    
+
     # Buscar elementos interactivos
     ejercicios_html = soup.find_all(class_=lambda c: c and ('ejercicio' in c.lower() or 'flashcard' in c.lower() or 'pregunta' in c.lower()))
     if ejercicios_html:
         contenido['elementos_interactivos'] = len(ejercicios_html)
-    
+
     texto_completo = soup.get_text(separator=' ', strip=True)
     contenido['texto_completo'] = texto_completo[:1000]
-    
+
     return titulo, contenido
 
 def extraer_contenido_json(json_content):
@@ -49,14 +49,14 @@ def extraer_contenido_json(json_content):
 def cargar_todos_archivos():
     """Carga todos los archivos de la carpeta ejercicios_completos-lengua-castellana"""
     carpeta = 'data/ejercicios_completos-lengua-castellana'
-    
+
     if not os.path.exists(carpeta):
         print(f"❌ La carpeta {carpeta} no existe")
         return
-    
+
     archivos = os.listdir(carpeta)
     print(f"📂 Encontrados {len(archivos)} archivos en total")
-    
+
     # Clasificar archivos por extensión
     html_files = [f for f in archivos if f.endswith('.html')]
     json_files = [f for f in archivos if f.endswith('.json')]
@@ -65,7 +65,7 @@ def cargar_todos_archivos():
     sql_files = [f for f in archivos if f.endswith('.sql')]
     js_files = [f for f in archivos if f.endswith('.js')]
     otros = [f for f in archivos if not f.endswith(('.html', '.json', '.docx', '.md', '.sql', '.js'))]
-    
+
     print(f"  - HTML: {len(html_files)} archivos")
     print(f"  - JSON: {len(json_files)} archivos")
     print(f"  - DOCX: {len(docx_files)} archivos")
@@ -73,10 +73,10 @@ def cargar_todos_archivos():
     print(f"  - SQL: {len(sql_files)} archivos")
     print(f"  - JS: {len(js_files)} archivos")
     print(f"  - Otros: {len(otros)} archivos")
-    
+
     contador = 0
     errores = []
-    
+
     # Procesar archivos HTML
     print(f"\n📄 Procesando {len(html_files)} archivos HTML...")
     for archivo in html_files:
@@ -84,9 +84,9 @@ def cargar_todos_archivos():
         try:
             with open(ruta, 'r', encoding='utf-8') as f:
                 html_content = f.read()
-            
+
             titulo, contenido = extraer_contenido_html(html_content)
-            
+
             # Determinar categoría
             categoria = 'Lengua Castellana'
             if 'retórica' in archivo.lower() or 'retorica' in archivo.lower():
@@ -105,7 +105,7 @@ def cargar_todos_archivos():
                 categoria = 'Ortografía'
             elif 'etimología' in archivo.lower() or 'etimologia' in archivo.lower():
                 categoria = 'Etimología'
-            
+
             EjercicioLinguistico.objects.create(
                 titulo=titulo[:400],
                 contenido=contenido,
@@ -116,13 +116,13 @@ def cargar_todos_archivos():
                 archivo_origen=archivo
             )
             contador += 1
-            
+
             if contador % 100 == 0:
                 print(f"  Procesados {contador} archivos...")
-                
+
         except Exception as e:
             errores.append(f"{archivo}: {str(e)}")
-    
+
     # Procesar archivos JSON
     print(f"\n📄 Procesando {len(json_files)} archivos JSON...")
     for archivo in json_files:
@@ -130,7 +130,7 @@ def cargar_todos_archivos():
         try:
             with open(ruta, 'r', encoding='utf-8') as f:
                 json_content = f.read()
-            
+
             titulo, datos = extraer_contenido_json(json_content)
             if titulo:
                 categoria = archivo.split('.')[0].replace('_', ' ').title()
@@ -146,7 +146,7 @@ def cargar_todos_archivos():
                 contador += 1
         except Exception as e:
             errores.append(f"{archivo}: {str(e)}")
-    
+
     # Procesar archivos DOCX
     print(f"\n📄 Procesando {len(docx_files)} archivos DOCX...")
     for archivo in docx_files:
@@ -154,7 +154,7 @@ def cargar_todos_archivos():
         try:
             with open(ruta, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()[:2000]
-            
+
             EjercicioLinguistico.objects.create(
                 titulo=archivo.replace('.docx', '')[:400],
                 contenido={'texto': content},
@@ -176,7 +176,7 @@ def cargar_todos_archivos():
                 archivo_origen=archivo
             )
             contador += 1
-    
+
     print(f"\n✅ Cargados {contador} archivos en total")
     if errores:
         print(f"⚠️ Errores en {len(errores)} archivos")

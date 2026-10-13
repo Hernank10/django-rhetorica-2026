@@ -217,21 +217,21 @@ APPS_DATA = [
 
 def migrar_datos():
     """Migra todas las aplicaciones, módulos y técnicas a la base de datos"""
-    
+
     try:
         # Conectar a la base de datos
         conn = mysql.connector.connect(**DB_CONFIG)
         cursor = conn.cursor()
-        
+
         print("✅ Conexión a la base de datos establecida.")
         print("🚀 Iniciando migración...")
-        
+
         total_tecnicas = 0
-        
+
         # Recorrer cada aplicación
         for app_data in APPS_DATA:
             print(f"\n📱 Procesando aplicación: {app_data['nombre']}")
-            
+
             # Insertar aplicación
             cursor.execute("""
                 INSERT INTO Aplicaciones (nombre, descripcion, icono, color_hex)
@@ -244,11 +244,11 @@ def migrar_datos():
             ))
             app_id = cursor.lastrowid
             print(f"   ✅ Aplicación insertada con ID: {app_id}")
-            
+
             # Recorrer cada módulo de la aplicación
             for modulo_data in app_data['modulos']:
                 print(f"   📂 Procesando módulo: {modulo_data['nombre']}")
-                
+
                 # Insertar módulo
                 cursor.execute("""
                     INSERT INTO Modulos (aplicacion_id, nombre, descripcion, color_hex, orden)
@@ -262,7 +262,7 @@ def migrar_datos():
                 ))
                 modulo_id = cursor.lastrowid
                 print(f"      ✅ Módulo insertado con ID: {modulo_id}")
-                
+
                 # Recorrer cada técnica del módulo
                 for idx, tecnica_data in enumerate(modulo_data['tecnicas'], start=1):
                     # Insertar técnica
@@ -283,7 +283,7 @@ def migrar_datos():
                         tecnica_data.get('palabras_clave', '')
                     ))
                     total_tecnicas += 1
-                    
+
                     # Insertar flashcard automática para esta técnica
                     cursor.execute("""
                         INSERT INTO Flashcards (tecnica_id, pregunta, respuesta)
@@ -292,19 +292,19 @@ def migrar_datos():
                         tecnica_data['titulo'],
                         tecnica_data['teoria']
                     ))
-                    
+
                     if idx % 5 == 0:
                         print(f"      ✅ {idx} técnicas insertadas...")
-                
+
                 print(f"      ✅ Módulo completado: {len(modulo_data['tecnicas'])} técnicas")
-            
+
             print(f"   ✅ Aplicación completada: {app_data['nombre']}")
-        
+
         conn.commit()
         print(f"\n🎉 ¡MIGRACIÓN COMPLETADA CON ÉXITO!")
         print(f"📊 Total de técnicas insertadas: {total_tecnicas}")
         print(f"📚 Total de aplicaciones: {len(APPS_DATA)}")
-        
+
     except Error as e:
         print(f"❌ Error en la migración: {e}")
         conn.rollback()

@@ -312,11 +312,11 @@
         if (texto.match(/\b(como|similar a|tal cual)\b/i)) recursos.push("Analogía");
         if (texto.match(/\b(yo considero|desde mi perspectiva|a mi juicio)\b/i)) recursos.push("Marcador de opinión");
         if (texto.match(/"[^"]+"/)) recursos.push("Cita directa");
-        
+
         let puntTecnica = Math.min(100, 70 + (oraciones.length > 2 ? 15 : 0) - (largas > palabras.length*0.25 ? 10 : 0));
         let puntSintaxis = Math.min(100, 65 + (promedio > 12 && promedio < 25 ? 20 : 0) - (largas > palabras.length*0.3 ? 15 : 0));
         let puntEstilo = Math.min(100, 60 + (recursos.length * 10) + (texto.length > 80 ? 10 : 0));
-        
+
         let efecto = promedio > 24 ? "Oraciones extensas, ritmo denso ideal para matizar." : promedio < 10 ? "Frases cortas, efecto contundente." : "Estructura equilibrada, buena fluidez.";
         let consejo = "Revisa conectores y evita repeticiones.";
         if (largas > palabras.length * 0.25) consejo = "Reduce palabras muy largas o técnicas para ganar claridad.";

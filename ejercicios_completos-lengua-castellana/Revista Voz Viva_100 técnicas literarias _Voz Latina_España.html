@@ -170,11 +170,11 @@
     // --------------------------------------------------------------
     const tiposBase = ["narrativo", "descriptivo", "expositivo", "argumentativo"];
     const autoresRef = [
-        "Gabriel García Márquez", "Juan Rulfo", "Julio Cortázar", "Mario Vargas Llosa", "Isabel Allende", 
+        "Gabriel García Márquez", "Juan Rulfo", "Julio Cortázar", "Mario Vargas Llosa", "Isabel Allende",
         "Álvaro Mutis", "Laura Restrepo", "Eduardo Galeano", "Jorge Luis Borges", "Pilar Quintana",
         "Tomás Carrasquilla", "José Eustasio Rivera", "Héctor Abad Faciolince", "Fernanda Melchor"
     ];
-    
+
     function generarParrafoEjemplar(tipo, idx) {
         let es = "", en = "";
         const temasMagicos = ["el realismo mágico de Macondo", "la violencia y la esperanza", "las crónicas del río Magdalena", "la selva como personaje", "el eterno retorno en la pampa", "los susurros de la cordillera"];
@@ -197,7 +197,7 @@
         en += ` (Inspired by ${autoresRef[idx % autoresRef.length]}). Technique #${idx+1}: ${tipo}.`;
         return { es, en };
     }
-    
+
     const techniques = [];
     for (let i = 0; i < 100; i++) {
         const tipo = tiposBase[i % 4];
@@ -215,7 +215,7 @@
             parrafoEn: parrEn
         });
     }
-    
+
     // ---------- LECTOR DE VOZ TOTALMENTE SINCRONIZADO, con selección de voz latina o de españa ----------
     let availableVoices = [];
     let selectedVoiceURI = null;
@@ -226,7 +226,7 @@
     let speechRate = 1.0;
     let activeCards = [];
     let currentFocusedCard = 0;
-    
+
     // elementos DOM
     const container = document.getElementById("techniquesContainer");
     const speedRange = document.getElementById("speedRange");
@@ -240,7 +240,7 @@
     const langEs = document.getElementById("langEsBtn");
     const langEn = document.getElementById("langEnBtn");
     const voiceSelect = document.getElementById("voiceSelect");
-    
+
     // Cargar voces del sistema y filtrar voces en español (latinoamérica y España)
     function populateVoiceList() {
         const voices = window.speechSynthesis.getVoices();
@@ -271,14 +271,14 @@
         window.speechSynthesis.onvoiceschanged = () => populateVoiceList();
         populateVoiceList();
     }
-    
+
     function getSelectedVoice() {
         const selectedVal = voiceSelect.value;
         if (selectedVal === "default") return null;
         const found = availableVoices.find(v => v.voiceURI === selectedVal);
         return found || null;
     }
-    
+
     // Función de habla sincronizada: text, lang ('es' o 'en'), velocidad, respetando la voz seleccionada
     function speakText(text, lang, rate = speechRate) {
         return new Promise((resolve, reject) => {
@@ -307,7 +307,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     function stopSpeech(cancelFlag = true) {
         if (window.speechSynthesis) {
             window.speechSynthesis.cancel();
@@ -317,13 +317,13 @@
             isPlayingSequence = false;
         }
     }
-    
+
     function pauseSpeech() {
         if (window.speechSynthesis && window.speechSynthesis.speaking) {
             window.speechSynthesis.pause();
         }
     }
-    
+
     function resumeSpeech() {
         if (window.speechSynthesis && window.speechSynthesis.paused) {
             window.speechSynthesis.resume();
@@ -331,7 +331,7 @@
             startSequence(currentFocusedCard);
         }
     }
-    
+
     async function readSingleCardByIndex(index, lang = currentLang) {
         if (!activeCards[index]) return;
         const card = activeCards[index];
@@ -341,7 +341,7 @@
             await speakText(textarea.value.trim(), lang, speechRate);
         }
     }
-    
+
     async function readTitleOnly(index) {
         if (!activeCards[index]) return;
         const card = activeCards[index];
@@ -353,7 +353,7 @@
         stopSpeech(true);
         await speakText(toRead, currentLang, speechRate);
     }
-    
+
     function highlightCard(index) {
         activeCards.forEach((card, i) => {
             if (i === index) {
@@ -363,7 +363,7 @@
         });
         currentFocusedCard = index;
     }
-    
+
     async function startSequence(startIdx) {
         if (isPlayingSequence) stopSpeech(true);
         isPlayingSequence = true;
@@ -382,7 +382,7 @@
         isPlayingSequence = false;
         currentUtterance = null;
     }
-    
+
     // Render dinámico con 100 tarjetas + botones individuales para Escuchar ES/EN y título
     function renderCards() {
         container.innerHTML = "";
@@ -446,9 +446,9 @@
         });
         if (activeCards.length) highlightCard(0);
     }
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // Eventos de panel y sincronización
     playSeqBtn.onclick = () => { if (isPlayingSequence) stopSpeech(true); startSequence(currentFocusedCard); };
     pauseBtn.onclick = () => pauseSpeech();
@@ -459,10 +459,10 @@
     langEs.onclick = () => { currentLang = "es"; langEs.style.background = "#c9a449"; langEn.style.background = "#3a352c"; };
     langEn.onclick = () => { currentLang = "en"; langEn.style.background = "#c9a449"; langEs.style.background = "#3a352c"; };
     speedRange.addEventListener("input", () => { speechRate = parseFloat(speedRange.value); speedSpan.innerText = speechRate.toFixed(2) + "x"; });
-    
+
     // al cambiar la voz en el select, no afecta reproducción en curso pero sí la siguiente
     voiceSelect.addEventListener("change", () => {});
-    
+
     renderCards();
     langEs.style.background = "#c9a449";
     langEn.style.background = "#3a352c";

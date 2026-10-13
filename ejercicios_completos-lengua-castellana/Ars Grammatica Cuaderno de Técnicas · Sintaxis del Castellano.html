@@ -371,11 +371,11 @@
 <script>
     // ---------- GENERACIÓN DE 100 TÉCNICAS ENFOQUE SINTÁCTICO, SEMÁNTICO, PRAGMÁTICO ----------
     const categoriasMeta = [
-        "Morfosintaxis fundamental (01-15)", "Estructura de la cláusula (16-30)", "Semántica oracional (31-45)", 
-        "Pragmática discursiva (46-60)", "Figuras sintácticas (61-75)", "Cohesión y progresión textual (76-85)", 
+        "Morfosintaxis fundamental (01-15)", "Estructura de la cláusula (16-30)", "Semántica oracional (31-45)",
+        "Pragmática discursiva (46-60)", "Figuras sintácticas (61-75)", "Cohesión y progresión textual (76-85)",
         "Estilística y ensayo (86-100)"
     ];
-    
+
     function generarTecnicas() {
         let tecnicas = [];
         for (let i=1; i<=100; i++) {
@@ -388,7 +388,7 @@
                 teoria = "La concordancia no solo afecta número y persona, sino también matices semánticos: concordancia ad sensum. En castellano culto, el sujeto colectivo puede concordar en plural cuando implica individuos.";
                 ejemplo = "Ejemplo: 'La mayoría de los críticos consideran (concordancia ad sensum) que la obra es genial.' Frente a 'La mayoría considera (formal) lo contrario'.";
                 ejercicio = "Analiza la concordancia en 'El grupo de estudiantes presentaron su proyecto'. ¿Es correcta? Justifica.";
-            } 
+            }
             else if (i<=30) {
                 nombreBase = `${i}. Transitividad y regimen preposicional`;
                 teoria = "El régimen preposicional es parte de la valencia verbal. Verbos como 'incidir' rigen 'en', no 'sobre'. La sintaxis de casos se manifiesta en preposiciones.";
@@ -440,7 +440,7 @@
 
     let tecnicas = generarTecnicas();
     let currentIndex = 0;
-    
+
     // carga desde localStorage
     function loadProgress() {
         const saved = localStorage.getItem("saber_grammar_lux");
@@ -456,20 +456,20 @@
         renderizarIndice();
         actualizarBarraProgreso();
     }
-    
+
     function saveProgress() {
         let toSave = tecnicas.map(t => ({ completada: t.completada, respuesta: t.respuesta }));
         localStorage.setItem("saber_grammar_lux", JSON.stringify(toSave));
         actualizarBarraProgreso();
         renderizarIndice();
     }
-    
+
     function actualizarBarraProgreso() {
         let completadas = tecnicas.filter(t => t.completada).length;
         let porcentaje = (completadas / 100) * 100;
         document.getElementById("goldFill").style.width = porcentaje + "%";
     }
-    
+
     function renderizarIndice() {
         const busqueda = document.getElementById("buscarTecnica")?.value.toLowerCase() || "";
         const listaUl = document.getElementById("indiceLista");
@@ -491,7 +491,7 @@
             listaUl.appendChild(li);
         });
     }
-    
+
     function renderizarTecnica() {
         const t = tecnicas[currentIndex];
         const container = document.getElementById("rootTech");
@@ -542,7 +542,7 @@
             renderizarIndice();
         });
     }
-    
+
     // eventos sidebar
     const menuToggle = document.getElementById("menuToggle");
     const sidebar = document.getElementById("sidebar");
@@ -550,7 +550,7 @@
     menuToggle?.addEventListener("click", () => sidebar.classList.toggle("open"));
     closeSide?.addEventListener("click", () => sidebar.classList.remove("open"));
     document.getElementById("buscarTecnica")?.addEventListener("input", () => renderizarIndice());
-    
+
     function inicializar() {
         loadProgress();
         renderizarTecnica();

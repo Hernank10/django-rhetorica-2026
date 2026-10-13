@@ -60,21 +60,21 @@
     /* ============================================================ */
     /* ESTILOS DE ESCRITURA: Arizonia - trazos variables */
     /* ============================================================ */
-    .escritura-cursiva { 
-      font-family: 'Arizonia', cursive; 
+    .escritura-cursiva {
+      font-family: 'Arizonia', cursive;
       font-weight: 400;
       font-style: normal;
       letter-spacing: 0.5px;
       font-variant-ligatures: contextual;
       text-rendering: optimizeLegibility;
     }
-    .escritura-script { 
-      font-family: 'Pacifico', cursive; 
+    .escritura-script {
+      font-family: 'Pacifico', cursive;
       font-weight: 400;
       font-style: normal;
       letter-spacing: 0.5px;
     }
-    .firma-estilo { 
+    .firma-estilo {
       font-size: 1.5rem;
       color: #1f6d3b;
       border-bottom: 1px solid #1f6d3b;
@@ -717,7 +717,7 @@
               <option value="cursiva">Arizonia</option>
               <option value="script">Script</option>
             </select>
-            <input type="text" placeholder="escribe tu respuesta..." data-id="${t.id}" 
+            <input type="text" placeholder="escribe tu respuesta..." data-id="${t.id}"
                    class="${respGuardada ? 'estilo-' + respGuardada.estilo : 'estilo-normal'}"
                    value="${respGuardada ? respGuardada.texto : ''}">
             <button class="btn-sello" data-id="${t.id}">comprobar</button>
@@ -731,7 +731,7 @@
         if (respGuardada) {
           const firmaDiv = document.createElement('div');
           firmaDiv.className = 'firma-container';
-          const estiloClase = respGuardada.estilo === 'cursiva' ? 'estilo-cursiva' : 
+          const estiloClase = respGuardada.estilo === 'cursiva' ? 'estilo-cursiva' :
                               respGuardada.estilo === 'script' ? 'estilo-script' : 'estilo-normal';
           firmaDiv.innerHTML = `
             <span class="firma-label">✦ firma:</span>
@@ -804,7 +804,7 @@
         firmaDiv.className = 'firma-container';
         ficha.appendChild(firmaDiv);
       }
-      const estiloClase = resp.estilo === 'cursiva' ? 'estilo-cursiva' : 
+      const estiloClase = resp.estilo === 'cursiva' ? 'estilo-cursiva' :
                           resp.estilo === 'script' ? 'estilo-script' : 'estilo-normal';
       firmaDiv.innerHTML = `
         <span class="firma-label">✦ firma:</span>

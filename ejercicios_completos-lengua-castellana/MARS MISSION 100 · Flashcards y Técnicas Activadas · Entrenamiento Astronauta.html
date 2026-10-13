@@ -285,37 +285,37 @@
         "cultivos hidropónicos", "reciclaje de agua", "comunicación con retraso", "aterrizaje de emergencia",
         "sistemas de soporte vital", "propulsión iónica", "escotillas de seguridad", "monitoreo de signos vitales"
     ];
-    
+
     function generarTodasLasTecnicas() {
         let tecnicas = [];
         for (let i = 0; i < 100; i++) {
             let tema = temasEspaciales[i % temasEspaciales.length];
             let tipo = i % 4;
             let numero = i + 1;
-            
+
             let tiposTexto = ['📖 Lectura crítica', '✍️ Comunicación escrita', '📊 Inferencia de datos', '🎯 Argumentación'];
             let tiposTextoEn = ['Critical Reading', 'Written Communication', 'Data Inference', 'Argumentation'];
-            
+
             let tituloEs = `FC-${numero}: ${tiposTexto[tipo]} - ${tema}`;
             let tituloEn = `FC-${numero}: ${tiposTextoEn[tipo]} - ${tema}`;
-            
+
             let explicacionEs = `Técnica ${numero}: Dominar la ${tiposTexto[tipo]} aplicada a ${tema} es fundamental para la seguridad y eficiencia de la misión a Marte. Esta habilidad permite tomar decisiones informadas bajo presión extrema.`;
             let explicacionEn = `Technique ${numero}: Mastering ${tiposTextoEn[tipo]} applied to ${tema} is essential for mission safety and efficiency to Mars. This skill enables informed decision-making under extreme pressure.`;
-            
+
             let ejemplosEs = [
                 `Al revisar el protocolo de ${tema} versión ${numero}, la astronauta detectó una inconsistencia crítica en el paso ${Math.floor(Math.random()*10)+1} que podría comprometer la EVA.`,
                 `Para reportar una anomalía en ${tema}, use: "Componente ${String.fromCharCode(65+(i%26))}: lectura anómala (valor ${Math.floor(Math.random()*100)} vs esperado ${Math.floor(Math.random()*100)}). Acción: revisar manual sección ${numero}."`,
                 `Dato observado: El sistema de ${tema} muestra variación del ${Math.floor(Math.random()*20)+1}%. Inferencia: Posible degradación por radiación cósmica acumulada durante ${numero} horas de exposición.`,
                 `Tesis: Es necesario modificar el protocolo de ${tema}. Evidencia: ${Math.floor(Math.random()*5)+1} incidentes previos. Garantía: El margen de seguridad actual es insuficiente. Conclusión: Implementar cambios antes de la fase ${numero}.`
             ];
-            
+
             let ejemplosEn = [
                 `When reviewing the ${tema} protocol version ${numero}, the astronaut detected a critical inconsistency in step ${Math.floor(Math.random()*10)+1} that could compromise the EVA.`,
                 `To report an anomaly in ${tema}, use: "Component ${String.fromCharCode(65+(i%26))}: anomalous reading (value ${Math.floor(Math.random()*100)} vs expected ${Math.floor(Math.random()*100)}). Action: review section ${numero} of the manual."`,
                 `Observed data: The ${tema} system shows a variation of ${Math.floor(Math.random()*20)+1}%. Inference: Possible degradation due to cosmic radiation accumulated during ${numero} hours of exposure.`,
                 `Claim: It is necessary to modify the ${tema} protocol. Evidence: ${Math.floor(Math.random()*5)+1} previous incidents. Warrant: Current safety margin is insufficient. Conclusion: Implement changes before mission phase ${numero}.`
             ];
-            
+
             tecnicas.push({
                 id: i,
                 numero: numero,
@@ -453,11 +453,11 @@
         let ejercicioCompletado = await ejercicioYaRealizado(currentIndex);
         let ejemploPersonal = ejemplosMap.get(currentIndex);
         let isCompleted = completadas.includes(currentIndex);
-        
+
         document.getElementById("currentTechId").innerHTML = `${currentIndex+1}`;
-        
+
         let tiposEmoji = ['📖', '✍️', '📊', '🎯'];
-        
+
         let html = `
             <div class="mb-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <span class="badge-mars">${isCompleted ? '✅ Completada' : '🌍 No completada'}</span>
@@ -465,12 +465,12 @@
             </div>
             <h4 class="title-space text-warning">🇪🇸 ${tec.tituloEs}</h4>
             <h5 class="text-info mb-3">🇺🇸 ${tec.tituloEn}</h5>
-            
+
             <div class="syntax-panel mb-3">
                 <strong><i class="fas fa-chart-line"></i> Análisis sintáctico del ejemplo:</strong><br>
                 <span id="syntaxDisplay"></span>
             </div>
-            
+
             <button class="btn btn-outline-space btn-sm mb-3" id="toggleTheoryBtn"><i class="fas fa-eye"></i> Ver teoría completa</button>
             <div id="theoryPanel" style="display:none;" class="mt-2 p-3 bg-dark rounded mb-3">
                 <p><strong>📘 Explicación:</strong> ${tec.explicacionEs}</p>
@@ -479,7 +479,7 @@
                 <p><strong>📘 Explanation:</strong> ${tec.explicacionEn}</p>
                 <p><strong>💡 Example:</strong> ${tec.ejemploEn}</p>
             </div>
-            
+
             <div class="word-exercise mt-3">
                 <h6><i class="fas fa-puzzle-piece"></i> 🎯 EJERCICIO 1: Ordena las palabras</h6>
                 <div id="palabrasContainer" class="mb-2"></div>
@@ -488,7 +488,7 @@
                 <div id="feedbackEj" class="exercise-feedback mt-2"></div>
                 ${ejercicioCompletado ? '<div class="text-success mt-2"><i class="fas fa-trophy"></i> ¡Ejercicio completado anteriormente!</div>' : ''}
             </div>
-            
+
             <div class="word-exercise mt-3">
                 <h6><i class="fas fa-pen-fancy"></i> 🎯 EJERCICIO 2: Escribe tu propio ejemplo</h6>
                 <p class="small text-muted">Aplica la técnica a una situación real de la misión espacial</p>
@@ -497,24 +497,24 @@
                 <button id="guardarEjemploBtn" class="btn btn-outline-space btn-sm w-100">💾 Guardar ejemplo en mi bitácora</button>
             </div>
         `;
-        
+
         document.getElementById("flashContent").innerHTML = html;
-        
+
         let analisis = analizarSintaxis(tec.ejemploEs);
         document.getElementById("syntaxDisplay").innerHTML = `📊 Palabras: ${analisis.palabras} | Oraciones: ${analisis.oraciones} | >6 letras: ${analisis.largas} | Longitud media: ${analisis.media} | Legibilidad: ${analisis.leg}`;
-        
+
         let desorden = iniciarEjercicio(tec.ejemploEs);
         if (desorden && desorden.length > 2) {
             document.getElementById("palabrasContainer").innerHTML = desorden.map(p => `<span class="word-card">${p}</span>`).join(' ');
         } else {
             document.getElementById("palabrasContainer").innerHTML = '<p class="text-muted">Usa el ejemplo completo para practicar el ordenamiento.</p>';
         }
-        
+
         document.getElementById("toggleTheoryBtn").onclick = () => {
             let panel = document.getElementById("theoryPanel");
             panel.style.display = panel.style.display === "none" ? "block" : "none";
         };
-        
+
         document.getElementById("verificarBtn").onclick = async () => {
             let respuesta = document.getElementById("respuestaOrden").value;
             let correcto = verificarOrden(respuesta);
@@ -529,7 +529,7 @@
                 fb.innerHTML = `<span class="text-danger"><i class="fas fa-times-circle"></i> ❌ Incorrecto. El mensaje correcto era: "${fraseCorrectaActual}"</span>`;
             }
         };
-        
+
         document.getElementById("guardarEjemploBtn").onclick = async () => {
             let es = document.getElementById("miEjemploEs").value;
             let en = document.getElementById("miEjemploEn").value;
@@ -605,7 +605,7 @@
         texto += `✅ Flashcards completadas: ${completadas.length}/100 (${Math.round((completadas.length/100)*100)}%)\n`;
         texto += `📝 Ejercicios propios guardados: ${ejemplosMap.size}\n`;
         texto += "=".repeat(60) + "\n\n";
-        
+
         for (let [id, ej] of ejemplosMap.entries()) {
             let tec = tecnicasGlobal[id];
             texto += `📖 FLASHCARD ${tec.numero}: ${tec.tituloEs}\n`;
@@ -614,7 +614,7 @@
             texto += `✍️ My example in English:\n${ej.en || "(Not written)"}\n\n`;
             texto += "-".repeat(50) + "\n\n";
         }
-        
+
         let blob = new Blob([texto], { type: "text/plain" });
         let a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
@@ -635,7 +635,7 @@
         await actualizarDashboard();
         await renderTechList();
         await renderFlashcard();
-        
+
         // Botones de navegación ACTIVADOS
         document.getElementById("firstBtn").onclick = () => { currentIndex = 0; renderFlashcard(); };
         document.getElementById("prevBtn").onclick = () => { currentIndex = (currentIndex - 1 + 100) % 100; renderFlashcard(); };
@@ -647,7 +647,7 @@
         document.getElementById("resetProgressBtn").onclick = async () => { if(confirm("⚠️ ¿Reiniciar todo el progreso? Esta acción no se puede deshacer.")) await resetearProgreso(); };
         document.getElementById("randomBtn").onclick = irRandom;
         document.getElementById("searchInput").addEventListener("keyup", (e) => { if(e.key === "Enter") renderTechList(e.target.value.toLowerCase()); });
-        
+
         // Atajos de teclado
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowLeft") { currentIndex = (currentIndex - 1 + 100) % 100; renderFlashcard(); }
@@ -656,7 +656,7 @@
             else if (e.key === "End") { currentIndex = 99; renderFlashcard(); }
         });
     }
-    
+
     init();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

@@ -211,7 +211,7 @@
     let activeCards = [];
     let currentFocusedCard = 0;
     let availableVoices = [];
-    
+
     // Elementos DOM
     const container = document.getElementById("techGrid");
     const playSeqBtn = document.getElementById("playSeqBtn");
@@ -225,7 +225,7 @@
     const speedVal = document.getElementById("speedVal");
     const voiceSelect = document.getElementById("voiceSelect");
     const testVoiceBtn = document.getElementById("testVoiceBtn");
-    
+
     // Cargar voces disponibles (para dar feedback visual)
     function populateVoices() {
         const voices = window.speechSynthesis.getVoices();
@@ -245,14 +245,14 @@
         window.speechSynthesis.onvoiceschanged = populateVoices;
         populateVoices();
     }
-    
+
     // Función para obtener la voz seleccionada
     function getSelectedVoice() {
         const selectedVal = voiceSelect.value;
         if (selectedVal === "default") return null;
         return availableVoices.find(v => v.voiceURI === selectedVal) || null;
     }
-    
+
     // Función principal de habla (reintenta si es necesario)
     function speakText(text, lang, rate = currentRate) {
         return new Promise((resolve, reject) => {
@@ -281,19 +281,19 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     function stopSpeech() {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         currentUtterance = null;
         isPlayingSequence = false;
     }
-    
+
     function pauseSpeech() {
         if (window.speechSynthesis && window.speechSynthesis.speaking) {
             window.speechSynthesis.pause();
         }
     }
-    
+
     function resumeSpeech() {
         if (window.speechSynthesis && window.speechSynthesis.paused) {
             window.speechSynthesis.resume();
@@ -301,7 +301,7 @@
             startSequence(currentFocusedCard);
         }
     }
-    
+
     // Leer una tarjeta específica (texto combinado de explicación + ejemplo)
     async function readCard(cardElement, lang) {
         const explanation = cardElement.querySelector(`.explication-text[data-lang="${lang}"]`)?.value || "";
@@ -311,14 +311,14 @@
         if (fullText.trim() === "") return;
         await speakText(fullText, lang, currentRate);
     }
-    
+
     async function readTitleOnly(cardElement, lang) {
         const titleSpan = cardElement.querySelector(`.title-${lang === "es" ? "es" : "en"}`);
         if (titleSpan) {
             await speakText(titleSpan.innerText, lang, currentRate);
         }
     }
-    
+
     async function startSequence(startIdx) {
         if (isPlayingSequence) stopSpeech();
         isPlayingSequence = true;
@@ -330,7 +330,7 @@
         }
         isPlayingSequence = false;
     }
-    
+
     function highlightCard(index) {
         if (!activeCards.length) return;
         activeCards.forEach((card, i) => {
@@ -341,7 +341,7 @@
         });
         currentFocusedCard = index;
     }
-    
+
     // Renderizado dinámico de 100 tarjetas
     function renderCards(filter = "all") {
         const filtered = filter === "all" ? techniques : techniques.filter(t => t.categoria === filter);
@@ -389,7 +389,7 @@
             const textareaEnExp = card.querySelector('.explication-text[data-lang="en"]');
             const textareaEsEx = card.querySelector('.example-text[data-lang="es"]');
             const textareaEnEx = card.querySelector('.example-text[data-lang="en"]');
-            
+
             esBtn.addEventListener("click", async () => {
                 stopSpeech();
                 const text = (textareaEsExp?.value || "") + ". " + (textareaEsEx?.value || "");
@@ -412,9 +412,9 @@
         });
         if (activeCards.length) highlightCard(0);
     }
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // Filtros y eventos del panel
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
@@ -423,7 +423,7 @@
             renderCards(btn.getAttribute("data-filter"));
         });
     });
-    
+
     playSeqBtn.onclick = () => { if (activeCards.length) startSequence(currentFocusedCard); };
     pauseBtn.onclick = () => pauseSpeech();
     stopBtn.onclick = () => { stopSpeech(); isPlayingSequence = false; };
@@ -437,7 +437,7 @@
         stopSpeech();
         await speakText(testText, currentLang, currentRate);
     };
-    
+
     renderCards("all");
     langEsBtn.style.background = "#e9b35f";
     langEnBtn.style.background = "#2c4740";

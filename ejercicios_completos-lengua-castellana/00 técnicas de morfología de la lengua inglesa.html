@@ -289,7 +289,7 @@
     add(13, "Progressive aspect", "Inflection", "be + -ing for ongoing action.", "He was sleeping, they are playing", "Progressive form of 'run' (past, 3rd sg)", "was running");
     add(14, "Future with will", "Inflection", "Modal auxiliary indicating future time.", "She will arrive tomorrow", "Express future intention using 'shall' for 1st person", "I shall go (formal) / will go");
     add(15, "Passive voice (be + -en)", "Inflection", "Passive construction with auxiliary be + past participle.", "The cake was eaten", "Transform 'The cat chased the mouse' into passive", "The mouse was chased by the cat");
-    
+
     // ========= 2. DERIVATIONAL MORPHOLOGY (prefixes, suffixes, infixation, parasynthesis) =========
     add(16, "Prefix un- (negation)", "Derivation", "Reversative or negative prefix.", "unhappy, undo, unlock", "Add un- to 'certain'", "uncertain");
     add(17, "Prefix re- (again)", "Derivation", "Repetition prefix.", "rewrite, replay, rebuild", "Form verb with re- from 'consider'", "reconsider");
@@ -306,7 +306,7 @@
     add(28, "Suffix -ful (full of)", "Derivation", "Adjective suffix indicating abundance.", "joyful, careful, hopeful", "Derive from 'beauty'", "beautiful");
     add(29, "Prefix over- (excessive)", "Derivation", "Means 'too much' or 'excess'.", "overcook, overheat, overreact", "Add over- to 'load'", "overload");
     add(30, "Suffix -ment (result of action)", "Derivation", "Forms nouns from verbs.", "enjoyment, development, government", "Noun from 'accomplish'", "accomplishment");
-    
+
     // ========= 3. WORD FORMATION (compounding, acronymy, blending, clipping) =========
     add(31, "Compounding (noun+noun)", "Compounding", "Two free morphemes combined.", "toothbrush, bedroom, firefighter", "Combine 'rain' + 'coat'", "raincoat");
     add(32, "Compounding (adj+noun)", "Compounding", "Adjective + noun compound.", "blackboard, greenhouse, highway", "Form compound from 'blue' + 'berry'", "blueberry");
@@ -318,7 +318,7 @@
     add(38, "Back-formation", "Compounding", "Removing affix from an existing word.", "edit (from editor), babysit (from babysitter)", "Back-form verb from 'television'", "televise");
     add(39, "Reduplication", "Compounding", "Repetition of syllable or word.", "bye-bye, night-night, zigzag", "Reduplicative word meaning chaotic disorder", "helter-skelter");
     add(40, "Eponym formation", "Compounding", "Words derived from proper names.", "sandwich (Earl of Sandwich), boycott (Charles Boycott)", "Eponym for a type of wine region from France", "Champagne");
-    
+
     // ========= 4. WORD CLASSES (nouns, adjectives, verbs, adverbs, prepositions, conjunctions, determiners, pronouns) =========
     add(41, "Countable nouns", "Word classes", "Nouns that have plural form and can be counted.", "dog/dogs, apple/apples", "Is 'advice' countable or uncountable?", "uncountable");
     add(42, "Uncountable nouns", "Word classes", "Nouns without plural form, treated as singular.", "water, information, rice", "Use quantifier with 'furniture'", "a piece of furniture");
@@ -364,7 +364,7 @@
     add(78, "Inflectional morpheme", "Morphemics", "Adds grammatical info, no class change.", "plural -s, past -ed, -ing", "Inflectional suffix in 'walked'", "-ed");
     add(79, "Morphophonemic alternation", "Morphemics", "Sound changes at morpheme boundaries.", "leaf → leaves (f→v), knife → knives", "Why does 'wife' become 'wives'?", "voicing alternation before -s allomorph");
     add(80, "Word family (lexeme)", "Morphemics", "Set of related words sharing root.", "run, runner, running, ran", "Morphologically related to 'sing'", "singer, singing, sang");
-    
+
     // extend to 100 with high-quality additional entries covering remaining areas
     for (let i = 81; i <= 100; i++) {
         if (i === 81) add(81, "Prefix ex- (former)", "Derivation", "Means out of, former.", "ex-president, ex-wife", "Add ex- to 'husband'", "ex-husband");
@@ -388,15 +388,15 @@
         else if (i === 99) add(99, "Suffix -ance (state)", "Derivation", "Forms nouns from verbs.", "acceptance, performance", "Derive from 'resist'", "resistance");
         else add(100, "Zero-derivation (verb→noun)", "Compounding", "Conversion without affix: verb to noun.", "a run, a guess, a swim", "Convert verb 'walk' into noun", "a walk (take a walk)");
     }
-    
+
     // final sort by id
     techniques.sort((a,b) => a.id - b.id);
     document.getElementById('totalCount').innerText = techniques.length;
-    
+
     const container = document.getElementById('cardsContainer');
     const searchInput = document.getElementById('searchInput');
     const categorySelect = document.getElementById('categorySelect');
-    
+
     function renderCards() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCat = categorySelect.value;
@@ -407,12 +407,12 @@
             const matchCat = selectedCat === 'all' || t.category === selectedCat;
             return matchSearch && matchCat;
         });
-        
+
         if (filtered.length === 0) {
             container.innerHTML = `<div style="grid-column:1/-1; text-align:center;padding:3rem;">🔍 No morphological techniques match the filters.</div>`;
             return;
         }
-        
+
         container.innerHTML = filtered.map(item => `
             <div class="card">
                 <div class="card-header">
@@ -428,7 +428,7 @@
                 </div>
             </div>
         `).join('');
-        
+
         document.querySelectorAll('.answer-hint').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const id = btn.getAttribute('data-id');
@@ -443,7 +443,7 @@
             });
         });
     }
-    
+
     searchInput.addEventListener('input', renderCards);
     categorySelect.addEventListener('change', renderCards);
     renderCards();

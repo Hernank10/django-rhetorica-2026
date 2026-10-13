@@ -162,11 +162,11 @@
             <button id="globalStopSpeech" class="btn btn-outline-dark btn-sm mt-2 mt-sm-0 rounded-pill"><i class="fas fa-stop-circle"></i> Detener lectura</button>
         </div>
     </div>
-    
+
     <div class="row g-4" id="flashcardsContainer">
         <!-- Las tarjetas se generan dinámicamente con JS -->
     </div>
-    
+
     <div class="text-center mt-5 pt-3">
         <p class="text-muted"><i class="fas fa-infinity"></i> 100 técnicas esenciales — este repertorio selecto cubre las nueve secciones clásicas y modernas. La retórica enseña a pensar con el lenguaje.</p>
         <hr class="w-25 mx-auto">
@@ -355,7 +355,7 @@
     window.addEventListener('beforeunload', () => {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
     });
-    
+
     // Botones tooltip extra opcionales de accesibilidad
     console.log("Flashcards retóricas cargadas con lector de voz, teoría y ejercicios interactivos");
 </script>

@@ -125,7 +125,7 @@
         /* Contenido principal: fondo de pergamino */
         .main-content {
             background: var(--pergamino);
-            background-image: 
+            background-image:
                 linear-gradient(rgba(245, 235, 224, 0.9), rgba(245, 235, 224, 0.95)),
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10 10 L90 10 M10 20 L90 20 M10 30 L90 30" stroke="%23d9c8b2" stroke-width="0.5" opacity="0.3"/></svg>');
             min-height: 100vh;
@@ -697,7 +697,7 @@ function renderLecciones(filtro = '') {
     let html = '';
     BLOQUES.forEach(bloque => {
         const leccionesBloque = LECCIONES.filter(l => l.id >= (bloque.id-1)*10+1 && l.id <= bloque.id*10);
-        const leccionesFiltradas = leccionesBloque.filter(l => 
+        const leccionesFiltradas = leccionesBloque.filter(l =>
             l.titulo.toLowerCase().includes(filtro.toLowerCase()) ||
             l.guion.toLowerCase().includes(filtro.toLowerCase())
         );

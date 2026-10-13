@@ -309,7 +309,7 @@
         if (texto.match(/\b(dijo|exclamó|susurró|gritó)\b/i)) recursos.push("Verbo dialógico");
         if (texto.match(/\b(como|parecía|semejante a)\b/i)) recursos.push("Comparación");
         if (texto.match(/London|Londres|Big Ben|Támesis|metro/i)) recursos.push("Referencia londinense");
-        
+
         let puntTecnica = Math.min(100, 70 + (oraciones.length > 2 ? 15 : 0) - (largas > palabras.length*0.2 ? 5 : 0));
         let puntSintaxis = Math.min(100, 65 + (promedio > 10 && promedio < 22 ? 20 : 0));
         let puntEstilo = Math.min(100, 55 + (recursos.length * 12) + (texto.length > 60 ? 10 : 0));

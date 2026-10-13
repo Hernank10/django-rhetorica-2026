@@ -192,9 +192,9 @@
     // Categorías: estructura, argumentación, estilo, citas
     // Cada técnica: título bilingüe, explicación + ejemplo editable en español e inglés.
     // --------------------------------------------------------------
-    
+
     const categoriasList = ["estructura", "argumentacion", "estilo", "citas"];
-    
+
     function generarTecnicaUniv(idx) {
         const cat = categoriasList[idx % 4];
         let tituloEs = `Técnica ${idx+1}: `;
@@ -203,7 +203,7 @@
         let explicacionEn = "";
         let ejemploEs = "";
         let ejemploEn = "";
-        
+
         if (cat === "estructura") {
             tituloEs += `Organización de párrafos: Estructura de pirámide invertida en introducciones académicas`;
             tituloEn += `Paragraph organization: Inverted pyramid structure in academic introductions`;
@@ -211,7 +211,7 @@
             explicacionEn = `Start with a broad statement that contextualizes the topic, then narrow down to the specific thesis. This technique engages the reader and establishes the theoretical framework. Used in essays and social science papers.`;
             ejemploEs = `Ejemplo: "La inteligencia artificial transforma la educación superior. No obstante, persisten brechas en su implementación ética. Esta investigación analiza tres casos universitarios para proponer lineamientos de uso responsable."`;
             ejemploEn = `Example: "Artificial intelligence is transforming higher education. However, gaps persist in its ethical implementation. This research analyzes three university cases to propose guidelines for responsible use."`;
-        } 
+        }
         else if (cat === "argumentacion") {
             tituloEs += `Modelo Toulmin: datos, garantía y respaldo para fortalecer tesis`;
             tituloEn += `Toulmin Model: data, warrant, and backing to strengthen your thesis`;
@@ -227,7 +227,7 @@
             explicacionEn = `Replace nominalized phrases with direct verbs. Active voice makes the text more energetic and understandable. Essential in sciences and engineering.`;
             ejemploEs = `Ejemplo: En lugar de "Se llevó a cabo una evaluación de los resultados", escribe "Los investigadores evaluaron los resultados". Mejora la legibilidad.`;
             ejemploEn = `Example: Instead of "An evaluation of the results was carried out", write "The researchers evaluated the results". Improves readability.`;
-        } 
+        }
         else {
             tituloEs += `Sistema de citas integrado: parafraseo con señalización de autor (APA 7ª)`;
             tituloEn += `Integrated citation system: paraphrasing with author signaling (APA 7th)`;
@@ -236,11 +236,11 @@
             ejemploEs = `Ejemplo: Narrativa: "Gómez (2022) sostiene que la escritura digital transforma los géneros académicos". Parentética: "La escritura académica evoluciona con la tecnología (Gómez, 2022)".`;
             ejemploEn = `Example: Narrative: "Gómez (2022) argues that digital writing transforms academic genres". Parenthetical: "Academic writing evolves with technology (Gómez, 2022)".`;
         }
-        
+
         // Añadir pequeño contexto extra
         explicacionEs += ` Recomendada para estudiantes de grado y posgrado.`;
         explicacionEn += ` Recommended for undergraduate and graduate students.`;
-        
+
         return {
             id: idx,
             categoria: cat,
@@ -252,12 +252,12 @@
             ejemploEn: ejemploEn
         };
     }
-    
+
     const universityTechs = [];
     for (let i = 0; i < 100; i++) {
         universityTechs.push(generarTecnicaUniv(i));
     }
-    
+
     // ------------------ RENDER DINÁMICO CON EDICIÓN Y LECTOR DE VOZ ----------
     let activeFilter = "all";
     let activeCards = [];
@@ -266,13 +266,13 @@
     let currentRate = 1.0;
     let isPlayingSeq = false;
     let speechUtter = null;
-    
+
     function stopSpeech() {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         speechUtter = null;
         isPlayingSeq = false;
     }
-    
+
     function speakText(text, lang, rate = currentRate) {
         return new Promise((resolve, reject) => {
             if (!window.speechSynthesis) reject();
@@ -286,7 +286,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     function highlightCard(index) {
         if (!activeCards.length) return;
         activeCards.forEach((card, i) => {
@@ -297,7 +297,7 @@
         });
         currentFocused = index;
     }
-    
+
     async function startSequence(startIdx) {
         if (isPlayingSeq) stopSpeech();
         isPlayingSeq = true;
@@ -323,7 +323,7 @@
         }
         isPlayingSeq = false;
     }
-    
+
     function renderTechCards(filter = "all") {
         const filtered = filter === "all" ? universityTechs : universityTechs.filter(t => t.categoria === filter);
         const container = document.getElementById("techGrid");
@@ -365,7 +365,7 @@
             `;
             container.appendChild(col);
         });
-        
+
         activeCards = Array.from(document.querySelectorAll(".card-tech"));
         activeCards.forEach((card, idx) => {
             const techId = parseInt(card.getAttribute("data-tech-id"));
@@ -378,7 +378,7 @@
             const textareasEn = card.querySelectorAll('.tech-read[data-lang="en"]');
             const titleEsSpan = card.querySelector(".title-es");
             const titleEnSpan = card.querySelector(".title-en");
-            
+
             esBtn?.addEventListener("click", async () => {
                 let combinedText = "";
                 textareasEs.forEach(ta => { if (ta.value.trim()) combinedText += ta.value.trim() + ". "; });
@@ -406,7 +406,7 @@
         });
         if (activeCards.length) highlightCard(0);
     }
-    
+
     // Filtros
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -416,7 +416,7 @@
             renderTechCards(activeFilter);
         });
     });
-    
+
     // Controles de voz + secuencia
     const playSeq = document.getElementById("playSeqAcadBtn");
     const pauseSpeechBtn = document.getElementById("pauseAcadBtn");
@@ -427,7 +427,7 @@
     const langEnBtn = document.getElementById("langEnAcadBtn");
     const speedRange = document.getElementById("speedAcadRange");
     const speedSpan = document.getElementById("speedAcadVal");
-    
+
     playSeq.onclick = () => { if (activeCards.length) startSequence(currentFocused); };
     pauseSpeechBtn.onclick = () => { if (window.speechSynthesis?.speaking) window.speechSynthesis.pause(); };
     stopSpeechBtn.onclick = () => { stopSpeech(); isPlayingSeq = false; };
@@ -436,9 +436,9 @@
     langEsBtn.onclick = () => { currentLang = "es"; langEsBtn.style.background = "#e9b35f"; langEnBtn.style.background = "#2c4740"; };
     langEnBtn.onclick = () => { currentLang = "en"; langEnBtn.style.background = "#e9b35f"; langEsBtn.style.background = "#2c4740"; };
     speedRange.oninput = () => { currentRate = parseFloat(speedRange.value); speedSpan.innerText = currentRate.toFixed(2) + "x"; };
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // Inicialización
     renderTechCards("all");
     langEsBtn.style.background = "#e9b35f";
@@ -447,7 +447,7 @@
     currentRate = 1.0;
     speedRange.value = "1.0";
     speedSpan.innerText = "1.0x";
-    
+
     const footerElem = document.querySelector("footer p");
     if (footerElem) {
         const extra = document.createElement("small");

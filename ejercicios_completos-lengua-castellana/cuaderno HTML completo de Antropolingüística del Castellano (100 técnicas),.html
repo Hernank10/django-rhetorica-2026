@@ -342,7 +342,7 @@
 
     // Generar todas las técnicas con contenido
     let tecnicas = [];
-    
+
     for (let i = 1; i <= 100; i++) {
         let tema = temasAntropo[i-1] || `Técnica ${i}`;
         tecnicas.push({
@@ -372,7 +372,7 @@
         {id:11, teoria:"La pragmática intercultural estudia diferencias en el uso del lenguaje entre culturas: actos de habla, estrategias de atenuación, normas conversacionales, y gestión de la imagen pública.", ejemplo:"Petición '¿Me prestas un lápiz?' en España es directa. En Colombia: '¿Me regala un lápiz, por favor?'", ejercicio:"Compara estrategias de cortesía para pedir un favor en español y otra lengua.", respuesta:"Español: preguntas indirectas ('¿Podrías...?'), condicional, 'por favor', 'usted'. Inglés: 'Could you please...?' Japonés: formas honoríficas, mayor atenuación."},
         {id:12, teoria:"Los tabúes lingüísticos son palabras o temas evitados por convención social. En el mundo hispano: tabúes religiosos, sexuales, de muerte, políticos. El tabú genera eufemismos y disfemismos.", ejemplo:"Eufemismos: 'falleció' por 'murió', 'tercera edad' por 'vejez'. Disfemismos: 'estiró la pata', 'colgar los tenis'.", ejercicio:"Explica el fenómeno del tabú lingüístico en español y da ejemplos.", respuesta:"Muerte: 'fallecer', 'descansar en paz'. Sexo: 'hacer el amor', 'tener relaciones'. Enfermedad: 'padecer'. El tabú refleja lo culturalmente peligroso o vergonzoso."}
     ];
-    
+
     for (let det of tecnicasDetalladas) {
         let idx = tecnicas.findIndex(t => t.id === det.id);
         if (idx !== -1) {

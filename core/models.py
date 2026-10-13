@@ -17,7 +17,7 @@ class User(AbstractUser):
     total_ejercicios_completados = models.IntegerField(default=0)
     tasa_aciertos = models.FloatField(default=0.0)
     nivel_experiencia = models.IntegerField(default=1)
-    
+
     # Agregar related_name para evitar conflictos con auth.User
     groups = models.ManyToManyField(
         'auth.Group',
@@ -56,14 +56,14 @@ class User(AbstractUser):
         else:
             self.nivel = 'Gran Orador'
             self.nivel_experiencia = 6
-        
+
         # Calcular tasa de aciertos
         if self.pk:
             total_respuestas = Respuesta.objects.filter(user=self).count()
             if total_respuestas > 0:
                 correctas = Respuesta.objects.filter(user=self, es_correcta=True).count()
                 self.tasa_aciertos = round((correctas / total_respuestas) * 100, 2)
-        
+
         super().save(*args, **kwargs)
 
 class Respuesta(models.Model):
@@ -99,7 +99,7 @@ class Evaluacion(models.Model):
         ('sumativa', 'Sumativa'),
         ('final', 'Final'),
     ]
-    
+
     titulo = models.CharField(max_length=300)
     descripcion = models.TextField()
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
@@ -142,7 +142,7 @@ class Logro(models.Model):
         ('estrella', 'Estrella'),
         ('certificacion', 'Certificación'),
     ]
-    
+
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
@@ -171,7 +171,7 @@ class Certificacion(models.Model):
         ('platino', 'Platino'),
         ('diamante', 'Diamante'),
     ]
-    
+
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField()
     nivel = models.CharField(max_length=20, choices=NIVEL_CHOICES)
@@ -199,12 +199,12 @@ class EjercicioLinguistico(models.Model):
     puntos = models.IntegerField(default=10)
     archivo_origen = models.CharField(max_length=300, blank=True, null=True)
     creado_en = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name = "Ejercicio Lingüístico"
         verbose_name_plural = "Ejercicios Lingüísticos"
         ordering = ['-creado_en']
-    
+
     def __str__(self):
         return self.titulo[:100]
 
@@ -215,11 +215,11 @@ class TecnicaLinguistica(models.Model):
     nivel = models.IntegerField(default=1)
     archivo_origen = models.CharField(max_length=300, blank=True, null=True)
     creado_en = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name = "Técnica Lingüística"
         verbose_name_plural = "Técnicas Lingüísticas"
-    
+
     def __str__(self):
         return self.nombre[:100]
 
@@ -229,11 +229,11 @@ class ContenidoJSON(models.Model):
     datos = models.JSONField(default=dict)
     categoria = models.CharField(max_length=200, blank=True, null=True)
     creado_en = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         verbose_name = "Contenido JSON"
         verbose_name_plural = "Contenidos JSON"
-    
+
     def __str__(self):
         return self.nombre[:100]
 

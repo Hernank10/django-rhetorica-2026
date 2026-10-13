@@ -206,7 +206,7 @@
         "Clontarf Shore", "Sandycove Beach", "Killiney Bay", "Poolbeg Lighthouse", "The Fish Market of Howth"
     ];
     const seaCreatures = ["Mero", "Salmón salvaje", "Cangrejo", "Langosta", "Mejillón", "Ostra", "Calamar", "Bacalao", "Rape", "Gamba"];
-    
+
     function generarHistoriaBahia(idx) {
         const categories = ["fish", "food", "craic", "legend"];
         const cat = categories[idx % 4];
@@ -216,13 +216,13 @@
         let tituloEn = `Story ${idx+1}: `;
         let textoEs = "";
         let textoEn = "";
-        
+
         if (cat === "fish") {
             tituloEs += `El bacalao rebelde de ${loc} que desafió al pescador`;
             tituloEn += `The rebellious cod of ${loc} that defied the fisherman`;
             textoEs = `Pat el pescador juró que un bacalao de 20 kilos le guiñó un ojo y se escapó tres veces de su red. La última vez, el pez saltó al muelle y se tomó una pinta de Guinness que dejó un turista. Hoy hay una placa en ${loc} que dice: "En honor al bacalao más listo de Dublín". Los niños le echan migas de pan.`;
             textoEn = `Pat the fisherman swore that a 20kg cod winked at him and escaped his net three times. The last time, the fish jumped onto the pier and drank a pint of Guinness left by a tourist. Today there is a plaque in ${loc} that reads: "In honor of the cleverest cod in Dublin". Children throw breadcrumbs to it.`;
-        } 
+        }
         else if (cat === "food") {
             tituloEs += `El misterio del fish & chips más picante de ${loc}`;
             tituloEn += `The mystery of the spiciest fish & chips at ${loc}`;
@@ -241,10 +241,10 @@
             textoEs = `Una noche de luna llena, un chef escuchó canto en la orilla. Una sirena con cola de salmón le pidió que no cocinara más langostas los martes. A cambio, le regaló una receta secreta de "guiso de algas doradas". Hoy el plato estrella del puerto se llama "Sirena's Delight". Los pescadores dicen que si dejas una ostra en la orilla, la sirena te trae suerte.`;
             textoEn = `One full moon night, a chef heard singing on the shore. A mermaid with a salmon tail asked him not to cook lobsters on Tuesdays. In return, she gave him a secret recipe for "golden seaweed stew". Today the port's signature dish is called "Mermaid's Delight". Fishermen say that if you leave an oyster on the shore, the mermaid brings you luck.`;
         }
-        
+
         textoEs += ` (Localización real: ${loc} · Bahía de Dublín, Irlanda). ¡Sláinte! 🦐`;
         textoEn += ` (Real location: ${loc} · Dublin Bay, Ireland). Sláinte! 🦐`;
-        
+
         return {
             id: idx,
             categoria: cat,
@@ -255,12 +255,12 @@
             historiaEn: textoEn
         };
     }
-    
+
     const bayStories = [];
     for (let i = 0; i < 100; i++) {
         bayStories.push(generarHistoriaBahia(i));
     }
-    
+
     // Render dinámico
     let activeFilterBay = "all";
     let activeBayCards = [];
@@ -269,13 +269,13 @@
     let currentSpeedBay = 1.0;
     let isSeqPlayingBay = false;
     let currentSpeech = null;
-    
+
     function stopSpeechBay() {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         currentSpeech = null;
         isSeqPlayingBay = false;
     }
-    
+
     function speakTextBay(text, lang, rate = currentSpeedBay) {
         return new Promise((resolve, reject) => {
             if (!window.speechSynthesis) reject();
@@ -289,7 +289,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     function highlightBayCard(index) {
         if (!activeBayCards.length) return;
         activeBayCards.forEach((card, i) => {
@@ -300,7 +300,7 @@
         });
         currentFocusedBay = index;
     }
-    
+
     async function startBaySequence(startIdx) {
         if (isSeqPlayingBay) stopSpeechBay();
         isSeqPlayingBay = true;
@@ -315,7 +315,7 @@
         }
         isSeqPlayingBay = false;
     }
-    
+
     function renderBayStories(filter = "all") {
         const filtered = filter === "all" ? bayStories : bayStories.filter(s => s.categoria === filter);
         const container = document.getElementById("storiesBayGrid");
@@ -353,7 +353,7 @@
             `;
             container.appendChild(col);
         });
-        
+
         activeBayCards = Array.from(document.querySelectorAll(".card-fish"));
         activeBayCards.forEach((card, cardIdx) => {
             const storyId = parseInt(card.getAttribute("data-story-id"));
@@ -366,7 +366,7 @@
             const textEn = card.querySelector('.bay-text-read[data-lang="en"]');
             const titleEsSpan = card.querySelector(".title-es");
             const titleEnSpan = card.querySelector(".title-en");
-            
+
             esBtn?.addEventListener("click", async (e) => {
                 e.stopPropagation();
                 if (textEs.value.trim()) {
@@ -393,7 +393,7 @@
         });
         if (activeBayCards.length) highlightBayCard(0);
     }
-    
+
     // Eventos de filtro
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -403,7 +403,7 @@
             renderBayStories(activeFilterBay);
         });
     });
-    
+
     // Controles de voz
     document.getElementById("playSeqBayBtn").onclick = () => { if (activeBayCards.length) startBaySequence(currentFocusedBay); };
     document.getElementById("pauseBayBtn").onclick = () => { if (window.speechSynthesis?.speaking) window.speechSynthesis.pause(); };
@@ -417,9 +417,9 @@
     const speedRangeBay = document.getElementById("speedBayRange");
     const speedBayVal = document.getElementById("speedBayVal");
     speedRangeBay.oninput = () => { currentSpeedBay = parseFloat(speedRangeBay.value); speedBayVal.innerText = currentSpeedBay.toFixed(2) + "x"; };
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     renderBayStories("all");
     langEsBay.style.background = "#f4c542";
     langEnBay.style.background = "#2b5f7a";
@@ -427,7 +427,7 @@
     currentSpeedBay = 1.0;
     speedRangeBay.value = "1.0";
     speedBayVal.innerText = "1.0x";
-    
+
     const footerText = document.querySelector("footer p");
     if (footerText) {
         const seafoodSpan = document.createElement("small");

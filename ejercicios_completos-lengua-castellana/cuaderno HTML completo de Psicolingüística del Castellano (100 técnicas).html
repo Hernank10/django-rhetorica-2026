@@ -340,13 +340,13 @@
     // Para no alargar el código manualmente, usamos un bucle que genera las 100
     // con contenido detallado. Aquí incluyo una versión con las primeras 3 y luego
     // genero el resto programáticamente con contenido de calidad.
-    
+
     // Construimos el array completo de 100 técnicas
     let tecnicasCompletas = [];
-    
+
     // Cargar las primeras 3 manualmente
     tecnicasCompletas.push(...tecnicasData);
-    
+
     // Generar técnicas 4 a 100 con contenido de calidad
     const temasGenerados = [
         "Priming o facilitación semántica", "Ambigüedad léxica y resolución", "Procesamiento sintáctico: estructuras", "Garden path sentences y reanálisis", "Procesamiento de oraciones ambiguas", "Modelos de procesamiento del lenguaje", "Procesamiento del lenguaje figurado: metáfora", "Procesamiento de la ironía", "Teoría de la mente y lenguaje",
@@ -365,7 +365,7 @@
         "Procesamiento de errores tipográficos", "Carga cognitiva y comprensión lectora", "Comprensión de textos y estructura narrativa", "Discurso y coherencia", "Modelos de envejecimiento y lenguaje", "Reserva cognitiva y deterioro lingüístico",
         "Evaluación neuropsicolingüística de demencias", "Ética en la investigación psicolingüística"
     ];
-    
+
     // Añadir técnicas 4 a 100
     for (let i = 4; i <= 100; i++) {
         let temaIndex = i - 4;
@@ -379,7 +379,7 @@
             respuesta: `Respuesta modelo: "${tema}" es fundamental para entender cómo el ser humano procesa el lenguaje. En español, este fenómeno se observa en situaciones cotidianas como la comprensión de oraciones ambiguas o la producción de palabras complejas. Los estudios de neuroimagen han mostrado activación de áreas como Broca y Wernicke durante estas tareas.`
         });
     }
-    
+
     // Sobrescribir las primeras 3 con el contenido detallado (ya están bien)
     let tecnicas = tecnicasCompletas;
     let currentTechIdx = 0;

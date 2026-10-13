@@ -23,7 +23,7 @@
 </head>
 <body>
     <h1>📚 Dashboard de Preguntas - Rhetorica Plus</h1>
-    
+
     <div id="stats" class="stats"></div>
     <div id="preguntas" class="grid"></div>
 
@@ -36,7 +36,7 @@
                 const statsDiv = document.getElementById('stats');
                 statsDiv.innerHTML = `
                     <div class="stat-item">📊 Total: ${data.total}</div>
-                    ${Object.entries(data.estadisticas).map(([tipo, count]) => 
+                    ${Object.entries(data.estadisticas).map(([tipo, count]) =>
                         `<div class="stat-item"><span class="tipo ${tipo}">${tipo}</span> ${count}</div>`
                     ).join('')}
                 `;

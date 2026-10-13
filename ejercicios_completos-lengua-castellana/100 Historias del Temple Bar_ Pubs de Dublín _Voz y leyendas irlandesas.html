@@ -204,7 +204,7 @@
         "The Auld Dubliner", "The Foggy Dew", "The Porterhouse", "The Bankers Bar", "The Dawson Lounge"
     ];
     const categoriesMap = ["temple", "legend", "music", "craic"];
-    
+
     function generarHistoria(idx) {
         const cat = categoriesMap[idx % 4];
         const pub = pubsList[idx % pubsList.length];
@@ -212,7 +212,7 @@
         let tituloEn = `Story ${idx+1}: `;
         let textoEs = "";
         let textoEn = "";
-        
+
         // Crear anécdotas variadas y con humor irlandés
         if (cat === "temple") {
             tituloEs += `El Turista que quiso pagar con duendes en el ${pub}`;
@@ -235,11 +235,11 @@
             textoEs = `Dos dublineses apostaron quién podía beber más Guinness sin ir al baño. Al tercer vaso, apareció un perro vagabundo y se bebió la espuma de uno. El dueño del pub les regaló otra ronda por "el mejor espectáculo del año". Moral: nunca apuestes en Temple Bar, siempre gana la cerveza.`;
             textoEn = `Two Dubliners bet who could drink more Guinness without going to the bathroom. By the third glass, a stray dog appeared and drank the foam from one. The pub owner gave them another round for 'the best show of the year'. Moral: never bet in Temple Bar, the beer always wins.`;
         }
-        
+
         // Pequeña variación para cada historia: añadir dato único
         textoEs += ` (Relato inspirado en el mítico ${pub} - Dublín, Irlanda).`;
         textoEn += ` (Tale inspired by the legendary ${pub} - Dublin, Ireland).`;
-        
+
         return {
             id: idx,
             categoria: cat,
@@ -250,18 +250,18 @@
             historiaEn: textoEn
         };
     }
-    
+
     // Crear 100 historias únicas
     const stories = [];
     for (let i = 0; i < 100; i++) {
         stories.push(generarHistoria(i));
     }
-    
+
     // Renderizado dinámico con edición
     let activeFilter = "all";
     let activeCards = [];
     let currentFocusedIndex = 0;
-    
+
     function renderStories(filter = "all") {
         const filtered = filter === "all" ? stories : stories.filter(s => s.categoria === filter);
         const container = document.getElementById("storiesGrid");
@@ -299,7 +299,7 @@
             `;
             container.appendChild(col);
         });
-        
+
         // Recolectar tarjetas y eventos
         activeCards = Array.from(document.querySelectorAll(".card-story"));
         activeCards.forEach((card, cardIdx) => {
@@ -311,7 +311,7 @@
             const titleBtn = card.querySelector(".listen-title-btn");
             const textareaEs = card.querySelector('.text-to-read[data-lang="es"]');
             const textareaEn = card.querySelector('.text-to-read[data-lang="en"]');
-            
+
             esBtn?.addEventListener("click", async (e) => {
                 e.stopPropagation();
                 if (textareaEs.value.trim()) {
@@ -338,19 +338,19 @@
         });
         if (activeCards.length) highlightCard(0);
     }
-    
+
     // variables globales de voz
     let speechUtterance = null;
     let isSeqPlaying = false;
     let currentLangGlobal = "es";
     let currentSpeed = 1.0;
-    
+
     function stopSpeechGlobal() {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         speechUtterance = null;
         isSeqPlaying = false;
     }
-    
+
     function speakTextGlobal(text, lang, rate = currentSpeed) {
         return new Promise((resolve, reject) => {
             if (!window.speechSynthesis) reject();
@@ -364,7 +364,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     function highlightCard(index) {
         if (!activeCards.length) return;
         activeCards.forEach((card, i) => {
@@ -375,7 +375,7 @@
         });
         currentFocusedIndex = index;
     }
-    
+
     async function startSequenceFromIndex(startIdx) {
         if (isSeqPlaying) stopSpeechGlobal();
         isSeqPlaying = true;
@@ -392,7 +392,7 @@
         }
         isSeqPlaying = false;
     }
-    
+
     // Controles UI
     const playSeq = document.getElementById("playSequenceBtn");
     const pauseSpeech = document.getElementById("pauseSpeechBtn");
@@ -403,7 +403,7 @@
     const langEn = document.getElementById("langEnBtn");
     const speedRange = document.getElementById("speedRange");
     const speedVal = document.getElementById("speedVal");
-    
+
     playSeq.onclick = () => {
         if (activeCards.length) startSequenceFromIndex(currentFocusedIndex);
     };
@@ -414,7 +414,7 @@
     langEs.onclick = () => { currentLangGlobal = "es"; langEs.style.background = "#d4a373"; langEn.style.background = "#3c3830"; };
     langEn.onclick = () => { currentLangGlobal = "en"; langEn.style.background = "#d4a373"; langEs.style.background = "#3c3830"; };
     speedRange.oninput = () => { currentSpeed = parseFloat(speedRange.value); speedVal.innerText = currentSpeed.toFixed(2) + "x"; };
-    
+
     // Filtros
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -424,9 +424,9 @@
             renderStories(activeFilter);
         });
     });
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // inicializar
     renderStories("all");
     langEs.style.background = "#d4a373";
@@ -435,7 +435,7 @@
     currentSpeed = 1.0;
     speedRange.value = "1.0";
     speedVal.innerText = "1.0x";
-    
+
     // Mostrar estadística de pubs en pie de página
     const footerDiv = document.querySelector("footer p");
     if (footerDiv) {

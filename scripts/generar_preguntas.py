@@ -34,30 +34,30 @@ class Color:
 class GeneradorPreguntas:
     def __init__(self):
         self.tipos_preguntas = [
-            'correccion', 'completar', 'reescribir', 'elegir', 
+            'correccion', 'completar', 'reescribir', 'elegir',
             'explicar', 'verdadero_falso', 'relacionar', 'ordenar',
             'multiple_choice', 'desarrollo', 'analisis', 'sintesis'
         ]
         self.preguntas_generadas = []
         self.estadisticas = {}
         self.usuario_actual = None
-        
+
     def generar_100_preguntas(self, usuario_id=None):
         """Generar 100 preguntas automáticas"""
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}📚 GENERADOR AUTOMÁTICO DE PREGUNTAS{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+
         # Obtener ejercicios base
         ejercicios_base = list(EjercicioLinguistico.objects.all())
         if len(ejercicios_base) < 100:
             print(f"{Color.AMARILLO}⚠️ Solo hay {len(ejercicios_base)} ejercicios base{Color.FIN}")
             print(f"{Color.AMARILLO}Generando con los disponibles...{Color.FIN}")
-        
+
         # Generar preguntas por tipo
         preguntas_por_tipo = self._distribuir_preguntas()
-        
+
         for tipo, cantidad in preguntas_por_tipo.items():
             print(f"\n{Color.MAGENTA}📌 Generando {cantidad} preguntas de tipo: {tipo}{Color.FIN}")
             for i in range(cantidad):
@@ -65,10 +65,10 @@ class GeneradorPreguntas:
                 if pregunta:
                     self.preguntas_generadas.append(pregunta)
                     self.estadisticas[tipo] = self.estadisticas.get(tipo, 0) + 1
-        
+
         print(f"\n{Color.VERDE}✅ Generadas {len(self.preguntas_generadas)} preguntas{Color.FIN}")
         return self.preguntas_generadas
-    
+
     def _distribuir_preguntas(self):
         """Distribuir 100 preguntas entre los tipos"""
         return {
@@ -83,16 +83,16 @@ class GeneradorPreguntas:
             'multiple_choice': 5,
             'desarrollo': 5,
         }
-    
+
     def _generar_pregunta_tipo(self, tipo, ejercicios_base):
         """Generar pregunta de un tipo específico"""
         if not ejercicios_base:
             return None
-        
+
         # Seleccionar ejercicio base aleatorio
         base = random.choice(ejercicios_base)
         contenido = base.contenido if isinstance(base.contenido, dict) else {}
-        
+
         # Generar según tipo
         generadores = {
             'correccion': self._generar_correccion,
@@ -106,11 +106,11 @@ class GeneradorPreguntas:
             'multiple_choice': self._generar_multiple,
             'desarrollo': self._generar_desarrollo,
         }
-        
+
         if tipo in generadores:
             return generadores[tipo](base, contenido)
         return None
-    
+
     def _generar_correccion(self, base, contenido):
         """Generar pregunta de corrección"""
         if 'ejercicio' not in contenido:
@@ -127,7 +127,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_completar(self, base, contenido):
         """Generar pregunta de completar"""
         if 'ejercicio' not in contenido:
@@ -146,7 +146,7 @@ class GeneradorPreguntas:
                 palabras[idx] = '___'
                 enunciado = ' '.join(palabras)
                 palabra_faltante = palabra_removida.strip('.,;:!?')
-        
+
         return {
             'tipo': 'completar',
             'id': f"comp_{base.id}",
@@ -159,7 +159,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_reescribir(self, base, contenido):
         """Generar pregunta de reescribir"""
         if 'ejemplo' not in contenido:
@@ -177,7 +177,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_elegir(self, base, contenido):
         """Generar pregunta de elegir"""
         if 'teoria' not in contenido:
@@ -192,7 +192,7 @@ class GeneradorPreguntas:
                 if opcion not in opciones and len(opcion) > 5:
                     opciones.append(opcion)
         random.shuffle(opciones)
-        
+
         return {
             'tipo': 'elegir',
             'id': f"ele_{base.id}",
@@ -206,7 +206,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_explicar(self, base, contenido):
         """Generar pregunta de explicar"""
         if 'teoria' not in contenido:
@@ -223,7 +223,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_vf(self, base, contenido):
         """Generar pregunta de Verdadero/Falso"""
         if 'teoria' not in contenido:
@@ -244,7 +244,7 @@ class GeneradorPreguntas:
             else:
                 afirmacion = teoria + ' (afirmación modificada)'
             respuesta = 'Falso'
-        
+
         return {
             'tipo': 'verdadero_falso',
             'id': f"vf_{base.id}",
@@ -257,7 +257,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_relacionar(self, base, contenido):
         """Generar pregunta de relacionar"""
         if 'teoria' not in contenido:
@@ -266,7 +266,7 @@ class GeneradorPreguntas:
         conceptos = [c.strip() for c in conceptos if len(c.strip()) > 20][:4]
         if len(conceptos) < 2:
             conceptos = ['Concepto 1', 'Concepto 2', 'Concepto 3', 'Concepto 4']
-        
+
         return {
             'tipo': 'relacionar',
             'id': f"rel_{base.id}",
@@ -280,7 +280,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_ordenar(self, base, contenido):
         """Generar pregunta de ordenar"""
         if 'teoria' not in contenido:
@@ -288,10 +288,10 @@ class GeneradorPreguntas:
         pasos = [p.strip() for p in contenido.get('teoria', '').split('.') if len(p.strip()) > 10][:5]
         if len(pasos) < 3:
             pasos = ['Primer paso', 'Segundo paso', 'Tercer paso', 'Cuarto paso']
-        
+
         orden_original = pasos.copy()
         random.shuffle(pasos)
-        
+
         return {
             'tipo': 'ordenar',
             'id': f"ord_{base.id}",
@@ -305,7 +305,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_multiple(self, base, contenido):
         """Generar pregunta de opción múltiple"""
         if 'teoria' not in contenido:
@@ -314,7 +314,7 @@ class GeneradorPreguntas:
         # Opción correcta
         correcta = contenido.get('teoria', '')[:50]
         opciones.append(correcta)
-        
+
         # Opciones incorrectas
         palabras = contenido.get('teoria', '').split()
         for _ in range(3):
@@ -323,7 +323,7 @@ class GeneradorPreguntas:
                 if opcion not in opciones and len(opcion) > 10:
                     opciones.append(opcion)
         random.shuffle(opciones)
-        
+
         return {
             'tipo': 'multiple_choice',
             'id': f"mult_{base.id}",
@@ -337,7 +337,7 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def _generar_desarrollo(self, base, contenido):
         """Generar pregunta de desarrollo"""
         if 'teoria' not in contenido:
@@ -354,11 +354,11 @@ class GeneradorPreguntas:
             'categoria': base.categoria,
             'ejercicio_base_id': base.id
         }
-    
+
     def guardar_preguntas(self, usuario=None):
         """Guardar preguntas generadas en archivos"""
         fecha = datetime.now().strftime('%Y%m%d_%H%M%S')
-        
+
         # Guardar todos los tipos
         with open(f'preguntas_generadas_{fecha}.json', 'w', encoding='utf-8') as f:
             json.dump({
@@ -367,14 +367,14 @@ class GeneradorPreguntas:
                 'estadisticas': self.estadisticas,
                 'preguntas': self.preguntas_generadas
             }, f, ensure_ascii=False, indent=2)
-        
+
         # Guardar por tipo
         for tipo in self.estadisticas:
             preguntas_tipo = [p for p in self.preguntas_generadas if p['tipo'] == tipo]
             if preguntas_tipo:
                 with open(f'preguntas_{tipo}_{fecha}.json', 'w', encoding='utf-8') as f:
                     json.dump(preguntas_tipo, f, ensure_ascii=False, indent=2)
-        
+
         print(f"\n{Color.VERDE}✅ Preguntas guardadas en archivos JSON{Color.FIN}")
         return fecha
 
@@ -386,12 +386,12 @@ class DashboardProfesor:
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}👨‍🏫 DASHBOARD DEL PROFESOR{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-        
+
         print(f"\n📊 ESTADÍSTICAS GENERALES:")
         print(f"  Total ejercicios: {EjercicioLinguistico.objects.count()}")
         print(f"  Total técnicas: {TecnicaLinguistica.objects.count()}")
         print(f"  Total usuarios: {User.objects.count()}")
-        
+
         # Tipos de preguntas
         tipos = {}
         for e in EjercicioLinguistico.objects.all()[:100]:
@@ -408,24 +408,24 @@ class DashboardProfesor:
                     tipos['elegir'] = tipos.get('elegir', 0) + 1
                 else:
                     tipos['otros'] = tipos.get('otros', 0) + 1
-        
+
         print(f"\n📝 TIPOS DE PREGUNTAS:")
         for tipo, cantidad in tipos.items():
             print(f"  {tipo}: {cantidad}")
-    
+
     @staticmethod
     def generar_prueba(cantidad=10):
         """Generar prueba personalizada para profesor"""
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}📝 GENERAR PRUEBA PERSONALIZADA{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-        
+
         generador = GeneradorPreguntas()
         preguntas = generador.generar_100_preguntas()
-        
+
         # Seleccionar aleatoriamente
         seleccionadas = random.sample(preguntas, min(cantidad, len(preguntas)))
-        
+
         print(f"\n📋 PRUEBA DE {len(seleccionadas)} PREGUNTAS:")
         for i, p in enumerate(seleccionadas, 1):
             print(f"\n{i}. {p['titulo']}")
@@ -433,7 +433,7 @@ class DashboardProfesor:
             print(f"   Dificultad: {p.get('dificultad', 1)}")
             print(f"   Puntos: {p.get('puntos', 10)}")
             print(f"   Enunciado: {p['enunciado'][:100]}...")
-        
+
         return seleccionadas
 
 # Dashboard para estudiante
@@ -444,11 +444,11 @@ class DashboardEstudiante:
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}🎯 PRÁCTICA PARA ESTUDIANTE{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-        
+
         # Obtener ejercicios aleatorios
         ejercicios = list(EjercicioLinguistico.objects.all())
         seleccionados = random.sample(ejercicios, min(cantidad, len(ejercicios)))
-        
+
         print(f"\n📖 PRÁCTICA DE {len(seleccionados)} EJERCICIOS:")
         for i, e in enumerate(seleccionados, 1):
             contenido = e.contenido if isinstance(e.contenido, dict) else {}
@@ -460,7 +460,7 @@ class DashboardEstudiante:
                 print(f"   Ejercicio: {contenido['ejercicio'][:100]}...")
             if 'suggestedAnswer' in contenido:
                 print(f"   💡 Pista: {contenido['suggestedAnswer'][:50]}...")
-        
+
         return seleccionados
 
 # Dashboard para admin
@@ -471,23 +471,23 @@ class DashboardAdmin:
         print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
         print(f"{Color.NEGRITA}👑 DASHBOARD DEL ADMINISTRADOR{Color.FIN}")
         print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-        
+
         # Estadísticas de base de datos
         from django.db import connection
         with connection.cursor() as cursor:
             cursor.execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table';")
             total_tablas = cursor.fetchone()[0]
-        
+
         print(f"\n📊 ESTADÍSTICAS DEL SISTEMA:")
         print(f"  Total tablas: {total_tablas}")
         print(f"  Total ejercicios: {EjercicioLinguistico.objects.count()}")
         print(f"  Total usuarios: {User.objects.count()}")
-        
+
         # Últimos usuarios
         print(f"\n👥 ÚLTIMOS USUARIOS:")
         for user in User.objects.all().order_by('-date_joined')[:5]:
             print(f"  {user.username} - {user.email} ({user.date_joined.strftime('%Y-%m-%d')})")
-        
+
         # Distribución de ejercicios por categoría
         print(f"\n📂 DISTRIBUCIÓN POR CATEGORÍA:")
         categorias = {}
@@ -501,11 +501,11 @@ def main():
     print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
     print(f"{Color.NEGRITA}🚀 GENERADOR AUTOMÁTICO DE PREGUNTAS - RHETORICA PLUS{Color.FIN}")
     print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-    
+
     menu = f"""
 {Color.AMARILLO}Selecciona una opción:{Color.FIN}
 1. 👨‍🏫 Dashboard del Profesor
-2. 🎯 Dashboard del Estudiante  
+2. 🎯 Dashboard del Estudiante
 3. 👑 Dashboard del Admin
 4. 📚 Generar 100 preguntas automáticas
 5. 📝 Generar prueba personalizada (profesor)
@@ -515,30 +515,30 @@ def main():
 9. 🔄 Ver 5 tipos de preguntas
 0. ❌ Salir
 """
-    
+
     while True:
         print(menu)
         opcion = input(f"\n{Color.CYAN}Opción: {Color.FIN}")
-        
+
         if opcion == '0':
             print(f"\n{Color.VERDE}👋 ¡Hasta luego!{Color.FIN}")
             break
-        
+
         elif opcion == '1':
             DashboardProfesor.mostrar_estadisticas()
-        
+
         elif opcion == '2':
             preguntas = DashboardEstudiante.practicar_aleatorio(5)
-        
+
         elif opcion == '3':
             DashboardAdmin.estadisticas_avanzadas()
-        
+
         elif opcion == '4':
             generador = GeneradorPreguntas()
             preguntas = generador.generar_100_preguntas()
             if preguntas:
                 print(f"\n{Color.VERDE}✅ Generadas {len(preguntas)} preguntas{Color.FIN}")
-        
+
         elif opcion == '5':
             cantidad = input("¿Cuántas preguntas para la prueba? (default 10): ")
             try:
@@ -546,7 +546,7 @@ def main():
             except:
                 cantidad = 10
             DashboardProfesor.generar_prueba(cantidad)
-        
+
         elif opcion == '6':
             cantidad = input("¿Cuántos ejercicios para practicar? (default 5): ")
             try:
@@ -554,28 +554,28 @@ def main():
             except:
                 cantidad = 5
             DashboardEstudiante.practicar_aleatorio(cantidad)
-        
+
         elif opcion == '7':
             generador = GeneradorPreguntas()
             generador.generar_100_preguntas()
             print(f"\n{Color.VERDE}📊 Estadísticas:{Color.FIN}")
             for tipo, cantidad in generador.estadisticas.items():
                 print(f"  {tipo}: {cantidad} preguntas")
-        
+
         elif opcion == '8':
             generador = GeneradorPreguntas()
             preguntas = generador.generar_100_preguntas()
             fecha = generador.guardar_preguntas()
             print(f"\n{Color.VERDE}✅ Archivos guardados con fecha: {fecha}{Color.FIN}")
-        
+
         elif opcion == '9':
             print(f"\n{Color.CYAN}{'='*70}{Color.FIN}")
             print(f"{Color.NEGRITA}📖 5 TIPOS DE PREGUNTAS EJEMPLO{Color.FIN}")
             print(f"{Color.CYAN}{'='*70}{Color.FIN}")
-            
+
             generador = GeneradorPreguntas()
             ejercicios_base = list(EjercicioLinguistico.objects.all())
-            
+
             tipos_ejemplo = ['correccion', 'completar', 'reescribir', 'elegir', 'explicar']
             for i, tipo in enumerate(tipos_ejemplo, 1):
                 for base in ejercicios_base:
@@ -597,16 +597,16 @@ def main():
                         break
                 else:
                     continue
-                
+
                 if pregunta:
                     print(f"\n{Color.MAGENTA}{i}. {tipo.upper()}{Color.FIN}")
                     print(f"   {pregunta['titulo']}")
                     print(f"   Enunciado: {pregunta['enunciado'][:100]}...")
                     print(f"   Respuesta: {pregunta['respuesta_correcta'][:80]}...")
-        
+
         else:
             print(f"{Color.ROJO}❌ Opción no válida{Color.FIN}")
-        
+
         input(f"\n{Color.AMARILLO}Presiona Enter para continuar...{Color.FIN}")
 
 if __name__ == "__main__":

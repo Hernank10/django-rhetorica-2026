@@ -19,12 +19,12 @@ def importar_preguntas(archivo_json):
     try:
         with open(archivo_json, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        
+
         preguntas = data.get('preguntas', [])
-        
+
         # Obtener usuario admin
         usuario = User.objects.first()
-        
+
         importadas = 0
         for p in preguntas:
             # Verificar si ya existe
@@ -33,7 +33,7 @@ def importar_preguntas(archivo_json):
                 tipo=p.get('tipo', '')
             ).exists():
                 continue
-            
+
             PreguntaGenerada.objects.create(
                 tipo=p.get('tipo', 'desarrollo'),
                 titulo=p.get('titulo', 'Sin título'),
@@ -49,7 +49,7 @@ def importar_preguntas(archivo_json):
                 activa=True,
             )
             importadas += 1
-        
+
         print(f'✅ {importadas} preguntas importadas de {len(preguntas)} totales')
         return importadas
     except Exception as e:

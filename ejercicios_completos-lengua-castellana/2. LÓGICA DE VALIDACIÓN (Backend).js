@@ -9,7 +9,7 @@ function validarRespuesta(tipoEjercicio, respuestaEsperada, respuestaUsuario, op
             // Validación por palabras clave
             const palabrasClave = respuestaEsperada.split(',').map(p => p.trim().toLowerCase());
             const palabrasUsuario = respuestaUsuario.toLowerCase().split(' ');
-            const coincidencias = palabrasClave.filter(p => 
+            const coincidencias = palabrasClave.filter(p =>
                 palabrasUsuario.some(u => u.includes(p) || p.includes(u))
             );
             const porcentaje = (coincidencias.length / palabrasClave.length) * 100;
@@ -20,7 +20,7 @@ function validarRespuesta(tipoEjercicio, respuestaEsperada, respuestaUsuario, op
                          porcentaje >= 60 ? 'Buena respuesta, revisa algunos detalles' :
                          'La respuesta necesita mejorar'
             };
-        
+
         case 'opcion_multiple':
             const correcta = opcionesCorrectas.find(o => o.id === parseInt(respuestaUsuario));
             return {
@@ -28,7 +28,7 @@ function validarRespuesta(tipoEjercicio, respuestaEsperada, respuestaUsuario, op
                 puntaje: correcta ? 100 : 0,
                 mensaje: correcta ? '¡Correcto!' : 'Respuesta incorrecta. Intenta de nuevo.'
             };
-        
+
         case 'verdadero_falso':
             const esCorrecto = respuestaUsuario.toLowerCase() === respuestaEsperada.toLowerCase();
             return {
@@ -36,7 +36,7 @@ function validarRespuesta(tipoEjercicio, respuestaEsperada, respuestaUsuario, op
                 puntaje: esCorrecto ? 100 : 0,
                 mensaje: esCorrecto ? '¡Correcto!' : 'Incorrecto. Revisa la teoría.'
             };
-        
+
         default:
             return { esCorrecto: false, puntaje: 0, mensaje: 'Tipo de ejercicio no soportado' };
     }
@@ -117,12 +117,12 @@ app.post('/api/ejercicios/:tecnicaId/validar', autenticar, async (req, res) => {
 app.get('/api/ejercicios/:tecnicaId/retroalimentacion', autenticar, async (req, res) => {
     try {
         const tecnicaId = parseInt(req.params.tecnicaId);
-        
+
         const [retroalimentacion] = await pool.query(
             'SELECT * FROM RetroalimentacionEjercicio WHERE tecnica_id = ?',
             [tecnicaId]
         );
-        
+
         res.json(retroalimentacion);
     } catch (error) {
         console.error(error);

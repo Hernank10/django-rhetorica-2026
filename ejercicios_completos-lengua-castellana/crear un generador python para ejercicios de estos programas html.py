@@ -130,7 +130,7 @@ def generar_pregunta_definicion(item: Dict[str, Any], tema: str) -> Dict[str, An
         termino = item["element"]
         respuesta_correcta = item["meaning"]
         distractores = ["cielo", "fuego", "aire", "escritura"]
-    
+
     opciones = [respuesta_correcta] + random.sample(distractores, min(3, len(distractores)))
     random.shuffle(opciones)
     return {
@@ -207,10 +207,10 @@ def generar_examen(tema: str, num_preguntas: int = 10, tipos: List[str] = None) 
         data = RETORICA_DATA
     else:
         data = ETIMOLOGIA_DATA
-    
+
     if tipos is None:
         tipos = ['definicion', 'aplicacion', 'completar']
-    
+
     preguntas = []
     for _ in range(num_preguntas):
         item = random.choice(data)
@@ -231,7 +231,7 @@ def generar_html_examen(tema: str, num_preguntas: int = 10) -> str:
     Crea una página HTML con las preguntas, usando Bootstrap y JavaScript para autoevaluación.
     """
     preguntas = generar_examen(tema, num_preguntas)
-    
+
     html_content = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -296,7 +296,7 @@ def generar_html_examen(tema: str, num_preguntas: int = 10) -> str:
             <div class="feedback" id="fb{idx}"></div>
         </div>
         """
-    
+
     html_content += """
         <div class="d-flex justify-content-between mb-5">
             <button type="button" id="checkAllBtn" class="btn btn-primary">Revisar todas</button>
@@ -384,5 +384,5 @@ if __name__ == "__main__":
     parser.add_argument("--salida", type=str, default=None,
                         help="Nombre del archivo HTML de salida")
     args = parser.parse_args()
-    
+
     guardar_examen(args.tema, args.preguntas, args.salida)

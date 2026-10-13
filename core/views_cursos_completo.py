@@ -27,7 +27,7 @@ def detalle_curso(request, curso_slug):
     except Curso.DoesNotExist:
         messages.error(request, 'Curso no encontrado')
         return redirect('lista_cursos')
-    
+
     # Obtener módulos con lecciones
     modulos = curso.modulos.all().order_by('orden')
     modulos_data = []
@@ -38,10 +38,10 @@ def detalle_curso(request, curso_slug):
             'lecciones': lecciones,
             'progreso': 0,
         })
-    
+
     # Obtener evaluaciones del curso
     evaluaciones = EvaluacionCurso.objects.filter(curso=curso)
-    
+
     context = {
         'curso': curso,
         'modulos': modulos_data,
@@ -56,15 +56,15 @@ def ver_leccion(request, curso_slug, modulo_id, leccion_id):
     curso = get_object_or_404(Curso, slug=curso_slug)
     modulo = get_object_or_404(Modulo, id=modulo_id, curso=curso)
     leccion = get_object_or_404(Leccion, id=leccion_id, modulo=modulo)
-    
+
     ejercicios = leccion.ejercicios_relacionados.all()
     evaluaciones = EvaluacionCurso.objects.filter(modulo=modulo)
-    
+
     lecciones = list(modulo.lecciones.all().order_by('orden'))
     idx = lecciones.index(leccion)
     leccion_anterior = lecciones[idx - 1] if idx > 0 else None
     leccion_siguiente = lecciones[idx + 1] if idx < len(lecciones) - 1 else None
-    
+
     context = {
         'curso': curso,
         'modulo': modulo,
@@ -81,7 +81,7 @@ def ver_evaluacion(request, evaluacion_id):
     """Ver una evaluación para realizar"""
     evaluacion = get_object_or_404(EvaluacionCurso, id=evaluacion_id)
     preguntas = PreguntaEvaluacion.objects.filter(evaluacion=evaluacion).order_by('orden')
-    
+
     curso = evaluacion.curso
     modulo = evaluacion.modulo
 
@@ -89,7 +89,7 @@ def ver_evaluacion(request, evaluacion_id):
     leccion = None
     if modulo is not None:
         leccion = modulo.lecciones.order_by('orden').first()
-    
+
     context = {
         'evaluacion': evaluacion,
         'preguntas': preguntas,
@@ -202,7 +202,7 @@ def api_evaluacion_preguntas(request, evaluacion_id):
     try:
         evaluacion = EvaluacionCurso.objects.get(id=evaluacion_id)
         preguntas = PreguntaEvaluacion.objects.filter(evaluacion=evaluacion).order_by('orden')
-        
+
         data = []
         for p in preguntas:
             data.append({
@@ -223,7 +223,7 @@ def detalle_curso(request, curso_slug):
     logger = logging.getLogger(__name__)
     logger.info(f"=== DETALLE CURSO: {curso_slug} ===")
     print(f"=== DETALLE CURSO: {curso_slug} ===")
-    
+
     try:
         curso = Curso.objects.get(slug=curso_slug)
         print(f"✅ Curso encontrado: {curso.titulo} (ID: {curso.id})")
@@ -232,7 +232,7 @@ def detalle_curso(request, curso_slug):
         print(f"❌ Curso NO encontrado con slug: {curso_slug}")
         messages.error(request, 'Curso no encontrado')
         return redirect('lista_cursos')
-    
+
     # Obtener módulos con lecciones
     modulos = curso.modulos.all().order_by('orden')
     modulos_data = []
@@ -244,11 +244,11 @@ def detalle_curso(request, curso_slug):
             'lecciones': lecciones,
             'progreso': 0,
         })
-    
+
     # Obtener evaluaciones del curso
     evaluaciones = EvaluacionCurso.objects.filter(curso=curso)
     print(f"  📝 Evaluaciones: {evaluaciones.count()}")
-    
+
     context = {
         'curso': curso,
         'modulos': modulos_data,

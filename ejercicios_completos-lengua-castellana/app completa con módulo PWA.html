@@ -1131,7 +1131,7 @@ function svgLine(datos, total){
     ${grid}
     <path d="${area}" fill="rgba(20,33,61,0.08)"/>
     <path d="${path}" fill="none" stroke="#14213d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-    ${puntos.filter((_,i) => i%10===0 || i===puntos.length-1).map(p => 
+    ${puntos.filter((_,i) => i%10===0 || i===puntos.length-1).map(p =>
       `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="#a67c52"/>`
     ).join("")}
   </svg>`;

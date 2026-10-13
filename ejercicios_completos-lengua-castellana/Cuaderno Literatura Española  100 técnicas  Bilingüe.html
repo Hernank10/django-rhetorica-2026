@@ -57,21 +57,21 @@
     .cuerpo { font-family: 'Source Serif 4', serif; line-height: 1.5; }
     .mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
 
-    .escritura-cursiva { 
-      font-family: 'Arizonia', cursive; 
+    .escritura-cursiva {
+      font-family: 'Arizonia', cursive;
       font-weight: 400;
       font-style: normal;
       letter-spacing: 0.5px;
       font-variant-ligatures: contextual;
       text-rendering: optimizeLegibility;
     }
-    .escritura-script { 
-      font-family: 'Pacifico', cursive; 
+    .escritura-script {
+      font-family: 'Pacifico', cursive;
       font-weight: 400;
       font-style: normal;
       letter-spacing: 0.5px;
     }
-    .firma-estilo { 
+    .firma-estilo {
       font-size: 1.5rem;
       color: #1f6d3b;
       border-bottom: 1px solid #1f6d3b;
@@ -976,7 +976,7 @@
               <option value="cursiva">Arizonia</option>
               <option value="script">Script</option>
             </select>
-            <input type="text" placeholder="${lang === 'es' ? 'escribe tu respuesta...' : 'write your answer...'}" data-id="${t.id}" 
+            <input type="text" placeholder="${lang === 'es' ? 'escribe tu respuesta...' : 'write your answer...'}" data-id="${t.id}"
                    class="${respGuardada ? 'estilo-' + respGuardada.estilo : 'estilo-normal'}"
                    value="${respGuardada ? respGuardada.texto : ''}">
             <button class="btn-sello" data-id="${t.id}">${lang === 'es' ? 'comprobar' : 'check'}</button>
@@ -990,7 +990,7 @@
         if (respGuardada) {
           const firmaDiv = document.createElement('div');
           firmaDiv.className = 'firma-container';
-          const estiloClase = respGuardada.estilo === 'cursiva' ? 'estilo-cursiva' : 
+          const estiloClase = respGuardada.estilo === 'cursiva' ? 'estilo-cursiva' :
                               respGuardada.estilo === 'script' ? 'estilo-script' : 'estilo-normal';
           firmaDiv.innerHTML = `
             <span class="firma-label">✦ ${lang === 'es' ? 'firma:' : 'signature:'}</span>
@@ -1064,7 +1064,7 @@
         firmaDiv.className = 'firma-container';
         ficha.appendChild(firmaDiv);
       }
-      const estiloClase = resp.estilo === 'cursiva' ? 'estilo-cursiva' : 
+      const estiloClase = resp.estilo === 'cursiva' ? 'estilo-cursiva' :
                           resp.estilo === 'script' ? 'estilo-script' : 'estilo-normal';
       firmaDiv.innerHTML = `
         <span class="firma-label">✦ ${lang === 'es' ? 'firma:' : 'signature:'}</span>
@@ -1080,20 +1080,20 @@
       practicaActual = correcta;
       const otras = TECNICAS.filter(t => t.id !== correcta.id);
       const shuffled = [...otras].sort(() => 0.5 - Math.random());
-      
+
       const nombreCorrecto = lang === 'es' ? correcta.nombre : correcta.nombreEn;
       const opcionesNombres = [nombreCorrecto, ...shuffled.slice(0,3).map(t => lang === 'es' ? t.nombre : t.nombreEn)];
       for (let i = opcionesNombres.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [opcionesNombres[i], opcionesNombres[j]] = [opcionesNombres[j], opcionesNombres[i]];
       }
-      
+
       const definicionMostrar = lang === 'es' ? correcta.definicion : correcta.definicionEn;
       const definicionSecundaria = lang === 'es' ? correcta.definicionEn : correcta.definicion;
-      
+
       preguntaTexto.textContent = `📌 ${definicionMostrar} (${correcta.tipo})`;
       preguntaTextoEn.textContent = `📌 ${definicionSecundaria}`;
-      
+
       opcionesContainer.innerHTML = '';
       opcionesNombres.forEach(opt => {
         const btn = document.createElement('button');

@@ -49,42 +49,42 @@ if len(cursos_vacios) == 0:
 completados = 0
 for curso in cursos_vacios:
     print(f'\n📝 Completando: {curso.titulo}')
-    
+
     # Eliminar módulos existentes (si los hay)
     for m in curso.modulos.all():
         m.delete()
-    
+
     # Seleccionar ejercicios para este curso
     ejercicios_curso = []
     for ej in ejercicios:
         if ej.categoria and ej.categoria.lower() in curso.titulo.lower():
             ejercicios_curso.append(ej)
-    
+
     if len(ejercicios_curso) < 5:
         ejercicios_curso = random.sample(ejercicios, min(15, len(ejercicios)))
-    
+
     # Crear módulos (3-5 por curso)
     num_modulos = random.randint(3, 5)
     ejercicios_por_modulo = max(3, len(ejercicios_curso) // num_modulos)
-    
+
     for i in range(num_modulos):
         inicio = i * ejercicios_por_modulo
         fin = min((i + 1) * ejercicios_por_modulo, len(ejercicios_curso))
         ejercicios_modulo = ejercicios_curso[inicio:fin]
-        
+
         if len(ejercicios_modulo) < 2:
             continue
-        
+
         modulo = Modulo.objects.create(
             curso=curso,
             titulo=f"Módulo {i+1}: {curso.titulo[:30]} - Parte {i+1}",
             descripcion=f"Práctica y teoría de {curso.titulo[:40]}",
             orden=i+1
         )
-        
+
         for j, ejercicio in enumerate(ejercicios_modulo, 1):
             contenido = ejercicio.contenido if isinstance(ejercicio.contenido, dict) else {}
-            
+
             leccion = Leccion.objects.create(
                 modulo=modulo,
                 titulo=ejercicio.titulo or f"Lección {j}",
@@ -95,19 +95,19 @@ for curso in cursos_vacios:
                 puntos=ejercicio.puntos or 10
             )
             leccion.ejercicios_relacionados.add(ejercicio)
-            
+
             if tecnicas:
                 tecnicas_aleatorias = random.sample(
-                    tecnicas, 
+                    tecnicas,
                     min(random.randint(1, 2), len(tecnicas))
                 )
                 leccion.tecnicas_relacionadas.set(tecnicas_aleatorias)
-    
+
     # Verificar lecciones creadas
     lecciones_creadas = 0
     for m in curso.modulos.all():
         lecciones_creadas += m.lecciones.count()
-    
+
     if lecciones_creadas > 0:
         completados += 1
         print(f'  ✅ Creadas {lecciones_creadas} lecciones en {curso.modulos.count()} módulos')

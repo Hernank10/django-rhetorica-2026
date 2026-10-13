@@ -1182,7 +1182,7 @@
       });
       document.getElementById('examenResultados').innerHTML = `
         <div class="alert alert-info">
-          <strong>Resultado:</strong> ${aciertos} de ${respuestasCorrectas.length} correctas 
+          <strong>Resultado:</strong> ${aciertos} de ${respuestasCorrectas.length} correctas
           (${Math.round((aciertos/respuestasCorrectas.length)*100)}%)
         </div>
         <button class="btn btn-sepia" onclick="window.location.reload()"><i class="bi bi-arrow-repeat"></i> Nuevo examen</button>
@@ -1411,7 +1411,7 @@
       document.getElementById('btnGuardarCuaderno').dataset.id = tec.id;
       document.getElementById('btnGuardarCuaderno').dataset.caligrafia = tec.caligrafia || 'caveat';
       document.getElementById('btnVoiceModal').dataset.id = tec.id;
-      
+
       // Generar quiz con opciones
       const opciones = TECNICAS.filter(t => t.id !== tec.id).sort(() => Math.random() - 0.5).slice(0, 3);
       const todasOpciones = [tec, ...opciones].sort(() => Math.random() - 0.5);
@@ -1421,15 +1421,15 @@
           ${o.nombre}
         </button>
       `).join('');
-      
+
       // Limpiar selecciones previas
       quizContainer.querySelectorAll('.quiz-option').forEach(btn => {
         btn.classList.remove('selected', 'correct', 'wrong');
         btn.disabled = false;
       });
-      
+
       document.getElementById('btnVerificarQuiz').dataset.correcta = tec.id;
-      
+
       modal.show();
     }
 
@@ -1458,24 +1458,24 @@
           this.innerHTML = '<i class="bi bi-eye"></i> Revelar técnica';
         }
       });
-      
+
       // Quiz
       document.getElementById('btnVerificarQuiz').addEventListener('click', function() {
         const selected = document.querySelector('.quiz-option.selected');
         const feedback = document.getElementById('quizFeedback');
         const correctaId = parseInt(this.dataset.correcta);
-        
+
         if (!selected) {
           feedback.innerHTML = '<div class="alert alert-warning">Selecciona una opción primero.</div>';
           return;
         }
-        
+
         const selectedId = parseInt(selected.dataset.id);
         const isCorrect = selectedId === correctaId;
         const nombreCorrecto = TECNICAS.find(t => t.id === correctaId)?.nombre || '';
-        
+
         document.querySelectorAll('.quiz-option').forEach(btn => btn.disabled = true);
-        
+
         if (isCorrect) {
           selected.classList.add('correct');
           feedback.innerHTML = '<div class="alert alert-success">✅ ¡Correcto! Has identificado la técnica.</div>';
@@ -1486,11 +1486,11 @@
           if (correctBtn) correctBtn.classList.add('correct');
           feedback.innerHTML = `<div class="alert alert-danger">❌ Incorrecto. La respuesta correcta es: <strong>${nombreCorrecto}</strong></div>`;
         }
-        
+
         // Guardar resultado del quiz
         document.getElementById('btnGuardarCuaderno').dataset.quizCorrecto = isCorrect ? 'true' : 'false';
       });
-      
+
       // Selección de opción en quiz
       document.addEventListener('click', function(e) {
         if (e.target.classList.contains('quiz-option') && !e.target.disabled) {
@@ -1498,7 +1498,7 @@
           e.target.classList.add('selected');
         }
       });
-      
+
       // Guardar entrada con quiz
       document.getElementById('btnGuardarCuaderno').addEventListener('click', function() {
         const id = parseInt(this.dataset.id);
@@ -1506,19 +1506,19 @@
         const respuesta = document.getElementById('inputRespuesta').value;
         const firma = document.getElementById('inputFirma').value;
         const quizCorrecto = this.dataset.quizCorrecto === 'true';
-        
+
         if (!respuesta.trim()) {
           document.getElementById('modalFeedback').innerHTML = '<div class="alert alert-warning">Escribe la técnica académica antes de guardar.</div>';
           return;
         }
-        
+
         guardarEntradaCuaderno(id, respuesta, firma, caligrafia, quizCorrecto);
         document.getElementById('modalFeedback').innerHTML = '<div class="alert alert-success">✅ ¡Guardado en tu bitácora académica!</div>';
-        
+
         if (!progreso[id]) {
           toggleAprendida(id);
         }
-        
+
         setTimeout(() => {
           const modal = bootstrap.Modal.getInstance(document.getElementById('modalPractica'));
           if (modal) modal.hide();

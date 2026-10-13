@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card-body">
             <!-- Teoría breve -->
             {% if contenido.teoria %}
@@ -54,14 +54,14 @@
                     <label for="respuesta" class="font-weight-bold">
                         <i class="fas fa-pen"></i> Tu respuesta:
                     </label>
-                    <textarea class="form-control form-control-lg" 
-                              id="respuesta" 
-                              name="respuesta" 
-                              rows="5" 
+                    <textarea class="form-control form-control-lg"
+                              id="respuesta"
+                              name="respuesta"
+                              rows="5"
                               placeholder="Escribe tu respuesta aquí..."
                               required></textarea>
                 </div>
-                
+
                 <div class="mt-4 d-flex gap-2 flex-wrap">
                     <button type="submit" class="btn btn-success btn-lg">
                         <i class="fas fa-paper-plane"></i> Enviar respuesta
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     textarea.addEventListener('input', function() {
         localStorage.setItem('respuesta_temp', this.value);
     });
-    
+
     // Recuperar respuesta guardada
     var saved = localStorage.getItem('respuesta_temp');
     if (saved) {

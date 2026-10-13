@@ -32,33 +32,33 @@ print(f'📚 Cursos encontrados: {cursos.count()}\n')
 
 for curso in cursos:
     print(f'📝 Procesando: {curso.titulo}')
-    
+
     # 1. Verificar y generar lecciones
     total_lecciones = 0
     modulos_existentes = list(curso.modulos.all())
-    
+
     for m in modulos_existentes:
         total_lecciones += m.lecciones.count()
-    
+
     if total_lecciones == 0:
         print('  ⚠️ Sin lecciones. Generando...')
-        
+
         # Eliminar módulos vacíos
         for m in modulos_existentes:
             m.delete()
-        
+
         # Seleccionar ejercicios para este curso
         ejercicios_curso = []
         for ej in ejercicios:
             if ej.categoria and ej.categoria.lower() in curso.titulo.lower():
                 ejercicios_curso.append(ej)
-        
+
         if not ejercicios_curso:
             ejercicios_curso = ejercicios[:10]
-        
+
         # Limitar a 10 ejercicios
         ejercicios_curso = ejercicios_curso[:10]
-        
+
         # Crear módulo
         modulo = Modulo.objects.create(
             curso=curso,
@@ -66,7 +66,7 @@ for curso in cursos:
             descripcion=f"Lecciones de {curso.titulo}",
             orden=1
         )
-        
+
         # Crear lecciones
         for i, ej in enumerate(ejercicios_curso, 1):
             contenido = ej.contenido if isinstance(ej.contenido, dict) else {}
@@ -80,34 +80,34 @@ for curso in cursos:
                 puntos=ej.puntos or 10
             )
             leccion.ejercicios_relacionados.add(ej)
-        
+
         print(f'  ✅ Creadas {len(ejercicios_curso)} lecciones')
     else:
         print(f'  ✅ Ya tiene {total_lecciones} lecciones')
-    
+
     # 2. Verificar y generar evaluaciones
     evaluaciones_existentes = EvaluacionCurso.objects.filter(curso=curso)
-    
+
     if evaluaciones_existentes.count() == 0:
         print('  ⚠️ Sin evaluaciones. Generando...')
-        
+
         # Obtener lecciones del curso
         lecciones = []
         for m in curso.modulos.all():
             lecciones.extend(m.lecciones.all())
-        
+
         if not lecciones:
             print('  ⚠️ No hay lecciones para crear evaluación')
             continue
-        
+
         # Obtener ejercicios de las lecciones
         ejercicios_eval = []
         for lec in lecciones:
             ejercicios_eval.extend(lec.ejercicios_relacionados.all())
-        
+
         if not ejercicios_eval:
             ejercicios_eval = ejercicios[:10]
-        
+
         # Crear evaluación
         evaluacion = EvaluacionCurso.objects.create(
             curso=curso,
@@ -121,13 +121,13 @@ for curso in cursos:
             disponible_desde=datetime.now(),
             disponible_hasta=datetime.now() + timedelta(days=30)
         )
-        
+
         # Crear preguntas
         puntaje_total = 0
         preguntas_creadas = 0
         for i, ej in enumerate(ejercicios_eval[:10], 1):
             contenido = ej.contenido if isinstance(ej.contenido, dict) else {}
-            
+
             pregunta = PreguntaEvaluacion.objects.create(
                 evaluacion=evaluacion,
                 ejercicio=ej,
@@ -139,14 +139,14 @@ for curso in cursos:
             )
             puntaje_total += 10
             preguntas_creadas += 1
-        
+
         evaluacion.puntaje_maximo = puntaje_total
         evaluacion.save()
-        
+
         print(f'  ✅ Creada evaluación con {preguntas_creadas} preguntas')
     else:
         print(f'  ✅ Ya tiene {evaluaciones_existentes.count()} evaluaciones')
-    
+
     print()
 
 print('✅ Proceso completado')

@@ -28,20 +28,20 @@ print(f'Total cursos: {cursos.count()}\n')
 
 for curso in cursos:
     print(f'📚 {curso.titulo}')
-    
+
     # Verificar si ya tiene lecciones
     total_lecciones = 0
     for m in curso.modulos.all():
         total_lecciones += m.lecciones.count()
-    
+
     if total_lecciones > 0:
         print(f'  ✅ Ya tiene {total_lecciones} lecciones')
         continue
-    
+
     # Eliminar módulos vacíos
     for m in curso.modulos.all():
         m.delete()
-    
+
     # Crear módulo
     modulo = Modulo.objects.create(
         curso=curso,
@@ -49,16 +49,16 @@ for curso in cursos:
         descripcion=f'Lecciones de {curso.titulo}',
         orden=1
     )
-    
+
     # Usar ejercicios de la misma categoría
     ejercicios_curso = []
     for ej in ejercicios:
         if ej.categoria and ej.categoria.lower() in curso.titulo.lower():
             ejercicios_curso.append(ej)
-    
+
     if not ejercicios_curso:
         ejercicios_curso = ejercicios[:10]
-    
+
     # Crear lecciones
     creadas = 0
     for i, ej in enumerate(ejercicios_curso[:10], 1):
@@ -74,7 +74,7 @@ for curso in cursos:
         )
         leccion.ejercicios_relacionados.add(ej)
         creadas += 1
-    
+
     print(f'  ✅ Creadas {creadas} lecciones')
 
 print(f'\n✅ Proceso completado')

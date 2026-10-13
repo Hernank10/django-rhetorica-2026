@@ -193,7 +193,7 @@
             flex-wrap: wrap;
             gap: 8px;
         }
-        
+
         .ejemplo {
             background: #f4eadc;
             padding: 0.5rem 0.8rem;
@@ -207,7 +207,7 @@
             flex-wrap: wrap;
             gap: 8px;
         }
-        
+
         .btn-speak {
             background: #b87333;
             border: none;
@@ -374,7 +374,7 @@
     add(8, "Regla recursiva (SN → SN SP)", "Estructura arbórea", "El SN puede contener otro SN dentro de un SP (complemento del nombre).", "El libro de Juan (SN(SN El libro) SP(de Juan))", "Analiza 'la casa de María' en regla recursiva", "SN → SN SP");
     add(9, "Regla de adjunción de adjetivo", "Estructura arbórea", "SN → Det (Adj) N", "El perro grande (Det El, Adj grande, N perro)", "Expande SN para 'un viejo árbol'", "Det un, Adj viejo, N árbol");
     add(10, "Nodo S' (oración subordinada)", "Estructura arbórea", "Estructura para subordinadas: S' → COMP S (COMP = complementizador 'que').", "Creo [S' [COMP que] [S Juan viene]]", "En 'Dice que viene', ¿qué categoría es 'que'?", "COMP (complementizador)");
-    
+
     // ========= 2. TRANSFORMACIONES SINTÁCTICAS =========
     add(11, "Transformación pasiva", "Transformaciones", "Convierte estructura activa en pasiva: SN2 + ser + participio + por + SN1.", "Activa: Juan rompió el jarrón → Pasiva: El jarrón fue roto por Juan.", "Transforma a pasiva: 'El viento derribó el árbol'", "El árbol fue derribado por el viento");
     add(12, "Transformación negativa", "Transformaciones", "Inserta 'no' delante del verbo.", "Afirmativa: María estudia → Negativa: María no estudia.", "Niega: 'Ellos han llegado'", "Ellos no han llegado");
@@ -386,7 +386,7 @@
     add(18, "Transformación de pasiva refleja", "Transformaciones", "Se + verbo activo en 3ª persona.", "Venden casas → Se venden casas.", "Convierte a pasiva refleja: 'Alquilan pisos'", "Se alquilan pisos");
     add(19, "Transformación de clefting (frase hendida)", "Transformaciones", "Ser + elemento focalizado + que/el que.", "Juan rompió la ventana → Fue Juan quien rompió la ventana.", "Enfatiza objeto: 'Compré el coche'", "Fue el coche lo que compré");
     add(20, "Transformación de subjuntivación desiderativa", "Transformaciones", "Introduce 'ojalá' + subjuntivo.", "Deseo que vengas → Ojalá vengas.", "Transforma: 'Espero que llueva'", "Ojalá llueva");
-    
+
     // ========= 3. MORFOLOGÍA FLEXIVA =========
     add(21, "Flexión de género (sustantivos)", "Flexión", "Los sustantivos varían de género con -o/-a u otras marcas.", "niño/niña, poeta/poetisa", "Femenino de 'actor'", "actriz");
     add(22, "Flexión de número (plural)", "Flexión", "Se forma con -s, -es o invariables.", "árbol/árboles, crisis/crisis", "Plural de 'jabalí'", "jabalíes/jabalís");
@@ -398,7 +398,7 @@
     add(28, "Condicional simple", "Flexión", "Expresa hipótesis: -ía, -ías, -ía, -íamos, -íais, -ían.", "cantaría, comerías", "Condicional de 'vivir' para él/ella", "viviría");
     add(29, "Imperativo afirmativo", "Flexión", "Modo para mandatos.", "¡Canta! ¡Comed!", "Imperativo de 'venir' para vosotros", "venid");
     add(30, "Voz pasiva (ser + participio)", "Flexión", "El sujeto recibe la acción.", "El árbol fue derribado por el viento", "Transforma a pasiva: 'El viento derribó el árbol'", "El árbol fue derribado por el viento");
-    
+
     // ========= 4. DERIVACIÓN =========
     add(31, "Prefijación (negación in- des- anti- )", "Derivación", "Prefijos con significado negativo o reversivo.", "inútil, deshacer", "Aplica prefijo 're-' a 'hacer'", "rehacer");
     add(32, "Sufijación -ción / -sión", "Derivación", "Forma sustantivos abstractos deverbales.", "actuación, decisión", "Sustantivo de 'decidir'", "decisión");
@@ -410,7 +410,7 @@
     add(38, "Sufijo -ble (posibilidad)", "Derivación", "Adjetivos deverbales.", "amable, temible", "Adjetivo de 'comprender'", "comprensible");
     add(39, "Sufijo -dor (agente)", "Derivación", "Forma sustantivos agentivos.", "trabajador, jugador", "Agente de 'navegar'", "navegador");
     add(40, "Prefijo super- (exceso)", "Derivación", "Grado extremo.", "superfino, superpoderoso", "Forma con 'ultra-' a partir de 'rápido'", "ultrarrápido");
-    
+
     // ========= 5. CLASES DE PALABRAS =========
     add(41, "Sustantivos concretos y abstractos", "Clases de palabras", "Concretos: entidades físicas; abstractos: conceptos.", "mesa (concreto), libertad (abstracto)", "Clasifica 'esperanza'", "abstracto");
     add(42, "Adjetivos calificativos", "Clases de palabras", "Expresan cualidades.", "grande, azul", "Adjetivo en 'mujer hermosa'", "hermosa");
@@ -422,14 +422,14 @@
     add(48, "Determinantes demostrativos", "Clases de palabras", "este, ese, aquel, etc.", "Ese libro", "Determinante en 'Aquellos días'", "aquellos");
     add(49, "Pronombres personales átonos", "Clases de palabras", "me, te, se, lo, la, le, nos, os, los, las, les.", "Se lo di", "Pronombre acusativo para 'el libro'", "lo");
     add(50, "Interjecciones", "Clases de palabras", "Expresan emociones: ¡ay!, ¡oh!, ¡caramba!", "¡Ay! Me duele", "Interjección de sorpresa", "¡vaya!");
-    
+
     // ========= 6. FORMACIÓN DE PALABRAS =========
     add(51, "Composición propia (sust+adj)", "Formación de palabras", "Unión de dos lexemas.", "pelirrojo (pelo+rojo)", "Analiza 'cortafuegos'", "verbo + sustantivo");
     add(52, "Composición yuxtapuesta", "Formación de palabras", "Palabras unidas sin fusión gráfica.", "coche cama, hombre rana", "Ejemplo de compuesto yuxtapuesto", "papel moneda");
     add(53, "Acronimia", "Formación de palabras", "Formación con iniciales o sílabas.", "OTAN, RENFE", "Significado de 'RENFE'", "Red Nacional de Ferrocarriles Españoles");
     add(54, "Siglación", "Formación de palabras", "Abreviatura con letras iniciales.", "DGT, IVA", "Significado de 'IVA'", "Impuesto sobre el Valor Añadido");
     add(55, "Composición culta (grecolatina)", "Formación de palabras", "Raíces griegas o latinas.", "biología, hidroavión", "Forma palabra con 'tele-' y 'visor'", "televisor");
-    
+
     // ========= 7. ACCIDENTES GRAMATICALES =========
     add(56, "Accidente de género", "Accidentes gramaticales", "Propiedad inherente de sustantivos.", "el mar / la mar", "Femenino de 'el poeta'", "la poetisa");
     add(57, "Número gramatical", "Accidentes gramaticales", "Singular o plural.", "detalle → detalles", "Plural de 'jabalí'", "jabalíes");
@@ -437,7 +437,7 @@
     add(59, "Tiempo absoluto", "Accidentes gramaticales", "Presente, pasado, futuro.", "como, comí, comeré", "Tiempo de 'había soñado'", "pretérito pluscuamperfecto");
     add(60, "Modo verbal", "Accidentes gramaticales", "Indicativo, subjuntivo, imperativo.", "Creo que viene / Ojalá venga", "Modo en '¡Ven aquí!'", "imperativo");
     add(61, "Grado del adjetivo", "Accidentes gramaticales", "Positivo, comparativo, superlativo.", "alto, más alto que, altísimo", "Superlativo de 'fuerte'", "fortísimo");
-    
+
     // ========= 8. ANÁLISIS MORFEMÁTICO =========
     add(62, "Lexema o raíz", "Morfemática", "Núcleo semántico irreducible.", "cant- en 'cantamos'", "Lexema de 'floristería'", "flor-");
     add(63, "Morfema flexivo de tiempo", "Morfemática", "Desinencia que aporta tiempo.", "cantaba: -ba", "Morfema de futuro en 'comerás'", "-ás");
@@ -449,7 +449,7 @@
     add(69, "Interfijo o infijo", "Morfemática", "Elemento sin significado léxico.", "humareda (-ar-)", "Interfijo en 'huesecillo'", "-ec-");
     add(70, "Morfema cero (∅)", "Morfemática", "Categoría sin marca explícita.", "singular en 'mesa'", "Marca de singular en 'cactus'", "morfema cero");
     add(71, "Supletismo", "Morfemática", "Reemplazo completo de la raíz.", "ir → voy, fui", "Forma supletiva de 'bueno' en comparativo", "mejor");
-    
+
     // ========= 9. MÁS TRANSFORMACIONES Y ESTRUCTURAS (hasta 100) =========
     add(72, "Transformación de negación con 'nadie'", "Transformaciones", "Negación con cuantificadores negativos.", "Alguien vino → Nadie vino.", "Niega: 'Algún estudiante aprobó'", "Ningún estudiante aprobó");
     add(73, "Transformación de oración exclamativa", "Transformaciones", "Anteposición de qué/cuánto + verbo.", "Eres inteligente → ¡Qué inteligente eres!", "Transforma en exclamativa: 'Hace buen día'", "¡Qué buen día hace!");
@@ -483,7 +483,7 @@
 
     // ---------------------- PROGRESO LOCALSTORAGE ----------------------
     let userProgress = JSON.parse(localStorage.getItem('genTransfProgress')) || {};
-    
+
     function updateGlobalProgress() {
         const total = techniques.length;
         let completed = 0;
@@ -496,7 +496,7 @@
         if (fillBar) fillBar.style.width = percent + '%';
         if (percentSpan) percentSpan.innerText = percent + '%';
     }
-    
+
     function setCardStatus(cardId, isCorrect) {
         const statusSpan = document.getElementById(`status-${cardId}`);
         if (statusSpan) {
@@ -511,7 +511,7 @@
         localStorage.setItem('genTransfProgress', JSON.stringify(userProgress));
         updateGlobalProgress();
     }
-    
+
     function checkAnswer(cardId, userAnswer, correctAnswer, inputElement, feedbackElement) {
         const normalizedUser = userAnswer.trim().toLowerCase().replace(/[¿¡]/g, '');
         const normalizedCorrect = correctAnswer.trim().toLowerCase().replace(/[¿¡]/g, '');
@@ -528,7 +528,7 @@
         inputElement.disabled = true;
         inputElement.style.backgroundColor = '#f0f0f0';
     }
-    
+
     function resetCard(cardId, inputElement, feedbackElement) {
         inputElement.disabled = false;
         inputElement.value = '';
@@ -541,7 +541,7 @@
         const statusSpan = document.getElementById(`status-${cardId}`);
         if (statusSpan) statusSpan.innerHTML = '';
     }
-    
+
     function speakText(text) {
         if ('speechSynthesis' in window) {
             speechSynthesis.cancel();
@@ -553,13 +553,13 @@
             alert("Tu navegador no soporta síntesis de voz.");
         }
     }
-    
+
     // Renderizado
     document.getElementById('totalCount').innerText = techniques.length;
     const container = document.getElementById('cardsContainer');
     const searchInput = document.getElementById('searchInput');
     const categorySelect = document.getElementById('categorySelect');
-    
+
     function renderCards() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCat = categorySelect.value;
@@ -570,12 +570,12 @@
             const matchCat = selectedCat === 'all' || t.category === selectedCat;
             return matchSearch && matchCat;
         });
-        
+
         if (filtered.length === 0) {
             container.innerHTML = `<div style="grid-column:1/-1; text-align:center;padding:3rem;">🔍 No hay técnicas con esos filtros.</div>`;
             return;
         }
-        
+
         container.innerHTML = filtered.map(item => {
             const isCompleted = userProgress[item.id] === true;
             return `
@@ -606,7 +606,7 @@
             </div>
             `;
         }).join('');
-        
+
         document.querySelectorAll('.btn-speak').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const text = btn.getAttribute('data-teoria');
@@ -619,7 +619,7 @@
                 if (text) speakText(text);
             });
         });
-        
+
         techniques.forEach(t => {
             const btn = document.querySelector(`.check-btn[data-id="${t.id}"]`);
             const resetBtn = document.querySelector(`.reset-card-btn[data-reset="${t.id}"]`);
@@ -642,7 +642,7 @@
             }
         });
     }
-    
+
     searchInput.addEventListener('input', renderCards);
     categorySelect.addEventListener('change', renderCards);
     renderCards();

@@ -84,3 +84,4 @@ cob_final.txt
 cob_*.txt
 .pre-commit-cache/
 htmlcov/
+precommit_run*.txt

@@ -338,17 +338,17 @@
         let promedio = (palabras.length / (oraciones.length || 1)).toFixed(1);
         let largas = palabras.filter(p => p.length > 7).length;
         let puntuacionTecnica = Math.min(100, Math.max(50, 80 - Math.abs(20 - promedio) * 2 + (largas < palabras.length*0.2 ? 10 : 0)));
-        
+
         let recursos = [];
         if (texto.match(/\b(como|así|puesto que|por lo tanto|sin embargo|no obstante)\b/i)) recursos.push("Conectores lógicos");
         if (texto.match(/\b(metáfora|símil|analogía)\b/i)) recursos.push("Figura retórica");
         if (texto.match(/"[^"]+"/)) recursos.push("Discurso directo/cita");
         if (texto.match(/\b(yo|me|mi|nosotros)\b/i)) recursos.push("Voz personal");
-        
+
         let efecto = promedio > 25 ? "Oraciones extensas: ritmo pausado, ideal para matizar." : promedio < 12 ? "Frases cortas: efecto contundente, agiliza la lectura." : "Ritmo equilibrado, facilita la argumentación.";
         let consejo = "Varía la longitud oracional y revisa el uso de conectores.";
         if (largas > palabras.length * 0.25) consejo = "Reducir palabras técnicas o muy largas mejora la claridad.";
-        
+
         let puntSintaxis = Math.min(100, 70 + (oraciones.length > 1 ? 15 : 0) - (largas > palabras.length*0.3 ? 10 : 0));
         let puntEstilo = Math.min(100, 65 + (recursos.length * 8) + (texto.length > 100 ? 10 : 0));
         return { palabras: palabras.length, oraciones: oraciones.length, promedio, largas, puntuacionTecnica: Math.round(puntuacionTecnica), puntSintaxis: Math.round(puntSintaxis), puntEstilo: Math.round(puntEstilo), recursos, efecto, consejo };
@@ -427,7 +427,7 @@
         let puntSintaxis = analisis.puntSintaxis;
         let puntEstilo = analisis.puntEstilo;
         let promedio = (puntTecnica + puntSintaxis + puntEstilo) / 3;
-        
+
         let detalles = `
             <div class="alert alert-light mt-2">
                 <strong>📌 Puntuación técnica (tesis, argumentación):</strong> ${puntTecnica}/100<br>
@@ -439,7 +439,7 @@
             </div>
         `;
         document.getElementById("evaluationResult").innerHTML = detalles;
-        
+
         // Guardar temporalmente puntuaciones para guardar en biblioteca
         window.lastScores = { tecnica: puntTecnica, sintaxis: puntSintaxis, estilo: puntEstilo, text: texto, techTitle: selectedTech.titulo };
     }

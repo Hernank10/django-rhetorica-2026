@@ -35,18 +35,18 @@ class RecargadorEjercicios:
         self.ejercicios_cargados = 0
         self.ejercicios_con_error = 0
         self.tecnicas_creadas = 0
-        
+
     def buscar_archivo_json(self):
         """Buscar el archivo JSON con los ejercicios"""
         archivos = glob.glob('*.json')
         # Buscar archivos que parezcan tener ejercicios
         posibles = [f for f in archivos if 'ejercicio' in f.lower() or 'item' in f.lower() or 'data' in f.lower()]
-        
+
         if posibles:
             print(f"{Color.AZUL}📂 Archivos JSON encontrados:{Color.FIN}")
             for i, archivo in enumerate(posibles, 1):
                 print(f"  {i}. {archivo}")
-            
+
             if len(posibles) == 1:
                 self.archivo_json = posibles[0]
                 print(f"\n{Color.VERDE}✅ Usando: {self.archivo_json}{Color.FIN}")
@@ -59,12 +59,12 @@ class RecargadorEjercicios:
                         return True
                 except:
                     pass
-        
+
         # Si no hay archivo, crear uno desde los datos incluidos
         print(f"{Color.AMARILLO}⚠️ No se encontró archivo JSON. Creando uno de prueba...{Color.FIN}")
         self._crear_json_ejemplo()
         return True
-    
+
     def _crear_json_ejemplo(self):
         """Crear un archivo JSON de ejemplo con algunos ejercicios"""
         datos_ejemplo = [
@@ -103,18 +103,18 @@ class RecargadorEjercicios:
                 }
             }
         ]
-        
+
         self.archivo_json = 'ejercicios_ejemplo.json'
         with open(self.archivo_json, 'w', encoding='utf-8') as f:
             json.dump(datos_ejemplo, f, ensure_ascii=False, indent=2)
         print(f"{Color.VERDE}✅ Creado archivo: {self.archivo_json}{Color.FIN}")
-    
+
     def leer_json(self):
         """Leer el archivo JSON"""
         try:
             with open(self.archivo_json, 'r', encoding='utf-8') as f:
                 contenido = json.load(f)
-            
+
             # Si es un objeto con key 'preguntas' o 'ejercicios'
             if isinstance(contenido, dict):
                 if 'ejercicios' in contenido:
@@ -131,7 +131,7 @@ class RecargadorEjercicios:
         except Exception as e:
             print(f"{Color.ROJO}❌ Error leyendo JSON: {e}{Color.FIN}")
             return []
-    
+
     @transaction.atomic
     def limpiar_ejercicios(self):
         """Eliminar todos los ejercicios actuales"""
@@ -142,36 +142,36 @@ class RecargadorEjercicios:
                 if confirmar.lower() != 's':
                     print(f"{Color.AMARILLO}Operación cancelada{Color.FIN}")
                     return False
-            
+
             EjercicioLinguistico.objects.all().delete()
             print(f"{Color.VERDE}✅ Eliminados {total} ejercicios{Color.FIN}")
             return True
         except Exception as e:
             print(f"{Color.ROJO}❌ Error eliminando: {e}{Color.FIN}")
             return False
-    
+
     @transaction.atomic
     def cargar_ejercicios(self, datos):
         """Cargar ejercicios desde los datos JSON"""
         self.ejercicios_cargados = 0
         self.ejercicios_con_error = 0
-        
+
         for item in datos:
             try:
                 # Verificar campos obligatorios
                 if not isinstance(item, dict):
                     continue
-                
+
                 titulo = item.get('titulo', 'Sin título')
                 contenido = item.get('contenido', {})
-                
+
                 # Si contenido es string, intentar parsear
                 if isinstance(contenido, str):
                     try:
                         contenido = json.loads(contenido)
                     except:
                         contenido = {'teoria': contenido}
-                
+
                 # Crear ejercicio
                 ejercicio = EjercicioLinguistico(
                     titulo=titulo,
@@ -183,27 +183,27 @@ class RecargadorEjercicios:
                 )
                 ejercicio.save()
                 self.ejercicios_cargados += 1
-                
+
                 if self.ejercicios_cargados % 100 == 0:
                     print(f"   Cargados {self.ejercicios_cargados} ejercicios...")
-                    
+
             except Exception as e:
                 self.ejercicios_con_error += 1
                 print(f"{Color.ROJO}❌ Error en item {item.get('id', '?')}: {str(e)[:50]}{Color.FIN}")
-        
+
         return self.ejercicios_cargados > 0
-    
+
     def mostrar_estadisticas(self):
         """Mostrar estadísticas después de la carga"""
         total = EjercicioLinguistico.objects.count()
         categorias = EjercicioLinguistico.objects.values_list('categoria', flat=True).distinct()
-        
+
         print(f"\n{Color.CYAN}{'='*60}{Color.FIN}")
         print(f"{Color.NEGRITA}📊 ESTADÍSTICAS FINALES{Color.FIN}")
         print(f"{Color.CYAN}{'='*60}{Color.FIN}")
         print(f"{Color.VERDE}✅ Total ejercicios: {total}{Color.FIN}")
         print(f"{Color.VERDE}✅ Categorías: {len(categorias)}{Color.FIN}")
-        
+
         if total > 0:
             print(f"\n{Color.AZUL}📂 Categorías:{Color.FIN}")
             for cat in categorias[:10]:
@@ -211,27 +211,27 @@ class RecargadorEjercicios:
                 print(f"  - {cat}: {count} ejercicios")
             if len(categorias) > 10:
                 print(f"  ... y {len(categorias) - 10} más")
-    
+
     def ejecutar(self):
         """Ejecutar el proceso completo"""
         print(f"\n{Color.CYAN}{'='*60}{Color.FIN}")
         print(f"{Color.NEGRITA}🔄 RECARGADOR DE EJERCICIOS{Color.FIN}")
         print(f"{Color.CYAN}{'='*60}{Color.FIN}")
         print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        
+
         # 1. Buscar archivo JSON
         if not self.buscar_archivo_json():
             return
-        
+
         # 2. Leer datos
         print(f"\n{Color.AZUL}📖 Leyendo archivo: {self.archivo_json}{Color.FIN}")
         datos = self.leer_json()
         if not datos:
             print(f"{Color.ROJO}❌ No se encontraron datos en el archivo{Color.FIN}")
             return
-        
+
         print(f"{Color.VERDE}✅ Encontrados {len(datos)} ejercicios en el archivo{Color.FIN}")
-        
+
         # 3. Mostrar ejemplo
         print(f"\n{Color.AZUL}📝 Ejemplo del archivo:{Color.FIN}")
         if datos:
@@ -243,12 +243,12 @@ class RecargadorEjercicios:
             if isinstance(contenido, dict):
                 print(f"  Teoría: {contenido.get('teoria', '')[:50]}...")
                 print(f"  Ejercicio: {contenido.get('ejercicio', '')[:50]}...")
-        
+
         # 4. Limpiar ejercicios actuales
         print(f"\n{Color.AMARILLO}🗑️ Limpiando ejercicios existentes...{Color.FIN}")
         if not self.limpiar_ejercicios():
             return
-        
+
         # 5. Cargar nuevos ejercicios
         print(f"\n{Color.AZUL}📥 Cargando nuevos ejercicios...{Color.FIN}")
         if self.cargar_ejercicios(datos):
@@ -257,10 +257,10 @@ class RecargadorEjercicios:
                 print(f"{Color.AMARILLO}⚠️ {self.ejercicios_con_error} errores encontrados{Color.FIN}")
         else:
             print(f"{Color.ROJO}❌ Error al cargar ejercicios{Color.FIN}")
-        
+
         # 6. Mostrar estadísticas
         self.mostrar_estadisticas()
-        
+
         print(f"\n{Color.VERDE}{'='*60}{Color.FIN}")
         print(f"{Color.NEGRITA}✅ PROCESO COMPLETADO{Color.FIN}")
         print(f"{Color.VERDE}{'='*60}{Color.FIN}")

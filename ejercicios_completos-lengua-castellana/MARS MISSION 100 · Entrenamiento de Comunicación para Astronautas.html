@@ -400,7 +400,7 @@
         let ejemplosMap = await cargarEjemplos();
         let ejemploPersonal = ejemplosMap.get(currentIndex);
         let isCompleted = completadas.includes(currentIndex);
-        
+
         document.getElementById("currentTechId").innerHTML = `${currentIndex+1}`;
         let html = `
             <div class="mb-3">
@@ -434,18 +434,18 @@
             </div>
         `;
         document.getElementById("flashContent").innerHTML = html;
-        
+
         // Análisis sintáctico
         let analisis = analizarSintaxis(tec.ejemploEs);
         document.getElementById("syntaxDisplay").innerHTML = `📊 Palabras: ${analisis.palabras} | Oraciones: ${analisis.oraciones} | Palabras >6: ${analisis.largas} | Legibilidad: ${analisis.leg}`;
-        
+
         // Iniciar ejercicio con el ejemplo en español
         let desorden = iniciarEjercicio(tec.ejemploEs);
         if (desorden) {
             let container = document.getElementById("palabrasContainer");
             container.innerHTML = desorden.map(p => `<span class="word-card">${p}</span>`).join(' ');
         }
-        
+
         document.getElementById("toggleTheoryBtn").onclick = () => {
             let panel = document.getElementById("theoryPanel");
             panel.style.display = panel.style.display === "none" ? "block" : "none";
@@ -537,7 +537,7 @@
         await actualizarDashboard();
         await renderTechList();
         await renderFlashcard();
-        
+
         document.getElementById("nextBtn").onclick = () => { currentIndex = (currentIndex + 1) % 100; renderFlashcard(); };
         document.getElementById("prevBtn").onclick = () => { currentIndex = (currentIndex - 1 + 100) % 100; renderFlashcard(); };
         document.getElementById("markCompleteBtn").onclick = marcarCompletada;
@@ -546,7 +546,7 @@
         document.getElementById("resetProgressBtn").onclick = async () => { if(confirm("¿Reiniciar todo el progreso? Esta acción no se puede deshacer.")) await resetearProgreso(); };
         document.getElementById("searchInput").addEventListener("keyup", (e) => { if(e.key === "Enter") renderTechList(e.target.value.toLowerCase()); });
     }
-    
+
     init();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

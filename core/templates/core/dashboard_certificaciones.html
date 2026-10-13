@@ -43,29 +43,29 @@
                                 <i class="fas fa-check-circle"></i> Verificada
                             </span>
                         </div>
-                        
+
                         {% if certificacion.fecha %}
                         <p class="text-muted">
-                            <i class="fas fa-calendar-alt"></i> 
+                            <i class="fas fa-calendar-alt"></i>
                             Obtenida: {{ certificacion.fecha|date:"d/m/Y" }}
                         </p>
                         {% endif %}
-                        
+
                         {% if certificacion.descripcion %}
                         <p class="small">{{ certificacion.descripcion|truncatechars:100 }}</p>
                         {% endif %}
-                        
+
                         {% if certificacion.codigo_verificacion %}
                         <div class="alert alert-info">
                             <small>
-                                <strong>Código:</strong> 
+                                <strong>Código:</strong>
                                 {{ certificacion.codigo_verificacion|truncatechars:20 }}
                             </small>
                         </div>
                         {% endif %}
                     </div>
                     <div class="card-footer bg-transparent">
-                        <button class="btn btn-outline-primary btn-sm w-100" 
+                        <button class="btn btn-outline-primary btn-sm w-100"
                                 onclick="verDetalle('{{ certificacion.id }}')">
                             <i class="fas fa-eye"></i> Ver detalle
                         </button>

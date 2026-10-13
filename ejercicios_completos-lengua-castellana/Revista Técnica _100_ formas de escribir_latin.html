@@ -204,7 +204,7 @@
     const tipos = ["narrativo", "descriptivo", "expositivo", "argumentativo"];
     const autores = ["Gabriel García Márquez", "Juan Rulfo", "Julio Cortázar", "Mario Vargas Llosa", "Isabel Allende", "Álvaro Mutis", "Laura Restrepo", "Eduardo Galeano", "Jorge Luis Borges", "Tomás Carrasquilla", "José Eustasio Rivera", "Pilar Quintana"];
     const temasColombia = ["realismo mágico", "violencia y paz", "selva amazónica", "Camilo y Macondo", "ríos y añoranza", "crónicas de indias", "nostalgia costeña", "mitos precolombinos"];
-    
+
     // Helper para obtener título llamativo
     function generarTecnica(idx) {
         const tipoBase = tipos[idx % 4];
@@ -214,10 +214,10 @@
         else if (idx % 11 === 2) tema = "Estructura del laberinto";
         else if (idx % 9 === 3) tema = "Metaliteratura del instante";
         else tema = `${autores[idx % autores.length]} y la mirada profunda`;
-        
+
         let tituloEs = `Técnica ${idx+1}: ${tipoBase.charAt(0).toUpperCase() + tipoBase.slice(1)} ${tema.slice(0, 35)}`;
         let tituloEn = `Technique ${idx+1}: ${tipoBase} ${tema.slice(0, 30)}`;
-        
+
         // Párrafos literarios bilingües (ejemplo original pero el usuario podrá editarlos)
         let parrafoEs = "";
         let parrafoEn = "";
@@ -246,12 +246,12 @@
             parrafoEn: parrafoEn
         };
     }
-    
+
     const techniques = [];
     for (let i = 0; i < 100; i++) {
         techniques.push(generarTecnica(i));
     }
-    
+
     // Variables globales de speech
     let currentUtterance = null;
     let isPlayingSequence = false;
@@ -259,7 +259,7 @@
     let currentLang = "es"; // 'es' o 'en'
     let speechSpeed = 1.0;
     let activeCards = []; // referencia a elementos DOM de tarjeta
-    
+
     // Referencias DOM
     const container = document.getElementById("techniquesContainer");
     const speedRange = document.getElementById("speedRange");
@@ -272,9 +272,9 @@
     const nextBtn = document.getElementById("nextCardBtn");
     const langEsBtn = document.getElementById("langEsBtn");
     const langEnBtn = document.getElementById("langEnBtn");
-    
+
     let currentFocusedCardIndex = 0;   // para navegación ANT/SIG y secuencia
-    
+
     function updateSpeedDisplay() {
         speechSpeed = parseFloat(speedRange.value);
         speedSpan.innerText = speechSpeed.toFixed(2) + "x";
@@ -285,7 +285,7 @@
             // si se está reproduciendo una tarjeta individual se puede cambiar velocidad en nueva instancia? mejor aplicar en próxima lectura
         }
     });
-    
+
     function stopSpeech(resetUtterance = true) {
         if (window.speechSynthesis) {
             window.speechSynthesis.cancel();
@@ -293,7 +293,7 @@
         if (resetUtterance) currentUtterance = null;
         isPlayingSequence = false;
     }
-    
+
     function speakText(text, lang, rate = speechSpeed) {
         return new Promise((resolve, reject) => {
             if (!window.speechSynthesis) return reject();
@@ -312,7 +312,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     // Leer una tarjeta específica (por indice DOM)
     async function readCardByIndex(index, lang = currentLang) {
         if (!activeCards[index]) return;
@@ -326,7 +326,7 @@
             console.warn("texto no encontrado");
         }
     }
-    
+
     function highlightCard(index) {
         activeCards.forEach((card, i) => {
             if (i === index) {
@@ -338,7 +338,7 @@
         });
         currentFocusedCardIndex = index;
     }
-    
+
     // Secuencia: leer desde el índice actual hasta el final
     async function startSequence(startIdx) {
         if (isPlayingSequence) stopSpeech(true);
@@ -359,7 +359,7 @@
         isPlayingSequence = false;
         currentUtterance = null;
     }
-    
+
     function pauseSequence() {
         if (window.speechSynthesis && window.speechSynthesis.speaking) {
             window.speechSynthesis.pause();
@@ -373,7 +373,7 @@
             startSequence(currentFocusedCardIndex);
         }
     }
-    
+
     // Renderizar todas las tarjetas con editabilidad
     function renderCards() {
         container.innerHTML = "";
@@ -412,7 +412,7 @@
             rowDiv.appendChild(col);
         });
         container.appendChild(rowDiv);
-        
+
         // Recolectar tarjetas activas
         activeCards = Array.from(document.querySelectorAll(".card-lit"));
         // Asignar eventos a los botones individuales
@@ -424,7 +424,7 @@
             const textareaEn = card.querySelector(`.text-to-read[data-lang="en"]`);
             const titleEsSpan = card.querySelector(".title-es");
             const titleEnSpan = card.querySelector(".title-en");
-            
+
             listenEsBtn?.addEventListener("click", async (e) => {
                 e.stopPropagation();
                 const text = textareaEs.value;
@@ -451,16 +451,16 @@
                 stopSpeech(true);
                 await speakText(toSpeak, currentLang === "es" ? "es" : "en", speechSpeed);
             });
-            
+
             // Sincronizar cambios en textarea para futuras lecturas
         });
-        
+
         // Actualizar highlight inicial
         if (activeCards.length) highlightCard(0);
     }
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;});}
-    
+
     // Eventos panel
     playSeqBtn.onclick = () => {
         if (isPlayingSequence) stopSpeech(true);
@@ -468,7 +468,7 @@
     };
     pauseBtn.onclick = () => { pauseSequence(); };
     resumeBtn.onclick = () => { resumeSequence(); };
-    stopBtn.onclick = () => { 
+    stopBtn.onclick = () => {
         stopSpeech(true);
         isPlayingSequence = false;
     };
@@ -496,7 +496,7 @@
     langEsBtn.style.background = "#c9a449";
     langEnBtn.style.background = "#3a352c";
     currentLang = "es";
-    
+
     // scroll manual sin conflictos
     window.addEventListener("load", () => {
         if (activeCards.length) highlightCard(0);

@@ -31,30 +31,30 @@ print(f'📚 Cursos encontrados: {cursos.count()}\n')
 
 for curso in cursos:
     print(f'📝 Procesando: {curso.titulo}')
-    
+
     # Verificar si ya tiene evaluaciones
     evaluaciones_existentes = EvaluacionCurso.objects.filter(curso=curso)
     if evaluaciones_existentes.count() > 0:
         print(f'  ✅ Ya tiene {evaluaciones_existentes.count()} evaluaciones')
         continue
-    
+
     # Obtener lecciones del curso
     lecciones = []
     for m in curso.modulos.all():
         lecciones.extend(m.lecciones.all())
-    
+
     if not lecciones:
         print('  ⚠️ No hay lecciones para crear evaluación')
         continue
-    
+
     # Obtener ejercicios de las lecciones
     ejercicios_eval = []
     for lec in lecciones:
         ejercicios_eval.extend(lec.ejercicios_relacionados.all())
-    
+
     if not ejercicios_eval:
         ejercicios_eval = ejercicios[:10]
-    
+
     # Crear evaluación
     evaluacion = EvaluacionCurso.objects.create(
         curso=curso,
@@ -68,13 +68,13 @@ for curso in cursos:
         disponible_desde=datetime.now(),
         disponible_hasta=datetime.now() + timedelta(days=30)
     )
-    
+
     # Crear preguntas
     puntaje_total = 0
     preguntas_creadas = 0
     for i, ej in enumerate(ejercicios_eval[:10], 1):
         contenido = ej.contenido if isinstance(ej.contenido, dict) else {}
-        
+
         pregunta = PreguntaEvaluacion.objects.create(
             evaluacion=evaluacion,
             ejercicio=ej,
@@ -86,10 +86,10 @@ for curso in cursos:
         )
         puntaje_total += 10
         preguntas_creadas += 1
-    
+
     evaluacion.puntaje_maximo = puntaje_total
     evaluacion.save()
-    
+
     print(f'  ✅ Creada evaluación con {preguntas_creadas} preguntas')
 
 print('\n✅ Proceso completado')

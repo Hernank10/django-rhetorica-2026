@@ -164,7 +164,7 @@ function actualizarUIUsuario() {
     const btnLogin = document.getElementById('btn-login');
     const userInfo = document.getElementById('user-info');
     const userName = document.getElementById('user-name');
-    
+
     if (usuario) {
         btnLogin.style.display = 'none';
         userInfo.style.display = 'block';
@@ -211,7 +211,7 @@ async function cargarDatos() {
 async function cargarModulo(moduloKey) {
     const container = document.getElementById('section-' + moduloKey);
     if (!container) return;
-    
+
     // Mapear nombres de módulos
     const moduloMap = {
         'morfema': 'Morfema',
@@ -222,22 +222,22 @@ async function cargarModulo(moduloKey) {
     };
     const moduloNombre = moduloMap[moduloKey];
     if (!moduloNombre) return;
-    
+
     try {
         // Obtener el ID del módulo
         const modulosResp = await fetchApi('/aplicaciones/1/modulos');
         const modulos = await modulosResp.json();
         const modulo = modulos.find(m => m.nombre === moduloNombre);
         if (!modulo) return;
-        
+
         // Obtener las técnicas del módulo
         const tecnicasResp = await fetchApi(`/modulos/${modulo.id}/tecnicas`);
         const tecnicas = await tecnicasResp.json();
-        
+
         // Obtener progreso
         const progresoResp = await fetchApi('/usuario/progreso');
         const progreso = await progresoResp.json();
-        
+
         // Renderizar
         let html = `
             <div class="personaje-destacado" style="border-left:4px solid ${modulo.color_hex || 'var(--neon-dorado)'};">
@@ -249,7 +249,7 @@ async function cargarModulo(moduloKey) {
             </div>
             <div id="tecnicas-${moduloKey}">
         `;
-        
+
         tecnicas.forEach((t) => {
             const completada = progreso.find(p => p.id === t.id && p.completado) !== undefined;
             html += `
@@ -277,7 +277,7 @@ async function cargarModulo(moduloKey) {
                 </div>
             `;
         });
-        
+
         html += `</div>`;
         container.innerHTML = html;
     } catch (error) {
@@ -325,12 +325,12 @@ async function marcarEjercicio(id) {
         const progreso = window.progresoData || [];
         const actual = progreso.find(p => p.id === id);
         const nuevoEstado = actual ? !actual.completado : true;
-        
+
         const response = await fetchApi(`/usuario/progreso/${id}`, {
             method: 'PUT',
             body: JSON.stringify({ completado: nuevoEstado })
         });
-        
+
         if (response.ok) {
             await cargarProgreso();
             await cargarDashboard();

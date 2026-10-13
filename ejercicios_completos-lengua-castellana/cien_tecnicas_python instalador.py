@@ -375,11 +375,11 @@ def create_views_py():
     # Creamos la lista de imports y la carga de datos dinámicamente
     sections_import = ""
     data_vars = {}
-    
+
     for i, section in enumerate(SECTIONS):
         var_name = f"{section['name'].upper()}_DATA"
         data_vars[section['name']] = var_name
-    
+
     # Carga de datos
     load_data = ""
     for section in SECTIONS:
@@ -387,7 +387,7 @@ def create_views_py():
         load_data += f'''
 with open(os.path.join(BASE_DIR, "data", "{section['json_file']}"), "r", encoding="utf-8") as f:
     {var_name} = json.load(f)'''
-    
+
     # Vistas
     views_func = ""
     for section in SECTIONS:
@@ -397,7 +397,7 @@ with open(os.path.join(BASE_DIR, "data", "{section['json_file']}"), "r", encodin
 def {section['name']}(request):
     return render(request, "core/{section['name']}.html", {{"tecnicas": {var_name}}})
 '''
-    
+
     content = f'''import json, random, os
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
@@ -625,7 +625,7 @@ def create_core_urls_py():
     sections_urls = ""
     for section in SECTIONS:
         sections_urls += f"    path('{section['name']}/', views.{section['name']}, name='{section['name']}'),\n"
-    
+
     content = f'''from django.urls import path
 from . import views
 
@@ -1042,29 +1042,29 @@ def main():
     print_header("RHETORICA+ INSTALADOR AUTOMÁTICO")
     print("\nEste instalador creará y configurará el proyecto Django Rhetorica+")
     print("con todos los módulos lingüísticos y literarios (19 secciones).")
-    
+
     # Verificar Python
     print_step("Verificando entorno Python...")
     if sys.version_info < (3, 8):
         print_error("Se requiere Python 3.8 o superior")
         sys.exit(1)
     print_success(f"Python {sys.version_info.major}.{sys.version_info.minor} detectado")
-    
+
     # Crear directorio del proyecto
     print_step(f"Creando directorio del proyecto: {PROJECT_DIR}")
     ensure_dir(PROJECT_DIR)
-    
+
     # Crear entorno virtual
     print_step("Creando entorno virtual...")
     venv_python = VENV_DIR / "bin" / "python" if os.name != 'nt' else VENV_DIR / "Scripts" / "python.exe"
-    
+
     if not VENV_DIR.exists():
         result, _, _ = run_command(f"python -m venv {VENV_DIR}")
         if result != 0:
             print_error("No se pudo crear el entorno virtual")
             sys.exit(1)
     print_success("Entorno virtual creado")
-    
+
     # Activar entorno e instalar Django
     print_step("Instalando Django...")
     if os.name != 'nt':
@@ -1073,37 +1073,37 @@ def main():
     else:
         pip_cmd = f"{VENV_DIR}\\Scripts\\pip"
         python_cmd = f"{VENV_DIR}\\Scripts\\python"
-    
+
     result, _, _ = run_command(f"{pip_cmd} install django")
     if result != 0:
         print_error("No se pudo instalar Django")
         sys.exit(1)
     print_success("Django instalado")
-    
+
     # Crear proyecto y app
     os.chdir(PROJECT_DIR)
-    
+
     print_step("Creando proyecto Django...")
     result, _, _ = run_command(f"{python_cmd} -m django startproject rhetorica_plus .")
     if result != 0:
         print_error("No se pudo crear el proyecto")
-    
+
     print_step("Creando app core...")
     result, _, _ = run_command(f"{python_cmd} manage.py startapp core")
-    
+
     # Crear carpetas
     ensure_dir(DATA_DIR)
     ensure_dir(TEMPLATES_DIR)
     ensure_dir(STATIC_DIR)
     ensure_dir(MEDIA_DIR)
-    
+
     # Escribir archivos de configuración
     print_step("Generando archivos de configuración...")
     create_file(PROJECT_DIR / "rhetorica_plus" / "settings.py", create_settings_py())
     create_file(PROJECT_DIR / "rhetorica_plus" / "urls.py", create_urls_py())
     create_file(PROJECT_DIR / "rhetorica_plus" / "wsgi.py", create_wsgi_py())
     create_file(PROJECT_DIR / "rhetorica_plus" / "asgi.py", create_asgi_py())
-    
+
     # Escribir archivos de la app core
     create_file(PROJECT_DIR / "core" / "models.py", create_models_py())
     create_file(PROJECT_DIR / "core" / "admin.py", create_admin_py())
@@ -1112,7 +1112,7 @@ def main():
     create_file(PROJECT_DIR / "core" / "decorators.py", create_decorators_py())
     create_file(PROJECT_DIR / "core" / "views.py", create_views_py())
     create_file(PROJECT_DIR / "core" / "urls.py", create_core_urls_py())
-    
+
     # Escribir templates base
     print_step("Generando templates HTML...")
     create_file(TEMPLATES_DIR / "base.html", create_base_html())
@@ -1125,29 +1125,29 @@ def main():
     create_file(TEMPLATES_DIR / "admin_panel.html", create_admin_panel_html())
     create_file(TEMPLATES_DIR / "admin_nuevo_usuario.html", create_admin_nuevo_usuario_html())
     create_file(TEMPLATES_DIR / "proyecto.html", create_proyecto_html())
-    
+
     # Crear templates para cada sección
     for section in SECTIONS:
         create_file(TEMPLATES_DIR / f"{section['name']}.html", create_section_template(section))
-    
+
     # Crear manage.py y requirements.txt
     create_file(PROJECT_DIR / "manage.py", create_manage_py())
     create_file(PROJECT_DIR / "requirements.txt", create_requirements_txt())
-    
+
     # Aviso sobre archivos JSON
     print_warning(f"Debes colocar los archivos JSON en {DATA_DIR}")
     print_warning("Archivos JSON necesarios:")
     for section in SECTIONS:
         print(f"  - {section['json_file']}")
-    
+
     print_step("Ejecutando migraciones...")
     result, _, _ = run_command(f"{python_cmd} manage.py makemigrations")
     result, _, _ = run_command(f"{python_cmd} manage.py migrate")
-    
+
     print_step("Creando superusuario...")
     print("  Ahora se te pedirá crear un superusuario para acceder al admin.")
     run_command(f"{python_cmd} manage.py createsuperuser", capture_output=False)
-    
+
     print_header("INSTALACIÓN COMPLETADA")
     print(f"\n📁 Proyecto instalado en: {PROJECT_DIR}")
     print(f"🚀 Para iniciar el servidor:")
@@ -1157,7 +1157,7 @@ def main():
     print(f"   python manage.py runserver")
     print(f"\n🌐 Abre en tu navegador: http://127.0.0.1:8000")
     print(f"\n📌 Nota: Debes copiar manualmente los archivos JSON a {DATA_DIR}")
-    
+
     # Preguntar si desea iniciar el servidor
     print("\n" + "-" * 50)
     respuesta = input("¿Deseas iniciar el servidor ahora? (s/n): ").lower()

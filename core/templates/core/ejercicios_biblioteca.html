@@ -37,7 +37,7 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                <input type="text" class="form-control" id="busqueda" 
+                                <input type="text" class="form-control" id="busqueda"
                                        placeholder="Buscar ejercicios...">
                             </div>
                         </div>
@@ -68,7 +68,7 @@
     <!-- Grid de ejercicios -->
     <div class="row" id="ejerciciosGrid">
         {% for ejercicio in ejercicios %}
-        <div class="col-md-4 col-lg-3 mb-4 ejercicio-item" 
+        <div class="col-md-4 col-lg-3 mb-4 ejercicio-item"
              data-categoria="{{ ejercicio.categoria|default:'General' }}"
              data-nivel="{{ ejercicio.nivel|default:1 }}">
             <div class="card h-100 shadow-sm hover-card">
@@ -83,18 +83,18 @@
                         <i class="fas fa-pencil-alt text-primary"></i>
                         {{ ejercicio.titulo|default:"Sin título" }}
                     </h5>
-                    
+
                     <div class="mt-2">
                         <span class="badge bg-secondary">{{ ejercicio.tipo|default:"General" }}</span>
                         <span class="badge bg-success">
                             <i class="fas fa-star"></i> {{ ejercicio.puntos|default:10 }} pts
                         </span>
                     </div>
-                    
+
                     {% if ejercicio.contenido %}
                         {% if ejercicio.contenido.ejercicio %}
                             <p class="card-text text-muted small mt-2">
-                                <strong>Ejercicio:</strong> 
+                                <strong>Ejercicio:</strong>
                                 {{ ejercicio.contenido.ejercicio|truncatechars:80 }}
                             </p>
                         {% endif %}
@@ -102,7 +102,7 @@
                 </div>
                 <div class="card-footer bg-transparent">
                     <div class="d-grid gap-2">
-                        <a href="{% url 'practicar_ejercicio' ejercicio.id %}" 
+                        <a href="{% url 'practicar_ejercicio' ejercicio.id %}"
                            class="btn btn-primary btn-sm">
                             <i class="fas fa-play"></i> Practicar
                         </a>
@@ -146,7 +146,7 @@
 document.getElementById('busqueda').addEventListener('keyup', function() {
     const busqueda = this.value.toLowerCase().trim();
     const items = document.querySelectorAll('.ejercicio-item');
-    
+
     items.forEach(item => {
         const texto = item.textContent.toLowerCase();
         item.style.display = texto.includes(busqueda) ? '' : 'none';
@@ -157,7 +157,7 @@ document.getElementById('busqueda').addEventListener('keyup', function() {
 document.getElementById('filtroCategoria').addEventListener('change', function() {
     const categoria = this.value;
     const items = document.querySelectorAll('.ejercicio-item');
-    
+
     items.forEach(item => {
         const cat = item.dataset.categoria;
         item.style.display = (!categoria || cat === categoria) ? '' : 'none';
@@ -168,7 +168,7 @@ document.getElementById('filtroCategoria').addEventListener('change', function()
 document.getElementById('filtroNivel').addEventListener('change', function() {
     const nivel = this.value;
     const items = document.querySelectorAll('.ejercicio-item');
-    
+
     items.forEach(item => {
         const nvl = item.dataset.nivel;
         item.style.display = (!nivel || nvl === nivel) ? '' : 'none';

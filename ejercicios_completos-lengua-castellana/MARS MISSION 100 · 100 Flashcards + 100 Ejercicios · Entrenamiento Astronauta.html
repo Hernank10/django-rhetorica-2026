@@ -253,20 +253,20 @@
         "reporte de anomalías", "coordinación de tripulación", "mantenimiento de sistemas", "radiación espacial",
         "cultivos hidropónicos", "reciclaje de agua", "comunicación con retraso", "aterrizaje de emergencia"
     ];
-    
+
     function generarTodasLasTecnicas() {
         let tecnicas = [];
         for (let i = 0; i < 100; i++) {
             let tema = temasEspaciales[i % temasEspaciales.length];
             let tipo = i % 4;
             let numero = i + 1;
-            
+
             let tituloEs = `FC-${numero}: ${tipo === 0 ? 'Lectura crítica' : tipo === 1 ? 'Comunicación escrita' : tipo === 2 ? 'Inferencia de datos' : 'Argumentación'} - ${tema}`;
             let tituloEn = `FC-${numero}: ${tipo === 0 ? 'Critical Reading' : tipo === 1 ? 'Written Communication' : tipo === 2 ? 'Data Inference' : 'Argumentation'} - ${tema}`;
-            
+
             let explicacionEs = `Técnica ${numero}: Dominar la ${tituloEs.split(' - ')[0]} aplicada a ${tema} es fundamental para la seguridad y eficiencia de la misión a Marte. Esta habilidad permite tomar decisiones informadas bajo presión.`;
             let explicacionEn = `Technique ${numero}: Mastering ${tituloEn.split(' - ')[0]} applied to ${tema} is essential for mission safety and efficiency to Mars. This skill enables informed decision-making under pressure.`;
-            
+
             // Ejemplos únicos para cada flashcard (100 ejemplos diferentes)
             let ejemplosEs = [
                 `Al revisar el protocolo de ${tema} versión ${numero}, la astronauta detectó una inconsistencia crítica en el paso 7 que podría comprometer la EVA.`,
@@ -274,14 +274,14 @@
                 `Dato observado: El sistema de ${tema} muestra variación del ${Math.floor(Math.random()*20)+1}%. Inferencia: Posible degradación por radiación cósmica acumulada durante ${numero} horas de exposición.`,
                 `Tesis: Es necesario modificar el protocolo de ${tema}. Evidencia: 3 incidentes previos. Garantía: El margen de seguridad actual es insuficiente. Conclusión: Implementar cambios antes de la fase ${numero} de la misión.`
             ];
-            
+
             let ejemplosEn = [
                 `When reviewing the ${tema} protocol version ${numero}, the astronaut detected a critical inconsistency in step 7 that could compromise the EVA.`,
                 `To report an anomaly in ${tema}, use: "Component X: anomalous reading (value ${Math.floor(Math.random()*100)} vs expected ${Math.floor(Math.random()*100)}). Recommended action: review section ${numero} of the manual."`,
                 `Observed data: The ${tema} system shows a variation of ${Math.floor(Math.random()*20)+1}%. Inference: Possible degradation due to cosmic radiation accumulated during ${numero} hours of exposure.`,
                 `Claim: It is necessary to modify the ${tema} protocol. Evidence: 3 previous incidents. Warrant: Current safety margin is insufficient. Conclusion: Implement changes before mission phase ${numero}.`
             ];
-            
+
             tecnicas.push({
                 id: i,
                 numero: numero,
@@ -421,9 +421,9 @@
         let ejercicioCompletado = await ejercicioYaRealizado(currentIndex);
         let ejemploPersonal = ejemplosMap.get(currentIndex);
         let isCompleted = completadas.includes(currentIndex);
-        
+
         document.getElementById("currentTechId").innerHTML = `${currentIndex+1}`;
-        
+
         let html = `
             <div class="mb-3 d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <span class="badge-mars">${isCompleted ? '✅ Completada' : '🌍 No completada'}</span>
@@ -431,12 +431,12 @@
             </div>
             <h4 class="title-space text-warning">🇪🇸 ${tec.tituloEs}</h4>
             <h5 class="text-info mb-3">🇺🇸 ${tec.tituloEn}</h5>
-            
+
             <div class="syntax-panel mb-3">
                 <strong><i class="fas fa-chart-line"></i> Análisis sintáctico del ejemplo:</strong><br>
                 <span id="syntaxDisplay"></span>
             </div>
-            
+
             <button class="btn btn-outline-space btn-sm mb-3" id="toggleTheoryBtn"><i class="fas fa-eye"></i> Ver teoría completa</button>
             <div id="theoryPanel" style="display:none;" class="mt-2 p-3 bg-dark rounded mb-3">
                 <p><strong>📘 Explicación:</strong> ${tec.explicacionEs}</p>
@@ -445,7 +445,7 @@
                 <p><strong>📘 Explanation:</strong> ${tec.explicacionEn}</p>
                 <p><strong>💡 Example:</strong> ${tec.ejemploEn}</p>
             </div>
-            
+
             <div class="word-exercise mt-3">
                 <h6><i class="fas fa-puzzle-piece"></i> 🎯 EJERCICIO 1: Ordena las palabras</h6>
                 <div id="palabrasContainer" class="mb-2"></div>
@@ -454,7 +454,7 @@
                 <div id="feedbackEj" class="exercise-feedback mt-2"></div>
                 ${ejercicioCompletado ? '<div class="text-success mt-2"><i class="fas fa-trophy"></i> ¡Ejercicio completado anteriormente!</div>' : ''}
             </div>
-            
+
             <div class="word-exercise mt-3">
                 <h6><i class="fas fa-pen-fancy"></i> 🎯 EJERCICIO 2: Escribe tu propio ejemplo</h6>
                 <p class="small text-muted">Aplica la técnica a una situación real de la misión espacial</p>
@@ -463,24 +463,24 @@
                 <button id="guardarEjemploBtn" class="btn btn-outline-space btn-sm w-100">💾 Guardar ejemplo en mi bitácora</button>
             </div>
         `;
-        
+
         document.getElementById("flashContent").innerHTML = html;
-        
+
         let analisis = analizarSintaxis(tec.ejemploEs);
         document.getElementById("syntaxDisplay").innerHTML = `📊 Palabras: ${analisis.palabras} | Oraciones: ${analisis.oraciones} | >6 letras: ${analisis.largas} | Longitud media: ${analisis.media} | Legibilidad: ${analisis.leg}`;
-        
+
         let desorden = iniciarEjercicio(tec.ejemploEs);
         if (desorden && desorden.length > 2) {
             document.getElementById("palabrasContainer").innerHTML = desorden.map(p => `<span class="word-card">${p}</span>`).join(' ');
         } else {
             document.getElementById("palabrasContainer").innerHTML = '<p class="text-muted">Frase muy corta; usa el ejemplo completo para practicar.</p>';
         }
-        
+
         document.getElementById("toggleTheoryBtn").onclick = () => {
             let panel = document.getElementById("theoryPanel");
             panel.style.display = panel.style.display === "none" ? "block" : "none";
         };
-        
+
         document.getElementById("verificarBtn").onclick = async () => {
             let respuesta = document.getElementById("respuestaOrden").value;
             let correcto = verificarOrden(respuesta);
@@ -495,7 +495,7 @@
                 fb.innerHTML = `<span class="text-danger"><i class="fas fa-times-circle"></i> ❌ Incorrecto. El mensaje correcto era: "${fraseCorrectaActual}"</span>`;
             }
         };
-        
+
         document.getElementById("guardarEjemploBtn").onclick = async () => {
             let es = document.getElementById("miEjemploEs").value;
             let en = document.getElementById("miEjemploEn").value;
@@ -562,7 +562,7 @@
         texto += `Flashcards completadas: ${completadas.length}/100 (${Math.round((completadas.length/100)*100)}%)\n`;
         texto += `Ejercicios propios guardados: ${ejemplosMap.size}\n`;
         texto += "=".repeat(60) + "\n\n";
-        
+
         for (let [id, ej] of ejemplosMap.entries()) {
             let tec = tecnicasGlobal[id];
             texto += `📖 FLASHCARD ${tec.numero}: ${tec.tituloEs}\n`;
@@ -571,7 +571,7 @@
             texto += `✍️ My example in English:\n${ej.en || "(Not written)"}\n\n`;
             texto += "-".repeat(50) + "\n\n";
         }
-        
+
         let blob = new Blob([texto], { type: "text/plain" });
         let a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
@@ -586,7 +586,7 @@
         await actualizarDashboard();
         await renderTechList();
         await renderFlashcard();
-        
+
         document.getElementById("nextBtn").onclick = () => { currentIndex = (currentIndex + 1) % 100; renderFlashcard(); };
         document.getElementById("prevBtn").onclick = () => { currentIndex = (currentIndex - 1 + 100) % 100; renderFlashcard(); };
         document.getElementById("markCompleteBtn").onclick = marcarCompletada;
@@ -595,7 +595,7 @@
         document.getElementById("resetProgressBtn").onclick = async () => { if(confirm("⚠️ ¿Reiniciar todo el progreso? Esta acción no se puede deshacer.")) await resetearProgreso(); };
         document.getElementById("searchInput").addEventListener("keyup", (e) => { if(e.key === "Enter") renderTechList(e.target.value.toLowerCase()); });
     }
-    
+
     init();
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

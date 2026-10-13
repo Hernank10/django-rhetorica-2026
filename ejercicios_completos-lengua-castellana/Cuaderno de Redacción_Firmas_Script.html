@@ -60,8 +60,8 @@
     /* ESTILOS DE ESCRITURA: cursiva y script */
     .escritura-cursiva { font-family: 'Source Serif 4', serif; font-style: italic; }
     .escritura-script { font-family: 'Segoe Script', 'Brush Script MT', cursive; font-style: normal; }
-    .firma-estilo { 
-      font-family: 'Segoe Script', 'Brush Script MT', cursive; 
+    .firma-estilo {
+      font-family: 'Segoe Script', 'Brush Script MT', cursive;
       font-size: 1.2rem;
       color: #3d2e1e;
       letter-spacing: 1px;
@@ -575,7 +575,7 @@
               <option value="cursiva">Cursiva</option>
               <option value="script">Script</option>
             </select>
-            <input type="text" placeholder="escribe tu respuesta..." data-id="${t.id}" 
+            <input type="text" placeholder="escribe tu respuesta..." data-id="${t.id}"
                    class="${respGuardada ? 'estilo-' + respGuardada.estilo : 'estilo-normal'}"
                    value="${respGuardada ? respGuardada.texto : ''}">
             <button class="btn-sello" data-id="${t.id}">comprobar</button>
@@ -641,15 +641,15 @@
               firmaDiv.style.fontSize = '0.8rem';
               firmaDiv.style.color = '#1f6d3b';
               firmaDiv.style.fontFamily = "'Special Elite',cursive";
-              const estiloFuente = estilo === 'script' ? "'Segoe Script','Brush Script MT',cursive" : 
-                                   estilo === 'cursiva' ? "'Source Serif 4',serif;font-style:italic" : 
+              const estiloFuente = estilo === 'script' ? "'Segoe Script','Brush Script MT',cursive" :
+                                   estilo === 'cursiva' ? "'Source Serif 4',serif;font-style:italic" :
                                    "'Source Serif 4',serif";
               firmaDiv.innerHTML = `✦ firma: <span class="firma-estilo" style="font-family:${estiloFuente}">${val}</span>`;
               ficha.querySelector('.respuesta-area').after(firmaDiv);
             } else {
               const firmaSpan = ficha.querySelector('.firma-estilo');
-              const estiloFuente = estilo === 'script' ? "'Segoe Script','Brush Script MT',cursive" : 
-                                   estilo === 'cursiva' ? "'Source Serif 4',serif;font-style:italic" : 
+              const estiloFuente = estilo === 'script' ? "'Segoe Script','Brush Script MT',cursive" :
+                                   estilo === 'cursiva' ? "'Source Serif 4',serif;font-style:italic" :
                                    "'Source Serif 4',serif";
               firmaSpan.style.fontFamily = estiloFuente;
               firmaSpan.textContent = val;

@@ -97,7 +97,7 @@ CREATE TABLE Flashcards (
 -- 7. VISTA: VW_PROGRESO_GENERAL (Reporte rápido de avance)
 -- ============================================================
 CREATE VIEW Vw_ProgresoGeneral AS
-SELECT 
+SELECT
     u.id AS usuario_id,
     u.nombre AS usuario_nombre,
     COUNT(DISTINCT t.id) AS total_tecnicas,

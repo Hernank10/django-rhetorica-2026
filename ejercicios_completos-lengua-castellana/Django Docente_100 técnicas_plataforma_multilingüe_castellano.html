@@ -214,14 +214,14 @@
         else if (index < 60) category = "views";
         else if (index < 80) category = "frontend";
         else category = "i18n";
-        
+
         let titleEs = "";
         let titleEn = "";
         let descEs = "";
         let descEn = "";
         let codeExample = "";
         let targetLangs = top30Langs.slice(0, Math.min(15, index % 15 + 5)).join(", ");
-        
+
         if (category === "setup") {
             titleEs = `Paso ${index+1}: Configurar entorno Django y proyecto multilingüe`;
             titleEn = `Step ${index+1}: Setup Django project with multilingual support`;
@@ -267,16 +267,16 @@
             fullLangs: top30Langs.slice(0, 12).join(", ")
         };
     }
-    
+
     const techniques = [];
     for (let i = 0; i < 100; i++) {
         techniques.push(createTechnique(i));
     }
-    
+
     // Render dinámico de tarjetas con diseño tipo paso
     let activeFilter = "all";
     let currentCards = [];
-    
+
     function renderCards(filter = "all") {
         const filtered = techniques.filter(t => filter === "all" ? true : t.category === filter);
         const container = document.getElementById("stepsGrid");
@@ -330,7 +330,7 @@
         });
         currentCards = filtered;
     }
-    
+
     // ------------------ Lector de voz sincronizado con textos visibles (secuencia)
     let speechSynthesis = window.speechSynthesis;
     let currentUtterance = null;
@@ -338,13 +338,13 @@
     let readingQueue = [];
     let currentReadingIndex = 0;
     let readingCardsList = [];
-    
+
     function stopSpeech() {
         if (speechSynthesis) speechSynthesis.cancel();
         currentUtterance = null;
         isReading = false;
     }
-    
+
     function speakText(text, lang, rate = parseFloat(document.getElementById("voiceRate").value)) {
         return new Promise((resolve, reject) => {
             if (!speechSynthesis) return reject();
@@ -358,7 +358,7 @@
             speechSynthesis.speak(utterance);
         });
     }
-    
+
     async function readAllVisibleCardsSequential(lang) {
         if (isReading) stopSpeech();
         const cards = document.querySelectorAll(".card-step");
@@ -388,14 +388,14 @@
         }
         isReading = false;
     }
-    
+
     // Filtros
     document.getElementById("filterAllBtn").addEventListener("click", () => { activeFilter = "all"; renderCards("all"); });
     document.getElementById("filterConfigBtn").addEventListener("click", () => { activeFilter = "setup"; renderCards("setup"); });
     document.getElementById("filterModelsBtn").addEventListener("click", () => { activeFilter = "models"; renderCards("models"); });
     document.getElementById("filterViewsBtn").addEventListener("click", () => { activeFilter = "views"; renderCards("views"); });
     document.getElementById("filterFrontBtn").addEventListener("click", () => { activeFilter = "frontend"; renderCards("frontend"); });
-    
+
     // Voice Controls
     const readVisibleBtn = document.getElementById("readVisibleBtn");
     const pauseVoice = document.getElementById("pauseVoiceBtn");
@@ -403,9 +403,9 @@
     const voiceLangSelect = document.getElementById("voiceLangSelect");
     const voiceRate = document.getElementById("voiceRate");
     const rateVal = document.getElementById("rateVal");
-    
+
     voiceRate.addEventListener("input", () => { rateVal.innerText = voiceRate.value + "x"; if (currentUtterance) currentUtterance.rate = parseFloat(voiceRate.value); });
-    
+
     readVisibleBtn.addEventListener("click", async () => {
         const lang = voiceLangSelect.value;
         stopSpeech();
@@ -414,12 +414,12 @@
     pauseVoice.addEventListener("click", () => { if (speechSynthesis && speechSynthesis.speaking) speechSynthesis.pause(); });
     stopVoice.addEventListener("click", () => { stopSpeech(); isReading = false; });
     voiceLangSelect.addEventListener("change", () => { /* new lang for next reads */ });
-    
+
     // Inicializar
     renderCards("all");
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // Añadir tooltips dinámicos
     document.querySelectorAll('.btn').forEach(btn => { if(btn.title) {}});
     // Mostrar indicador de 30 lenguas

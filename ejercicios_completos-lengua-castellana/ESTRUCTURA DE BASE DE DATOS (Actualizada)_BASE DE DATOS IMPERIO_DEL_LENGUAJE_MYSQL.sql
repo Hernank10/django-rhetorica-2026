@@ -104,7 +104,7 @@ CREATE TABLE HistorialPuntos (
 
 -- 1.6 Vista: Ranking de usuarios
 CREATE VIEW Vw_Ranking AS
-SELECT 
+SELECT
     u.id AS usuario_id,
     u.nombre AS usuario_nombre,
     pu.puntos,

@@ -299,17 +299,17 @@
                     </div>
                     <h5 class="title-es mb-0">${escapeHtml(tech.tituloEs)}</h5>
                     <h6 class="text-secondary title-en mb-3 fs-6">${escapeHtml(tech.tituloEn)}</h6>
-                    
+
                     <label class="small fw-bold mt-1"><i class="fas fa-comment-dots"></i> Explicación (editable):</label>
                     <textarea class="form-control form-control-sm mb-2" data-type="explanation" data-lang="es" rows="2">${escapeHtml(tech.explicacionEs)}</textarea>
                     <textarea class="form-control form-control-sm mb-2" data-type="explanation" data-lang="en" rows="2">${escapeHtml(tech.explicacionEn)}</textarea>
-                    
+
                     <label class="small fw-bold"><i class="fas fa-code"></i> Ejemplo (editable):</label>
                     <textarea class="form-control form-control-sm mb-2" data-type="example" data-lang="es" rows="2">${escapeHtml(tech.ejemploEs)}</textarea>
                     <textarea class="form-control form-control-sm mb-2" data-type="example" data-lang="en" rows="2">${escapeHtml(tech.ejemploEn)}</textarea>
-                    
+
                     <div class="syntax-stats syntax-stats-panel mt-2 mb-2"></div>
-                    
+
                     <div class="d-flex justify-content-between align-items-center mt-1">
                         <small class="text-muted"><i class="fas fa-sync-alt"></i> Edita → análisis automático</small>
                         <div>
@@ -322,14 +322,14 @@
             `;
             container.appendChild(col);
         });
-        
+
         activeCards = Array.from(document.querySelectorAll(".card-tech"));
         activeCards.forEach(card => {
             const textareaEsExp = card.querySelector('textarea[data-type="explanation"][data-lang="es"]');
             const textareaEnExp = card.querySelector('textarea[data-type="explanation"][data-lang="en"]');
             const textareaEsEx = card.querySelector('textarea[data-type="example"][data-lang="es"]');
             const textareaEnEx = card.querySelector('textarea[data-type="example"][data-lang="en"]');
-            
+
             const updateSyntax = () => {
                 const textEs = (textareaEsExp?.value || "") + " " + (textareaEsEx?.value || "");
                 const textEn = (textareaEnExp?.value || "") + " " + (textareaEnEx?.value || "");
@@ -340,7 +340,7 @@
             textareaEsEx?.addEventListener("input", updateSyntax);
             textareaEnEx?.addEventListener("input", updateSyntax);
             updateSyntax();
-            
+
             const esBtn = card.querySelector(".listen-es-btn");
             const enBtn = card.querySelector(".listen-en-btn");
             const titleBtn = card.querySelector(".listen-title-btn");
@@ -386,7 +386,7 @@
     langEn.onclick = () => { currentLang = "en"; langEn.style.background = "#e9b35f"; langEs.style.background = "#2c4740"; };
     const speedRange = document.getElementById("speedRange"), speedVal = document.getElementById("speedVal");
     speedRange.oninput = () => { currentRate = parseFloat(speedRange.value); speedVal.innerText = currentRate.toFixed(2) + "x"; };
-    
+
     renderCards("all");
     langEs.style.background = "#e9b35f";
     langEn.style.background = "#2c4740";

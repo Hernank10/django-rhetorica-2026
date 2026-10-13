@@ -55,7 +55,7 @@ async function procesarCompletarTecnica(usuarioId, tecnicaId, moduloId) {
 
         // 5. Actualizar progreso
         await connection.query(
-            `INSERT INTO ProgresoUsuario (usuario_id, tecnica_id, completado, fecha_completado) 
+            `INSERT INTO ProgresoUsuario (usuario_id, tecnica_id, completado, fecha_completado)
              VALUES (?, ?, TRUE, NOW())
              ON DUPLICATE KEY UPDATE completado = TRUE, fecha_completado = NOW()`,
             [usuarioId, tecnicaId]
@@ -63,8 +63,8 @@ async function procesarCompletarTecnica(usuarioId, tecnicaId, moduloId) {
 
         // 6. Actualizar puntos y racha
         await connection.query(
-            `UPDATE PuntosUsuario 
-             SET puntos = ?, racha_actual = ?, mejor_racha = GREATEST(mejor_racha, ?), 
+            `UPDATE PuntosUsuario
+             SET puntos = ?, racha_actual = ?, mejor_racha = GREATEST(mejor_racha, ?),
                  ultimo_estudio = NOW(), total_tecnicas_completadas = ?
              WHERE usuario_id = ?`,
             [puntos, racha, racha, totalTecnicas, usuarioId]
@@ -122,7 +122,7 @@ async function verificarLogros(connection, usuarioId, totalTecnicas, racha, modu
 
     // Obtener todos los logros
     const [logros] = await connection.query('SELECT * FROM Logros');
-    
+
     for (const logro of logros) {
         if (idsDesbloqueados.includes(logro.id)) continue;
 
@@ -186,13 +186,13 @@ app.put('/api/usuario/progreso/:tecnicaId', autenticar, async (req, res) => {
 
             // Procesar gamificación
             const resultado = await procesarCompletarTecnica(usuarioId, tecnicaId, moduloId);
-            
+
             // Obtener datos actualizados
             const [puntosData] = await pool.query(
                 'SELECT puntos, nivel_actual, racha_actual FROM PuntosUsuario WHERE usuario_id = ?',
                 [usuarioId]
             );
-            
+
             res.json({
                 mensaje: 'Progreso actualizado',
                 puntos: puntosData[0]?.puntos || 0,
@@ -240,19 +240,19 @@ app.get('/api/usuario/gamificacion', autenticar, async (req, res) => {
 
         // Historial de puntos (últimos 10)
         const [historial] = await pool.query(
-            `SELECT * FROM HistorialPuntos 
-             WHERE usuario_id = ? 
-             ORDER BY fecha DESC 
+            `SELECT * FROM HistorialPuntos
+             WHERE usuario_id = ?
+             ORDER BY fecha DESC
              LIMIT 10`,
             [usuarioId]
         );
 
         // Próximo nivel
         const [siguienteNivel] = await pool.query(
-            `SELECT nivel, puntos_requeridos, titulo 
-             FROM Niveles 
-             WHERE puntos_requeridos > ? 
-             ORDER BY puntos_requeridos ASC 
+            `SELECT nivel, puntos_requeridos, titulo
+             FROM Niveles
+             WHERE puntos_requeridos > ?
+             ORDER BY puntos_requeridos ASC
              LIMIT 1`,
             [puntosData[0]?.puntos || 0]
         );
@@ -281,7 +281,7 @@ app.get('/api/usuario/gamificacion', autenticar, async (req, res) => {
 app.get('/api/ranking', autenticar, async (req, res) => {
     try {
         const [ranking] = await pool.query(`
-            SELECT * FROM Vw_Ranking 
+            SELECT * FROM Vw_Ranking
             LIMIT 50
         `);
         res.json(ranking);
@@ -296,15 +296,15 @@ app.get('/api/ranking/cercanos', autenticar, async (req, res) => {
     try {
         const usuarioId = req.usuarioId;
         const [ranking] = await pool.query(`
-            SELECT * FROM Vw_Ranking 
+            SELECT * FROM Vw_Ranking
             ORDER BY puntos DESC
         `);
-        
+
         // Encontrar posición del usuario
         const posicion = ranking.findIndex(r => r.usuario_id === usuarioId);
         const inicio = Math.max(0, posicion - 5);
         const fin = Math.min(ranking.length, posicion + 6);
-        
+
         res.json({
             posicion: posicion + 1,
             cercanos: ranking.slice(inicio, fin)

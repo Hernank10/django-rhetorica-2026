@@ -234,7 +234,7 @@ def leccion_form(request, leccion_id=None):
     if request.method == "POST":
         modulo_id = request.POST.get("modulo")
         titulo = request.POST.get("titulo", "").strip()
-        
+
         contenido = sanitizar_html(request.POST.get("contenido", ""))
         tipo = request.POST.get("tipo", "lectura")
         orden = request.POST.get("orden", 1) or 1

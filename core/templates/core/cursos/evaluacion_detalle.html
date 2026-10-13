@@ -36,7 +36,7 @@
                 </div>
                 <div class="card-body">
                     <p class="text-muted">{{ evaluacion.descripcion }}</p>
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="list-unstyled">
@@ -47,7 +47,7 @@
                         <div class="col-md-6 text-end">
                             {% if evaluacion.disponible_desde and evaluacion.disponible_hasta %}
                             <small class="text-muted">
-                                <i class="fas fa-calendar-alt"></i> 
+                                <i class="fas fa-calendar-alt"></i>
                                 Disponible: {{ evaluacion.disponible_desde|date:"d/m/Y" }} - {{ evaluacion.disponible_hasta|date:"d/m/Y" }}
                             </small>
                             {% endif %}
@@ -82,7 +82,7 @@
                     <div class="card-body">
                         <!-- Timer -->
                         <div class="alert alert-warning">
-                            <i class="fas fa-clock"></i> 
+                            <i class="fas fa-clock"></i>
                             Tiempo restante: <span id="timer">30:00</span>
                             <span class="float-end">
                                 <span class="badge bg-success">Intento {{ intento_actual|default:1 }}</span>
@@ -92,7 +92,7 @@
                         <!-- Formulario -->
                         <form method="post" action="{% url 'enviar_evaluacion' evaluacion.id %}" id="evaluacionForm">
                             {% csrf_token %}
-                            
+
                             {% for pregunta in preguntas %}
                             <div class="card mb-3">
                                 <div class="card-header bg-light">
@@ -101,13 +101,13 @@
                                 </div>
                                 <div class="card-body">
                                     <p>{{ pregunta.enunciado|default:"Sin enunciado" }}</p>
-                                    
+
                                     {% if pregunta.tipo == 'multiple' %}
                                         {% for opcion in pregunta.opciones|default:"" %}
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" 
-                                                   name="pregunta_{{ pregunta.id }}" 
-                                                   id="opcion_{{ pregunta.id }}_{{ forloop.counter }}" 
+                                            <input class="form-check-input" type="radio"
+                                                   name="pregunta_{{ pregunta.id }}"
+                                                   id="opcion_{{ pregunta.id }}_{{ forloop.counter }}"
                                                    value="{{ opcion }}">
                                             <label class="form-check-label" for="opcion_{{ pregunta.id }}_{{ forloop.counter }}">
                                                 {{ opcion }}
@@ -116,21 +116,21 @@
                                         {% endfor %}
                                     {% elif pregunta.tipo == 'verdadero_falso' %}
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" 
-                                                   name="pregunta_{{ pregunta.id }}" 
+                                            <input class="form-check-input" type="radio"
+                                                   name="pregunta_{{ pregunta.id }}"
                                                    id="vf_{{ pregunta.id }}_v" value="Verdadero">
                                             <label class="form-check-label" for="vf_{{ pregunta.id }}_v">Verdadero</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" 
-                                                   name="pregunta_{{ pregunta.id }}" 
+                                            <input class="form-check-input" type="radio"
+                                                   name="pregunta_{{ pregunta.id }}"
                                                    id="vf_{{ pregunta.id }}_f" value="Falso">
                                             <label class="form-check-label" for="vf_{{ pregunta.id }}_f">Falso</label>
                                         </div>
                                     {% else %}
-                                        <textarea class="form-control" 
-                                                  name="pregunta_{{ pregunta.id }}" 
-                                                  rows="3" 
+                                        <textarea class="form-control"
+                                                  name="pregunta_{{ pregunta.id }}"
+                                                  rows="3"
                                                   placeholder="Escribe tu respuesta aquí..."></textarea>
                                     {% endif %}
                                 </div>
@@ -140,7 +140,7 @@
                                 No hay preguntas para esta evaluación.
                             </div>
                             {% endfor %}
-                            
+
                             <div class="text-center mt-3">
                                 <button type="submit" class="btn btn-success btn-lg">
                                     <i class="fas fa-paper-plane"></i> Enviar evaluación
@@ -182,9 +182,9 @@
             tiempoRestante--;
             let minutos = Math.floor(tiempoRestante / 60);
             let segundos = tiempoRestante % 60;
-            document.getElementById('timer').textContent = 
+            document.getElementById('timer').textContent =
                 String(minutos).padStart(2, '0') + ':' + String(segundos).padStart(2, '0');
-            
+
             if (tiempoRestante <= 0) {
                 clearInterval(timerInterval);
                 alert('⏰ Tiempo agotado. La evaluación se enviará automáticamente.');

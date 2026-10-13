@@ -22,13 +22,13 @@ if total < 100:
     from scripts.generar_100_cursos import Generador100Cursos
     generador = Generador100Cursos()
     generador.cargar_datos()
-    
+
     # Generar solo los que faltan
     for i in range(total + 1, 101):
         curso = generador.generar_curso(i)
         if i % 10 == 0:
             print(f'  ✅ Generados {i} cursos...')
-    
+
     print(f'✅ Completados {Curso.objects.count()} cursos')
 else:
     print('✅ Ya hay 100 cursos o más')

@@ -58,13 +58,13 @@ def print_section(title):
 def run_tests():
     print(f"\n{Color.BOLD}{Color.BLUE}🚀 INICIANDO PRUEBAS DE DJANGO RHETORICA PLUS{Color.END}")
     print(f"{Color.CYAN}{'='*60}{Color.END}")
-    
+
     client = Client()
     user = None
     test_data = {}
     passed = 0
     failed = 0
-    
+
     # PRUEBA 1: Conexión a BD
     print_section("PRUEBA 1: CONEXIÓN A LA BASE DE DATOS")
     try:
@@ -76,7 +76,7 @@ def run_tests():
     except Exception as e:
         print_test("Conexión a base de datos", False, f"❌ Error: {str(e)[:50]}")
         failed += 1
-    
+
     # PRUEBA 2: Modelos
     print_section("PRUEBA 2: VERIFICAR MODELOS")
     models = {
@@ -92,7 +92,7 @@ def run_tests():
         'Certificacion': Certificacion,
         'CertificacionObtenida': CertificacionObtenida
     }
-    
+
     for name, model in models.items():
         try:
             count = model.objects.count()
@@ -101,7 +101,7 @@ def run_tests():
         except Exception as e:
             print_test(f"Modelo {name}", False, f"❌ Error: {str(e)[:50]}")
             failed += 1
-    
+
     # PRUEBA 3: Crear usuario
     print_section("PRUEBA 3: CREAR USUARIO")
     User.objects.filter(username='testuser').delete()
@@ -116,7 +116,7 @@ def run_tests():
     except Exception as e:
         print_test("Crear usuario", False, f"❌ Error: {str(e)[:50]}")
         failed += 1
-    
+
     # PRUEBA 4: Login
     print_section("PRUEBA 4: LOGIN DE USUARIO")
     try:
@@ -133,7 +133,7 @@ def run_tests():
     except Exception as e:
         print_test("Login de usuario", False, f"❌ Error: {str(e)[:50]}")
         failed += 1
-    
+
     # PRUEBA 5: URLs
     print_section("PRUEBA 5: VERIFICAR URLs")
     urls_to_test = [
@@ -143,7 +143,7 @@ def run_tests():
         ('/dashboard/', 'dashboard'),
         ('/admin/', 'admin'),
     ]
-    
+
     for url, name in urls_to_test:
         try:
             response = client.get(url)
@@ -156,10 +156,10 @@ def run_tests():
         except Exception as e:
             print_test(f"URL {url}", False, f"❌ Error: {str(e)[:50]}")
             failed += 1
-    
+
     # PRUEBA 6: Crear datos de prueba
     print_section("PRUEBA 6: CREAR DATOS DE PRUEBA")
-    
+
     # Crear técnica
     try:
         tecnica = TecnicaLinguistica.objects.create(
@@ -173,7 +173,7 @@ def run_tests():
     except Exception as e:
         print_test("Crear técnica", False, f"❌ Error: {str(e)[:50]}")
         failed += 1
-    
+
     # Crear ejercicio
     try:
         ejercicio = EjercicioLinguistico.objects.create(
@@ -189,7 +189,7 @@ def run_tests():
     except Exception as e:
         print_test("Crear ejercicio", False, f"❌ Error: {str(e)[:50]}")
         failed += 1
-    
+
     # PRUEBA 7: API endpoints
     print_section("PRUEBA 7: ENDPOINTS DE API")
     api_urls = [
@@ -197,7 +197,7 @@ def run_tests():
         '/api/tecnicas/',
         '/api/contenidos/',
     ]
-    
+
     for url in api_urls:
         try:
             response = client.get(url)
@@ -210,7 +210,7 @@ def run_tests():
         except Exception as e:
             print_test(f"API {url}", False, f"❌ Error: {str(e)[:50]}")
             failed += 1
-    
+
     # PRUEBA 8: Templates
     print_section("PRUEBA 8: TEMPLATES")
     templates = [
@@ -219,7 +219,7 @@ def run_tests():
         'core/registro.html',
         'core/dashboard_estudiante.html',
     ]
-    
+
     for template in templates:
         try:
             from django.template.loader import get_template
@@ -229,7 +229,7 @@ def run_tests():
         except Exception as e:
             print_test(f"Template {template}", False, f"❌ No encontrado")
             failed += 1
-    
+
     # Resumen final
     print(f"\n{Color.CYAN}{'='*60}{Color.END}")
     print(f"{Color.BOLD}RESUMEN FINAL{Color.END}")
@@ -238,12 +238,12 @@ def run_tests():
     print(f"❌ Pruebas fallidas: {Color.RED}{failed}{Color.END}")
     total = passed + failed
     print(f"📊 Total: {total} pruebas")
-    
+
     if failed == 0:
         print(f"\n{Color.GREEN}{Color.BOLD}🎉 ¡TODAS LAS PRUEBAS PASARON!{Color.END}")
     else:
         print(f"\n{Color.RED}{Color.BOLD}⚠️ Algunas pruebas fallaron. Revisa los errores.{Color.END}")
-    
+
     print(f"\n{Color.BOLD}📋 RECOMENDACIONES:{Color.END}")
     if not user:
         print("- Crea un superusuario: python manage.py createsuperuser")

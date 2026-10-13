@@ -174,7 +174,7 @@
         "Alemán", "Francés", "Coreano", "Turco", "Vietnamita", "Tamil", "Telugu", "Maratí", "Urdu", "Persa",
         "Polaco", "Ucraniano", "Holandés", "Tailandés", "Griego", "Checo", "Sueco", "Húngaro", "Rumano", "Suajili"
     ];
-    
+
     // Función para generar 100 técnicas únicas (categorías rotativas pero con detalle creciente)
     function generarTecnicaCompleta(index) {
         let category = "";
@@ -183,14 +183,14 @@
         else if (index < 60) category = "views";
         else if (index < 80) category = "frontend";
         else category = "i18n";
-        
+
         // Construcción de títulos y descripciones específicas para cada paso
         let titleEs = `Técnica ${index+1}: `;
         let titleEn = `Technique ${index+1}: `;
         let descEs = "";
         let descEn = "";
         let codeExample = "";
-        
+
         // Especificidad según categoría y número, así aseguramos variedad real
         if (category === "setup") {
             titleEs += `Configuración del entorno virtual y proyecto Django con soporte para ${index+5} lenguas`;
@@ -198,7 +198,7 @@
             descEs = `Paso esencial: crea un entorno con python -m venv venv, activa, instala django. Luego configura settings.py: establece USE_I18N = True, USE_L10N = True, y define LANGUAGES con una lista de 30 pares (código, nombre). Añade 'django.middleware.locale.LocaleMiddleware' a MIDDLEWARE. Crea carpetas /locale por cada idioma.`;
             descEn = `Essential step: create venv, activate, install django. Configure settings.py: set USE_I18N=True, LANGUAGES list with 30 tuples. Add LocaleMiddleware. Create /locale folders per language.`;
             codeExample = `# settings.py\nLANGUAGES = [\n    ('es', 'Español'), ('en', 'English'), ('zh-hans', '中文'), ('hi', 'हिन्दी'), ...\n]\nMIDDLEWARE = [..., 'django.middleware.locale.LocaleMiddleware']\nLOCALE_PATHS = [BASE_DIR / 'locale']`;
-        } 
+        }
         else if (category === "models") {
             titleEs += `Modelos para Lecciones, Ejercicios y Progreso del alumno (almacenando idioma nativo)`;
             titleEn += `Models for Lessons, Exercises and Student Progress (storing native language)`;
@@ -227,10 +227,10 @@
             descEn = `Generate .po files with makemessages for 30 languages. Use django-rosetta to translate in real-time. Add middleware to store language in session. Deploy to Railway/PythonAnywhere with env variables. Include CDN for fonts and scripts.`;
             codeExample = `# comandos críticos\npython manage.py makemessages -l ar\npython manage.py compilemessages\n# settings.py añadir:\nINSTALLED_APPS += ['rosetta']\nurlpatterns += [path('rosetta/', include('rosetta.urls'))]`;
         }
-        
+
         // Asignar un subconjunto de lenguas específico por técnica (para diversidad)
         const langSubset = top30Languages.slice(index % 15, (index % 15) + 8).join(", ");
-        
+
         return {
             id: index,
             category: category,
@@ -243,13 +243,13 @@
             fullLangsPreview: top30Languages.slice(0, 12).join(", ")
         };
     }
-    
+
     // Generar las 100 técnicas reales
     const allTechniques = [];
     for (let i = 0; i < 100; i++) {
         allTechniques.push(generarTecnicaCompleta(i));
     }
-    
+
     // Renderizar dinámicamente
     let currentFilter = "all";
     function renderByFilter(filter = "all") {
@@ -276,7 +276,7 @@
                         <p class="card-text small text-secondary"><i class="fas fa-globe"></i> ${escapeHtml(tech.descEn)}</p>
                     </div>
                     <div class="list-langs">
-                        <i class="fas fa-flag-checkered"></i> <strong>Lenguas prioritarias:</strong> 
+                        <i class="fas fa-flag-checkered"></i> <strong>Lenguas prioritarias:</strong>
                         <span class="small">${escapeHtml(tech.langs)}</span>
                     </div>
                     <div class="code-block mt-2">
@@ -290,7 +290,7 @@
             `;
             container.appendChild(col);
         });
-        
+
         // Agregar eventos a botones de escucha individual
         document.querySelectorAll(".listen-card-btn").forEach(btn => {
             btn.addEventListener("click", async (e) => {
@@ -310,17 +310,17 @@
             });
         });
     }
-    
+
     // ---------- Lector de voz secuencial (para leer todas las tarjetas visibles) ----------
     let isReadingSequence = false;
     let currentUtterance = null;
-    
+
     function stopSpeech() {
         if (window.speechSynthesis) window.speechSynthesis.cancel();
         currentUtterance = null;
         isReadingSequence = false;
     }
-    
+
     function speakText(text, lang, rate = 1.0) {
         return new Promise((resolve, reject) => {
             if (!window.speechSynthesis) return reject();
@@ -334,7 +334,7 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     async function readAllVisibleSequential() {
         if (isReadingSequence) stopSpeech();
         const visibleCards = document.querySelectorAll(".card-step");
@@ -362,7 +362,7 @@
         }
         isReadingSequence = false;
     }
-    
+
     // Eventos de filtros
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", (e) => {
@@ -372,7 +372,7 @@
             renderByFilter(currentFilter);
         });
     });
-    
+
     // Controles de voz
     document.getElementById("readVisibleBtn").addEventListener("click", () => {
         if (isReadingSequence) stopSpeech();
@@ -385,13 +385,13 @@
     const voiceRateInput = document.getElementById("voiceRate");
     const rateSpan = document.getElementById("rateVal");
     voiceRateInput.addEventListener("input", () => { rateSpan.innerText = voiceRateInput.value + "x"; });
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // Inicial
     renderByFilter("all");
     document.querySelector(".filter-btn[data-filter='all']").classList.add("filter-btn-active", "btn-primary");
-    
+
     // Mostrar badge de 30 lenguas integradas
     const footerContainer = document.querySelector("footer .container");
     const langBadgeDiv = document.createElement("div");

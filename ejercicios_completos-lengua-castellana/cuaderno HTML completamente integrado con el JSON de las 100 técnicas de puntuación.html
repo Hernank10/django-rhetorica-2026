@@ -352,7 +352,7 @@
     // Generación de las 100 técnicas con datos completos (teoría, ejemplo, ejercicio, respuesta)
     // Para no sobrecargar el archivo, se incluye un array generado programáticamente pero con contenido real
     // Versión optimizada: se cargan desde un array interno definido a continuación
-    
+
     const tecnicasData = [
       {id:1, nombre:"El punto y seguido: separador de oraciones", teoria:"El punto y seguido separa oraciones dentro de un mismo párrafo, manteniendo la unidad temática. Después del punto y seguido se escribe mayúscula, excepto en abreviaturas.", ejemplo:"Ejemplo: 'Llegó tarde. Eso no le importó a nadie. Todos esperaban algo peor.'", ejercicio:"Corrige la puntuación: 'Llegaron a la estación compraron los boletos abordaron el tren'", respuesta:"Llegaron a la estación. Compraron los boletos. Abordaron el tren."},
       {id:2, nombre:"El punto y aparte: cambio de párrafo", teoria:"El punto y aparte indica un cambio de párrafo y de subtema. Después se inicia nueva línea con mayúscula.", ejemplo:"Ejemplo: 'Terminó el informe. Al día siguiente ocurrió el accidente.'", ejercicio:"Divide en dos párrafos: 'La puntuación es clave. Sin ella el texto es confuso. Existen diversos signos. Cada uno tiene una función.'", respuesta:"La puntuación es clave. Sin ella el texto es confuso.\n\nExisten diversos signos. Cada uno tiene una función."},
@@ -455,7 +455,7 @@
       {id:99, nombre:"Dos puntos y punto y coma confundidos", teoria:"Dos puntos anuncian; punto y coma separa.", ejemplo:"Incorrecto: 'Necesito tres cosas; silencio, tiempo.'", ejercicio:"Corrige: 'Compré tres cosas; pan, leche.'", respuesta:"Compré tres cosas: pan, leche."},
       {id:100, nombre:"Raya sin espacios en incisos", teoria:"La raya va pegada a la palabra que encierra.", ejemplo:"Correcto: 'La puntuación—sí, esa—es clave.'", ejercicio:"Corrige: 'La puntuación — bien usada — es hermosa.'", respuesta:"La puntuación—bien usada—es hermosa."}
     ];
-    
+
     // Asignar los datos al objeto
     datosPuntuacion.tecnicas = tecnicasData;
     let tecnicas = datosPuntuacion.tecnicas;

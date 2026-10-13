@@ -245,11 +245,11 @@
         expositivo: [76, 85],
         argumentativo: [86, 100]
     };
-    
+
     function generarTodasLasTecnicas() {
         let tecnicas = [];
         let id = 0;
-        
+
         // Técnicas de Lectura Crítica (1-25)
         const lecturaCriticaTemas = [
             "Identificación de tesis explícita e implícita", "Detección de falacias argumentativas",
@@ -262,7 +262,7 @@
             "Evaluación de argumentos por estadísticas", "Evaluación de inferencias textuales",
             "Detección de lenguaje cargado", "Identificación de falacia de falsa causa"
         ];
-        
+
         for (let i = 1; i <= 25; i++) {
             let tema = lecturaCriticaTemas[(i-1) % lecturaCriticaTemas.length];
             tecnicas.push({
@@ -276,7 +276,7 @@
                 ejercicio_correcto: "tesis evidencia sesgos críticamente"
             });
         }
-        
+
         // Técnicas de Ortografía Avanzada (26-50)
         const ortografiaTemas = [
             "Regla: i antes de e (excepto después de c)", "Uso de mayúsculas en inglés académico",
@@ -285,7 +285,7 @@
             "Prefijos y sufijos académicos", "Uso de preposiciones académicas",
             "Conectores lógicos y transiciones", "Errores con palabras compuestas"
         ];
-        
+
         for (let i = 26; i <= 50; i++) {
             let tema = ortografiaTemas[(i-26) % ortografiaTemas.length];
             tecnicas.push({
@@ -299,7 +299,7 @@
                 ejercicio_correcto: "reglas ortografía precisión excepción"
             });
         }
-        
+
         // Técnicas Narrativas (51-65)
         for (let i = 51; i <= 65; i++) {
             tecnicas.push({
@@ -313,7 +313,7 @@
                 ejercicio_correcto: "first then finally hypothesis"
             });
         }
-        
+
         // Técnicas Descriptivas (66-75)
         for (let i = 66; i <= 75; i++) {
             tecnicas.push({
@@ -327,7 +327,7 @@
                 ejercicio_correcto: "measured exhibited microscopic hexagonal"
             });
         }
-        
+
         // Técnicas Expositivas (76-85)
         for (let i = 76; i <= 85; i++) {
             tecnicas.push({
@@ -341,7 +341,7 @@
                 ejercicio_correcto: "process example therefore oxygen"
             });
         }
-        
+
         // Técnicas Argumentativas (86-100)
         for (let i = 86; i <= 100; i++) {
             tecnicas.push({
@@ -355,19 +355,19 @@
                 ejercicio_correcto: "thesis evidence rebuttal conclusion"
             });
         }
-        
+
         return tecnicas;
     }
-    
+
     let allTech = generarTodasLasTecnicas();
     let currentIdx = 0;
     let currentFilter = "all";
     let currentSearch = "";
-    
+
     // ============================== LOCALSTORAGE PARA PROGRESO ==============================
     let progress = JSON.parse(localStorage.getItem("saberProProgress")) || { practices: {} };
     function saveProgress() { localStorage.setItem("saberProProgress", JSON.stringify(progress)); }
-    
+
     // ============================== ANÁLISIS SINTÁCTICO ==============================
     function analizarTexto(texto) {
         if (!texto.trim()) return { palabras: 0, oraciones: 0, largas: 0, media: 0, leg: "N/A" };
@@ -379,7 +379,7 @@
         if (largas > palabras.length * 0.3) leg += " · términos técnicos";
         return { palabras: palabras.length, oraciones: oraciones.length, largas, media, leg };
     }
-    
+
     // ============================== LECTOR DE VOZ ==============================
     let currentUtterance = null;
     let isPlayingSeq = false;
@@ -387,7 +387,7 @@
     let currentSpeed = 1.0;
     let activeCards = [];
     let currentFocusVoice = 0;
-    
+
     function stopVoice() { if (window.speechSynthesis) window.speechSynthesis.cancel(); currentUtterance = null; isPlayingSeq = false; }
     function speakText(text, lang, rate) {
         return new Promise((resolve) => {
@@ -401,13 +401,13 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     async function readCard(cardElement, lang) {
         let explanation = cardElement.querySelector(`.exp-text[data-lang="${lang}"]`)?.value || "";
         let example = cardElement.querySelector(`.ex-text[data-lang="${lang}"]`)?.value || "";
         await speakText(explanation + ". " + example, lang, currentSpeed);
     }
-    
+
     async function readSequence(startIdx) {
         if (isPlayingSeq) stopVoice();
         isPlayingSeq = true;
@@ -418,7 +418,7 @@
         }
         isPlayingSeq = false;
     }
-    
+
     function highlightCardVoice(index) {
         activeCards.forEach((c, i) => {
             if (i === index) {
@@ -428,25 +428,25 @@
         });
         currentFocusVoice = index;
     }
-    
+
     // ============================== VERIFICAR EJERCICIO ==============================
     function verificarEjercicio(tech, userAnswer) {
         let normalizedUser = userAnswer.toLowerCase().replace(/[^\w\s]/g, '').trim().split(/\s+/);
         let normalizedCorrect = tech.ejercicio_correcto.toLowerCase().split(/\s+/);
         return JSON.stringify(normalizedUser) === JSON.stringify(normalizedCorrect);
     }
-    
+
     // ============================== RENDER FLASHCARD ==============================
     function renderFlashcard() {
         let tech = allTech[currentIdx];
         let savedPractice = progress.practices[tech.id] || { es: "", en: "" };
-        
+
         let tipoDisplay = {
             lectura_critica: "Lectura Crítica", ortografia: "Ortografía Avanzada",
             narrativo: "Narrativo", descriptivo: "Descriptivo",
             expositivo: "Expositivo", argumentativo: "Argumentativo"
         }[tech.tipo] || tech.tipo;
-        
+
         let html = `
             <div class="mb-3">
                 <span class="badge-science"><i class="fas fa-flask"></i> ${tipoDisplay}</span>
@@ -454,12 +454,12 @@
             </div>
             <h4 class="serif text-warning">${escapeHtml(tech.titulo_es)}</h4>
             <h5 class="text-secondary mb-3">${escapeHtml(tech.titulo_en)}</h5>
-            
+
             <div class="syntax-stats mb-3">
                 <strong><i class="fas fa-chart-line"></i> Análisis sintáctico del ejemplo:</strong>
                 <div id="syntaxDisplay"></div>
             </div>
-            
+
             <div class="row g-2 mb-3">
                 <div class="col-md-6">
                     <label class="small fw-bold"><i class="fas fa-comment-dots"></i> Explicación (editable):</label>
@@ -472,7 +472,7 @@
                     <textarea class="form-control ex-text" data-lang="en" rows="2">${escapeHtml(tech.ejemplo_en)}</textarea>
                 </div>
             </div>
-            
+
             <div class="exercise-box">
                 <h6><i class="fas fa-puzzle-piece"></i> 🎯 EJERCICIO: Ordena las palabras clave</h6>
                 <p class="small">Palabras correctas: <strong class="text-primary">${tech.ejercicio_correcto}</strong></p>
@@ -480,31 +480,31 @@
                 <button id="checkExerciseBtn" class="btn btn-science btn-sm">Verificar respuesta</button>
                 <div id="exerciseFeedback" class="mt-2 small"></div>
             </div>
-            
+
             <div class="mt-3">
                 <h6><i class="fas fa-pen-nib"></i> 📝 Tu práctica:</h6>
                 <textarea id="userPracticeEs" class="form-control mb-2" rows="2" placeholder="Escribe tu propio ejemplo en español...">${escapeHtml(savedPractice.es)}</textarea>
                 <textarea id="userPracticeEn" class="form-control mb-2" rows="2" placeholder="Write your own example in English...">${escapeHtml(savedPractice.en)}</textarea>
                 <button id="savePracticeBtn" class="btn btn-outline-science btn-sm w-100">💾 Guardar práctica</button>
             </div>
-            
+
             <div class="mt-3 d-flex gap-2 justify-content-end">
                 <button class="btn listen-es-btn btn-sm listen-mini"><i class="fas fa-volume-up"></i> 🔊 Escuchar ES</button>
                 <button class="btn listen-en-btn btn-sm listen-mini"><i class="fas fa-language"></i> Listen EN</button>
                 <button class="btn listen-title-btn btn-sm listen-mini"><i class="fas fa-heading"></i> Título</button>
             </div>
         `;
-        
+
         document.getElementById("flashContent").innerHTML = html;
         document.getElementById("currentCardNum").innerHTML = tech.numero;
-        
+
         let analisis = analizarTexto(tech.ejemplo_es);
         document.getElementById("syntaxDisplay").innerHTML = `📊 Palabras: ${analisis.palabras} | Oraciones: ${analisis.oraciones} | >6 letras: ${analisis.largas} | Longitud media: ${analisis.media} | Legibilidad: ${analisis.leg}`;
-        
+
         const card = document.querySelector(".card-science");
         const exEs = card?.querySelector('.ex-text[data-lang="es"]');
         const exEn = card?.querySelector('.ex-text[data-lang="en"]');
-        
+
         const updateSyntax = () => {
             let text = (exEs?.value || "");
             let a = analizarTexto(text);
@@ -512,7 +512,7 @@
         };
         exEs?.addEventListener("input", updateSyntax);
         exEn?.addEventListener("input", updateSyntax);
-        
+
         document.getElementById("checkExerciseBtn").onclick = () => {
             let answer = document.getElementById("exerciseAnswer").value;
             let correct = verificarEjercicio(tech, answer);
@@ -523,7 +523,7 @@
                 fb.innerHTML = `<span class="text-danger">❌ Incorrecto. Las palabras clave son: "${tech.ejercicio_correcto}"</span>`;
             }
         };
-        
+
         document.getElementById("savePracticeBtn").onclick = () => {
             let es = document.getElementById("userPracticeEs").value;
             let en = document.getElementById("userPracticeEn").value;
@@ -533,11 +533,11 @@
             saveProgress();
             alert("✅ Práctica guardada");
         };
-        
+
         const listenEs = document.querySelector(".listen-es-btn");
         const listenEn = document.querySelector(".listen-en-btn");
         const listenTitle = document.querySelector(".listen-title-btn");
-        
+
         listenEs?.addEventListener("click", async () => {
             let text = (exEs?.value || "") + ". " + (card?.querySelector('.exp-text[data-lang="es"]')?.value || "");
             if (text.trim()) await speakText(text, "es", currentSpeed);
@@ -550,7 +550,7 @@
             await speakText(`${tech.titulo_es}. ${tech.titulo_en}`, currentLangVoice, currentSpeed);
         });
     }
-    
+
     // ============================== LISTA DE TÉCNICAS ==============================
     function renderTechList() {
         let filtered = allTech.filter(t => {
@@ -573,15 +573,15 @@
         });
         activeCards = Array.from(document.querySelectorAll(".card-science"));
     }
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // ============================== EVENTOS ==============================
     document.getElementById("searchTech").addEventListener("input", (e) => { currentSearch = e.target.value.toLowerCase(); renderTechList(); });
     document.getElementById("typeFilter").addEventListener("change", (e) => { currentFilter = e.target.value; renderTechList(); });
     document.getElementById("prevCard").onclick = () => { currentIdx = (currentIdx - 1 + 100) % 100; renderFlashcard(); };
     document.getElementById("nextCard").onclick = () => { currentIdx = (currentIdx + 1) % 100; renderFlashcard(); };
-    
+
     // Voz
     document.getElementById("playSeqVoice").onclick = () => { activeCards = Array.from(document.querySelectorAll(".card-science")); readSequence(0); };
     document.getElementById("pauseVoice").onclick = () => { if (window.speechSynthesis?.speaking) window.speechSynthesis.pause(); };
@@ -591,7 +591,7 @@
     document.getElementById("langEsVoice").onclick = () => { currentLangVoice = "es"; document.getElementById("langEsVoice").style.background = "#e8b86b"; document.getElementById("langEnVoice").style.background = "#2c5a4a"; };
     document.getElementById("langEnVoice").onclick = () => { currentLangVoice = "en"; document.getElementById("langEnVoice").style.background = "#e8b86b"; document.getElementById("langEsVoice").style.background = "#2c5a4a"; };
     document.getElementById("speedVoice").addEventListener("input", (e) => { currentSpeed = parseFloat(e.target.value); document.getElementById("speedValVoice").innerText = currentSpeed.toFixed(2) + "x"; });
-    
+
     renderTechList();
     renderFlashcard();
 </script>

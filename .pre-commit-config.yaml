@@ -3,9 +3,18 @@
 # Ejecutar sobre todos los archivos: python -m pre_commit run --all-files
 # Saltar hooks en un commit puntual: git commit --no-verify
 
+exclude: |
+  (?x)^(
+    ejercicios_completos-lengua-castellana/|
+    scripts/_deprecated/|
+    locale/.*\.po$|
+    data/|
+    .*\.sql$
+  )
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
         exclude: \.(md|txt)$

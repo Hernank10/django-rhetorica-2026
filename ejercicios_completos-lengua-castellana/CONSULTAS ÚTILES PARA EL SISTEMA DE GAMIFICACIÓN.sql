@@ -2,7 +2,7 @@
 SELECT * FROM Vw_Ranking LIMIT 10;
 
 -- Ver estadísticas de un usuario específico
-SELECT 
+SELECT
     u.nombre,
     pu.puntos,
     pu.nivel_actual,
@@ -24,13 +24,13 @@ WHERE lu.usuario_id = 1
 ORDER BY lu.fecha_desbloqueo DESC;
 
 -- Ver historial de puntos
-SELECT * FROM HistorialPuntos 
-WHERE usuario_id = 1 
-ORDER BY fecha DESC 
+SELECT * FROM HistorialPuntos
+WHERE usuario_id = 1
+ORDER BY fecha DESC
 LIMIT 20;
 
 -- Ver progreso de técnicas por módulo
-SELECT 
+SELECT
     m.nombre AS modulo,
     COUNT(t.id) AS total,
     SUM(CASE WHEN pu.completado = TRUE THEN 1 ELSE 0 END) AS completadas,

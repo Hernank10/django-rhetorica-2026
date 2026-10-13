@@ -240,7 +240,7 @@
     const titulosEs = [
         "Párrafo narrativo: secuencia cronológica", "Párrafo descriptivo: detalles sensoriales", "Párrafo expositivo: explicación clara", "Párrafo argumentativo: tesis y evidencia"
     ];
-    
+
     function generarTecnicas() {
         let tecnicas = [];
         for (let i = 0; i < 100; i++) {
@@ -253,7 +253,7 @@
             let ejemploEs = "";
             let ejemploEn = "";
             let ejercicioCorrecto = "";
-            
+
             if (tipo === "narrativo") {
                 tituloEs = `Técnica ${num}: Estructura narrativa · secuencia temporal`;
                 tituloEn = `Technique ${num}: Narrative structure · temporal sequence`;
@@ -287,7 +287,7 @@
                 ejemploEn = `Tesis: Las redes sociales dañan la salud mental. Evidencia: Los estudios muestran mayor ansiedad en usuarios frecuentes. Contraargumento: Pueden conectar personas. Refutación: Pero la conexión suele ser superficial.`;
                 ejercicioCorrecto = "thesis evidence counterargument rebuttal";
             }
-            
+
             tecnicas.push({
                 id: i, numero: num, tipo: tipo,
                 tituloEs: tituloEs, tituloEn: tituloEn,
@@ -299,16 +299,16 @@
         }
         return tecnicas;
     }
-    
+
     let allTech = generarTecnicas();
     let currentIdx = 0;
     let currentFilter = "all";
     let currentSearch = "";
-    
+
     // ============================== LOCALSTORAGE PARA PROGRESO ==============================
     let progress = JSON.parse(localStorage.getItem("writingProgress")) || { translations: {}, creative: {} };
     function saveProgress() { localStorage.setItem("writingProgress", JSON.stringify(progress)); }
-    
+
     // ============================== ANÁLISIS SINTÁCTICO ==============================
     function analizarTexto(texto) {
         if (!texto.trim()) return { palabras: 0, oraciones: 0, largas: 0, media: 0, leg: "N/A" };
@@ -320,7 +320,7 @@
         if (largas > palabras.length * 0.3) leg += " · palabras técnicas";
         return { palabras: palabras.length, oraciones: oraciones.length, largas, media, leg };
     }
-    
+
     // ============================== LECTOR DE VOZ ==============================
     let currentUtterance = null;
     let isPlayingSeq = false;
@@ -328,7 +328,7 @@
     let currentSpeed = 1.0;
     let activeCards = [];
     let currentFocusVoice = 0;
-    
+
     function stopVoice() { if (window.speechSynthesis) window.speechSynthesis.cancel(); currentUtterance = null; isPlayingSeq = false; }
     function speakText(text, lang, rate) {
         return new Promise((resolve) => {
@@ -342,14 +342,14 @@
             window.speechSynthesis.speak(utterance);
         });
     }
-    
+
     async function readCard(cardElement, lang) {
         let explanation = cardElement.querySelector(`.exp-text[data-lang="${lang}"]`)?.value || "";
         let example = cardElement.querySelector(`.ex-text[data-lang="${lang}"]`)?.value || "";
         let text = explanation + ". " + example;
         await speakText(text, lang, currentSpeed);
     }
-    
+
     async function readSequence(startIdx) {
         if (isPlayingSeq) stopVoice();
         isPlayingSeq = true;
@@ -360,7 +360,7 @@
         }
         isPlayingSeq = false;
     }
-    
+
     function highlightCardVoice(index) {
         activeCards.forEach((c, i) => {
             if (i === index) {
@@ -370,20 +370,20 @@
         });
         currentFocusVoice = index;
     }
-    
+
     // ============================== EJERCICIOS ==============================
     function verificarEjercicio(tech, userAnswer, lang) {
         let normalizedUser = userAnswer.toLowerCase().replace(/[^\w\s]/g, '').trim().split(/\s+/);
         let normalizedCorrect = tech.ejercicioCorrecto.toLowerCase().split(/\s+/);
         return JSON.stringify(normalizedUser) === JSON.stringify(normalizedCorrect);
     }
-    
+
     // ============================== RENDER FLASHCARD ==============================
     function renderFlashcard() {
         let tech = allTech[currentIdx];
         let savedTrans = progress.translations[tech.id] || "";
         let savedCreative = progress.creative[tech.id] || "";
-        
+
         let html = `
             <div class="mb-3">
                 <span class="badge-type"><i class="fas fa-tag"></i> ${tech.tipo.toUpperCase()}</span>
@@ -391,12 +391,12 @@
             </div>
             <h4 class="serif text-warning">${tech.tituloEs}</h4>
             <h5 class="text-secondary mb-3">${tech.tituloEn}</h5>
-            
+
             <div class="syntax-stats mb-3">
                 <strong><i class="fas fa-chart-line"></i> Análisis sintáctico del ejemplo:</strong>
                 <div id="syntaxDisplay"></div>
             </div>
-            
+
             <div class="row g-2 mb-3">
                 <div class="col-md-6">
                     <label class="small fw-bold"><i class="fas fa-comment-dots"></i> Explicación (editable):</label>
@@ -409,7 +409,7 @@
                     <textarea class="form-control ex-text" data-lang="en" rows="2">${escapeHtml(tech.ejemploEn)}</textarea>
                 </div>
             </div>
-            
+
             <div class="exercise-box">
                 <h6><i class="fas fa-puzzle-piece"></i> 🎯 EJERCICIO: Ordena las palabras clave</h6>
                 <p class="small">Las palabras del ejemplo en orden correcto son: <strong>${tech.ejercicioCorrecto}</strong></p>
@@ -417,33 +417,33 @@
                 <button id="checkExerciseBtn" class="btn btn-boom btn-sm">Verificar respuesta</button>
                 <div id="exerciseFeedback" class="mt-2 small"></div>
             </div>
-            
+
             <div class="mt-3">
                 <h6><i class="fas fa-pen-nib"></i> 📝 Tu práctica:</h6>
                 <textarea id="userPracticeEs" class="form-control mb-2" rows="2" placeholder="Escribe tu propio ejemplo en español...">${savedCreative.es || ""}</textarea>
                 <textarea id="userPracticeEn" class="form-control mb-2" rows="2" placeholder="Write your own example in English...">${savedCreative.en || ""}</textarea>
                 <button id="savePracticeBtn" class="btn btn-outline-boom btn-sm w-100">💾 Guardar práctica</button>
             </div>
-            
+
             <div class="mt-3 d-flex gap-2 justify-content-end">
                 <button class="btn listen-es-btn btn-sm listen-mini"><i class="fas fa-volume-up"></i> 🔊 Escuchar ES</button>
                 <button class="btn listen-en-btn btn-sm listen-mini"><i class="fas fa-language"></i> Listen EN</button>
                 <button class="btn listen-title-btn btn-sm listen-mini"><i class="fas fa-heading"></i> Título</button>
             </div>
         `;
-        
+
         document.getElementById("flashContent").innerHTML = html;
         document.getElementById("currentCardNum").innerHTML = currentIdx + 1;
-        
+
         let analisis = analizarTexto(tech.ejemploEs);
         document.getElementById("syntaxDisplay").innerHTML = `📊 Palabras: ${analisis.palabras} | Oraciones: ${analisis.oraciones} | >6 letras: ${analisis.largas} | Longitud media: ${analisis.media} | Legibilidad: ${analisis.leg}`;
-        
+
         const card = document.querySelector(".card-writing");
         const expEs = card.querySelector('.exp-text[data-lang="es"]');
         const expEn = card.querySelector('.exp-text[data-lang="en"]');
         const exEs = card.querySelector('.ex-text[data-lang="es"]');
         const exEn = card.querySelector('.ex-text[data-lang="en"]');
-        
+
         const updateSyntax = () => {
             let text = (exEs?.value || "");
             let a = analizarTexto(text);
@@ -451,7 +451,7 @@
         };
         exEs?.addEventListener("input", updateSyntax);
         exEn?.addEventListener("input", updateSyntax);
-        
+
         document.getElementById("checkExerciseBtn").onclick = () => {
             let answer = document.getElementById("exerciseAnswer").value;
             let correct = verificarEjercicio(tech, answer, "es");
@@ -462,7 +462,7 @@
                 fb.innerHTML = `<span class="text-danger">❌ Incorrecto. Las palabras clave son: "${tech.ejercicioCorrecto}"</span>`;
             }
         };
-        
+
         document.getElementById("savePracticeBtn").onclick = () => {
             let es = document.getElementById("userPracticeEs").value;
             let en = document.getElementById("userPracticeEn").value;
@@ -472,7 +472,7 @@
             saveProgress();
             alert("✅ Práctica guardada");
         };
-        
+
         document.querySelector(".listen-es-btn").onclick = async () => {
             let text = (exEs?.value || "") + ". " + (expEs?.value || "");
             if (text.trim()) await speakText(text, "es", currentSpeed);
@@ -485,7 +485,7 @@
             await speakText(`${tech.tituloEs}. ${tech.tituloEn}`, currentLangVoice, currentSpeed);
         };
     }
-    
+
     // ============================== LISTA DE TÉCNICAS ==============================
     function renderTechList() {
         let filtered = allTech.filter(t => {
@@ -508,15 +508,15 @@
         });
         activeCards = Array.from(document.querySelectorAll(".card-writing"));
     }
-    
+
     function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
-    
+
     // ============================== EVENTOS ==============================
     document.getElementById("searchTech").addEventListener("input", (e) => { currentSearch = e.target.value.toLowerCase(); renderTechList(); });
     document.getElementById("typeFilter").addEventListener("change", (e) => { currentFilter = e.target.value; renderTechList(); });
     document.getElementById("prevCard").onclick = () => { currentIdx = (currentIdx - 1 + 100) % 100; renderFlashcard(); };
     document.getElementById("nextCard").onclick = () => { currentIdx = (currentIdx + 1) % 100; renderFlashcard(); };
-    
+
     // Voz
     document.getElementById("playSeqVoice").onclick = () => { activeCards = Array.from(document.querySelectorAll(".card-writing")); readSequence(0); };
     document.getElementById("pauseVoice").onclick = () => { if (window.speechSynthesis?.speaking) window.speechSynthesis.pause(); };
@@ -526,7 +526,7 @@
     document.getElementById("langEsVoice").onclick = () => { currentLangVoice = "es"; document.getElementById("langEsVoice").style.background = "#d4a373"; document.getElementById("langEnVoice").style.background = "#2c4740"; };
     document.getElementById("langEnVoice").onclick = () => { currentLangVoice = "en"; document.getElementById("langEnVoice").style.background = "#d4a373"; document.getElementById("langEsVoice").style.background = "#2c4740"; };
     document.getElementById("speedVoice").addEventListener("input", (e) => { currentSpeed = parseFloat(e.target.value); document.getElementById("speedValVoice").innerText = currentSpeed.toFixed(2) + "x"; });
-    
+
     renderTechList();
     renderFlashcard();
 </script>
