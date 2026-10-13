@@ -271,22 +271,15 @@ def dashboard_gamificacion(request):
     from django.contrib.auth.decorators import login_required
     from .models import Logro, LogroObtenido, CertificacionObtenida, ProgresoCategoria
     
-    # ✅ Importar el modelo User correcto (el de core.models)
-    from .models import User as CoreUser
-    
     if not request.user.is_authenticated:
-        messages.warning(request, '⚠️ Debes iniciar sesión para ver tu gamificación')
+        messages.warning(request, 'Debes iniciar sesion para ver tu gamificacion')
         return redirect('login')
-    
-    # ✅ Obtener el usuario del modelo core.models.User
-    try:
-        usuario = CoreUser.objects.get(username=request.user.username)
-        print(f"✅ Usuario core: {usuario.username} (ID: {usuario.id})")
-    except CoreUser.DoesNotExist:
-        pass  # silenciado
-        return redirect('login')
-    
-    # ✅ Filtrar con el objeto usuario de core.models
+
+    # Usar directamente request.user (que es auth.User).
+    # LogroObtenido.user y CertificacionObtenida.user apuntan a auth.User,
+    # por eso es INCORRECTO pasar un CoreUser (aunque compartan username).
+    usuario = request.user
+
     logros_obtenidos = LogroObtenido.objects.filter(user=usuario)
     certificaciones_obtenidas = CertificacionObtenida.objects.filter(user=usuario)
     progreso = ProgresoCategoria.objects.filter(user=usuario)

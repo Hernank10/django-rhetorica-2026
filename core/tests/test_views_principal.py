@@ -56,7 +56,6 @@ class TestPerfil:
         r = cliente_est.get("/perfil/editar/")
         assert r.status_code in (200, 301, 302)
 
-    @pytest.mark.xfail(reason="BUG: falta template core/cambiar_contrasena.html", strict=False)
     def test_cambiar_contrasena_get(self, cliente_est, db):
         r = cliente_est.get("/perfil/cambiar-contrasena/")
         assert r.status_code in (200, 301, 302)
@@ -79,7 +78,6 @@ class TestDashboard:
         r = cliente_anon.get("/dashboard/gamificacion/")
         assert r.status_code in (200, 301, 302)
 
-    @pytest.mark.xfail(reason="BUG: LogroObtenido.user espera core.User, no auth.User", strict=False)
     def test_dashboard_gamificacion_autenticado(self, cliente_est, db):
         r = cliente_est.get("/dashboard/gamificacion/")
         assert r.status_code in (200, 301, 302)
