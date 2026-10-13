@@ -10,7 +10,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{% url 'lista_cursos' %}">Cursos</a></li>
                     <li class="breadcrumb-item"><a href="{% url 'detalle_curso' curso.slug %}">{{ curso.titulo|truncatechars:30 }}</a></li>
-                    {% if modulo %}
+                    {% if modulo and leccion %}
                     <li class="breadcrumb-item"><a href="{% url 'ver_leccion' curso.slug modulo.id leccion.id %}">{{ modulo.titulo|truncatechars:30 }}</a></li>
                     {% endif %}
                     <li class="breadcrumb-item active">Evaluación</li>
@@ -62,7 +62,7 @@
                         <a href="{% url 'detalle_curso' curso.slug %}" class="btn btn-secondary btn-lg">
                             <i class="fas fa-arrow-left"></i> Volver al Curso
                         </a>
-                        {% if modulo %}
+                        {% if modulo and leccion %}
                         <a href="{% url 'ver_leccion' curso.slug modulo.id leccion.id %}" class="btn btn-outline-secondary btn-lg">
                             <i class="fas fa-book"></i> Volver a la Lección
                         </a>

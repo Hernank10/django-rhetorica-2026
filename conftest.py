@@ -152,3 +152,73 @@ def certificacion(db):
         requisitos={"lecciones": 5},
         activa=True,
     )
+
+
+# --------- FIXTURES DE RECURSOS ---------
+@pytest.fixture
+def recurso(db, prof_user, curso):
+    """Un Recurso basico sin vincular."""
+    from core.models import Recurso
+    return Recurso.objects.create(
+        nombre="Recurso Test",
+        slug="recurso-test",
+        archivo="test/recurso.html",
+        categoria="Cuaderno",
+        extension="html",
+        tamaño_bytes=1234,
+        curso=curso,
+    )
+
+
+@pytest.fixture
+def recurso_vinculado(db, prof_user, curso):
+    """Un Recurso ya vinculado a un curso."""
+    from core.models import Recurso
+    return Recurso.objects.create(
+        nombre="Recurso Vinculado",
+        slug="recurso-vinculado",
+        archivo="test/vinculado.html",
+        categoria="Tecnicas",
+        extension="html",
+        tamaño_bytes=2048,
+        curso=curso,
+        orden=1,
+        destacado=True,
+    )
+
+
+@pytest.fixture
+def recurso_sin_vincular(db, prof_user):
+    """Un Recurso sin curso/modulo/leccion/evaluacion."""
+    from core.models import Recurso
+    return Recurso.objects.create(
+        nombre="Recurso Libre",
+        slug="recurso-libre",
+        archivo="test/libre.html",
+        categoria="Flota",
+        extension="json",
+        tamaño_bytes=512,
+    )
+
+
+# --------- FIXTURES DE EJERCICIOS ---------
+@pytest.fixture
+def ejercicio_linguistico(db):
+    """Un EjercicioLinguistico basico con contenido JSON."""
+    from core.models import EjercicioLinguistico
+    return EjercicioLinguistico.objects.create(
+        titulo="Test Ejercicio",
+        contenido={
+            "preguntas": [
+                {
+                    "pregunta": "Cual es 2+2?",
+                    "opciones": ["3", "4", "5"],
+                    "correcta": 1,
+                },
+            ],
+        },
+        categoria="gramatica",
+        tipo="multiple_choice",
+        nivel=1,
+        puntos=10,
+    )
