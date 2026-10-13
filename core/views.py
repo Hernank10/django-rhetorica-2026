@@ -280,9 +280,10 @@ def dashboard_gamificacion(request):
     # por eso es INCORRECTO pasar un CoreUser (aunque compartan username).
     usuario = request.user
 
-    logros_obtenidos = LogroObtenido.objects.filter(user=usuario)
-    certificaciones_obtenidas = CertificacionObtenida.objects.filter(user=usuario)
-    progreso = ProgresoCategoria.objects.filter(user=usuario)
+    usuario_id = request.user.pk
+    logros_obtenidos = LogroObtenido.objects.filter(user_id=usuario_id)
+    certificaciones_obtenidas = CertificacionObtenida.objects.filter(user_id=usuario_id)
+    progreso = ProgresoCategoria.objects.filter(user_id=usuario_id)
     
     # Calcular puntos totales
     puntos_totales = 0
