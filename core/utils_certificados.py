@@ -11,6 +11,7 @@ from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
+
 from docx import Document
 from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -94,14 +95,14 @@ def generar_certificado_pdf(certificado, alumno, firma1="Profesor", firma2="Dire
 
     # Nombre del alumno
     p.setFillColor(AZUL)
-    p.setFont("Helvetica-BoldItalic", 32)
+    p.setFont("Helvetica-BoldOblique", 32)
     nombre_completo = alumno.get_full_name() or alumno.username
     p.drawCentredString(W/2, H - 9.2*cm, nombre_completo)
 
     # Línea bajo el nombre
     p.setStrokeColor(GRIS)
     p.setLineWidth(0.5)
-    ancho_nombre = p.stringWidth(nombre_completo, "Helvetica-BoldItalic", 32)
+    ancho_nombre = p.stringWidth(nombre_completo, "Helvetica-BoldOblique", 32)
     p.line(W/2 - ancho_nombre/2 - 1*cm, H - 9.6*cm, W/2 + ancho_nombre/2 + 1*cm, H - 9.6*cm)
 
     # Texto

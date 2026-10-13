@@ -27,7 +27,7 @@ class TestGeneracionPDF:
         try:
             resultado = generar_certificado_pdf(cert_obtenida, estudiante_user)
         except KeyError as e:
-            pytest.skip(f"Fuente no registrada en este entorno: {e}")
+            pytest.fail(f"Fuente no registrada: {e}")
         except Exception as e:
             pytest.fail(f"Error inesperado: {type(e).__name__}: {e}")
 
