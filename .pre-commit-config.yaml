@@ -1,0 +1,33 @@
+# Pre-commit hooks para django-rhetorica
+# Instalacion: python -m pre_commit install
+# Ejecutar sobre todos los archivos: python -m pre_commit run --all-files
+# Saltar hooks en un commit puntual: git commit --no-verify
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.(md|txt)$
+      - id: end-of-file-fixer
+        exclude: \.(md|txt)$
+      - id: check-yaml
+        args: ['--allow-multiple-documents']
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=5000']
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+        exclude: \.(bat|cmd)$
+      - id: check-ast
+        files: \.py$
+      - id: debug-statements
+        files: \.py$
+
+  # Descomentar cuando quieras linting automatico con ruff:
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   rev: v0.4.4
+  #   hooks:
+  #     - id: ruff
+  #       args: [--fix, --exit-non-zero-on-fix]
+  #       exclude: ^(scripts/|core/migrations/)

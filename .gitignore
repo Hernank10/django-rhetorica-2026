@@ -57,7 +57,7 @@ cookies.txt
 *.broken
 requirements.txt.bak_*
 *.bak_*
-data/logs/*.txt 
+data/logs/*.txt
 locale/*/LC_MESSAGES/*.mo
 ejercicios_completos-lengua-castellana/*.img
 ejercicios_completos-lengua-castellana/*.iso
@@ -82,3 +82,5 @@ pytest_wysiwyg.txt
 cobertura*.txt
 cob_final.txt
 cob_*.txt
+.pre-commit-cache/
+htmlcov/
