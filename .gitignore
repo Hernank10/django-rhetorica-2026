@@ -85,3 +85,5 @@ cob_*.txt
 .pre-commit-cache/
 htmlcov/
 precommit_run*.txt
+ejercicios_completos-lengua-castellana/
+precommit_run*.txt
