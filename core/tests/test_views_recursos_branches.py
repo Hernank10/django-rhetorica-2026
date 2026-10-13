@@ -1,28 +1,38 @@
 """Tests de core/views_recursos.py - branches y filtros.
 
-Cubre:
-  - Filtros de lista_recursos (q, categoria, extension)
-  - Visor por extension (html, json, texto, binario)
-  - Raw por extension (content-types + HTML inline con CSP)
-  - Validacion de paths en _resolver_archivo
+IMPORTANTE:
+  _resolver_archivo usa RECURSOS_BASE = BASE_DIR / "ejercicios_completos-lengua-castellana"
+  NO usa MEDIA_ROOT. Por eso los tests monkeypatchean RECURSOS_BASE.
+
+Los filtros de lista_recursos usan los query params:
+  - q (busqueda)
+  - cat (categoria)
+  - ext (extension)
 """
 import pytest
 from pathlib import Path
 
 from core.models import Recurso
-from core.models_cursos import Curso
 
 
 # ============================================================
 # HELPERS
 # ============================================================
-def _crear_recurso_con_archivo(tmp_media, slug, extension, contenido=b"x"):
-    """Crea un Recurso + su archivo en disco dentro de MEDIA_ROOT."""
+@pytest.fixture
+def recursos_base_tmp(tmp_path, monkeypatch):
+    """Reemplaza RECURSOS_BASE por tmp_path para aislar los tests."""
+    import core.views_recursos as vr
+    monkeypatch.setattr(vr, "RECURSOS_BASE", tmp_path)
+    return tmp_path
+
+
+def _crear_recurso_con_archivo(base, slug, extension, contenido=b"x"):
+    """Crea un Recurso + su archivo en disco dentro de base/."""
     subdir = "test"
     nombre_archivo = f"{slug}.{extension}"
     ruta_rel = f"{subdir}/{nombre_archivo}"
 
-    abs_dir = Path(tmp_media) / subdir
+    abs_dir = Path(base) / subdir
     abs_dir.mkdir(parents=True, exist_ok=True)
 
     abs_path = abs_dir / nombre_archivo
@@ -37,7 +47,7 @@ def _crear_recurso_con_archivo(tmp_media, slug, extension, contenido=b"x"):
         archivo=ruta_rel,
         categoria="Cuaderno",
         extension=extension,
-        tamaño_bytes=len(contenido),
+        tamaño_bytes=len(contenido) if contenido else 0,
     )
 
 
@@ -49,19 +59,19 @@ class TestListaRecursosFiltros:
         r = cliente_prof.get("/recursos/?q=Recurso")
         assert r.status_code == 200
 
-    def test_filtro_categoria(self, cliente_prof, recurso_sin_vincular, db):
+    def test_filtro_cat(self, cliente_prof, recurso_sin_vincular, db):
         cat = recurso_sin_vincular.categoria
-        r = cliente_prof.get(f"/recursos/?categoria={cat}")
+        r = cliente_prof.get(f"/recursos/?cat={cat}")
         assert r.status_code == 200
 
-    def test_filtro_extension(self, cliente_prof, recurso_sin_vincular, db):
+    def test_filtro_ext(self, cliente_prof, recurso_sin_vincular, db):
         ext = recurso_sin_vincular.extension
-        r = cliente_prof.get(f"/recursos/?extension={ext}")
+        r = cliente_prof.get(f"/recursos/?ext={ext}")
         assert r.status_code == 200
 
     def test_filtros_combinados(self, cliente_prof, recurso_sin_vincular, db):
         r = cliente_prof.get(
-            f"/recursos/?q=Recurso&categoria=Cuaderno&extension=json"
+            f"/recursos/?q=Recurso&cat=Cuaderno&ext=json"
         )
         assert r.status_code == 200
 
@@ -74,34 +84,29 @@ class TestListaRecursosFiltros:
 # VISOR POR EXTENSION
 # ============================================================
 class TestVisorRecursoPorExtension:
-    def test_visor_html(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_visor_html(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "visor-html-test", "html",
+            recursos_base_tmp, "visor-html-test", "html",
             "<html><body>Hola</body></html>"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/")
         assert r.status_code == 200
         html = r.content.decode("utf-8", errors="replace")
-        # Verifica que es el visor HTML (renderiza el recurso)
-        assert "Recurso html" in html or "visor" in html.lower() or "raw" in html
+        assert "visor" in html.lower() or "raw" in html or recurso.nombre in html
 
-    def test_visor_json(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_visor_json(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "visor-json-test", "json",
+            recursos_base_tmp, "visor-json-test", "json",
             '{"clave": "valor"}'
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/")
         assert r.status_code == 200
         html = r.content.decode("utf-8", errors="replace")
-        # El contenido del JSON debe aparecer
         assert "clave" in html or "valor" in html or "json" in html.lower()
 
-    def test_visor_texto(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_visor_texto(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "visor-md-test", "md",
+            recursos_base_tmp, "visor-md-test", "md",
             "# Titulo Markdown"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/")
@@ -109,18 +114,16 @@ class TestVisorRecursoPorExtension:
         html = r.content.decode("utf-8", errors="replace")
         assert "Titulo Markdown" in html or "markdown" in html.lower()
 
-    def test_visor_binario_otros(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_visor_binario_otros(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "visor-bin-test", "bin",
+            recursos_base_tmp, "visor-bin-test", "bin",
             b"\x00\x01\x02\x03binary content"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/")
-        # Debe retornar FileResponse (descarga)
         assert r.status_code == 200
 
     def test_visor_recurso_inexistente(self, cliente_prof, db):
-        r = cliente_prof.get("/recursos/no-existe-xyz/")
+        r = cliente_prof.get("/recursos/no-existe-xyz-99999/")
         assert r.status_code == 404
 
 
@@ -128,62 +131,54 @@ class TestVisorRecursoPorExtension:
 # RAW POR EXTENSION
 # ============================================================
 class TestServirRecursoRaw:
-    def test_raw_html(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_raw_html(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "raw-html-test", "html",
+            recursos_base_tmp, "raw-html-test", "html",
             "<html><body>Raw HTML</body></html>"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
         assert r.status_code == 200
         assert "text/html" in r["Content-Type"]
-        # HTML inline tiene CSP
-        assert r.get("Content-Security-Policy") == "frame-ancestors \'self\'"
+        assert r.get("Content-Security-Policy") == "frame-ancestors 'self'"
 
-    def test_raw_json(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_raw_json(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "raw-json-test", "json",
+            recursos_base_tmp, "raw-json-test", "json",
             '{"a": 1}'
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
         assert r.status_code == 200
         assert "application/json" in r["Content-Type"]
 
-    def test_raw_css(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_raw_css(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "raw-css-test", "css",
+            recursos_base_tmp, "raw-css-test", "css",
             "body { color: red; }"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
         assert r.status_code == 200
         assert "text/css" in r["Content-Type"]
 
-    def test_raw_js(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_raw_js(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "raw-js-test", "js",
+            recursos_base_tmp, "raw-js-test", "js",
             "console.log(\'hola\');"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
         assert r.status_code == 200
         assert "javascript" in r["Content-Type"]
 
-    def test_raw_binario_octet_stream(self, cliente_prof, tmp_path, settings, db):
-        settings.MEDIA_ROOT = tmp_path
+    def test_raw_binario_octet_stream(self, cliente_prof, recursos_base_tmp, db):
         recurso = _crear_recurso_con_archivo(
-            tmp_path, "raw-bin-test", "xyz",
+            recursos_base_tmp, "raw-bin-test", "xyz",
             b"binary"
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
         assert r.status_code == 200
-        # Para extensiones no listadas: application/octet-stream
         assert "octet-stream" in r["Content-Type"]
 
-    def test_raw_archivo_no_existe_en_disco(self, cliente_prof, settings, tmp_path, db):
+    def test_raw_archivo_no_existe_en_disco(self, cliente_prof, recursos_base_tmp, db):
         """Recurso registrado pero archivo no existe en disco."""
-        settings.MEDIA_ROOT = tmp_path
         recurso = Recurso.objects.create(
             nombre="Recurso fantasma",
             slug="recurso-fantasma",
@@ -193,8 +188,7 @@ class TestServirRecursoRaw:
             tamaño_bytes=100,
         )
         r = cliente_prof.get(f"/recursos/{recurso.slug}/raw/")
-        # Puede ser 404 o devolver algo vacío, pero no 500
-        assert r.status_code in (200, 404)
+        assert r.status_code == 404
 
 
 # ============================================================
@@ -202,14 +196,13 @@ class TestServirRecursoRaw:
 # ============================================================
 class TestVincularOrdenInvalido:
     def test_vincular_orden_no_numerico(self, cliente_prof, recurso_sin_vincular, curso):
-        """El orden no numerico debe caer al except y usar 0."""
         r = cliente_prof.post(f"/recursos/{recurso_sin_vincular.slug}/vincular/", {
             "curso": str(curso.id),
             "modulo": "",
             "leccion": "",
             "evaluacion_curso": "",
             "ejercicio": "",
-            "orden": "no-es-numero",  # <- fuerza ValueError
+            "orden": "no-es-numero",
         })
         assert r.status_code == 302
 
@@ -218,11 +211,10 @@ class TestVincularOrdenInvalido:
 
 
 # ============================================================
-# VINCULAR CON CONTENIDO VACIO
+# VINCULAR SIN SELECCION
 # ============================================================
 class TestVincularSinSeleccion:
     def test_vincular_sin_nada_seleccionado(self, cliente_prof, recurso_sin_vincular):
-        """Vincular sin curso/modulo/etc desvincula todo."""
         r = cliente_prof.post(f"/recursos/{recurso_sin_vincular.slug}/vincular/", {
             "curso": "",
             "modulo": "",
