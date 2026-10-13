@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-9 mx-auto">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'lista_cursos' %}">Cursos</a></li>
+                    {% if curso %}
+                        <li class="breadcrumb-item"><a href="{% url 'detalle_curso' curso.slug %}">{{ curso.titulo|truncatechars:30 }}</a></li>
+                    {% endif %}
+                    {% if modulo and leccion %}
+                        <li class="breadcrumb-item"><a href="{% url 'ver_leccion' curso.slug modulo.id leccion.id %}">{{ modulo.titulo|truncatechars:30 }}</a></li>
+                    {% endif %}
+                    <li class="breadcrumb-item"><a href="{% url 'ver_evaluacion' evaluacion.id %}">Evaluacion</a></li>
+                    <li class="breadcrumb-item active">Resultados</li>
+                </ol>
+            </nav>
+
+            <!-- Card de resultado -->
+            <div class="card shadow mb-4">
+                <div class="card-header {% if aprobado %}bg-success{% else %}bg-danger{% endif %} text-white">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0">
+                            {% if aprobado %}
+                                <i class="fas fa-check-circle"></i> Evaluacion aprobada
+                            {% else %}
+                                <i class="fas fa-times-circle"></i> Evaluacion no aprobada
+                            {% endif %}
+                        </h4>
+                        <span class="badge bg-light text-dark">{{ evaluacion.titulo|truncatechars:40 }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    {% if resultado %}
+                        <div class="row text-center mb-4">
+                            <div class="col-md-3">
+                                <div class="display-3 fw-bold {% if aprobado %}text-success{% else %}text-danger{% endif %}">
+                                    {{ resultado.puntaje_obtenido }}
+                                </div>
+                                <small class="text-muted">Puntaje obtenido</small>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="display-3 fw-bold text-secondary">{{ resultado.puntaje_maximo }}</div>
+                                <small class="text-muted">Puntaje maximo</small>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="display-3 fw-bold {% if aprobado %}text-success{% else %}text-danger{% endif %}">
+                                    {{ porcentaje }}%
+                                </div>
+                                <small class="text-muted">Porcentaje</small>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="display-3 fw-bold text-info">{{ resultado.intento }}</div>
+                                <small class="text-muted">Intento #</small>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <p class="mb-1"><i class="fas fa-calendar-alt"></i> <strong>Completado:</strong>
+                                    {{ resultado.fecha_completado|date:"d/m/Y H:i" }}</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                {% if resultado.tiempo_empleado %}
+                                    <p class="mb-1"><i class="fas fa-clock"></i> <strong>Tiempo:</strong>
+                                        {{ resultado.tiempo_empleado }}s</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Aun no has completado esta evaluacion.
+                            <a href="{% url 'ver_evaluacion' evaluacion.id %}" class="alert-link">Comenzar ahora</a>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <!-- Detalle por pregunta -->
+            {% if preguntas_con_respuestas %}
+            <div class="card shadow mb-4">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0"><i class="fas fa-list-ol"></i> Detalle por pregunta</h5>
+                </div>
+                <div class="card-body">
+                    {% for item in preguntas_con_respuestas %}
+                        <div class="border rounded p-3 mb-3 {% if item.es_correcta %}border-success{% else %}border-danger{% endif %}">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h6 class="mb-0">
+                                    <span class="badge {% if item.es_correcta %}bg-success{% else %}bg-danger{% endif %}">
+                                        {% if item.es_correcta %}Correcta{% else %}Incorrecta{% endif %}
+                                    </span>
+                                    Pregunta {{ forloop.counter }}
+                                </h6>
+                                <small class="text-muted">{{ item.pregunta.puntaje }} pts</small>
+                            </div>
+                            <p class="mb-2">{{ item.pregunta.enunciado }}</p>
+
+                            <div class="row small">
+                                <div class="col-md-6">
+                                    <strong>Tu respuesta:</strong>
+                                    <code class="{% if item.es_correcta %}text-success{% else %}text-danger{% endif %}">
+                                        {{ item.respuesta_usuario|default:"(sin responder)" }}
+                                    </code>
+                                </div>
+                                {% if not item.es_correcta %}
+                                <div class="col-md-6">
+                                    <strong>Respuesta correcta:</strong>
+                                    <code class="text-success">{{ item.pregunta.respuesta_correcta }}</code>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Botones de accion -->
+            <div class="text-center mb-4">
+                <a href="{% url 'ver_evaluacion' evaluacion.id %}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-redo"></i> Reintentar evaluacion
+                </a>
+                <a href="{% url 'detalle_curso' curso.slug %}" class="btn btn-outline-secondary btn-lg">
+                    <i class="fas fa-arrow-left"></i> Volver al curso
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
