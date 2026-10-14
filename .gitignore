@@ -90,3 +90,6 @@ precommit_run*.txt
 cov_check.txt
 cob_*.txt
 pytest_*.txt
+cov_*.txt
+cob_*.txt
+pytest_*.txt
