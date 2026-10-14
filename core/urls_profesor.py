@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """URLs del panel del profesor con namespace 'profesor'."""
 from django.urls import path
+
 from . import views_profesor as prof
 
 app_name = "profesor"

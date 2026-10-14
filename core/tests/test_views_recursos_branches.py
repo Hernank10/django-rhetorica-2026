@@ -9,8 +9,9 @@ Los filtros de lista_recursos usan los query params:
   - cat (categoria)
   - ext (extension)
 """
-import pytest
 from pathlib import Path
+
+import pytest
 
 from core.models import Recurso
 
@@ -71,7 +72,7 @@ class TestListaRecursosFiltros:
 
     def test_filtros_combinados(self, cliente_prof, recurso_sin_vincular, db):
         r = cliente_prof.get(
-            f"/recursos/?q=Recurso&cat=Cuaderno&ext=json"
+            "/recursos/?q=Recurso&cat=Cuaderno&ext=json"
         )
         assert r.status_code == 200
 

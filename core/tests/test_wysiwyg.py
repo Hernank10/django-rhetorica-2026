@@ -8,8 +8,8 @@ Cubre:
 import pytest
 from django import forms
 
-from core.widgets import TinyMCEWidget
 from core.models_cursos import Leccion
+from core.widgets import TinyMCEWidget
 
 
 # ============================================================

@@ -15,11 +15,19 @@ from django.db import transaction
 from django.utils import timezone
 
 from core.models import (
-    Logro, LogroObtenido, Certificacion, CertificacionObtenida, Respuesta,
+    Certificacion,
+    CertificacionObtenida,
+    Logro,
+    LogroObtenido,
+    Respuesta,
 )
 from core.models_cursos import (
-    Curso, Modulo, Leccion, ProgresoUsuario,
-    EvaluacionCurso, PreguntaEvaluacion,
+    Curso,
+    EvaluacionCurso,
+    Leccion,
+    Modulo,
+    PreguntaEvaluacion,
+    ProgresoUsuario,
 )
 
 User = get_user_model()

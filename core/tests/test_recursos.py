@@ -2,7 +2,7 @@
 import pytest
 
 from core.models import Recurso
-from core.models_cursos import Curso, Modulo, Leccion, EvaluacionCurso
+from core.models_cursos import Curso, EvaluacionCurso, Leccion, Modulo
 
 
 # ============================================================

@@ -1,0 +1,26 @@
+trim trailing whitespace.................................................Passed
+fix end of files.........................................................Failed
+- hook id: end-of-file-fixer
+- exit code: 1
+- files were modified by this hook
+
+Fixing scripts/diag_views_h.py
+Fixing scripts/crear_tests_faseI.py
+Fixing scripts/fix_faseI.py
+Fixing scripts/diag_recursos_i.py
+Fixing scripts/diag_resolver.py
+Fixing scripts/crear_tests_faseH.py
+
+check yaml...............................................................Passed
+check for merge conflicts................................................Passed
+check for added large files..............................................Passed
+mixed line ending........................................................Failed
+- hook id: mixed-line-ending
+- exit code: 1
+
+core/tests/test_views_recursos_branches.py: fixed mixed line endings
+.gitignore: fixed mixed line endings
+core/tests/test_views_branches.py: fixed mixed line endings
+
+check python ast.........................................................Passed
+debug statements (python)................................................Passed

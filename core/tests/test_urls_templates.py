@@ -13,7 +13,6 @@ from pathlib import Path
 import pytest
 from django.urls import get_resolver
 
-
 # Whitelist: URLs de Django (admin, i18n) que no estan en nuestro resolver
 URLS_DJANGO = {"set_language"}
 

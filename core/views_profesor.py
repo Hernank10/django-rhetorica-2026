@@ -1,18 +1,28 @@
 """
 Panel del profesor: estudiantes, evaluaciones, certificaciones, CRUD cursos y lecciones.
 """
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import user_passes_test
 from django.contrib import messages
-from django.db.models import Count, Avg, Q
-from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import user_passes_test
+from django.db.models import Avg, Count, Q
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 
 from .models import (
-    Logro, LogroObtenido, Certificacion, CertificacionObtenida, Respuesta,
+    Certificacion,
+    CertificacionObtenida,
+    Logro,
+    LogroObtenido,
+    Respuesta,
 )
 from .models_cursos import (
-    Curso, Modulo, Leccion, ProgresoUsuario, EvaluacionCurso, PreguntaEvaluacion,
+    Curso,
+    EvaluacionCurso,
+    Leccion,
+    Modulo,
+    PreguntaEvaluacion,
+    ProgresoUsuario,
+    ResultadoEvaluacionCurso,
 )
 from .utils import sanitizar_html
 
@@ -566,8 +576,9 @@ def detalle_estudiante_completo(request, estudiante_id):
 # ============================================================
 # ESTADÍSTICAS Y RANKING
 # ============================================================
-from django.db.models import Count, Avg, Sum, Q
 from datetime import timedelta
+
+from django.db.models import Sum
 
 
 @profesor_required
@@ -729,8 +740,9 @@ from django.http import HttpResponse
 @profesor_required
 def certificado_pdf(request, certificado_id):
     """Descarga el certificado en PDF tipo diploma."""
-    from .utils_certificados import generar_certificado_pdf
     from django.contrib.auth import get_user_model
+
+    from .utils_certificados import generar_certificado_pdf
     User = get_user_model()
 
     cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
@@ -750,8 +762,9 @@ def certificado_pdf(request, certificado_id):
 @profesor_required
 def certificado_docx(request, certificado_id):
     """Descarga el certificado en Word editable."""
-    from .utils_certificados import generar_certificado_docx
     from django.contrib.auth import get_user_model
+
+    from .utils_certificados import generar_certificado_docx
     User = get_user_model()
 
     cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
@@ -777,7 +790,7 @@ def certificado_docx(request, certificado_id):
 @profesor_required
 def certificado_preview(request, certificado_id):
     """Vista previa HTML del certificado (diseño diploma)."""
-    from .utils_certificados import huella_certificado, huella_corta, folio_unico
+    from .utils_certificados import folio_unico, huella_certificado, huella_corta
 
     cert = get_object_or_404(CertificacionObtenida, id=certificado_id)
     return render(request, "core/profesor/certificados/preview.html", {

@@ -35,8 +35,9 @@ class Command(BaseCommand):
     def handle(self, *args, **opts):
         t0 = time.time()
         # --- bypass temporal del signal sync_user_to_core ---
-        from django.db.models.signals import post_save
         from django.contrib.auth import get_user_model as _gum
+        from django.db.models.signals import post_save
+
         from core import signals as _signals
         _User = _gum()
         try:

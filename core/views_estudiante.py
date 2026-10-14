@@ -4,19 +4,28 @@ logros, certificados, estadísticas y ranking.
 """
 from datetime import timedelta
 
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Count, Avg, Q, Sum
-from django.http import HttpResponse
-from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.db.models import Avg, Count, Q, Sum
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 
 from .models import (
-    Logro, LogroObtenido, Certificacion, CertificacionObtenida, Respuesta,
+    Certificacion,
+    CertificacionObtenida,
+    Logro,
+    LogroObtenido,
+    Respuesta,
 )
 from .models_cursos import (
-    Curso, Modulo, Leccion, ProgresoUsuario, EvaluacionCurso, PreguntaEvaluacion,
+    Curso,
+    EvaluacionCurso,
+    Leccion,
+    Modulo,
+    PreguntaEvaluacion,
+    ProgresoUsuario,
     ResultadoEvaluacionCurso,
 )
 

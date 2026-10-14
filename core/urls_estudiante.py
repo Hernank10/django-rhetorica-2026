@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """URLs del panel del estudiante."""
 from django.urls import path
+
 from . import views_estudiante as est
 
 app_name = "estudiante"

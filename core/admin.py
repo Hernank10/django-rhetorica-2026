@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Respuesta, ProgresoCategoria, EjercicioLinguistico, TecnicaLinguistica, ContenidoJSON
+
+from .models import ContenidoJSON, EjercicioLinguistico, ProgresoCategoria, Respuesta, TecnicaLinguistica, User
+
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):

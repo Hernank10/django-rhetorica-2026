@@ -1,32 +1,38 @@
 """
 URL Configuration for django_retorica project.
 """
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
-from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
 
 from core.views import (
+    cambiar_contrasena,
+    certificaciones_lista,
+    dashboard_estudiante,
+    dashboard_gamificacion,
+    editar_perfil,
+    enviar_respuesta,
+    index,
+    login_view,
+    logout_view,
+    perfil_usuario,
+    registro_view,
+    ver_tecnicas,
     verificar_certificado_publico,
-    index, login_view, registro_view, logout_view,
-    dashboard_estudiante, dashboard_gamificacion,
-    perfil_usuario, editar_perfil, cambiar_contrasena,
-    certificaciones_lista, ver_tecnicas, enviar_respuesta
 )
-
-from core.views_ejercicios import detalle_ejercicio, practicar_ejercicio
 from core.views_biblioteca import ejercicios_biblioteca
-
 from core.views_cursos_completo import (
-    lista_cursos,
+    api_evaluacion_preguntas,
     detalle_curso,
-    ver_leccion,
-    ver_evaluacion,
     enviar_evaluacion,
+    lista_cursos,
     resultado_evaluacion,
-    api_evaluacion_preguntas
+    ver_evaluacion,
+    ver_leccion,
 )
+from core.views_ejercicios import detalle_ejercicio, practicar_ejercicio
 
 # Rutas sin prefijo de idioma (admin + endpoint para cambiar idioma)
 urlpatterns = [

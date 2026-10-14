@@ -52,6 +52,11 @@ ignore = [
     "F403",  # import *
     "F405",  # maybe undefined from star
     "B008",  # function call in default arg (Django usa esto)
+    "B007",  # unused loop control variable (a veces intencional)
+    "B017",  # assert blind exception (tests intencional)
+    "B904",  # raise without from (Django Http404 comun)
+    "F541",  # f-string sin placeholders
+    "F841",  # local var assigned but not used
 ]
 
 [tool.ruff.lint.per-file-ignores]

@@ -1,7 +1,7 @@
 """Tests de core/views_cursos_completo.py (con fixes aplicados)."""
 import pytest
 
-from core.models_cursos import Curso, Modulo, Leccion, EvaluacionCurso, PreguntaEvaluacion
+from core.models_cursos import Curso, EvaluacionCurso, Leccion, Modulo, PreguntaEvaluacion
 
 
 # ============================================================

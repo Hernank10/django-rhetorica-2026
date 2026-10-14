@@ -41,6 +41,7 @@ class TestHuellaCertificado:
 
     def test_distinta_para_otro_usuario(self, db, certificacion, estudiante_user):
         from django.contrib.auth import get_user_model
+
         from core.utils_certificados import huella_certificado
         User = get_user_model()
         otro = User.objects.create_user(username="otro_test", password="x")

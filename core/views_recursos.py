@@ -5,11 +5,10 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Count, Q
-from django.http import HttpResponse, Http404, FileResponse
-from django.shortcuts import render, get_object_or_404
+from django.http import FileResponse, Http404, HttpResponse
+from django.shortcuts import get_object_or_404, render
 
 from .models import Recurso
-
 
 RECURSOS_BASE = Path(settings.BASE_DIR) / "ejercicios_completos-lengua-castellana"
 
@@ -135,7 +134,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 from .models import EjercicioLinguistico
-from .models_cursos import Curso, Modulo, Leccion, EvaluacionCurso
+from .models_cursos import Curso, EvaluacionCurso, Leccion, Modulo
 
 
 def _catalogo_objetos():

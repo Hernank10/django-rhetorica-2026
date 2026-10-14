@@ -10,7 +10,9 @@ Verifica que:
 import pytest
 
 from core.models_cursos import (
-    EvaluacionCurso, PreguntaEvaluacion, ResultadoEvaluacionCurso,
+    EvaluacionCurso,
+    PreguntaEvaluacion,
+    ResultadoEvaluacionCurso,
 )
 
 

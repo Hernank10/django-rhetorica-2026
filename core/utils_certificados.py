@@ -1,20 +1,18 @@
 """
 Generadores de certificados PDF (reportlab) y Word (python-docx).
 """
-from io import BytesIO
 from datetime import datetime
-
-from reportlab.lib.pagesizes import A4, landscape
-from reportlab.lib.colors import HexColor
-from reportlab.lib.units import cm
-from reportlab.pdfgen import canvas
-from reportlab.pdfbase import pdfmetrics
-from reportlab.pdfbase.ttfonts import TTFont
-
+from io import BytesIO
 
 from docx import Document
-from docx.shared import Pt, Cm, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Cm, Pt, RGBColor
+from reportlab.lib.colors import HexColor
+from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib.units import cm
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
 
 try:
     import qrcode

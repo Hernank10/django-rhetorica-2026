@@ -2,10 +2,12 @@
 Modelos para el sistema de cursos
 """
 
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.utils import timezone
+
 from .models import EjercicioLinguistico, TecnicaLinguistica
+
 
 class Curso(models.Model):
     """Modelo principal de curso"""

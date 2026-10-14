@@ -5,7 +5,6 @@ Usa nh3 (sucesor de bleach, mantenido y basado en Rust).
 """
 import nh3
 
-
 # Tags permitidos (los que TinyMCE puede generar)
 TAGS_PERMITIDOS = {
     # Estructura

@@ -1,16 +1,15 @@
 """Indexa archivos de la carpeta de recursos en la BD."""
 import os
 import re
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 from django.conf import settings
 from django.core.management.base import BaseCommand
-from django.utils.text import slugify
 from django.utils import timezone
+from django.utils.text import slugify
 
 from core.models import Recurso
-
 
 # Extensiones permitidas
 EXTENSIONES_OK = {

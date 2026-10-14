@@ -4,11 +4,11 @@ from django.utils import timezone
 
 from core.models import Certificacion, CertificacionObtenida
 from core.utils_certificados import (
-    generar_certificado_pdf,
+    folio_unico,
     generar_certificado_docx,
+    generar_certificado_pdf,
     huella_certificado,
     huella_corta,
-    folio_unico,
     url_publica,
 )
 

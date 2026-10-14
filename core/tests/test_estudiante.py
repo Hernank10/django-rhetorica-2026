@@ -2,8 +2,8 @@
 import pytest
 from django.utils import timezone
 
-from core.models import Logro, LogroObtenido, Certificacion, CertificacionObtenida
-from core.models_cursos import Curso, Modulo, Leccion, ProgresoUsuario, EvaluacionCurso
+from core.models import Certificacion, CertificacionObtenida, Logro, LogroObtenido
+from core.models_cursos import Curso, EvaluacionCurso, Leccion, Modulo, ProgresoUsuario
 
 
 # ============================================================

@@ -1,20 +1,29 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import JsonResponse, HttpResponse
-from django.contrib.auth.decorators import login_required
-from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib import messages
-from django.db.models import Count, Sum, Q, Avg, Max, Min
-from django.utils import timezone
-from django.views.decorators.csrf import csrf_exempt
-from datetime import timedelta
 import json
 import os
+from datetime import timedelta
+
+from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.db.models import Avg, Count, Max, Min, Q, Sum
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import (
-    User, Respuesta, ProgresoCategoria,
-    EjercicioLinguistico, TecnicaLinguistica, ContenidoJSON,
-    Evaluacion, ResultadoEvaluacion, Logro, LogroObtenido,
-    Certificacion, CertificacionObtenida
+    Certificacion,
+    CertificacionObtenida,
+    ContenidoJSON,
+    EjercicioLinguistico,
+    Evaluacion,
+    Logro,
+    LogroObtenido,
+    ProgresoCategoria,
+    Respuesta,
+    ResultadoEvaluacion,
+    TecnicaLinguistica,
+    User,
 )
 
 # ==================== VISTAS PÚBLICAS ====================
@@ -38,9 +47,9 @@ def index(request):
 @login_required
 def certificaciones_lista(request):
     """Lista de certificaciones del usuario"""
-    from django.shortcuts import render, redirect
     from django.contrib.auth.decorators import login_required
-    from .models import Certificacion, CertificacionObtenida
+    from django.shortcuts import redirect, render
+
     from .models import User as CoreUser
 
     if not request.user.is_authenticated:
@@ -86,6 +95,7 @@ def ver_tecnicas(request):
 def dashboard_estudiante(request):
     """Dashboard del estudiante con ejercicios y técnicas"""
     from django.shortcuts import render
+
     from .models import EjercicioLinguistico, TecnicaLinguistica
 
     # Obtener ejercicios y técnicas
@@ -108,9 +118,7 @@ def dashboard_estudiante(request):
 # ============================================================
 
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
-from django.contrib import messages
+
 
 def login_view(request):
     """Vista de inicio de sesión"""
@@ -247,8 +255,9 @@ def cambiar_contrasena(request):
 
 def enviar_respuesta(request, ejercicio_id):
     """Vista para enviar una respuesta a un ejercicio"""
-    from django.shortcuts import get_object_or_404, redirect
     from django.contrib import messages
+    from django.shortcuts import redirect
+
     from .models import EjercicioLinguistico
 
     if request.method != 'POST':
@@ -266,10 +275,9 @@ def enviar_respuesta(request, ejercicio_id):
 
 def dashboard_gamificacion(request):
     """Dashboard de gamificación del usuario"""
-    from django.shortcuts import render, redirect
     from django.contrib import messages
     from django.contrib.auth.decorators import login_required
-    from .models import Logro, LogroObtenido, CertificacionObtenida, ProgresoCategoria
+    from django.shortcuts import redirect, render
 
     if not request.user.is_authenticated:
         messages.warning(request, 'Debes iniciar sesion para ver tu gamificacion')
@@ -347,9 +355,9 @@ def dashboard_gamificacion(request):
 # ============================================================
 def verificar_certificado_publico(request, codigo):
     """Página pública para verificar un certificado por su código."""
-    from .models import CertificacionObtenida
-    from .utils_certificados import huella_certificado, huella_corta, folio_unico
     from django.http import Http404
+
+    from .utils_certificados import folio_unico, huella_certificado, huella_corta
 
     try:
         cert = CertificacionObtenida.objects.select_related(

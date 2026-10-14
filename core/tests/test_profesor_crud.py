@@ -2,7 +2,11 @@
 import pytest
 
 from core.models_cursos import (
-    Curso, Modulo, Leccion, EvaluacionCurso, PreguntaEvaluacion,
+    Curso,
+    EvaluacionCurso,
+    Leccion,
+    Modulo,
+    PreguntaEvaluacion,
 )
 
 

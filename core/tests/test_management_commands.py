@@ -1,16 +1,23 @@
 """Tests de los comandos de management."""
-import pytest
 from io import StringIO
 from pathlib import Path
 
+import pytest
 from django.core.management import call_command
 
 from core.models import (
-    Certificacion, EjercicioLinguistico, Logro, Recurso,
+    Certificacion,
+    EjercicioLinguistico,
+    Logro,
+    Recurso,
     TecnicaLinguistica,
 )
 from core.models_cursos import (
-    Curso, EvaluacionCurso, Leccion, Modulo, PreguntaEvaluacion,
+    Curso,
+    EvaluacionCurso,
+    Leccion,
+    Modulo,
+    PreguntaEvaluacion,
 )
 
 

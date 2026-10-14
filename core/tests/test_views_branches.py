@@ -11,7 +11,10 @@ Cubre los paths que test_smoke_urls.py no toca:
 import pytest
 
 from core.models import (
-    Certificacion, CertificacionObtenida, Logro, LogroObtenido,
+    Certificacion,
+    CertificacionObtenida,
+    Logro,
+    LogroObtenido,
     ProgresoCategoria,
 )
 from core.models_cursos import Curso

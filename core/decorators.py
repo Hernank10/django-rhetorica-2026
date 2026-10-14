@@ -1,5 +1,6 @@
-from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import redirect
+
 
 def admin_required(view_func):
     def wrapper(request, *args, **kwargs):
