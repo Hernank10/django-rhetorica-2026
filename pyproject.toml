@@ -70,3 +70,10 @@ ignore = [
 
 [tool.ruff.lint.isort]
 known-first-party = ["core", "django_retorica"]
+
+[tool.coverage.run]
+omit = [
+    "core/management/commands/indexar_recursos.py",
+    "core/management/commands/seed_and_test.py",
+    "core/management/commands/seed_content.py",
+]
