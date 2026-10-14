@@ -87,3 +87,6 @@ htmlcov/
 precommit_run*.txt
 ejercicios_completos-lengua-castellana/
 precommit_run*.txt
+cov_check.txt
+cob_*.txt
+pytest_*.txt
