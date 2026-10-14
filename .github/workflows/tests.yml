@@ -37,6 +37,6 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          pytest --cov=core --cov-report=term-missing --cov-fail-under=85 -q
+          pytest --cov=core --cov-report=term-missing --cov-fail-under=90 -q
         env:
           DJANGO_SETTINGS_MODULE: django_retorica.settings
