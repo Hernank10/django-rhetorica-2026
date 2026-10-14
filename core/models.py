@@ -60,9 +60,9 @@ class User(AbstractUser):
 
         # Calcular tasa de aciertos
         if self.pk:
-            total_respuestas = Respuesta.objects.filter(user=self).count()
+            total_respuestas = Respuesta.objects.filter(user_id=self.pk).count()
             if total_respuestas > 0:
-                correctas = Respuesta.objects.filter(user=self, es_correcta=True).count()
+                correctas = Respuesta.objects.filter(user_id=self.pk, es_correcta=True).count()
                 self.tasa_aciertos = round((correctas / total_respuestas) * 100, 2)
 
         super().save(*args, **kwargs)
