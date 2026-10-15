@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 import json
 import os
 from datetime import timedelta
@@ -23,7 +24,6 @@ from .models import (
     Respuesta,
     ResultadoEvaluacion,
     TecnicaLinguistica,
-    User,
 )
 
 # ==================== VISTAS PÚBLICAS ====================
@@ -47,25 +47,13 @@ def index(request):
 @login_required
 def certificaciones_lista(request):
     """Lista de certificaciones del usuario"""
-    from django.contrib.auth.decorators import login_required
     from django.shortcuts import redirect, render
-
-    from .models import User as CoreUser
 
     if not request.user.is_authenticated:
         return redirect('login')
 
-    # ✅ Obtener usuario de core.User
-    try:
-        usuario = CoreUser.objects.get(username=request.user.username)
-    except CoreUser.DoesNotExist:
-        return render(request, 'core/certificaciones_lista.html', {'certificaciones': []})
-
-    # ✅ Usar user_id para filtrar
-    user_id = usuario.id
-
-    # Obtener certificaciones obtenidas
-    certificaciones_obtenidas = CertificacionObtenida.objects.filter(user_id=user_id)
+    # Obtener certificaciones (FK apunta a auth.User directamente)
+    certificaciones_obtenidas = CertificacionObtenida.objects.filter(user=request.user)
 
     # Preparar datos para el template
     certificaciones = []

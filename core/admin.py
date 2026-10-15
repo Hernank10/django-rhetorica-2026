@@ -1,15 +1,7 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 
-from .models import ContenidoJSON, EjercicioLinguistico, ProgresoCategoria, Respuesta, TecnicaLinguistica, User
+from .models import ContenidoJSON, EjercicioLinguistico, ProgresoCategoria, Respuesta, TecnicaLinguistica
 
-
-@admin.register(User)
-class CustomUserAdmin(UserAdmin):
-    list_display = ('username', 'email', 'points', 'nivel', 'is_staff')
-    fieldsets = UserAdmin.fieldsets + (
-        ('Progreso', {'fields': ('points', 'nivel', 'is_admin')}),
-    )
 
 @admin.register(Respuesta)
 class RespuestaAdmin(admin.ModelAdmin):

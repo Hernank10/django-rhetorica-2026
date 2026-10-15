@@ -38,10 +38,9 @@ class Command(BaseCommand):
         from django.contrib.auth import get_user_model as _gum
         from django.db.models.signals import post_save
 
-        from core import signals as _signals
         _User = _gum()
         try:
-            post_save.disconnect(_signals.sync_user_to_core, sender=_User)
+        # (removido) post_save.disconnect(_signals.sync_user_to_core, sender=_User)
             self.stdout.write(self.style.WARNING("[WARN] signal sync_user_to_core desconectado"))
         except Exception:
             pass
