@@ -1,0 +1,118 @@
+[
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 9001,
+    "fields": {
+      "titulo": "[ADAPT] Ablativo singular - 3ra declinacion",
+      "contenido": {
+        "tipo_adaptativo": "micro_ejercicio",
+        "foco": "declinacion_3_consonantica",
+        "enunciado": "Seleccione la forma correcta en ablativo singular para 'miles, militis':",
+        "opciones": ["milite", "militis", "militibus", "militem"],
+        "respuesta_correcta": "milite",
+        "retroalimentacion_adaptativa": "Has confundido el genitivo con el ablativo singular. La tercera declinacion toma -e en el ablativo singular tematico.",
+        "pista": "Piensa: si genitivo es -is, ablativo es -e"
+      },
+      "categoria": "latin",
+      "tipo": "multiple_choice",
+      "nivel": 2,
+      "puntos": 5,
+      "es_adaptativo": true,
+      "categoria_error": "declinacion_3_consonantica",
+      "idioma": "LA",
+      "creado_en": "2026-10-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 9002,
+    "fields": {
+      "titulo": "[ADAPT] Ablativo instrumental",
+      "contenido": {
+        "tipo_adaptativo": "micro_ejercicio",
+        "foco": "ablativo_instrumental",
+        "enunciado": "En 'Gladio pugnavit', que funcion cumple 'gladio'?",
+        "opciones": ["Instrumento", "Lugar", "Compania", "Agente"],
+        "respuesta_correcta": "Instrumento",
+        "retroalimentacion_adaptativa": "El ablativo sin preposicion puede expresar el instrumento con el que se realiza la accion. 'Gladio' = 'con la espada'."
+      },
+      "categoria": "latin",
+      "tipo": "multiple_choice",
+      "nivel": 2,
+      "puntos": 5,
+      "es_adaptativo": true,
+      "categoria_error": "ablativo_instrumental",
+      "idioma": "LA",
+      "creado_en": "2026-10-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 9003,
+    "fields": {
+      "titulo": "[ADAPT] Ablativo locativo",
+      "contenido": {
+        "tipo_adaptativo": "micro_ejercicio",
+        "foco": "ablativo_locativo",
+        "enunciado": "Como se dice 'en Roma' en latin clasico?",
+        "opciones": ["Romae", "In Roma", "Romam", "Roma"],
+        "respuesta_correcta": "Romae",
+        "retroalimentacion_adaptativa": "Los nombres de ciudad y pequenas islas usan el locativo sin preposicion. 'Romae' = 'en Roma'."
+      },
+      "categoria": "latin",
+      "tipo": "multiple_choice",
+      "nivel": 3,
+      "puntos": 5,
+      "es_adaptativo": true,
+      "categoria_error": "ablativo_locativo",
+      "idioma": "LA",
+      "creado_en": "2026-10-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 9004,
+    "fields": {
+      "titulo": "[ADAPT] Genitivo partitivo",
+      "contenido": {
+        "tipo_adaptativo": "micro_ejercicio",
+        "foco": "genitivo_partitivo",
+        "enunciado": "Complete: 'Multi ____ venerunt' (muchos de los soldados vinieron)",
+        "opciones": ["militum", "milites", "militibus", "militem"],
+        "respuesta_correcta": "militum",
+        "retroalimentacion_adaptativa": "El genitivo partitivo depende de sustantivos o adjetivos de cantidad (multi, pauci, etc.). Va siempre en genitivo plural."
+      },
+      "categoria": "latin",
+      "tipo": "multiple_choice",
+      "nivel": 3,
+      "puntos": 5,
+      "es_adaptativo": true,
+      "categoria_error": "genitivo_partitivo",
+      "idioma": "LA",
+      "creado_en": "2026-10-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 9005,
+    "fields": {
+      "titulo": "[ADAPT] Cum + subjuntivo imperfecto",
+      "contenido": {
+        "tipo_adaptativo": "micro_ejercicio",
+        "foco": "cum_subjuntivo_imperfecto",
+        "enunciado": "Elija la forma correcta: 'Cum Caesar ____, milites fugerunt' (cuando Cesar llegaba, los soldados huyeron)",
+        "opciones": ["adveniret", "advenit", "advenisset", "adveniat"],
+        "respuesta_correcta": "adveniret",
+        "retroalimentacion_adaptativa": "'Cum' historico o narrativo se construye con subjuntivo. Si la accion es simultanea al verbo principal, va imperfecto de subjuntivo."
+      },
+      "categoria": "latin",
+      "tipo": "multiple_choice",
+      "nivel": 4,
+      "puntos": 5,
+      "es_adaptativo": true,
+      "categoria_error": "cum_subjuntivo_imperfecto",
+      "idioma": "LA",
+      "creado_en": "2026-10-15T00:00:00Z"
+    }
+  }
+]
