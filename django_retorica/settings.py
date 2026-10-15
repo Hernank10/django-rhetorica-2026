@@ -1,4 +1,4 @@
-"""
+﻿"""
 Django settings for django_retorica project.
 """
 
@@ -193,4 +193,10 @@ RECURSOS_DIR = BASE_DIR / 'ejercicios_completos-lengua-castellana'
 # -------------------------------------------------------------
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/dashboard/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/' 
+# ============================================================
+# Motor de adaptabilidad linguistica
+# ============================================================
+ADAPTIVE_ERROR_WINDOW_DAYS = 7
+ADAPTIVE_ERROR_THRESHOLD = 3
+ADAPTIVE_MASTERY_THRESHOLD = 3

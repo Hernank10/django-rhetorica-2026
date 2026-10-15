@@ -1,4 +1,4 @@
-from django.conf import settings
+﻿from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
@@ -135,6 +135,10 @@ class EjercicioLinguistico(models.Model):
     tipo = models.CharField(max_length=100, blank=True, null=True)
     nivel = models.IntegerField(default=1, help_text="Nivel de dificultad")
     puntos = models.IntegerField(default=10)
+    # Motor adaptativo (ver docs/adaptive_engine.md)
+    es_adaptativo = models.BooleanField(default=False, db_index=True)
+    categoria_error = models.CharField(max_length=100, blank=True, default="")
+    idioma = models.CharField(max_length=2, blank=True, default="ES")
     archivo_origen = models.CharField(max_length=300, blank=True, null=True)
     creado_en = models.DateTimeField(auto_now_add=True)
 
@@ -267,3 +271,4 @@ class Recurso(models.Model):
 # Forzar a Django a cargar los modelos de cursos al iniciar
 from . import models_cursos  # noqa: F401,E402
 from . import models_preguntas  # noqa: F401,E402
+from . import models_adaptativos  # noqa: F401,E402
