@@ -329,3 +329,4 @@ class Recurso(models.Model):
 
 # Forzar a Django a cargar los modelos de cursos al iniciar
 from . import models_cursos  # noqa: F401,E402
+from . import models_preguntas  # noqa: F401,E402
