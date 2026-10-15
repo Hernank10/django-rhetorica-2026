@@ -1,71 +1,8 @@
 from django.conf import settings
-from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
 
-
-class User(AbstractUser):
-    points = models.IntegerField(default=0)
-    nivel = models.CharField(max_length=20, default='Aprendiz')
-    is_admin = models.BooleanField(default=False)
-    estrellas = models.IntegerField(default=0, help_text="Estrellas de oro acumuladas")
-    medallas = models.JSONField(default=list, blank=True, help_text="Lista de medallas obtenidas")
-    insignias = models.JSONField(default=list, blank=True, help_text="Lista de insignias obtenidas")
-    certificaciones = models.JSONField(default=list, blank=True, help_text="Lista de certificaciones obtenidas")
-    racha = models.IntegerField(default=0, help_text="Días consecutivos practicando")
-    ultima_actividad = models.DateTimeField(null=True, blank=True)
-    total_ejercicios_completados = models.IntegerField(default=0)
-    tasa_aciertos = models.FloatField(default=0.0)
-    nivel_experiencia = models.IntegerField(default=1)
-
-    # Agregar related_name para evitar conflictos con auth.User
-    groups = models.ManyToManyField(
-        'auth.Group',
-        verbose_name='groups',
-        blank=True,
-        help_text='The groups this user belongs to.',
-        related_name='core_user_set',
-        related_query_name='core_user',
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        verbose_name='user permissions',
-        blank=True,
-        help_text='Specific permissions for this user.',
-        related_name='core_user_set',
-        related_query_name='core_user',
-    )
-
-    def save(self, *args, **kwargs):
-        # Actualizar nivel basado en puntos
-        if self.points < 100:
-            self.nivel = 'Aprendiz'
-            self.nivel_experiencia = 1
-        elif self.points < 300:
-            self.nivel = 'Conocedor'
-            self.nivel_experiencia = 2
-        elif self.points < 600:
-            self.nivel = 'Experto'
-            self.nivel_experiencia = 3
-        elif self.points < 1000:
-            self.nivel = 'Maestro Retórico'
-            self.nivel_experiencia = 4
-        elif self.points < 2000:
-            self.nivel = 'Sabio'
-            self.nivel_experiencia = 5
-        else:
-            self.nivel = 'Gran Orador'
-            self.nivel_experiencia = 6
-
-        # Calcular tasa de aciertos
-        if self.pk:
-            total_respuestas = Respuesta.objects.filter(user_id=self.pk).count()
-            if total_respuestas > 0:
-                correctas = Respuesta.objects.filter(user_id=self.pk, es_correcta=True).count()
-                self.tasa_aciertos = round((correctas / total_respuestas) * 100, 2)
-
-        super().save(*args, **kwargs)
 
 class Respuesta(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='respuestas')
@@ -80,7 +17,7 @@ class Respuesta(models.Model):
     feedback = models.TextField(blank=True, null=True)
 
 class ProgresoCategoria(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='progreso')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='progreso')
     categoria = models.CharField(max_length=100)
     aciertos = models.IntegerField(default=0)
     intentos = models.IntegerField(default=0)
@@ -116,7 +53,7 @@ class Evaluacion(models.Model):
         return f"{self.titulo} ({self.tipo})"
 
 class ResultadoEvaluacion(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='evaluaciones')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='evaluaciones')
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE)
     puntaje = models.IntegerField(default=0)
     respuestas = models.JSONField(default=list)
