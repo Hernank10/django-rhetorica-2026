@@ -1,712 +1,401 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html lang="es">
-{% load i18n %}
 <head>
-{% load i18n %}
     <meta charset="UTF-8">
-{% load i18n %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-{% load i18n %}
     <title>Rhetorica+ - Aprendizaje Retórico</title>
-{% load i18n %}
 
-{% load i18n %}
     <!-- Bootstrap 5 -->
-{% load i18n %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-{% load i18n %}
     <!-- Font Awesome 6 -->
-{% load i18n %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-{% load i18n %}
 
-{% load i18n %}
     <style>
-{% load i18n %}
         body {
-{% load i18n %}
             background-color: #f8f9fa;
-{% load i18n %}
             min-height: 100vh;
-{% load i18n %}
             display: flex;
-{% load i18n %}
             flex-direction: column;
-{% load i18n %}
         }
-{% load i18n %}
         .main-content {
-{% load i18n %}
             flex: 1;
-{% load i18n %}
             padding: 2rem 0;
-{% load i18n %}
         }
-{% load i18n %}
 
-{% load i18n %}
-        /* Navbar */
-{% load i18n %}
-        .bg-gradient-primary {
-{% load i18n %}
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-{% load i18n %}
-        }
-{% load i18n %}
-        .navbar {
-{% load i18n %}
-            padding: 0.8rem 0;
-{% load i18n %}
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-{% load i18n %}
-        }
-{% load i18n %}
-        .navbar-brand {
-{% load i18n %}
-            font-size: 1.5rem;
-{% load i18n %}
-            font-weight: 700;
-{% load i18n %}
-        }
-{% load i18n %}
-        .navbar-brand i {
-{% load i18n %}
-            font-size: 1.8rem;
-{% load i18n %}
-            margin-right: 8px;
-{% load i18n %}
-        }
-{% load i18n %}
-        .nav-link {
-{% load i18n %}
-            font-weight: 500;
-{% load i18n %}
-            padding: 0.5rem 1rem !important;
-{% load i18n %}
-            border-radius: 8px;
-{% load i18n %}
-            transition: all 0.3s ease;
-{% load i18n %}
-            color: rgba(255,255,255,0.9) !important;
-{% load i18n %}
-        }
-{% load i18n %}
-        .nav-link:hover {
-{% load i18n %}
-            background: rgba(255,255,255,0.15);
-{% load i18n %}
-            transform: translateY(-1px);
-{% load i18n %}
-            color: white !important;
-{% load i18n %}
-        }
-{% load i18n %}
-        .nav-link.active {
-{% load i18n %}
-            background: rgba(255,255,255,0.2);
-{% load i18n %}
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-{% load i18n %}
-        }
-{% load i18n %}
-        .nav-link i {
-{% load i18n %}
-            margin-right: 6px;
-{% load i18n %}
-        }
-{% load i18n %}
-        .dropdown-menu {
-{% load i18n %}
-            border: none;
-{% load i18n %}
-            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
-{% load i18n %}
-            border-radius: 12px;
-{% load i18n %}
-        }
-{% load i18n %}
-        .dropdown-item {
-{% load i18n %}
-            padding: 0.6rem 1.5rem;
-{% load i18n %}
-            border-radius: 8px;
-{% load i18n %}
-            transition: all 0.2s ease;
-{% load i18n %}
-        }
-{% load i18n %}
-        .dropdown-item:hover {
-{% load i18n %}
-            background: #f0f0f0;
-{% load i18n %}
-        }
-{% load i18n %}
-        .dropdown-item i {
-{% load i18n %}
-            width: 20px;
-{% load i18n %}
-            margin-right: 8px;
-{% load i18n %}
-        }
-{% load i18n %}
-
-{% load i18n %}
-        /* Footer */
-{% load i18n %}
-        .footer {
-{% load i18n %}
-            background: #2d3436;
-{% load i18n %}
-            color: white;
-{% load i18n %}
-            padding: 3rem 0 1.5rem 0;
-{% load i18n %}
-            margin-top: auto;
-{% load i18n %}
-        }
-{% load i18n %}
-        .footer h5, .footer h6 {
-{% load i18n %}
-            color: white;
-{% load i18n %}
-            font-weight: 600;
-{% load i18n %}
-        }
-{% load i18n %}
-        .footer a {
-{% load i18n %}
-            color: #a8a8a8;
-{% load i18n %}
+        /* --- Accesibilidad --- */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #212529;
+            color: #fff;
+            padding: 8px 16px;
+            z-index: 9999;
             text-decoration: none;
-{% load i18n %}
-            transition: color 0.3s ease;
-{% load i18n %}
+            border-radius: 0 0 8px 0;
+            font-weight: 600;
         }
-{% load i18n %}
-        .footer a:hover {
-{% load i18n %}
-            color: white;
-{% load i18n %}
+        .skip-link:focus {
+            top: 0;
+            color: #fff;
+            outline: 3px solid #ffc107;
+            outline-offset: 2px;
         }
-{% load i18n %}
-        .footer .text-muted {
-{% load i18n %}
-            color: #a8a8a8 !important;
-{% load i18n %}
+        :focus-visible {
+            outline: 3px solid #ffc107;
+            outline-offset: 2px;
         }
-{% load i18n %}
-        .footer hr {
-{% load i18n %}
-            border-color: rgba(255,255,255,0.1);
-{% load i18n %}
+        .sr-only {
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
-{% load i18n %}
-        .footer .social-links a {
-{% load i18n %}
-            display: inline-block;
-{% load i18n %}
-            width: 36px;
-{% load i18n %}
-            height: 36px;
-{% load i18n %}
-            line-height: 36px;
-{% load i18n %}
-            text-align: center;
-{% load i18n %}
-            border-radius: 50%;
-{% load i18n %}
-            background: rgba(255,255,255,0.1);
-{% load i18n %}
-            color: white;
-{% load i18n %}
+
+        /* Navbar */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .navbar {
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .navbar-brand i {
+            font-size: 1.8rem;
             margin-right: 8px;
-{% load i18n %}
+        }
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
             transition: all 0.3s ease;
-{% load i18n %}
+            color: rgba(255,255,255,0.9) !important;
         }
-{% load i18n %}
+        .nav-link:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-1px);
+            color: white !important;
+        }
+        .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-link i {
+            margin-right: 6px;
+        }
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+            border-radius: 12px;
+        }
+        .dropdown-item {
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        .dropdown-item:hover {
+            background: #f0f0f0;
+        }
+        .dropdown-item i {
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2d3436;
+            color: white;
+            padding: 3rem 0 1.5rem 0;
+            margin-top: auto;
+        }
+        .footer h5, .footer h6 {
+            color: white;
+            font-weight: 600;
+        }
+        .footer a {
+            color: #a8a8a8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: white;
+        }
+        .footer .text-muted {
+            color: #a8a8a8 !important;
+        }
+        .footer hr {
+            border-color: rgba(255,255,255,0.1);
+        }
+        .footer .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            margin-right: 8px;
+            transition: all 0.3s ease;
+        }
         .footer .social-links a:hover {
-{% load i18n %}
             background: #667eea;
-{% load i18n %}
             transform: translateY(-3px);
-{% load i18n %}
         }
-{% load i18n %}
 
-{% load i18n %}
         @media (max-width: 992px) {
-{% load i18n %}
-            .navbar-nav {
-{% load i18n %}
-                padding: 1rem 0;
-{% load i18n %}
-            }
-{% load i18n %}
-            .nav-item {
-{% load i18n %}
-                margin: 0.2rem 0;
-{% load i18n %}
-            }
-{% load i18n %}
-            .nav-link {
-{% load i18n %}
-                border-radius: 8px;
-{% load i18n %}
-            }
-{% load i18n %}
+            .navbar-nav { padding: 1rem 0; }
+            .nav-item { margin: 0.2rem 0; }
+            .nav-link { border-radius: 8px; }
             .dropdown-menu {
-{% load i18n %}
                 border: none;
-{% load i18n %}
                 background: transparent;
-{% load i18n %}
                 box-shadow: none;
-{% load i18n %}
                 padding: 0;
-{% load i18n %}
             }
-{% load i18n %}
-            .dropdown-item {
-{% load i18n %}
-                padding-left: 2rem;
-{% load i18n %}
-            }
-{% load i18n %}
+            .dropdown-item { padding-left: 2rem; }
         }
-{% load i18n %}
     </style>
-{% load i18n %}
 </head>
-{% load i18n %}
 <body>
-{% load i18n %}
-    <!-- Navbar -->
-{% load i18n %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary shadow">
-{% load i18n %}
-        <div class="container">
-{% load i18n %}
-            <a class="navbar-brand" href="{% url 'index' %}">
-{% load i18n %}
-                <i class="fas fa-feather-alt"></i> Rhetorica+
-{% load i18n %}
-            </a>
-{% load i18n %}
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-{% load i18n %}
-                <span class="navbar-toggler-icon"></span>
-{% load i18n %}
-            </button>
-{% load i18n %}
-            <div class="collapse navbar-collapse" id="navbarNav">
-{% load i18n %}
-                <ul class="navbar-nav me-auto">
-{% load i18n %}
-                    {% if user.is_authenticated %}
+    <!-- Skip link: primer elemento focusable -->
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
 
+    <!-- Navbar principal -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-primary shadow" aria-label="Navegación principal">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fas fa-feather-alt" aria-hidden="true"></i> Rhetorica+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link {% if '/recursos/' in request.path %}active{% endif %}"
-                               href="{% url 'recursos:lista' %}">
-                                <i class="fas fa-folder-open"></i> Recursos
+                               href="{% url 'recursos:lista' %}"
+                               {% if '/recursos/' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-folder-open" aria-hidden="true"></i> Recursos
                             </a>
                         </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'dashboard' in request.path and not 'gamificacion' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'dashboard_estudiante' %}">
-{% load i18n %}
-                            <i class="fas fa-tachometer-alt"></i> Estudiante
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'gamificacion' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'dashboard_gamificacion' %}">
-{% load i18n %}
-                            <i class="fas fa-gamepad"></i> Gamificación
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'certificaciones' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'certificaciones_lista' %}">
-{% load i18n %}
-                            <i class="fas fa-certificate"></i> Certificaciones
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'biblioteca' in request.path or 'ejercicio' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'ejercicios_biblioteca' %}">
-{% load i18n %}
-                            <i class="fas fa-book-open"></i> Ejercicios
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'cursos' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'lista_cursos' %}">
-{% load i18n %}
-                            <i class="fas fa-graduation-cap"></i> Cursos
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link {% if 'tecnicas' in request.path %}active{% endif %}"
-{% load i18n %}
-                           href="{% url 'ver_tecnicas' %}">
-{% load i18n %}
-                            <i class="fas fa-lightbulb"></i> Técnicas
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'dashboard' in request.path and not 'gamificacion' in request.path %}active{% endif %}"
+                               href="{% url 'dashboard_estudiante' %}"
+                               {% if 'dashboard' in request.path and not 'gamificacion' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-tachometer-alt" aria-hidden="true"></i> Estudiante
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'gamificacion' in request.path %}active{% endif %}"
+                               href="{% url 'dashboard_gamificacion' %}"
+                               {% if 'gamificacion' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-gamepad" aria-hidden="true"></i> Gamificación
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'certificaciones' in request.path %}active{% endif %}"
+                               href="{% url 'certificaciones_lista' %}"
+                               {% if 'certificaciones' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-certificate" aria-hidden="true"></i> Certificaciones
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'biblioteca' in request.path or 'ejercicio' in request.path %}active{% endif %}"
+                               href="{% url 'ejercicios_biblioteca' %}"
+                               {% if 'biblioteca' in request.path or 'ejercicio' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-book-open" aria-hidden="true"></i> Ejercicios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'cursos' in request.path %}active{% endif %}"
+                               href="{% url 'lista_cursos' %}"
+                               {% if 'cursos' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i> Cursos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if 'tecnicas' in request.path %}active{% endif %}"
+                               href="{% url 'ver_tecnicas' %}"
+                               {% if 'tecnicas' in request.path %}aria-current="page"{% endif %}>
+                                <i class="fas fa-lightbulb" aria-hidden="true"></i> Técnicas
+                            </a>
+                        </li>
                     {% endif %}
-{% load i18n %}
                 </ul>
-{% load i18n %}
 
-{% load i18n %}
                 <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-  <form action="{% url 'set_language' %}" method="post" style="margin:0;">
-    {% csrf_token %}
-    <input name="next" type="hidden" value="/">
-    <select name="language" onchange="this.form.submit();"
-            style="background:#fff;color:#000;border:1px solid #ccc;padding:4px 8px;border-radius:4px;">
-      {% get_current_language as MI_IDIOMA %}
-      {% get_available_languages as IDIOMAS %}
-      {% for code, name in IDIOMAS %}
-        <option value="{{ code }}"{% if code == MI_IDIOMA %} selected{% endif %}>{{ name }}</option>
-      {% endfor %}
-    </select>
-  </form>
-</li>{% load i18n %}
+                    <li class="nav-item">
+                        <form action="{% url 'set_language' %}" method="post" class="m-0">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="/">
+                            <label for="lang-selector" class="sr-only">Seleccionar idioma</label>
+                            <select id="lang-selector" name="language" onchange="this.form.submit();"
+                                    style="background:#fff;color:#000;border:1px solid #ccc;padding:4px 8px;border-radius:4px;">
+                                {% get_current_language as MI_IDIOMA %}
+                                {% get_available_languages as IDIOMAS %}
+                                {% for code, name in IDIOMAS %}
+                                    <option value="{{ code }}"{% if code == MI_IDIOMA %} selected{% endif %}>{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </form>
+                    </li>
                     {% if user.is_authenticated %}
-{% load i18n %}
-                    <li class="nav-item dropdown">
-{% load i18n %}
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
-{% load i18n %}
-                            <i class="fas fa-user-circle"></i> {{ user.username }}
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                        <ul class="dropdown-menu dropdown-menu-end">
-{% load i18n %}
-                            <li>
-{% load i18n %}
-                                <a class="dropdown-item" href="{% url 'perfil_usuario' %}">
-{% load i18n %}
-                                    <i class="fas fa-user"></i> Mi Perfil
-{% load i18n %}
-                                </a>
-{% load i18n %}
-                            </li>
-{% load i18n %}
-                            <li>
-{% load i18n %}
-                                <a class="dropdown-item" href="{% url 'certificaciones_lista' %}">
-{% load i18n %}
-                                    <i class="fas fa-certificate"></i> Mis Certificaciones
-{% load i18n %}
-                                </a>
-{% load i18n %}
-                            </li>
-{% load i18n %}
-                            <li>
-{% load i18n %}
-                                <a class="dropdown-item" href="{% url 'editar_perfil' %}">
-{% load i18n %}
-                                    <i class="fas fa-cog"></i> Configuración
-{% load i18n %}
-                                </a>
-{% load i18n %}
-                            </li>
-{% load i18n %}
-                            <li><hr class="dropdown-divider"></li>
-{% load i18n %}
-                            <li>
-{% load i18n %}
-                                <a class="dropdown-item text-danger" href="{% url 'logout' %}">
-{% load i18n %}
-                                    <i class="fas fa-sign-out-alt"></i> Salir
-{% load i18n %}
-                                </a>
-{% load i18n %}
-                            </li>
-{% load i18n %}
-                        </ul>
-{% load i18n %}
-                    </li>
-{% load i18n %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle" aria-hidden="true"></i> {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'perfil_usuario' %}">
+                                        <i class="fas fa-user" aria-hidden="true"></i> Mi Perfil
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'certificaciones_lista' %}">
+                                        <i class="fas fa-certificate" aria-hidden="true"></i> Mis Certificaciones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'editar_perfil' %}">
+                                        <i class="fas fa-cog" aria-hidden="true"></i> Configuración
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="{% url 'logout' %}">
+                                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Salir
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     {% else %}
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link" href="{% url 'login' %}">
-{% load i18n %}
-                            <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
-                    <li class="nav-item">
-{% load i18n %}
-                        <a class="nav-link" href="{% url 'registro' %}">
-{% load i18n %}
-                            <i class="fas fa-user-plus"></i> Registrarse
-{% load i18n %}
-                        </a>
-{% load i18n %}
-                    </li>
-{% load i18n %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <i class="fas fa-sign-in-alt" aria-hidden="true"></i> Iniciar Sesión
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'registro' %}">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i> Registrarse
+                            </a>
+                        </li>
                     {% endif %}
-{% load i18n %}
                 </ul>
-{% load i18n %}
             </div>
-{% load i18n %}
         </div>
-{% load i18n %}
     </nav>
-{% load i18n %}
 
-{% load i18n %}
     <!-- Mensajes de Django -->
-{% load i18n %}
     {% if messages %}
-{% load i18n %}
-    <div class="container mt-3">
-{% load i18n %}
-        {% for message in messages %}
-{% load i18n %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-{% load i18n %}
-            {{ message }}
-{% load i18n %}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-{% load i18n %}
+        <div class="container mt-3" role="status" aria-live="polite">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar notificación"></button>
+                </div>
+            {% endfor %}
         </div>
-{% load i18n %}
-        {% endfor %}
-{% load i18n %}
-    </div>
-{% load i18n %}
     {% endif %}
-{% load i18n %}
 
-{% load i18n %}
     <!-- Contenido principal -->
-{% load i18n %}
-    <main class="main-content">
-{% load i18n %}
+    <main id="main" class="main-content">
         {% block content %}
-{% load i18n %}
         {% endblock %}
-{% load i18n %}
     </main>
-{% load i18n %}
 
-{% load i18n %}
     <!-- Footer -->
-{% load i18n %}
     <footer class="footer">
-{% load i18n %}
         <div class="container">
-{% load i18n %}
             <div class="row">
-{% load i18n %}
-                <!-- Columna 1: Información -->
-{% load i18n %}
                 <div class="col-md-4 mb-4">
-{% load i18n %}
-                    <h5><i class="fas fa-feather-alt"></i> Rhetorica+</h5>
-{% load i18n %}
+                    <h5><i class="fas fa-feather-alt" aria-hidden="true"></i> Rhetorica+</h5>
                     <p class="text-muted">
-{% load i18n %}
                         Plataforma de aprendizaje retórico basada en IA.
-{% load i18n %}
                         Mejora tus habilidades comunicativas con ejercicios interactivos y cursos especializados.
-{% load i18n %}
                     </p>
-{% load i18n %}
                     <div class="social-links mt-3">
-{% load i18n %}
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-{% load i18n %}
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-{% load i18n %}
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-{% load i18n %}
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-{% load i18n %}
+                        <a href="#" aria-label="Twitter de Rhetorica+"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook de Rhetorica+"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="LinkedIn de Rhetorica+"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="YouTube de Rhetorica+"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                     </div>
-{% load i18n %}
                 </div>
-{% load i18n %}
 
-{% load i18n %}
-                <!-- Columna 2: Enlaces -->
-{% load i18n %}
                 <div class="col-md-2 mb-4">
-{% load i18n %}
                     <h6>Enlaces</h6>
-{% load i18n %}
                     <ul class="list-unstyled">
-{% load i18n %}
                         <li><a href="{% url 'index' %}">Inicio</a></li>
-{% load i18n %}
                         <li><a href="{% url 'ejercicios_biblioteca' %}">Ejercicios</a></li>
-{% load i18n %}
                         <li><a href="{% url 'lista_cursos' %}">Cursos</a></li>
-{% load i18n %}
                         <li><a href="{% url 'certificaciones_lista' %}">Certificaciones</a></li>
-{% load i18n %}
                     </ul>
-{% load i18n %}
                 </div>
-{% load i18n %}
 
-{% load i18n %}
-                <!-- Columna 3: Ayuda -->
-{% load i18n %}
                 <div class="col-md-3 mb-4">
-{% load i18n %}
                     <h6>Ayuda</h6>
-{% load i18n %}
                     <ul class="list-unstyled">
-{% load i18n %}
                         <li><a href="#">Preguntas frecuentes</a></li>
-{% load i18n %}
                         <li><a href="#">Contacto</a></li>
-{% load i18n %}
                         <li><a href="#">Términos de uso</a></li>
-{% load i18n %}
                         <li><a href="#">Política de privacidad</a></li>
-{% load i18n %}
                     </ul>
-{% load i18n %}
                 </div>
-{% load i18n %}
 
-{% load i18n %}
-                <!-- Columna 4: Contacto -->
-{% load i18n %}
                 <div class="col-md-3 mb-4">
-{% load i18n %}
                     <h6>Contacto</h6>
-{% load i18n %}
                     <ul class="list-unstyled">
-{% load i18n %}
                         <li><a href="mailto:info@rhetorica.com">
-{% load i18n %}
-                            <i class="fas fa-envelope"></i> info@rhetorica.com
-{% load i18n %}
+                            <i class="fas fa-envelope" aria-hidden="true"></i> info@rhetorica.com
                         </a></li>
-{% load i18n %}
                         <li><a href="#">
-{% load i18n %}
-                            <i class="fas fa-phone"></i> +57 300 123 4567
-{% load i18n %}
+                            <i class="fas fa-phone" aria-hidden="true"></i> +57 300 123 4567
                         </a></li>
-{% load i18n %}
                         <li><a href="#">
-{% load i18n %}
-                            <i class="fas fa-map-marker-alt"></i> Bogotá, Colombia
-{% load i18n %}
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bogotá, Colombia
                         </a></li>
-{% load i18n %}
                     </ul>
-{% load i18n %}
                 </div>
-{% load i18n %}
             </div>
-{% load i18n %}
 
-{% load i18n %}
             <hr>
-{% load i18n %}
             <div class="text-center">
-{% load i18n %}
                 <p class="text-muted small mb-0">
-{% load i18n %}
                     &copy; 2024 Rhetorica+ - Todos los derechos reservados
-{% load i18n %}
                 </p>
-{% load i18n %}
                 <p class="text-muted small">
-{% load i18n %}
-                    <i class="fas fa-code"></i> Desarrollado con <i class="fas fa-heart text-danger"></i> y Django
-{% load i18n %}
+                    <i class="fas fa-code" aria-hidden="true"></i> Desarrollado con
+                    <i class="fas fa-heart text-danger" aria-hidden="true"></i> y Django
                 </p>
-{% load i18n %}
             </div>
-{% load i18n %}
         </div>
-{% load i18n %}
     </footer>
-{% load i18n %}
 
-{% load i18n %}
-    <!-- Scripts -->
-{% load i18n %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-{% load i18n %}
     <script>
-{% load i18n %}
         document.addEventListener('DOMContentLoaded', function() {
-{% load i18n %}
-            // Marcar elemento activo en el menú
-{% load i18n %}
+            // Marcar link activo si no lo hizo el servidor
             const currentPath = window.location.pathname;
-{% load i18n %}
             document.querySelectorAll('.nav-link').forEach(link => {
-{% load i18n %}
                 const href = link.getAttribute('href');
-{% load i18n %}
-                if (href && currentPath.includes(href)) {
-{% load i18n %}
+                if (href && currentPath.startsWith(href) && href !== '/') {
                     link.classList.add('active');
-{% load i18n %}
                 }
-{% load i18n %}
             });
-{% load i18n %}
         });
-{% load i18n %}
     </script>
-{% load i18n %}
 
-{% load i18n %}
     {% block extra_js %}{% endblock %}
-{% load i18n %}
 </body>
-{% load i18n %}
 </html>
-{% load i18n %}

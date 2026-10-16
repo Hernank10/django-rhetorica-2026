@@ -1,66 +1,69 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% block content %}
 <div class="container mt-4">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h2>{{ ejercicio.titulo }}</h2>
+    <article class="card shadow">
+        <header class="card-header bg-primary text-white">
+            <h1 class="h3 mb-0">{{ ejercicio.titulo }}</h1>
             <div class="mt-2">
-                <span class="badge badge-light">{{ ejercicio.categoria }}</span>
-                <span class="badge badge-info">Nivel {{ ejercicio.nivel }}</span>
-                <span class="badge badge-success">{{ ejercicio.puntos }} puntos</span>
+                <span class="badge bg-light text-dark">{{ ejercicio.categoria }}</span>
+                <span class="badge bg-info">Nivel {{ ejercicio.nivel }}</span>
+                <span class="badge bg-success">{{ ejercicio.puntos }} puntos</span>
             </div>
-        </div>
+        </header>
         <div class="card-body">
-            <!-- Teoría -->
             {% if contenido.teoria %}
-            <div class="section-teoria mb-4">
-                <h4>📖 Teoría</h4>
-                <div class="card bg-light p-3 border-left-info">
+            <section class="section-teoria mb-4" aria-labelledby="titulo-teoria">
+                <h2 id="titulo-teoria" class="h5">
+                    <i class="fas fa-book" aria-hidden="true"></i> Teoría
+                </h2>
+                <div class="card bg-light p-3 border-start border-info border-4">
                     {{ contenido.teoria|linebreaks }}
                 </div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- Ejemplo -->
             {% if contenido.ejemplo %}
-            <div class="section-ejemplo mb-4">
-                <h4>💡 Ejemplo</h4>
+            <section class="section-ejemplo mb-4" aria-labelledby="titulo-ejemplo">
+                <h2 id="titulo-ejemplo" class="h5">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i> Ejemplo
+                </h2>
                 <div class="card bg-info text-white p-3">
                     {{ contenido.ejemplo|linebreaks }}
                 </div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- Ejercicio -->
             {% if contenido.ejercicio %}
-            <div class="section-ejercicio mb-4">
-                <h4>✏️ Ejercicio</h4>
+            <section class="section-ejercicio mb-4" aria-labelledby="titulo-ejercicio">
+                <h2 id="titulo-ejercicio" class="h5">
+                    <i class="fas fa-pen" aria-hidden="true"></i> Ejercicio
+                </h2>
                 <div class="card bg-warning p-3">
                     <strong>{{ contenido.ejercicio|linebreaks }}</strong>
                 </div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- Respuesta sugerida -->
             {% if contenido.suggestedAnswer %}
-            <div class="section-respuesta mb-4">
-                <h4>📝 Respuesta sugerida</h4>
+            <section class="section-respuesta mb-4" aria-labelledby="titulo-respuesta">
+                <h2 id="titulo-respuesta" class="h5">
+                    <i class="fas fa-check-circle" aria-hidden="true"></i> Respuesta sugerida
+                </h2>
                 <div class="card bg-success text-white p-3">
                     {{ contenido.suggestedAnswer|linebreaks }}
                 </div>
-            </div>
+            </section>
             {% endif %}
 
-            <!-- Botones -->
-            <div class="mt-4">
+            <div class="mt-4 d-flex gap-2 flex-wrap">
                 <a href="{% url 'practicar_ejercicio' ejercicio.id %}" class="btn btn-primary btn-lg">
-                    🎯 Practicar
+                    <i class="fas fa-bullseye" aria-hidden="true"></i> Practicar
                 </a>
                 <a href="{% url 'dashboard_estudiante' %}" class="btn btn-secondary">
-                    ⬅ Volver al Dashboard
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al Dashboard
                 </a>
             </div>
         </div>
-    </div>
+    </article>
 </div>
 {% endblock %}
