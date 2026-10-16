@@ -93,3 +93,12 @@ ejercicios_completos-lengua-castellana/*.rar
 !requirements.txt
 !core/fixtures/*.json
 !core/schemas/*.json
+
+# ============================================================
+# Data / logs / backups (Fase limpieza - fc35f60 fix)
+# ============================================================
+data/*.json
+data/logs/
+*.bak
+django_retorica/*.bak
+
