@@ -1,0 +1,95 @@
+﻿# ============================================================
+# Python
+# ============================================================
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ============================================================
+# Django
+# ============================================================
+db.sqlite3
+db.sqlite3-journal
+*.log
+local_settings.py
+media/
+staticfiles/
+
+# ============================================================
+# IDE / OS
+# ============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================================
+# Env
+# ============================================================
+.env
+
+# ============================================================
+# Salidas de pytest / coverage (Fase debug)
+# ============================================================
+pytest_*.txt
+cov_*.txt
+cob_*.txt
+cobertura*.txt
+diag_*.txt
+precommit_*.txt
+ruff_fix.txt
+cov_check.txt
+pytest_full.txt
+xss_report.txt
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ============================================================
+# Backups / temporales
+# ============================================================
+*.bak_*
+*.backup*
+*.broken
+requirements.txt.bak_*
+cookies.txt
+
+# ============================================================
+# i18n
+# ============================================================
+locale/*/LC_MESSAGES/*.mo
+
+# ============================================================
+# Fixtures grandes (no versionar)
+# ============================================================
+ejercicios_completos-lengua-castellana/
+data/ejercicios_completos-lengua-castellana/
+ejercicios_completos-lengua-castellana/*.img
+ejercicios_completos-lengua-castellana/*.iso
+ejercicios_completos-lengua-castellana/*.exe
+ejercicios_completos-lengua-castellana/*.bin
+ejercicios_completos-lengua-castellana/*.zip
+ejercicios_completos-lengua-castellana/*.rar
+
+# ============================================================
+# Pre-commit
+# ============================================================
+.pre-commit-cache/
+
+# ============================================================
+# Excepciones (NO ignorar)
+# ============================================================
+!requirements.txt
+!core/fixtures/*.json
+!core/schemas/*.json
