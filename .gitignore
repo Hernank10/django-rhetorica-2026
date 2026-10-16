@@ -1,95 +1,95 @@
+﻿# ============================================================
 # Python
+# ============================================================
 __pycache__/
 *.py[cod]
-*$py.class
 *.so
 .Python
 env/
 venv/
 ENV/
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
 *.egg-info/
-.installed.cfg
-*.egg
+.eggs/
 
+# ============================================================
 # Django
-*.log
-*.pot
-*.pyc
-local_settings.py
+# ============================================================
 db.sqlite3
+db.sqlite3-journal
+*.log
+local_settings.py
 media/
 staticfiles/
 
-# IDE
+# ============================================================
+# IDE / OS
+# ============================================================
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-
-# OS
 .DS_Store
 Thumbs.db
 
-# Environment variables
+# ============================================================
+# Env
+# ============================================================
 .env
-data/ejercicios_completos-lengua-castellana/
-*.json
-*.pyc
-__pycache__/
-db.sqlite3
-db.sqlite3-journal
 
-cookies.txt
+# ============================================================
+# Salidas de pytest / coverage (Fase debug)
+# ============================================================
+pytest_*.txt
+cov_*.txt
+cob_*.txt
+cobertura*.txt
+diag_*.txt
+precommit_*.txt
+ruff_fix.txt
+cov_check.txt
+pytest_full.txt
+xss_report.txt
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ============================================================
+# Backups / temporales
+# ============================================================
+*.bak_*
 *.backup*
 *.broken
 requirements.txt.bak_*
-*.bak_*
-data/logs/*.txt
+cookies.txt
+
+# ============================================================
+# i18n
+# ============================================================
 locale/*/LC_MESSAGES/*.mo
+
+# ============================================================
+# Fixtures grandes (no versionar)
+# ============================================================
+ejercicios_completos-lengua-castellana/
+data/ejercicios_completos-lengua-castellana/
 ejercicios_completos-lengua-castellana/*.img
 ejercicios_completos-lengua-castellana/*.iso
 ejercicios_completos-lengua-castellana/*.exe
 ejercicios_completos-lengua-castellana/*.bin
 ejercicios_completos-lengua-castellana/*.zip
 ejercicios_completos-lengua-castellana/*.rar
-django_retorica/*.bak
-django_retorica/*.bak_*
-pytest_out.txt
-.pytest_cache/
-diag_fase3.txt
-diag_*.txt
-pytest_out.txt
-diag_wysiwyg*.txt
-pytest_*.txt
-pytest_sanitize.txt
-xss_report.txt
-pytest_*.txt
-pytest_wysiwyg.txt
-.coverage
-cobertura*.txt
-cob_final.txt
-cob_*.txt
+
+# ============================================================
+# Pre-commit
+# ============================================================
 .pre-commit-cache/
-htmlcov/
-precommit_run*.txt
-ejercicios_completos-lengua-castellana/
-precommit_run*.txt
-cov_check.txt
-cob_*.txt
-pytest_*.txt
-cov_*.txt
-cob_*.txt
-pytest_*.txt
+
+# ============================================================
+# Excepciones (NO ignorar)
+# ============================================================
+!requirements.txt
+!core/fixtures/*.json
+!core/schemas/*.json
