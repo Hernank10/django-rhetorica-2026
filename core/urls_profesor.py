@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """URLs del panel del profesor con namespace 'profesor'."""
 from django.urls import path
 
@@ -60,6 +60,8 @@ urlpatterns = [
     path('recursos/', prof.recursos_lista, name='recursos_lista'),
     path('recursos/autovincular/', prof.recursos_autovincular, name='recursos_autovincular'),
     path('recursos/<int:recurso_id>/asignar/', prof.recurso_asignar, name='recurso_asignar'),
+    # Analytics UI (Fase 4)
+    path('analytics/', ana.dashboard, name='analytics_dashboard'),
 
     # Analytics (Fase 3)
     path('analytics/heatmap/', ana.heatmap_alumnos, name='analytics_heatmap'),
@@ -69,3 +71,4 @@ urlpatterns = [
     path('analytics/errores/', ana.errores, name='analytics_errores'),
     path('analytics/alumno/<int:estudiante_id>/', ana.resumen_alumno, name='analytics_alumno'),
 ]
+

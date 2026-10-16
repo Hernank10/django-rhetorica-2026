@@ -91,3 +91,16 @@ def resumen_alumno(request, estudiante_id):
     data["username"] = estudiante.username
     data["id"] = estudiante.id
     return JsonResponse(data)
+
+
+
+# ============================================================
+# VISTA HTML (no JSON) — Dashboard de Analytics
+# ============================================================
+from django.shortcuts import render  # noqa: E402
+
+
+@solo_profesor
+def dashboard(request):
+    """GET /profesor/analytics/ — UI con 4 widgets que consumen los endpoints JSON."""
+    return render(request, "core/profesor/analytics.html")

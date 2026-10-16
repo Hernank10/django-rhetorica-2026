@@ -1,0 +1,303 @@
+﻿{% extends 'core/profesor/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block panel %}
+<h1 class="h3 mb-4">
+    <i class="fas fa-chart-line" aria-hidden="true"></i> Analytics
+</h1>
+
+<!-- Controles -->
+<div class="card shadow-sm mb-4">
+    <div class="card-body d-flex flex-wrap gap-3 align-items-end">
+        <div>
+            <label for="filtro-dias" class="form-label mb-1">Ventana (días)</label>
+            <select id="filtro-dias" class="form-select form-select-sm" onchange="recargarTodo()">
+                <option value="7">7 días</option>
+                <option value="30" selected>30 días</option>
+                <option value="90">90 días</option>
+                <option value="180">180 días</option>
+                <option value="365">365 días</option>
+            </select>
+        </div>
+        <div>
+            <label for="filtro-idioma" class="form-label mb-1">Idioma (errores)</label>
+            <select id="filtro-idioma" class="form-select form-select-sm" onchange="recargarErrores()">
+                <option value="LA" selected>Latín</option>
+                <option value="ES">Español</option>
+                <option value="EN">Inglés</option>
+            </select>
+        </div>
+        <div>
+            <label for="filtro-semanas" class="form-label mb-1">Semanas (retención)</label>
+            <select id="filtro-semanas" class="form-select form-select-sm" onchange="recargarRetencion()">
+                <option value="4">4</option>
+                <option value="8" selected>8</option>
+                <option value="12">12</option>
+                <option value="26">26</option>
+            </select>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="recargarTodo()">
+            <i class="fas fa-sync-alt" aria-hidden="true"></i> Refrescar
+        </button>
+    </div>
+</div>
+
+<!-- Widget 1: Heatmap alumnos x categorias -->
+<section class="card shadow-sm mb-4" aria-labelledby="titulo-heatmap">
+    <div class="card-header bg-white fw-bold" id="titulo-heatmap">
+        <i class="fas fa-th" aria-hidden="true"></i> Mapa de calor: alumnos × categorías
+    </div>
+    <div class="card-body">
+        <div id="heatmap-wrap" class="table-responsive">
+            <p class="text-muted mb-0"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Cargando…</p>
+        </div>
+        <p class="text-muted small mt-2 mb-0">
+            Cada celda muestra el % de aciertos del alumno en esa categoría. Sin datos = celda gris.
+        </p>
+    </div>
+</section>
+
+<!-- Widget 2: Top errores por idioma -->
+<section class="card shadow-sm mb-4" aria-labelledby="titulo-errores">
+    <div class="card-header bg-white fw-bold" id="titulo-errores">
+        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Top errores gramaticales activos
+    </div>
+    <div class="card-body">
+        <canvas id="chartErrores" height="120" role="img" aria-label="Gráfico de barras con los errores gramaticales más frecuentes"></canvas>
+        <p class="text-muted small mt-2 mb-0" id="errores-vacio" hidden>Sin errores registrados en esta ventana.</p>
+    </div>
+</section>
+
+<!-- Fila con 2 widgets -->
+<div class="row g-3">
+    <div class="col-md-6">
+        <section class="card shadow-sm h-100" aria-labelledby="titulo-tiempos">
+            <div class="card-header bg-white fw-bold" id="titulo-tiempos">
+                <i class="fas fa-clock" aria-hidden="true"></i> Tiempo promedio por categoría (segundos)
+            </div>
+            <div class="card-body">
+                <canvas id="chartTiempos" height="180" role="img" aria-label="Gráfico de barras con tiempo promedio por categoría"></canvas>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-6">
+        <section class="card shadow-sm h-100" aria-labelledby="titulo-retencion">
+            <div class="card-header bg-white fw-bold" id="titulo-retencion">
+                <i class="fas fa-users" aria-hidden="true"></i> Retención semanal
+            </div>
+            <div class="card-body">
+                <canvas id="chartRetencion" height="180" role="img" aria-label="Gráfico de líneas con la retención de estudiantes por semana"></canvas>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+    "use strict";
+
+    // URLs base (nombre del namespace: profesor)
+    const URLS = {
+        heatmap:  "{% url 'profesor:analytics_heatmap' %}",
+        errores:  "{% url 'profesor:analytics_errores' %}",
+        tiempos:  "{% url 'profesor:analytics_tiempos' %}",
+        retencion:"{% url 'profesor:analytics_retencion' %}",
+    };
+
+    let chartErrores, chartTiempos, chartRetencion;
+
+    function getDias() { return document.getElementById('filtro-dias').value; }
+    function getIdioma() { return document.getElementById('filtro-idioma').value; }
+    function getSemanas() { return document.getElementById('filtro-semanas').value; }
+
+    function fetchJSON(url) {
+        return fetch(url, { credentials: 'same-origin' }).then(function(r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.json();
+        });
+    }
+
+    // --- Heatmap ---
+    function colorCelda(pct) {
+        if (pct === null || pct === undefined) return '#e9ecef';  // gris
+        if (pct >= 80) return '#198754';   // verde
+        if (pct >= 60) return '#20c997';   // verde claro
+        if (pct >= 40) return '#ffc107';   // amarillo
+        if (pct >= 20) return '#fd7e14';   // naranja
+        return '#dc3545';                  // rojo
+    }
+
+    function renderHeatmap(data) {
+        const wrap = document.getElementById('heatmap-wrap');
+        if (!data.categorias.length || !data.usuarios.length) {
+            wrap.innerHTML = '<p class="text-muted mb-0">Sin datos en esta ventana.</p>';
+            return;
+        }
+
+        let html = '<table class="table table-sm table-bordered mb-0" style="font-size:.85rem;">';
+        html += '<thead><tr><th scope="col">Alumno</th>';
+        data.categorias.forEach(function(cat) {
+            html += '<th scope="col" class="text-center">' + cat + '</th>';
+        });
+        html += '</tr></thead><tbody>';
+
+        data.usuarios.forEach(function(u, i) {
+            html += '<tr><th scope="row">' + u.username + '</th>';
+            data.valores[i].forEach(function(val) {
+                const bg = colorCelda(val);
+                const txt = (val === null || val === undefined) ? '—' : (val + '%');
+                html += '<td class="text-center" style="background:' + bg + ';color:white;font-weight:600;">' + txt + '</td>';
+            });
+            html += '</tr>';
+        });
+        html += '</tbody></table>';
+        wrap.innerHTML = html;
+    }
+
+    // --- Errores (barras horizontales) ---
+    function renderErrores(data) {
+        const vacio = document.getElementById('errores-vacio');
+        const canvas = document.getElementById('chartErrores');
+        if (!data.errores.length) {
+            vacio.hidden = false;
+            canvas.hidden = true;
+            if (chartErrores) chartErrores.destroy();
+            return;
+        }
+        vacio.hidden = true;
+        canvas.hidden = false;
+
+        const labels = data.errores.map(function(e) { return e.categoria_gramatical; });
+        const valores = data.errores.map(function(e) { return e.n_alumnos; });
+
+        if (chartErrores) chartErrores.destroy();
+        chartErrores = new Chart(canvas, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Alumnos afectados',
+                    data: valores,
+                    backgroundColor: 'rgba(220, 53, 69, 0.65)',
+                    borderColor: 'rgba(220, 53, 69, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true, ticks: { precision: 0 } } }
+            }
+        });
+    }
+
+    // --- Tiempos (barras verticales) ---
+    function renderTiempos(data) {
+        const labels = data.categorias.map(function(c) { return c.categoria; });
+        const valores = data.categorias.map(function(c) { return c.tiempo_promedio_seg; });
+
+        if (chartTiempos) chartTiempos.destroy();
+        chartTiempos = new Chart(document.getElementById('chartTiempos'), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Segundos promedio',
+                    data: valores,
+                    backgroundColor: 'rgba(54, 162, 235, 0.65)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    }
+
+    // --- Retencion (lineas) ---
+    function renderRetencion(data) {
+        const labels = data.semanas.map(function(s) { return s.semana_iso; });
+        const activos = data.semanas.map(function(s) { return s.activos; });
+        const respuestas = data.semanas.map(function(s) { return s.total_respuestas; });
+
+        if (chartRetencion) chartRetencion.destroy();
+        chartRetencion = new Chart(document.getElementById('chartRetencion'), {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Alumnos activos',
+                        data: activos,
+                        borderColor: 'rgba(25, 135, 84, 1)',
+                        backgroundColor: 'rgba(25, 135, 84, 0.15)',
+                        tension: 0.3,
+                        fill: true
+                    },
+                    {
+                        label: 'Respuestas',
+                        data: respuestas,
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        backgroundColor: 'rgba(255, 193, 7, 0.15)',
+                        tension: 0.3,
+                        fill: true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true } },
+                scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+            }
+        });
+    }
+
+    // --- Orquestadores ---
+    function recargarHeatmap() {
+        fetchJSON(URLS.heatmap + '?dias=' + getDias())
+            .then(renderHeatmap)
+            .catch(function(e) {
+                document.getElementById('heatmap-wrap').innerHTML =
+                    '<p class="text-danger mb-0">Error: ' + e.message + '</p>';
+            });
+    }
+
+    function recargarErrores() {
+        fetchJSON(URLS.errores + '?dias=' + getDias() + '&idioma=' + getIdioma())
+            .then(renderErrores)
+            .catch(function(e) { console.error(e); });
+    }
+
+    function recargarTiempos() {
+        fetchJSON(URLS.tiempos + '?dias=' + getDias())
+            .then(renderTiempos)
+            .catch(function(e) { console.error(e); });
+    }
+
+    function recargarRetencion() {
+        fetchJSON(URLS.retencion + '?semanas=' + getSemanas())
+            .then(renderRetencion)
+            .catch(function(e) { console.error(e); });
+    }
+
+    window.recargarErrores = recargarErrores;
+    window.recargarRetencion = recargarRetencion;
+    window.recargarTodo = function() {
+        recargarHeatmap();
+        recargarErrores();
+        recargarTiempos();
+        recargarRetencion();
+    };
+
+    document.addEventListener('DOMContentLoaded', recargarTodo);
+})();
+</script>
+{% endblock %}

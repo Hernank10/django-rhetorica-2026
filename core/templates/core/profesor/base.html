@@ -50,10 +50,18 @@
            {% if '/estadisticas/' in request.path %}aria-current="page"{% endif %}>
           <i class="fas fa-chart-line" aria-hidden="true"></i> Estadísticas
         </a>
+
+        <a class="list-group-item list-group-item-action {% if '/analytics/' in request.path %}active{% endif %}"
+           href="{% url 'profesor:analytics_dashboard' %}"
+           {% if '/analytics/' in request.path %}aria-current="page"{% endif %}>
+          <i class="fas fa-chart-line" aria-hidden="true"></i> Analytics
+        </a>
+
         <a class="list-group-item list-group-item-action {% if '/ranking/' in request.path %}active{% endif %}"
            href="{% url 'profesor:ranking' %}"
            {% if '/ranking/' in request.path %}aria-current="page"{% endif %}>
           <i class="fas fa-trophy" aria-hidden="true"></i> Ranking
+        </a>
         </a>
       </div>
     </nav>

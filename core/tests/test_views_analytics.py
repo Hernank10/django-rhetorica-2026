@@ -146,3 +146,32 @@ class TestResumenAlumno:
         data = r.json()
         assert data["username"] == "alumno_analytics"
         assert "progreso" in data
+
+# ============================================================
+# Vista HTML (Fase 4)
+# ============================================================
+class TestDashboardHTML:
+    def test_anonimo_redirige_login(self, client):
+        """Sin autenticar, el decorador solo_profesor devuelve 401 JSON."""
+        r = client.get(reverse("profesor:analytics_dashboard"))
+        assert r.status_code == 401
+
+    def test_alumno_403(self, client, alumno_analytics):
+        client.force_login(alumno_analytics)
+        r = client.get(reverse("profesor:analytics_dashboard"))
+        assert r.status_code == 403
+
+    def test_profesor_200(self, client, profesor_staff):
+        client.force_login(profesor_staff)
+        r = client.get(reverse("profesor:analytics_dashboard"))
+        assert r.status_code == 200
+
+    def test_contiene_widgets(self, client, profesor_staff):
+        """El HTML debe incluir los 4 canvas/widgets."""
+        client.force_login(profesor_staff)
+        r = client.get(reverse("profesor:analytics_dashboard"))
+        html = r.content.decode("utf-8")
+        assert "chartErrores" in html
+        assert "chartTiempos" in html
+        assert "chartRetencion" in html
+        assert "heatmap-wrap" in html
