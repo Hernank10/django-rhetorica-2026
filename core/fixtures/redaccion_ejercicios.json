@@ -1,0 +1,402 @@
+[
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20001,
+    "fields": {
+      "titulo": "Oracion simple: sujeto + verbo + objeto",
+      "contenido": {
+        "tipo_redaccion": "oracion_simple",
+        "enunciado": "Escribe una oracion simple con sujeto, verbo y objeto directo. Ej: 'Juan lee un libro.'"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_simple",
+      "tecnica": "oracion_simple",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20002,
+    "fields": {
+      "titulo": "Oracion simple: atributiva",
+      "contenido": {
+        "tipo_redaccion": "oracion_simple",
+        "enunciado": "Escribe una oracion simple con verbo copulativo y atributo. Ej: 'Maria es inteligente.'"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_simple",
+      "tecnica": "oracion_simple",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20003,
+    "fields": {
+      "titulo": "Coordinada copulativa",
+      "contenido": {
+        "tipo_redaccion": "oracion_coordinada",
+        "enunciado": "Une dos ideas con un coordinante copulativo (y, e, ni). Ej: 'Juan corre y Maria nada.'"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_coordinada",
+      "tecnica": "oracion_coordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20004,
+    "fields": {
+      "titulo": "Coordinada adversativa",
+      "contenido": {
+        "tipo_redaccion": "oracion_coordinada",
+        "enunciado": "Une dos ideas opuestas con 'pero', 'sino' o 'sin embargo'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_coordinada",
+      "tecnica": "oracion_coordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20005,
+    "fields": {
+      "titulo": "Coordinada disyuntiva",
+      "contenido": {
+        "tipo_redaccion": "oracion_coordinada",
+        "enunciado": "Presenta dos alternativas con 'o' o 'u'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_coordinada",
+      "tecnica": "oracion_coordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20006,
+    "fields": {
+      "titulo": "Subordinada causal",
+      "contenido": {
+        "tipo_redaccion": "oracion_subordinada",
+        "enunciado": "Explica una causa con 'porque', 'ya que' o 'puesto que'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_subordinada",
+      "tecnica": "oracion_subordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20007,
+    "fields": {
+      "titulo": "Subordinada temporal",
+      "contenido": {
+        "tipo_redaccion": "oracion_subordinada",
+        "enunciado": "Indica tiempo con 'cuando', 'mientras' o 'antes que'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_subordinada",
+      "tecnica": "oracion_subordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20008,
+    "fields": {
+      "titulo": "Subordinada condicional",
+      "contenido": {
+        "tipo_redaccion": "oracion_subordinada",
+        "enunciado": "Expresa una condicion con 'si', 'siempre que' o 'a menos que'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_subordinada",
+      "tecnica": "oracion_subordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20009,
+    "fields": {
+      "titulo": "Subordinada concesiva",
+      "contenido": {
+        "tipo_redaccion": "oracion_subordinada",
+        "enunciado": "Expresa una objecion con 'aunque', 'a pesar de que' o 'por mas que'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_subordinada",
+      "tecnica": "oracion_subordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20010,
+    "fields": {
+      "titulo": "Subordinada final",
+      "contenido": {
+        "tipo_redaccion": "oracion_subordinada",
+        "enunciado": "Expresa proposito con 'para que' o 'a fin de que'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_subordinada",
+      "tecnica": "oracion_subordinada",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20011,
+    "fields": {
+      "titulo": "Yuxtapuesta con punto y coma",
+      "contenido": {
+        "tipo_redaccion": "oracion_yuxtapuesta",
+        "enunciado": "Une tres acciones con punto y coma, sin conectores."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_yuxtapuesta",
+      "tecnica": "oracion_yuxtapuesta",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20012,
+    "fields": {
+      "titulo": "Yuxtapuesta con comas",
+      "contenido": {
+        "tipo_redaccion": "oracion_yuxtapuesta",
+        "enunciado": "Enlaza varias acciones con comas sin usar conjunciones."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "oracion_yuxtapuesta",
+      "tecnica": "oracion_yuxtapuesta",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20101,
+    "fields": {
+      "titulo": "Parrafo narrativo breve",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "enunciado": "Narra en 3-4 oraciones algo que ocurrio ayer. Usa 'primero', 'luego', 'despues'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "parrafo_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20102,
+    "fields": {
+      "titulo": "Parrafo narrativo con punto de giro",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "enunciado": "Narra un suceso con un giro inesperado ('de repente')."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "parrafo_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20103,
+    "fields": {
+      "titulo": "Parrafo descriptivo de un lugar",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "enunciado": "Describe un lugar fisico con 3-4 oraciones usando 'es', 'esta', 'tiene', 'hay'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "parrafo_descriptivo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20104,
+    "fields": {
+      "titulo": "Parrafo descriptivo de una persona",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "enunciado": "Describe el aspecto fisico y caracter de una persona."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "parrafo_descriptivo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20105,
+    "fields": {
+      "titulo": "Parrafo argumentativo con tesis",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "enunciado": "Defiende una opinion en 4 oraciones usando 'porque', 'por lo tanto', 'en consecuencia'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "parrafo_argumentativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20106,
+    "fields": {
+      "titulo": "Parrafo argumentativo con objecion",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "enunciado": "Defiende una tesis y refuta una objecion con 'sin embargo' o 'no obstante'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "parrafo_argumentativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20107,
+    "fields": {
+      "titulo": "Parrafo expositivo con definicion",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "enunciado": "Explica un concepto con 'consiste en', 'se define como' y un 'por ejemplo'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "parrafo_expositivo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 20108,
+    "fields": {
+      "titulo": "Parrafo expositivo de proceso",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "enunciado": "Explica como ocurre un proceso natural usando 'es decir', 'esto significa'."
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 2,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "parrafo_expositivo",
+      "idioma": "ES",
+      "creado_en": "2026-10-17T00:00:00Z"
+    }
+  }
+]

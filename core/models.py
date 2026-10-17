@@ -137,6 +137,9 @@ class EjercicioLinguistico(models.Model):
     puntos = models.IntegerField(default=10)
     # Motor adaptativo (ver docs/adaptive_engine.md)
     es_adaptativo = models.BooleanField(default=False, db_index=True)
+    es_redaccion = models.BooleanField(default=False, db_index=True)
+    tipo_redaccion = models.CharField(max_length=30, blank=True, default="")
+    tecnica = models.CharField(max_length=100, blank=True, default="")
     categoria_error = models.CharField(max_length=100, blank=True, default="")
     idioma = models.CharField(max_length=2, blank=True, default="ES")
     archivo_origen = models.CharField(max_length=300, blank=True, null=True)
@@ -272,3 +275,4 @@ class Recurso(models.Model):
 from . import models_cursos  # noqa: F401,E402
 from . import models_preguntas  # noqa: F401,E402
 from . import models_adaptativos  # noqa: F401,E402
+from . import models_redaccion  # noqa: F401,E402
