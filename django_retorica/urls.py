@@ -1,4 +1,4 @@
-"""
+﻿"""
 URL Configuration for django_retorica project.
 """
 from django.conf import settings
@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from core import views_tts
 from core.views import (
     cambiar_contrasena,
     certificaciones_lista,
@@ -34,10 +35,11 @@ from core.views_cursos_completo import (
 )
 from core.views_ejercicios import detalle_ejercicio, practicar_ejercicio
 
-# Rutas sin prefijo de idioma (admin + endpoint para cambiar idioma)
+# Rutas sin prefijo de idioma (admin + i18n + TTS)
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('admin/', admin.site.urls),
+    path('tts/', views_tts.servir_audio, name='tts_servir'),
 ]
 
 # Rutas con prefijo de idioma (/, /en/, /ja/, /ar/, ...)
