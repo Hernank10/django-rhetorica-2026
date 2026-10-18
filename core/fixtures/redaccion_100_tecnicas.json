@@ -1,0 +1,2502 @@
+[
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30001,
+    "fields": {
+      "titulo": "T001 - Estructura narrativa básica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La estructura narrativa básica consta de tres partes: inicio (presentación), nudo (desarrollo del conflicto) y desenlace (resolución). Usa conectores temporales como 'first', 'then', 'finally'.",
+        "ejemplo": "Primero, me desperté temprano y me preparé para mi viaje. Luego, tomé el tren hasta el aeropuerto y abordé el avión. Finalmente, después de un largo vuelo, llegué a mi destino cansado pero feliz.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Estructura narrativa básica. Guia: La estructura narrativa básica consta de tres partes: inicio (presentación), nudo (desarrollo del conflicto) y desenlace (resolución). Usa conectores temporales como 'first', 'then', 'finally'. Modelo: Primero, me desperté temprano y me preparé para mi viaje. Luego, tomé el tren hasta el aeropuerto y abordé el avión. Finalmente, después de un largo vuelo, llegué a mi destino cansado pero feliz.... Palabras clave esperadas: first then finally trip.",
+        "respuesta_esperada": "first then finally trip",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t001_estructura_narrativa_basica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30002,
+    "fields": {
+      "titulo": "T002 - Uso del pasado simple",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El pasado simple es el tiempo verbal principal para narrar eventos completos en el pasado. Se forma añadiendo '-ed' a verbos regulares o usando formas irregulares.",
+        "ejemplo": "Caminé al parque ayer. Vi a mi viejo amigo allí. Hablamos durante horas sobre nuestra infancia. El sol se puso antes de que nos diéramos cuenta de la hora.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Uso del pasado simple. Guia: El pasado simple es el tiempo verbal principal para narrar eventos completos en el pasado. Se forma añadiendo '-ed' a verbos regulares o usando formas irregulares. Modelo: Caminé al parque ayer. Vi a mi viejo amigo allí. Hablamos durante horas sobre nuestra infancia. El sol se puso antes de que nos diéramos cuenta de la hora.... Palabras clave esperadas: walked saw talked set.",
+        "respuesta_esperada": "walked saw talked set",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t002_uso_del_pasado_simple",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30003,
+    "fields": {
+      "titulo": "T003 - Conectores temporales",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Los conectores temporales organizan la secuencia de eventos: 'first' (primero), 'next' (luego), 'then' (entonces), 'after that' (después de eso), 'finally' (finalmente).",
+        "ejemplo": "Primero, reuní todos los ingredientes. Luego, los mezclé en un tazón grande. Después de eso, vertí la masa en un molde. Finalmente, horneé el pastel durante treinta minutos.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Conectores temporales. Guia: Los conectores temporales organizan la secuencia de eventos: 'first' (primero), 'next' (luego), 'then' (entonces), 'after that' (después de eso), 'finally' (finalmente). Modelo: Primero, reuní todos los ingredientes. Luego, los mezclé en un tazón grande. Después de eso, vertí la masa en un molde. Finalmente, horneé el pastel durante treinta minutos.... Palabras clave esperadas: first next after that finally.",
+        "respuesta_esperada": "first next after that finally",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t003_conectores_temporales",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30004,
+    "fields": {
+      "titulo": "T004 - Diálogo narrativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El diálogo directo da vida a los personajes. Usa comillas y verbos como 'said', 'asked', 'replied'.",
+        "ejemplo": "\"¿A dónde vas?\" preguntó ella. \"A la biblioteca,\" respondí. \"¿Puedo ir contigo?\" dijo ella. \"Por supuesto,\" respondí con una sonrisa.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Diálogo narrativo. Guia: El diálogo directo da vida a los personajes. Usa comillas y verbos como 'said', 'asked', 'replied'. Modelo: \"¿A dónde vas?\" preguntó ella. \"A la biblioteca,\" respondí. \"¿Puedo ir contigo?\" dijo ella. \"Por supuesto,\" respondí con una sonrisa.... Palabras clave esperadas: asked replied said answered.",
+        "respuesta_esperada": "asked replied said answered",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t004_dialogo_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30005,
+    "fields": {
+      "titulo": "T005 - Descripción de personajes en narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Al presentar un personaje, incluye detalles físicos, personalidad y motivaciones para que cobre vida.",
+        "ejemplo": "María era una mujer alta con ojos amables y una sonrisa cálida. Siempre llevaba una bufanda azul que su abuela le había regalado. Su mayor sueño era convertirse en médica y ayudar a niños.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Descripción de personajes en narrativa. Guia: Al presentar un personaje, incluye detalles físicos, personalidad y motivaciones para que cobre vida. Modelo: María era una mujer alta con ojos amables y una sonrisa cálida. Siempre llevaba una bufanda azul que su abuela le había regalado. Su mayor sueño era convertirse en médica y ayudar a niños.... Palabras clave esperadas: tall warm scarf doctor.",
+        "respuesta_esperada": "tall warm scarf doctor",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t005_descripcion_de_personajes_en_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30006,
+    "fields": {
+      "titulo": "T006 - Ambientación narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La ambientación sitúa la historia en un lugar y tiempo específicos, creando la atmósfera adecuada para los eventos.",
+        "ejemplo": "Era una noche oscura y tormentosa en Londres. La lluvia golpeaba contra las viejas ventanas y el viento aullaba por las calles vacías. Dentro del acogedor apartamento, una chimenea crepitaba.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Ambientación narrativa. Guia: La ambientación sitúa la historia en un lugar y tiempo específicos, creando la atmósfera adecuada para los eventos. Modelo: Era una noche oscura y tormentosa en Londres. La lluvia golpeaba contra las viejas ventanas y el viento aullaba por las calles vacías. Dentro del acogedor apartamento, una chimenea crepitaba.... Palabras clave esperadas: dark stormy pounded cozy.",
+        "respuesta_esperada": "dark stormy pounded cozy",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t006_ambientacion_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30007,
+    "fields": {
+      "titulo": "T007 - Punto de vista narrativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Elige entre primera persona ('I went'), segunda persona ('you go') o tercera persona ('he went') para contar la historia.",
+        "ejemplo": "Recuerdo el día que nos conocimos. Estabas junto a la fuente, leyendo un libro. Él nos presentó, y mi vida cambió para siempre. Nos hicimos amigos inseparables.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Punto de vista narrativo. Guia: Elige entre primera persona ('I went'), segunda persona ('you go') o tercera persona ('he went') para contar la historia. Modelo: Recuerdo el día que nos conocimos. Estabas junto a la fuente, leyendo un libro. Él nos presentó, y mi vida cambió para siempre. Nos hicimos amigos inseparables.... Palabras clave esperadas: remember standing introduced inseparable.",
+        "respuesta_esperada": "remember standing introduced inseparable",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t007_punto_de_vista_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30008,
+    "fields": {
+      "titulo": "T008 - Clímax narrativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El clímax es el punto de mayor tensión en la historia, donde el conflicto alcanza su punto máximo antes de resolverse.",
+        "ejemplo": "El momento había llegado. Mi corazón latía con fuerza en mi pecho mientras subía al escenario. El público se quedó en silencio. Respiré hondo y comencé a hablar. El aplauso que siguió fue abrumador.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Clímax narrativo. Guia: El clímax es el punto de mayor tensión en la historia, donde el conflicto alcanza su punto máximo antes de resolverse. Modelo: El momento había llegado. Mi corazón latía con fuerza en mi pecho mientras subía al escenario. El público se quedó en silencio. Respiré hondo y comencé a hablar. El aplauso que siguió fue abrumador.... Palabras clave esperadas: arrived stepped silent applause.",
+        "respuesta_esperada": "arrived stepped silent applause",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t008_climax_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30009,
+    "fields": {
+      "titulo": "T009 - Flashback narrativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El flashback interrumpe la secuencia cronológica para mostrar eventos pasados que explican el presente de los personajes.",
+        "ejemplo": "Mientras miraba la vieja fotografía, recordó aquella tarde de verano de hace diez años. Habían sido tan jóvenes y despreocupados. Ahora, todo había cambiado. Sonrió tristemente y guardó la foto.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Flashback narrativo. Guia: El flashback interrumpe la secuencia cronológica para mostrar eventos pasados que explican el presente de los personajes. Modelo: Mientras miraba la vieja fotografía, recordó aquella tarde de verano de hace diez años. Habían sido tan jóvenes y despreocupados. Ahora, todo había cambiado. Sonrió tristemente y guardó la foto.... Palabras clave esperadas: photograph remembered changed sadly.",
+        "respuesta_esperada": "photograph remembered changed sadly",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t009_flashback_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30010,
+    "fields": {
+      "titulo": "T010 - Suspenso narrativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El suspenso se crea reteniendo información clave o presentando un peligro inminente que mantiene al lector en expectativa.",
+        "ejemplo": "La puerta se abrió lentamente con un crujido. Alguien estaba dentro. Contuve la respiración y escuché. Se acercaban pasos. Una sombra apareció en la pared. Entonces, de repente, se encendieron las luces. Era solo mi hermano.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Suspenso narrativo. Guia: El suspenso se crea reteniendo información clave o presentando un peligro inminente que mantiene al lector en expectativa. Modelo: La puerta se abrió lentamente con un crujido. Alguien estaba dentro. Contuve la respiración y escuché. Se acercaban pasos. Una sombra apareció en la pared. Entonces, de repente, se encendieron las luc... Palabras clave esperadas: creaked approached suddenly brother.",
+        "respuesta_esperada": "creaked approached suddenly brother",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t010_suspenso_narrativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30011,
+    "fields": {
+      "titulo": "T011 - Final sorprendente",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Un final sorprendente revela una verdad inesperada que cambia la interpretación de toda la historia anterior.",
+        "ejemplo": "Había buscado a su hermano perdido durante veinte años. Siguió cada pista, viajó a cada ciudad. Finalmente, lo encontró trabajando como barista en una pequeña cafetería. Había estado allí todo el tiempo, a solo tres cuadras de su casa.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Final sorprendente. Guia: Un final sorprendente revela una verdad inesperada que cambia la interpretación de toda la historia anterior. Modelo: Había buscado a su hermano perdido durante veinte años. Siguió cada pista, viajó a cada ciudad. Finalmente, lo encontró trabajando como barista en una pequeña cafetería. Había estado allí todo el tiem... Palabras clave esperadas: searched followed finally along.",
+        "respuesta_esperada": "searched followed finally along",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t011_final_sorprendente",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30012,
+    "fields": {
+      "titulo": "T012 - Narración en primera persona plural",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El 'nosotros' ('we') crea un sentido de comunidad y experiencia compartida entre los personajes que narran juntos.",
+        "ejemplo": "Subimos la montaña juntos. Enfrentamos la tormenta uno al lado del otro. Celebramos cuando llegamos a la cima. Nunca olvidaremos ese día mientras vivamos.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Narración en primera persona plural. Guia: El 'nosotros' ('we') crea un sentido de comunidad y experiencia compartida entre los personajes que narran juntos. Modelo: Subimos la montaña juntos. Enfrentamos la tormenta uno al lado del otro. Celebramos cuando llegamos a la cima. Nunca olvidaremos ese día mientras vivamos.... Palabras clave esperadas: climbed faced celebrated forget.",
+        "respuesta_esperada": "climbed faced celebrated forget",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t012_narracion_en_primera_persona_plural",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30013,
+    "fields": {
+      "titulo": "T013 - Narración en tiempo presente",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El presente narrativo crea inmediatez y hace que el lector sienta que los eventos ocurren en este momento.",
+        "ejemplo": "Camino por las calles vacías. El viento sopla a través de mi cabello. Veo una luz a lo lejos. Corro hacia ella. Mi corazón late rápido. Espero que este sea el camino correcto.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Narración en tiempo presente. Guia: El presente narrativo crea inmediatez y hace que el lector sienta que los eventos ocurren en este momento. Modelo: Camino por las calles vacías. El viento sopla a través de mi cabello. Veo una luz a lo lejos. Corro hacia ella. Mi corazón late rápido. Espero que este sea el camino correcto.... Palabras clave esperadas: walk blows see races.",
+        "respuesta_esperada": "walk blows see races",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t013_narracion_en_tiempo_presente",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30014,
+    "fields": {
+      "titulo": "T014 - Uso de adverbios en narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Los adverbios ('suddenly', 'quickly', 'carefully') añaden información sobre cómo se realizan las acciones en la historia.",
+        "ejemplo": "De repente, ella se dio cuenta de la verdad. Él corrió rápidamente para tomar el tren. Abrieron cuidadosamente la misteriosa caja. La puerta se abrió lentamente con un crujido. Todos celebraron felices la noticia.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Uso de adverbios en narrativa. Guia: Los adverbios ('suddenly', 'quickly', 'carefully') añaden información sobre cómo se realizan las acciones en la historia. Modelo: De repente, ella se dio cuenta de la verdad. Él corrió rápidamente para tomar el tren. Abrieron cuidadosamente la misteriosa caja. La puerta se abrió lentamente con un crujido. Todos celebraron felice... Palabras clave esperadas: suddenly quickly carefully slowly.",
+        "respuesta_esperada": "suddenly quickly carefully slowly",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t014_uso_de_adverbios_en_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30015,
+    "fields": {
+      "titulo": "T015 - Elipsis narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La elipsis omite períodos de tiempo innecesarios, saltando directamente a los momentos importantes de la historia.",
+        "ejemplo": "Pasaron diez años maravillosos juntos. Entonces, un día, todo cambió. Ella lo llamó a medianoche. Él sabía que algo andaba mal. El silencio en el teléfono confirmó sus temores.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Elipsis narrativa. Guia: La elipsis omite períodos de tiempo innecesarios, saltando directamente a los momentos importantes de la historia. Modelo: Pasaron diez años maravillosos juntos. Entonces, un día, todo cambió. Ella lo llamó a medianoche. Él sabía que algo andaba mal. El silencio en el teléfono confirmó sus temores.... Palabras clave esperadas: years changed called confirmed.",
+        "respuesta_esperada": "years changed called confirmed",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t015_elipsis_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30016,
+    "fields": {
+      "titulo": "T016 - Anécdota personal",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Una anécdota personal cuenta una experiencia real del narrador, generalmente para ilustrar un punto o conectar con el lector.",
+        "ejemplo": "Recuerdo mi primer día de escuela como si fuera ayer. Mi madre me tomaba la mano con fuerza mientras caminábamos por las grandes puertas. Estaba aterrado. Pero entonces, una maestra sonriente me dio la bienvenida, y supe que todo estaría bien.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Anécdota personal. Guia: Una anécdota personal cuenta una experiencia real del narrador, generalmente para ilustrar un punto o conectar con el lector. Modelo: Recuerdo mi primer día de escuela como si fuera ayer. Mi madre me tomaba la mano con fuerza mientras caminábamos por las grandes puertas. Estaba aterrado. Pero entonces, una maestra sonriente me dio l... Palabras clave esperadas: remember terrified smiling okay.",
+        "respuesta_esperada": "remember terrified smiling okay",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t016_anecdota_personal",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30017,
+    "fields": {
+      "titulo": "T017 - Progresión de eventos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Presenta los eventos en orden lógico: causa y efecto, de menor a mayor importancia, o siguiendo una línea temporal clara.",
+        "ejemplo": "Sonó la alarma. La apagó y se estiró. Después de ducharse, preparó el desayuno. Salió de casa a las 7:30. A las 8:15 ya estaba en su escritorio, listo para trabajar.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Progresión de eventos. Guia: Presenta los eventos en orden lógico: causa y efecto, de menor a mayor importancia, o siguiendo una línea temporal clara. Modelo: Sonó la alarma. La apagó y se estiró. Después de ducharse, preparó el desayuno. Salió de casa a las 7:30. A las 8:15 ya estaba en su escritorio, listo para trabajar.... Palabras clave esperadas: rang showering prepared ready.",
+        "respuesta_esperada": "rang showering prepared ready",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t017_progresion_de_eventos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30018,
+    "fields": {
+      "titulo": "T018 - Contraste en narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El contraste entre personajes, situaciones o emociones crea tensión e interés en la historia.",
+        "ejemplo": "Él era rico pero infeliz. Ella era pobre pero alegre. Vivian en la misma ciudad pero en mundos diferentes. Un día, sus caminos se cruzaron. Todo cambió para ambos.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Contraste en narrativa. Guia: El contraste entre personajes, situaciones o emociones crea tensión e interés en la historia. Modelo: Él era rico pero infeliz. Ella era pobre pero alegre. Vivian en la misma ciudad pero en mundos diferentes. Un día, sus caminos se cruzaron. Todo cambió para ambos.... Palabras clave esperadas: rich unhappy poor joyful.",
+        "respuesta_esperada": "rich unhappy poor joyful",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t018_contraste_en_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30019,
+    "fields": {
+      "titulo": "T019 - Metáfora en narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La metáfora compara dos cosas diferentes sin usar 'like' o 'as', creando imágenes poderosas en la mente del lector.",
+        "ejemplo": "Su voz era terciopelo, suave y reconfortante. Sus palabras eran dagas, afiladas y dolorosas. Su amor era un campo de batalla donde ambos luchaban y ninguno ganaba. El tiempo era un río que los llevaba.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Metáfora en narrativa. Guia: La metáfora compara dos cosas diferentes sin usar 'like' o 'as', creando imágenes poderosas en la mente del lector. Modelo: Su voz era terciopelo, suave y reconfortante. Sus palabras eran dagas, afiladas y dolorosas. Su amor era un campo de batalla donde ambos luchaban y ninguno ganaba. El tiempo era un río que los llevaba... Palabras clave esperadas: velvet daggers battlefield river.",
+        "respuesta_esperada": "velvet daggers battlefield river",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t019_metafora_en_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30020,
+    "fields": {
+      "titulo": "T020 - Símil en narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El símil compara dos cosas usando 'like' o 'as', haciendo las descripciones más vívidas y comprensibles.",
+        "ejemplo": "Corrió como el viento a través del bosque. Su sonrisa era tan brillante como el sol. La noche era oscura como el carbón. La música fluía como agua por la habitación. Se sintió tan ligera como una pluma después de la buena noticia.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Símil en narrativa. Guia: El símil compara dos cosas usando 'like' o 'as', haciendo las descripciones más vívidas y comprensibles. Modelo: Corrió como el viento a través del bosque. Su sonrisa era tan brillante como el sol. La noche era oscura como el carbón. La música fluía como agua por la habitación. Se sintió tan ligera como una plum... Palabras clave esperadas: like bright flowed feather.",
+        "respuesta_esperada": "like bright flowed feather",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t020_simil_en_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30021,
+    "fields": {
+      "titulo": "T021 - Personificación",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La personificación atribuye cualidades humanas a objetos inanimados o animales, dando vida a la naturaleza y los objetos.",
+        "ejemplo": "El viento susurró entre los árboles. El sol sonrió a los niños. La vieja casa gimió bajo el peso de la nieve. El tiempo no espera a nadie. Las flores bailaban en la brisa primaveral.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Personificación. Guia: La personificación atribuye cualidades humanas a objetos inanimados o animales, dando vida a la naturaleza y los objetos. Modelo: El viento susurró entre los árboles. El sol sonrió a los niños. La vieja casa gimió bajo el peso de la nieve. El tiempo no espera a nadie. Las flores bailaban en la brisa primaveral.... Palabras clave esperadas: whispered smiled groaned waited.",
+        "respuesta_esperada": "whispered smiled groaned waited",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t021_personificacion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30022,
+    "fields": {
+      "titulo": "T022 - Ironía narrativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La ironía ocurre cuando hay una diferencia entre lo que se dice y lo que realmente sucede, o entre lo que el personaje espera y lo que ocurre.",
+        "ejemplo": "Estaba seguro de que ganaría la lotería. Compraba boletos cada semana durante veinte años. La semana que olvidó comprar uno, salieron sus números. Nunca volvió a jugar.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Ironía narrativa. Guia: La ironía ocurre cuando hay una diferencia entre lo que se dice y lo que realmente sucede, o entre lo que el personaje espera y lo que ocurre. Modelo: Estaba seguro de que ganaría la lotería. Compraba boletos cada semana durante veinte años. La semana que olvidó comprar uno, salieron sus números. Nunca volvió a jugar.... Palabras clave esperadas: sure forgot drawn again.",
+        "respuesta_esperada": "sure forgot drawn again",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t022_ironia_narrativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30023,
+    "fields": {
+      "titulo": "T023 - Presagio",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "El presagio sugiere eventos futuros mediante pistas sutiles, creando anticipación en el lector.",
+        "ejemplo": "El cielo se oscureció amenazadoramente cuando salió de casa. Un gato negro cruzó su camino. Su madre le había advertido sobre los malos presagios. La ignoró y continuó caminando. En una hora, su mundo se había puesto patas arriba.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Presagio. Guia: El presagio sugiere eventos futuros mediante pistas sutiles, creando anticipación en el lector. Modelo: El cielo se oscureció amenazadoramente cuando salió de casa. Un gato negro cruzó su camino. Su madre le había advertido sobre los malos presagios. La ignoró y continuó caminando. En una hora, su mundo... Palabras clave esperadas: darkened warned ignored upside.",
+        "respuesta_esperada": "darkened warned ignored upside",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t023_presagio",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30024,
+    "fields": {
+      "titulo": "T024 - Tiempo narrativo variable",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "Se puede acelerar o ralentizar el tiempo narrativo según la importancia de los eventos descritos.",
+        "ejemplo": "Los años pasaron rápidamente, una mezcla de estaciones y celebraciones. Luego llegó ese momento, congelado en el tiempo, en que todo cambió. Los segundos se alargaron hasta la eternidad mientras esperaba su respuesta.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Tiempo narrativo variable. Guia: Se puede acelerar o ralentizar el tiempo narrativo según la importancia de los eventos descritos. Modelo: Los años pasaron rápidamente, una mezcla de estaciones y celebraciones. Luego llegó ese momento, congelado en el tiempo, en que todo cambió. Los segundos se alargaron hasta la eternidad mientras esper... Palabras clave esperadas: passed changed stretched eternity.",
+        "respuesta_esperada": "passed changed stretched eternity",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t024_tiempo_narrativo_variable",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30025,
+    "fields": {
+      "titulo": "T025 - Narrativa circular",
+      "contenido": {
+        "tipo_redaccion": "parrafo_narrativo",
+        "tipo_original": "narrativo",
+        "teoria": "La narrativa circular comienza y termina en el mismo punto, dando una sensación de cierre y plenitud.",
+        "ejemplo": "Comenzó su viaje al amanecer, lleno de esperanza y sueños. Después de muchas aventuras, regresó al atardecer, más viejo y más sabio. El sol se había puesto en su juventud, pero había salido en su sabiduría. Estaba en casa otra vez.",
+        "enunciado": "Escribe un parrafo narrativo aplicando la tecnica: Narrativa circular. Guia: La narrativa circular comienza y termina en el mismo punto, dando una sensación de cierre y plenitud. Modelo: Comenzó su viaje al amanecer, lleno de esperanza y sueños. Después de muchas aventuras, regresó al atardecer, más viejo y más sabio. El sol se había puesto en su juventud, pero había salido en su sabi... Palabras clave esperadas: started returned sunset again.",
+        "respuesta_esperada": "started returned sunset again",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_narrativo",
+      "tecnica": "t025_narrativa_circular",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30026,
+    "fields": {
+      "titulo": "T026 - Descripción sensorial",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "La descripción sensorial apela a los cinco sentidos: vista (colores, formas), oído (sonidos), olfato (olores), tacto (texturas) y gusto (sabores).",
+        "ejemplo": "La habitación olía a café recién hecho y a libros viejos. La alfombra suave se sentía cálida bajo mis pies descalzos. Podía oír la lluvia golpeando contra la ventana. Una brisa suave traía el aroma de las rosas. El pastel de chocolate sabía a gloria.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción sensorial. Guia: La descripción sensorial apela a los cinco sentidos: vista (colores, formas), oído (sonidos), olfato (olores), tacto (texturas) y gusto (sabores). Modelo: La habitación olía a café recién hecho y a libros viejos. La alfombra suave se sentía cálida bajo mis pies descalzos. Podía oír la lluvia golpeando contra la ventana. Una brisa suave traía el aroma de... Palabras clave esperadas: smelled warm tapping tasted.",
+        "respuesta_esperada": "smelled warm tapping tasted",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t026_descripcion_sensorial",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30027,
+    "fields": {
+      "titulo": "T027 - Descripción de personas",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Al describir personas, incluye apariencia física, vestimenta, gestos y personalidad para crear una imagen completa.",
+        "ejemplo": "Era un hombre alto de cabello gris y ojos azules amables. Vestía un sencillo traje gris y zapatos de cuero gastados. Sus manos eran ásperas, mostrando años de duro trabajo. Hablaba suavemente pero con firmeza. Todos lo respetaban.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de personas. Guia: Al describir personas, incluye apariencia física, vestimenta, gestos y personalidad para crear una imagen completa. Modelo: Era un hombre alto de cabello gris y ojos azules amables. Vestía un sencillo traje gris y zapatos de cuero gastados. Sus manos eran ásperas, mostrando años de duro trabajo. Hablaba suavemente pero con... Palabras clave esperadas: gray rough softly respected.",
+        "respuesta_esperada": "gray rough softly respected",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t027_descripcion_de_personas",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30028,
+    "fields": {
+      "titulo": "T028 - Descripción de lugares",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Al describir lugares, incluye tamaño, colores, objetos, sonidos y olores para transportar al lector a ese espacio.",
+        "ejemplo": "La vieja biblioteca era un santuario tranquilo. Altos estantes de madera cubrían las paredes, llenos de miles de libros. Partículas de polvo flotaban en los rayos de sol que entraban por las altas ventanas. El único sonido era el de las páginas pasando.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de lugares. Guia: Al describir lugares, incluye tamaño, colores, objetos, sonidos y olores para transportar al lector a ese espacio. Modelo: La vieja biblioteca era un santuario tranquilo. Altos estantes de madera cubrían las paredes, llenos de miles de libros. Partículas de polvo flotaban en los rayos de sol que entraban por las altas ven... Palabras clave esperadas: quiet shelves streaming pages.",
+        "respuesta_esperada": "quiet shelves streaming pages",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t028_descripcion_de_lugares",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30029,
+    "fields": {
+      "titulo": "T029 - Descripción de objetos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe objetos con detalles sobre su material, forma, color, tamaño, condición y uso para revelar su importancia.",
+        "ejemplo": "El reloj antiguo estaba sobre la repisa. Su caja de madera era de caoba oscura, pulida hasta brillar. El péndulo de latón oscilaba constantemente. La cara de vidrio estaba agrietada pero las manecillas aún se movían. Había estado en la familia por un siglo.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de objetos. Guia: Describe objetos con detalles sobre su material, forma, color, tamaño, condición y uso para revelar su importancia. Modelo: El reloj antiguo estaba sobre la repisa. Su caja de madera era de caoba oscura, pulida hasta brillar. El péndulo de latón oscilaba constantemente. La cara de vidrio estaba agrietada pero las manecilla... Palabras clave esperadas: mantelpiece mahogany pendulum century.",
+        "respuesta_esperada": "mantelpiece mahogany pendulum century",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t029_descripcion_de_objetos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30030,
+    "fields": {
+      "titulo": "T030 - Uso de adjetivos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Los adjetivos enriquecen la descripción añadiendo cualidades a los sustantivos: color, tamaño, forma, edad, origen, material.",
+        "ejemplo": "La casa grande, vieja y de madera se alzaba sobre una colina tranquila y verde. Sus chimeneas altas y blancas se elevaban hacia el cielo azul y sin nubes. Pequeñas flores coloridas crecían alrededor de sus antiguos escalones de piedra.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Uso de adjetivos. Guia: Los adjetivos enriquecen la descripción añadiendo cualidades a los sustantivos: color, tamaño, forma, edad, origen, material. Modelo: La casa grande, vieja y de madera se alzaba sobre una colina tranquila y verde. Sus chimeneas altas y blancas se elevaban hacia el cielo azul y sin nubes. Pequeñas flores coloridas crecían alrededor d... Palabras clave esperadas: large quiet white ancient.",
+        "respuesta_esperada": "large quiet white ancient",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t030_uso_de_adjetivos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30031,
+    "fields": {
+      "titulo": "T031 - Orden espacial",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Organiza la descripción siguiendo un orden espacial: de arriba abajo, de izquierda a derecha, de cerca a lejos, o alrededor de un punto central.",
+        "ejemplo": "Sobre nosotros, las estrellas brillaban en el cielo oscuro. Frente a nosotros, el río fluía silenciosamente. A nuestra izquierda, altos pinos se erguían como centinelas. Detrás de nosotros, las luces de la ciudad brillaban cálidamente. A nuestro alrededor, la naturaleza estaba viva con sonidos nocturnos.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Orden espacial. Guia: Organiza la descripción siguiendo un orden espacial: de arriba abajo, de izquierda a derecha, de cerca a lejos, o alrededor de un punto central. Modelo: Sobre nosotros, las estrellas brillaban en el cielo oscuro. Frente a nosotros, el río fluía silenciosamente. A nuestra izquierda, altos pinos se erguían como centinelas. Detrás de nosotros, las luces ... Palabras clave esperadas: above front left behind.",
+        "respuesta_esperada": "above front left behind",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t031_orden_espacial",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30032,
+    "fields": {
+      "titulo": "T032 - Mostrar no decir",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "En lugar de decirle al lector cómo se siente un personaje ('estaba triste'), muestra sus acciones y gestos para que el lector deduzca la emoción.",
+        "ejemplo": "Sus hombros se hundieron. Miró al suelo sin hablar. Una lágrima rodó por su mejilla. La secó rápidamente y miró por la ventana. Sus manos temblaban ligeramente.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Mostrar no decir. Guia: En lugar de decirle al lector cómo se siente un personaje ('estaba triste'), muestra sus acciones y gestos para que el lector deduzca la emoción. Modelo: Sus hombros se hundieron. Miró al suelo sin hablar. Una lágrima rodó por su mejilla. La secó rápidamente y miró por la ventana. Sus manos temblaban ligeramente.... Palabras clave esperadas: slumped tear wiped trembled.",
+        "respuesta_esperada": "slumped tear wiped trembled",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t032_mostrar_no_decir",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30033,
+    "fields": {
+      "titulo": "T033 - Descripción de atmósfera",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "La atmósfera es el estado de ánimo general de una escena, creado mediante la combinación de detalles sensoriales y emocionales.",
+        "ejemplo": "El cementerio estaba extrañamente silencioso. La niebla colgaba baja sobre las tumbas. La luna llena proyectaba sombras extrañas entre las viejas lápidas. Un búho ululaba en algún lugar a lo lejos. El aire estaba frío y húmedo, helándome hasta los huesos.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de atmósfera. Guia: La atmósfera es el estado de ánimo general de una escena, creado mediante la combinación de detalles sensoriales y emocionales. Modelo: El cementerio estaba extrañamente silencioso. La niebla colgaba baja sobre las tumbas. La luna llena proyectaba sombras extrañas entre las viejas lápidas. Un búho ululaba en algún lugar a lo lejos. El... Palabras clave esperadas: quiet hung strange chilling.",
+        "respuesta_esperada": "quiet hung strange chilling",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t033_descripcion_de_atmosfera",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30034,
+    "fields": {
+      "titulo": "T034 - Contraste descriptivo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "El contraste entre elementos opuestos crea interés visual y emocional en la descripción.",
+        "ejemplo": "El edificio moderno de vidrio se alzaba junto a una antigua iglesia de piedra. Dentro, la habitación era brillante y blanca, mientras que el pasillo era oscuro y lúgubre. Su voz era suave, pero sus palabras eran duras. El jardín estaba lleno de vida, pero la casa estaba abandonada y vacía.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Contraste descriptivo. Guia: El contraste entre elementos opuestos crea interés visual y emocional en la descripción. Modelo: El edificio moderno de vidrio se alzaba junto a una antigua iglesia de piedra. Dentro, la habitación era brillante y blanca, mientras que el pasillo era oscuro y lúgubre. Su voz era suave, pero sus pa... Palabras clave esperadas: modern dark harsh abandoned.",
+        "respuesta_esperada": "modern dark harsh abandoned",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t034_contraste_descriptivo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30035,
+    "fields": {
+      "titulo": "T035 - Detalle significativo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Elige detalles que revelen algo importante sobre el personaje, el lugar o la situación, en lugar de describir todo minuciosamente.",
+        "ejemplo": "Sus zapatos gastados contaban una historia de largas caminatas. El anillo en su dedo era un recordatorio de un amor perdido hace tiempo. La grieta en el jarrón revelaba un momento de ira. La única vela encendida mostraba esperanza en la oscuridad.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Detalle significativo. Guia: Elige detalles que revelen algo importante sobre el personaje, el lugar o la situación, en lugar de describir todo minuciosamente. Modelo: Sus zapatos gastados contaban una historia de largas caminatas. El anillo en su dedo era un recordatorio de un amor perdido hace tiempo. La grieta en el jarrón revelaba un momento de ira. La única vel... Palabras clave esperadas: worn reminder crack lit.",
+        "respuesta_esperada": "worn reminder crack lit",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t035_detalle_significativo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30036,
+    "fields": {
+      "titulo": "T036 - Comparación en descripción",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Las comparaciones hacen que las descripciones sean más claras al relacionar lo desconocido con algo familiar para el lector.",
+        "ejemplo": "La montaña era tan alta como un rascacielos. La cueva era tan oscura como la medianoche. El río era tan ancho como un campo de fútbol. La flor era tan roja como un camión de bomberos. La nieve era tan blanca como el algodón.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Comparación en descripción. Guia: Las comparaciones hacen que las descripciones sean más claras al relacionar lo desconocido con algo familiar para el lector. Modelo: La montaña era tan alta como un rascacielos. La cueva era tan oscura como la medianoche. El río era tan ancho como un campo de fútbol. La flor era tan roja como un camión de bomberos. La nieve era tan... Palabras clave esperadas: tall dark wide white.",
+        "respuesta_esperada": "tall dark wide white",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t036_comparacion_en_descripcion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30037,
+    "fields": {
+      "titulo": "T037 - Descripción de emociones",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe emociones a través de sensaciones físicas, pensamientos y acciones, no solo nombrando la emoción.",
+        "ejemplo": "Su corazón latía con fuerza en el pecho. Tenía las palmas sudorosas. No podía respirar. Lo único que podía pensar era que necesitaba correr. Este era el momento más aterrador de su vida.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de emociones. Guia: Describe emociones a través de sensaciones físicas, pensamientos y acciones, no solo nombrando la emoción. Modelo: Su corazón latía con fuerza en el pecho. Tenía las palmas sudorosas. No podía respirar. Lo único que podía pensar era que necesitaba correr. Este era el momento más aterrador de su vida.... Palabras clave esperadas: pounded sweaty breathe scariest.",
+        "respuesta_esperada": "pounded sweaty breathe scariest",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t037_descripcion_de_emociones",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30038,
+    "fields": {
+      "titulo": "T038 - Descripción de estaciones",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Cada estación tiene características únicas: primavera (flores, renacimiento), verano (calor, sol), otoño (hojas caídas, viento), invierno (nieve, frío).",
+        "ejemplo": "La primavera trajo flores de cerezo y pájaros cantando. El verano llegó con calor abrasador y días de playa. El otoño pintó los árboles de naranja y oro. El invierno cubrió todo con una manta de nieve blanca.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de estaciones. Guia: Cada estación tiene características únicas: primavera (flores, renacimiento), verano (calor, sol), otoño (hojas caídas, viento), invierno (nieve, frío). Modelo: La primavera trajo flores de cerezo y pájaros cantando. El verano llegó con calor abrasador y días de playa. El otoño pintó los árboles de naranja y oro. El invierno cubrió todo con una manta de nieve... Palabras clave esperadas: spring summer autumn winter.",
+        "respuesta_esperada": "spring summer autumn winter",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t038_descripcion_de_estaciones",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30039,
+    "fields": {
+      "titulo": "T039 - Descripción de animales",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe animales incluyendo tamaño, color, sonidos que hacen, movimiento, hábitat y comportamiento.",
+        "ejemplo": "El pequeño gato gris ronroneaba suavemente mientras se acurrucaba en el cálido sofá. Sus ojos verdes parpadeaban lentamente. Estiró sus patas y bostezó. Luego, se durmió, haciendo un suave zumbido.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de animales. Guia: Describe animales incluyendo tamaño, color, sonidos que hacen, movimiento, hábitat y comportamiento. Modelo: El pequeño gato gris ronroneaba suavemente mientras se acurrucaba en el cálido sofá. Sus ojos verdes parpadeaban lentamente. Estiró sus patas y bostezó. Luego, se durmió, haciendo un suave zumbido.... Palabras clave esperadas: purred blinked stretched yawned.",
+        "respuesta_esperada": "purred blinked stretched yawned",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t039_descripcion_de_animales",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30040,
+    "fields": {
+      "titulo": "T040 - Descripción de paisajes",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Los paisajes incluyen elementos naturales: montañas, ríos, valles, bosques, desiertos, océanos, y sus características.",
+        "ejemplo": "El valle se extendía por millas debajo de nosotros. Las colinas verdes ondeaban como olas en el océano. Un río plateado serpenteaba por el centro. Las montañas nevadas se erguían como guardianes en la distancia. El cielo era un lienzo azul perfecto.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de paisajes. Guia: Los paisajes incluyen elementos naturales: montañas, ríos, valles, bosques, desiertos, océanos, y sus características. Modelo: El valle se extendía por millas debajo de nosotros. Las colinas verdes ondeaban como olas en el océano. Un río plateado serpenteaba por el centro. Las montañas nevadas se erguían como guardianes en la... Palabras clave esperadas: valley rolled wound perfect.",
+        "respuesta_esperada": "valley rolled wound perfect",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t040_descripcion_de_paisajes",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30041,
+    "fields": {
+      "titulo": "T041 - Descripción de sonidos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Usa onomatopeyas y verbos de sonido para describir la experiencia auditiva: 'bang', 'crash', 'whisper', 'roar', 'giggle'.",
+        "ejemplo": "El reloj hacía tic-tac ruidosamente en la habitación silenciosa. De repente, un fuerte golpe vino de la cocina. El vidrio se hizo añicos en el suelo. Luego, un suave susurro resonó en el pasillo. Finalmente, la puerta se abrió con un crujido.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de sonidos. Guia: Usa onomatopeyas y verbos de sonido para describir la experiencia auditiva: 'bang', 'crash', 'whisper', 'roar', 'giggle'. Modelo: El reloj hacía tic-tac ruidosamente en la habitación silenciosa. De repente, un fuerte golpe vino de la cocina. El vidrio se hizo añicos en el suelo. Luego, un suave susurro resonó en el pasillo. Fina... Palabras clave esperadas: ticked bang shattered creaked.",
+        "respuesta_esperada": "ticked bang shattered creaked",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t041_descripcion_de_sonidos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30042,
+    "fields": {
+      "titulo": "T042 - Descripción de texturas",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe cómo se sienten las cosas al tacto: suave, áspero, rugoso, sedoso, pegajoso, caliente, frío, húmedo, seco.",
+        "ejemplo": "La cortina de terciopelo era suave y fresca. La corteza del viejo árbol era áspera y seca. El pan fresco estaba caliente y suave. La arena mojada era arenosa y fría. El pelaje del gatito era sedoso y cálido.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de texturas. Guia: Describe cómo se sienten las cosas al tacto: suave, áspero, rugoso, sedoso, pegajoso, caliente, frío, húmedo, seco. Modelo: La cortina de terciopelo era suave y fresca. La corteza del viejo árbol era áspera y seca. El pan fresco estaba caliente y suave. La arena mojada era arenosa y fría. El pelaje del gatito era sedoso y ... Palabras clave esperadas: smooth rough warm silky.",
+        "respuesta_esperada": "smooth rough warm silky",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t042_descripcion_de_texturas",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30043,
+    "fields": {
+      "titulo": "T043 - Descripción de olores",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Los olores evocan recuerdos y emociones: floral, dulce, amargo, ahumado, fresco, rancio, picante, a tierra, a mar.",
+        "ejemplo": "La cocina olía a pan fresco y canela. El jardín estaba lleno del dulce aroma de las rosas. El viejo ático olía a moho y polvo. El aire del mar era salado y fresco. El aroma del café me despertó inmediatamente.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de olores. Guia: Los olores evocan recuerdos y emociones: floral, dulce, amargo, ahumado, fresco, rancio, picante, a tierra, a mar. Modelo: La cocina olía a pan fresco y canela. El jardín estaba lleno del dulce aroma de las rosas. El viejo ático olía a moho y polvo. El aire del mar era salado y fresco. El aroma del café me despertó inmedi... Palabras clave esperadas: bread roses musty coffee.",
+        "respuesta_esperada": "bread roses musty coffee",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t043_descripcion_de_olores",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30044,
+    "fields": {
+      "titulo": "T044 - Descripción de sabores",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe sabores usando categorías: dulce, salado, ácido, amargo, umami, picante, ahumado, fresco.",
+        "ejemplo": "El limón era ácido y me hizo fruncir los labios. El chocolate oscuro era amargo pero delicioso. La sopa estaba salada y caliente. El caramelo era dulce como la miel. La salsa picante era picante y me quemó la lengua.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de sabores. Guia: Describe sabores usando categorías: dulce, salado, ácido, amargo, umami, picante, ahumado, fresco. Modelo: El limón era ácido y me hizo fruncir los labios. El chocolate oscuro era amargo pero delicioso. La sopa estaba salada y caliente. El caramelo era dulce como la miel. La salsa picante era picante y me ... Palabras clave esperadas: sour bitter salty sweet.",
+        "respuesta_esperada": "sour bitter salty sweet",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t044_descripcion_de_sabores",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30045,
+    "fields": {
+      "titulo": "T045 - Descripción de movimiento",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Usa verbos variados para describir el movimiento: caminar, correr, saltar, deslizarse, flotar, girar, caer, volar.",
+        "ejemplo": "Las hojas flotaban suavemente hacia el suelo. Los niños saltaban felices calle abajo. El coche corría por la autopista. El barco se mecía en las olas. El bailarín giraba por el escenario.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de movimiento. Guia: Usa verbos variados para describir el movimiento: caminar, correr, saltar, deslizarse, flotar, girar, caer, volar. Modelo: Las hojas flotaban suavemente hacia el suelo. Los niños saltaban felices calle abajo. El coche corría por la autopista. El barco se mecía en las olas. El bailarín giraba por el escenario.... Palabras clave esperadas: drifted skipped raced twirled.",
+        "respuesta_esperada": "drifted skipped raced twirled",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t045_descripcion_de_movimiento",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30046,
+    "fields": {
+      "titulo": "T046 - Descripción de iluminación",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "La iluminación crea ambiente: luz brillante (alegría), sombras (misterio), penumbra (intimidad), oscuridad (miedo).",
+        "ejemplo": "El sol de la mañana inundó la habitación con luz dorada. Las sombras bailaban en las paredes por la vela parpadeante. La lámpara tenue creaba una atmósfera acogedora. Las brillantes luces fluorescentes me lastimaban los ojos. La habitación estaba completamente oscura, y no podía ver nada.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de iluminación. Guia: La iluminación crea ambiente: luz brillante (alegría), sombras (misterio), penumbra (intimidad), oscuridad (miedo). Modelo: El sol de la mañana inundó la habitación con luz dorada. Las sombras bailaban en las paredes por la vela parpadeante. La lámpara tenue creaba una atmósfera acogedora. Las brillantes luces fluorescente... Palabras clave esperadas: flooded flickering dim black.",
+        "respuesta_esperada": "flooded flickering dim black",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t046_descripcion_de_iluminacion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30047,
+    "fields": {
+      "titulo": "T047 - Descripción de multitudes",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe multitudes usando el movimiento, los sonidos y la energía colectiva, no solo el número de personas.",
+        "ejemplo": "La multitud avanzaba como una ola. Las voces se fusionaban en un rugido indistinguible. Los brazos ondeaban en el aire. Los pies golpeaban el suelo. La energía era eléctrica. Todos gritaban, reían y empujaban al mismo tiempo.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de multitudes. Guia: Describe multitudes usando el movimiento, los sonidos y la energía colectiva, no solo el número de personas. Modelo: La multitud avanzaba como una ola. Las voces se fusionaban en un rugido indistinguible. Los brazos ondeaban en el aire. Los pies golpeaban el suelo. La energía era eléctrica. Todos gritaban, reían y e... Palabras clave esperadas: surged merged stomped electric.",
+        "respuesta_esperada": "surged merged stomped electric",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t047_descripcion_de_multitudes",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30048,
+    "fields": {
+      "titulo": "T048 - Descripción de ciudades",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Describe ciudades combinando edificios, calles, personas, ruido, tráfico, iluminación y atmósfera urbana.",
+        "ejemplo": "Nueva York nunca duerme. Los taxis amarillos pitaban en cada esquina. Los rascacielos tocaban las nubes. El metro retumbaba bajo las calles. El vapor subía de las alcantarillas. El olor a perros calientes y pretzels llenaba el aire. Las luces destellaban desde todas direcciones.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de ciudades. Guia: Describe ciudades combinando edificios, calles, personas, ruido, tráfico, iluminación y atmósfera urbana. Modelo: Nueva York nunca duerme. Los taxis amarillos pitaban en cada esquina. Los rascacielos tocaban las nubes. El metro retumbaba bajo las calles. El vapor subía de las alcantarillas. El olor a perros calie... Palabras clave esperadas: honked rumbled flashed direction.",
+        "respuesta_esperada": "honked rumbled flashed direction",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t048_descripcion_de_ciudades",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30049,
+    "fields": {
+      "titulo": "T049 - Descripción de momentos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "Congela un momento en el tiempo y describe cada detalle como si el tiempo se hubiera detenido.",
+        "ejemplo": "En ese momento, todo se detuvo. La lluvia quedó suspendida en el aire. Su sonrisa estaba congelada en su rostro. Su mano se extendió, inmóvil. Una sola gota de agua brillaba como un diamante bajo el sol. El mundo contuvo la respiración.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Descripción de momentos. Guia: Congela un momento en el tiempo y describe cada detalle como si el tiempo se hubiera detenido. Modelo: En ese momento, todo se detuvo. La lluvia quedó suspendida en el aire. Su sonrisa estaba congelada en su rostro. Su mano se extendió, inmóvil. Una sola gota de agua brillaba como un diamante bajo el s... Palabras clave esperadas: suspended frozen motionless sparkled.",
+        "respuesta_esperada": "suspended frozen motionless sparkled",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t049_descripcion_de_momentos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30050,
+    "fields": {
+      "titulo": "T050 - Sinestesia descriptiva",
+      "contenido": {
+        "tipo_redaccion": "parrafo_descriptivo",
+        "tipo_original": "descriptivo",
+        "teoria": "La sinestesia mezcla sentidos: 'colores cálidos', 'sonidos suaves', 'sabores brillantes', creando imágenes únicas.",
+        "ejemplo": "La música era azul y triste. Su voz sabía a miel. El atardecer olía a naranjas y canela. El viento frío sonaba como un niño llorando. El silencio se sentía pesado, como una manta mojada.",
+        "enunciado": "Escribe un parrafo descriptivo aplicando la tecnica: Sinestesia descriptiva. Guia: La sinestesia mezcla sentidos: 'colores cálidos', 'sonidos suaves', 'sabores brillantes', creando imágenes únicas. Modelo: La música era azul y triste. Su voz sabía a miel. El atardecer olía a naranjas y canela. El viento frío sonaba como un niño llorando. El silencio se sentía pesado, como una manta mojada.... Palabras clave esperadas: music sunset silence heavy.",
+        "respuesta_esperada": "music sunset silence heavy",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_descriptivo",
+      "tecnica": "t050_sinestesia_descriptiva",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30051,
+    "fields": {
+      "titulo": "T051 - Definición",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Una definición explica el significado de un término, incluyendo su categoría y características distintivas.",
+        "ejemplo": "La fotosíntesis es el proceso mediante el cual las plantas convierten energía lumínica en energía química. Este proceso ocurre en los cloroplastos y produce glucosa y oxígeno. Sin fotosíntesis, la vida en la Tierra no existiría.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Definición. Guia: Una definición explica el significado de un término, incluyendo su categoría y características distintivas. Modelo: La fotosíntesis es el proceso mediante el cual las plantas convierten energía lumínica en energía química. Este proceso ocurre en los cloroplastos y produce glucosa y oxígeno. Sin fotosíntesis, la vid... Palabras clave esperadas: process chloroplasts glucose exist.",
+        "respuesta_esperada": "process chloroplasts glucose exist",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t051_definicion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30052,
+    "fields": {
+      "titulo": "T052 - Explicación paso a paso",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Divide un proceso complejo en pasos secuenciales usando números o conectores como 'first', 'next', 'then', 'finally'.",
+        "ejemplo": "Para hornear un pastel, primero precalienta el horno a 350°F. Luego, mezcla los ingredientes secos en un tazón. Entonces, agrega los ingredientes húmedos y revuelve hasta que se combinen. Finalmente, vierte la masa en un molde y hornea por 30 minutos.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Explicación paso a paso. Guia: Divide un proceso complejo en pasos secuenciales usando números o conectores como 'first', 'next', 'then', 'finally'. Modelo: Para hornear un pastel, primero precalienta el horno a 350°F. Luego, mezcla los ingredientes secos en un tazón. Entonces, agrega los ingredientes húmedos y revuelve hasta que se combinen. Finalmente, ... Palabras clave esperadas: preheat mix combine bake.",
+        "respuesta_esperada": "preheat mix combine bake",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t052_explicacion_paso_a_paso",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30053,
+    "fields": {
+      "titulo": "T053 - Comparación y contraste",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica similitudes y diferencias entre dos o más temas para clarificar conceptos o mostrar ventajas y desventajas.",
+        "ejemplo": "Aunque tanto los gatos como los perros son excelentes mascotas, tienen diferentes necesidades. Los perros requieren paseos diarios y más atención. Los gatos son más independientes y pueden quedarse solos más tiempo. Ambos proporcionan compañía y amor.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Comparación y contraste. Guia: Explica similitudes y diferencias entre dos o más temas para clarificar conceptos o mostrar ventajas y desventajas. Modelo: Aunque tanto los gatos como los perros son excelentes mascotas, tienen diferentes necesidades. Los perros requieren paseos diarios y más atención. Los gatos son más independientes y pueden quedarse so... Palabras clave esperadas: require independent companionship love.",
+        "respuesta_esperada": "require independent companionship love",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t053_comparacion_y_contraste",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30054,
+    "fields": {
+      "titulo": "T054 - Causa y efecto",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica cómo un evento (causa) produce otro evento (efecto), usando conectores como 'because', 'therefore', 'as a result'.",
+        "ejemplo": "Debido al cambio climático, las temperaturas globales están aumentando. Como resultado, los casquetes polares se están derritiendo. En consecuencia, los niveles del mar están aumentando. Por lo tanto, las ciudades costeras enfrentan serios riesgos de inundaciones.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Causa y efecto. Guia: Explica cómo un evento (causa) produce otro evento (efecto), usando conectores como 'because', 'therefore', 'as a result'. Modelo: Debido al cambio climático, las temperaturas globales están aumentando. Como resultado, los casquetes polares se están derritiendo. En consecuencia, los niveles del mar están aumentando. Por lo tanto,... Palabras clave esperadas: because result consequently therefore.",
+        "respuesta_esperada": "because result consequently therefore",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t054_causa_y_efecto",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30055,
+    "fields": {
+      "titulo": "T055 - Clasificación",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Organiza información en categorías lógicas, explicando cómo se relacionan entre sí y qué características comparten.",
+        "ejemplo": "Los verbos se pueden clasificar en tres tipos principales: verbos de acción (correr, saltar), verbos copulativos (ser, parecer) y verbos auxiliares (poder, querer). Los verbos de acción muestran actividad física. Los verbos copulativos conectan el sujeto con una descripción. Los verbos auxiliares ayudan al verbo principal.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Clasificación. Guia: Organiza información en categorías lógicas, explicando cómo se relacionan entre sí y qué características comparten. Modelo: Los verbos se pueden clasificar en tres tipos principales: verbos de acción (correr, saltar), verbos copulativos (ser, parecer) y verbos auxiliares (poder, querer). Los verbos de acción muestran activ... Palabras clave esperadas: action linking helping physical.",
+        "respuesta_esperada": "action linking helping physical",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t055_clasificacion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30056,
+    "fields": {
+      "titulo": "T056 - Ejemplificación",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Usa ejemplos específicos para ilustrar ideas generales, haciendo los conceptos abstractos más concretos y comprensibles.",
+        "ejemplo": "Muchos animales se han adaptado a entornos urbanos. Por ejemplo, las palomas prosperan en ciudades de todo el mundo. De manera similar, los mapaches han aprendido a abrir latas de basura. Los zorros ahora son comunes en los suburbios de Londres. Estos animales han cambiado su comportamiento para sobrevivir junto a los humanos.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Ejemplificación. Guia: Usa ejemplos específicos para ilustrar ideas generales, haciendo los conceptos abstractos más concretos y comprensibles. Modelo: Muchos animales se han adaptado a entornos urbanos. Por ejemplo, las palomas prosperan en ciudades de todo el mundo. De manera similar, los mapaches han aprendido a abrir latas de basura. Los zorros a... Palabras clave esperadas: example similarly common behavior.",
+        "respuesta_esperada": "example similarly common behavior",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t056_ejemplificacion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30057,
+    "fields": {
+      "titulo": "T057 - Exposición cronológica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Organiza la información siguiendo un orden temporal, ideal para explicar eventos históricos o procesos biológicos.",
+        "ejemplo": "La Revolución Industrial comenzó en Gran Bretaña alrededor de 1760. Para 1800, las máquinas de vapor habían transformado el transporte. Durante la década de 1820, las fábricas se extendieron por Europa. En el siglo XX, la electricidad revolucionó la vida diaria. Hoy, la automatización y la IA continúan este legado.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición cronológica. Guia: Organiza la información siguiendo un orden temporal, ideal para explicar eventos históricos o procesos biológicos. Modelo: La Revolución Industrial comenzó en Gran Bretaña alrededor de 1760. Para 1800, las máquinas de vapor habían transformado el transporte. Durante la década de 1820, las fábricas se extendieron por Europ... Palabras clave esperadas: began transformed spread continue.",
+        "respuesta_esperada": "began transformed spread continue",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t057_exposicion_cronologica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30058,
+    "fields": {
+      "titulo": "T058 - Exposición analítica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Divide un tema complejo en sus partes componentes y examina cada una por separado para entender el todo.",
+        "ejemplo": "Un teléfono inteligente consta de varios componentes clave: el procesador (el cerebro), la pantalla (la interfaz), la batería (la fuente de energía) y la cámara (el ojo). Cada parte es esencial. El procesador ejecuta comandos. La pantalla muestra información. La batería proporciona energía. La cámara captura imágenes.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición analítica. Guia: Divide un tema complejo en sus partes componentes y examina cada una por separado para entender el todo. Modelo: Un teléfono inteligente consta de varios componentes clave: el procesador (el cerebro), la pantalla (la interfaz), la batería (la fuente de energía) y la cámara (el ojo). Cada parte es esencial. El pr... Palabras clave esperadas: processor screen battery camera.",
+        "respuesta_esperada": "processor screen battery camera",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t058_exposicion_analitica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30059,
+    "fields": {
+      "titulo": "T059 - Pregunta y respuesta",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Plantea una pregunta y luego responde, imitando el diálogo entre profesor y estudiante para explicar conceptos.",
+        "ejemplo": "¿Qué es el ciclo del agua? Es el movimiento continuo del agua en la Tierra. ¿Cómo funciona? El agua se evapora de los océanos, forma nubes y cae como precipitación. ¿Por qué es importante? Distribuye agua dulce por todo el planeta, sustentando toda la vida.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Pregunta y respuesta. Guia: Plantea una pregunta y luego responde, imitando el diálogo entre profesor y estudiante para explicar conceptos. Modelo: ¿Qué es el ciclo del agua? Es el movimiento continuo del agua en la Tierra. ¿Cómo funciona? El agua se evapora de los océanos, forma nubes y cae como precipitación. ¿Por qué es importante? Distribuye ... Palabras clave esperadas: continuous evaporates precipitation distributing.",
+        "respuesta_esperada": "continuous evaporates precipitation distributing",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t059_pregunta_y_respuesta",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30060,
+    "fields": {
+      "titulo": "T060 - Analogía explicativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Usa una analogía para explicar un concepto complejo comparándolo con algo familiar para el lector.",
+        "ejemplo": "El cerebro humano es como una computadora. La memoria es como la RAM. Las neuronas son como circuitos eléctricos. El aprendizaje es como la programación. Los recuerdos son como archivos guardados. La comparación nos ayuda a entender cómo el cerebro procesa información, almacena recuerdos y responde a estímulos.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Analogía explicativa. Guia: Usa una analogía para explicar un concepto complejo comparándolo con algo familiar para el lector. Modelo: El cerebro humano es como una computadora. La memoria es como la RAM. Las neuronas son como circuitos eléctricos. El aprendizaje es como la programación. Los recuerdos son como archivos guardados. La ... Palabras clave esperadas: computer circuits programming files.",
+        "respuesta_esperada": "computer circuits programming files",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t060_analogia_explicativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30061,
+    "fields": {
+      "titulo": "T061 - Exposición de problemas y soluciones",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Presenta un problema claramente, explica sus causas y efectos, y luego ofrece una o más soluciones viables.",
+        "ejemplo": "La contaminación por plásticos es un grave problema ambiental. Cada año, 8 millones de toneladas ingresan a nuestros océanos. Esto daña la vida marina y entra en nuestra cadena alimenticia. Una solución es reducir los plásticos de un solo uso. Otra es mejorar los sistemas de reciclaje. También podemos desarrollar alternativas biodegradables.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición de problemas y soluciones. Guia: Presenta un problema claramente, explica sus causas y efectos, y luego ofrece una o más soluciones viables. Modelo: La contaminación por plásticos es un grave problema ambiental. Cada año, 8 millones de toneladas ingresan a nuestros océanos. Esto daña la vida marina y entra en nuestra cadena alimenticia. Una soluci... Palabras clave esperadas: pollution harms improving alternatives.",
+        "respuesta_esperada": "pollution harms improving alternatives",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t061_exposicion_de_problemas_y_soluciones",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30062,
+    "fields": {
+      "titulo": "T062 - Exposición de evidencia",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Presenta datos, estadísticas, investigaciones o citas de expertos para respaldar una afirmación.",
+        "ejemplo": "La investigación muestra que el ejercicio mejora la salud mental. Un estudio de 2019 encontró que caminar 30 minutos diarios reduce los síntomas de depresión en un 25%. Según el Dr. Smith, 'la actividad física libera endorfinas, que combaten naturalmente el estrés'. Los que hacen ejercicio regularmente también duermen mejor y tienen más energía.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición de evidencia. Guia: Presenta datos, estadísticas, investigaciones o citas de expertos para respaldar una afirmación. Modelo: La investigación muestra que el ejercicio mejora la salud mental. Un estudio de 2019 encontró que caminar 30 minutos diarios reduce los síntomas de depresión en un 25%. Según el Dr. Smith, 'la activid... Palabras clave esperadas: research improves according naturally.",
+        "respuesta_esperada": "research improves according naturally",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t062_exposicion_de_evidencia",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30063,
+    "fields": {
+      "titulo": "T063 - Exposición funcional",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica para qué sirve algo, cómo funciona y por qué es importante, enfocándose en su propósito y aplicación.",
+        "ejemplo": "Un termómetro mide la temperatura. Contiene un líquido que se expande cuando se calienta. Esta expansión sube por una escala, mostrando grados. Los termómetros son esenciales en medicina, cocina y meteorología. Nos ayudan a detectar fiebres, cocinar alimentos de manera segura y predecir el clima.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición funcional. Guia: Explica para qué sirve algo, cómo funciona y por qué es importante, enfocándose en su propósito y aplicación. Modelo: Un termómetro mide la temperatura. Contiene un líquido que se expande cuando se calienta. Esta expansión sube por una escala, mostrando grados. Los termómetros son esenciales en medicina, cocina y met... Palabras clave esperadas: measures expands essential predict.",
+        "respuesta_esperada": "measures expands essential predict",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t063_exposicion_funcional",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30064,
+    "fields": {
+      "titulo": "T064 - Exposición histórica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica el origen y desarrollo de un tema a través del tiempo, mostrando su evolución hasta el presente.",
+        "ejemplo": "Internet comenzó como ARPANET en 1969, conectando solo cuatro computadoras. En la década de 1980, surgieron el correo electrónico y las primeras redes. La World Wide Web fue inventada en 1989. En los años 90 aparecieron los primeros navegadores web. Hoy, miles de millones usan internet diariamente para trabajar, comunicarse y entretenerse.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición histórica. Guia: Explica el origen y desarrollo de un tema a través del tiempo, mostrando su evolución hasta el presente. Modelo: Internet comenzó como ARPANET en 1969, conectando solo cuatro computadoras. En la década de 1980, surgieron el correo electrónico y las primeras redes. La World Wide Web fue inventada en 1989. En los ... Palabras clave esperadas: began emerged invented billions.",
+        "respuesta_esperada": "began emerged invented billions",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t064_exposicion_historica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30065,
+    "fields": {
+      "titulo": "T065 - Exposición conceptual",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica ideas abstractas dividiéndolas en conceptos más pequeños y usando ejemplos concretos.",
+        "ejemplo": "La democracia es un sistema de gobierno donde los ciudadanos tienen voz en las decisiones. Incluye elecciones libres, donde las personas votan por representantes. Requiere libertad de expresión, para que los ciudadanos puedan expresar opiniones. Necesita un poder judicial independiente, para hacer cumplir las leyes de manera justa. La democracia protege los derechos individuales y promueve la igualdad.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición conceptual. Guia: Explica ideas abstractas dividiéndolas en conceptos más pequeños y usando ejemplos concretos. Modelo: La democracia es un sistema de gobierno donde los ciudadanos tienen voz en las decisiones. Incluye elecciones libres, donde las personas votan por representantes. Requiere libertad de expresión, para ... Palabras clave esperadas: citizens elections judiciary equality.",
+        "respuesta_esperada": "citizens elections judiciary equality",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t065_exposicion_conceptual",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30066,
+    "fields": {
+      "titulo": "T066 - Exposición visual",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Usa lenguaje que ayude al lector a visualizar el concepto, como si estuviera viendo un diagrama o imagen.",
+        "ejemplo": "Imagina un árbol. Las raíces representan tus experiencias pasadas, que te arraigan. El tronco son tus valores fundamentales, que lo sostienen todo. Las ramas son tus metas, que se extienden hacia afuera. Las hojas son las acciones diarias, que cambian con las estaciones de la vida. El fruto son tus logros, los resultados visibles de tus esfuerzos.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición visual. Guia: Usa lenguaje que ayude al lector a visualizar el concepto, como si estuviera viendo un diagrama o imagen. Modelo: Imagina un árbol. Las raíces representan tus experiencias pasadas, que te arraigan. El tronco son tus valores fundamentales, que lo sostienen todo. Las ramas son tus metas, que se extienden hacia afue... Palabras clave esperadas: imagine roots branches fruit.",
+        "respuesta_esperada": "imagine roots branches fruit",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t066_exposicion_visual",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30067,
+    "fields": {
+      "titulo": "T067 - Exposición de principios",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica las leyes, reglas o principios que rigen un fenómeno, mostrando cómo se aplican en la práctica.",
+        "ejemplo": "La Primera Ley de Newton establece que un objeto en reposo permanece en reposo, y un objeto en movimiento permanece en movimiento, a menos que actúe sobre él una fuerza externa. Por ejemplo, un libro sobre una mesa no se moverá a menos que alguien lo empuje. De manera similar, una pelota que rueda continuará rodando hasta que la fricción la detenga.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición de principios. Guia: Explica las leyes, reglas o principios que rigen un fenómeno, mostrando cómo se aplican en la práctica. Modelo: La Primera Ley de Newton establece que un objeto en reposo permanece en reposo, y un objeto en movimiento permanece en movimiento, a menos que actúe sobre él una fuerza externa. Por ejemplo, un libro ... Palabras clave esperadas: states motion external friction.",
+        "respuesta_esperada": "states motion external friction",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t067_exposicion_de_principios",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30068,
+    "fields": {
+      "titulo": "T068 - Exposición de procesos naturales",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica cómo ocurren los fenómenos naturales como la digestión, fotosíntesis, germinación, etc., paso a paso.",
+        "ejemplo": "La germinación comienza cuando una semilla absorbe agua. La semilla se hincha, rompiendo su cubierta externa. Luego, emerge la raíz, creciendo hacia abajo para anclar la planta. Después, aparece el brote, empujando hacia arriba hacia la luz solar. Finalmente, las primeras hojas se despliegan y comienzan la fotosíntesis, produciendo alimento para la planta en crecimiento.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición de procesos naturales. Guia: Explica cómo ocurren los fenómenos naturales como la digestión, fotosíntesis, germinación, etc., paso a paso. Modelo: La germinación comienza cuando una semilla absorbe agua. La semilla se hincha, rompiendo su cubierta externa. Luego, emerge la raíz, creciendo hacia abajo para anclar la planta. Después, aparece el br... Palabras clave esperadas: absorbs emerges anchoring unfolds.",
+        "respuesta_esperada": "absorbs emerges anchoring unfolds",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t068_exposicion_de_procesos_naturales",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30069,
+    "fields": {
+      "titulo": "T069 - Exposición de instrucciones",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica cómo realizar una tarea usando verbos en imperativo y ordenando los pasos lógicamente.",
+        "ejemplo": "Para cambiar una llanta de manera segura: Primero, estaciona en una superficie plana y enciende las luces de emergencia. Luego, quita el tapacubos y afloja las tuercas. Entonces, levanta el coche con el gato. Quita la llanta ponchada y monta la de repuesto. Finalmente, aprieta las tuercas, baja el coche y verifica la presión.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición de instrucciones. Guia: Explica cómo realizar una tarea usando verbos en imperativo y ordenando los pasos lógicamente. Modelo: Para cambiar una llanta de manera segura: Primero, estaciona en una superficie plana y enciende las luces de emergencia. Luego, quita el tapacubos y afloja las tuercas. Entonces, levanta el coche con ... Palabras clave esperadas: surface loosen jack pressure.",
+        "respuesta_esperada": "surface loosen jack pressure",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t069_exposicion_de_instrucciones",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30070,
+    "fields": {
+      "titulo": "T070 - Exposición científica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica conceptos científicos usando terminología precisa, definiciones claras y ejemplos ilustrativos.",
+        "ejemplo": "La membrana celular es una barrera selectivamente permeable que rodea todas las células. Controla lo que entra y sale de la célula. Las moléculas pequeñas como el oxígeno pasan libremente. Las moléculas grandes requieren proteínas de transporte especiales. Esta permeabilidad selectiva mantiene la homeostasis, manteniendo estable el ambiente interno de la célula.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición científica. Guia: Explica conceptos científicos usando terminología precisa, definiciones claras y ejemplos ilustrativos. Modelo: La membrana celular es una barrera selectivamente permeable que rodea todas las células. Controla lo que entra y sale de la célula. Las moléculas pequeñas como el oxígeno pasan libremente. Las molécul... Palabras clave esperadas: permeable controls requires homeostasis.",
+        "respuesta_esperada": "permeable controls requires homeostasis",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t070_exposicion_cientifica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30071,
+    "fields": {
+      "titulo": "T071 - Exposición económica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica conceptos económicos usando ejemplos cotidianos y lenguaje accesible.",
+        "ejemplo": "La oferta y la demanda determinan los precios. Si muchas personas quieren un producto (alta demanda) pero no hay muchos disponibles (baja oferta), los precios suben. Por ejemplo, cuando se lanza un nuevo videojuego, la alta demanda y las copias limitadas pueden aumentar el precio. A medida que hay más copias disponibles, el precio generalmente disminuye.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición económica. Guia: Explica conceptos económicos usando ejemplos cotidianos y lenguaje accesible. Modelo: La oferta y la demanda determinan los precios. Si muchas personas quieren un producto (alta demanda) pero no hay muchos disponibles (baja oferta), los precios suben. Por ejemplo, cuando se lanza un nu... Palabras clave esperadas: supply demand copies decreases.",
+        "respuesta_esperada": "supply demand copies decreases",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t071_exposicion_economica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30072,
+    "fields": {
+      "titulo": "T072 - Exposición educativa",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica conceptos educativos de manera didáctica, como si estuvieras enseñando a un estudiante.",
+        "ejemplo": "Un verbo es una palabra de acción. Nos dice lo que está haciendo el sujeto. Por ejemplo, en 'El perro corre', 'corre' es el verbo. Los verbos también pueden expresar estados de ser, como 'es' o 'parece'. Cada oración completa necesita al menos un verbo. Sin verbos, no podemos describir acciones o estados.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición educativa. Guia: Explica conceptos educativos de manera didáctica, como si estuvieras enseñando a un estudiante. Modelo: Un verbo es una palabra de acción. Nos dice lo que está haciendo el sujeto. Por ejemplo, en 'El perro corre', 'corre' es el verbo. Los verbos también pueden expresar estados de ser, como 'es' o 'parec... Palabras clave esperadas: action subject complete describe.",
+        "respuesta_esperada": "action subject complete describe",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t072_exposicion_educativa",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30073,
+    "fields": {
+      "titulo": "T073 - Exposición médica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica condiciones médicas, tratamientos o procedimientos de manera clara y accesible para pacientes.",
+        "ejemplo": "La hipertensión es una condición común donde la sangre fluye por las arterias con demasiada fuerza. A menudo se la llama el 'asesino silencioso' porque no tiene síntomas. Si no se trata, puede causar ataques cardíacos o derrames cerebrales. El tratamiento incluye medicamentos, reducir la ingesta de sal, hacer ejercicio regularmente y controlar el estrés.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición médica. Guia: Explica condiciones médicas, tratamientos o procedimientos de manera clara y accesible para pacientes. Modelo: La hipertensión es una condición común donde la sangre fluye por las arterias con demasiada fuerza. A menudo se la llama el 'asesino silencioso' porque no tiene síntomas. Si no se trata, puede causar ... Palabras clave esperadas: pressure symptoms strokes regularly.",
+        "respuesta_esperada": "pressure symptoms strokes regularly",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t073_exposicion_medica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30074,
+    "fields": {
+      "titulo": "T074 - Exposición tecnológica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica cómo funcionan las tecnologías modernas, desmitificando términos complejos para el usuario general.",
+        "ejemplo": "La nube no flota realmente en el cielo. 'La nube' se refiere a servidores en grandes centros de datos que almacenan tus archivos en línea. Cuando subes una foto a la nube, se copia a estos servidores. Luego puedes acceder a ella desde cualquier dispositivo con internet. La nube ahorra espacio en tu teléfono y mantiene los archivos seguros.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición tecnológica. Guia: Explica cómo funcionan las tecnologías modernas, desmitificando términos complejos para el usuario general. Modelo: La nube no flota realmente en el cielo. 'La nube' se refiere a servidores en grandes centros de datos que almacenan tus archivos en línea. Cuando subes una foto a la nube, se copia a estos servidores.... Palabras clave esperadas: servers upload access safe.",
+        "respuesta_esperada": "servers upload access safe",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t074_exposicion_tecnologica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30075,
+    "fields": {
+      "titulo": "T075 - Exposición filosófica",
+      "contenido": {
+        "tipo_redaccion": "parrafo_expositivo",
+        "tipo_original": "expositivo",
+        "teoria": "Explica conceptos filosóficos de manera accesible, usando ejemplos de la vida cotidiana.",
+        "ejemplo": "La ética trata de distinguir el bien del mal. Por ejemplo, al encontrar una cartera con dinero dentro, podrías quedártela (mal) o intentar devolverla (bien). La ética nos ayuda a tomar buenas decisiones. Considera consecuencias, intenciones y principios. La mayoría sigue pautas éticas para vivir en armonía en la sociedad.",
+        "enunciado": "Escribe un parrafo expositivo aplicando la tecnica: Exposición filosófica. Guia: Explica conceptos filosóficos de manera accesible, usando ejemplos de la vida cotidiana. Modelo: La ética trata de distinguir el bien del mal. Por ejemplo, al encontrar una cartera con dinero dentro, podrías quedártela (mal) o intentar devolverla (bien). La ética nos ayuda a tomar buenas decision... Palabras clave esperadas: distinguishing consequences harmoniously society.",
+        "respuesta_esperada": "distinguishing consequences harmoniously society",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_expositivo",
+      "tecnica": "t075_exposicion_filosofica",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30076,
+    "fields": {
+      "titulo": "T076 - Tesis y evidencia",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Presenta una afirmación clara (tesis) y luego la respalda con evidencia convincente como datos, ejemplos o citas.",
+        "ejemplo": "Tesis: Las redes sociales afectan negativamente la salud mental. Evidencia: Los estudios muestran mayor ansiedad en usuarios frecuentes. Una encuesta de 2021 encontró que los adolescentes que pasan más de 3 horas diarias en redes sociales tienen el doble de probabilidades de experimentar depresión. Por lo tanto, deberíamos limitar el uso de redes sociales, especialmente para los jóvenes.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Tesis y evidencia. Guia: Presenta una afirmación clara (tesis) y luego la respalda con evidencia convincente como datos, ejemplos o citas. Modelo: Tesis: Las redes sociales afectan negativamente la salud mental. Evidencia: Los estudios muestran mayor ansiedad en usuarios frecuentes. Una encuesta de 2021 encontró que los adolescentes que pasan má... Palabras clave esperadas: thesis anxiety survey therefore.",
+        "respuesta_esperada": "thesis anxiety survey therefore",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t076_tesis_y_evidencia",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30077,
+    "fields": {
+      "titulo": "T077 - Argumento de autoridad",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Cita a expertos en el campo para respaldar tu argumento, usando la credibilidad de la fuente para fortalecer tu posición.",
+        "ejemplo": "Según la Organización Mundial de la Salud, el ejercicio regular reduce el riesgo de enfermedades crónicas. La Dra. Jane Smith, cardióloga de Harvard, afirma que 'caminar 30 minutos diarios puede añadir años a tu vida'. La Asociación Americana del Corazón también recomienda actividad física para la salud del corazón. Estos expertos coinciden: el ejercicio salva vidas.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de autoridad. Guia: Cita a expertos en el campo para respaldar tu argumento, usando la credibilidad de la fuente para fortalecer tu posición. Modelo: Según la Organización Mundial de la Salud, el ejercicio regular reduce el riesgo de enfermedades crónicas. La Dra. Jane Smith, cardióloga de Harvard, afirma que 'caminar 30 minutos diarios puede añadi... Palabras clave esperadas: organization cardiologist recommends agrees.",
+        "respuesta_esperada": "organization cardiologist recommends agrees",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t077_argumento_de_autoridad",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30078,
+    "fields": {
+      "titulo": "T078 - Argumento lógico",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Usa razonamiento lógico: si A es verdadero, y B es consecuencia de A, entonces B es verdadero. Conecta premisas con conclusiones.",
+        "ejemplo": "Premisa 1: Todos los humanos son mortales. Premisa 2: Sócrates es humano. Conclusión: Por lo tanto, Sócrates es mortal. Este silogismo muestra razonamiento lógico. Si ambas premisas son verdaderas, la conclusión debe ser verdadera. Los argumentos lógicos nos ayudan a alcanzar conclusiones válidas basadas en hechos acordados.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento lógico. Guia: Usa razonamiento lógico: si A es verdadero, y B es consecuencia de A, entonces B es verdadero. Conecta premisas con conclusiones. Modelo: Premisa 1: Todos los humanos son mortales. Premisa 2: Sócrates es humano. Conclusión: Por lo tanto, Sócrates es mortal. Este silogismo muestra razonamiento lógico. Si ambas premisas son verdaderas, la... Palabras clave esperadas: mortal human therefore conclusions.",
+        "respuesta_esperada": "mortal human therefore conclusions",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t078_argumento_logico",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30079,
+    "fields": {
+      "titulo": "T079 - Argumento emocional",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Apela a las emociones del lector (empatía, miedo, esperanza, indignación) para persuadirlo, combinado con evidencia racional.",
+        "ejemplo": "Imagina a un niño yendo a la cama con hambre esta noche. En nuestra ciudad, 1 de cada 5 niños no sabe de dónde vendrá su próxima comida. Esto no son solo estadísticas; es una tragedia. Podemos cambiar esto donando a bancos de alimentos locales. Por favor, ayúdanos a alimentar a estos niños. Tu donación hoy pondrá comida en sus mesas mañana.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento emocional. Guia: Apela a las emociones del lector (empatía, miedo, esperanza, indignación) para persuadirlo, combinado con evidencia racional. Modelo: Imagina a un niño yendo a la cama con hambre esta noche. En nuestra ciudad, 1 de cada 5 niños no sabe de dónde vendrá su próxima comida. Esto no son solo estadísticas; es una tragedia. Podemos cambiar... Palabras clave esperadas: imagine statistics tragedy tomorrow.",
+        "respuesta_esperada": "imagine statistics tragedy tomorrow",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t079_argumento_emocional",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30080,
+    "fields": {
+      "titulo": "T080 - Refutación de contraargumentos",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Anticipa las objeciones del oponente y responde a ellas, fortaleciendo tu propia posición al demostrar que has considerado otras perspectivas.",
+        "ejemplo": "Algunos argumentan que la energía renovable es demasiado cara. Sin embargo, los costos solares y eólicos han caído un 90% en la última década. Otros afirman que las renovables no son confiables. Pero la tecnología de almacenamiento en baterías está mejorando rápidamente, y la integración a la red resuelve la intermitencia. Aunque ninguna fuente de energía es perfecta, la evidencia claramente favorece las renovables sobre los combustibles fósiles.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Refutación de contraargumentos. Guia: Anticipa las objeciones del oponente y responde a ellas, fortaleciendo tu propia posición al demostrar que has considerado otras perspectivas. Modelo: Algunos argumentan que la energía renovable es demasiado cara. Sin embargo, los costos solares y eólicos han caído un 90% en la última década. Otros afirman que las renovables no son confiables. Pero ... Palabras clave esperadas: expensive however unreliable favors.",
+        "respuesta_esperada": "expensive however unreliable favors",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t080_refutacion_de_contraargumentos",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30081,
+    "fields": {
+      "titulo": "T081 - Argumento causal",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Establece una relación causa-efecto para demostrar que un factor produce directamente un resultado específico.",
+        "ejemplo": "Fumar causa cáncer de pulmón. Los estudios muestran que el 90% de los pacientes con cáncer de pulmón son fumadores. Los químicos en los cigarrillos dañan las células pulmonares. Con el tiempo, este daño puede llevar a crecimientos cancerosos. Dejar de fumar reduce significativamente el riesgo. El vínculo causal entre fumar y el cáncer es innegable.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento causal. Guia: Establece una relación causa-efecto para demostrar que un factor produce directamente un resultado específico. Modelo: Fumar causa cáncer de pulmón. Los estudios muestran que el 90% de los pacientes con cáncer de pulmón son fumadores. Los químicos en los cigarrillos dañan las células pulmonares. Con el tiempo, este da... Palabras clave esperadas: causes damage cancerous undeniable.",
+        "respuesta_esperada": "causes damage cancerous undeniable",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t081_argumento_causal",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30082,
+    "fields": {
+      "titulo": "T082 - Argumento por analogía",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Compara una situación con otra más familiar para mostrar que si una es verdadera, la otra también debería serlo.",
+        "ejemplo": "Así como no ignoraríamos una pequeña grieta en una presa, no deberíamos ignorar las señales tempranas del cambio climático. Una grieta puede convertirse en una brecha que inunde una ciudad. De manera similar, pequeños aumentos de temperatura pueden llevar a consecuencias catastróficas. Arreglamos la grieta temprano para prevenir el desastre. Debemos actuar sobre el cambio climático ahora por la misma razón.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por analogía. Guia: Compara una situación con otra más familiar para mostrar que si una es verdadera, la otra también debería serlo. Modelo: Así como no ignoraríamos una pequeña grieta en una presa, no deberíamos ignorar las señales tempranas del cambio climático. Una grieta puede convertirse en una brecha que inunde una ciudad. De manera ... Palabras clave esperadas: crack similarly catastrophic prevent.",
+        "respuesta_esperada": "crack similarly catastrophic prevent",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t082_argumento_por_analogia",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30083,
+    "fields": {
+      "titulo": "T083 - Argumento por ejemplo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Usa ejemplos concretos para ilustrar y respaldar tu afirmación general, haciendo el argumento más convincente.",
+        "ejemplo": "Muchos países han reducido exitosamente los residuos plásticos. Por ejemplo, Ruanda prohibió las bolsas plásticas en 2008 y ahora es uno de los países más limpios de África. De manera similar, Kenia impuso sanciones severas por el uso de bolsas plásticas, resultando en calles más limpias. Estos ejemplos prueban que las políticas estrictas pueden reducir efectivamente la contaminación por plásticos.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por ejemplo. Guia: Usa ejemplos concretos para ilustrar y respaldar tu afirmación general, haciendo el argumento más convincente. Modelo: Muchos países han reducido exitosamente los residuos plásticos. Por ejemplo, Ruanda prohibió las bolsas plásticas en 2008 y ahora es uno de los países más limpios de África. De manera similar, Kenia i... Palabras clave esperadas: successfully example similarly effectively.",
+        "respuesta_esperada": "successfully example similarly effectively",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t083_argumento_por_ejemplo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30084,
+    "fields": {
+      "titulo": "T084 - Argumento de consecuencia",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Examina las consecuencias positivas o negativas de una acción para persuadir al lector de que la tome o la evite.",
+        "ejemplo": "Si no abordamos el cambio climático, las consecuencias serán devastadoras. El aumento del nivel del mar inundará las ciudades costeras. Huracanes más frecuentes destruirán hogares. Las sequías causarán escasez de alimentos. Las especies se extinguirán. Sin embargo, si actuamos ahora, podemos evitar los peores resultados. La elección es clara: debemos actuar hoy.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de consecuencia. Guia: Examina las consecuencias positivas o negativas de una acción para persuadir al lector de que la tome o la evite. Modelo: Si no abordamos el cambio climático, las consecuencias serán devastadoras. El aumento del nivel del mar inundará las ciudades costeras. Huracanes más frecuentes destruirán hogares. Las sequías causará... Palabras clave esperadas: devastating frequent shortages today.",
+        "respuesta_esperada": "devastating frequent shortages today",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t084_argumento_de_consecuencia",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30085,
+    "fields": {
+      "titulo": "T085 - Argumento de principios",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Apela a principios universales como la justicia, la igualdad, la libertad o la dignidad humana para respaldar tu posición.",
+        "ejemplo": "Toda persona merece igual acceso a la educación. Este es un derecho humano fundamental. Sin embargo, millones de niños no pueden asistir a la escuela debido a la pobreza. Si creemos en la justicia y la igualdad, debemos proporcionar educación gratuita para todos. Ningún niño debería ser privado de aprendizaje debido a los ingresos de su familia. La educación no es un privilegio; es un derecho.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de principios. Guia: Apela a principios universales como la justicia, la igualdad, la libertad o la dignidad humana para respaldar tu posición. Modelo: Toda persona merece igual acceso a la educación. Este es un derecho humano fundamental. Sin embargo, millones de niños no pueden asistir a la escuela debido a la pobreza. Si creemos en la justicia y l... Palabras clave esperadas: deserves fundamental denied privilege.",
+        "respuesta_esperada": "deserves fundamental denied privilege",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t085_argumento_de_principios",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30086,
+    "fields": {
+      "titulo": "T086 - Argumento pragmático",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Enfócate en resultados prácticos y beneficios tangibles, mostrando qué funciona mejor en la realidad.",
+        "ejemplo": "La atención médica universal funciona. Países como Canadá, Reino Unido y Alemania han demostrado que la atención médica financiada por el gobierno proporciona mejores resultados a menores costos. Los ciudadanos viven vidas más largas y saludables. Nadie se arruina por facturas médicas. La elección pragmática es clara: la atención médica universal es más eficiente, más equitativa y más rentable que los sistemas privados.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento pragmático. Guia: Enfócate en resultados prácticos y beneficios tangibles, mostrando qué funciona mejor en la realidad. Modelo: La atención médica universal funciona. Países como Canadá, Reino Unido y Alemania han demostrado que la atención médica financiada por el gobierno proporciona mejores resultados a menores costos. Los ... Palabras clave esperadas: universal outcomes efficient equitable.",
+        "respuesta_esperada": "universal outcomes efficient equitable",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t086_argumento_pragmatico",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30087,
+    "fields": {
+      "titulo": "T087 - Argumento estadístico",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Utiliza datos numéricos, porcentajes y estadísticas para dar peso cuantificable a tu argumento.",
+        "ejemplo": "Las vacunas salvan millones de vidas anualmente. Según la OMS, la inmunización previene 4-5 millones de muertes cada año. La vacuna contra el sarampión por sí sola ha reducido las muertes en un 73% desde 2000. Además, la inmunidad colectiva requiere una cobertura de vacunación del 95%. Estas estadísticas prueban que las vacunas están entre las intervenciones de salud pública más efectivas de la historia.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento estadístico. Guia: Utiliza datos numéricos, porcentajes y estadísticas para dar peso cuantificable a tu argumento. Modelo: Las vacunas salvan millones de vidas anualmente. Según la OMS, la inmunización previene 4-5 millones de muertes cada año. La vacuna contra el sarampión por sí sola ha reducido las muertes en un 73% de... Palabras clave esperadas: millions annually coverage interventions.",
+        "respuesta_esperada": "millions annually coverage interventions",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t087_argumento_estadistico",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30088,
+    "fields": {
+      "titulo": "T088 - Argumento de beneficio mutuo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Muestra cómo tu propuesta beneficia a todas las partes involucradas, no solo a un grupo.",
+        "ejemplo": "Reducir las emisiones de carbono beneficia a todos. Las empresas ahorran dinero mediante la eficiencia energética. Los trabajadores respiran aire más limpio. Los gobiernos reducen los costos de atención médica. Las generaciones futuras heredan un planeta habitable. Las industrias eólica y solar crean empleos. Todos ganan. Esto no es un juego de suma cero. Podemos hacer crecer la economía mientras protegemos el medio ambiente para todos.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de beneficio mutuo. Guia: Muestra cómo tu propuesta beneficia a todas las partes involucradas, no solo a un grupo. Modelo: Reducir las emisiones de carbono beneficia a todos. Las empresas ahorran dinero mediante la eficiencia energética. Los trabajadores respiran aire más limpio. Los gobiernos reducen los costos de atenci... Palabras clave esperadas: benefits efficiency livable zero.",
+        "respuesta_esperada": "benefits efficiency livable zero",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t088_argumento_de_beneficio_mutuo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30089,
+    "fields": {
+      "titulo": "T089 - Argumento de urgencia",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Destaca la necesidad de actuar inmediatamente, mostrando que la demora tendrá consecuencias negativas irreversibles.",
+        "ejemplo": "No podemos esperar para abordar el cambio climático. Cada año de demora fija más calentamiento catastrófico. La selva amazónica se acerca a un punto de inflexión. Los arrecifes de coral están muriendo a tasas alarmantes. Una vez que las especies se extinguen, desaparecen para siempre. La ventana para la acción se está cerrando. Debemos implementar soluciones hoy, no mañana. No hay Planeta B.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de urgencia. Guia: Destaca la necesidad de actuar inmediatamente, mostrando que la demora tendrá consecuencias negativas irreversibles. Modelo: No podemos esperar para abordar el cambio climático. Cada año de demora fija más calentamiento catastrófico. La selva amazónica se acerca a un punto de inflexión. Los arrecifes de coral están muriendo... Palabras clave esperadas: delay tipping forever closing.",
+        "respuesta_esperada": "delay tipping forever closing",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t089_argumento_de_urgencia",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30090,
+    "fields": {
+      "titulo": "T090 - Argumento de valor",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Apela a valores compartidos como la honestidad, la compasión, la responsabilidad o la excelencia.",
+        "ejemplo": "Como sociedad, valoramos la honestidad. Sin embargo, toleramos la desinformación generalizada en línea. Valoramos la compasión, pero ignoramos a las personas sin hogar en nuestras calles. Valoramos la responsabilidad, pero no actuamos sobre el cambio climático. Es hora de alinear nuestras acciones con nuestros valores. Debemos ser ciudadanos honestos, compasivos y responsables. Nuestros hijos merecen un mundo mejor.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de valor. Guia: Apela a valores compartidos como la honestidad, la compasión, la responsabilidad o la excelencia. Modelo: Como sociedad, valoramos la honestidad. Sin embargo, toleramos la desinformación generalizada en línea. Valoramos la compasión, pero ignoramos a las personas sin hogar en nuestras calles. Valoramos la... Palabras clave esperadas: value tolerate align deserve.",
+        "respuesta_esperada": "value tolerate align deserve",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t090_argumento_de_valor",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30091,
+    "fields": {
+      "titulo": "T091 - Argumento de sentido común",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Apela a lo que la mayoría consideraría obvio o razonable, usando la intuición compartida como respaldo.",
+        "ejemplo": "Es sentido común que fumar es malo para ti. Sin embargo, millones aún fuman. Es obvio que el ejercicio mejora la salud, pero muchos permanecen sedentarios. Todos saben que la educación abre puertas, pero algunos abandonan la escuela. Necesitamos actuar sobre lo que ya sabemos. El sentido común nos dice que tomemos decisiones saludables, pero a menudo lo ignoramos. Empecemos a escuchar.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de sentido común. Guia: Apela a lo que la mayoría consideraría obvio o razonable, usando la intuición compartida como respaldo. Modelo: Es sentido común que fumar es malo para ti. Sin embargo, millones aún fuman. Es obvio que el ejercicio mejora la salud, pero muchos permanecen sedentarios. Todos saben que la educación abre puertas, p... Palabras clave esperadas: common sedentary open listening.",
+        "respuesta_esperada": "common sedentary open listening",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t091_argumento_de_sentido_comun",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30092,
+    "fields": {
+      "titulo": "T092 - Argumento histórico",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Usa eventos pasados para predecir resultados futuros o para mostrar que estrategias similares han funcionado antes.",
+        "ejemplo": "La historia muestra que la cooperación internacional resuelve problemas globales. El Protocolo de Montreal eliminó las sustancias que agotan la capa de ozono, y la capa de ozono se está recuperando. La erradicación de la viruela requirió esfuerzos mundiales de vacunación. Estos éxitos prueban que cuando las naciones trabajan juntas, podemos superar desafíos aparentemente imposibles. El cambio climático requiere la misma cooperación global.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento histórico. Guia: Usa eventos pasados para predecir resultados futuros o para mostrar que estrategias similares han funcionado antes. Modelo: La historia muestra que la cooperación internacional resuelve problemas globales. El Protocolo de Montreal eliminó las sustancias que agotan la capa de ozono, y la capa de ozono se está recuperando. L... Palabras clave esperadas: history recovering eradication impossible.",
+        "respuesta_esperada": "history recovering eradication impossible",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t092_argumento_historico",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30093,
+    "fields": {
+      "titulo": "T093 - Argumento económico",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Enfatiza los beneficios económicos o los costos financieros de una acción para persuadir a lectores orientados a lo práctico.",
+        "ejemplo": "Invertir en energías renovables tiene sentido económico. La energía solar y eólica son ahora más baratas que el carbón en la mayoría de los países. La energía verde crea tres veces más empleos que los combustibles fósiles. Cada dólar gastado en eficiencia energética ahorra dos dólares en costos energéticos futuros. El caso económico es claro: las renovables no solo son buenas para el planeta; son buenas para el bolsillo.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento económico. Guia: Enfatiza los beneficios económicos o los costos financieros de una acción para persuadir a lectores orientados a lo práctico. Modelo: Invertir en energías renovables tiene sentido económico. La energía solar y eólica son ahora más baratas que el carbón en la mayoría de los países. La energía verde crea tres veces más empleos que los... Palabras clave esperadas: investing cheaper creates wallet.",
+        "respuesta_esperada": "investing cheaper creates wallet",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t093_argumento_economico",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30094,
+    "fields": {
+      "titulo": "T094 - Argumento moral",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Plantea la cuestión en términos de lo que es correcto o incorrecto, apelando a la conciencia del lector.",
+        "ejemplo": "¿Es moralmente correcto lucrar con el trabajo infantil? ¿Es ético permitir que los animales sufran en granjas industriales? ¿Es justo dejar que la gente muera porque no puede pagar atención médica? Tenemos la obligación moral de proteger a los vulnerables. Las ganancias nunca deben estar por encima de las personas. La conveniencia no debe justificar la crueldad. Debemos elegir el camino correcto, incluso cuando es difícil.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento moral. Guia: Plantea la cuestión en términos de lo que es correcto o incorrecto, apelando a la conciencia del lector. Modelo: ¿Es moralmente correcto lucrar con el trabajo infantil? ¿Es ético permitir que los animales sufran en granjas industriales? ¿Es justo dejar que la gente muera porque no puede pagar atención médica? Te... Palabras clave esperadas: profit vulnerable justify difficult.",
+        "respuesta_esperada": "profit vulnerable justify difficult",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t094_argumento_moral",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30095,
+    "fields": {
+      "titulo": "T095 - Argumento por reducción al absurdo",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Muestra que la posición opuesta lleva a una contradicción o a una conclusión absurda, demostrando que debe ser falsa.",
+        "ejemplo": "Si aceptamos que solo las acciones rentables valen la pena, entonces deberíamos cerrar parques públicos, bibliotecas y escuelas porque no generan ganancias. Pero esto es absurdo. Claramente, algunas cosas tienen valor más allá de la ganancia. Por lo tanto, la premisa de que solo las acciones rentables importan es falsa. Muchos servicios esenciales existen para el bien público, no para la ganancia.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por reducción al absurdo. Guia: Muestra que la posición opuesta lleva a una contradicción o a una conclusión absurda, demostrando que debe ser falsa. Modelo: Si aceptamos que solo las acciones rentables valen la pena, entonces deberíamos cerrar parques públicos, bibliotecas y escuelas porque no generan ganancias. Pero esto es absurdo. Claramente, algunas c... Palabras clave esperadas: profitable absurd premise essential.",
+        "respuesta_esperada": "profitable absurd premise essential",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t095_argumento_por_reduccion_al_absurdo",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30096,
+    "fields": {
+      "titulo": "T096 - Argumento por consenso",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Cita el amplio acuerdo entre expertos para mostrar que tu posición es la aceptada por la mayoría calificada.",
+        "ejemplo": "El 97% de los científicos del clima coinciden en que la actividad humana causa el calentamiento global. El Panel Intergubernamental sobre Cambio Climático representa a miles de expertos. Todas las principales academias científicas del mundo respaldan este consenso. Cuando casi todos los expertos están de acuerdo, ignorar su conclusión no es escepticismo; es negación. Deberíamos confiar en el consenso científico sobre el cambio climático.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por consenso. Guia: Cita el amplio acuerdo entre expertos para mostrar que tu posición es la aceptada por la mayoría calificada. Modelo: El 97% de los científicos del clima coinciden en que la actividad humana causa el calentamiento global. El Panel Intergubernamental sobre Cambio Climático representa a miles de expertos. Todas las pri... Palabras clave esperadas: scientists consensus denial trust.",
+        "respuesta_esperada": "scientists consensus denial trust",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t096_argumento_por_consenso",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30097,
+    "fields": {
+      "titulo": "T097 - Argumento por exclusión",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Examina todas las opciones posibles y demuestra que solo una queda en pie, eliminando las alternativas una por una.",
+        "ejemplo": "Para reducir la contaminación por plásticos, tenemos tres opciones: prohibir todos los plásticos, no hacer nada o mejorar el reciclaje. Prohibir todos los plásticos es poco práctico porque muchos dispositivos médicos requieren plástico. No hacer nada es inaceptable dado el daño ambiental. Por lo tanto, la única opción viable es mejorar los sistemas de reciclaje. Debemos invertir en mejor infraestructura y educación pública.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por exclusión. Guia: Examina todas las opciones posibles y demuestra que solo una queda en pie, eliminando las alternativas una por una. Modelo: Para reducir la contaminación por plásticos, tenemos tres opciones: prohibir todos los plásticos, no hacer nada o mejorar el reciclaje. Prohibir todos los plásticos es poco práctico porque muchos disp... Palabras clave esperadas: options impractical unacceptable viable.",
+        "respuesta_esperada": "options impractical unacceptable viable",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t097_argumento_por_exclusion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30098,
+    "fields": {
+      "titulo": "T098 - Argumento pragmático de coste-beneficio",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Compara los costos y beneficios de una propuesta para mostrar que los beneficios superan ampliamente los costos.",
+        "ejemplo": "El ingreso básico universal tiene costos, pero los beneficios son mayores. Sí, requeriría impuestos más altos. Pero reduciría la pobreza, mejoraría la salud mental y estimularía la economía. Los estudios muestran que cada dólar gastado en ingreso básico genera $3 en actividad económica. Los costos administrativos son más bajos que los sistemas de bienestar actuales. Los beneficios claramente superan los costos.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento pragmático de coste-beneficio. Guia: Compara los costos y beneficios de una propuesta para mostrar que los beneficios superan ampliamente los costos. Modelo: El ingreso básico universal tiene costos, pero los beneficios son mayores. Sí, requeriría impuestos más altos. Pero reduciría la pobreza, mejoraría la salud mental y estimularía la economía. Los estud... Palabras clave esperadas: benefits outweigh welfare superan.",
+        "respuesta_esperada": "benefits outweigh welfare superan",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t098_argumento_pragmatico_de_coste_beneficio",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30099,
+    "fields": {
+      "titulo": "T099 - Argumento por proyección futura",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Proyecta las consecuencias de la situación actual hacia el futuro para mostrar hacia dónde nos dirigimos si no cambiamos.",
+        "ejemplo": "Para 2050, el plástico en el océano superará a los peces si continuamos las tendencias actuales. Tus nietos quizás nunca vean un arrecife de coral. Quizás nunca experimenten una Navidad blanca ni vean un oso polar en estado salvaje. Cada especie perdida desaparece para siempre. Este es el futuro que estamos creando. Pero no tiene que ser así. Podemos cambiar el rumbo hoy y darles un mejor mañana.",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento por proyección futura. Guia: Proyecta las consecuencias de la situación actual hacia el futuro para mostrar hacia dónde nos dirigimos si no cambiamos. Modelo: Para 2050, el plástico en el océano superará a los peces si continuamos las tendencias actuales. Tus nietos quizás nunca vean un arrecife de coral. Quizás nunca experimenten una Navidad blanca ni vean... Palabras clave esperadas: outweigh grandchildren forever tomorrow.",
+        "respuesta_esperada": "outweigh grandchildren forever tomorrow",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t099_argumento_por_proyeccion_futura",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "core.ejerciciolinguistico",
+    "pk": 30100,
+    "fields": {
+      "titulo": "T100 - Argumento de llamado a la acción",
+      "contenido": {
+        "tipo_redaccion": "parrafo_argumentativo",
+        "tipo_original": "argumentativo",
+        "teoria": "Concluye tu argumento con una petición específica y urgente, pidiendo al lector que haga algo concreto.",
+        "ejemplo": "Has leído la evidencia. Comprendes el problema. Ahora es tiempo de actuar. Esto es lo que puedes hacer hoy: reduce tu uso de plástico, vota por líderes conscientes del clima, dona a organizaciones ambientales y habla con amigos sobre estos temas. No esperes a que alguien más resuelva esto. El futuro depende de las decisiones que tomamos hoy. ¿Te unirás a nosotros?",
+        "enunciado": "Escribe un parrafo argumentativo aplicando la tecnica: Argumento de llamado a la acción. Guia: Concluye tu argumento con una petición específica y urgente, pidiendo al lector que haga algo concreto. Modelo: Has leído la evidencia. Comprendes el problema. Ahora es tiempo de actuar. Esto es lo que puedes hacer hoy: reduce tu uso de plástico, vota por líderes conscientes del clima, dona a organizaciones amb... Palabras clave esperadas: evidence reduce donate depends.",
+        "respuesta_esperada": "evidence reduce donate depends",
+        "idioma": "ES"
+      },
+      "categoria": "redaccion",
+      "tipo": "produccion_libre",
+      "nivel": 3,
+      "puntos": 10,
+      "es_redaccion": true,
+      "tipo_redaccion": "parrafo_argumentativo",
+      "tecnica": "t100_argumento_de_llamado_a_la_accion",
+      "idioma": "ES",
+      "creado_en": "2026-10-18T00:00:00Z"
+    }
+  }
+]
