@@ -1,0 +1,34 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Estadisticas - SRS{% endblock %}
+
+{% block content %}
+<h1>Estadisticas de repaso</h1>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0;">
+    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
+        <p class="meta">Total flashcards</p>
+        <p style="font-size:1.8rem;margin:0;">{{ stats.total_flashcards }}</p>
+    </div>
+    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
+        <p class="meta">Pendientes hoy</p>
+        <p style="font-size:1.8rem;margin:0;">{{ stats.reviews_pendientes }}</p>
+    </div>
+    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
+        <p class="meta">Retencion</p>
+        <p style="font-size:1.8rem;margin:0;">
+            {% if stats.retencion_pct is None %}-{% else %}{{ stats.retencion_pct }}%{% endif %}
+        </p>
+    </div>
+    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
+        <p class="meta">Proxima revision</p>
+        <p style="font-size:1.8rem;margin:0;">
+            {{ stats.proxima_revision|date:"Y-m-d"|default:"-" }}
+        </p>
+    </div>
+</div>
+
+<p>
+    <a href="{% url 'srs_repaso' %}">Ir a repaso</a>
+    <a href="{% url 'redaccion_indice' %}">Taller de redaccion</a>
+</p>
+{% endblock %}

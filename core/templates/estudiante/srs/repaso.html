@@ -1,0 +1,39 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Repaso - SRS{% endblock %}
+
+{% block content %}
+<h1>Repaso</h1>
+<p class="meta">Pendientes hoy: {{ pendientes_count }}</p>
+
+{% if not review %}
+    <div class="ok">
+        <strong>Todo al dia.</strong>
+        No hay flashcards pendientes de repaso.
+    </div>
+    <p><a href="{% url 'srs_estadisticas' %}">Ver estadisticas</a></p>
+{% else %}
+    <div style="padding:1rem;border:1px solid #ddd;border-radius:6px;margin:1rem 0;">
+        <p class="meta">Flashcard #{{ review.flashcard_id }}</p>
+        <h2 style="margin-top:0;">{{ review.flashcard.frente }}</h2>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>Como te fue?</p>
+        <button type="submit" name="calidad" value="1" style="background:#c0392b;">
+            Mal
+        </button>
+        <button type="submit" name="calidad" value="3" style="background:#f39c12;">
+            Regular
+        </button>
+        <button type="submit" name="calidad" value="5" style="background:#27ae60;">
+            Bien
+        </button>
+    </form>
+
+    <details style="margin-top:1.5rem;">
+        <summary>Mostrar respuesta</summary>
+        <p style="padding:0.5rem;background:#f8f9fa;">{{ review.flashcard.reverso }}</p>
+    </details>
+{% endif %}
+{% endblock %}

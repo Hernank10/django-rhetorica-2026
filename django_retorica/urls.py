@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from core import views_redaccion, views_tts
+from core import views_redaccion, views_srs, views_tts
 from core.views import (
     cambiar_contrasena,
     certificaciones_lista,
@@ -82,6 +82,10 @@ urlpatterns += i18n_patterns(
     path('redaccion/', views_redaccion.indice, name='redaccion_indice'),
     path('redaccion/historial/', views_redaccion.historial, name='redaccion_historial'),
     path('redaccion/<int:ejercicio_id>/', views_redaccion.detalle, name='redaccion_ejercicio'),
+
+    # SRS (Modulo 5)
+    path('estudiante/srs/repaso/', views_srs.repaso, name='srs_repaso'),
+    path('estudiante/srs/estadisticas/', views_srs.estadisticas, name='srs_estadisticas'),
 
     prefix_default_language=False,
 )
