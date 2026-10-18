@@ -31,3 +31,4 @@ class ContenidoJSONAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'categoria', 'creado_en')
     search_fields = ('nombre', 'categoria')
     list_filter = ('categoria', 'creado_en')
+from core.admin_redaccion import *  # noqa: F401,E402
