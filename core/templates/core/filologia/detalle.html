@@ -1,0 +1,46 @@
+{% extends "estudiante/base.html" %}
+{% block title %}{{ etimo.latin }} - Filologia{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'filologia_indice' %}">&larr; Volver al explorador</a></p>
+
+<h1>{{ etimo.latin }}</h1>
+<p class="meta">Categoria: {{ etimo.categoria }}</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin:1.5rem 0;">
+    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
+        <p class="meta">Latin</p>
+        <p style="font-size:1.3rem;margin:0;">{{ etimo.latin }}</p>
+    </div>
+    <div style="padding:1rem;background:#d4edda;border-radius:6px;">
+        <p class="meta">Patrimonial (popular)</p>
+        <p style="font-size:1.3rem;margin:0;">{{ etimo.es_patrimonial }}</p>
+    </div>
+    <div style="padding:1rem;background:#cce5ff;border-radius:6px;">
+        <p class="meta">Cultismo (culto)</p>
+        <p style="font-size:1.3rem;margin:0;">{{ etimo.es_cultismo }}</p>
+    </div>
+    {% if etimo.en_cognado %}
+    <div style="padding:1rem;background:#f8d7da;border-radius:6px;">
+        <p class="meta">Cognado ingles</p>
+        <p style="font-size:1.3rem;margin:0;">{{ etimo.en_cognado }}</p>
+    </div>
+    {% endif %}
+</div>
+
+<h2>Regla fonetica</h2>
+<p style="padding:0.8rem;background:#f8f9fa;border-left:4px solid #f39c12;">
+    {{ etimo.regla }}
+</p>
+
+<h2>Ejemplo de uso</h2>
+<p style="font-style:italic;padding:0.8rem;background:#f8f9fa;">
+    "{{ etimo.ejemplo }}"
+</p>
+
+{% if not etimo.en_cognado %}
+<p class="meta">
+    Este etimo no tiene cognado ingles claro (o no aplica la evolucion germanica).
+</p>
+{% endif %}
+{% endblock %}

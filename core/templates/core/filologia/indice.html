@@ -1,0 +1,44 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Filologia - Explorador{% endblock %}
+
+{% block content %}
+<h1>Filologia comparada</h1>
+<p class="meta">{{ total }} etimos · {{ categorias|length }} categorias</p>
+
+<form method="get" style="margin:1.5rem 0;">
+    <input type="search" name="q" value="{{ q }}"
+           placeholder="Busca: noctem, noche, night, diptongacion..."
+           style="width:100%;padding:0.6rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">
+</form>
+
+{% if q and not etimos %}
+    <div class="error">Sin resultados para "{{ q }}".</div>
+{% endif %}
+
+{% if etimos %}
+<table style="width:100%;border-collapse:collapse;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">Latin</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Patrimonial</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Cultismo</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Cognado EN</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in etimos %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.5rem;">
+                <a href="{% url 'filologia_detalle' e.latin %}">{{ e.latin }}</a>
+            </td>
+            <td style="padding:0.5rem;">{{ e.es_patrimonial }}</td>
+            <td style="padding:0.5rem;">{{ e.es_cultismo }}</td>
+            <td style="padding:0.5rem;">{{ e.en_cognado|default:"-" }}</td>
+            <td style="padding:0.5rem;"><span class="meta">{{ e.categoria }}</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
