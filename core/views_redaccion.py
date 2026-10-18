@@ -53,3 +53,21 @@ def detalle(request, ejercicio_id):
         )
 
     return render(request, "core/redaccion/ejercicio.html", {"ejercicio": ej})
+
+
+def historial(request):
+    """Historial de evaluaciones del estudiante logueado."""
+    if not request.user.is_authenticated:
+        return redirect(f"/login/?next={request.path}")
+
+    evaluaciones = (
+        EvaluacionRedaccion.objects
+        .filter(estudiante=request.user)
+        .select_related("ejercicio")
+        .order_by("-fecha", "-id")[:50]
+    )
+    return render(
+        request,
+        "core/redaccion/historial.html",
+        {"evaluaciones": evaluaciones},
+    )

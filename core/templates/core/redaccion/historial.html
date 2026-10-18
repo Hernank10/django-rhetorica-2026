@@ -1,0 +1,42 @@
+{% extends "estudiante/base.html" %}
+
+{% block title %}Historial - Redaccion{% endblock %}
+
+{% block content %}
+<h1>Historial de redaccion</h1>
+
+{% if not evaluaciones %}
+<p>Aun no has realizado ninguna evaluacion. <a href="{% url 'redaccion_indice' %}">Empieza aqui</a>.</p>
+{% else %}
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Ejercicio</th>
+            <th scope="col">Resultado</th>
+            <th scope="col">Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for ev in evaluaciones %}
+        <tr>
+            <td>{{ ev.fecha|date:"Y-m-d H:i" }}</td>
+            <td>
+                <a href="{% url 'redaccion_ejercicio' ev.ejercicio_id %}">
+                    {{ ev.ejercicio.titulo }}
+                </a>
+            </td>
+            <td>
+                {% if ev.aprobado %}
+                    <span class="ok">Aprobado</span>
+                {% else %}
+                    <span class="error">No aprobado</span>
+                {% endif %}
+            </td>
+            <td>{{ ev.feedback|truncatechars:80 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

@@ -80,6 +80,7 @@ urlpatterns += i18n_patterns(
 
     # Taller de redaccion (Modulo 4)
     path('redaccion/', views_redaccion.indice, name='redaccion_indice'),
+    path('redaccion/historial/', views_redaccion.historial, name='redaccion_historial'),
     path('redaccion/<int:ejercicio_id>/', views_redaccion.detalle, name='redaccion_ejercicio'),
 
     prefix_default_language=False,
