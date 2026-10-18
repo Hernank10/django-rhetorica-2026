@@ -276,3 +276,4 @@ from . import models_cursos  # noqa: F401,E402
 from . import models_preguntas  # noqa: F401,E402
 from . import models_adaptativos  # noqa: F401,E402
 from . import models_redaccion  # noqa: F401,E402
+from .models_redaccion import EvaluacionRedaccion  # noqa: F401,E402

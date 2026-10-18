@@ -1,0 +1,25 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h1 class="h3 mb-4">
+        <i class="fas fa-pen-fancy" aria-hidden="true"></i> Taller de Redaccion
+    </h1>
+    <p class="text-muted">Elige un ejercicio. Se evalua morfosintaxis automaticamente.</p>
+
+    {% for tipo, lista in grupos.items %}
+    <section class="mb-4" aria-labelledby="grupo-{{ forloop.counter }}">
+        <h2 id="grupo-{{ forloop.counter }}" class="h5 text-primary">{{ tipo }}</h2>
+        <div class="list-group">
+            {% for ej in lista %}
+            <a href="{% url 'redaccion_ejercicio' ej.id %}" class="list-group-item list-group-item-action">
+                <strong>{{ ej.titulo }}</strong>
+                <small class="text-muted d-block">{{ ej.contenido.enunciado|truncatechars:100 }}</small>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+    {% empty %}
+    <div class="alert alert-info" role="alert">No hay ejercicios disponibles.</div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from core import views_tts
+from core import views_redaccion, views_tts
 from core.views import (
     cambiar_contrasena,
     certificaciones_lista,
@@ -77,6 +77,10 @@ urlpatterns += i18n_patterns(
 
     path('tecnicas/', ver_tecnicas, name='ver_tecnicas'),
     path('certificaciones/', certificaciones_lista, name='certificaciones_lista'),
+
+    # Taller de redaccion (Modulo 4)
+    path('redaccion/', views_redaccion.indice, name='redaccion_indice'),
+    path('redaccion/<int:ejercicio_id>/', views_redaccion.detalle, name='redaccion_ejercicio'),
 
     prefix_default_language=False,
 )

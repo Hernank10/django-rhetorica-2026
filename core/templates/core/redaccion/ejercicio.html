@@ -1,0 +1,42 @@
+﻿{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <a href="{% url 'redaccion_indice' %}" class="btn btn-sm btn-secondary mb-3">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> Volver al indice
+    </a>
+
+    <article class="card shadow">
+        <header class="card-header bg-primary text-white">
+            <h1 class="h4 mb-0">{{ ejercicio.titulo }}</h1>
+            <small class="text-white-50">{{ ejercicio.tipo_redaccion }}</small>
+        </header>
+        <div class="card-body">
+            <p class="lead">{{ ejercicio.contenido.enunciado }}</p>
+
+            <form method="post">
+                {% csrf_token %}
+                <label for="texto" class="form-label">Tu respuesta:</label>
+                <textarea id="texto" name="texto" class="form-control" rows="6" required></textarea>
+                <button type="submit" class="btn btn-success mt-3">
+                    <i class="fas fa-check" aria-hidden="true"></i> Evaluar
+                </button>
+            </form>
+
+            {% if resultado %}
+            <div class="alert {% if resultado.aprobado %}alert-success{% else %}alert-warning{% endif %} mt-4" role="status">
+                <h5>{{ resultado.feedback }}</h5>
+                <hr>
+                <small>
+                    <strong>Tipo detectado:</strong> {{ resultado.tipo_detectado }}<br>
+                    <strong>Verbos:</strong> {{ resultado.analisis.n_verbos }}<br>
+                    {% if resultado.analisis.conectores %}
+                    <strong>Conectores:</strong>
+                    {% for c in resultado.analisis.conectores %}{{ c.texto }} ({{ c.tipo }}){% if not forloop.last %}, {% endif %}{% endfor %}
+                    {% endif %}
+                </small>
+            </div>
+            {% endif %}
+        </div>
+    </article>
+</div>
+{% endblock %}
