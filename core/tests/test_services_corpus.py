@@ -87,15 +87,28 @@ class TestCorpusDesdeEtimos:
 
 @pytest.mark.django_db
 class TestCorpusDesdeBD:
-    def test_vacio(self):
+    def test_vacio_para_usuario_sin_datos(self):
+        # En suite completa la BD tiene fixtures de otros modulos.
+        # Verificamos que un usuario nuevo no aporta items de evaluacion/flashcard.
+        from django.contrib.auth import get_user_model
         from core.services.corpus import corpus_desde_bd
-        assert corpus_desde_bd() == []
+
+        User = get_user_model()
+        user = User.objects.create_user(username="corp_vacio", password="x")
+        items = corpus_desde_bd()
+        # Ningun item debe referenciar a este usuario
+        de_usuario = [
+            it for it in items
+            if it["fuente"].startswith(("evaluacion_", "flashcard_"))
+            and str(user.pk) in str(it["id"])
+        ]
+        assert de_usuario == []
 
     def test_un_ejercicio(self):
         from core.models import EjercicioLinguistico
         from core.services.corpus import corpus_desde_bd
 
-        EjercicioLinguistico.objects.create(
+        ej = EjercicioLinguistico.objects.create(
             titulo="Test",
             contenido={
                 "enunciado": "Escribe una oracion simple",
@@ -108,10 +121,13 @@ class TestCorpusDesdeBD:
             idioma="ES",
         )
         items = corpus_desde_bd()
-        fuentes = {it["fuente"] for it in items}
-        assert "ejercicio_enunciado" in fuentes
-        assert "ejercicio_teoria" in fuentes
-        assert len([it for it in items if it["fuente"].startswith("ejercicio_")]) == 2
+        de_mi_ejercicio = [
+            it for it in items
+            if it["fuente"].startswith("ejercicio_") and it["id"] == ej.pk
+        ]
+        fuentes = {it["fuente"] for it in de_mi_ejercicio}
+        assert fuentes == {"ejercicio_enunciado", "ejercicio_teoria"}
+        assert len(de_mi_ejercicio) == 2
 
     def test_una_evaluacion(self):
         from django.contrib.auth import get_user_model
