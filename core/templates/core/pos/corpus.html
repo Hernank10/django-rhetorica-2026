@@ -1,0 +1,54 @@
+{% extends "estudiante/base.html" %}
+{% block title %}POS - Corpus{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'pos_demo' %}">&larr; Volver al demo</a></p>
+<h1>Analisis POS del corpus</h1>
+
+{% if not disponible %}
+<div class="error">
+    <strong>spaCy no disponible.</strong>
+    Instala spaCy + es_core_news_sm para analizar el corpus.
+</div>
+{% else %}
+<p class="meta">
+    {{ items_analizados }} items · {{ total_tokens }} tokens ·
+    {{ oraciones }} oraciones
+</p>
+
+<h2>Distribucion por POS</h2>
+<table style="max-width:500px;border-collapse:collapse;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">POS</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pos, count in stats.items %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.4rem;">{{ pos }}</td>
+            <td style="padding:0.4rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;">
+    <div style="padding:1rem;background:#d4edda;border-radius:6px;">
+        <p class="meta">Verbos detectados (lemmas)</p>
+        <p style="margin:0.5rem 0;">
+            {% for v in ejemplos_verbos %}<code style="background:#fff;padding:0.1rem 0.3rem;margin:0.15rem;display:inline-block;border-radius:3px;">{{ v }}</code>{% endfor %}
+        </p>
+    </div>
+    <div style="padding:1rem;background:#cce5ff;border-radius:6px;">
+        <p class="meta">Sustantivos detectados (lemmas)</p>
+        <p style="margin:0.5rem 0;">
+            {% for s in ejemplos_sustantivos %}<code style="background:#fff;padding:0.1rem 0.3rem;margin:0.15rem;display:inline-block;border-radius:3px;">{{ s }}</code>{% endfor %}
+        </p>
+    </div>
+</div>
+
+<p class="meta">Solo se analizan los primeros 20 items del corpus.</p>
+{% endif %}
+{% endblock %}

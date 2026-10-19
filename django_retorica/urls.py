@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from core import views_corpus, views_filologia, views_redaccion, views_srs, views_tts
+from core import views_corpus, views_filologia, views_pos, views_redaccion, views_srs, views_tts
 from core.views import (
     cambiar_contrasena,
     certificaciones_lista,
@@ -95,6 +95,10 @@ urlpatterns += i18n_patterns(
     path('corpus/', views_corpus.indice, name='corpus_indice'),
     path('corpus/concordancia/', views_corpus.concordancia, name='corpus_concordancia'),
     path('corpus/frecuencias/', views_corpus.frecuencias_view, name='corpus_frecuencias'),
+
+    # POS con spaCy (Modulo 1)
+    path('pos/', views_pos.demo, name='pos_demo'),
+    path('pos/corpus/', views_pos.corpus, name='pos_corpus'),
 
     prefix_default_language=False,
 )

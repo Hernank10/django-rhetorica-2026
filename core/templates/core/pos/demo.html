@@ -1,0 +1,80 @@
+{% extends "estudiante/base.html" %}
+{% block title %}POS - Demo{% endblock %}
+
+{% block content %}
+<h1>Analizador morfosintactico</h1>
+
+{% if not modelo_ok %}
+<div class="error">
+    <strong>spaCy no disponible.</strong>
+    El analisis morfosintactico requiere spaCy + modelo es_core_news_sm.
+</div>
+{% endif %}
+
+<form method="post" style="margin:1.5rem 0;">
+    {% csrf_token %}
+    <textarea name="texto" rows="3"
+              placeholder="Escribe una frase: Juan estudia matematicas en su casa..."
+              style="width:100%;padding:0.6rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">{{ texto }}</textarea>
+    <button type="submit" style="margin-top:0.5rem;">Analizar</button>
+</form>
+
+{% if resultado %}
+    {% if resultado.error == "escribe_algo" %}
+        <div class="error">Escribe algo para analizar.</div>
+    {% elif not resultado.disponible %}
+        <div class="error">{{ resultado.error }}</div>
+    {% elif resultado.tokens %}
+        <p class="meta">{{ resultado.tokens|length }} tokens · {{ resultado.oraciones }} oraciones</p>
+
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+                <tr style="background:#ecf0f1;">
+                    <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+                    <th scope="col" style="padding:0.5rem;text-align:left;">Texto</th>
+                    <th scope="col" style="padding:0.5rem;text-align:left;">Lemma</th>
+                    <th scope="col" style="padding:0.5rem;text-align:left;">POS</th>
+                    <th scope="col" style="padding:0.5rem;text-align:left;">POS (ES)</th>
+                    <th scope="col" style="padding:0.5rem;text-align:left;">Dep</th>
+                    <th scope="col" style="padding:0.5rem;text-align:right;">Head</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for t in resultado.tokens %}
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:0.4rem;color:#999;">{{ forloop.counter }}</td>
+                    <td style="padding:0.4rem;font-weight:bold;">{{ t.texto }}</td>
+                    <td style="padding:0.4rem;color:#666;">{{ t.lemma }}</td>
+                    <td style="padding:0.4rem;"><code>{{ t.pos }}</code></td>
+                    <td style="padding:0.4rem;">{{ t.pos_es }}</td>
+                    <td style="padding:0.4rem;color:#666;"><code>{{ t.dep }}</code></td>
+                    <td style="padding:0.4rem;text-align:right;color:#999;">{{ t.head_idx }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Resumen por POS</h2>
+        <table style="max-width:400px;border-collapse:collapse;">
+            <thead>
+                <tr style="background:#ecf0f1;">
+                    <th scope="col" style="padding:0.5rem;text-align:left;">POS</th>
+                    <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pos, count in stats.items %}
+                <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:0.4rem;">{{ pos }}</td>
+                    <td style="padding:0.4rem;text-align:right;">{{ count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endif %}
+
+<p style="margin-top:2rem;">
+    <a href="{% url 'pos_corpus' %}">Analizar el corpus &rarr;</a>
+</p>
+{% endblock %}
