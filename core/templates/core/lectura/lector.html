@@ -1,0 +1,146 @@
+{% extends "estudiante/base.html" %}
+{% block title %}{{ ejercicio.titulo }} - Lectura{% endblock %}
+
+{% block extra_head %}
+<style>
+    .lectura-texto { font-size: 1.15rem; line-height: 2; padding: 1rem;
+                     background: #fff; border-radius: 6px; border: 1px solid #eee; }
+    .lectura-texto .palabra { cursor: pointer; padding: 2px 3px; border-radius: 3px;
+                              transition: background 0.15s; }
+    .lectura-texto .palabra:hover { background: #fef3cd; }
+    .lectura-texto .palabra.activa { background: #f39c12; color: #fff; }
+    .panel-morfologia { position: sticky; top: 1rem; padding: 1rem;
+                        background: #ecf0f1; border-radius: 6px; min-height: 200px; }
+    .panel-morfologia h3 { margin-top: 0; font-size: 1.3rem; color: #2c3e50; }
+    .panel-morfologia .pos { display: inline-block; padding: 2px 8px;
+                             background: #3498db; color: #fff; border-radius: 4px;
+                             font-size: 0.85rem; margin-right: 0.5rem; }
+    .panel-morfologia .dep { display: inline-block; padding: 2px 8px;
+                             background: #9b59b6; color: #fff; border-radius: 4px;
+                             font-size: 0.85rem; }
+    .panel-morfologia .vacio { color: #999; font-style: italic; }
+    .btn-audio { padding: 0.5rem 1rem; background: #27ae60; color: #fff;
+                 border: 0; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+    .btn-audio:hover { background: #229954; }
+    .btn-audio:disabled { background: #bdc3c7; cursor: not-allowed; }
+    .layout { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+    @media (max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'lectura_selector' %}">&larr; Volver al selector</a></p>
+
+<h1>{{ ejercicio.titulo }}</h1>
+<p class="meta">
+    {{ stats.n_palabras }} palabras ·
+    {{ stats.n_oraciones }} oraciones ·
+    {{ stats.longitud_media_palabra }} letras/palabra promedio
+</p>
+
+<button class="btn-audio" id="btn-leer-todo" style="margin: 0.5rem 0 1.5rem 0;">
+    🔊 Leer todo el texto
+</button>
+
+<div class="layout">
+    <div>
+        <div class="lectura-texto" id="texto" data-texto="{{ texto|escapejs }}">
+            {% for seg in segmentos %}{% if seg.tipo == "palabra" %}<span class="palabra" data-offset="{{ seg.inicio }}">{{ seg.texto }}</span>{% else %}{{ seg.texto }}{% endif %}{% endfor %}
+        </div>
+    </div>
+    <div>
+        <div class="panel-morfologia" id="panel">
+            <p class="vacio">Haz click en una palabra para ver su morfologia.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    "use strict";
+    const textoDiv = document.getElementById("texto");
+    const panel = document.getElementById("panel");
+    const btnTodo = document.getElementById("btn-leer-todo");
+    const textoCompleto = textoDiv.dataset.texto || "";
+    let palabraActiva = null;
+
+    function limpiarPanel() {
+        panel.innerHTML = '<p class="vacio">Haz click en una palabra para ver su morfologia.</p>';
+    }
+
+    function mostrarMorfologia(data) {
+        if (!data.disponible) {
+            panel.innerHTML = '<p class="vacio">Modelo spaCy no disponible. Instala spaCy + es_core_news_md.</p>';
+            return;
+        }
+        const html = `
+            <h3>${data.palabra}</h3>
+            <p><span class="pos">${data.pos_es}</span><span class="dep">${data.dep}</span></p>
+            <p><strong>Lema:</strong> ${data.lemma}</p>
+            <p><strong>Depende de:</strong> ${data.head}</p>
+            ${data.oracion ? `<p style="font-size:0.9rem;color:#666;margin-top:1rem;padding-top:0.5rem;border-top:1px solid #ccc;"><em>${data.oracion}</em></p>` : ""}
+            <button class="btn-audio" id="btn-palabra" style="margin-top:1rem;">🔊 Escuchar "${data.palabra}"</button>
+        `;
+        panel.innerHTML = html;
+        const btn = document.getElementById("btn-palabra");
+        if (btn) {
+            btn.addEventListener("click", () => reproducir(data.palabra));
+        }
+    }
+
+    function reproducir(txt) {
+        if (!txt) return;
+        const url = `/tts/?text=${encodeURIComponent(txt)}&lang=es`;
+        const audio = new Audio(url);
+        audio.play().catch(err => {
+            console.warn("Error reproduciendo audio:", err);
+            alert("No se pudo reproducir el audio. Verifica que gTTS este configurado.");
+        });
+    }
+
+    async function pedirMorfologia(offset) {
+        try {
+            const r = await fetch("/lectura/ajax/morfologia/", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({texto: textoCompleto, offset: offset}),
+            });
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            const data = await r.json();
+            mostrarMorfologia(data);
+        } catch (err) {
+            console.error(err);
+            panel.innerHTML = '<p class="vacio" style="color:#c0392b;">Error consultando morfologia: ' + err.message + '</p>';
+        }
+    }
+
+    textoDiv.addEventListener("click", (e) => {
+        const span = e.target.closest(".palabra");
+        if (!span) return;
+        if (palabraActiva) palabraActiva.classList.remove("activa");
+        span.classList.add("activa");
+        palabraActiva = span;
+        const offset = parseInt(span.dataset.offset, 10);
+        pedirMorfologia(offset);
+    });
+
+    btnTodo.addEventListener("click", () => {
+        btnTodo.disabled = true;
+        const url = `/tts/?text=${encodeURIComponent(textoCompleto)}&lang=es`;
+        const audio = new Audio(url);
+        audio.addEventListener("ended", () => { btnTodo.disabled = false; });
+        audio.addEventListener("error", () => {
+            btnTodo.disabled = false;
+            alert("No se pudo reproducir el texto completo.");
+        });
+        audio.play().catch(err => {
+            console.warn("Error:", err);
+            btnTodo.disabled = false;
+        });
+    });
+
+    // si el texto cambia de tamano al cargar, no hace falta refetch
+    limpiarPanel();
+})();
+</script>
+{% endblock %}

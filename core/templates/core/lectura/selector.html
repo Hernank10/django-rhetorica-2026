@@ -1,0 +1,47 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Lectura asistida{% endblock %}
+
+{% block content %}
+<h1>Lectura asistida</h1>
+<p class="meta">{{ total }} textos disponibles · {{ tipos|length }} tipos</p>
+
+<p style="padding:1rem;background:#cce5ff;border-radius:6px;margin:1.5rem 0;">
+    <strong>Como funciona:</strong> haz click en cualquier palabra del texto
+    para ver su morfologia (lema, tipo, funcion sintactica) y escuchar como se pronuncia.
+</p>
+
+{% if not textos %}
+<div class="error">
+    No hay textos disponibles aun. Asegurate de tener los 100 ejercicios de
+    redaccion cargados (fixture <code>redaccion_100_tecnicas.json</code>).
+</div>
+{% else %}
+<table style="width:100%;border-collapse:collapse;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Titulo</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Tipo</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Palabras</th>
+            <th scope="col" style="padding:0.5rem;">Accion</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in textos %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.4rem;color:#999;">{{ forloop.counter }}</td>
+            <td style="padding:0.4rem;">{{ t.titulo }}</td>
+            <td style="padding:0.4rem;"><span class="meta">{{ t.tipo }}</span></td>
+            <td style="padding:0.4rem;text-align:right;">{{ t.longitud }}</td>
+            <td style="padding:0.4rem;text-align:center;">
+                <a href="{% url 'lectura_lector' t.id %}"
+                   style="padding:0.3rem 0.8rem;background:#2c3e50;color:#fff;text-decoration:none;border-radius:4px;">
+                    Leer
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
