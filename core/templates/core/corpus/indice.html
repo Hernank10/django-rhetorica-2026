@@ -1,0 +1,60 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Corpus - Indice{% endblock %}
+
+{% block content %}
+<h1>Explorador de corpus</h1>
+<p class="meta">{{ stats.total_items }} items · {{ top_palabras|length }} palabras en top</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0;">
+    <a href="{% url 'corpus_concordancia' %}"
+       style="padding:1rem;background:#cce5ff;border-radius:6px;text-decoration:none;color:#222;">
+        <p class="meta">Buscar en contexto</p>
+        <p style="font-size:1.3rem;margin:0;">Concordancia &rarr;</p>
+    </a>
+    <a href="{% url 'corpus_frecuencias' %}"
+       style="padding:1rem;background:#d4edda;border-radius:6px;text-decoration:none;color:#222;">
+        <p class="meta">Estadisticas</p>
+        <p style="font-size:1.3rem;margin:0;">Frecuencias &rarr;</p>
+    </a>
+</div>
+
+<h2>Fuentes del corpus</h2>
+<table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">Fuente</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Items</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fuente, count in stats.por_fuente.items %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.5rem;">{{ fuente }}</td>
+            <td style="padding:0.5rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Top 50 palabras</h2>
+<table style="width:100%;border-collapse:collapse;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Palabra</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Apariciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for palabra, count in top_palabras %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.3rem 0.5rem;color:#999;">{{ forloop.counter }}</td>
+            <td style="padding:0.3rem 0.5rem;">
+                <a href="{% url 'corpus_concordancia' %}?q={{ palabra }}">{{ palabra }}</a>
+            </td>
+            <td style="padding:0.3rem 0.5rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

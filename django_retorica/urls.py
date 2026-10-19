@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from core import views_filologia, views_redaccion, views_srs, views_tts
+from core import views_corpus, views_filologia, views_redaccion, views_srs, views_tts
 from core.views import (
     cambiar_contrasena,
     certificaciones_lista,
@@ -90,6 +90,11 @@ urlpatterns += i18n_patterns(
     # Filologia comparada (Modulo 2)
     path('filologia/', views_filologia.indice, name='filologia_indice'),
     path('filologia/<slug:etimo>/', views_filologia.detalle, name='filologia_detalle'),
+
+    # Corpus (Modulo 6)
+    path('corpus/', views_corpus.indice, name='corpus_indice'),
+    path('corpus/concordancia/', views_corpus.concordancia, name='corpus_concordancia'),
+    path('corpus/frecuencias/', views_corpus.frecuencias_view, name='corpus_frecuencias'),
 
     prefix_default_language=False,
 )

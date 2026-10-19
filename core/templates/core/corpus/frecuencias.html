@@ -1,0 +1,76 @@
+{% extends "estudiante/base.html" %}
+{% block title %}Frecuencias{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'corpus_indice' %}">&larr; Volver</a></p>
+<h1>Frecuencias del corpus</h1>
+<p class="meta">{{ total_palabras_unicas }} palabras unicas (tabla limitada a 200)</p>
+
+<h2>Top 20 bigramas</h2>
+{% if bigramas %}
+<table style="width:100%;border-collapse:collapse;margin-bottom:2rem;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Bigrama</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for gram, count in bigramas %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.4rem;color:#999;">{{ forloop.counter }}</td>
+            <td style="padding:0.4rem;">{{ gram.0 }} {{ gram.1 }}</td>
+            <td style="padding:0.4rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="meta">Sin bigramas (corpus demasiado pequeno).</p>
+{% endif %}
+
+<h2>Top 10 trigramas</h2>
+{% if trigramas %}
+<table style="width:100%;border-collapse:collapse;margin-bottom:2rem;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Trigrama</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for gram, count in trigramas %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.4rem;color:#999;">{{ forloop.counter }}</td>
+            <td style="padding:0.4rem;">{{ gram.0 }} {{ gram.1 }} {{ gram.2 }}</td>
+            <td style="padding:0.4rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+<h2>Tabla de frecuencias (top 200)</h2>
+<table style="width:100%;border-collapse:collapse;">
+    <thead>
+        <tr style="background:#ecf0f1;">
+            <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
+            <th scope="col" style="padding:0.5rem;text-align:left;">Palabra</th>
+            <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for palabra, count in tabla %}
+        <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:0.3rem 0.5rem;color:#999;">{{ forloop.counter }}</td>
+            <td style="padding:0.3rem 0.5rem;">
+                <a href="{% url 'corpus_concordancia' %}?q={{ palabra }}">{{ palabra }}</a>
+            </td>
+            <td style="padding:0.3rem 0.5rem;text-align:right;">{{ count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
