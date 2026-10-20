@@ -7,6 +7,7 @@
 <body>
     <h1>Parafrasis de registro: formal &lt;-&gt; coloquial</h1>
     <form id="form-registro">
+        {% csrf_token %}
         <div>
             <label for="texto_original">Texto original:</label><br>
             <textarea id="texto_original" name="original" rows="3" cols="60"></textarea>
@@ -37,10 +38,7 @@
                 out.textContent = 'Escribe un texto.';
                 return;
             }
-            var fd = new FormData();
-            fd.append('original', original);
-            fd.append('parafraseado', document.getElementById('texto_parafraseado').value);
-            fd.append('tipo', document.getElementById('tipo').value);
+            var fd = new FormData(form);
             fetch('/sintaxis/parafrasis/registro/ajax/', {
                 method: 'POST',
                 body: fd
