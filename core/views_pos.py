@@ -1,5 +1,8 @@
+import json
 """Vistas del analizador morfosintactico con spaCy."""
+from django.http import JsonResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 
 from core.services.corpus import corpus_completo
 from core.services.pos import (
@@ -85,3 +88,24 @@ def corpus(request):
             "ejemplos_sustantivos": ejemplos_sustantivos,
         },
     )
+
+
+@require_POST
+def analizar_ajax(request):
+    """POST /pos/ajax/analizar/ con JSON {texto}. Retorna analisis + stats."""
+    try:
+        data = json.loads(request.body.decode("utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return JsonResponse({"error": "JSON invalido"}, status=400)
+
+    texto = (data.get("texto") or "").strip()
+    if not texto:
+        return JsonResponse({"error": "falta texto"}, status=400)
+    if len(texto) > 1000:
+        return JsonResponse({"error": "texto demasiado largo (max 1000)"}, status=400)
+
+    analisis = analizar_frase(texto)
+    stats = estadisticas_pos(analisis["tokens"]) if analisis.get("disponible") else {}
+
+    return JsonResponse({"analisis": analisis, "stats": stats})
+

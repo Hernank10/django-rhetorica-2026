@@ -1,80 +1,167 @@
 {% extends "estudiante/base.html" %}
 {% block title %}POS - Demo{% endblock %}
 
+{% block extra_head %}
+<style>
+    .tokens-tabla { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:1rem; }
+    .tokens-tabla th { background:#ecf0f1; padding:0.5rem; text-align:left; }
+    .tokens-tabla td { padding:0.4rem; border-bottom:1px solid #eee; }
+    .pos-badge { display:inline-block; padding:1px 6px; border-radius:3px; font-size:0.75rem;
+                 background:#3498db; color:#fff; }
+    .pos-badge.verb { background:#e74c3c; }
+    .pos-badge.noun { background:#27ae60; }
+    .pos-badge.adj { background:#9b59b6; }
+    .pos-badge.punct { background:#95a5a6; }
+    #texto { width:100%; padding:0.6rem; font-size:1rem; border:1px solid #ccc;
+             border-radius:4px; min-height:80px; font-family:inherit; }
+    #resultado { min-height:100px; }
+    .loading { color:#999; font-style:italic; padding:1rem; }
+    .stats-tabla { max-width:400px; border-collapse:collapse; margin-top:1rem; }
+    .stats-tabla th, .stats-tabla td { padding:0.4rem 0.6rem; border-bottom:1px solid #eee; }
+</style>
+{% endblock %}
+
 {% block content %}
 <h1>Analizador morfosintactico</h1>
 
-{% if not modelo_ok %}
-<div class="error">
+<div id="banner-modelo" class="error" style="display:none;">
     <strong>spaCy no disponible.</strong>
-    El analisis morfosintactico requiere spaCy + modelo es_core_news_sm.
+    El analisis morfosintactico requiere spaCy + modelo es_core_news_md.
 </div>
-{% endif %}
 
-<form method="post" style="margin:1.5rem 0;">
-    {% csrf_token %}
-    <textarea name="texto" rows="3"
-              placeholder="Escribe una frase: Juan estudia matematicas en su casa..."
-              style="width:100%;padding:0.6rem;font-size:1rem;border:1px solid #ccc;border-radius:4px;">{{ texto }}</textarea>
-    <button type="submit" style="margin-top:0.5rem;">Analizar</button>
-</form>
+<textarea id="texto" placeholder="Escribe una frase: Juan estudia matematicas en su casa..."></textarea>
+<p class="meta" id="contador"></p>
 
-{% if resultado %}
-    {% if resultado.error == "escribe_algo" %}
-        <div class="error">Escribe algo para analizar.</div>
-    {% elif not resultado.disponible %}
-        <div class="error">{{ resultado.error }}</div>
-    {% elif resultado.tokens %}
-        <p class="meta">{{ resultado.tokens|length }} tokens · {{ resultado.oraciones }} oraciones</p>
-
-        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
-            <thead>
-                <tr style="background:#ecf0f1;">
-                    <th scope="col" style="padding:0.5rem;text-align:left;">#</th>
-                    <th scope="col" style="padding:0.5rem;text-align:left;">Texto</th>
-                    <th scope="col" style="padding:0.5rem;text-align:left;">Lemma</th>
-                    <th scope="col" style="padding:0.5rem;text-align:left;">POS</th>
-                    <th scope="col" style="padding:0.5rem;text-align:left;">POS (ES)</th>
-                    <th scope="col" style="padding:0.5rem;text-align:left;">Dep</th>
-                    <th scope="col" style="padding:0.5rem;text-align:right;">Head</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for t in resultado.tokens %}
-                <tr style="border-bottom:1px solid #eee;">
-                    <td style="padding:0.4rem;color:#999;">{{ forloop.counter }}</td>
-                    <td style="padding:0.4rem;font-weight:bold;">{{ t.texto }}</td>
-                    <td style="padding:0.4rem;color:#666;">{{ t.lemma }}</td>
-                    <td style="padding:0.4rem;"><code>{{ t.pos }}</code></td>
-                    <td style="padding:0.4rem;">{{ t.pos_es }}</td>
-                    <td style="padding:0.4rem;color:#666;"><code>{{ t.dep }}</code></td>
-                    <td style="padding:0.4rem;text-align:right;color:#999;">{{ t.head_idx }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <h2>Resumen por POS</h2>
-        <table style="max-width:400px;border-collapse:collapse;">
-            <thead>
-                <tr style="background:#ecf0f1;">
-                    <th scope="col" style="padding:0.5rem;text-align:left;">POS</th>
-                    <th scope="col" style="padding:0.5rem;text-align:right;">Count</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for pos, count in stats.items %}
-                <tr style="border-bottom:1px solid #eee;">
-                    <td style="padding:0.4rem;">{{ pos }}</td>
-                    <td style="padding:0.4rem;text-align:right;">{{ count }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    {% endif %}
-{% endif %}
+<div id="resultado">
+    <p class="loading">Escribe algo para ver el analisis en tiempo real.</p>
+</div>
 
 <p style="margin-top:2rem;">
     <a href="{% url 'pos_corpus' %}">Analizar el corpus &rarr;</a>
 </p>
+
+<script>
+(function() {
+    "use strict";
+    const textoEl = document.getElementById("texto");
+    const resultEl = document.getElementById("resultado");
+    const contador = document.getElementById("contador");
+    const banner = document.getElementById("banner-modelo");
+
+    let timer = null;
+    let controllerActual = null;
+
+    function clasePos(pos) {
+        if (pos === "VERB" || pos === "AUX") return "verb";
+        if (pos === "NOUN" || pos === "PROPN") return "noun";
+        if (pos === "ADJ") return "adj";
+        if (pos === "PUNCT") return "punct";
+        return "";
+    }
+
+    function esc(s) {
+        const d = document.createElement("div");
+        d.textContent = String(s || "");
+        return d.innerHTML;
+    }
+
+    function render(data) {
+        const analisis = data.analisis || {};
+        const stats = data.stats || {};
+
+        if (analisis.disponible === false) {
+            banner.style.display = "block";
+            resultEl.innerHTML = '<p class="loading">No se pudo analizar: modelo no disponible.</p>';
+            return;
+        }
+        banner.style.display = "none";
+
+        const tokens = analisis.tokens || [];
+        if (tokens.length === 0) {
+            resultEl.innerHTML = '<p class="loading">Escribe algo para ver el analisis.</p>';
+            return;
+        }
+
+        let html = '<p class="meta">' + tokens.length + ' tokens · ' +
+                   (analisis.oraciones || 0) + ' oraciones</p>';
+        html += '<table class="tokens-tabla"><thead><tr>' +
+                '<th>#</th><th>Texto</th><th>Lema</th><th>POS</th>' +
+                '<th>POS (ES)</th><th>Dep</th><th>Head</th>' +
+                '</tr></thead><tbody>';
+        for (let i = 0; i < tokens.length; i++) {
+            const t = tokens[i];
+            const cls = clasePos(t.pos);
+            html += '<tr>' +
+                    '<td style="color:#999;">' + (i + 1) + '</td>' +
+                    '<td><strong>' + esc(t.texto) + '</strong></td>' +
+                    '<td style="color:#666;">' + esc(t.lemma) + '</td>' +
+                    '<td><span class="pos-badge ' + cls + '">' + esc(t.pos) + '</span></td>' +
+                    '<td>' + esc(t.pos_es) + '</td>' +
+                    '<td><code>' + esc(t.dep) + '</code></td>' +
+                    '<td style="text-align:right;color:#999;">' + t.head_idx + '</td>' +
+                    '</tr>';
+        }
+        html += '</tbody></table>';
+
+        const statsEntries = Object.entries(stats);
+        if (statsEntries.length > 0) {
+            html += '<h2>Resumen por POS</h2><table class="stats-tabla">' +
+                    '<thead><tr><th>POS</th><th>Count</th></tr></thead><tbody>';
+            for (const [pos, n] of statsEntries) {
+                html += '<tr><td>' + esc(pos) + '</td><td style="text-align:right;">' + n + '</td></tr>';
+            }
+            html += '</tbody></table>';
+        }
+
+        resultEl.innerHTML = html;
+    }
+
+    async function analizar() {
+        const texto = textoEl.value.trim();
+        contador.textContent = texto.length + " / 1000 caracteres";
+
+        if (controllerActual) {
+            controllerActual.abort();
+        }
+
+        if (!texto) {
+            resultEl.innerHTML = '<p class="loading">Escribe algo para ver el analisis en tiempo real.</p>';
+            return;
+        }
+
+        controllerActual = new AbortController();
+        const señal = controllerActual.signal;
+
+        resultEl.innerHTML = '<p class="loading">Analizando...</p>';
+
+        try {
+            const r = await fetch("/pos/ajax/analizar/", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({texto: texto}),
+                signal: señal,
+            });
+            if (!r.ok) {
+                const err = await r.json().catch(() => ({error: "HTTP " + r.status}));
+                resultEl.innerHTML = '<p class="error" style="padding:0.5rem;">' +
+                                     esc(err.error || "Error") + '</p>';
+                return;
+            }
+            const data = await r.json();
+            render(data);
+        } catch (err) {
+            if (err.name === "AbortError") return;
+            resultEl.innerHTML = '<p class="error" style="padding:0.5rem;">' +
+                                 'Error consultando: ' + esc(err.message) + '</p>';
+        }
+    }
+
+    textoEl.addEventListener("input", () => {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(analizar, 400);
+    });
+
+    if (textoEl.value) analizar();
+})();
+</script>
 {% endblock %}

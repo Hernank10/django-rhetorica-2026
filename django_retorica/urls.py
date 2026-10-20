@@ -99,6 +99,7 @@ urlpatterns += i18n_patterns(
     # POS con spaCy (Modulo 1)
     path('pos/', views_pos.demo, name='pos_demo'),
     path('pos/corpus/', views_pos.corpus, name='pos_corpus'),
+    path('pos/ajax/analizar/', views_pos.analizar_ajax, name='pos_analizar_ajax'),
 
     # Lectura asistida (Modulo 3)
     path('lectura/', views_lectura.selector, name='lectura_selector'),
