@@ -186,3 +186,43 @@ class TestVerificarParafrasis:
         assert "similitud" in r
         assert "features" in r
         assert "feedback" in r
+# === Fase 1: tests defensivos (pre-S5.2) ===
+
+
+class TestParticipioRamasDefensivas:
+    """Tests sin modelo: ramas defensivas de participio_verbo."""
+
+    def test_infinitivo_desconocido(self):
+        assert participio_verbo("xyz") == "xyz"
+
+    def test_participio_mayusculas(self):
+        assert participio_verbo("ESCRIBIR") == "escrito"
+        assert participio_verbo("Hablar") == "hablado"
+
+
+@requiere_modelo
+class TestRamasDefensivas:
+    """Tests con modelo: ramas defensivas de transformaciones."""
+
+    def test_transformar_a_pasiva_sin_objeto(self):
+        r = transformar_a_pasiva("El perro corre")
+        assert r["disponible"] is True
+        assert r["esperado"] == ""
+        assert "no se detecta estructura activa" in r["razon"]
+
+    def test_transformar_a_activa_sin_agente(self):
+        r = transformar_a_activa("El libro fue leido")
+        assert r["disponible"] is True
+        assert r["esperado"] == ""
+        assert "no se detecta estructura pasiva" in r["razon"]
+
+    def test_transformar_a_activa_sin_participio(self):
+        # "corre" es VERB Fin, no Part -> no hay participio_tok
+        r = transformar_a_activa("Juan corre")
+        assert r["disponible"] is True
+        assert r["esperado"] == ""
+        assert "no se detecta verbo principal en participio" in r["razon"]
+
+    def test_es_pasiva_con_haber_ser(self):
+        # "ha sido leido" - rama aux ser via token "sido"
+        assert es_pasiva("El libro ha sido leido por Juan") is True
