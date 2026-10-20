@@ -1,80 +1,225 @@
 {% extends 'base.html' %}
-
 {% load i18n %}
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-lg-10 text-center">
-            <!-- Hero Section -->
+        <div class="col-lg-11 text-center">
+
+            <!-- Hero -->
             <div class="mb-5">
                 <h1 class="display-3 fw-bold text-primary">
                     <i class="fas fa-feather-alt"></i> {% trans "Rhetorica+" %}
                 </h1>
                 <p class="lead text-muted mb-4">
-                    {% trans "Aprende y practica retórica con ejercicios interactivos y cursos diseñados para mejorar tus habilidades comunicativas." %}
-                </p>
-                <p class="text-muted">
-                    <i class="fas fa-robot"></i> {% trans "Plataforma de aprendizaje retórico basada en IA" %}
+                    Plataforma de aprendizaje retórico y análisis lingüístico.
+                    7 módulos, 9 apps, todo determinista.
                 </p>
             </div>
 
-            {% if user.is_authenticated %}
-            <!-- Accesos rápidos para usuarios autenticados -->
-            <div class="row mt-4 g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-tachometer-alt fa-3x text-primary"></i>
-                            <h5 class="card-title mt-3">Dashboard</h5>
-                            <p class="card-text">Visualiza tu progreso y estadísticas</p>
-                            <a href="{% url 'dashboard_estudiante' %}" class="btn btn-primary">
-                                <i class="fas fa-arrow-right"></i> Ir al dashboard
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-graduation-cap fa-3x text-success"></i>
-                            <h5 class="card-title mt-3">Cursos</h5>
-                            <p class="card-text">Explora y aprende con nuestros cursos</p>
-                            <a href="{% url 'lista_cursos' %}" class="btn btn-success">
-                                <i class="fas fa-arrow-right"></i> Ver cursos
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body text-center">
-                            <i class="fas fa-book-open fa-3x text-warning"></i>
-                            <h5 class="card-title mt-3">Ejercicios</h5>
-                            <p class="card-text">Practica con ejercicios interactivos</p>
-                            <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-warning">
-                                <i class="fas fa-arrow-right"></i> Ver ejercicios
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% else %}
-            <!-- Botones de acceso para usuarios no autenticados -->
+            {% if not user.is_authenticated %}
+            <!-- Visitantes -->
             <div class="mt-5">
                 <a href="{% url 'login' %}" class="btn btn-primary btn-lg me-3">
-                    <i class="fas fa-sign-in-alt"></i> {% trans "Iniciar Sesión" %}
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
                 </a>
                 <a href="{% url 'registro' %}" class="btn btn-success btn-lg">
-                    <i class="fas fa-user-plus"></i> {% trans "Registrarse" %}
+                    <i class="fas fa-user-plus"></i> Registrarse
                 </a>
             </div>
-            <div class="mt-4">
-                <p class="text-muted">
-                    <i class="fas fa-lock"></i> {% trans "Accede a todos los cursos y ejercicios" %}
-                </p>
-            </div>
+            <p class="text-muted mt-4">
+                <i class="fas fa-lock"></i> Accede a todos los módulos y cursos
+            </p>
             {% endif %}
         </div>
     </div>
+
+    {% if user.is_authenticated %}
+    <!-- Accesos principales -->
+    <div class="row g-4 mb-5 justify-content-center">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-primary">
+                <div class="card-body text-center">
+                    <i class="fas fa-tachometer-alt fa-3x text-primary"></i>
+                    <h5 class="card-title mt-3">Mi Dashboard</h5>
+                    <p class="card-text text-muted small">Progreso, estadísticas y gráficas personales</p>
+                    <a href="{% url 'estudiante:dashboard' %}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-arrow-right"></i> Ir
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-success">
+                <div class="card-body text-center">
+                    <i class="fas fa-graduation-cap fa-3x text-success"></i>
+                    <h5 class="card-title mt-3">Cursos</h5>
+                    <p class="card-text text-muted small">Explora módulos, lecciones y evaluaciones</p>
+                    <a href="{% url 'lista_cursos' %}" class="btn btn-success btn-sm">
+                        <i class="fas fa-arrow-right"></i> Ver
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm border-warning">
+                <div class="card-body text-center">
+                    <i class="fas fa-book-open fa-3x text-warning"></i>
+                    <h5 class="card-title mt-3">Ejercicios</h5>
+                    <p class="card-text text-muted small">Biblioteca de ejercicios interactivos</p>
+                    <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-warning btn-sm">
+                        <i class="fas fa-arrow-right"></i> Ver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Análisis lingüístico -->
+    <h4 class="mb-3 mt-4"><i class="fas fa-microscope text-primary"></i> Análisis lingüístico</h4>
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-tags text-info"></i> POS — Morfosintaxis</h5>
+                    <p class="card-text text-muted small">
+                        Etiqueta palabras (nombre, verbo, adjetivo...) con spaCy. Demo interactiva con AJAX.
+                    </p>
+                    <a href="{% url 'pos_demo' %}" class="btn btn-outline-info btn-sm">Abrir</a>
+                    <a href="{% url 'pos_corpus' %}" class="btn btn-outline-secondary btn-sm">Corpus</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-language text-danger"></i> Filología</h5>
+                    <p class="card-text text-muted small">
+                        50 etimologías latinas con reglas de evolución fonética. Explorador interactivo.
+                    </p>
+                    <a href="{% url 'filologia_indice' %}" class="btn btn-outline-danger btn-sm">Explorar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-headphones text-secondary"></i> Lectura asistida</h5>
+                    <p class="card-text text-muted small">
+                        Textos con audio TTS, click en palabras para morfología contextual.
+                    </p>
+                    <a href="{% url 'lectura_selector' %}" class="btn btn-outline-secondary btn-sm">Leer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sintaxis y redacción -->
+    <h4 class="mb-3 mt-4"><i class="fas fa-project-diagram text-success"></i> Sintaxis y redacción</h4>
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-exchange-alt text-success"></i> Paráfrasis activa↔pasiva</h5>
+                    <p class="card-text text-muted small">
+                        Verifica si tu paráfrasis respeta la transformación sintáctica. Similitud Jaccard.
+                    </p>
+                    <a href="{% url 'parafrasis_demo' %}" class="btn btn-outline-success btn-sm">Abrir</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-random text-info"></i> Reordenamiento</h5>
+                    <p class="card-text text-muted small">
+                        Sugerencias de fronting (obl/advmod) y normalización a SVO canónico.
+                    </p>
+                    <a href="{% url 'parafrasis_demo' %}" class="btn btn-outline-info btn-sm">Probar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-user-tie text-warning"></i> Registro formal↔coloquial</h5>
+                    <p class="card-text text-muted small">
+                        9 pares léxicos: usted→vos, dinero→plata, trabajo→laburo, etc.
+                    </p>
+                    <a href="{% url 'registro_demo' %}" class="btn btn-outline-warning btn-sm">Abrir</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repaso y corpus -->
+    <h4 class="mb-3 mt-4"><i class="fas fa-book text-dark"></i> Repaso y corpus</h4>
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-sync-alt text-primary"></i> SRS / SM-2</h5>
+                    <p class="card-text text-muted small">
+                        Repetición espaciada de flashcards con algoritmo SuperMemo 2.
+                    </p>
+                    <a href="{% url 'srs_repaso' %}" class="btn btn-outline-primary btn-sm">Repasar</a>
+                    <a href="{% url 'srs_estadisticas' %}" class="btn btn-outline-secondary btn-sm">Stats</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-search text-dark"></i> Corpus</h5>
+                    <p class="card-text text-muted small">
+                        Búsqueda KWIC (concordancia) + tabla de frecuencias + n-gramas.
+                    </p>
+                    <a href="{% url 'corpus_indice' %}" class="btn btn-outline-dark btn-sm">Explorar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-pen-fancy text-danger"></i> Redacción</h5>
+                    <p class="card-text text-muted small">
+                        Clasificador morfosintáctico + historial de ejercicios evaluados.
+                    </p>
+                    <a href="{% url 'redaccion_indice' %}" class="btn btn-outline-danger btn-sm">Escribir</a>
+                    <a href="{% url 'redaccion_historial' %}" class="btn btn-outline-secondary btn-sm">Historial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Administración (solo staff) -->
+    {% if user.is_staff %}
+    <h4 class="mb-3 mt-4"><i class="fas fa-cog text-secondary"></i> Administración</h4>
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-user-shield text-secondary"></i> Django Admin</h5>
+                    <p class="card-text text-muted small">
+                        Gestión completa de usuarios, cursos, certificaciones, y todos los modelos.
+                    </p>
+                    <a href="/admin/" class="btn btn-secondary btn-sm">Entrar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-secondary">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-chalkboard-teacher text-secondary"></i> Panel del Profesor</h5>
+                    <p class="card-text text-muted small">
+                        KPIs, analytics, ranking, gestión de cursos y evaluaciones.
+                    </p>
+                    <a href="/profesor/" class="btn btn-secondary btn-sm">Entrar</a>
+                    <a href="/profesor/analytics/" class="btn btn-outline-secondary btn-sm">Analytics</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
 </div>
 {% endblock %}
