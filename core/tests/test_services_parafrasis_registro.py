@@ -120,3 +120,17 @@ class TestVerificarRegistro:
         r = verificar_registro("", "", "formal_a_coloquial")
         assert r["aprobado"] is False
         assert "Falta" in r["feedback"]
+
+class TestTransformarRegistroTextVacio:
+    """Cubre rama texto vacio en transformar_registro (lineas 84-85)."""
+
+    def test_texto_vacio(self):
+        r = transformar_registro("", "coloquial")
+        assert r["disponible"] is False
+        assert r["esperado"] == ""
+        assert "vacio" in r["razon"]
+
+    def test_texto_solo_espacios(self):
+        r = transformar_registro("   ", "formal")
+        assert r["disponible"] is False
+        assert "vacio" in r["razon"]

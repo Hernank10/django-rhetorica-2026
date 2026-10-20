@@ -106,3 +106,27 @@ class TestVerificarReordenamiento:
         )
         assert r["aprobado"] is False
         assert "Similitud baja" in r["feedback"]
+
+@requiere_modelo
+class TestLineasGrisesCobertura:
+    """Cubre lineas 39, 43, 86 de parafrasis_reordenamiento.py."""
+
+    def test_detectar_advmod(self):
+        """Linea 39: rama elif tok.dep_ == advmod."""
+        r = detectar_constituyentes("El perro come rapidamente")
+        assert r["disponible"] is True
+        assert len(r["advmod"]) >= 1
+
+    def test_detectar_sin_sujeto(self):
+        """Linea 43: rama elif not r[sujeto]."""
+        r = detectar_constituyentes("Llueve mucho")
+        assert r["disponible"] is True
+        assert r["verbo"] is not None
+        assert r["sujeto"] is None
+        assert "sujeto" in r["razon"]
+
+    def test_svo_canonico_texto_vacio(self):
+        """Linea 86: rama if not const[disponible] -> return r."""
+        r = reordenar_svo_canonico("")
+        assert r["disponible"] is False
+        assert r["esperado"] == ""
