@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Parafrasis mecanica</title>
+</head>
+<body>
+    <h1>Parafrasis mecanica</h1>
+    <form id="form-parafrasis">
+        {% csrf_token %}
+        <div>
+            <label for="texto_original">Texto original:</label><br>
+            <textarea id="texto_original" name="original" rows="3" cols="60"></textarea>
+        </div>
+        <div>
+            <label for="texto_parafraseado">Tu parafrasis:</label><br>
+            <textarea id="texto_parafraseado" name="parafraseado" rows="3" cols="60"></textarea>
+        </div>
+        <div>
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" name="tipo">
+                <option value="activa_a_pasiva">Activa a pasiva</option>
+                <option value="pasiva_a_activa">Pasiva a activa</option>
+            </select>
+        </div>
+        <div id="resultado"></div>
+    </form>
+    <script>
+    (function() {
+        var form = document.getElementById('form-parafrasis');
+        var timer = null;
+        form.addEventListener('input', function() {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                var fd = new FormData(form);
+                fetch('/sintaxis/parafrasis/ajax/', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    document.getElementById('resultado').textContent =
+                        JSON.stringify(data, null, 2);
+                });
+            }, 400);
+        });
+    })();
+    </script>
+</body>
+</html>
