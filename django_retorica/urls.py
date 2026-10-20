@@ -72,6 +72,7 @@ from core.views_ejercicios import detalle_ejercicio, practicar_ejercicio
 
 from core import views_parafrasis
 from core import views_parafrasis_reordenamiento
+from core import views_parafrasis_registro
 
 
 # Rutas sin prefijo de idioma (admin + i18n + TTS)
@@ -239,4 +240,8 @@ urlpatterns += [
 ]
 urlpatterns += [
     path("sintaxis/parafrasis/reordenar/", views_parafrasis_reordenamiento.parafrasis_reordenar_ajax, name="parafrasis_reordenar"),
+]
+urlpatterns += [
+    path("sintaxis/parafrasis/registro/", views_parafrasis_registro.registro_demo, name="registro_demo"),
+    path("sintaxis/parafrasis/registro/ajax/", views_parafrasis_registro.registro_ajax, name="registro_ajax"),
 ]
