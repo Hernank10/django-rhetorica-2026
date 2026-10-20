@@ -1,9 +1,9 @@
 ﻿# Modulo 1 - Parser NLP con spaCy
 
 **Estado**: produccion
-**Commits**: 3 (`aa58d38` .. `28a8e2a`)
-**Tests del modulo**: 41 (22 servicios POS + 6 vistas POS + 13 integracion)
-**Cobertura global al cierre**: 97.48%
+**Commits**: 4 (`aa58d38` .. R2b)
+**Tests del modulo**: 47 (22 servicios POS + 12 vistas POS + 13 integracion)
+**Cobertura global al cierre**: 97.36%
 **Dependencias nuevas**: spaCy 3.8.16 + `es_core_news_sm` + `es_core_news_md`
 
 ---
@@ -390,4 +390,50 @@ python manage.py check
 
 ---
 
-*Ultima actualizacion: 2026-10-19 tras R3 (28a8e2a).*
+*Ultima actualizacion: 2026-10-20 tras R2b(demo AJAX).*
+
+
+## 11.bis Adenda R2b — Demo interactiva con AJAX
+
+**Agregado post-R3.** Añade interactividad al demo de POS.
+
+### Endpoint AJAX
+
+```
+POST /pos/ajax/analizar/   name=pos_analizar_ajax
+Body: {"texto": "..."}
+Response: {"analisis": {...}, "stats": {...}}
+```
+
+- `require_POST` (GET -> 405)
+- 400 si JSON invalido, `texto` vacio, o `texto > 1000` chars
+- Llama `analizar_frase()` + `estadisticas_pos()` y retorna JSON
+
+### Template reescrito
+
+`demo.html` ahora es JS-driven:
+- **Debounce 400ms** al tipear
+- **AbortController** para cancelar requests anteriores
+- Render dinamico de tabla con badges coloreados por POS
+- Contador `N / 1000` caracteres en vivo
+- Fallback: mensaje "spaCy no disponible" si el modelo falta
+
+### Tests nuevos (6)
+
+`TestAnalizarAjax` en `test_views_pos.py`:
+- GET rechazado (405)
+- JSON invalido (400)
+- Falta texto (400)
+- Texto > 1000 chars (400)
+- Estructura JSON ok (keys `analisis` y `stats` presentes)
+- Analisis completo con modelo (`tokens`, `stats` poblados)
+
+### Decision tecnica #9
+
+**AJAX + debounce + AbortController**: la demo original hacia POST + reload.
+Reescrita con `fetch` — analisis en tiempo real, cancelacion de requests
+previos, sin recarga de pagina. El endpoint valida independiente del
+limite `MAX_PALABRAS=500` del servicio (aqui 1000 chars porque un demo
+puede aceptar texto mas largo sin ejecutar el flujo completo de redaccion).
+
+---
