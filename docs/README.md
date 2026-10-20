@@ -3,7 +3,7 @@
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: 248+ (todos verdes)
-**Cobertura**: 97.36%
+**Cobertura**: 97.21%
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -20,8 +20,9 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 4 | Redaccion morfosintactica | produccion | 43 | [modulo4_redaccion_completo.md](modulo4_redaccion_completo.md) |
 | 5 | SRS / SM-2 (repeticion espaciada) | produccion | 63 | [modulo5_srs_completo.md](modulo5_srs_completo.md) |
 | 6 | Corpus y concordancia | produccion | 30 | [modulo6_corpus_completo.md](modulo6_corpus_completo.md) |
+| 7 | Parafrasis mecanica (sintaxis) | produccion | 52 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 
-**Total**: ~248 tests, cobertura 97.36%.
+**Total**: ~300 tests, cobertura 97.21%.
 
 ---
 
@@ -177,4 +178,4 @@ django-rhetorica/
 
 ---
 
-*Ultima actualizacion: 2026-10-20 tras R2b.*
+*Ultima actualizacion: 2026-10-20 tras S5.2.*
