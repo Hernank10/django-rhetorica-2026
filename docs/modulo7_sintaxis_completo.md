@@ -312,5 +312,154 @@ v = verificar_reordenamiento(
 ```
 
 ---
+## 13. Parafrasis de registro (S5.5)
 
-*Ultima actualizacion: 2026-10-20 tras S5.4.2 (reordenamiento sintactico).*
+**Agregado post-S5.4.** Transformacion lexica formal <-> coloquial sin LLM.
+9 pares de palabras + deteccion de registro dominante + verificacion.
+
+### 13.1 Servicio parafrasis_registro.py
+
+`core/services/parafrasis_registro.py` (87 lineas, 5 funciones):
+
+- `_palabras(texto)` - tokeniza a palabras lowercase via regex
+- `_reemplazar_palabras(texto, mapping)` - replace preservando capitalizacion
+- `detectar_registro(texto)` - cuenta marcadores formales vs coloquiales
+- `transformar_registro(texto, hacia)` - formal->coloquial o coloquial->formal
+- `verificar_registro(orig, para, tipo)` - valida reduccion de marcadores
+
+**9 pares lexicos** (PARES_FORMAL_A_COLOQUIAL):
+
+| Formal | Coloquial |
+|---|---|
+| usted | vos |
+| ustedes | vosotros |
+| automovil | carro |
+| dinero | plata |
+| trabajo | laburo |
+| profesor | profe |
+| estupendo | genial |
+| comer | papear |
+| cansado | reventado |
+
+Sin acentos ni colisiones. `PARES_COLOQUIAL_A_FORMAL` es el inverso
+generado por dict comprehension.
+
+### 13.2 Logica de deteccion
+
+`detectar_registro` devuelve dict con:
+- `registro`: "formal" | "coloquial" | "neutral"
+- `formal_count`, `coloquial_count`: conteo de marcadores
+- `marcadores_formal`, `marcadores_coloquial`: listas de palabras encontradas
+
+Regla: si `formal_count > coloquial_count` -> formal, vice versa, empate -> neutral.
+
+### 13.3 Verificacion
+
+`verificar_registro(orig, para, tipo)` valida:
+- `formal_a_coloquial`: original tiene formales Y parafraseado reduce el conteo
+- `coloquial_a_formal`: original tiene coloquiales Y parafraseado reduce el conteo
+- Identicos -> rechazo inmediato
+- Contrato de retorno alineado con S5.1/S5.4 (aprobado, tipo, features, feedback)
+
+### 13.4 Vistas y URLs
+
+| Vista | Metodo | Ruta | Proposito |
+|---|---|---|---|
+| `registro_demo` | GET, POST | `/sintaxis/parafrasis/registro/` | Renderiza template |
+| `registro_ajax` | POST | `/sintaxis/parafrasis/registro/ajax/` | Deteccion + transformacion + verificacion |
+
+**Validaciones del endpoint AJAX:**
+- `original` vacio -> 400 `{"error": "Falta original"}`
+- `tipo` fuera de `{formal_a_coloquial, coloquial_a_formal}` -> 400 `{"error": "Tipo invalido"}`
+- Si `parafraseado` esta presente, incluye `verificacion` en la respuesta
+- GET -> 405
+
+**Respuesta JSON:** 2 o 3 claves segun si hay parafraseado:
+- Siempre: `deteccion_original`, `transformacion_sugerida`
+- Opcional: `verificacion` (solo si `parafraseado` no vacio)
+
+### 13.5 Template registro.html
+
+`core/templates/core/parafrasis/registro.html`:
+- Form `id="form-registro"` con 2 textareas + select de tipo
+- Boton `id="btn-registro"` (click handler, no submit)
+- Div `id="resultado"` para output
+- Link de vuelta al demo principal `/sintaxis/parafrasis/`
+- JS: fetch POST + render lineas (registro detectado / sugerencia / verificacion)
+
+Ademas, `demo.html` extendido con link a la pagina de registro.
+
+### 13.6 Tests (28 nuevos)
+
+| Archivo | Tests | Modelo |
+|---|---|---|
+| `test_services_parafrasis_registro.py` | 18 | no (puro Python) |
+| `test_views_parafrasis_registro.py` | 10 | no |
+
+Sin spaCy: los 28 tests corren en ~3s total (vs ~10s los que usan modelo).
+
+Desglose servicios:
+- `TestDetectarRegistro`: 5 tests (formal, coloquial, neutral, vacio, empate)
+- `TestTransformarRegistro`: 4 tests (formal->coloq, coloq->formal, sin cambios, hacia invalido)
+- `TestDicts`: 3 tests (inverso correcto, 9 pares, sin colisiones)
+- `TestVerificarRegistro`: 6 tests (aprobado ambos sentidos, identicos, original neutral, tipo invalido, vacio)
+
+Desglose vistas:
+- `TestRegistroDemo`: 4 tests (GET ok, ids presentes, url ajax, POST)
+- `TestRegistroAjaxValidation`: 3 tests (GET 405, sin original, tipo invalido)
+- `TestRegistroAjaxHappyPath`: 3 tests (solo original, con parafraseado aprobado, contrato JSON)
+
+### 13.7 Cobertura al cierre
+
+| Archivo | Cobertura |
+|---|---|
+| `parafrasis_registro.py` | 98% (2 lineas defensivas sin cubrir) |
+| `views_parafrasis_registro.py` | 100% |
+| Global | **97.31%** |
+
+### 13.8 Decisiones tecnicas
+
+**Determinista, sin spaCy**: reemplazo 1-a-1 por diccionario + regex. No
+requiere modelo. Tests en <2s. Permite uso offline total.
+
+**Dict comprehension inverso**: `PARES_COLOQUIAL_A_FORMAL` derivado de
+`PARES_FORMAL_A_COLOQUIAL`, no escrito a mano. Imposible desincronizacion.
+
+**Capitalizacion preservada**: `_reemplazar_palabras` mantiene la primera
+letra mayuscula si el original lo estaba ("Usted" -> "Vos", "usted" -> "vos").
+
+**Template separado**: `registro.html` en lugar de extender `demo.html`.
+`demo.html` ya tiene 12 tests S5.2 + 10 S5.4.2; agregar mas riesgo sin
+beneficio. Demo principal linkea a registro, cada pagina mantiene su scope.
+
+**Endpoint unificado**: un solo POST `/registro/ajax/` que hace deteccion +
+transformacion + verificacion en una llamada. El cliente no necesita 3
+endpoints. El campo `verificacion` es opcional segun si el usuario ya
+escribio su parafrasis.
+
+### 13.9 Uso rapido
+
+```python
+from core.services.parafrasis_registro import (
+    detectar_registro,
+    transformar_registro,
+    verificar_registro,
+)
+
+d = detectar_registro("Usted tiene dinero")
+# d["registro"] == "formal", d["formal_count"] == 2
+
+t = transformar_registro("Usted tiene dinero", "coloquial")
+# t["esperado"] == "Vos tiene plata", t["cambios"] == [{de:"usted",a:"vos"}, {de:"dinero",a:"plata"}]
+
+v = verificar_registro(
+    "Usted tiene dinero",
+    "Vos tiene plata",
+    "formal_a_coloquial",
+)
+# v["aprobado"] == True
+```
+
+---
+
+*Ultima actualizacion: 2026-10-20 tras S5.5.2 (parafrasis de registro).*
