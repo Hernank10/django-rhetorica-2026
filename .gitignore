@@ -106,4 +106,5 @@ django_retorica/*.bak
 # ============================================================
 # TTS cache (Fase 3 - gTTS)
 # ============================================================
-tts_cache/
+tts_cache/scripts/backup_core*.json
+scripts/_*.txt
