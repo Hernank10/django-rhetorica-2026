@@ -108,12 +108,17 @@ def dashboard_estudiante(request):
 from django.contrib.auth import authenticate, login, logout
 
 
+def _redirect_dashboard(user):
+    """Devuelve la URL de dashboard segun el rol del usuario."""
+    if user.is_staff or user.groups.filter(name="Profesor").exists():
+        return redirect("profesor:dashboard")
+    return redirect("estudiante:dashboard")
+
+
 def login_view(request):
-    """Vista de inicio de sesión"""
+    """Vista de inicio de sesion con redirect por rol."""
     if request.user.is_authenticated:
-        if request.user.is_staff:
-            return redirect("profesor:dashboard")
-        return redirect("estudiante:dashboard")
+        return _redirect_dashboard(request.user)
 
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -123,10 +128,10 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, f'✅ ¡Bienvenido {user.username}!')
-            return redirect('dashboard_estudiante')
+            messages.success(request, f'Bienvenido {user.username}!')
+            return _redirect_dashboard(user)
         else:
-            messages.error(request, '❌ Usuario o contraseña incorrectos')
+            messages.error(request, 'Usuario o contrasena incorrectos')
 
     return render(request, 'core/login.html')
 
