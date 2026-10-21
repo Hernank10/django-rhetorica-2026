@@ -14,13 +14,30 @@ RECURSOS_BASE = Path(settings.BASE_DIR) / "ejercicios_completos-lengua-castellan
 
 
 def _resolver_archivo(recurso):
-    """Devuelve la ruta absoluta del archivo, validando que esté dentro de RECURSOS_BASE."""
-    p = (RECURSOS_BASE / recurso.archivo).resolve()
-    base = RECURSOS_BASE.resolve()
+    """Devuelve la ruta absoluta del archivo, validando que esté dentro del root.
+
+    Soporta dos formatos de Recurso.archivo:
+    - "ejercicios_completos-lengua-castellana/foo.html" (con prefijo → BASE_DIR)
+    - "foo.html" (sin prefijo → RECURSOS_BASE)
+
+    La validacion se hace contra el root usado (permite parchear RECURSOS_BASE en tests).
+    """
+    archivo = (recurso.archivo or "").strip()
+    if not archivo:
+        raise Http404("Recurso sin archivo")
+
+    if archivo.startswith("ejercicios_completos-lengua-castellana/"):
+        p = (Path(settings.BASE_DIR) / archivo).resolve()
+        base_check = Path(settings.BASE_DIR).resolve()
+    else:
+        p = (RECURSOS_BASE / archivo).resolve()
+        base_check = RECURSOS_BASE.resolve()
+
     try:
-        p.relative_to(base)
+        p.relative_to(base_check)
     except ValueError:
-        raise Http404("Ruta inválida")
+        raise Http404("Ruta invalida")
+
     if not p.exists() or not p.is_file():
         raise Http404("Archivo no encontrado")
     return p
