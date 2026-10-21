@@ -60,6 +60,45 @@ def dashboard(request):
 
     cursos_top = Curso.objects.order_by("-estudiantes_inscritos")[:5]
 
+    # === Charts (dashboard con gráficas) ===
+    from datetime import date, timedelta
+
+    from django.db.models import Count
+    from django.db.models.functions import TruncDate
+
+    # Top 10 cursos por estudiantes inscritos
+    chart_cursos = list(
+        Curso.objects.order_by("-estudiantes_inscritos")[:10].values(
+            "titulo", "estudiantes_inscritos"
+        )
+    )
+
+    # Progresos completados últimos 30 días, agrupados por día
+    try:
+        hace_30 = date.today() - timedelta(days=30)
+        chart_actividad = list(
+            ProgresoUsuario.objects.filter(
+                completado=True, completado_en__gte=hace_30
+            )
+            .annotate(dia=TruncDate("completado_en"))
+            .values("dia")
+            .annotate(count=Count("id"))
+            .order_by("dia")
+        )
+        chart_actividad = [
+            {"dia": x["dia"].isoformat() if x["dia"] else "", "count": x["count"]}
+            for x in chart_actividad
+        ]
+    except Exception:
+        chart_actividad = []
+
+    # Distribución de cursos por nivel
+    chart_niveles = list(
+        Curso.objects.values("nivel")
+        .annotate(count=Count("id"))
+        .order_by("nivel")
+    )
+
     context = {
         "kpis": {
             "estudiantes": total_estudiantes,
@@ -72,6 +111,9 @@ def dashboard(request):
         },
         "ultimos_estudiantes": ultimos_estudiantes,
         "cursos_top": cursos_top,
+        "chart_cursos": chart_cursos,
+        "chart_actividad": chart_actividad,
+        "chart_niveles": chart_niveles,
     }
     return render(request, "core/profesor/dashboard.html", context)
 

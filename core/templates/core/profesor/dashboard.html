@@ -65,6 +65,120 @@
   </div>
 </div>
 
+{% load static %}
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Top 10 cursos por inscritos</div>
+      <div class="card-body">
+        <canvas id="chartCursos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-line"></i> Progresos completados (30 días)</div>
+      <div class="card-body">
+        <canvas id="chartActividad" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-pie"></i> Distribución de cursos por nivel</div>
+      <div class="card-body">
+        <canvas id="chartNiveles" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+  const cursos = {{ chart_cursos|safe }};
+  const actividad = {{ chart_actividad|safe }};
+  const niveles = {{ chart_niveles|safe }};
+
+  // Bar: top cursos
+  if (cursos && cursos.length > 0) {
+    new Chart(document.getElementById('chartCursos'), {
+      type: 'bar',
+      data: {
+        labels: cursos.map(c => c.titulo),
+        datasets: [{
+          label: 'Inscritos',
+          data: cursos.map(c => c.estudiantes_inscritos),
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  } else {
+    document.getElementById('chartCursos').parentElement.innerHTML = '<p class="text-muted">Sin datos</p>';
+  }
+
+  // Line: progresos últimos 30 días
+  if (actividad && actividad.length > 0) {
+    new Chart(document.getElementById('chartActividad'), {
+      type: 'line',
+      data: {
+        labels: actividad.map(a => a.dia),
+        datasets: [{
+          label: 'Progresos',
+          data: actividad.map(a => a.count),
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          tension: 0.3,
+          fill: true,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  } else {
+    document.getElementById('chartActividad').parentElement.innerHTML = '<p class="text-muted">Sin datos en los últimos 30 días</p>';
+  }
+
+  // Doughnut: distribución de niveles
+  if (niveles && niveles.length > 0) {
+    new Chart(document.getElementById('chartNiveles'), {
+      type: 'doughnut',
+      data: {
+        labels: niveles.map(n => n.nivel),
+        datasets: [{
+          data: niveles.map(n => n.count),
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(255, 205, 86, 0.7)',
+            'rgba(255, 99, 132, 0.7)',
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
+      }
+    });
+  } else {
+    document.getElementById('chartNiveles').parentElement.innerHTML = '<p class="text-muted">Sin datos</p>';
+  }
+})();
+</script>
+
 <div class="row g-3">
   <div class="col-md-6">
     <div class="card shadow-sm">
