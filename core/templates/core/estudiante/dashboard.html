@@ -121,6 +121,58 @@
   </div>
 </div>
 
+<!-- Charts + certs (Commit 3) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-pie"></i> Ejercicios por tipo</div>
+      <div class="card-body">
+        <canvas id="chartAciertos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Correctas vs total por tipo</div>
+      <div class="card-body">
+        <canvas id="chartTipos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-certificate"></i> Mis certificados recientes</div>
+      <div class="card-body">
+        {% if ultimos_certs %}
+          <div class="row g-2">
+            {% for cert in ultimos_certs %}
+              <div class="col-md-4">
+                <div class="card h-100 border-primary">
+                  <div class="card-body text-center">
+                    <i class="fas fa-award fa-2x text-warning mb-2"></i>
+                    <h6 class="card-title">{{ cert.certificacion.nombre|truncatechars:40 }}</h6>
+                    <p class="small text-muted mb-2">{{ cert.certificacion.get_nivel_display }}</p>
+                    <p class="small text-muted">{{ cert.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</p>
+                    <a href="{% url 'verificar_certificado_publico' cert.codigo_verificacion %}"
+                       class="btn btn-sm btn-outline-primary" target="_blank">
+                      <i class="fas fa-external-link-alt"></i> Verificar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Aun no has obtenido certificados.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% load static %}
 <script src="{% static 'js/chart.umd.min.js' %}"></script>
 <script>
@@ -159,5 +211,49 @@ new Chart(document.getElementById('chartActividad'), {
   },
   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
 });
+
+// === Charts por tipo (Commit 3) ===
+(function() {
+  const aciertos = {{ aciertos_data|safe }};
+  const canvasA = document.getElementById('chartAciertos');
+  const canvasT = document.getElementById('chartTipos');
+
+  if (aciertos && aciertos.length > 0 && canvasA && canvasT) {
+    new Chart(canvasA, {
+      type: 'doughnut',
+      data: {
+        labels: aciertos.map(a => a.tipo || '(sin tipo)'),
+        datasets: [{
+          data: aciertos.map(a => a.total),
+          backgroundColor: [
+            'rgba(54,162,235,0.7)','rgba(75,192,192,0.7)',
+            'rgba(255,205,86,0.7)','rgba(255,99,132,0.7)',
+            'rgba(153,102,255,0.7)','rgba(255,159,64,0.7)',
+          ],
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'right' } } }
+    });
+
+    new Chart(canvasT, {
+      type: 'bar',
+      data: {
+        labels: aciertos.map(a => a.tipo || '(sin tipo)'),
+        datasets: [
+          { label: 'Total', data: aciertos.map(a => a.total),
+            backgroundColor: 'rgba(54,162,235,0.4)',
+            borderColor: 'rgba(54,162,235,1)', borderWidth: 1 },
+          { label: 'Correctas', data: aciertos.map(a => a.correctas),
+            backgroundColor: 'rgba(75,192,192,0.7)',
+            borderColor: 'rgba(75,192,192,1)', borderWidth: 1 }
+        ]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true } } }
+    });
+  } else {
+    if (canvasA) canvasA.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
+    if (canvasT) canvasT.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
+  }
+})();
 </script>
 {% endblock %}
