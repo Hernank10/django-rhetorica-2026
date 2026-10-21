@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """URLs del panel del profesor con namespace 'profesor'."""
 from django.urls import path
 
@@ -13,6 +13,7 @@ urlpatterns = [
 
     # Estudiantes
     path('estudiantes/', prof.lista_estudiantes, name='estudiantes'),
+    path('estudiantes/metricas/', prof.lista_estudiantes_metricas, name='estudiantes_metricas'),
     path('estudiantes/<int:estudiante_id>/', prof.detalle_estudiante, name='estudiante_detalle'),
 
     # Evaluaciones

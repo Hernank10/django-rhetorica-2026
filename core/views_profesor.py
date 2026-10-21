@@ -944,3 +944,96 @@ def recursos_autovincular(request):
     return render(request, "core/profesor/recursos/autovincular.html", {
         "cursos": Curso.objects.all().order_by("titulo"),
     })
+
+
+@profesor_required
+def lista_estudiantes_metricas(request):
+    """Tabla consolidada: estudiantes + metricas agregadas."""
+    from datetime import timedelta
+
+    from django.apps import apps
+    from django.db.models import Avg, Count, Max, Q
+    from django.utils import timezone
+
+    User = apps.get_model("auth", "User")
+    Curso = apps.get_model("core", "Curso")
+
+    curso_id = (request.GET.get("curso") or "").strip()
+    estado = (request.GET.get("estado") or "").strip()
+    q = (request.GET.get("q") or "").strip()
+    sort = (request.GET.get("sort") or "username").strip()
+
+    estudiantes = (
+        User.objects.filter(groups__name="Estudiante")
+        .annotate(
+            cursos_count=Count("progreso_lecciones__leccion__modulo__curso", distinct=True),
+            lecciones_completadas=Count(
+                "progreso_lecciones", filter=Q(progreso_lecciones__completado=True)
+            ),
+            evals_count=Count(
+                "resultados_evaluaciones",
+                filter=Q(resultados_evaluaciones__completado=True),
+                distinct=True,
+            ),
+            evals_promedio=Avg(
+                "resultados_evaluaciones__puntaje_obtenido",
+                filter=Q(resultados_evaluaciones__completado=True),
+            ),
+            practicas_total=Count("respuestas", distinct=True),
+            practicas_correctas=Count(
+                "respuestas", filter=Q(respuestas__es_correcta=True), distinct=True
+            ),
+            certs_count=Count("certificaciones_obtenidas", distinct=True),
+            logros_count=Count("logros_obtenidos", distinct=True),
+            ultima_actividad=Max("progreso_lecciones__ultima_actividad"),
+        )
+    )
+
+    if q:
+        estudiantes = estudiantes.filter(username__icontains=q)
+
+    if curso_id.isdigit():
+        estudiantes = estudiantes.filter(
+            progreso_lecciones__leccion__modulo__curso_id=int(curso_id)
+        ).distinct()
+
+    hoy = timezone.now()
+    hace_7d = hoy - timedelta(days=7)
+    resultado = []
+    for est in estudiantes:
+        if est.practicas_total:
+            est.tasa_practicas = round(
+                100 * est.practicas_correctas / est.practicas_total, 1
+            )
+        else:
+            est.tasa_practicas = None
+        if est.ultima_actividad:
+            est.estado_calculado = (
+                "activo" if est.ultima_actividad >= hace_7d else "inactivo"
+            )
+        else:
+            est.estado_calculado = "nunca"
+        if estado and est.estado_calculado != estado:
+            continue
+        resultado.append(est)
+
+    if sort == "tasa":
+        resultado.sort(key=lambda e: (e.tasa_practicas or -1), reverse=True)
+    elif sort == "ultima":
+        resultado.sort(
+            key=lambda e: e.ultima_actividad.timestamp() if e.ultima_actividad else 0,
+            reverse=True,
+        )
+    else:
+        resultado.sort(key=lambda e: e.username)
+
+    context = {
+        "estudiantes": resultado,
+        "total": len(resultado),
+        "cursos": Curso.objects.all().order_by("titulo"),
+        "filtros": {"curso": curso_id, "estado": estado, "q": q, "sort": sort},
+    }
+    return render(
+        request, "core/profesor/estudiantes/lista_metricas.html", context
+    )
+

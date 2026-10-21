@@ -1,0 +1,124 @@
+{% extends 'core/profesor/base.html' %}
+{% load i18n %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-table"></i> Estudiantes con métricas</h2>
+
+<div class="card mb-3 shadow-sm">
+  <div class="card-body">
+    <form method="get" class="row g-2 align-items-end">
+      <div class="col-md-3">
+        <label class="form-label small text-muted">Buscar</label>
+        <input type="text" name="q" value="{{ filtros.q }}" class="form-control form-control-sm" placeholder="Username...">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label small text-muted">Curso</label>
+        <select name="curso" class="form-select form-select-sm">
+          <option value="">Todos los cursos</option>
+          {% for c in cursos %}
+            <option value="{{ c.id }}" {% if filtros.curso == c.id|stringformat:"s" %}selected{% endif %}>{{ c.titulo|truncatechars:50 }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label class="form-label small text-muted">Estado</label>
+        <select name="estado" class="form-select form-select-sm">
+          <option value="">Todos</option>
+          <option value="activo" {% if filtros.estado == "activo" %}selected{% endif %}>Activos (7 días)</option>
+          <option value="inactivo" {% if filtros.estado == "inactivo" %}selected{% endif %}>Inactivos</option>
+          <option value="nunca" {% if filtros.estado == "nunca" %}selected{% endif %}>Sin actividad</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary btn-sm me-1">
+          <i class="fas fa-filter"></i> Filtrar
+        </button>
+        <a href="{% url 'profesor:estudiantes_metricas' %}" class="btn btn-outline-secondary btn-sm">
+          Limpiar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<p class="text-muted mb-2"><strong>{{ total }}</strong> estudiantes</p>
+
+<div class="table-responsive">
+  <table class="table table-hover table-sm align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Estudiante</th>
+        <th class="text-center">Cursos</th>
+        <th class="text-center">Lecciones</th>
+        <th class="text-center">Evaluaciones</th>
+        <th class="text-center">Prácticas</th>
+        <th class="text-center">Tasa</th>
+        <th class="text-center">Cert/Logr</th>
+        <th>Última actividad</th>
+        <th class="text-center">Estado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in estudiantes %}
+      <tr>
+        <td>
+          <i class="fas fa-user-circle text-muted"></i>
+          <strong>{{ e.username }}</strong>
+          {% if e.first_name %}<br><small class="text-muted">{{ e.first_name }} {{ e.last_name }}</small>{% endif %}
+        </td>
+        <td class="text-center">{{ e.cursos_count }}</td>
+        <td class="text-center">{{ e.lecciones_completadas }}</td>
+        <td class="text-center">
+          {{ e.evals_count }}
+          {% if e.evals_promedio %}<br><small class="text-muted">{{ e.evals_promedio|floatformat:1 }}%</small>{% endif %}
+        </td>
+        <td class="text-center">{{ e.practicas_correctas }}/{{ e.practicas_total }}</td>
+        <td class="text-center">
+          {% if e.tasa_practicas is None %}
+            <span class="text-muted">—</span>
+          {% elif e.tasa_practicas >= 80 %}
+            <span class="badge bg-success">{{ e.tasa_practicas }}%</span>
+          {% elif e.tasa_practicas >= 50 %}
+            <span class="badge bg-warning text-dark">{{ e.tasa_practicas }}%</span>
+          {% else %}
+            <span class="badge bg-danger">{{ e.tasa_practicas }}%</span>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          <span class="badge bg-primary">{{ e.certs_count }}</span> /
+          <span class="badge bg-info text-dark">{{ e.logros_count }}</span>
+        </td>
+        <td>
+          {% if e.ultima_actividad %}
+            <small>{{ e.ultima_actividad|date:"d/m/Y H:i" }}</small>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+        <td class="text-center">
+          {% if e.estado_calculado == "activo" %}
+            <span class="badge bg-success">Activo</span>
+          {% elif e.estado_calculado == "inactivo" %}
+            <span class="badge bg-warning text-dark">Inactivo</span>
+          {% else %}
+            <span class="badge bg-secondary">Sin actividad</span>
+          {% endif %}
+        </td>
+        <td>
+          <a href="{% url 'profesor:estudiante_detalle' e.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-eye"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="10" class="text-center text-muted py-4">
+          <i class="fas fa-inbox fa-2x mb-2 d-block"></i>
+          No hay estudiantes que cumplan los filtros.
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
