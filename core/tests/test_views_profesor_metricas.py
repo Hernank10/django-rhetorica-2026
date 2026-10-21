@@ -91,3 +91,34 @@ class TestListaEstudiantesMetricas(TestCase):
         assert target is not None
         assert target.cursos_count == 1
         assert target.lecciones_completadas == 2
+
+class TestChartsMetricas(TestCase):
+    def setUp(self):
+        self.prof = User.objects.create_user(
+            username="prof_charts_test", password="Test1234!"
+        )
+        g_prof, _ = Group.objects.get_or_create(name="Profesor")
+        self.prof.groups.add(g_prof)
+        self.client.login(username="prof_charts_test", password="Test1234!")
+
+    def test_chart_top_en_context(self):
+        r = self.client.get(reverse("profesor:estudiantes_metricas"))
+        assert "chart_top" in r.context
+        assert "labels" in r.context["chart_top"]
+        assert "data" in r.context["chart_top"]
+
+    def test_chart_tasa_en_context(self):
+        r = self.client.get(reverse("profesor:estudiantes_metricas"))
+        assert "chart_tasa" in r.context
+        assert "labels" in r.context["chart_tasa"]
+        assert "data" in r.context["chart_tasa"]
+        assert r.context["chart_tasa"]["labels"] == [
+            "0-20%", "20-40%", "40-60%", "60-80%", "80-100%"
+        ]
+
+    def test_template_tiene_canvas(self):
+        r = self.client.get(reverse("profesor:estudiantes_metricas"))
+        html = r.content.decode("utf-8")
+        assert 'id="chartTop"' in html
+        assert 'id="chartTasa"' in html
+        assert "chart.umd.min.js" in html

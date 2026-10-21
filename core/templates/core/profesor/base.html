@@ -11,7 +11,7 @@
           <i class="fas fa-tachometer-alt" aria-hidden="true"></i> Dashboard
         </a>
         <a class="list-group-item list-group-item-action {% if '/estudiantes/' in request.path %}active{% endif %}"
-           href="{% url 'profesor:estudiantes' %}"
+           href="{% url 'profesor:estudiantes_metricas' %}"
            {% if '/estudiantes/' in request.path %}aria-current="page"{% endif %}>
           <i class="fas fa-users" aria-hidden="true"></i> Estudiantes
         </a>

@@ -42,6 +42,80 @@
 
 <p class="text-muted mb-2"><strong>{{ total }}</strong> estudiantes</p>
 
+{% load static %}
+<!-- Charts comparativos -->
+<div class="row g-3 mb-4">
+  <div class="col-md-7">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Top 10 por lecciones completadas</div>
+      <div class="card-body">
+        <canvas id="chartTop" height="120"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-pie"></i> Distribución por tasa de aciertos</div>
+      <div class="card-body">
+        <canvas id="chartTasa" height="120"></canvas>
+        {% if chart_tasa.sin_datos %}<small class="text-muted">{{ chart_tasa.sin_datos }} estudiantes sin datos aún</small>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+  const topData = {{ chart_top|safe }};
+  const tasaData = {{ chart_tasa|safe }};
+
+  if (topData.labels && topData.labels.length > 0) {
+    new Chart(document.getElementById('chartTop'), {
+      type: 'bar',
+      data: {
+        labels: topData.labels,
+        datasets: [{
+          label: 'Lecciones completadas',
+          data: topData.data,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  }
+
+  if (tasaData.labels && tasaData.labels.length > 0) {
+    new Chart(document.getElementById('chartTasa'), {
+      type: 'doughnut',
+      data: {
+        labels: tasaData.labels,
+        datasets: [{
+          data: tasaData.data,
+          backgroundColor: [
+            'rgba(220, 53, 69, 0.7)',
+            'rgba(255, 159, 64, 0.7)',
+            'rgba(255, 205, 86, 0.7)',
+            'rgba(75, 192, 192, 0.7)',
+            'rgba(25, 135, 84, 0.7)',
+          ],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
+      }
+    });
+  }
+})();
+</script>
+
 <div class="table-responsive">
   <table class="table table-hover table-sm align-middle">
     <thead class="table-light">

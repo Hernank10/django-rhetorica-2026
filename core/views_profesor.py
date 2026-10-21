@@ -1027,11 +1027,46 @@ def lista_estudiantes_metricas(request):
     else:
         resultado.sort(key=lambda e: e.username)
 
+    # === Charts comparativos ===
+    # Top 10 por lecciones completadas
+    top_lecciones = sorted(
+        resultado, key=lambda e: e.lecciones_completadas, reverse=True
+    )[:10]
+    chart_top = {
+        "labels": [e.username for e in top_lecciones],
+        "data": [e.lecciones_completadas for e in top_lecciones],
+    }
+
+    # Distribución por tasa de aciertos (5 buckets)
+    buckets = {"0-20%": 0, "20-40%": 0, "40-60%": 0, "60-80%": 0, "80-100%": 0}
+    sin_datos = 0
+    for est in resultado:
+        if est.tasa_practicas is None:
+            sin_datos += 1
+            continue
+        if est.tasa_practicas < 20:
+            buckets["0-20%"] += 1
+        elif est.tasa_practicas < 40:
+            buckets["20-40%"] += 1
+        elif est.tasa_practicas < 60:
+            buckets["40-60%"] += 1
+        elif est.tasa_practicas < 80:
+            buckets["60-80%"] += 1
+        else:
+            buckets["80-100%"] += 1
+    chart_tasa = {
+        "labels": list(buckets.keys()),
+        "data": list(buckets.values()),
+        "sin_datos": sin_datos,
+    }
+
     context = {
         "estudiantes": resultado,
         "total": len(resultado),
         "cursos": Curso.objects.all().order_by("titulo"),
         "filtros": {"curso": curso_id, "estado": estado, "q": q, "sort": sort},
+        "chart_top": chart_top,
+        "chart_tasa": chart_tasa,
     }
     return render(
         request, "core/profesor/estudiantes/lista_metricas.html", context
