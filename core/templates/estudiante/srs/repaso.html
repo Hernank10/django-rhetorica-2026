@@ -1,39 +1,137 @@
-{% extends "estudiante/base.html" %}
-{% block title %}Repaso - SRS{% endblock %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Repaso</h1>
-<p class="meta">Pendientes hoy: {{ pendientes_count }}</p>
-
-{% if not review %}
-    <div class="ok">
-        <strong>Todo al dia.</strong>
-        No hay flashcards pendientes de repaso.
+<div class="container mt-4" style="max-width:800px">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0"><i class="fas fa-brain text-primary"></i> Repaso SRS</h2>
+    <div>
+      <span class="badge bg-info text-dark me-2">{{ pendientes_count }} pendientes</span>
+      <a href="{% url 'srs_estadisticas' %}" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-chart-bar"></i> Ver stats
+      </a>
     </div>
-    <p><a href="{% url 'srs_estadisticas' %}">Ver estadisticas</a></p>
-{% else %}
-    <div style="padding:1rem;border:1px solid #ddd;border-radius:6px;margin:1rem 0;">
-        <p class="meta">Flashcard #{{ review.flashcard_id }}</p>
-        <h2 style="margin-top:0;">{{ review.flashcard.frente }}</h2>
-    </div>
+  </div>
 
-    <form method="post">
+  {% if review %}
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">{{ review.flashcard.frente }}</h3>
+      <p class="text-muted small mb-3">
+        <span class="badge bg-secondary">{{ review.flashcard.categoria_gramatical }}</span>
+        <span class="badge bg-info text-dark">{{ review.flashcard.tipo }}</span>
+      </p>
+
+      {% if review.flashcard.ejercicio %}
+      <div class="alert alert-light border py-2 mb-3">
+        <strong><i class="fas fa-pen"></i> Ejercicio:</strong>
+        <div class="mt-1">{{ review.flashcard.ejercicio }}</div>
+      </div>
+
+      <textarea id="respuesta" class="form-control mb-2" rows="2"
+                placeholder="Escribe tu respuesta..."></textarea>
+      <div class="d-flex gap-2 mb-3">
+        <button type="button" id="btn-verificar" class="btn btn-primary btn-sm">
+          <i class="fas fa-check"></i> Verificar respuesta
+        </button>
+        <button type="button" id="btn-pista" class="btn btn-outline-info btn-sm">
+          <i class="fas fa-lightbulb"></i> Ver pista
+        </button>
+      </div>
+
+      <div id="verificacion"></div>
+      {% endif %}
+
+      <div id="pista" style="display:none;">
+        <div class="alert alert-secondary py-2 mb-3">
+          <strong>Explicación:</strong>
+          <p class="mb-1">{{ review.flashcard.explicacion|default:review.flashcard.reverso }}</p>
+          {% if review.flashcard.ejemplo %}
+          <strong>Ejemplo:</strong>
+          <p class="mb-0"><em>{{ review.flashcard.ejemplo }}</em></p>
+          {% endif %}
+        </div>
+      </div>
+
+      <hr>
+      <p class="text-muted small mb-2">Después de verificar (o sin verificar), calificá tu desempeño:</p>
+      <form method="post" id="form-calidad">
         {% csrf_token %}
-        <p>Como te fue?</p>
-        <button type="submit" name="calidad" value="1" style="background:#c0392b;">
-            Mal
-        </button>
-        <button type="submit" name="calidad" value="3" style="background:#f39c12;">
-            Regular
-        </button>
-        <button type="submit" name="calidad" value="5" style="background:#27ae60;">
-            Bien
-        </button>
-    </form>
+        <div class="d-flex flex-wrap gap-2">
+          <button type="submit" name="calidad" value="0" class="btn btn-outline-danger">0 — Olvidé</button>
+          <button type="submit" name="calidad" value="1" class="btn btn-outline-warning">1 — Mal</button>
+          <button type="submit" name="calidad" value="3" class="btn btn-outline-info">3 — Difícil</button>
+          <button type="submit" name="calidad" value="4" class="btn btn-outline-success">4 — Bien</button>
+          <button type="submit" name="calidad" value="5" class="btn btn-outline-primary">5 — Fácil</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {% else %}
+  <div class="card shadow-sm">
+    <div class="card-body text-center py-5">
+      <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+      <h4>¡Todo al día!</h4>
+      <p class="text-muted">No hay flashcards pendientes para hoy.</p>
+      <a href="{% url 'srs_estadisticas' %}" class="btn btn-primary">Ver mis estadísticas</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
 
-    <details style="margin-top:1.5rem;">
-        <summary>Mostrar respuesta</summary>
-        <p style="padding:0.5rem;background:#f8f9fa;">{{ review.flashcard.reverso }}</p>
-    </details>
-{% endif %}
+<script>
+(function() {
+  const reviewId = {{ review.id|default:0 }};
+  const btnVer = document.getElementById('btn-verificar');
+  const btnPista = document.getElementById('btn-pista');
+  const respuestaEl = document.getElementById('respuesta');
+  const verifEl = document.getElementById('verificacion');
+  const pistaEl = document.getElementById('pista');
+  const formCalidad = document.getElementById('form-calidad');
+
+  if (!btnVer || !reviewId) return;
+
+  const csrf = formCalidad ? (formCalidad.querySelector('[name=csrfmiddlewaretoken]')?.value || '') : '';
+
+  function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = String(s == null ? '' : s);
+    return d.innerHTML;
+  }
+
+  btnVer.addEventListener('click', function() {
+    const respuesta = (respuestaEl.value || '').trim();
+    if (!respuesta) {
+      verifEl.innerHTML = '<div class="alert alert-warning py-2 mb-2 small">Escribe tu respuesta primero.</div>';
+      return;
+    }
+    const fd = new FormData();
+    fd.append('respuesta', respuesta);
+    fd.append('csrfmiddlewaretoken', csrf);
+
+    fetch('/estudiante/srs/verificar/' + reviewId + '/', { method: 'POST', body: fd })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (!data.disponible) {
+          verifEl.innerHTML = '<div class="alert alert-secondary py-2 mb-2 small">' + esc(data.razon) + '</div>';
+          return;
+        }
+        const ok = data.aprobado;
+        const pct = Math.round((data.similitud || 0) * 100);
+        const cls = ok ? 'success' : 'warning';
+        let html = '<div class="alert alert-' + cls + ' py-2 mb-2">';
+        html += '<strong>' + (ok ? '✓ Correcto' : '✗ Revisar') + '</strong> — similitud ' + pct + '%';
+        html += '<div class="mt-1 small"><strong>Respuesta esperada:</strong> <code>' + esc(data.esperada) + '</code></div>';
+        html += '</div>';
+        verifEl.innerHTML = html;
+      })
+      .catch(function(e) {
+        verifEl.innerHTML = '<div class="alert alert-danger py-2 mb-2 small">Error: ' + esc(e.message) + '</div>';
+      });
+  });
+
+  btnPista.addEventListener('click', function() {
+    pistaEl.style.display = pistaEl.style.display === 'none' ? 'block' : 'none';
+  });
+})();
+</script>
 {% endblock %}

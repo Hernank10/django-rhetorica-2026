@@ -177,6 +177,7 @@ urlpatterns += i18n_patterns(
     path('estudiante/srs/repaso/', views_srs.repaso, name='srs_repaso'),
 
     path('estudiante/srs/estadisticas/', views_srs.estadisticas, name='srs_estadisticas'),
+    path('estudiante/srs/verificar/<int:review_id>/', views_srs.verificar, name='srs_verificar'),
 
 
 

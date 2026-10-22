@@ -1,34 +1,148 @@
-{% extends "estudiante/base.html" %}
-{% block title %}Estadisticas - SRS{% endblock %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Estadisticas de repaso</h1>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0"><i class="fas fa-brain text-primary"></i> SRS — Estadísticas</h2>
+    <div>
+      <a href="{% url 'srs_repaso' %}" class="btn btn-primary btn-sm">
+        <i class="fas fa-play"></i> Repasar ahora
+      </a>
+    </div>
+  </div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0;">
-    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
-        <p class="meta">Total flashcards</p>
-        <p style="font-size:1.8rem;margin:0;">{{ stats.total_flashcards }}</p>
+  <div class="row g-3 mb-4">
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <div class="fs-2 fw-bold text-primary">{{ total_flashcards }}</div>
+          <div class="small text-muted">Flashcards</div>
+        </div>
+      </div>
     </div>
-    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
-        <p class="meta">Pendientes hoy</p>
-        <p style="font-size:1.8rem;margin:0;">{{ stats.reviews_pendientes }}</p>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <div class="fs-2 fw-bold text-success">{{ total_reviews }}</div>
+          <div class="small text-muted">Reviews</div>
+        </div>
+      </div>
     </div>
-    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
-        <p class="meta">Retencion</p>
-        <p style="font-size:1.8rem;margin:0;">
-            {% if stats.retencion_pct is None %}-{% else %}{{ stats.retencion_pct }}%{% endif %}
-        </p>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <div class="fs-2 fw-bold text-warning">{{ stats.pendientes_hoy|default:0 }}</div>
+          <div class="small text-muted">Pendientes hoy</div>
+        </div>
+      </div>
     </div>
-    <div style="padding:1rem;background:#ecf0f1;border-radius:6px;">
-        <p class="meta">Proxima revision</p>
-        <p style="font-size:1.8rem;margin:0;">
-            {{ stats.proxima_revision|date:"Y-m-d"|default:"-" }}
-        </p>
+    <div class="col-md-3">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <div class="fs-2 fw-bold text-info">{{ stats.promedio_facilidad|floatformat:2|default:"—" }}</div>
+          <div class="small text-muted">Facilidad prom.</div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold"><i class="fas fa-layer-group text-primary"></i> Madurez SM-2</div>
+        <div class="card-body"><canvas id="chartMadurez" height="180"></canvas></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar text-success"></i> Facilidad</div>
+        <div class="card-body"><canvas id="chartFacilidad" height="180"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold"><i class="fas fa-calendar-alt text-warning"></i> Intervalos</div>
+        <div class="card-body"><canvas id="chartIntervalos" height="180"></canvas></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold"><i class="fas fa-chart-line text-info"></i> Retención (4 semanas)</div>
+        <div class="card-body"><canvas id="chartRetencion" height="180"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="mt-4"><i class="fas fa-list"></i> Mis flashcards</h5>
+  <div class="card shadow-sm">
+    <div class="table-responsive">
+      <table class="table table-hover table-sm mb-0 align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Concepto</th>
+            <th>Categoría</th>
+            <th>Tipo</th>
+            <th>Creada</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fc in flashcards %}
+          <tr>
+            <td>{{ fc.frente|truncatechars:70 }}</td>
+            <td><span class="badge bg-secondary">{{ fc.categoria_gramatical }}</span></td>
+            <td><span class="badge bg-info text-dark">{{ fc.tipo }}</span></td>
+            <td><small class="text-muted">{{ fc.creado_en|date:"d/m/Y" }}</small></td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4" class="text-muted text-center py-3">Sin flashcards aún.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 
-<p>
-    <a href="{% url 'srs_repaso' %}">Ir a repaso</a>
-    <a href="{% url 'redaccion_indice' %}">Taller de redaccion</a>
-</p>
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+  const madurez = {{ charts.madurez|safe }};
+  const facilidad = {{ charts.facilidad|safe }};
+  const intervalos = {{ charts.intervalos|safe }};
+  const retencion = {{ charts.retencion|safe }};
+  const palette = ['rgba(54,162,235,0.7)','rgba(255,205,86,0.7)','rgba(75,192,192,0.7)','rgba(255,99,132,0.7)','rgba(153,102,255,0.7)'];
+
+  if (madurez.labels && madurez.labels.length) new Chart(document.getElementById('chartMadurez'), {
+    type: 'doughnut',
+    data: { labels: madurez.labels, datasets: [{ data: madurez.data, backgroundColor: palette }] },
+    options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } } } }
+  });
+
+  if (facilidad.labels && facilidad.labels.length) new Chart(document.getElementById('chartFacilidad'), {
+    type: 'bar',
+    data: { labels: facilidad.labels, datasets: [{ label: 'Flashcards', data: facilidad.data, backgroundColor: 'rgba(75,192,192,0.7)' }] },
+    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+  });
+
+  if (intervalos.labels && intervalos.labels.length) new Chart(document.getElementById('chartIntervalos'), {
+    type: 'bar',
+    data: { labels: intervalos.labels, datasets: [{ label: 'Flashcards', data: intervalos.data, backgroundColor: 'rgba(255,205,86,0.7)' }] },
+    options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+  });
+
+  if (retencion.labels && retencion.labels.length) new Chart(document.getElementById('chartRetencion'), {
+    type: 'bar',
+    data: {
+      labels: retencion.labels,
+      datasets: [
+        { label: 'Total', data: retencion.total, backgroundColor: 'rgba(54,162,235,0.4)' },
+        { label: 'Correctas', data: retencion.correctas, backgroundColor: 'rgba(75,192,192,0.7)' },
+      ]
+    },
+    options: { responsive: true, scales: { y: { beginAtZero: true } } }
+  });
+})();
+</script>
 {% endblock %}
