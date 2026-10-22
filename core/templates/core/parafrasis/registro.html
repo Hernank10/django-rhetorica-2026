@@ -1,69 +1,352 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Parafrasis de registro</title>
-</head>
-<body>
-    <h1>Parafrasis de registro: formal &lt;-&gt; coloquial</h1>
-    <form id="form-registro">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0"><i class="fas fa-user-tie text-warning"></i> Paráfrasis de Registro</h2>
+    <a href="{% url 'parafrasis_demo' %}" class="btn btn-outline-secondary btn-sm">
+      <i class="fas fa-arrow-left"></i> Volver a demo activa/pasiva
+    </a>
+  </div>
+
+  <div class="row g-3">
+    <!-- Columna izquierda: form -->
+    <div class="col-md-6">
+      <form id="form-registro" onsubmit="return false;">
         {% csrf_token %}
-        <div>
-            <label for="texto_original">Texto original:</label><br>
-            <textarea id="texto_original" name="original" rows="3" cols="60"></textarea>
+        <div class="mb-2">
+          <label for="texto_original" class="form-label fw-bold">Texto original:</label>
+          <textarea id="texto_original" name="original" class="form-control" rows="3"
+                    placeholder="Ej: Usted tiene dinero en el automóvil"></textarea>
+          <small class="text-muted"><span id="contador_orig">0</span> caracteres</small>
         </div>
-        <div>
-            <label for="texto_parafraseado">Tu parafrasis (opcional):</label><br>
-            <textarea id="texto_parafraseado" name="parafraseado" rows="3" cols="60"></textarea>
+        <div class="mb-2">
+          <label for="texto_parafraseado" class="form-label fw-bold">Tu paráfrasis (opcional):</label>
+          <textarea id="texto_parafraseado" name="parafraseado" class="form-control" rows="3"
+                    placeholder="Ej: Vos tenés plata en el carro"></textarea>
+          <small class="text-muted"><span id="contador_para">0</span> caracteres</small>
         </div>
-        <div>
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo">
-                <option value="formal_a_coloquial">Formal a coloquial</option>
-                <option value="coloquial_a_formal">Coloquial a formal</option>
-            </select>
+        <div class="mb-3">
+          <label for="tipo" class="form-label fw-bold">Tipo:</label>
+          <select id="tipo" name="tipo" class="form-select">
+            <option value="formal_a_coloquial">Formal → Coloquial</option>
+            <option value="coloquial_a_formal">Coloquial → Formal</option>
+          </select>
         </div>
-        <button type="button" id="btn-registro">Transformar y verificar</button>
-    </form>
-    <div id="resultado"></div>
-    <p><a href="/sintaxis/parafrasis/">Volver a demo activa/pasiva</a></p>
-    <script>
-    (function() {
-        var btn = document.getElementById('btn-registro');
-        var out = document.getElementById('resultado');
-        var form = document.getElementById('form-registro');
-        btn.addEventListener('click', function() {
-            var original = document.getElementById('texto_original').value;
-            if (!original.trim()) {
-                out.textContent = 'Escribe un texto.';
-                return;
-            }
-            var fd = new FormData(form);
-            fetch('/sintaxis/parafrasis/registro/ajax/', {
-                method: 'POST',
-                body: fd
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.error) {
-                    out.textContent = 'Error: ' + data.error;
-                    return;
-                }
-                var lines = [];
-                lines.push('Registro detectado: ' + data.deteccion_original.registro);
-                if (data.transformacion_sugerida.esperado) {
-                    lines.push('Sugerencia: ' + data.transformacion_sugerida.esperado);
-                } else {
-                    lines.push('Sugerencia: (sin cambios)');
-                }
-                if (data.verificacion) {
-                    lines.push('Verificacion: ' + data.verificacion.feedback);
-                }
-                out.textContent = lines.join('\n');
-            })
-            .catch(function(e) { out.textContent = 'Error: ' + e.message; });
+        <button type="button" id="btn-registro" class="btn btn-warning">
+          <i class="fas fa-exchange-alt"></i> Transformar y verificar
+        </button>
+      </form>
+    </div>
+
+    <!-- Columna derecha: chart -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold">
+          <i class="fas fa-balance-scale text-warning"></i> Balance de registro
+        </div>
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <canvas id="chartRegistro" height="200" style="max-height:220px"></canvas>
+        </div>
+        <div class="card-footer bg-white small text-muted" id="registroDetectado">
+          Escribe un texto para ver el balance formal / coloquial.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div id="resultado" class="mt-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p class="text-muted mb-0">Escribe el original para detectar el registro y verificar tu paráfrasis.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de exportación -->
+  <div class="mt-3 d-flex gap-2">
+    <button type="button" id="btn-txt" class="btn btn-outline-primary btn-sm" disabled>
+      <i class="fas fa-download"></i> Descargar informe TXT
+    </button>
+    <button type="button" id="btn-print" class="btn btn-outline-secondary btn-sm" disabled>
+      <i class="fas fa-print"></i> Imprimir / PDF
+    </button>
+  </div>
+</div>
+
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+  "use strict";
+  const form = document.getElementById('form-registro');
+  const resultEl = document.getElementById('resultado');
+  const origEl = document.getElementById('texto_original');
+  const paraEl = document.getElementById('texto_parafraseado');
+  const tipoEl = document.getElementById('tipo');
+  const btnReg = document.getElementById('btn-registro');
+  const btnTxt = document.getElementById('btn-txt');
+  const btnPrint = document.getElementById('btn-print');
+  const contOrig = document.getElementById('contador_orig');
+  const contPara = document.getElementById('contador_para');
+  const registroDetectado = document.getElementById('registroDetectado');
+
+  let chart = null;
+  let lastData = null;
+  let lastMeta = { original: '', parafraseado: '', tipo: '' };
+
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = String(s == null ? "" : s);
+    return d.innerHTML;
+  }
+
+  function getCsrf() {
+    const inp = document.querySelector("[name=csrfmiddlewaretoken]");
+    return inp ? inp.value : "";
+  }
+
+  function renderChart(det) {
+    const canvas = document.getElementById('chartRegistro');
+    if (!canvas) return;
+    if (chart) { chart.destroy(); chart = null; }
+    const formal = (det && det.formal_count) || 0;
+    const coloquial = (det && det.coloquial_count) || 0;
+    if (formal === 0 && coloquial === 0) {
+      registroDetectado.innerHTML = 'Sin marcadores detectados. El texto es <strong>neutral</strong>.';
+      chart = new Chart(canvas, {
+        type: 'doughnut',
+        data: { labels: ['Sin marcadores'], datasets: [{ data: [1], backgroundColor: ['#e9ecef'] }] },
+        options: { responsive: true, cutout: '65%', plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+      });
+      return;
+    }
+    chart = new Chart(canvas, {
+      type: 'doughnut',
+      data: {
+        labels: ['Formal', 'Coloquial'],
+        datasets: [{
+          data: [formal, coloquial],
+          backgroundColor: ['#0d6efd', '#ffc107'],
+          borderWidth: 0,
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '65%',
+        plugins: {
+          legend: { position: 'bottom', labels: { boxWidth: 12 } },
+        }
+      }
+    });
+    const reg = (det && det.registro) || 'neutral';
+    const color = reg === 'formal' ? 'primary' : (reg === 'coloquial' ? 'warning' : 'secondary');
+    registroDetectado.innerHTML =
+      'Registro dominante: <span class="badge bg-' + color + '">' + esc(reg) + '</span> ' +
+      '&middot; formal: <strong>' + formal + '</strong> / coloquial: <strong>' + coloquial + '</strong>';
+  }
+
+  function renderResultado(data) {
+    const det = data.deteccion_original || {};
+    const trans = data.transformacion_sugerida || {};
+    const verif = data.verificacion || null;
+
+    renderChart(det);
+
+    let html = '<div class="card shadow-sm"><div class="card-body">';
+
+    // Detección
+    html += '<h6 class="text-muted mb-2"><i class="fas fa-search"></i> Detección del original</h6>';
+    html += '<div class="mb-3">';
+    html += '<span class="badge bg-secondary me-2">Registro: ' + esc(det.registro || 'neutral') + '</span>';
+    if (det.marcadores_formal && det.marcadores_formal.length) {
+      html += '<span class="badge bg-primary me-1">Formal: ' + det.marcadores_formal.map(esc).join(', ') + '</span>';
+    }
+    if (det.marcadores_coloquial && det.marcadores_coloquial.length) {
+      html += '<span class="badge bg-warning text-dark me-1">Coloquial: ' + det.marcadores_coloquial.map(esc).join(', ') + '</span>';
+    }
+    html += '</div>';
+
+    // Transformación sugerida
+    if (trans.esperado) {
+      html += '<div class="alert alert-info py-2 mb-3">';
+      html += '<strong><i class="fas fa-lightbulb"></i> Sugerencia:</strong>';
+      html += '<code class="d-block mt-1" id="sugerencia-texto">' + esc(trans.esperado) + '</code>';
+      if (trans.cambios && trans.cambios.length) {
+        html += '<details class="mt-2"><summary class="small">Ver cambios léxicos (' + trans.cambios.length + ')</summary>';
+        html += '<table class="table table-sm mt-2 mb-0"><thead><tr><th>De</th><th></th><th>A</th></tr></thead><tbody>';
+        trans.cambios.forEach(function(c) {
+          html += '<tr><td><code>' + esc(c.de) + '</code></td><td>→</td><td><code>' + esc(c.a) + '</code></td></tr>';
         });
-    })();
-    </script>
-</body>
-</html>
+        html += '</tbody></table></details>';
+      }
+      html += '</div>';
+    } else if (trans.razon) {
+      html += '<div class="alert alert-secondary py-2 mb-3 small">' + esc(trans.razon) + '</div>';
+    }
+
+    // Verificación
+    if (verif) {
+      const ok = verif.aprobado === true;
+      html += '<h6 class="text-muted mb-2"><i class="fas fa-check-double"></i> Verificación de tu paráfrasis</h6>';
+      html += '<div class="mb-2">';
+      html += ok ? '<span class="badge bg-success fs-6">✓ APROBADO</span>'
+                 : '<span class="badge bg-danger fs-6">✗ NO APROBADO</span>';
+      html += ' <small class="text-muted ms-2">Original: ' + esc(verif.registro_original) + ' → Tu paráfrasis: ' + esc(verif.registro_parafraseado) + '</small>';
+      html += '</div>';
+      if (verif.feedback) {
+        html += '<div class="alert alert-' + (ok ? 'success' : 'warning') + ' py-2 small mb-2">' + esc(verif.feedback) + '</div>';
+      }
+      if (verif.features && verif.features.checks) {
+        html += '<table class="table table-sm mb-0"><tbody>';
+        Object.entries(verif.features.checks).forEach(function(e) {
+          const c = e[1] === true;
+          const icon = c ? '<i class="fas fa-check-circle text-success"></i>'
+                         : '<i class="fas fa-times-circle text-danger"></i>';
+          html += '<tr><td>' + icon + ' <code>' + esc(e[0]) + '</code></td><td class="text-end">' +
+                  (c ? '<span class="badge bg-success">OK</span>' : '<span class="badge bg-danger">FALTA</span>') +
+                  '</td></tr>';
+        });
+        html += '</tbody></table>';
+      }
+    }
+
+    html += '</div></div>';
+    resultEl.innerHTML = html;
+
+    // Habilitar export
+    btnTxt.disabled = false;
+    btnPrint.disabled = false;
+    lastData = data;
+  }
+
+  function enviar() {
+    const original = (origEl.value || "").trim();
+    const parafraseado = (paraEl.value || "").trim();
+    const tipo = tipoEl.value;
+
+    if (!original) {
+      resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-muted mb-0">Escribe un texto para analizar.</p></div></div>';
+      btnTxt.disabled = true;
+      btnPrint.disabled = true;
+      renderChart({});
+      return;
+    }
+
+    lastMeta = { original: original, parafraseado: parafraseado, tipo: tipo };
+
+    const fd = new FormData();
+    fd.append('original', original);
+    fd.append('parafraseado', parafraseado);
+    fd.append('tipo', tipo);
+    fd.append('csrfmiddlewaretoken', getCsrf());
+
+    fetch('/sintaxis/parafrasis/registro/ajax/', {
+      method: 'POST',
+      body: fd
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      if (data.error) {
+        resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-danger mb-0">' + esc(data.error) + '</p></div></div>';
+        return;
+      }
+      renderResultado(data);
+    })
+    .catch(function(err) {
+      resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-danger mb-0">Error: ' + esc(err.message) + '</p></div></div>';
+    });
+  }
+
+  btnReg.addEventListener('click', enviar);
+
+  form.addEventListener('input', function() {
+    contOrig.textContent = (origEl.value || "").length;
+    contPara.textContent = (paraEl.value || "").length;
+  });
+
+  // === Descarga informe TXT ===
+  function generarInforme() {
+    const d = lastData || {};
+    const det = d.deteccion_original || {};
+    const trans = d.transformacion_sugerida || {};
+    const verif = d.verificacion || null;
+    const ahora = new Date().toLocaleString('es-CO');
+
+    let L = [];
+    L.push('========================================');
+    L.push('   INFORME — PARÁFRASIS DE REGISTRO');
+    L.push('   ' + ahora);
+    L.push('========================================');
+    L.push('');
+    L.push('--- DATOS DE ENTRADA ---');
+    L.push('Tipo: ' + (lastMeta.tipo || '—'));
+    L.push('');
+    L.push('Texto original:');
+    L.push(lastMeta.original || '—');
+    L.push('');
+    L.push('Tu paráfrasis:');
+    L.push(lastMeta.parafraseado || '(sin paráfrasis)');
+    L.push('');
+    L.push('--- DETECCIÓN DE REGISTRO ---');
+    L.push('Registro dominante: ' + (det.registro || 'neutral'));
+    L.push('Marcadores formales: ' + ((det.marcadores_formal || []).join(', ') || '(ninguno)'));
+    L.push('Marcadores coloquiales: ' + ((det.marcadores_coloquial || []).join(', ') || '(ninguno)'));
+    L.push('Conteo: formal=' + (det.formal_count || 0) + ' / coloquial=' + (det.coloquial_count || 0));
+    L.push('');
+    L.push('--- TRANSFORMACIÓN SUGERIDA ---');
+    if (trans.esperado) {
+      L.push(trans.esperado);
+      if (trans.cambios && trans.cambios.length) {
+        L.push('');
+        L.push('Cambios léxicos aplicados:');
+        trans.cambios.forEach(function(c) {
+          L.push('  ' + c.de + ' → ' + c.a);
+        });
+      }
+    } else {
+      L.push(trans.razon || '(sin transformación)');
+    }
+    L.push('');
+    L.push('--- VERIFICACIÓN ---');
+    if (verif) {
+      L.push('Resultado: ' + (verif.aprobado ? 'APROBADO' : 'NO APROBADO'));
+      L.push('Feedback: ' + (verif.feedback || '—'));
+      if (verif.features && verif.features.checks) {
+        L.push('Checks:');
+        Object.entries(verif.features.checks).forEach(function(e) {
+          L.push('  ' + (e[1] ? '[OK]' : '[FALTA]') + ' ' + e[0]);
+        });
+      }
+    } else {
+      L.push('(sin verificación — no se ingresó paráfrasis)');
+    }
+    L.push('');
+    L.push('========================================');
+    L.push('Generado por Rhetorica+');
+    return L.join('\n');
+  }
+
+  btnTxt.addEventListener('click', function() {
+    const txt = generarInforme();
+    const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const ts = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    a.href = url;
+    a.download = 'informe_registro_' + ts + '.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  btnPrint.addEventListener('click', function() {
+    window.print();
+  });
+})();
+</script>
+{% endblock %}
