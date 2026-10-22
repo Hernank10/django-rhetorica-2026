@@ -24,6 +24,11 @@ class Flashcard(models.Model):
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES)
     frente = models.TextField()
     reverso = models.TextField()
+    explicacion = models.TextField(blank=True, default="")
+    ejemplo = models.TextField(blank=True, default="")
+    ejercicio = models.TextField(blank=True, default="")
+    respuesta_ejercicio = models.TextField(blank=True, default="")
+    fuente_id = models.IntegerField(null=True, blank=True)
     categoria_gramatical = models.CharField(max_length=100, blank=True, default="")
     creado_en = models.DateTimeField(auto_now_add=True)
 
