@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <div class="container mt-4">
+  <!-- Estadisticas SRS: dashboard de metricas -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0"><i class="fas fa-brain text-primary"></i> SRS — Estadísticas</h2>
     <div>
@@ -16,7 +17,7 @@
       <div class="card text-center shadow-sm">
         <div class="card-body">
           <div class="fs-2 fw-bold text-primary">{{ total_flashcards }}</div>
-          <div class="small text-muted">Flashcards</div>
+          <div class="small text-muted">Total flashcards</div>
         </div>
       </div>
     </div>
@@ -45,6 +46,14 @@
       </div>
     </div>
   </div>
+
+  {% if proxima_revision %}
+  <div class="alert alert-info py-2 mb-3">
+    <i class="fas fa-clock"></i> <strong>Próxima revisión:</strong>
+    <code>{{ proxima_revision|date:"Y-m-d" }}</code>
+    <small class="text-muted ms-2">(primer pendiente)</small>
+  </div>
+  {% endif %}
 
   <div class="row g-3 mb-4">
     <div class="col-md-6">

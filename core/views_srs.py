@@ -170,11 +170,19 @@ def estadisticas(request):
         },
     }
 
+    proxima_rv = (
+        mis_rv.filter(completada_en__isnull=True)
+        .order_by("programada_para")
+        .first()
+    )
+    proxima_revision = proxima_rv.programada_para if proxima_rv else None
+
     context = {
         "stats": stats,
         "charts": charts,
         "flashcards": mis_fc.order_by("-creado_en")[:100],
         "total_flashcards": mis_fc.count(),
         "total_reviews": mis_rv.count(),
+        "proxima_revision": proxima_revision,
     }
     return render(request, "estudiante/srs/estadisticas.html", context)
