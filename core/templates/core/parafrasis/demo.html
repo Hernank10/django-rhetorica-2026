@@ -1,84 +1,285 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="utf-8">
-    <title>Parafrasis mecanica</title>
-</head>
-<body>
-    <h1>Parafrasis mecanica</h1>
-    <form id="form-parafrasis">
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0"><i class="fas fa-exchange-alt text-success"></i> Análisis de Paráfrasis</h2>
+    <a href="{% url 'registro_demo' %}" class="btn btn-outline-secondary btn-sm">
+      <i class="fas fa-user-tie"></i> Probar registro formal/coloquial
+    </a>
+  </div>
+
+  <div class="row g-3">
+    <!-- Columna izquierda: form -->
+    <div class="col-md-6">
+      <form id="form-parafrasis" onsubmit="return false;">
         {% csrf_token %}
-        <div>
-            <label for="texto_original">Texto original:</label><br>
-            <textarea id="texto_original" name="original" rows="3" cols="60"></textarea>
+        <div class="mb-2">
+          <label for="texto_original" class="form-label fw-bold">Texto original:</label>
+          <textarea id="texto_original" name="original" class="form-control" rows="3"
+                    placeholder="Ej: Juan lee el libro"></textarea>
+          <small class="text-muted"><span id="contador_orig">0</span> caracteres</small>
         </div>
-        <div>
-            <label for="texto_parafraseado">Tu parafrasis:</label><br>
-            <textarea id="texto_parafraseado" name="parafraseado" rows="3" cols="60"></textarea>
+        <div class="mb-2">
+          <label for="texto_parafraseado" class="form-label fw-bold">Tu paráfrasis:</label>
+          <textarea id="texto_parafraseado" name="parafraseado" class="form-control" rows="3"
+                    placeholder="Ej: El libro es leído por Juan"></textarea>
+          <small class="text-muted"><span id="contador_para">0</span> caracteres</small>
         </div>
-        <div>
-            <label for="tipo">Tipo:</label>
-            <select id="tipo" name="tipo">
-                <option value="activa_a_pasiva">Activa a pasiva</option>
-                <option value="pasiva_a_activa">Pasiva a activa</option>
-            </select>
+        <div class="mb-3">
+          <label for="tipo" class="form-label fw-bold">Tipo:</label>
+          <select id="tipo" name="tipo" class="form-select">
+            <option value="activa_a_pasiva">Activa → Pasiva</option>
+            <option value="pasiva_a_activa">Pasiva → Activa</option>
+          </select>
         </div>
-        <div id="resultado"></div>
-    </form>
-    <button type="button" id="btn-reordenar">Sugerir reordenamientos</button>
-    <div id="sugerencias"></div>
-    <script>
-    (function() {
-        var form = document.getElementById('form-parafrasis');
-        var timer = null;
-        form.addEventListener('input', function() {
-            clearTimeout(timer);
-            timer = setTimeout(function() {
-                var fd = new FormData(form);
-                fetch('/sintaxis/parafrasis/ajax/', {
-                    method: 'POST',
-                    body: fd
-                })
-                .then(function(r) { return r.json(); })
-                .then(function(data) {
-                    document.getElementById('resultado').textContent =
-                        JSON.stringify(data, null, 2);
-                });
-            }, 400);
-        });
-    })();
-    </script>
-    <script>
-    (function() {
-        var btn = document.getElementById('btn-reordenar');
-        var out = document.getElementById('sugerencias');
-        var form = document.getElementById('form-parafrasis');
-        btn.addEventListener('click', function() {
-            var original = document.getElementById('texto_original').value;
-            if (!original.trim()) {
-                out.textContent = 'Escribe un texto primero.';
-                return;
-            }
-            var fd = new FormData();
-            fd.append('original', original);
-            var csrf = form.querySelector('[name=csrfmiddlewaretoken]').value;
-            fd.append('csrfmiddlewaretoken', csrf);
-            fetch('/sintaxis/parafrasis/reordenar/', { method: 'POST', body: fd })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.sugerencias) {
-                    var lines = data.sugerencias
-                        .filter(function(s) { return s.esperado; })
-                        .map(function(s) { return '- ' + s.tipo + ': ' + s.esperado; });
-                    out.textContent = lines.length ? lines.join('\n') : 'Sin sugerencias.';
-                } else {
-                    out.textContent = 'Error: ' + (data.error || 'desconocido');
-                }
-            })
-            .catch(function(e) { out.textContent = 'Error: ' + e.message; });
-        });
-    })();
-    </script>
-    <p><a href="/sintaxis/parafrasis/registro/">Probar parafrasis de registro (formal/coloquial)</a></p>
-</body>
-</html>
+        <button type="button" id="btn-reordenar" class="btn btn-outline-info btn-sm">
+          <i class="fas fa-random"></i> Sugerir reordenamientos
+        </button>
+      </form>
+    </div>
+
+    <!-- Columna derecha: chart -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold">
+          <i class="fas fa-chart-pie text-primary"></i> Similitud
+        </div>
+        <div class="card-body d-flex align-items-center justify-content-center">
+          <canvas id="chartSimilitud" height="200" style="max-height:220px"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resultado principal -->
+  <div id="resultado" class="mt-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <p class="text-muted mb-0">Escribe el original y tu paráfrasis para verificar la transformación.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sugerencias de reordenamiento -->
+  <div id="sugerencias" class="mt-3"></div>
+</div>
+
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+(function() {
+  "use strict";
+  const form = document.getElementById('form-parafrasis');
+  const resultEl = document.getElementById('resultado');
+  const sugerenciasEl = document.getElementById('sugerencias');
+  const origEl = document.getElementById('texto_original');
+  const paraEl = document.getElementById('texto_parafraseado');
+  const tipoEl = document.getElementById('tipo');
+  const contOrig = document.getElementById('contador_orig');
+  const contPara = document.getElementById('contador_para');
+
+  let timer = null;
+  let controller = null;
+  let chart = null;
+
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = String(s == null ? "" : s);
+    return d.innerHTML;
+  }
+
+  function getCsrf() {
+    const inp = document.querySelector("[name=csrfmiddlewaretoken]");
+    return inp ? inp.value : "";
+  }
+
+  function renderChart(similitud) {
+    const canvas = document.getElementById('chartSimilitud');
+    if (!canvas) return;
+    if (chart) { chart.destroy(); chart = null; }
+    const pct = Math.round((similitud || 0) * 100);
+    let color = '#dc3545';
+    if (pct >= 60) color = '#198754';
+    else if (pct >= 40) color = '#ffc107';
+
+    chart = new Chart(canvas, {
+      type: 'doughnut',
+      data: {
+        labels: ['Similitud', 'Resto'],
+        datasets: [{
+          data: [pct, 100 - pct],
+          backgroundColor: [color, '#e9ecef'],
+          borderWidth: 0,
+        }]
+      },
+      options: {
+        responsive: true,
+        cutout: '70%',
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: false },
+        }
+      },
+      plugins: [{
+        id: 'centerText',
+        afterDraw: function(c) {
+          const ctx = c.ctx;
+          const cx = (c.chartArea.left + c.chartArea.right) / 2;
+          const cy = (c.chartArea.top + c.chartArea.bottom) / 2;
+          ctx.save();
+          ctx.font = 'bold 28px sans-serif';
+          ctx.fillStyle = color;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(pct + '%', cx, cy);
+          ctx.font = '12px sans-serif';
+          ctx.fillStyle = '#6c757d';
+          ctx.fillText('similitud', cx, cy + 24);
+          ctx.restore();
+        }
+      }]
+    });
+  }
+
+  function renderChecks(features) {
+    if (!features || !features.checks) return '';
+    const entries = Object.entries(features.checks);
+    if (!entries.length) return '';
+    let html = '<table class="table table-sm mb-0"><tbody>';
+    entries.forEach(function(e) {
+      const ok = e[1] === true;
+      const icon = ok ? '<i class="fas fa-check-circle text-success"></i>'
+                      : '<i class="fas fa-times-circle text-danger"></i>';
+      const badge = ok ? '<span class="badge bg-success">OK</span>'
+                       : '<span class="badge bg-danger">FALTA</span>';
+      html += '<tr><td>' + icon + ' <code>' + esc(e[0]) + '</code></td><td class="text-end">' + badge + '</td></tr>';
+    });
+    html += '</tbody></table>';
+    return html;
+  }
+
+  function renderResultado(data) {
+    const aprobado = data.aprobado === true;
+    const badgeAprob = aprobado
+      ? '<span class="badge bg-success fs-6">✓ APROBADO</span>'
+      : '<span class="badge bg-danger fs-6">✗ NO APROBADO</span>';
+    const simPct = Math.round((data.similitud || 0) * 100);
+
+    let html = '<div class="card shadow-sm">';
+    html += '<div class="card-body">';
+    html += '<div class="d-flex justify-content-between align-items-start mb-2">';
+    html += '<div>' + badgeAprob + ' <small class="text-muted ms-2">Tipo: ' + esc(data.tipo || '—') + '</small></div>';
+    html += '<small class="text-muted">Similitud: <strong>' + simPct + '%</strong></small>';
+    html += '</div>';
+
+    // Feedback
+    if (data.feedback) {
+      html += '<div class="alert alert-' + (aprobado ? 'success' : 'warning') + ' py-2 mb-3 small">';
+      html += '<i class="fas fa-info-circle"></i> ' + esc(data.feedback);
+      html += '</div>';
+    }
+
+    // Checks de features
+    if (data.features && data.features.checks) {
+      html += '<div class="mb-3"><h6 class="text-muted small">Checks de features:</h6>';
+      html += renderChecks(data.features);
+      html += '</div>';
+    }
+
+    // Sugerencia
+    if (data.sugerencia && data.sugerencia.esperado) {
+      html += '<div class="alert alert-info py-2 mb-2">';
+      html += '<strong><i class="fas fa-lightbulb"></i> Sugerencia:</strong> ';
+      html += '<code class="d-block mt-1" id="sugerencia-texto">' + esc(data.sugerencia.esperado) + '</code>';
+      html += '</div>';
+    }
+
+    html += '</div></div>';
+    resultEl.innerHTML = html;
+    renderChart(data.similitud || 0);
+  }
+
+  function verificar() {
+    const original = (origEl.value || "").trim();
+    const parafraseado = (paraEl.value || "").trim();
+    const tipo = tipoEl.value;
+
+    if (!original && !parafraseado) {
+      resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-muted mb-0">Escribe el original y tu paráfrasis para verificar la transformación.</p></div></div>';
+      renderChart(0);
+      return;
+    }
+
+    if (controller) controller.abort();
+    controller = new AbortController();
+
+    fetch("/sintaxis/parafrasis/ajax/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-CSRFToken": getCsrf()
+      },
+      body: "original=" + encodeURIComponent(original) + "&parafraseado=" + encodeURIComponent(parafraseado) + "&tipo=" + encodeURIComponent(tipo),
+      signal: controller.signal
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      if (data.error) {
+        resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-danger mb-0">' + esc(data.error) + '</p></div></div>';
+        return;
+      }
+      renderResultado(data);
+    })
+    .catch(function(err) {
+      if (err.name === 'AbortError') return;
+      resultEl.innerHTML = '<div class="card shadow-sm"><div class="card-body"><p class="text-danger mb-0">Error: ' + esc(err.message) + '</p></div></div>';
+    });
+  }
+
+  form.addEventListener('input', function() {
+    contOrig.textContent = (origEl.value || "").length;
+    contPara.textContent = (paraEl.value || "").length;
+    clearTimeout(timer);
+    timer = setTimeout(verificar, 400);
+  });
+
+  form.addEventListener('change', function(e) {
+    if (e.target === tipoEl) verificar();
+  });
+
+  // Boton reordenar
+  document.getElementById('btn-reordenar').addEventListener('click', function() {
+    const original = (origEl.value || "").trim();
+    if (!original) {
+      sugerenciasEl.innerHTML = '<div class="alert alert-warning py-2 mb-0">Escribe un texto primero.</div>';
+      return;
+    }
+    const fd = new FormData();
+    fd.append('original', original);
+    fd.append('csrfmiddlewaretoken', getCsrf());
+
+    fetch('/sintaxis/parafrasis/reordenar/', {
+      method: 'POST',
+      body: fd
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.sugerencias) {
+        const lines = data.sugerencias
+          .filter(function(s) { return s.esperado; })
+          .map(function(s) { return '• ' + s.tipo + ': ' + s.esperado; });
+        sugerenciasEl.innerHTML = '<div class="card shadow-sm"><div class="card-header bg-white fw-bold">Sugerencias de reordenamiento</div><div class="card-body"><pre class="mb-0 small">' + esc(lines.join('\n') || 'Sin sugerencias') + '</pre></div></div>';
+      } else {
+        sugerenciasEl.innerHTML = '<div class="alert alert-danger py-2 mb-0">Error: ' + esc(data.error || 'desconocido') + '</div>';
+      }
+    })
+    .catch(function(e) {
+      sugerenciasEl.innerHTML = '<div class="alert alert-danger py-2 mb-0">Error: ' + esc(e.message) + '</div>';
+    });
+  });
+})();
+</script>
+{% endblock %}
