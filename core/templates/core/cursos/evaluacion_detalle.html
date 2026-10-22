@@ -102,7 +102,7 @@
                                 <div class="card-body">
                                     <p>{{ pregunta.enunciado|default:"Sin enunciado" }}</p>
 
-                                    {% if pregunta.tipo == 'multiple' %}
+                                    {% if pregunta.tipo == 'multiple' or pregunta.tipo == 'multiple_choice' %}
                                         {% for opcion in pregunta.opciones|default:"" %}
                                         <div class="form-check">
                                             <input class="form-check-input" type="radio"
