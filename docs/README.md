@@ -3,7 +3,7 @@
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: 248+ (todos verdes)
-**Cobertura**: 97.08% | **~406 tests** verdes
+**Cobertura**: 97.08% | **936 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -21,9 +21,9 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 5 | SRS / SM-2 (repeticion espaciada) | produccion | 70 | [modulo5_srs_completo.md](modulo5_srs_completo.md) |
 | 6 | Corpus y concordancia | produccion | 30 | [modulo6_corpus_completo.md](modulo6_corpus_completo.md) |
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
-| 8 | LMS: hub + dashboards + populate | produccion | 34 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
+| 8 | LMS: hub + dashboards + populate | produccion | 936 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: ~406 tests, cobertura 97.08%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
+**Total**: 936 tests, cobertura 97.08%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
 ---
 
