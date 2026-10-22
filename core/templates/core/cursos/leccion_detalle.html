@@ -35,7 +35,7 @@
                     <div class="leccion-contenido mb-4">
                         <h5><i class="fas fa-info-circle text-primary"></i> Contenido</h5>
                         <div class="p-3 bg-light rounded">
-                            {{ leccion.contenido|linebreaks|default:"Contenido en preparación" }}
+                            {{ leccion.contenido|safe|default:"Contenido en preparación" }}
                         </div>
                     </div>
 
