@@ -1,205 +1,242 @@
-{% extends "estudiante/base.html" %}
-{% block title %}POS - Demo{% endblock %}
-
-{% block extra_head %}
-<style>
-    .tokens-tabla { width:100%; border-collapse:collapse; font-size:0.9rem; margin-top:1rem; }
-    .tokens-tabla th { background:#ecf0f1; padding:0.5rem; text-align:left; }
-    .tokens-tabla td { padding:0.4rem; border-bottom:1px solid #eee; }
-    .pos-badge { display:inline-block; padding:1px 6px; border-radius:3px; font-size:0.75rem;
-                 background:#3498db; color:#fff; }
-    .pos-badge.verb { background:#e74c3c; }
-    .pos-badge.noun { background:#27ae60; }
-    .pos-badge.adj { background:#9b59b6; }
-    .pos-badge.punct { background:#95a5a6; }
-    #texto { width:100%; padding:0.6rem; font-size:1rem; border:1px solid #ccc;
-             border-radius:4px; min-height:80px; font-family:inherit; }
-    #resultado { min-height:100px; }
-    .loading { color:#999; font-style:italic; padding:1rem; }
-    .stats-tabla { max-width:400px; border-collapse:collapse; margin-top:1rem; }
-    .stats-tabla th, .stats-tabla td { padding:0.4rem 0.6rem; border-bottom:1px solid #eee; }
-</style>
-{% endblock %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<h1>Analizador morfosintactico</h1>
+<div class="container mt-4">
+  <h2 class="mb-3"><i class="fas fa-tags text-primary"></i> Analizador morfosintáctico</h2>
 
-<div id="banner-modelo" class="error" style="display:none;">
-    <strong>spaCy no disponible.</strong>
-    El analisis morfosintactico requiere spaCy + modelo es_core_news_md.
-</div>
-
-<textarea id="texto" placeholder="Escribe una frase: Juan estudia matematicas en su casa..."></textarea>
-<p class="meta" id="contador"></p>
-
-<div class="row g-3 mb-3">
-  <div class="col-md-5">
-    <div class="card shadow-sm">
-      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-pie text-info"></i> Distribución POS</div>
-      <div class="card-body"><canvas id="chartPosDist" height="200"></canvas></div>
+  <div class="row g-3 mb-3">
+    <div class="col-md-7">
+      <form onsubmit="return false;">
+        {% csrf_token %}
+        <textarea id="texto" class="form-control" rows="3"
+                  placeholder="Escribe una frase: Juan estudia matematicas en su casa..."></textarea>
+        <p class="small text-muted mt-1" id="contador">0 / 1000 caracteres</p>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold">
+          <i class="fas fa-chart-pie text-info"></i> Distribucion POS
+        </div>
+        <div class="card-body">
+          <canvas id="chartPosDist" height="180"></canvas>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="col-md-7">
-<div id="resultado">
-    <p class="loading">Escribe algo para ver el analisis en tiempo real.</p>
-</div>
+
+  <!-- Filtros por categoria POS -->
+  <div id="filtrosPos" class="mb-3" style="display:none;">
+    <div class="card shadow-sm">
+      <div class="card-body py-2">
+        <small class="text-muted me-2"><i class="fas fa-filter"></i> Filtrar por categoria:</small>
+        <div id="filtrosChips" class="d-inline"></div>
+      </div>
+    </div>
   </div>
 
+  <!-- Resultado -->
+  <div id="resultado" class="card shadow-sm">
+    <div class="card-body">
+      <p class="text-muted mb-0">Escribe algo para ver el analisis en tiempo real.</p>
+    </div>
+  </div>
 
-<p style="margin-top:2rem;">
+  <p class="mt-3">
     <a href="{% url 'pos_corpus' %}">Analizar el corpus &rarr;</a>
-</p>
+  </p>
+</div>
 
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
 <script>
 (function() {
-    "use strict";
-    const textoEl = document.getElementById("texto");
-    const resultEl = document.getElementById("resultado");
-    const contador = document.getElementById("contador");
-    const banner = document.getElementById("banner-modelo");
+  "use strict";
+  const textoEl = document.getElementById("texto");
+  const resultEl = document.getElementById("resultado");
+  const contador = document.getElementById("contador");
+  const filtrosPos = document.getElementById("filtrosPos");
+  const filtrosChips = document.getElementById("filtrosChips");
 
-    let timer = null;
-    let controllerActual = null;
+  let timer = null;
+  let controller = null;
+  let lastTokens = [];
+  let filtroActual = null;
+  let chart = null;
 
-    function clasePos(pos) {
-        if (pos === "VERB" || pos === "AUX") return "verb";
-        if (pos === "NOUN" || pos === "PROPN") return "noun";
-        if (pos === "ADJ") return "adj";
-        if (pos === "PUNCT") return "punct";
-        return "";
-    }
+  const POS_COLORS = {
+    PROPN: "#0d6efd", NOUN: "#6f42c1", VERB: "#dc3545", AUX: "#fd7e14",
+    ADJ: "#20c997", ADV: "#0dcaf0", DET: "#6c757d", PRON: "#e83e8c",
+    ADP: "#6610f2", CCONJ: "#fd7e14", SCONJ: "#20c997", NUM: "#198754",
+    PART: "#adb5bd", INTJ: "#ffc107", PUNCT: "#adb5bd", SYM: "#adb5bd", X: "#adb5bd"
+  };
 
-    function esc(s) {
-        const d = document.createElement("div");
-        d.textContent = String(s || "");
-        return d.innerHTML;
-    }
+  const POS_LABELS = {
+    PROPN: "Nombre propio", NOUN: "Nombre", VERB: "Verbo", AUX: "Auxiliar",
+    ADJ: "Adjetivo", ADV: "Adverbio", DET: "Determinante", PRON: "Pronombre",
+    ADP: "Preposicion", CCONJ: "Conj. coordinante", SCONJ: "Conj. subordinante",
+    NUM: "Numeral", PART: "Particula", INTJ: "Interjeccion",
+    PUNCT: "Puntuacion", SYM: "Simbolo", X: "Otro"
+  };
 
-    function render(data) {
-        const analisis = data.analisis || {};
-        const stats = data.stats || {};
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = String(s == null ? "" : s);
+    return d.innerHTML;
+  }
 
-        if (analisis.disponible === false) {
-            banner.style.display = "block";
-            resultEl.innerHTML = '<p class="loading">No se pudo analizar: modelo no disponible.</p>';
-            return;
-        }
-        banner.style.display = "none";
+  function getTokenPos(t) {
+    return t.pos || t.pos_ || "?";
+  }
 
-        const tokens = analisis.tokens || [];
-        if (tokens.length === 0) {
-            resultEl.innerHTML = '<p class="loading">Escribe algo para ver el analisis.</p>';
-            return;
-        }
+  function getCsrf() {
+    const inp = document.querySelector("[name=csrfmiddlewaretoken]");
+    return inp ? inp.value : "";
+  }
 
-        let html = '<p class="meta">' + tokens.length + ' tokens · ' +
-                   (analisis.oraciones || 0) + ' oraciones</p>';
-        html += '<table class="tokens-tabla"><thead><tr>' +
-                '<th>#</th><th>Texto</th><th>Lema</th><th>POS</th>' +
-                '<th>POS (ES)</th><th>Dep</th><th>Head</th>' +
-                '</tr></thead><tbody>';
-        for (let i = 0; i < tokens.length; i++) {
-            const t = tokens[i];
-            const cls = clasePos(t.pos);
-            html += '<tr>' +
-                    '<td style="color:#999;">' + (i + 1) + '</td>' +
-                    '<td><strong>' + esc(t.texto) + '</strong></td>' +
-                    '<td style="color:#666;">' + esc(t.lemma) + '</td>' +
-                    '<td><span class="pos-badge ' + cls + '">' + esc(t.pos) + '</span></td>' +
-                    '<td>' + esc(t.pos_es) + '</td>' +
-                    '<td><code>' + esc(t.dep) + '</code></td>' +
-                    '<td style="text-align:right;color:#999;">' + t.head_idx + '</td>' +
-                    '</tr>';
-        }
-        html += '</tbody></table>';
-
-        const statsEntries = Object.entries(stats);
-        if (statsEntries.length > 0) {
-            html += '<h2>Resumen por POS</h2><table class="stats-tabla">' +
-                    '<thead><tr><th>POS</th><th>Count</th></tr></thead><tbody>';
-            for (const [pos, n] of statsEntries) {
-                html += '<tr><td>' + esc(pos) + '</td><td style="text-align:right;">' + n + '</td></tr>';
-            }
-            html += '</tbody></table>';
-        }
-
-        resultEl.innerHTML = html;
-    }
-
-    async function analizar() {
-        const texto = textoEl.value.trim();
-        contador.textContent = texto.length + " / 1000 caracteres";
-
-        if (controllerActual) {
-            controllerActual.abort();
-        }
-
-        if (!texto) {
-            resultEl.innerHTML = '<p class="loading">Escribe algo para ver el analisis en tiempo real.</p>';
-            return;
-        }
-
-        controllerActual = new AbortController();
-        const señal = controllerActual.signal;
-
-        resultEl.innerHTML = '<p class="loading">Analizando...</p>';
-
-        try {
-            const r = await fetch("/pos/ajax/analizar/", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({texto: texto
-      renderPosChart(data);}),
-                signal: señal,
-            });
-            if (!r.ok) {
-                const err = await r.json().catch(() => ({error: "HTTP " + r.status}));
-                resultEl.innerHTML = '<p class="error" style="padding:0.5rem;">' +
-                                     esc(err.error || "Error") + '</p>';
-                return;
-            }
-            const data = await r.json();
-            render(data);
-        } catch (err) {
-            if (err.name === "AbortError") return;
-            resultEl.innerHTML = '<p class="error" style="padding:0.5rem;">' +
-                                 'Error consultando: ' + esc(err.message) + '</p>';
-        }
-    }
-
-    textoEl.addEventListener("input", () => {
-        if (timer) clearTimeout(timer);
-        timer = setTimeout(analizar, 400);
-    });
-
-    if (textoEl.value) analizar();
-})();
-
-  // === Chart POS distribution ===
-  function renderPosChart(tokens) {
-    const canvas = document.getElementById('chartPosDist');
-    if (!canvas || !tokens || tokens.length === 0) return;
+  function renderChart(tokens) {
+    const canvas = document.getElementById("chartPosDist");
+    if (!canvas) return;
+    if (chart) { chart.destroy(); chart = null; }
+    if (!tokens || !tokens.length) return;
     const counts = {};
-    tokens.forEach(t => {
-      const pos = t.pos || t.pos_ || '?';
-      counts[pos] = (counts[pos] || 0) + 1;
+    tokens.forEach(function(t) {
+      const p = getTokenPos(t);
+      counts[p] = (counts[p] || 0) + 1;
     });
-    if (window._posChart) window._posChart.destroy();
-    window._posChart = new Chart(canvas, {
-      type: 'doughnut',
+    const labels = Object.keys(counts);
+    chart = new Chart(canvas, {
+      type: "doughnut",
       data: {
-        labels: Object.keys(counts),
+        labels: labels.map(function(k){ return POS_LABELS[k] || k; }),
         datasets: [{
-          data: Object.values(counts),
-          backgroundColor: [
-            'rgba(54,162,235,0.7)','rgba(75,192,192,0.7)','rgba(255,205,86,0.7)',
-            'rgba(255,99,132,0.7)','rgba(153,102,255,0.7)','rgba(255,159,64,0.7)',
-            'rgba(201,203,207,0.7)','rgba(40,167,69,0.7)','rgba(220,53,69,0.7)'
-          ]
+          data: labels.map(function(k){ return counts[k]; }),
+          backgroundColor: labels.map(function(k){ return POS_COLORS[k] || "#adb5bd"; })
         }]
       },
-      options: { responsive: true, plugins: { legend: { position: 'right', labels: { boxWidth: 12, font: { size: 10 } } } } }
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "right", labels: { boxWidth: 10, font: { size: 10 } } } }
+      }
     });
   }
+
+  function renderFiltros(tokens) {
+    const counts = {};
+    tokens.forEach(function(t) {
+      const p = getTokenPos(t);
+      counts[p] = (counts[p] || 0) + 1;
+    });
+    const cats = Object.keys(counts).sort(function(a,b){ return counts[b]-counts[a]; });
+
+    filtrosChips.innerHTML = "";
+    const btnTodos = document.createElement("button");
+    btnTodos.type = "button";
+    btnTodos.className = "btn btn-sm btn-secondary me-1 mb-1 active";
+    btnTodos.dataset.pos = "";
+    btnTodos.textContent = "Todos (" + tokens.length + ")";
+    filtrosChips.appendChild(btnTodos);
+
+    cats.forEach(function(cat) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "btn btn-sm me-1 mb-1";
+      const color = POS_COLORS[cat] || "#adb5bd";
+      btn.style.border = "1px solid " + color;
+      btn.style.color = color;
+      btn.style.backgroundColor = "#fff";
+      btn.dataset.pos = cat;
+      btn.textContent = (POS_LABELS[cat] || cat) + " (" + counts[cat] + ")";
+      filtrosChips.appendChild(btn);
+    });
+
+    filtrosPos.style.display = "block";
+  }
+
+  function renderTabla(tokens, filtro) {
+    const filtered = filtro ? tokens.filter(function(t){ return getTokenPos(t) === filtro; }) : tokens;
+    if (!filtered.length) {
+      resultEl.innerHTML = '<div class="card-body"><p class="text-muted mb-0">Sin tokens con esa categoria.</p></div>';
+      return;
+    }
+    let html = '<div class="table-responsive"><table class="table table-sm table-hover mb-0">';
+    html += '<thead class="table-light"><tr>';
+    html += '<th style="width:40px">#</th><th>Palabra</th><th>Categoria</th><th>Lema</th><th>Funcion</th>';
+    html += '</tr></thead><tbody>';
+    filtered.forEach(function(t, i) {
+      const p = getTokenPos(t);
+      const color = POS_COLORS[p] || "#adb5bd";
+      html += '<tr>';
+      html += '<td class="text-muted small">' + (i+1) + '</td>';
+      html += '<td><strong>' + esc(t.text) + '</strong></td>';
+      html += '<td><span class="badge" style="background:' + color + '">' + esc(p) + '</span> <small class="text-muted">' + esc(POS_LABELS[p] || "") + '</small></td>';
+      html += '<td><em>' + esc(t.lemma || t.lemma_ || "") + '</em></td>';
+      html += '<td><code class="small">' + esc(t.dep || t.dep_ || "") + '</code></td>';
+      html += '</tr>';
+    });
+    html += '</tbody></table></div>';
+    resultEl.innerHTML = html;
+  }
+
+  function analizar() {
+    const texto = (textoEl.value || "").trim();
+    if (!texto) {
+      resultEl.innerHTML = '<div class="card-body"><p class="text-muted mb-0">Escribe algo para ver el analisis.</p></div>';
+      filtrosPos.style.display = "none";
+      renderChart([]);
+      lastTokens = [];
+      return;
+    }
+    if (controller) controller.abort();
+    controller = new AbortController();
+
+    fetch("/pos/ajax/analizar/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCsrf()
+      },
+      body: JSON.stringify({ texto: texto }),
+      signal: controller.signal
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      if (data.error) {
+        resultEl.innerHTML = '<div class="card-body"><p class="text-danger mb-0">' + esc(data.error) + '</p></div>';
+        return;
+      }
+      const tokens = (data.analisis && data.analisis.tokens) || data.tokens || [];
+      lastTokens = tokens;
+      filtroActual = null;
+      renderChart(tokens);
+      renderFiltros(tokens);
+      renderTabla(tokens, null);
+    })
+    .catch(function(err) {
+      if (err.name === "AbortError") return;
+      resultEl.innerHTML = '<div class="card-body"><p class="text-danger mb-0">Error: ' + esc(err.message) + '</p></div>';
+    });
+  }
+
+  textoEl.addEventListener("input", function() {
+    const len = textoEl.value.length;
+    contador.textContent = len + " / 1000 caracteres";
+    clearTimeout(timer);
+    timer = setTimeout(analizar, 400);
+  });
+
+  filtrosChips.addEventListener("click", function(e) {
+    const btn = e.target.closest("button[data-pos]");
+    if (!btn) return;
+    Array.prototype.forEach.call(filtrosChips.querySelectorAll("button"), function(b) {
+      b.classList.remove("active");
+    });
+    btn.classList.add("active");
+    filtroActual = btn.dataset.pos || null;
+    renderTabla(lastTokens, filtroActual);
+  });
+})();
 </script>
 {% endblock %}
