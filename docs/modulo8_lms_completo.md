@@ -338,3 +338,82 @@ Subió de 97.26% (con los tests de charts) a **97.27%** (con los tests de pagina
 ---
 
 *Ultima actualizacion: 2026-10-22 tras populate_v2 + paginacion + template radios.*
+
+## 15. Quick wins de deuda tecnica (2026-10-22)
+
+**Agregado post-cierre.** Cuatro limpiezas de bajo esfuerzo que dejaron la DB con solo contenido real.
+
+### 15.1 PDFs huerfanos eliminados (15 recursos)
+
+`scripts/clean_recurso_huerfanos.py`: detecta `Recurso.archivo` que no existe en disco y borra el registro.
+
+- Antes: 579 recursos (15 apuntaban a `recursos/curso-01..15.pdf` inexistentes)
+- Despues: **564 recursos, 0 huerfanos**
+
+### 15.2 Offset rotativo de ejercicios por leccion
+
+`scripts/fix_ejercicios_offset.py`: reasigna `Leccion.ejercicios_relacionados` con rotacion `offset += 3` por categoria.
+
+- Antes: todas las lecciones de un curso compartian los mismos 3 ejercicios (`(30117, 30112, 30107)` x4)
+- Despues: **12 lecciones con triples distintos** (L1: 30102, L2: 30117, L3: 30112, L4: 30107...)
+
+### 15.3 Distractores por categoria del JSON
+
+`scripts/improve_distractores.py`: para `multiple_choice`, agrupa distractores por `item.category` del JSON original.
+
+- Antes: 240 preguntas con distractores aleatorios (`"Ven aca ahora."`, `"llueva"`)
+- Despues: **240 preguntas con distractores tematicamente coherentes** (`"Vi la pelicula y luego la comente."` vs `"Mas de uno lo sabe."`)
+
+### 15.4 Importacion completa del pool (1483 ejercicios)
+
+`scripts/populate_exercises_new.py`: crea `EjercicioLinguistico` faltantes desde `data/*.json`.
+
+- Antes: 1545 ejercicios en DB (todos placeholders `item N`)
+- Despues: **3028 ejercicios** (1545 + 1483 reales)
+
+### 15.5 Cleanup de placeholders (1400 eliminados)
+
+`scripts/cleanup_placeholders_items.py`: elimina ejercicios con `titulo` matching `^item [0-9]+$` **despues de verificar 0 referencias** (PreguntaEvaluacion, EvaluacionRedaccion, Leccion M2M, Recurso).
+
+- Antes: 3028 ejercicios, **1400 placeholders puros** (`"Item 99"` x14 = 1545 duplicados)
+- Despues: **1628 ejercicios, 0 placeholders**
+
+Backup local en `scripts/_backup_placeholders.json` (1400 registros, gitignored).
+
+### 15.6 Estado final de la DB
+
+| Entidad | Count |
+|---|---|
+| Ejercicios reales | **1628** |
+| Placeholders | **0** |
+| Recursos validos | 564 |
+| Lecciones con ejercicios | 324 |
+| Lecciones con triples unicos | 324 |
+
+Distribucion de los 1628 por categoria:
+
+### 15.7 Decisiones tecnicas
+
+**Borrado con verificacion previa**: antes de eliminar los 1400 placeholders se corrio `_diag_impacto_cleanup.py` que confirmo 0 referencias en 3 FKs (`PreguntaEvaluacion`, `EvaluacionRedaccion`, `Recurso`) y 0 filas M2M. Sin verificacion, el `delete()` habria dejado `PreguntaEvaluacion` huerfanas o cascadeado sin saber.
+
+**Backup JSON antes de delete**: los 1400 registros se exportaron a `_backup_placeholders.json` (gitignored) antes de borrar. Restaurables si fuese necesario (aunque son basura, no hace falta).
+
+**Idempotencia con `titulo` como clave**: en `populate_exercises_new.py` la deteccion de faltantes usa el `titulo` del JSON (`"Parentesco y terminologia"`). Es imperfecto si dos ejercicios legitimos comparten titulo, pero en la practica los 100 titulos por JSON son unicos.
+
+**Offset rotativo con wraparound**: `used[cat] = (offset + 3) % len(pool)` garantiza que despues de `len(pool)/3` lecciones se vuelva al inicio. Con 100 ejercicios por categoria, hay 33 lecciones antes de repetir.
+
+### 15.8 Deuda tecnica restante
+
+Los 4 items que **no** se resolvieron (todos requieren sesion propia):
+
+| # | Item | Esfuerzo |
+|---|---|---|
+| 5 | `profesor_asignado` FK en Curso | 45 min |
+| 6 | Notificaciones (completar curso, cert) | 2 sesiones |
+| 7 | Deploy (Postgres + Gunicorn + Nginx) | 2-3 sesiones |
+| 8 | Storage externo S3 para PDFs | 1-2 sesiones |
+
+---
+
+*Ultima actualizacion: 2026-10-22 tras quick wins de deuda tecnica.*
+
