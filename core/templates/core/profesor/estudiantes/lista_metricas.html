@@ -40,7 +40,10 @@
   </div>
 </div>
 
-<p class="text-muted mb-2"><strong>{{ total }}</strong> estudiantes</p>
+<p class="text-muted mb-2">
+    <strong>{{ total }}</strong> estudiantes
+    {% if not es_superuser %}<span class="badge bg-info text-dark ms-2" title="Solo estudiantes de tus cursos"><i class="fas fa-filter"></i> Solo tus cursos</span>{% endif %}
+  </p>
 
 {% load static %}
 <!-- Charts comparativos -->

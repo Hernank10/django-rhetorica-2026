@@ -35,6 +35,14 @@ class Curso(models.Model):
     puntos_totales = models.IntegerField(default=0)
 
     creado_por = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='cursos_creados')
+    profesor_asignado = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='cursos_asignados',
+        help_text="Profesor responsable del curso (opcional).",
+    )
     tecnicas_relacionadas = models.ManyToManyField(TecnicaLinguistica, blank=True)
 
     creado_en = models.DateTimeField(default=timezone.now)

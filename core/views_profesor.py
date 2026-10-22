@@ -989,6 +989,15 @@ def lista_estudiantes_metricas(request):
         )
     )
 
+    # Filtro por profesor (superuser ve todos)
+    es_superuser = request.user.is_superuser
+    if not es_superuser:
+        mis_cursos = Curso.objects.filter(profesor_asignado=request.user)
+        if mis_cursos.exists():
+            estudiantes = estudiantes.filter(
+                progreso_lecciones__leccion__modulo__curso__in=mis_cursos
+            ).distinct()
+
     if q:
         estudiantes = estudiantes.filter(username__icontains=q)
 
@@ -1063,7 +1072,12 @@ def lista_estudiantes_metricas(request):
     context = {
         "estudiantes": resultado,
         "total": len(resultado),
-        "cursos": Curso.objects.all().order_by("titulo"),
+        "cursos": (
+            Curso.objects.all().order_by("titulo")
+            if es_superuser
+            else Curso.objects.filter(profesor_asignado=request.user).order_by("titulo")
+        ),
+        "es_superuser": es_superuser,
         "filtros": {"curso": curso_id, "estado": estado, "q": q, "sort": sort},
         "chart_top": chart_top,
         "chart_tasa": chart_tasa,
