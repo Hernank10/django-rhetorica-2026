@@ -164,6 +164,7 @@ urlpatterns += i18n_patterns(
     # Taller de redaccion (Modulo 4)
 
     path('redaccion/', views_redaccion.indice, name='redaccion_indice'),
+    path('redaccion/tecnicas/', views_redaccion.tecnicas_dashboard, name='redaccion_tecnicas'),
 
     path('redaccion/historial/', views_redaccion.historial, name='redaccion_historial'),
 

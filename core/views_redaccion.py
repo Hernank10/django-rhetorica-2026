@@ -71,3 +71,49 @@ def historial(request):
         "core/redaccion/historial.html",
         {"evaluaciones": evaluaciones},
     )
+
+
+def tecnicas_dashboard(request):
+    """Dashboard de las 100 tecnicas de redaccion con charts + tabla."""
+    from django.apps import apps
+    from django.db.models import Count
+
+    Ejercicio = apps.get_model("core", "EjercicioLinguistico")
+    qs_base = Ejercicio.objects.filter(es_redaccion=True)
+
+    tipo_sel = (request.GET.get("tipo") or "").strip()
+    nivel_sel = (request.GET.get("nivel") or "").strip()
+
+    qs = qs_base
+    if tipo_sel:
+        qs = qs.filter(tipo_redaccion=tipo_sel)
+    if nivel_sel.isdigit():
+        qs = qs.filter(nivel=int(nivel_sel))
+    qs = qs.order_by("id")
+
+    por_tipo = list(qs_base.values("tipo_redaccion").annotate(n=Count("id")).order_by("-n"))
+    por_nivel = list(qs_base.values("nivel").annotate(n=Count("id")).order_by("nivel"))
+    por_cat = list(qs_base.values("categoria").annotate(n=Count("id")).order_by("-n")[:10])
+
+    context = {
+        "tecnicas": qs,
+        "total": qs.count(),
+        "total_global": qs_base.count(),
+        "filtros": {"tipo": tipo_sel, "nivel": nivel_sel},
+        "tipos_disponibles": sorted({t for t in qs_base.values_list("tipo_redaccion", flat=True) if t}),
+        "niveles_disponibles": sorted({n for n in qs_base.values_list("nivel", flat=True) if n}),
+        "chart_tipos": {
+            "labels": [x["tipo_redaccion"] or "Sin tipo" for x in por_tipo],
+            "data": [x["n"] for x in por_tipo],
+        },
+        "chart_niveles": {
+            "labels": [f"Nivel {x['nivel']}" for x in por_nivel],
+            "data": [x["n"] for x in por_nivel],
+        },
+        "chart_categorias": {
+            "labels": [x["categoria"] or "Sin categoria" for x in por_cat],
+            "data": [x["n"] for x in por_cat],
+        },
+    }
+    return render(request, "core/redaccion/tecnicas.html", context)
+
