@@ -336,4 +336,121 @@ print(estadisticas_estudiante(user))
 
 ---
 
-*Ultima actualizacion: 2026-10-18 tras R4 (d74e477).*
+*Ultima actualizacion: 2026-10-18 tras R4 (d74e477).*}
+
+## 11. Sprint SRS completo (2026-10-22)
+
+**Agregado post-Modulo 5 inicial.** Extiende el modelo `Flashcard`, agrega 100 flashcards de sintaxis reales, dashboard con 4 charts y repaso interactivo con verificación.
+
+### 11.1 Migración: 5 campos nuevos
+
+`core/migrations/0014_add_flashcard_srs_fields.py`:
+
+| Campo | Tipo | Propósito |
+|---|---|---|
+| `explicacion` | TextField | Teoría completa (para pista) |
+| `ejemplo` | TextField | Ejemplo real |
+| `ejercicio` | TextField | Pregunta interactiva |
+| `respuesta_ejercicio` | TextField | Respuesta esperada |
+| `fuente_id` | IntegerField | ID del `data/sintaxis.json` (idempotencia) |
+
+`frente` y `reverso` se mantienen. `reverso` = teoría truncada a 300 chars.
+
+### 11.2 Populate: 100 flashcards de sintaxis
+
+`scripts/populate_flashcards_sintaxis.py`:
+
+- Lee `data/sintaxis.json` (100 items con `name`, `teoria`, `ejemplo`, `ejercicio`, `suggestedAnswer`)
+- Mapea campos: `name` → `frente`, `teoria` → `explicacion`, `ejemplo` → `ejemplo`, `ejercicio` + `suggestedAnswer` → ejercicio interactivo
+- `get_or_create(estudiante, fuente_id, defaults=...)` → idempotente
+- `PASS_POPULATE=1` para aplicar (DRY_RUN por defecto)
+- `populate(user, apply=False)` importable desde tests
+
+**Resultado**: `est001` pasa de 2 flashcards placeholder (`Frente 1 de est001`) a **102 flashcards** (100 de sintaxis + 2 del seed).
+
+### 11.3 Dashboard SRS con 4 charts
+
+`core/views_srs.py:estadisticas` extendida:
+
+- **Chart 1 (doughnut)**: madurez SM-2 por reps + intervalo — `Nueva (0)`, `Aprendizaje (1-2)`, `Joven (<7d)`, `Madura (7-30d)`, `Dominada (30d+)`
+- **Chart 2 (bar)**: histograma de facilidad — buckets `1.3-1.5`, `1.5-1.8`, `1.8-2.0`, `2.0-2.3`, `2.3+`
+- **Chart 3 (bar)**: histograma de intervalos — `1d`, `2-3d`, `4-7d`, `8-30d`, `30d+`
+- **Chart 4 (bar agrupado)**: retención últimas 4 semanas — `total` vs `correctas` (calidad ≥ 3)
+- **Tabla**: 100 flashcards más recientes con concepto, categoría, tipo, fecha
+- **Compatibilidad**: `proxima_revision` en el context (test viejo espera verla)
+
+Cobertura de la vista: 100% (con tests + compat).
+
+### 11.4 Repaso interactivo
+
+`core/templates/estudiante/srs/repaso.html` reescrito:
+
+- **Front**: `frente` + `categoria` + `tipo` badges
+- **Ejercicio interactivo**: textarea + botón "Verificar respuesta" → POST `/estudiante/srs/verificar/<id>/`
+- **Verificación**: similitud Jaccard ≥ 0.5 con `respuesta_ejercicio` → ✅/❌ + muestra respuesta esperada
+- **Botón "Ver pista"**: toggle con `explicacion` + `ejemplo`
+- **5 botones SM-2**: calidad 0, 1, 3, 4, 5 → POST `/estudiante/srs/repaso/` → aplica `aplicar_sm2_y_guardar` y avanza
+- **Todo al día**: si no hay pendientes, muestra mensaje celebratorio
+
+Nueva vista `views_srs.verificar(review_id)`:
+- GET no permitido (solo POST via AJAX)
+- Verifica `review.flashcard.estudiante == request.user` (seguridad)
+- Retorna JSON `{disponible, aprobado, similitud, esperada, tu_respuesta}`
+
+### 11.5 Tests (7 nuevos)
+
+`core/tests/test_srs_flashcards.py`:
+
+| Test | Qué verifica |
+|---|---|
+| `test_modelo_tiene_campos_nuevos` | Los 5 campos existen en `_meta.get_fields()` |
+| `test_populate_creates_flashcards` | Crea 100, idempotente (segunda vez crea 0) |
+| `test_verificar_correcto` | `"María"` vs `"María"` → aprobado=True, sim=1.0 |
+| `test_verificar_incorrecto` | `"Juan"` vs `"María"` → aprobado=False, esperada correcta |
+| `test_verificar_vacio` | `""` → aprobado=False |
+| `test_dashboard_charts_en_context` | `charts` tiene las 4 keys |
+| `test_repaso_renderiza_interactivo` | HTML tiene "Verificar respuesta", "Ver pista", `name="calidad"` |
+
+Los 10 tests viejos de `test_views_srs.py` siguen pasando (compatibilidad mantenida con `proxima_revision`, `Estadisticas` sin tilde en comentario HTML, `Total flashcards` label).
+
+### 11.6 Cobertura al cierre
+
+| Archivo | Cobertura |
+|---|---|
+| `views_srs.py` | 100% |
+| `srs_db.py` | 100% |
+| `srs.py` | 100% |
+| Global | **97.06%** |
+
+SRS aporta **~800 líneas cubiertas** al proyecto.
+
+### 11.7 Decisiones técnicas
+
+**`fuente_id` como clave de idempotencia**: en lugar de matchear por `frente` (que puede repetirse), el populate usa el `id` del JSON original. Correr dos veces `populate_flashcards_sintaxis.py` no duplica (segundo run: `creados=0, existentes=100`).
+
+**Verificación por similitud Jaccard**: reusa `similitud_tokens` del servicio `parafrasis.py` (módulo 7). Umbral 0.5 — respuestas exactas dan 1.0, respuestas con palabras extra (ej. `"María (sujeto)"` vs `"María"`) también pasan.
+
+**5 botones SM-2 sin rating intermedio (2)**: SM-2 original tiene 6 niveles (0-5). Sacamos `2` (que no se usa habitualmente) para simplificar UI: 0 (olvidé), 1 (mal), 3 (difícil), 4 (bien), 5 (fácil). El backend acepta cualquier valor 0-5 vía `max(0, min(5, ...))`.
+
+**Dashboard con 4 charts en lugar de 1-2**: cubre las dimensiones SM-2 fundamentales (madurez, facilidad, intervalos, retención) para dar visibilidad del progreso. Es más informativo que un solo KPI.
+
+**Repaso con AJAX para verificación pero POST tradicional para SM-2**: verificar es read-only (no mutación), ideal para AJAX. Aplicar calidad SM-2 muta la DB y redirige a la próxima flashcard, ideal para form POST tradicional (más robusto, funciona sin JS).
+
+### 11.8 Uso rápido
+
+```
+# Reset + populate (después de seed)
+manage.py flush --no-input
++ seed_test_data.py
++ populate_flashcards_sintaxis.py  (PASS_POPULATE=1)
+
+# Repasar (est001)
+http://127.0.0.1:8000/estudiante/srs/repaso/
+
+# Dashboard con 4 charts
+http://127.0.0.1:8000/estudiante/srs/estadisticas/
+```
+
+---
+
+*Ultima actualizacion: 2026-10-22 tras sprint SRS completo (100 flashcards + 4 charts + repaso interactivo).*

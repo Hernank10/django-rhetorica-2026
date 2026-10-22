@@ -3,7 +3,7 @@
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: 248+ (todos verdes)
-**Cobertura**: 97.27%
+**Cobertura**: 97.06%
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -18,12 +18,12 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 2 | Filologia comparada (50 etimos) | produccion | 35 | [modulo2_filologia_completo.md](modulo2_filologia_completo.md) |
 | 3 | Lectura asistida con TTS | produccion | 30 | [modulo3_lectura_completo.md](modulo3_lectura_completo.md) |
 | 4 | Redaccion morfosintactica | produccion | 43 | [modulo4_redaccion_completo.md](modulo4_redaccion_completo.md) |
-| 5 | SRS / SM-2 (repeticion espaciada) | produccion | 63 | [modulo5_srs_completo.md](modulo5_srs_completo.md) |
+| 5 | SRS / SM-2 (repeticion espaciada) | produccion | 70 | [modulo5_srs_completo.md](modulo5_srs_completo.md) |
 | 6 | Corpus y concordancia | produccion | 30 | [modulo6_corpus_completo.md](modulo6_corpus_completo.md) |
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 32 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: ~393 tests, cobertura 97.27%.
+**Total**: ~404 tests, cobertura 97.06%.
 
 ---
 
@@ -179,4 +179,4 @@ django-rhetorica/
 
 ---
 
-*Ultima actualizacion: 2026-10-22 tras populate_v2 + paginacion.*
+*Ultima actualizacion: 2026-10-22 tras sprint SRS completo (100 flashcards + 4 charts + repaso interactivo).*
