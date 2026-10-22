@@ -116,3 +116,4 @@ scripts/backup_*.json
 tts_cache/
 *.pyc
 scripts/_archivo/
+scripts/_backup_*.json
