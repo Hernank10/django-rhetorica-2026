@@ -245,3 +245,96 @@ E:\PythonPortable_Django5\python.exe manage.py runserver 8000
 ---
 
 *Ultima actualizacion: 2026-10-21 tras modulo 8 (hub + dashboards + populate).*
+
+
+## 14. Adenda — populate real + paginación + radios
+
+**Agregado post-cierre.** Rellena los placeholders del seed con contenido real del pool `data/*.json`, pagina la biblioteca y renderiza `multiple_choice` con radios.
+
+### 14.1 Lecciones con contenido real (312 reemplazos)
+
+`scripts/populate_lecciones_v2.py` (~180 líneas):
+
+- Detecta placeholders (`<h2>Introducción</h2><p>Contenido de X.</p>`)
+- Mapea curso → categoría JSON (Sintaxis → sintaxis.json, etc.)
+- Genera HTML semántico: `<h2>{name}</h2>` + `<h4>Teoría</h4><p>{teoria}</p>` + `<h4>Ejemplo</h4><blockquote>{ejemplo}</blockquote>`
+- Relaciona **3 ejercicios + 2 técnicas** por lección
+- Idempotente con `POPULATE_APPLY=1`
+
+**Resultado**: 324/324 lecciones con contenido real (antes 12). Cada una con teoría + ejemplo + ejercicios navegables.
+
+### 14.2 Evaluaciones con contenido real (240 reemplazos)
+
+`scripts/populate_evaluaciones_v2.py` (~180 líneas):
+
+- Detección amplia de placeholders:
+  - `Pregunta N de/del/en/para/sobre ...`
+  - `Pregunta N` / `¿Pregunta N?`
+  - `Respuesta N` / `a,b,c,d` / vacíos
+- Reemplaza `enunciado` + `respuesta_correcta` desde el pool
+- Para `multiple_choice`: genera **4 opciones** (1 correcta + 3 distractores random con seed=42)
+- Aplica a 240 preguntas (el resto ya tenían contenido custom)
+
+**Resultado**: 285/285 `PreguntaEvaluacion` con contenido real.
+
+### 14.3 Template eval con radios (240 preguntas funcionales)
+
+Fix de 2 líneas en `core/templates/core/cursos/evaluacion_detalle.html`:
+
+```django
+{% if pregunta.tipo == 'multiple' or pregunta.tipo == 'multiple_choice' %}
+```
+
+El template ya tenía el código de `<input type="radio">` para `multiple`. Faltaba matchear el `tipo='multiple_choice'` que usan los 240 del pool. Ahora:
+- **45 preguntas** `tipo=multiple` → radios (ya funcionaba)
+- **240 preguntas** `tipo=multiple_choice` → **radios** (antes textarea)
+- **~45 preguntas** `verdadero_falso` → 2 radios V/F
+- Otras (`desarrollo`, `completar`) → textarea
+
+### 14.4 Biblioteca paginada (2.75 MB → 80 KB)
+
+`core/views_biblioteca.py:ejercicios_biblioteca` con `Paginator(qs, 24)`:
+
+- Antes: los 1545 ejercicios en una sola página = **2.75 MB**
+- Después: 24 por página = **~80 KB** × 65 páginas
+- Contador muestra `total_ejercicios` (1545) no solo los de la página
+- Paginación UI: `« 1 2 3 ... 65 »` (rango de 5 números alrededor de la actual)
+
+Impacto: **tiempo de carga 30x menor**. Backend `Paginator` hace `LIMIT 24 OFFSET N` en cada request.
+
+### 14.5 Tests agregados
+
+| Archivo | Tests |
+|---|---|
+| `test_views_biblioteca_paginada.py` | 4 (primera página, diferencia entre páginas, overflow, HTML de paginación) |
+| `test_evaluacion_render.py` | 3 (radios para multiple_choice, textarea para desarrollo, mezcla) |
+| `test_views_profesor_metricas.py` | 9 (6 de tabla + 3 de charts) |
+
+Total: **16 tests nuevos** entre populate y rendering.
+
+### 14.6 Cobertura al cierre de la adenda
+
+| Archivo | Cobertura |
+|---|---|
+| `views_biblioteca.py` | 100% |
+| `templates/core/cursos/evaluacion_detalle.html` | — (template) |
+| `views_profesor.py` | 100% |
+| Global | **97.27%** (8726 líneas, 238 sin cubrir) |
+
+Subió de 97.26% (con los tests de charts) a **97.27%** (con los tests de paginación).
+
+### 14.7 Decisiones técnicas
+
+**Populate idempotente con DRY_RUN**: `os.environ.get("POPULATE_APPLY")` gatea la escritura. Antes de aplicar muestra 5 samples `OLD: ... / NEW: ...` para revisar.
+
+**Backups JSON locales**: `scripts/_backup_lecciones.json` y `scripts/_backup_pe.json` guardan estado pre-populate. Gitignorados (`.gitignore` agregó `scripts/_backup_*.json`). Restaurables si algo no gusta.
+
+**Paginación con `Paginator` estándar**: sin AJAX, sin infinite scroll. Simple, robusto, cacheable. Suficiente para 65 páginas. Si crece a 1000+ páginas se puede migrar a cursor-based.
+
+**Template radios sin tocar vista**: el `ver_evaluacion` ya itera `evaluacion.preguntas.order_by('orden')` y el POST lee `request.POST.get('pregunta_X')` genéricamente. Solo cambia el input HTML. Cero cambios en lógica.
+
+**Distractores random**: `random.seed(42)` para reproducibilidad. Los distractores son aleatorios del mismo JSON (no del pool global). Mejora futura: filtrar por `category` del ítem original.
+
+---
+
+*Ultima actualizacion: 2026-10-22 tras populate_v2 + paginacion + template radios.*
