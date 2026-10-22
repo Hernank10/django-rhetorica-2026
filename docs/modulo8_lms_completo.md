@@ -244,7 +244,7 @@ E:\PythonPortable_Django5\python.exe manage.py runserver 8000
 
 ---
 
-*Ultima actualizacion: 2026-10-21 tras modulo 8 (hub + dashboards + populate).*
+*Ultima actualizacion intermedia: 2026-10-21 tras modulo 8 (reemplazada por adenda seccion 14).*
 
 
 ## 14. Adenda — populate real + paginación + radios
