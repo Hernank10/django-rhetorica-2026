@@ -23,7 +23,7 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 32 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: ~404 tests, cobertura 97.06%.
+**Total**: ~404 tests, cobertura 97.06%. **3.028 ejercicios** en DB (1.483 nuevos del pool).
 
 ---
 
@@ -103,7 +103,7 @@ Si el modelo no esta, se skipean sin fallar. El resto de la suite sigue corriend
 
 ## Roadmap
 
-### Completado
+### Completado (actualizado 2026-10-22)
 
 - [x] Modulo 1 — POS + concordancia + funciones sintacticas (spaCy)
 - [x] Modulo 2 — Filologia comparada (50 etimos con reglas foneticas)
