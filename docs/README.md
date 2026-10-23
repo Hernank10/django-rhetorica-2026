@@ -3,7 +3,7 @@
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: 248+ (todos verdes)
-**Cobertura**: 97.08% | **936 tests** verdes
+**Cobertura**: 97.04% | **~975 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -23,7 +23,7 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 936 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: 936 tests, cobertura 97.08%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
+**Total**: ~975 tests, cobertura 97.04%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
 ---
 
@@ -180,6 +180,31 @@ django-rhetorica/
 ---
 
 ## Changelog
+
+### v1.1.0 — 2026-10-23 (notificaciones + tareas)
+
+**Feature completo**: sistema de notificaciones con backend + frontend + seeds.
+
+**Backend:**
+- Modelo Notificacion (9 tipos, idempotencia por referencia)
+- 3 señales Django (leccion/curso/cert/logro) con try/except defensivo
+- Servicio idempotente (4 funciones)
+
+**Frontend:**
+- Vista /notificaciones/ paginada con filtros
+- 4 endpoints AJAX (contador, últimas, marcar-todas, marcar-id)
+- Campana en navbar con emoji nativo (FontAwesome no renderiza)
+- 3 cards en /estudiante/: notificaciones recientes + tareas pendientes + evaluaciones programadas
+
+**Seeds:**
+- 476 notifs para 96 estudiantes
+- 140 notifs para 9 profesores
+- Total: 620 notificaciones en DB
+
+**Tests:** +16 (8 modelo/señales + 9 vistas/AJAX + 7 tareas).
+
+**Deuda resuelta:** 6.5/8 items.
+**Deuda pendiente:** #7 deploy, #8 storage S3, bell visible, Parte B (CRUD profesor).
 
 ### v1.0.0 — 2026-10-22 (demo-ready)
 
