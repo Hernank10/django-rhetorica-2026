@@ -173,6 +173,126 @@
   </div>
 </div>
 
+<!-- Notificaciones recientes (sprint #6) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-bell text-primary"></i> Notificaciones recientes</span>
+        <a href="{% url 'notificaciones:lista' %}" class="btn btn-sm btn-outline-primary">
+          Ver todas {% if notif_count %}({{ notif_count }}){% endif %}
+        </a>
+      </div>
+      <div class="card-body">
+        {% if notificaciones_recientes %}
+          <div class="list-group list-group-flush">
+            {% for n in notificaciones_recientes %}
+              <div class="list-group-item px-0 {% if not n.leida %}fw-bold{% endif %}">
+                <i class="fas fa-{{ n.icono|default:'bell' }} text-primary"></i>
+                {{ n.titulo }}
+                <small class="text-muted float-end">{{ n.creada_en|timesince }} atrás</small>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Sin notificaciones aún. Completa lecciones o evaluaciones para recibir avisos.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tareas pendientes + Evaluaciones (sprint #6) -->
+<div class="row g-3 mb-4">
+  <!-- Tareas pendientes: lecciones no completadas -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-tasks text-warning"></i> Tareas pendientes</span>
+        <span class="badge bg-warning text-dark">{{ tareas_pendientes|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if tareas_pendientes %}
+          <ul class="list-unstyled mb-0">
+            {% for t in tareas_pendientes %}
+              <li class="mb-2 pb-2 border-bottom">
+                <a href="{% url 'ver_leccion' t.modulo.curso.slug t.modulo.id t.id %}" class="text-decoration-none">
+                  <strong>{{ t.titulo|truncatechars:50 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ t.modulo.curso.titulo }} · {{ t.get_tipo_display }}
+                  </small>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-check-circle text-success"></i> ¡Sin lecciones pendientes!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluaciones disponibles ahora -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-clipboard-check text-danger"></i> Evaluaciones disponibles</span>
+        <span class="badge bg-danger">{{ evals_disponibles|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if evals_disponibles %}
+          <ul class="list-unstyled mb-0">
+            {% for e in evals_disponibles %}
+              <li class="mb-2 pb-2 border-bottom">
+                <a href="{% url 'ver_evaluacion' e.id %}" class="text-decoration-none">
+                  <strong>{{ e.titulo|truncatechars:50 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ e.curso.titulo }}
+                    {% if e.disponible_hasta %}· Vence {{ e.disponible_hasta|date:"d/m H:i" }}{% endif %}
+                  </small>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones abiertas ahora.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Evaluaciones programadas (futuro) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-calendar-alt text-info"></i> Próximas evaluaciones programadas</span>
+        <span class="badge bg-info text-dark">{{ evals_programadas|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if evals_programadas %}
+          <div class="row g-2">
+            {% for e in evals_programadas %}
+              <div class="col-md-6">
+                <div class="border rounded p-2 h-100">
+                  <strong>{{ e.titulo|truncatechars:60 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ e.curso.titulo }}
+                    <br><i class="fas fa-clock"></i> Abre {{ e.disponible_desde|date:"d/m/Y H:i" }}
+                  </small>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones programadas en el futuro.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% load static %}
 <script src="{% static 'js/chart.umd.min.js' %}"></script>
 <script>

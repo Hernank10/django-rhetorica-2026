@@ -96,6 +96,7 @@ urlpatterns += i18n_patterns(
     path('recursos/', include('core.urls_recursos')),
 
     path('estudiante/', include('core.urls_estudiante')),
+    path('notificaciones/', include('core.urls_notificaciones')),
 
     path('verificar/<str:codigo>/', verificar_certificado_publico, name='verificar_certificado_publico'),
 

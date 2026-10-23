@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0"><i class="fas fa-bell text-primary"></i> Notificaciones</h2>
+    <div>
+      <span class="badge bg-danger me-2">{{ total_no_leidas }} sin leer</span>
+      <button id="btn-marcar-todas" class="btn btn-sm btn-outline-primary" {% if total_no_leidas == 0 %}disabled{% endif %}>
+        <i class="fas fa-check-double"></i> Marcar todas como leídas
+      </button>
+    </div>
+  </div>
+
+  <div class="mb-3 d-flex flex-wrap gap-2">
+    <a href="{% url 'notificaciones:lista' %}"
+       class="btn btn-sm {% if not filtro %}btn-primary{% else %}btn-outline-primary{% endif %}">
+      Todas ({{ total }})
+    </a>
+    <a href="?filtro=no_leidas"
+       class="btn btn-sm {% if filtro == 'no_leidas' %}btn-primary{% else %}btn-outline-primary{% endif %}">
+      No leídas ({{ total_no_leidas }})
+    </a>
+    <a href="?filtro=leccion_completada"
+       class="btn btn-sm {% if filtro == 'leccion_completada' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+      <i class="fas fa-check-circle"></i> Lecciones
+    </a>
+    <a href="?filtro=certificacion"
+       class="btn btn-sm {% if filtro == 'certificacion' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+      <i class="fas fa-award"></i> Certificaciones
+    </a>
+    <a href="?filtro=logro"
+       class="btn btn-sm {% if filtro == 'logro' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+      <i class="fas fa-star"></i> Logros
+    </a>
+  </div>
+
+  {% if notificaciones %}
+    <div class="list-group">
+      {% for n in notificaciones %}
+        <div class="list-group-item {% if not n.leida %}list-group-item-primary{% endif %}"
+             data-notif-id="{{ n.id }}">
+          <div class="d-flex align-items-start">
+            <div class="me-3 fs-3">
+              <i class="fas fa-{{ n.icono|default:'bell' }} text-primary"></i>
+            </div>
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between">
+                <strong>{{ n.titulo }}</strong>
+                <small class="text-muted">{{ n.creada_en|timesince }} atrás</small>
+              </div>
+              {% if n.mensaje %}<div class="text-muted small">{{ n.mensaje }}</div>{% endif %}
+            </div>
+            {% if n.url_destino %}
+              <div class="ms-2">
+                <a href="{{ n.url_destino }}" class="btn btn-sm btn-outline-primary btn-ir"
+                   data-notif-id="{{ n.id }}">
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if page_obj.has_other_pages %}
+      <nav class="mt-4">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link"
+              href="?page={{ page_obj.previous_page_number }}{% if filtro %}&filtro={{ filtro }}{% endif %}">&laquo;</a></li>
+          {% endif %}
+          <li class="page-item disabled"><span class="page-link">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span></li>
+          {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link"
+              href="?page={{ page_obj.next_page_number }}{% if filtro %}&filtro={{ filtro }}{% endif %}">&raquo;</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    {% endif %}
+  {% else %}
+    <div class="text-center py-5 text-muted">
+      <i class="fas fa-inbox fa-3x mb-3 d-block"></i>
+      <h4>No tienes notificaciones</h4>
+      <p>Cuando completes lecciones, obtengas certificaciones o desbloquees logros, aparecerán aquí.</p>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+(function() {
+  const csrf = (document.cookie.match(/csrftoken=([^;]+)/) || [])[1] || '';
+
+  const btnMarcar = document.getElementById('btn-marcar-todas');
+  if (btnMarcar) {
+    btnMarcar.addEventListener('click', function() {
+      if (!confirm('¿Marcar todas como leídas?')) return;
+      fetch('/notificaciones/ajax/marcar-todas/', {
+        method: 'POST',
+        headers: {'X-CSRFToken': csrf},
+      })
+      .then(r => r.json())
+      .then(d => { if (d.ok) location.reload(); });
+    });
+  }
+
+  document.querySelectorAll('.btn-ir').forEach(btn => {
+    btn.addEventListener('click', function() {
+      fetch('/notificaciones/ajax/marcar/' + this.dataset.notifId + '/', {
+        method: 'POST',
+        headers: {'X-CSRFToken': csrf},
+      });
+    });
+  });
+})();
+</script>
+{% endblock %}

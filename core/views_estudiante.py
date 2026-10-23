@@ -129,6 +129,17 @@ def dashboard(request):
         ).values_list("leccion_id", flat=True)
     ).select_related("modulo__curso")[:5]
 
+    from core.services.notificaciones import contar_no_leidas, ultimas_notificaciones
+    from core.services.tareas import (
+        evaluaciones_disponibles, evaluaciones_programadas, lecciones_pendientes,
+    )
+    notif_recientes = list(ultimas_notificaciones(u, n=5))
+    notif_count = contar_no_leidas(u)
+
+    tareas_pendientes = list(lecciones_pendientes(u, limit=5))
+    evals_disponibles = list(evaluaciones_disponibles(u, limit=5))
+    evals_programadas = list(evaluaciones_programadas(u, limit=5))
+
     context = {
         "kpis": {
             "cursos_activos": cursos_activos,
@@ -143,6 +154,11 @@ def dashboard(request):
         "ultimos_logros": ultimos_logros,
         "ultimos_certs": ultimos_certs,
         "proximas": proximas,
+        "notificaciones_recientes": notif_recientes,
+        "notif_count": notif_count,
+        "tareas_pendientes": tareas_pendientes,
+        "evals_disponibles": evals_disponibles,
+        "evals_programadas": evals_programadas,
     }
     return render(request, "core/estudiante/dashboard.html", context)
 
