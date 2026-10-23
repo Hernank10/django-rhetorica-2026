@@ -335,3 +335,27 @@ class TestCursoToggle(BaseProfesorTest):
         self.curso.refresh_from_db()
         self.assertEqual(self.curso.estado, "publicado")
 
+class TestBotonesCrearEnListas(BaseProfesorTest):
+    """Blindaje: cada lista del profesor debe exponer un botón 'Crear X'."""
+    def setUp(self):
+        self.client.force_login(self.prof)
+
+    def _assert_boton(self, url_name, entidad_url_name):
+        r = self.client.get(reverse(url_name))
+        self.assertEqual(r.status_code, 200)
+        html = r.content.decode("utf-8")
+        url_crear = reverse(entidad_url_name)
+        self.assertIn(url_crear, html, f"{url_name} no expone link a {entidad_url_name}")
+
+    def test_cursos_lista_tiene_boton_crear(self):
+        self._assert_boton("profesor:cursos_lista", "profesor:curso_crear")
+
+    def test_modulos_lista_tiene_boton_crear(self):
+        self._assert_boton("profesor:modulos_lista", "profesor:modulo_crear")
+
+    def test_lecciones_lista_tiene_boton_crear(self):
+        self._assert_boton("profesor:lecciones_lista", "profesor:leccion_crear")
+
+    def test_evaluaciones_lista_tiene_boton_crear(self):
+        self._assert_boton("profesor:evaluaciones", "profesor:evaluacion_crear")
+
