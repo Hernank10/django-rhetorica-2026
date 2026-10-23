@@ -290,6 +290,10 @@ class Notificacion(models.Model):
         ("certificacion", "Certificacion obtenida"),
         ("logro", "Logro desbloqueado"),
         ("sistema", "Aviso del sistema"),
+        ("estudiante_leccion", "Estudiante completo leccion"),
+        ("estudiante_cert", "Estudiante obtuvo certificacion"),
+        ("estudiante_logro", "Estudiante desbloqueo logro"),
+        ("profesor_aviso", "Aviso del profesor"),
     ]
 
     user = models.ForeignKey(
