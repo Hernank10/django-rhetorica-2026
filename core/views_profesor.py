@@ -1,9 +1,11 @@
 """
 Panel del profesor: estudiantes, evaluaciones, certificaciones, CRUD cursos y lecciones.
 """
+
+from functools import wraps
+from django.core.exceptions import PermissionDenied
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import user_passes_test
 from django.db.models import Avg, Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -34,7 +36,20 @@ def _es_profesor(user):
         user.is_staff or user.groups.filter(name="Profesor").exists()
     )
 
-profesor_required = user_passes_test(_es_profesor, login_url="login")
+def profesor_required(view_func):
+    """Bloquea con 403 a autenticados que no sean profesores.
+    Redirige a login solo si no está autenticado."""
+    @wraps(view_func)
+    def _wrapped(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            from django.contrib.auth.views import redirect_to_login
+            return redirect_to_login(request.get_full_path(), login_url="login")
+        if not _es_profesor(request.user):
+            raise PermissionDenied(
+                "Solo profesores pueden acceder a esta sección."
+            )
+        return view_func(request, *args, **kwargs)
+    return _wrapped
 
 
 # ============================================================
