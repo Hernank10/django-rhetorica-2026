@@ -1,22 +1,41 @@
-﻿"""
-Django settings for django_retorica project.
 """
+Django settings for django_retorica project.
 
-DEBUG = True
-
+La configuracion sensible (SECRET_KEY, DEBUG, ALLOWED_HOSTS, credenciales)
+se lee desde .env. NUNCA commitear .env.
+"""
 
 import os
 from pathlib import Path
 
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qu%$^80w!7#sf%#d64eww*%nc2-wzkhos6(*rhwo_4u4+t97lq'
+# Cargar variables desde .env en la raiz del proyecto
+load_dotenv(BASE_DIR / ".env")
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# SECRET_KEY — fallar rapido si falta
+SECRET_KEY = os.environ.get("SECRET_KEY")
+if not SECRET_KEY:
+    raise ImproperlyConfigured(
+        "SECRET_KEY no esta definida. Crea un archivo .env en la raiz "
+        "del proyecto con SECRET_KEY=<clave-generada>"
+    )
+
+# DEBUG — default True para dev local, False en prod (via .env)
+DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "yes")
+
+# ALLOWED_HOSTS — lista separada por comas
+ALLOWED_HOSTS = [
+    h.strip()
+    for h in os.getenv(
+        "ALLOWED_HOSTS", "localhost,127.0.0.1,testserver,[::1]"
+    ).split(",")
+    if h.strip()
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -174,13 +193,7 @@ LANGUAGES = [
 
 LOCALE_PATHS = [BASE_DIR / 'locale']
 
-# -------------------------------------------------------------
-# Hosts permitidos (testserver para Django test Client)
-# -------------------------------------------------------------
-if DEBUG:
-    ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver", "[::1]"]
-else:
-    ALLOWED_HOSTS = ["rhetorica.com", "www.rhetorica.com"]
+# ALLOWED_HOSTS se define arriba desde .env
 
 
 # -------------------------------------------------------------
