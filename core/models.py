@@ -1,4 +1,4 @@
-﻿from django.conf import settings
+from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils import timezone
@@ -279,3 +279,41 @@ from . import models_redaccion  # noqa: F401,E402
 from .models_redaccion import EvaluacionRedaccion  # noqa: F401,E402
 from . import models_srs  # noqa: F401,E402
 from .models_srs import Flashcard, Review  # noqa: F401,E402
+
+
+class Notificacion(models.Model):
+    """Notificacion para un usuario (campana del navbar)."""
+
+    TIPOS = [
+        ("leccion_completada", "Leccion completada"),
+        ("curso_completado", "Curso completado"),
+        ("certificacion", "Certificacion obtenida"),
+        ("logro", "Logro desbloqueado"),
+        ("sistema", "Aviso del sistema"),
+    ]
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="notificaciones",
+    )
+    tipo = models.CharField(max_length=30, choices=TIPOS)
+    titulo = models.CharField(max_length=200)
+    mensaje = models.TextField(blank=True)
+    url_destino = models.CharField(max_length=500, blank=True)
+    icono = models.CharField(max_length=50, default="bell")
+    referencia = models.CharField(max_length=100, blank=True, db_index=True)
+    leida = models.BooleanField(default=False, db_index=True)
+    creada_en = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-creada_en"]
+        indexes = [
+            models.Index(fields=["user", "leida", "-creada_en"]),
+        ]
+        verbose_name = "Notificacion"
+        verbose_name_plural = "Notificaciones"
+
+    def __str__(self):
+        return f"{self.user.username} - {self.titulo[:50]}"
+
