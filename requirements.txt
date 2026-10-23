@@ -1,12 +1,46 @@
+# ============================================================================
+# Rhetorica+ — dependencias de runtime
+# ============================================================================
+# Instalar en dev:     pip install -r requirements-dev.txt
+# Instalar en prod:    pip install -r requirements.txt
+# DESPUES de instalar: python -m spacy download es_core_news_sm
+#                      python -m spacy download es_core_news_md
+# ============================================================================
+
+# ─── Django core ───
 Django==5.2.11
+python-dotenv==1.2.4
+
+# ─── Generacion de certificados (PDF/DOCX/QR) ───
+# NOTA: xhtml2pdf 0.2.21 exige reportlab>=4.0.4,<5.0.0
+reportlab==4.0.9
+python-docx==1.2.0
+xhtml2pdf==0.2.21
+qrcode==7.4.2
 Pillow==10.1.0
+
+# ─── Procesamiento HTML / texto ───
 beautifulsoup4==4.15.0
 lxml==6.1.3
 nh3==0.3.7
-pytest-cov==7.1.0
-pytest-django==4.14.0
-pytest==9.1.1
-python-docx==1.2.0
-qrcode==7.4.2
-reportlab==5.0.1
-gtts>=2.5.0
+
+# ─── NLP: POS + morfosintaxis (modulo 1 y 7) ───
+# NOTA: spaCy 3.8.x exige click>=8.2.1, pero gTTS 2.5.4 exige click<8.2.
+# Solucion: spaCy 3.7.5 acepta click>=8.1.7,<8.2.0 -> se solapa con gTTS.
+click==8.1.7
+spacy==3.7.5
+# Los modelos de espanol NO estan en PyPI para 3.7.x.
+# Se instalan despues con: python -m spacy download es_core_news_sm
+
+# ─── Text-to-Speech (modulo 3) ───
+gTTS==2.5.4
+
+# ─── Produccion (solo Linux/macOS) ───
+whitenoise==6.8.2
+dj-database-url==2.3.0
+gunicorn==23.0.0 ; sys_platform != "win32"
+psycopg2-binary==2.9.10 ; sys_platform != "win32"
+
+# ─── Almacenamiento S3 (Fase 3) ───
+django-storages==1.14.4
+boto3==1.43.106
