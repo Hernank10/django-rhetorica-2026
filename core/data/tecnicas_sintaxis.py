@@ -602,6 +602,78 @@ TECNICAS = [
      "ejemplo_incorrecto": "El hecho de que viniera me sorprendió (si son varios).",
      "nivel": "avanzado"},
 
+    # ─── BLOQUE E: SUBORDINACIÓN ADJETIVA (71-80) ───
+    {"numero": 71, "bloque": "E", "titulo": "Relativo 'que' con antecedente",
+     "teoria": "El relativo 'que' sustituye a un antecedente ya mencionado y funciona como adjetivo de ese antecedente.",
+     "explicacion": "El hombre que vino es mi tío. 'Que vino' modifica al sustantivo 'hombre'. Prueba: si puedes sustituir por 'el cual', es relativo.",
+     "regla": "Relativo 'que' siempre con antecedente explícito",
+     "ejemplo_correcto": "El hombre que vino es mi tío.",
+     "ejemplo_incorrecto": "Creo que vino (aquí 'que' es conjunción, no relativo).",
+     "nivel": "intermedio"},
+    {"numero": 72, "bloque": "E", "titulo": "Relativo 'quien/quienes'",
+     "teoria": "El relativo 'quien' se usa con antecedente de persona, generalmente tras preposición o en oraciones explicativas.",
+     "explicacion": "El hombre con quien hablé. 'Quien' solo para personas. En especificativas se prefiere 'que': 'El hombre que vino' (no 'quien vino').",
+     "regla": "'Quien' = personas, tras preposición o en explicativas",
+     "ejemplo_correcto": "El hombre con quien hablé es mi tío.",
+     "ejemplo_incorrecto": "El hombre quien vino (en especificativa: mejor 'que').",
+     "nivel": "intermedio"},
+    {"numero": 73, "bloque": "E", "titulo": "Relativo 'el cual / la cual'",
+     "teoria": "'El cual', 'la cual', 'los cuales', 'las cuales' son relativos cultos, equivalentes a 'que' pero con más precisión de género y número.",
+     "explicacion": "El libro, el cual leí ayer, es bueno. 'El cual' concuerda en género y número con el antecedente. Preferido en contextos formales.",
+     "regla": "'El cual/la cual' concuerda con el antecedente; registro culto",
+     "ejemplo_correcto": "La casa, la cual compramos ayer, es amplia.",
+     "ejemplo_incorrecto": "La casa, el cual compramos ayer (concordancia incorrecta).",
+     "nivel": "avanzado"},
+    {"numero": 74, "bloque": "E", "titulo": "Relativo 'cuyo' (posesivo)",
+     "teoria": "'Cuyo' es un relativo posesivo: equivale a 'del cual' o 'de quien'. Concuerda con el sustantivo siguiente, no con el antecedente.",
+     "explicacion": "El hombre cuyo hijo es médico. 'Cuyo' concuerda con 'hijo' (masculino singular), no con 'hombre'. Error común: 'cuyo su hijo'.",
+     "regla": "'Cuyo' concuerda con el sustantivo siguiente (nunca 'cuyo su')",
+     "ejemplo_correcto": "El hombre cuyo hijo es médico.",
+     "ejemplo_incorrecto": "El hombre cuyo su hijo es médico.",
+     "nivel": "avanzado"},
+    {"numero": 75, "bloque": "E", "titulo": "Relativo 'donde' (lugar)",
+     "teoria": "'Donde' es un relativo que sustituye a un antecedente de lugar.",
+     "explicacion": "La casa donde vivo. Antecedente = 'la casa' (lugar). Error común: usar 'que' con antecedente de lugar cuando 'donde' es más natural.",
+     "regla": "'Donde' relativo: antecedente de lugar",
+     "ejemplo_correcto": "La casa donde vivo es pequeña.",
+     "ejemplo_incorrecto": "La casa que vivo es pequeña.",
+     "nivel": "intermedio"},
+    {"numero": 76, "bloque": "E", "titulo": "Relativo 'cuando' (tiempo)",
+     "teoria": "'Cuando' es un relativo que sustituye a un antecedente de tiempo.",
+     "explicacion": "El día cuando llegó llovía. Antecedente = 'el día' (tiempo). Menos común que 'donde', pero válido en registro culto.",
+     "regla": "'Cuando' relativo: antecedente de tiempo",
+     "ejemplo_correcto": "El día cuando llegó llovía.",
+     "ejemplo_incorrecto": "El día que cuando llegó llovía (duplicación).",
+     "nivel": "avanzado"},
+    {"numero": 77, "bloque": "E", "titulo": "Relativo 'como' (modo)",
+     "teoria": "'Como' es un relativo que sustituye a un antecedente de modo.",
+     "explicacion": "La forma como lo hizo es rara. Antecedente = 'la forma' (modo). La RAE acepta 'como' relativo, aunque 'la forma en que' es más formal.",
+     "regla": "'Como' relativo: antecedente de modo",
+     "ejemplo_correcto": "La forma como lo hizo es rara.",
+     "ejemplo_incorrecto": "La forma como que lo hizo (duplicación).",
+     "nivel": "avanzado"},
+    {"numero": 78, "bloque": "E", "titulo": "Explicativa vs especificativa",
+     "teoria": "Explicativa: la subordinada añade información no restrictiva, entre comas. Especificativa: la subordinada restringe el antecedente, sin comas.",
+     "explicacion": "Los alumnos, que estudian, aprobaron (todos). Los alumnos que estudian aprueban (solo los que estudian). La coma cambia el significado.",
+     "regla": "Explicativa = con comas; especificativa = sin comas",
+     "ejemplo_correcto": "Los alumnos, que estudian, aprobaron.",
+     "ejemplo_incorrecto": "Los alumnos que estudian, aprobaron (coma mal puesta).",
+     "nivel": "avanzado"},
+    {"numero": 79, "bloque": "E", "titulo": "Coma obligatoria en explicativa",
+     "teoria": "La subordinada adjetiva explicativa lleva coma antes y después.",
+     "explicacion": "Mi hermano, que vive en Bogotá, vino. La coma abre y cierra el inciso explicativo. Sin coma, el significado cambia.",
+     "regla": "Explicativa: coma antes y después del relativo",
+     "ejemplo_correcto": "Mi hermano, que vive en Bogotá, vino.",
+     "ejemplo_incorrecto": "Mi hermano que vive en Bogotá, vino.",
+     "nivel": "intermedio"},
+    {"numero": 80, "bloque": "E", "titulo": "Sin coma en especificativa",
+     "teoria": "La subordinada adjetiva especificativa NO lleva coma entre el antecedente y el relativo.",
+     "explicacion": "Los alumnos que estudian aprueban. Sin coma = restringe (solo los que estudian). Especificativa = sin pausa.",
+     "regla": "Especificativa: sin coma entre antecedente y 'que'",
+     "ejemplo_correcto": "Los alumnos que estudian aprueban.",
+     "ejemplo_incorrecto": "Los alumnos, que estudian, aprueban (cambia significado: todos aprueban).",
+     "nivel": "intermedio"},
+
 ]
 
 
@@ -1214,5 +1286,80 @@ EJERCICIOS = {
             {"id": "b", "texto": "El hecho de que viniera me sorprendió (si son varios).", "correcta": False, "razon": "Singular con sujeto plural es incorrecto."},
             {"id": "c", "texto": "El hecho de que vinieron (indicativo).", "correcta": False, "razon": "En esta locución va en subjuntivo."},
         ], "justificacion_obligatoria": True, "regla": "Verbo subordinado concuerda con sujeto interno"
+    }}],
+
+    71: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración contiene un 'que' relativo con antecedente?",
+        "opciones": [
+            {"id": "a", "texto": "El hombre que vino es mi tío.", "correcta": True, "razon": "'Que' = 'el hombre' (antecedente)."},
+            {"id": "b", "texto": "Creo que vino.", "correcta": False, "razon": "Aquí 'que' es conjunción, no relativo."},
+            {"id": "c", "texto": "Es importante que vengas.", "correcta": False, "razon": "Conjunción, no relativo."},
+        ], "justificacion_obligatoria": True, "regla": "Relativo 'que' con antecedente"
+    }}],
+    72: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el relativo (especificativa):",
+        "oracion_incorrecta": "El hombre quien vino es mi tío.",
+        "respuesta_correcta": "El hombre que vino es mi tío.",
+        "regla": "Especificativa con persona: 'que' preferido sobre 'quien'"
+    }}],
+    73: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa 'el cual'/'la cual' con concordancia correcta?",
+        "opciones": [
+            {"id": "a", "texto": "La casa, la cual compramos ayer, es amplia.", "correcta": True, "razon": "'La cual' concuerda con 'casa' (fem. sing.)."},
+            {"id": "b", "texto": "La casa, el cual compramos ayer, es amplia.", "correcta": False, "razon": "'El cual' no concuerda con 'casa' femenina."},
+            {"id": "c", "texto": "Los libros, la cual leí, son buenos.", "correcta": False, "razon": "'La cual' no concuerda con 'libros' masculinos plurales."},
+        ], "justificacion_obligatoria": True, "regla": "'El cual/la cual' concuerda con el antecedente"
+    }}],
+    74: [{"tipo": 5, "orden": 1, "payload": {
+        "enunciado": "Señala el error con 'cuyo':",
+        "oracion": "El hombre cuyo su hijo es médico llegó tarde.",
+        "error_texto": "cuyo su",
+        "error_posicion": [10, 17],
+        "regla_violada": "cuyo_sin_su",
+        "reglas_posibles": ["cuyo_sin_su", "concordancia_cuyo", "relativo_que", "posesivo_duplicado"]
+    }}],
+    75: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el relativo de lugar:",
+        "oracion_incorrecta": "La casa que vivo es pequeña.",
+        "respuesta_correcta": "La casa donde vivo es pequeña.",
+        "regla": "Antecedente de lugar → 'donde'"
+    }}],
+    76: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa 'cuando' relativo correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "El día cuando llegó llovía.", "correcta": True, "razon": "'Cuando' = 'el día' (tiempo)."},
+            {"id": "b", "texto": "El día que cuando llegó llovía.", "correcta": False, "razon": "Duplicación 'que cuando'."},
+            {"id": "c", "texto": "Cuando llegó el día llovía.", "correcta": True, "razon": "Válida, pero 'cuando' es conjunción aquí, no relativo."},
+        ], "justificacion_obligatoria": True, "regla": "'Cuando' relativo: antecedente de tiempo"
+    }}],
+    77: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el relativo de modo:",
+        "oracion_incorrecta": "La forma como que lo hizo es rara.",
+        "respuesta_correcta": "La forma como lo hizo es rara.",
+        "regla": "'Como' relativo solo, sin 'que'"
+    }}],
+    78: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada oración: ¿explicativa o especificativa?",
+        "oraciones": [
+            {"texto": "Los alumnos, que estudian, aprobaron.", "categoria_correcta": "explicativa"},
+            {"texto": "Los alumnos que estudian aprueban.", "categoria_correcta": "especificativa"},
+            {"texto": "Mi hermano, que vive en Bogotá, vino.", "categoria_correcta": "explicativa"},
+            {"texto": "Mi hermano que vive en Bogotá vino.", "categoria_correcta": "especificativa"},
+        ],
+        "categorias": ["explicativa", "especificativa"],
+    }}],
+    79: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Añade las comas que faltan (explicativa):",
+        "oracion_incorrecta": "Mi hermano que vive en Bogotá vino.",
+        "respuesta_correcta": "Mi hermano, que vive en Bogotá, vino.",
+        "regla": "Explicativa: coma antes y después del inciso"
+    }}],
+    80: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración es especificativa (sin coma)?",
+        "opciones": [
+            {"id": "a", "texto": "Los alumnos que estudian aprueban.", "correcta": True, "razon": "Sin coma = especificativa (solo los que estudian)."},
+            {"id": "b", "texto": "Los alumnos, que estudian, aprueban.", "correcta": False, "razon": "Con coma = explicativa (todos aprueban)."},
+            {"id": "c", "texto": "Los alumnos, que estudian aprueban.", "correcta": False, "razon": "Coma mal puesta (incorrecta)."},
+        ], "justificacion_obligatoria": True, "regla": "Especificativa: sin coma entre antecedente y 'que'"
     }}],
 }
