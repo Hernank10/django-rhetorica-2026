@@ -206,6 +206,48 @@ django-rhetorica/
 **Deuda resuelta:** 6.5/8 items.
 **Deuda pendiente:** #7 deploy, #8 storage S3, bell visible, Parte B (CRUD profesor).
 
+### v1.1.5 — 2026-10-24 (S3 opcional)
+
+STORAGES condicional via USE_S3. Compatible SeaweedFS (dev), Backblaze B2 y AWS S3 (prod).
+- `settings/base.py`: STORAGES switch
+- `conftest.py`: USE_S3=False para tests aislados
+- Verificado: upload real + 37/37 tests
+
+### v1.1.4 — 2026-10-24 (settings split)
+
+Split `settings.py` en paquete base/dev/prod.
+- `check --deploy` en prod: 0 warnings (W004-W018)
+- `manage.py`/`wsgi.py`/`asgi.py`/`pytest.ini` actualizados
+
+### v1.1.3 — 2026-10-24 (requirements reproducibles)
+
+`requirements.txt` curado (19) + `requirements-dev.txt`.
+- Fix: reportlab 5.0.1→4.0.9 (xhtml2pdf<5)
+- Fix: spacy 3.8→3.7.5 + click==8.1.7 (gTTS<8.2)
+- Modelos spacy via `spacy download` (no PyPI)
+
+### v1.1.2 — 2026-10-24 (SECRET_KEY rotada)
+
+SECRET_KEY fuera del código → `.env` + `.env.example`.
+- `python-dotenv` agregado
+- `DEBUG`/`ALLOWED_HOSTS` desde env
+- BOM residual en `settings.py` eliminado
+
+### v1.1.1 — 2026-10-23 (CRUD profesor tests)
+
+37 tests CRUD profesor + decorador 403.
+- 8 permisos + 14 GET + 10 POST + 1 toggle + 4 botones
+- `@profesor_required` custom (403, no redirect)
+- 31/31 vistas protegidas
+
+### v1.1.0 — 2026-10-23 (notificaciones + tareas)
+
+Modelo Notificacion (9 tipos) + 3 señales + servicio idempotente.
+- `/notificaciones/` + 4 AJAX + campana
+- 3 cards en `/estudiante/`
+- 620 notifs seed (480 est + 140 prof)
+- Tests: +16
+
 ### v1.0.0 — 2026-10-22 (demo-ready)
 
 **Hito**: production-ready para demo interna. 8/8 modulos funcionales, 1628 ejercicios 100% reales, 6/8 items de deuda tecnica resueltos.
