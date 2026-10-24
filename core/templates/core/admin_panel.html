@@ -1,0 +1,130 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div class="container-fluid mt-3">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0"><i class="fas fa-user-shield text-primary"></i> Panel de administración</h2>
+    <a href="{% url 'admin:index' %}" class="btn btn-outline-secondary">
+      <i class="fas fa-cog"></i> Ir al admin de Django
+    </a>
+  </div>
+
+  <!-- Cards Notif + Tareas -->
+  <div class="row g-3 mb-4">
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-bell text-primary"></i> Notificaciones recientes</span>
+          <a href="{% url 'notificaciones:lista' %}" class="btn btn-sm btn-outline-primary">
+            Ver todas {% if notif_count %}({{ notif_count }}){% endif %}
+          </a>
+        </div>
+        <div class="card-body">
+          {% if notif_recientes %}
+            <div class="list-group list-group-flush">
+              {% for n in notif_recientes %}
+                <a href="{{ n.url_destino|default:'#' }}"
+                   class="list-group-item list-group-item-action px-0 {% if not n.leida %}fw-bold{% endif %}">
+                  <i class="fas fa-{{ n.icono|default:'bell' }} text-primary"></i>
+                  {{ n.titulo|truncatechars:60 }}
+                  <small class="text-muted float-end">{{ n.creada_en|timesince }} atrás</small>
+                </a>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p class="text-muted mb-0">Sin notificaciones.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-tasks text-warning"></i> Tareas pendientes</span>
+          <span class="badge bg-warning text-dark">{{ tareas_admin.total }}</span>
+        </div>
+        <div class="card-body">
+
+          {% if tareas_admin.usuarios_sin_grupo %}
+            <h6 class="text-danger"><i class="fas fa-users"></i> Usuarios sin grupo ({{ tareas_admin.usuarios_sin_grupo|length }})</h6>
+            <ul class="list-unstyled mb-3">
+              {% for u in tareas_admin.usuarios_sin_grupo|slice:":3" %}
+                <li class="mb-1">
+                  <a href="{% url 'admin:auth_user_change' u.id %}" class="text-decoration-none">
+                    {{ u.username }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if tareas_admin.cursos_sin_profesor %}
+            <h6 class="text-secondary"><i class="fas fa-book"></i> Cursos sin profesor ({{ tareas_admin.cursos_sin_profesor|length }})</h6>
+            <ul class="list-unstyled mb-3">
+              {% for c in tareas_admin.cursos_sin_profesor|slice:":3" %}
+                <li class="mb-1">
+                  <a href="{% url 'admin:core_curso_change' c.id %}" class="text-decoration-none">
+                    {{ c.titulo|truncatechars:40 }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if tareas_admin.cursos_sin_modulos %}
+            <h6 class="text-info"><i class="fas fa-layer-group"></i> Cursos publicados sin módulos ({{ tareas_admin.cursos_sin_modulos|length }})</h6>
+            <ul class="list-unstyled mb-0">
+              {% for c in tareas_admin.cursos_sin_modulos|slice:":3" %}
+                <li class="mb-1">
+                  <a href="{% url 'admin:core_curso_change' c.id %}" class="text-decoration-none">
+                    {{ c.titulo|truncatechars:40 }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          {% if not tareas_admin.usuarios_sin_grupo and not tareas_admin.cursos_sin_profesor and not tareas_admin.cursos_sin_modulos %}
+            <p class="text-muted mb-0"><i class="fas fa-check-circle text-success"></i> Todo al día.</p>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- App list normal de Django -->
+  <h3 class="mt-5 mb-3"><i class="fas fa-database"></i> Aplicaciones</h3>
+  <div class="row g-3">
+    {% for app in app_list %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-white fw-bold">{{ app.name }}</div>
+          <div class="card-body">
+            <ul class="list-unstyled mb-0">
+              {% for model in app.models %}
+                <li class="mb-1">
+                  {% if model.admin_url %}
+                    <a href="{{ model.admin_url }}">{{ model.name }}</a>
+                  {% else %}
+                    {{ model.name }}
+                  {% endif %}
+                  {% if model.add_url %}
+                    <a href="{{ model.add_url }}" class="btn btn-sm btn-outline-success float-end">
+                      <i class="fas fa-plus"></i>
+                    </a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}

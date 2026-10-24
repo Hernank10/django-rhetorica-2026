@@ -10,6 +10,8 @@ from django.db.models import Avg, Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
+from core.services.notificaciones import contar_no_leidas, ultimas_notificaciones
+from core.services.tareas import tareas_profesor
 from .models import (
     Certificacion,
     CertificacionObtenida,
@@ -130,6 +132,10 @@ def dashboard(request):
         "chart_actividad": chart_actividad,
         "chart_niveles": chart_niveles,
     }
+    context["notif_recientes"] = list(ultimas_notificaciones(request.user, n=5))
+    context["notif_count"] = contar_no_leidas(request.user)
+    context["tareas_profesor"] = tareas_profesor(request.user)
+
     return render(request, "core/profesor/dashboard.html", context)
 
 

@@ -1,4 +1,4 @@
-﻿"""
+"""
 
 URL Configuration for django_retorica project.
 
@@ -72,6 +72,7 @@ from core.views_ejercicios import detalle_ejercicio, practicar_ejercicio
 
 from core import views_parafrasis
 from core import views_parafrasis_reordenamiento
+from core import views_admin
 from core import views_parafrasis_registro
 
 
@@ -98,6 +99,7 @@ urlpatterns += i18n_patterns(
     path('estudiante/', include('core.urls_estudiante')),
     path('notificaciones/', include('core.urls_notificaciones')),
     path('sintaxis/', include('core.urls_sintaxis')),
+    path('admin-panel/', views_admin.panel, name='admin_panel'),
 
     path('verificar/<str:codigo>/', verificar_certificado_publico, name='verificar_certificado_publico'),
 

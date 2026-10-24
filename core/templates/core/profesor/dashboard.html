@@ -1,6 +1,73 @@
 {% extends 'core/profesor/base.html' %}
 {% load i18n %}
 {% block panel %}
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-bell text-primary"></i> Notificaciones recientes</span>
+        <a href="{% url 'notificaciones:lista' %}" class="btn btn-sm btn-outline-primary">
+          Ver todas {% if notif_count %}({{ notif_count }}){% endif %}
+        </a>
+      </div>
+      <div class="card-body">
+        {% if notif_recientes %}
+          <div class="list-group list-group-flush">
+            {% for n in notif_recientes %}
+              <a href="{{ n.url_destino|default:'#' }}"
+                 class="list-group-item list-group-item-action px-0 {% if not n.leida %}fw-bold{% endif %}">
+                <i class="fas fa-{{ n.icono|default:'bell' }} text-primary"></i>
+                {{ n.titulo|truncatechars:60 }}
+                <small class="text-muted float-end">{{ n.creada_en|timesince }} atrás</small>
+              </a>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Sin notificaciones.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-tasks text-warning"></i> Tareas pendientes</span>
+        <span class="badge bg-warning text-dark">{{ tareas_profesor.total }}</span>
+      </div>
+      <div class="card-body">
+        {% if tareas_profesor.estudiantes_riesgo %}
+          <h6 class="text-danger"><i class="fas fa-exclamation-triangle"></i> Estudiantes en riesgo ({{ tareas_profesor.estudiantes_riesgo|length }})</h6>
+          <ul class="list-unstyled mb-3">
+            {% for e in tareas_profesor.estudiantes_riesgo|slice:":3" %}
+              <li class="mb-1"><i class="fas fa-user"></i> {{ e.username }}<small class="text-muted"> — sin actividad 7d</small></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if tareas_profesor.cursos_borrador %}
+          <h6 class="text-secondary"><i class="fas fa-book"></i> Cursos en borrador ({{ tareas_profesor.cursos_borrador|length }})</h6>
+          <ul class="list-unstyled mb-3">
+            {% for c in tareas_profesor.cursos_borrador|slice:":3" %}
+              <li class="mb-1"><a href="{% url 'profesor:curso_editar' c.id %}">{{ c.titulo|truncatechars:40 }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if tareas_profesor.evaluaciones_sin_calificar %}
+          <h6 class="text-info"><i class="fas fa-clipboard-check"></i> Sin calificar ({{ tareas_profesor.evaluaciones_sin_calificar|length }})</h6>
+          <ul class="list-unstyled mb-0">
+            {% for r in tareas_profesor.evaluaciones_sin_calificar|slice:":3" %}
+              <li class="mb-1">{{ r.usuario.username }} → {{ r.evaluacion.titulo|truncatechars:30 }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if not tareas_profesor.estudiantes_riesgo and not tareas_profesor.cursos_borrador and not tareas_profesor.evaluaciones_sin_calificar %}
+          <p class="text-muted mb-0"><i class="fas fa-check-circle text-success"></i> ¡Todo al día!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 <h2 class="mb-4"><i class="fas fa-tachometer-alt"></i> Panel del Profesor</h2>
 
 <div class="row g-3 mb-4">
