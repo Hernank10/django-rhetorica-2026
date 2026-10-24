@@ -1,9 +1,9 @@
-﻿# django-rhetorica — Documentacion
+# django-rhetorica — Documentacion
 
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: 248+ (todos verdes)
-**Cobertura**: 97.04% | **~975 tests** verdes
+**Cobertura**: 97.09% | **~975 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -23,7 +23,7 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 936 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: ~975 tests, cobertura 97.04%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
+**Total**: ~975 tests, cobertura 97.09%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
 ---
 

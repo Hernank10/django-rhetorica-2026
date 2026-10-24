@@ -120,3 +120,10 @@ scripts/_backup_*.json
 
 # SeaweedFS local
 .seaweed-data/
+
+# Scripts locales de desarrollo
+scripts/start_seaweed.ps1
+scripts/stop_seaweed.ps1
+scripts/dl_weed.py
+scripts/add_s3_settings.py
+scripts/fix_conftest.py

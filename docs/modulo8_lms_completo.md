@@ -1,4 +1,4 @@
-﻿# Modulo 8 — LMS: Hub, Dashboards y Datos
+# Modulo 8 — LMS: Hub, Dashboards y Datos
 
 **Commits**: 3 (`638930d` .. `8080bd3`)
 **Tests del modulo**: 19 unitarios + 8 E2E heredados
@@ -416,4 +416,83 @@ Los 4 items que **no** se resolvieron (todos requieren sesion propia):
 ---
 
 *Ultima actualizacion: 2026-10-22 tras quick wins de deuda tecnica.*
+
+## 17. Sistema de notificaciones (sprint #6, 2026-10-23)
+
+Modelo `Notificacion` (9 tipos) + 3 señales + frontend con campana + 620 notifs seed.
+
+### 17.1 Modelo
+
+- `user` (FK, related_name="notificaciones")
+- `tipo` (9 opciones: leccion_completada, curso_completado, certificacion, logro, sistema, estudiante_leccion, estudiante_cert, estudiante_logro, profesor_aviso)
+- `referencia` (idempotencia, indexed), `leida` (indexed), `creada_en`
+- Indice compuesto `(user, leida, -creada_en)`
+
+### 17.2 Servicio
+
+`core/services/notificaciones.py`: `crear_notificacion`, `contar_no_leidas`, `marcar_todas_leidas`, `ultimas_notificaciones`.
+
+### 17.3 Senales
+
+`core/signals_progreso.py`: `notif_progreso_completado` (leccion+curso), `notif_certificacion`, `notif_logro`. Todas con try/except.
+
+### 17.4 Vistas AJAX
+
+`core/views_notificaciones.py`: lista + contador + ultimas + marcar-todas + marcar-id.
+
+### 17.5 Frontend
+
+`lista.html` (filtros, paginacion) + `notificaciones.js` (polling 60s) + campana emoji `&#128276;` en `base.html`.
+
+### 17.6 Tareas pendientes
+
+`core/services/tareas.py` computa desde modelos existentes (sin modelo nuevo). 3 cards en dashboard estudiante.
+
+### 17.7 Seeds
+
+476 notifs (96 est) + 140 notifs (9 prof). Idempotentes via `referencia`.
+
+### 17.8 Estado DB
+
+Estudiantes 480 + Profesores 140 = **620** total.
+
+### 17.9 Tests (16)
+
+`test_notificaciones.py` (8) + `test_views_notificaciones.py` (9) + `test_tareas_dashboard.py` (7).
+
+### 17.10 Decisiones
+
+- Idempotencia por `referencia` = clave unica `(user, tipo, referencia)`
+- Senales con try/except: notif secundaria, progreso primario
+- Emoji no FontAwesome: CSS del navbar oculta `<i class="fas">`
+- Profesor sin boton dedicado: usa campana global
+
+## 18. Rotacion de SECRET_KEY (v1.1.2)
+
+`SECRET_KEY` hardcodeada eliminada del codigo. Movida a `.env` via `python-dotenv`. `.env.example` commiteado como plantilla. `ImproperlyConfigured` si falta en startup. Sesiones existentes invalidadas al rotar (esperado).
+
+## 19. Requirements reproducibles (v1.1.3)
+
+`requirements.txt` curado (19 runtime) + `requirements-dev.txt` (dev). Conflictos resueltos: `reportlab 5.0.1 -> 4.0.9` (xhtml2pdf<5), `spacy 3.8 -> 3.7.5` + `click==8.1.7` (gTTS<8.2). Modelos spacy via `spacy download` (no PyPI). `pip install --dry-run` limpio.
+
+## 20. Split de settings base/dev/prod (v1.1.4)
+
+`settings.py` unico reemplazado por paquete `settings/`:
+- `base.py` -- comun sin duplicados
+- `dev.py` -- DEBUG=True, SQLite, Codespaces
+- `prod.py` -- DEBUG=False, PostgreSQL, WhiteNoise, security settings
+
+`check --deploy` en prod: **0 warnings** (W004-W018 resueltos). `manage.py`/`wsgi.py`/`asgi.py`/`pytest.ini` -> `.dev`/`.prod`. 37/37 tests verdes. Deploy: `DJANGO_SETTINGS_MODULE=django_retorica.settings.prod`.
+
+## 21. Almacenamiento S3 opcional (v1.1.5)
+
+`STORAGES` condicional en `settings/base.py`: `USE_S3=True` -> `S3Storage`; `False` (default) -> `FileSystemStorage`.
+
+Compatibilidad: SeaweedFS (dev, `endpoint_url=http://127.0.0.1:8333`), Backblaze B2 (prod, endpoint B2), AWS S3 (prod, sin endpoint).
+
+`conftest.py`: `USE_S3=False` fuerza tests aislados. Garantiza 37/37 tests sin S3.
+
+Verificado: `head_bucket` OK, upload real (`Existe: True`), URL `http://127.0.0.1:8333/rhetorica-media/test/hello_seaweed.txt`.
+
+Nota: `list_buckets` devuelve `[]` sin IAM (cosmetico, `head_bucket` si funciona).
 
