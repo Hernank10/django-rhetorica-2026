@@ -32,7 +32,9 @@ class TestListaEstudiantesMetricas(TestCase):
         self.client.logout()
         self.client.login(username="est_metricas_test", password="Test1234!")
         r = self.client.get(reverse("profesor:estudiantes_metricas"))
-        assert r.status_code == 302
+        # Decorador @profesor_required devuelve 403 para autenticados no-profesores
+        # (antes devolvía 302 a login hasta v1.1.1)
+        assert r.status_code == 403
 
     def test_profesor_200(self):
         r = self.client.get(reverse("profesor:estudiantes_metricas"))

@@ -321,3 +321,12 @@ class Notificacion(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.titulo[:50]}"
 
+
+# ─── Modelos de sintaxis (módulo 10) ───
+# Django solo auto-descubre models.py (o models/). Importar aquí registra
+# TecnicaSintactica, EjercicioTecnica y ProgresoTecnica con makemigrations.
+from .models_sintaxis import (  # noqa: E402, F401
+    EjercicioTecnica,
+    ProgresoTecnica,
+    TecnicaSintactica,
+)
