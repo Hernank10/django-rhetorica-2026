@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4 mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0"><i class="fas fa-chart-line text-primary"></i> Mi progreso en sintaxis</h2>
+    <a href="{% url 'sintaxis:indice' %}" class="btn btn-outline-primary">
+      <i class="fas fa-list"></i> Ir al índice
+    </a>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="display-5 text-success">{{ resumen.dominadas }}</div>
+          <small class="text-muted">Dominadas</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="display-5 text-primary">{{ resumen.iniciadas }}</div>
+          <small class="text-muted">Iniciadas</small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center">
+        <div class="card-body">
+          <div class="display-5">{{ resumen.total }}</div>
+          <small class="text-muted">Total</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% if proximas %}
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-warning text-dark">
+      <i class="fas fa-clock"></i> Para repasar hoy (SM-2)
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        {% for p in proximas %}
+        <li class="list-group-item d-flex justify-content-between">
+          <a href="{% url 'sintaxis:tecnica' p.tecnica.numero %}">
+            {{ p.tecnica.numero }}. {{ p.tecnica.titulo }}
+          </a>
+          <small class="text-muted">{{ p.proxima_revision|timesince }} atrás</small>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if dominadas %}
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-success text-white">
+      <i class="fas fa-check-circle"></i> Dominadas ({{ dominadas|length }})
+    </div>
+    <div class="card-body">
+      <div class="row g-2">
+        {% for p in dominadas %}
+        <div class="col-6 col-md-3">
+          <a href="{% url 'sintaxis:tecnica' p.tecnica.numero %}"
+             class="btn btn-sm btn-outline-success w-100 text-start">
+            {{ p.tecnica.numero }}. {{ p.tecnica.titulo|truncatechars:25 }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {% if en_progreso %}
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <i class="fas fa-hourglass-half"></i> En progreso ({{ en_progreso|length }})
+    </div>
+    <div class="card-body">
+      <div class="row g-2">
+        {% for p in en_progreso %}
+        <div class="col-6 col-md-3">
+          <a href="{% url 'sintaxis:tecnica' p.tecnica.numero %}"
+             class="btn btn-sm btn-outline-primary w-100 text-start">
+            {{ p.tecnica.numero }}. {{ p.tecnica.titulo|truncatechars:25 }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

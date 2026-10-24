@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4 mb-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="mb-0"><i class="fas fa-pen-fancy text-primary"></i> Sintaxis del castellano</h2>
+      <p class="text-muted mb-0">100 técnicas de oraciones simples y compuestas</p>
+    </div>
+    <a href="{% url 'sintaxis:progreso' %}" class="btn btn-outline-primary">
+      <i class="fas fa-chart-line"></i> Mi progreso
+    </a>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="display-6">{{ resumen.dominadas }}</div>
+          <small class="text-muted">Dominadas</small>
+        </div>
+        <div class="col-md-4">
+          <div class="display-6">{{ resumen.iniciadas }}</div>
+          <small class="text-muted">Iniciadas</small>
+        </div>
+        <div class="col-md-4">
+          <div class="display-6">{{ resumen.total }}</div>
+          <small class="text-muted">Total</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% for letra, bloque in bloques.items %}
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+      <span class="fw-bold">Bloque {{ letra }} — {{ bloque.nombre }}</span>
+      <span class="badge bg-primary">{{ bloque.dominadas }} / {{ bloque.total }}</span>
+    </div>
+    <div class="card-body">
+      <div class="row g-2">
+        {% for item in bloque.items %}
+        <div class="col-6 col-md-3 col-lg-2">
+          <a href="{% url 'sintaxis:tecnica' item.tecnica.numero %}"
+             class="btn w-100 text-start position-relative
+               {% if item.estado == 'dominada' %}btn-success
+               {% elif item.estado == 'en_progreso' %}btn-outline-primary
+               {% else %}btn-outline-secondary{% endif %}">
+            <div class="d-flex flex-column">
+              <span class="fw-bold">{{ item.tecnica.numero }}</span>
+              <small>{{ item.tecnica.titulo|truncatechars:30 }}</small>
+            </div>
+            {% if item.estado == 'dominada' %}
+              <i class="fas fa-check-circle position-absolute top-0 end-0 m-1"></i>
+            {% endif %}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
