@@ -495,6 +495,113 @@ TECNICAS = [
      "ejemplo_incorrecto": "Juan estudia y; Pedro trabaja.",
      "nivel": "intermedio"},
 
+    # ─── BLOQUE D: SUBORDINACIÓN SUSTANTIVA (56-70) ───
+    {"numero": 56, "bloque": "D", "titulo": "Subordinada sustantiva de sujeto",
+     "teoria": "Una subordinada es de sujeto cuando funciona como sujeto del verbo principal.",
+     "explicacion": "Es importante que vengas. La subordinada 'que vengas' es el sujeto de 'es importante'. Si la sustituyes por 'eso', funciona igual: 'Es importante eso'.",
+     "regla": "Sustantiva de sujeto: 'que + verbo' sustituible por 'eso'",
+     "ejemplo_correcto": "Es importante que vengas.",
+     "ejemplo_incorrecto": "Es importante vengas (falta 'que').",
+     "nivel": "intermedio"},
+    {"numero": 57, "bloque": "D", "titulo": "Subordinada sustantiva de CD",
+     "teoria": "La subordinada funciona como complemento directo del verbo principal.",
+     "explicacion": "Dijo que vendría. 'Que vendría' es el CD de 'dijo'. Sustitución: 'Lo dijo'.",
+     "regla": "Sustantiva de CD: sustituible por 'lo/la'",
+     "ejemplo_correcto": "Dijo que vendría mañana.",
+     "ejemplo_incorrecto": "Dijo de que vendría mañana (dequeísmo).",
+     "nivel": "intermedio"},
+    {"numero": 58, "bloque": "D", "titulo": "Subordinada sustantiva de CI",
+     "teoria": "La subordinada funciona como complemento indirecto. Requiere 'a' delante del 'que'.",
+     "explicacion": "Dio el premio a quien más lo merecía. 'A quien más lo merecía' es CI. Sustitución: 'Le dio el premio'.",
+     "regla": "Sustantiva de CI: 'a quien + verbo' sustituible por 'le'",
+     "ejemplo_correcto": "Dio el premio a quien más lo merecía.",
+     "ejemplo_incorrecto": "Dio el premio quien más lo merecía (falta 'a').",
+     "nivel": "avanzado"},
+    {"numero": 59, "bloque": "D", "titulo": "Subordinada sustantiva de régimen",
+     "teoria": "La subordinada depende de un verbo que exige preposición (régimen preposicional).",
+     "explicacion": "Confío en que vendrá. 'En que vendrá' es el complemento de régimen de 'confiar'.",
+     "regla": "Sustantiva de régimen: preposición + 'que + verbo'",
+     "ejemplo_correcto": "Confío en que vendrás.",
+     "ejemplo_incorrecto": "Confío que vendrás (falta preposición de régimen).",
+     "nivel": "avanzado"},
+    {"numero": 60, "bloque": "D", "titulo": "Subordinada sustantiva de atributo",
+     "teoria": "La subordinada es el atributo en una oración copulativa (con ser/estar/parecer).",
+     "explicacion": "La verdad es que no vino. 'Que no vino' es el atributo de 'es'.",
+     "regla": "Sustantiva de atributo: 'es + que + verbo'",
+     "ejemplo_correcto": "La verdad es que no vino.",
+     "ejemplo_incorrecto": "La verdad es de que no vino (dequeísmo).",
+     "nivel": "intermedio"},
+    {"numero": 61, "bloque": "D", "titulo": "Subordinada en aposición",
+     "teoria": "La subordinada aparece entre comas, explicando al sustantivo anterior.",
+     "explicacion": "La idea de que vengas, eso me preocupa. 'De que vengas' está en aposición respecto a 'la idea'.",
+     "regla": "Aposición: sustantivo + 'de que + verbo', entre comas o no",
+     "ejemplo_correcto": "La idea de que vengas me preocupa.",
+     "ejemplo_incorrecto": "La idea que vengas me preocupa (falta 'de').",
+     "nivel": "avanzado"},
+    {"numero": 62, "bloque": "D", "titulo": "'Que' conjunción vs 'que' relativo",
+     "teoria": "'Que' conjunción une sin antecedente; 'que' relativo tiene antecedente.",
+     "explicacion": "El libro que leí (relativo, 'que' = 'el libro'). Creo que leí (conjunción, sin antecedente). Prueba: si puedes preguntar '¿qué libro?' → relativo.",
+     "regla": "'Que' con antecedente = relativo; sin antecedente = conjunción",
+     "ejemplo_correcto": "El libro que leí. Creo que leí.",
+     "ejemplo_incorrecto": "El libro que (falta verbo).",
+     "nivel": "intermedio"},
+    {"numero": 63, "bloque": "D", "titulo": "'Si' condicional vs interrogativo indirecto",
+     "teoria": "'Si' puede ser condicional (introduce condición) o interrogativo indirecto (pregunta indirecta).",
+     "explicacion": "Si vienes, te espero (condicional). No sé si vienes (interrogativo indirecto). El segundo no lleva coma.",
+     "regla": "'Si' condicional = con coma; 'si' interrogativo = sin coma",
+     "ejemplo_correcto": "Si vienes, te espero. No sé si vienes.",
+     "ejemplo_incorrecto": "No sé, si vienes (coma incorrecta).",
+     "nivel": "avanzado"},
+    {"numero": 64, "bloque": "D", "titulo": "Estilo directo vs indirecto",
+     "teoria": "El estilo directo reproduce textualmente; el indirecto transforma tiempos, pronombres y adverbios.",
+     "explicacion": "Dijo: 'Vendré mañana' (directo). Dijo que vendría al día siguiente (indirecto). Transformaciones: vendré→vendría, mañana→al día siguiente, 'hoy'→'ese día'.",
+     "regla": "Directo→indirecto: cambia tiempos, pronombres y deícticos",
+     "ejemplo_correcto": "Dijo que vendría al día siguiente.",
+     "ejemplo_incorrecto": "Dijo que vendría mañana (deíctico sin transformar).",
+     "nivel": "avanzado"},
+    {"numero": 65, "bloque": "D", "titulo": "Correlación de tiempos",
+     "teoria": "En subordinadas, el tiempo del verbo subordinado debe concordar con el del principal.",
+     "explicacion": "Dice que vendrá (presente→futuro). Dijo que vendría (pasado→condicional). 'Dijo que vendrá' es incorrecto en subordinación indirecta.",
+     "regla": "Presente→futuro; pasado→condicional",
+     "ejemplo_correcto": "Dijo que vendría.",
+     "ejemplo_incorrecto": "Dijo que vendrá (correlación incorrecta).",
+     "nivel": "avanzado"},
+    {"numero": 66, "bloque": "D", "titulo": "Subordinada con infinitivo",
+     "teoria": "El infinitivo puede sustituir a una subordinada con 'que' cuando el sujeto es el mismo.",
+     "explicacion": "Quiero venir (yo mismo). Quiero que vengas (otro sujeto). Si el sujeto es el mismo, se prefiere infinitivo.",
+     "regla": "Mismo sujeto → infinitivo; distinto sujeto → 'que + verbo'",
+     "ejemplo_correcto": "Quiero venir.",
+     "ejemplo_incorrecto": "Quiero que vengo (mal: mismo sujeto con verbo conjugado).",
+     "nivel": "intermedio"},
+    {"numero": 67, "bloque": "D", "titulo": "'El hecho de que' (locución)",
+     "teoria": "Locución que introduce una subordinada sustantiva en aposición. Lleva siempre 'de'.",
+     "explicacion": "El hecho de que viniera me sorprendió. Sin 'de' es queísmo: 'el hecho que viniera' (incorrecto).",
+     "regla": "'El hecho de que' (con 'de', siempre)",
+     "ejemplo_correcto": "El hecho de que viniera me sorprendió.",
+     "ejemplo_incorrecto": "El hecho que viniera me sorprendió.",
+     "nivel": "avanzado"},
+    {"numero": 68, "bloque": "D", "titulo": "'Que' + subjuntivo (posibilidad, deseo)",
+     "teoria": "El subjuntivo aparece en subordinadas que expresan posibilidad, deseo, duda o emoción.",
+     "explicacion": "Es posible que venga (posibilidad). Quiero que vengas (deseo). Dudo que venga (duda). Me alegra que vengas (emoción).",
+     "regla": "Posibilidad/deseo/duda/emoción → subjuntivo",
+     "ejemplo_correcto": "Es posible que venga.",
+     "ejemplo_incorrecto": "Es posible que viene (indicativo incorrecto aquí).",
+     "nivel": "avanzado"},
+    {"numero": 69, "bloque": "D", "titulo": "'Que' + indicativo (certeza, realidad)",
+     "teoria": "El indicativo aparece en subordinadas que expresan certeza, realidad o información objetiva.",
+     "explicacion": "Es seguro que viene (certeza). Sé que viene (información). Es evidente que viene (realidad). Opuesto a 68.",
+     "regla": "Certeza/realidad/información → indicativo",
+     "ejemplo_correcto": "Es seguro que viene.",
+     "ejemplo_incorrecto": "Es seguro que venga (subjuntivo incorrecto aquí).",
+     "nivel": "avanzado"},
+    {"numero": 70, "bloque": "D", "titulo": "Concordancia en 'el hecho de que'",
+     "teoria": "El verbo subordinado de 'el hecho de que' concuerda con el sujeto de la subordinada, no con 'el hecho'.",
+     "explicacion": "El hecho de que vinieran (ellos) me sorprendió. El verbo 'vinieran' concuerda con el sujeto de la subordinada ('ellos'), no con 'el hecho'.",
+     "regla": "Verbo subordinado concuerda con el sujeto interno",
+     "ejemplo_correcto": "El hecho de que vinieran me sorprendió.",
+     "ejemplo_incorrecto": "El hecho de que viniera me sorprendió (si son varios).",
+     "nivel": "avanzado"},
+
 ]
 
 
@@ -992,5 +1099,120 @@ EJERCICIOS = {
             {"texto": "Juan estudia pero Pedro trabaja.", "categoria_correcta": "coordinación"},
         ],
         "categorias": ["coordinación", "yuxtaposición"],
+    }}],
+
+    56: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración contiene una subordinada sustantiva de sujeto?",
+        "opciones": [
+            {"id": "a", "texto": "Es importante que vengas.", "correcta": True, "razon": "'Que vengas' es el sujeto de 'es importante' (= 'Es importante eso')."},
+            {"id": "b", "texto": "Dijo que vendría.", "correcta": False, "razon": "Es de CD, no de sujeto."},
+            {"id": "c", "texto": "La verdad es que no vino.", "correcta": False, "razon": "Es de atributo."},
+        ], "justificacion_obligatoria": True, "regla": "Sustantiva de sujeto: 'que + verbo' = 'eso'"
+    }}],
+    57: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración contiene una subordinada sustantiva de CD?",
+        "opciones": [
+            {"id": "a", "texto": "Dijo que vendría mañana.", "correcta": True, "razon": "'Que vendría' es CD de 'dijo' (= 'Lo dijo')."},
+            {"id": "b", "texto": "Es importante que vengas.", "correcta": False, "razon": "Es de sujeto."},
+            {"id": "c", "texto": "Confío en que vendrás.", "correcta": False, "razon": "Es de régimen (con preposición)."},
+        ], "justificacion_obligatoria": True, "regla": "Sustantiva de CD: 'que + verbo' = 'lo'"
+    }}],
+    58: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada subordinada por función:",
+        "oraciones": [
+            {"texto": "Dio el premio a quien lo merecía.", "categoria_correcta": "CI"},
+            {"texto": "Dijo que vendría.", "categoria_correcta": "CD"},
+            {"texto": "Es importante que vengas.", "categoria_correcta": "sujeto"},
+            {"texto": "La verdad es que no vino.", "categoria_correcta": "atributo"},
+        ],
+        "categorias": ["sujeto", "CD", "CI", "atributo", "régimen"],
+    }}],
+    59: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración tiene subordinada sustantiva de régimen?",
+        "opciones": [
+            {"id": "a", "texto": "Confío en que vendrás.", "correcta": True, "razon": "'Confiar' rige 'en': 'en que vendrás' es el complemento de régimen."},
+            {"id": "b", "texto": "Dijo que vendría.", "correcta": False, "razon": "Es CD (sin preposición)."},
+            {"id": "c", "texto": "Es importante que vengas.", "correcta": False, "razon": "Es de sujeto."},
+        ], "justificacion_obligatoria": True, "regla": "Sustantiva de régimen: preposición + 'que + verbo'"
+    }}],
+    60: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el dequeísmo:",
+        "oracion_incorrecta": "La verdad es de que no vino.",
+        "respuesta_correcta": "La verdad es que no vino.",
+        "regla": "'Ser' copulativo no rige 'de': sin dequeísmo"
+    }}],
+    61: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración contiene una subordinada en aposición?",
+        "opciones": [
+            {"id": "a", "texto": "La idea de que vengas me preocupa.", "correcta": True, "razon": "'De que vengas' está en aposición a 'la idea'."},
+            {"id": "b", "texto": "Dijo que vendría.", "correcta": False, "razon": "Es de CD."},
+            {"id": "c", "texto": "Es importante que vengas.", "correcta": False, "razon": "Es de sujeto."},
+        ], "justificacion_obligatoria": True, "regla": "Aposición: 'sustantivo + de que + verbo'"
+    }}],
+    62: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica 'que': ¿relativo o conjunción?",
+        "oraciones": [
+            {"texto": "El libro que leí es bueno.", "categoria_correcta": "relativo"},
+            {"texto": "Creo que leí el libro.", "categoria_correcta": "conjunción"},
+            {"texto": "El hombre que vino es mi tío.", "categoria_correcta": "relativo"},
+            {"texto": "Sé que vino.", "categoria_correcta": "conjunción"},
+        ],
+        "categorias": ["relativo", "conjunción"],
+    }}],
+    63: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa 'si' interrogativo indirecto (sin coma)?",
+        "opciones": [
+            {"id": "a", "texto": "No sé si vienes.", "correcta": True, "razon": "'Si' introduce pregunta indirecta, sin coma."},
+            {"id": "b", "texto": "Si vienes, te espero.", "correcta": False, "razon": "Es condicional, con coma."},
+            {"id": "c", "texto": "No sé, si vienes.", "correcta": False, "razon": "La coma es incorrecta aquí."},
+        ], "justificacion_obligatoria": True, "regla": "'Si' interrogativo: sin coma"
+    }}],
+    64: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Transforma al estilo indirecto:",
+        "oracion_incorrecta": "Dijo: 'Vendré mañana' → Dijo que vendría mañana.",
+        "respuesta_correcta": "Dijo: 'Vendré mañana' → Dijo que vendría al día siguiente.",
+        "regla": "Directo→indirecto: 'mañana' → 'al día siguiente'"
+    }}],
+    65: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración tiene correlación temporal correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Dijo que vendría.", "correcta": True, "razon": "Pasado (dijo) → condicional (vendría)."},
+            {"id": "b", "texto": "Dijo que vendrá.", "correcta": False, "razon": "Pasado → futuro es incorrecto aquí."},
+            {"id": "c", "texto": "Dice que vendría.", "correcta": False, "razon": "Presente → condicional rompe la correlación."},
+        ], "justificacion_obligatoria": True, "regla": "Presente→futuro; pasado→condicional"
+    }}],
+    66: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige usando infinitivo (mismo sujeto):",
+        "oracion_incorrecta": "Quiero que vengo.",
+        "respuesta_correcta": "Quiero venir.",
+        "regla": "Mismo sujeto → infinitivo"
+    }}],
+    67: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige la locución 'el hecho de que':",
+        "oracion_incorrecta": "El hecho que viniera me sorprendió.",
+        "respuesta_correcta": "El hecho de que viniera me sorprendió.",
+        "regla": "'El hecho de que' lleva 'de' siempre"
+    }}],
+    68: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración requiere subjuntivo por expresar posibilidad?",
+        "opciones": [
+            {"id": "a", "texto": "Es posible que venga.", "correcta": True, "razon": "Posibilidad → subjuntivo."},
+            {"id": "b", "texto": "Es seguro que viene.", "correcta": False, "razon": "Certeza → indicativo."},
+            {"id": "c", "texto": "Sé que viene.", "correcta": False, "razon": "Información → indicativo."},
+        ], "justificacion_obligatoria": True, "regla": "Posibilidad/deseo/duda/emoción → subjuntivo"
+    }}],
+    69: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el modo verbal:",
+        "oracion_incorrecta": "Es seguro que venga.",
+        "respuesta_correcta": "Es seguro que viene.",
+        "regla": "Certeza → indicativo"
+    }}],
+    70: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración tiene concordancia correcta en 'el hecho de que'?",
+        "opciones": [
+            {"id": "a", "texto": "El hecho de que vinieran me sorprendió.", "correcta": True, "razon": "'Vinieran' (plural) concuerda con sujeto interno plural."},
+            {"id": "b", "texto": "El hecho de que viniera me sorprendió (si son varios).", "correcta": False, "razon": "Singular con sujeto plural es incorrecto."},
+            {"id": "c", "texto": "El hecho de que vinieron (indicativo).", "correcta": False, "razon": "En esta locución va en subjuntivo."},
+        ], "justificacion_obligatoria": True, "regla": "Verbo subordinado concuerda con sujeto interno"
     }}],
 }
