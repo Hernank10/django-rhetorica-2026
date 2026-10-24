@@ -15,6 +15,8 @@ from difflib import SequenceMatcher
 
 from django.utils import timezone
 
+from core.services.notificaciones import crear_notificacion
+
 from core.models_sintaxis import TecnicaSintactica, ProgresoTecnica
 
 
@@ -284,6 +286,8 @@ def actualizar_progreso(usuario, tecnica, ejercicio, ok):
 
     _actualizar_sm2(progreso, calidad)
 
+    estado_anterior = progreso.estado
+
     # Mastery: 3+ aciertos consecutivos y ejercicio actual tipo 4/5
     if progreso.aciertos_consecutivos >= 3 and ejercicio.tipo in (4, 5) and ok:
         progreso.estado = "dominada"
@@ -291,6 +295,22 @@ def actualizar_progreso(usuario, tecnica, ejercicio, ok):
         progreso.estado = "en_progreso"
 
     progreso.save()
+
+    # Notificacion idempotente al pasar a dominada
+    if progreso.estado == "dominada" and estado_anterior != "dominada":
+        try:
+            crear_notificacion(
+                user=usuario,
+                tipo="logro",
+                titulo=f"Tecnica {tecnica.numero} dominada",
+                mensaje=f"'{tecnica.titulo}' superada con 3 aciertos consecutivos",
+                url_destino=f"/sintaxis/tecnica/{tecnica.numero}/",
+                icono="star",
+                referencia=f"sintaxis_tecnica_{tecnica.numero}_{usuario.id}",
+            )
+        except Exception:
+            pass  # notificacion no debe romper el flujo de progreso
+
     return progreso
 
 

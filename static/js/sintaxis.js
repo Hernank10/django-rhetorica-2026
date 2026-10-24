@@ -106,3 +106,26 @@
     });
   });
 })();
+/* --- Badge navbar: dominadas count --- */
+(function() {
+  "use strict";
+  const badge = document.getElementById("sintaxis-badge");
+  if (!badge) return;
+
+  function fetchBadge() {
+    fetch("/sintaxis/ajax/contador/")
+      .then(r => r.json())
+      .then(d => {
+        if (d.dominadas > 0) {
+          badge.textContent = d.dominadas;
+          badge.style.display = "";
+        } else {
+          badge.style.display = "none";
+        }
+      })
+      .catch(() => {});
+  }
+
+  fetchBadge();
+  setInterval(fetchBadge, 60000);
+})();
