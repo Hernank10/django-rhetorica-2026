@@ -8,6 +8,7 @@ Funciones publicas:
 Reglas de mastery (segun diseno del modulo 10):
 - 3 aciertos consecutivos Y ultimo acertado de tipo 4 o 5 -> dominada
 """
+import re
 import unicodedata
 from datetime import timedelta
 from difflib import SequenceMatcher
@@ -142,25 +143,64 @@ def _evaluar_tipo3(payload, respuesta):
 
 
 def _evaluar_tipo4(payload, respuesta):
-    """Construccion guiada: valida A + B + conector + puntuacion."""
+    """Construccion guiada: conector como palabra + fuzzy ALTO contra esperado.
+
+    Reglas:
+    1. Respuesta vacia -> rechazo.
+    2. Exact match normalizado -> OK.
+    3. Conector (si existe) debe aparecer como PALABRA separada.
+    4. Fuzzy >= 0.85 contra respuesta_correcta -> OK (variante valida).
+    5. Resto -> rechazo.
+    """
     texto = respuesta.get("texto", "")
-    t_norm = _normalizar(texto)
+    esperado = payload.get("respuesta_correcta", "")
+    conector = (payload.get("conector") or "").strip()
+    regla = payload.get("regla", "")
 
-    a_norm = _normalizar(payload.get("oracion_a", "").rstrip("."))
-    b_norm = _normalizar(payload.get("oracion_b", "").rstrip("."))
-    conector = _normalizar(payload.get("conector", ""))
+    if not texto.strip():
+        return {
+            "ok": False,
+            "feedback": "Respuesta vacia. " + regla,
+            "regla": regla,
+            "ejemplo_correcto": esperado,
+        }
 
-    ok_a = a_norm in t_norm if a_norm else False
-    ok_b = b_norm in t_norm if b_norm else False
-    ok_c = conector in t_norm if conector else False
+    # 1. Exact match
+    if _normalizar(texto) == _normalizar(esperado):
+        return {
+            "ok": True,
+            "feedback": "Correcto. " + regla,
+            "regla": regla,
+            "ejemplo_correcto": esperado,
+        }
 
-    ok = ok_a and ok_b and ok_c
+    # 2. Validar conector como palabra separada
+    if conector:
+        patron_conector = r"\b" + re.escape(conector) + r"\b"
+        if not re.search(patron_conector, texto.lower()):
+            return {
+                "ok": False,
+                "feedback": "Falta el conector '" + conector + "'. " + regla,
+                "regla": regla,
+                "ejemplo_correcto": esperado,
+            }
 
+    # 3. Fuzzy ALTO contra esperado (>= 0.85)
+    ratio = _fuzzy_match(texto, esperado)
+    if ratio >= 0.85:
+        return {
+            "ok": True,
+            "feedback": "Correcto (variante valida). " + regla,
+            "regla": regla,
+            "ejemplo_correcto": esperado,
+        }
+
+    # 4. Rechazo
     return {
-        "ok": ok,
-        "feedback": ("Correcto. " if ok else "Incorrecto. ") + payload.get("regla", "") + ("" if ok else ". Ejemplo: " + payload.get("respuesta_correcta", "")),
-        "regla": payload.get("regla", ""),
-        "ejemplo_correcto": payload.get("respuesta_correcta", ""),
+        "ok": False,
+        "feedback": "Incorrecto. " + regla + ". Ejemplo: " + esperado,
+        "regla": regla,
+        "ejemplo_correcto": esperado,
     }
 
 
