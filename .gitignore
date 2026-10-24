@@ -117,3 +117,6 @@ tts_cache/
 *.pyc
 scripts/_archivo/
 scripts/_backup_*.json
+
+# SeaweedFS local
+.seaweed-data/

@@ -1,3 +1,6 @@
+import os
+os.environ["USE_S3"] = "False"  # tests nunca usan S3
+
 """
 Fixtures globales para pytest.
 Acelera los tests con MD5PasswordHasher y crea usuarios por rol.
