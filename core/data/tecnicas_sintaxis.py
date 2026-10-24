@@ -674,6 +674,149 @@ TECNICAS = [
      "ejemplo_incorrecto": "Los alumnos, que estudian, aprueban (cambia significado: todos aprueban).",
      "nivel": "intermedio"},
 
+    # ─── BLOQUE F: SUBORDINACIÓN ADVERBIAL (81-90) ───
+    {"numero": 81, "bloque": "F", "titulo": "Temporal con 'cuando'",
+     "teoria": "La subordinada adverbial temporal indica cuándo ocurre la acción principal.",
+     "explicacion": "Cuando llegué, ya se habían ido. Puede llevar indicativo (real) o subjuntivo (futuro/hipotético).",
+     "regla": "Temporal: 'cuando' + verbo (indicativo/subjuntivo)",
+     "ejemplo_correcto": "Cuando llegué, ya se habían ido.",
+     "ejemplo_incorrecto": "Cuando llego, ya se habían ido (mezcla temporal incoherente).",
+     "nivel": "intermedio"},
+    {"numero": 82, "bloque": "F", "titulo": "Temporal con 'mientras'",
+     "teoria": "'Mientras' indica simultaneidad entre dos acciones.",
+     "explicacion": "Mientras estudiaba, escuchaba música. Simultaneidad: dos acciones a la vez.",
+     "regla": "'Mientras' = simultaneidad",
+     "ejemplo_correcto": "Mientras estudiaba, escuchaba música.",
+     "ejemplo_incorrecto": "Mientras estudié, escuché música (pierde la simultaneidad progresiva).",
+     "nivel": "intermedio"},
+    {"numero": 83, "bloque": "F", "titulo": "'Antes de que' / 'después de que'",
+     "teoria": "Las locuciones temporales 'antes de que' y 'después de que' introducen subordinadas. Siempre con 'de'.",
+     "explicacion": "Antes de que vengas, avísame. 'Antes que' (sin 'de') es queísmo. Con subjuntivo cuando el evento es futuro.",
+     "regla": "'Antes de que' / 'después de que' + subjuntivo",
+     "ejemplo_correcto": "Antes de que vengas, avísame.",
+     "ejemplo_incorrecto": "Antes que vengas, avísame (falta 'de').",
+     "nivel": "intermedio"},
+    {"numero": 84, "bloque": "F", "titulo": "Causal con 'porque'",
+     "teoria": "'Porque' introduce la causa o razón de la acción principal.",
+     "explicacion": "No vino porque estaba enfermo. Puede ir antes o después. Con coma si va delante: 'Porque estaba enfermo, no vino'.",
+     "regla": "'Porque' = causa",
+     "ejemplo_correcto": "No vino porque estaba enfermo.",
+     "ejemplo_incorrecto": "No vino por que estaba enfermo (separación incorrecta).",
+     "nivel": "basico"},
+    {"numero": 85, "bloque": "F", "titulo": "Causal con 'puesto que' / 'ya que'",
+     "teoria": "Locuciones causales más formales que 'porque'. Introducen causa conocida o presupuesta.",
+     "explicacion": "Puesto que no viniste, me fui. 'Ya que' y 'puesto que' son intercambiables; más formales que 'porque'.",
+     "regla": "'Puesto que' / 'ya que' = causa formal",
+     "ejemplo_correcto": "Puesto que no viniste, me fui.",
+     "ejemplo_incorrecto": "Puesto que no viniste, porque me fui (duplicación causal).",
+     "nivel": "intermedio"},
+    {"numero": 86, "bloque": "F", "titulo": "Final con 'para que'",
+     "teoria": "'Para que' introduce la finalidad. Requiere subjuntivo.",
+     "explicacion": "Estudio para que me vaya bien. 'Para que' + subjuntivo. 'Para' + infinitivo si el sujeto es el mismo.",
+     "regla": "'Para que' + subjuntivo (sujetos distintos)",
+     "ejemplo_correcto": "Estudio para que me vaya bien.",
+     "ejemplo_incorrecto": "Estudio para que me va bien (indicativo incorrecto).",
+     "nivel": "intermedio"},
+    {"numero": 87, "bloque": "F", "titulo": "Final con 'a fin de que'",
+     "teoria": "Locución final equivalente a 'para que', más formal. Requiere subjuntivo.",
+     "explicacion": "A fin de que se cumpla la ley, se aprobó el decreto. Registro administrativo.",
+     "regla": "'A fin de que' + subjuntivo (registro formal)",
+     "ejemplo_correcto": "A fin de que se cumpla, se aprobó.",
+     "ejemplo_incorrecto": "A fin que se cumpla (falta 'de').",
+     "nivel": "avanzado"},
+    {"numero": 88, "bloque": "F", "titulo": "Condicional con 'si'",
+     "teoria": "'Si' introduce condición. Puede ir con indicativo (real), imperfecto de subjuntivo (hipotético) o pretérito pluscuamperfecto (irreal).",
+     "explicacion": "Si vienes, te espero (real, indicativo). Si vinieras, te esperaría (hipotético). Si hubieras venido, te habría esperado (irreal, pasado).",
+     "regla": "'Si' + indicativo/subjuntivo según el grado de realidad",
+     "ejemplo_correcto": "Si vienes, te espero. Si vinieras, te esperaría.",
+     "ejemplo_incorrecto": "Si vendrías, te espero (mezcla incorrecta).",
+     "nivel": "avanzado"},
+    {"numero": 89, "bloque": "F", "titulo": "Condicional con 'a menos que'",
+     "teoria": "'A menos que' introduce una condición negativa excepcional. Siempre con subjuntivo.",
+     "explicacion": "Iré a menos que llueva. Equivale a 'si no llueve'. Requiere subjuntivo.",
+     "regla": "'A menos que' + subjuntivo",
+     "ejemplo_correcto": "Iré a menos que llueva.",
+     "ejemplo_incorrecto": "Iré a menos que llueve (indicativo incorrecto).",
+     "nivel": "avanzado"},
+    {"numero": 90, "bloque": "F", "titulo": "Concesiva con 'aunque'",
+     "teoria": "'Aunque' introduce una objeción o dificultad que no impide la acción principal.",
+     "explicacion": "Aunque llueve, salgo (indicativo = hecho real). Aunque llueva, saldré (subjuntivo = hipotético). El modo cambia el matiz.",
+     "regla": "'Aunque' + indicativo (hecho) o subjuntivo (hipótesis)",
+     "ejemplo_correcto": "Aunque llueve, salgo.",
+     "ejemplo_incorrecto": "Aunque lloverá, salgo (futuro incorrecto tras 'aunque').",
+     "nivel": "avanzado"},
+    # ─── BLOQUE G: YUXTAPOSICIÓN Y PUNTUACIÓN AVANZADA (91-100) ───
+    {"numero": 91, "bloque": "G", "titulo": "Yuxtaposición con coma",
+     "teoria": "La coma puede unir dos oraciones yuxtapuestas con relación débil o enumerativa.",
+     "explicacion": "Llegó, saludó, se sentó (enumeración de acciones). La coma separa oraciones yuxtapuestas breves.",
+     "regla": "Yuxtaposición con coma = oraciones breves o enumeración",
+     "ejemplo_correcto": "Llegó, saludó, se sentó.",
+     "ejemplo_incorrecto": "Llegó; saludó; se sentó (punto y coma excesivo en enumeración breve).",
+     "nivel": "intermedio"},
+    {"numero": 92, "bloque": "G", "titulo": "Yuxtaposición con punto y coma",
+     "teoria": "El punto y coma separa oraciones yuxtapuestas cuando ya hay comas internas o la relación es más fuerte que una simple coma.",
+     "explicacion": "Vino, como siempre, tarde; se fue, como siempre, temprano. El ';' evita confusión con las comas internas.",
+     "regla": "';' entre yuxtapuestas con comas internas",
+     "ejemplo_correcto": "Vino, como siempre, tarde; se fue, como siempre, temprano.",
+     "ejemplo_incorrecto": "Vino, como siempre, tarde, se fue, como siempre, temprano (ambigüedad).",
+     "nivel": "avanzado"},
+    {"numero": 93, "bloque": "G", "titulo": "Yuxtaposición con dos puntos",
+     "teoria": "Los dos puntos unen oraciones yuxtapuestas con relación causa-efecto, aclaración o consecuencia.",
+     "explicacion": "No vino: estaba enfermo. Los dos puntos introducen la causa. También en 'Dijo: ...' (cita).",
+     "regla": "':' en yuxtapuestas con causa, consecuencia o cita",
+     "ejemplo_correcto": "No vino: estaba enfermo.",
+     "ejemplo_incorrecto": "No vino, estaba enfermo (falta ':' causal).",
+     "nivel": "avanzado"},
+    {"numero": 94, "bloque": "G", "titulo": "Punto y coma en enumeración compleja",
+     "teoria": "En una enumeración con elementos que ya contienen comas, se usa punto y coma para separar los grupos.",
+     "explicacion": "Compré pan, leche y huevos; carne, pollo y pescado; verduras. Los grupos van separados por ';'.",
+     "regla": "';' en enumeración con comas internas",
+     "ejemplo_correcto": "Compré pan, leche y huevos; carne, pollo y pescado.",
+     "ejemplo_incorrecto": "Compré pan, leche y huevos, carne, pollo y pescado (ambigüedad).",
+     "nivel": "intermedio"},
+    {"numero": 95, "bloque": "G", "titulo": "Dos puntos en cita textual",
+     "teoria": "Los dos puntos introducen una cita textual.",
+     "explicacion": "Dijo: 'Vendré mañana'. Los dos puntos preceden a la cita y las comillas la delimitan.",
+     "regla": "':' + comillas en cita textual",
+     "ejemplo_correcto": "Dijo: 'Vendré mañana'.",
+     "ejemplo_incorrecto": "Dijo 'Vendré mañana' (falta ':').",
+     "nivel": "basico"},
+    {"numero": 96, "bloque": "G", "titulo": "Comillas en cita",
+     "teoria": "Las comillas delimitan la cita textual. En español se prefieren las comillas angulares («»), pero las inglesas (' ') y las tipográficas (' ') son aceptables.",
+     "explicacion": "Dijo: 'Vendré mañana'. También para títulos de obras: 'Cien años de soledad'.",
+     "regla": "Comillas para cita textual o títulos de obra",
+     "ejemplo_correcto": "Dijo: 'Vendré mañana'.",
+     "ejemplo_incorrecto": "Dijo: Vendré mañana (falta comillas en cita).",
+     "nivel": "basico"},
+    {"numero": 97, "bloque": "G", "titulo": "Paréntesis en aclaración",
+     "teoria": "Los paréntesis encierran aclaraciones, datos o incisos secundarios.",
+     "explicacion": "Vino (creo) ayer. La aclaración 'creo' entre paréntesis. No se usa paréntesis para información imprescindible.",
+     "regla": "Paréntesis = aclaración secundaria",
+     "ejemplo_correcto": "Vino (creo) ayer.",
+     "ejemplo_incorrecto": "Vino, (creo) ayer (coma innecesaria antes del paréntesis).",
+     "nivel": "intermedio"},
+    {"numero": 98, "bloque": "G", "titulo": "Raya en diálogo",
+     "teoria": "La raya (—) introduce las intervenciones de los personajes en un diálogo.",
+     "explicacion": "—Vine —dijo— a buscarte. La raya abre y cierra la acotación 'dijo'. También para aclaraciones en medio de la oración.",
+     "regla": "Raya para diálogo y aclaraciones",
+     "ejemplo_correcto": "—Vine —dijo— a buscarte.",
+     "ejemplo_incorrecto": "-Vine -dijo- a buscarte (guion en vez de raya).",
+     "nivel": "intermedio"},
+    {"numero": 99, "bloque": "G", "titulo": "Puntos suspensivos en enumeración abierta",
+     "teoria": "Los puntos suspensivos indican que una enumeración queda abierta o incompleta.",
+     "explicacion": "Compró pan, leche, huevos... La enumeración sigue, pero no se completa.",
+     "regla": "Puntos suspensivos = enumeración abierta o suspensión",
+     "ejemplo_correcto": "Compró pan, leche, huevos...",
+     "ejemplo_incorrecto": "Compró pan, leche, huevos, etc, etc, etc... (redundancia).",
+     "nivel": "intermedio"},
+    {"numero": 100, "bloque": "G", "titulo": "Análisis sintáctico completo",
+     "teoria": "El análisis sintáctico integra todas las técnicas: identificar sujeto, predicado, complementos, subordinadas y puntuación.",
+     "explicacion": "Integración de A-G: dado un texto, identificar la estructura completa (sujeto, predicado, CD, CI, CC, subordinadas, tipo de oración y puntuación correcta).",
+     "regla": "Integración: análisis completo de oraciones simples y compuestas",
+     "ejemplo_correcto": "Juan, que estudia mucho, aprobó el examen que le dieron.",
+     "ejemplo_incorrecto": "Juan que estudia mucho aprobó el examen, que le dieron (puntuación incorrecta).",
+     "nivel": "avanzado"},
+
 ]
 
 
@@ -1361,5 +1504,152 @@ EJERCICIOS = {
             {"id": "b", "texto": "Los alumnos, que estudian, aprueban.", "correcta": False, "razon": "Con coma = explicativa (todos aprueban)."},
             {"id": "c", "texto": "Los alumnos, que estudian aprueban.", "correcta": False, "razon": "Coma mal puesta (incorrecta)."},
         ], "justificacion_obligatoria": True, "regla": "Especificativa: sin coma entre antecedente y 'que'"
+    }}],
+
+    81: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración contiene una subordinada adverbial temporal?",
+        "opciones": [
+            {"id": "a", "texto": "Cuando llegué, ya se habían ido.", "correcta": True, "razon": "'Cuando llegué' = temporal."},
+            {"id": "b", "texto": "Si vienes, te espero.", "correcta": False, "razon": "Es condicional."},
+            {"id": "c", "texto": "Aunque llueva, salgo.", "correcta": False, "razon": "Es concesiva."},
+        ], "justificacion_obligatoria": True, "regla": "Temporal: 'cuando' + verbo"
+    }}],
+    82: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige la simultaneidad:",
+        "oracion_incorrecta": "Mientras estudié, escuché música.",
+        "respuesta_correcta": "Mientras estudiaba, escuchaba música.",
+        "regla": "'Mientras' exige simultaneidad (imperfecto/gerundio)"
+    }}],
+    83: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el queísmo:",
+        "oracion_incorrecta": "Antes que vengas, avísame.",
+        "respuesta_correcta": "Antes de que vengas, avísame.",
+        "regla": "'Antes de que' (con 'de') + subjuntivo"
+    }}],
+    84: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa 'porque' correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "No vino porque estaba enfermo.", "correcta": True, "razon": "Causa correcta."},
+            {"id": "b", "texto": "No vino por que estaba enfermo.", "correcta": False, "razon": "'Por que' separado no es causal."},
+            {"id": "c", "texto": "No vino, porque, estaba enfermo.", "correcta": False, "razon": "Coma mal puesta."},
+        ], "justificacion_obligatoria": True, "regla": "'Porque' = causa (junto)"
+    }}],
+    85: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica la subordinada adverbial:",
+        "oraciones": [
+            {"texto": "Cuando llegó, salimos.", "categoria_correcta": "temporal"},
+            {"texto": "Porque llovió, no salimos.", "categoria_correcta": "causal"},
+            {"texto": "Para que apruebes, estudia.", "categoria_correcta": "final"},
+            {"texto": "Si estudias, aprobarás.", "categoria_correcta": "condicional"},
+        ],
+        "categorias": ["temporal", "causal", "final", "condicional", "concesiva"],
+    }}],
+    86: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el modo verbal:",
+        "oracion_incorrecta": "Estudio para que me va bien.",
+        "respuesta_correcta": "Estudio para que me vaya bien.",
+        "regla": "'Para que' + subjuntivo"
+    }}],
+    87: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa 'a fin de que' correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "A fin de que se cumpla, se aprobó.", "correcta": True, "razon": "'A fin de que' + subjuntivo."},
+            {"id": "b", "texto": "A fin que se cumpla, se aprobó.", "correcta": False, "razon": "Falta 'de'."},
+            {"id": "c", "texto": "A fin de que se cumple, se aprobó.", "correcta": False, "razon": "Indicativo incorrecto."},
+        ], "justificacion_obligatoria": True, "regla": "'A fin de que' + subjuntivo"
+    }}],
+    88: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración condicional es correcta (hipotética)?",
+        "opciones": [
+            {"id": "a", "texto": "Si vinieras, te esperaría.", "correcta": True, "razon": "Hipotético: imperfecto de subjuntivo + condicional."},
+            {"id": "b", "texto": "Si vendrías, te espero.", "correcta": False, "razon": "Mezcla incorrecta de tiempos."},
+            {"id": "c", "texto": "Si vienes, te esperaría.", "correcta": False, "razon": "Real + hipotético no concuerdan."},
+        ], "justificacion_obligatoria": True, "regla": "Condicional hipotético: imperfecto subj. + condicional"
+    }}],
+    89: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige el modo verbal:",
+        "oracion_incorrecta": "Iré a menos que llueve.",
+        "respuesta_correcta": "Iré a menos que llueva.",
+        "regla": "'A menos que' + subjuntivo"
+    }}],
+    90: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración concesiva usa el modo correcto (hecho real)?",
+        "opciones": [
+            {"id": "a", "texto": "Aunque llueve, salgo.", "correcta": True, "razon": "Indicativo = hecho real."},
+            {"id": "b", "texto": "Aunque llueva, salgo.", "correcta": True, "razon": "Subjuntivo = hipotético, también válido."},
+            {"id": "c", "texto": "Aunque lloverá, salgo.", "correcta": False, "razon": "Futuro no cabe tras 'aunque'."},
+        ], "justificacion_obligatoria": True, "regla": "'Aunque' + indicativo (hecho) / subjuntivo (hipótesis)"
+    }}],
+    91: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Une con coma (enumeración breve):",
+        "oracion_incorrecta": "Llegó; saludó; se sentó.",
+        "respuesta_correcta": "Llegó, saludó, se sentó.",
+        "regla": "Enumeración breve con coma, no ';'"
+    }}],
+    92: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa correctamente el punto y coma?",
+        "opciones": [
+            {"id": "a", "texto": "Vino, como siempre, tarde; se fue, como siempre, temprano.", "correcta": True, "razon": "';' separa bloques con comas internas."},
+            {"id": "b", "texto": "Vino, como siempre, tarde, se fue, como siempre, temprano.", "correcta": False, "razon": "Ambigüedad por falta de ';'."},
+            {"id": "c", "texto": "Vino; como siempre; tarde; se fue; como siempre; temprano.", "correcta": False, "razon": "Exceso de ';'."},
+        ], "justificacion_obligatoria": True, "regla": "';' entre yuxtapuestas con comas internas"
+    }}],
+    93: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Añade el signo correcto (causa):",
+        "oracion_incorrecta": "No vino, estaba enfermo.",
+        "respuesta_correcta": "No vino: estaba enfermo.",
+        "regla": "':' en yuxtapuestas con causa"
+    }}],
+    94: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa correctamente ';' en enumeración compleja?",
+        "opciones": [
+            {"id": "a", "texto": "Compré pan, leche y huevos; carne, pollo y pescado.", "correcta": True, "razon": "';' separa grupos con comas internas."},
+            {"id": "b", "texto": "Compré pan, leche y huevos, carne, pollo y pescado.", "correcta": False, "razon": "Ambigüedad por falta de ';'."},
+            {"id": "c", "texto": "Compré pan; leche; y huevos; carne; pollo; y pescado.", "correcta": False, "razon": "Exceso de ';'."},
+        ], "justificacion_obligatoria": True, "regla": "';' en enumeración con comas internas"
+    }}],
+    95: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Añade los dos puntos y comillas:",
+        "oracion_incorrecta": "Dijo Vendré mañana.",
+        "respuesta_correcta": "Dijo: 'Vendré mañana'.",
+        "regla": "':' + comillas en cita textual"
+    }}],
+    96: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa comillas correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "Dijo: 'Vendré mañana'.", "correcta": True, "razon": "Comillas delimitan cita."},
+            {"id": "b", "texto": "Dijo: Vendré mañana.", "correcta": False, "razon": "Falta comillas en la cita."},
+            {"id": "c", "texto": "Dijo 'Vendré mañana.", "correcta": False, "razon": "Falta comilla de cierre."},
+        ], "justificacion_obligatoria": True, "regla": "Comillas para cita textual"
+    }}],
+    97: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige los paréntesis:",
+        "oracion_incorrecta": "Vino, (creo) ayer.",
+        "respuesta_correcta": "Vino (creo) ayer.",
+        "regla": "Sin coma antes del paréntesis"
+    }}],
+    98: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuál oración usa la raya correctamente en diálogo?",
+        "opciones": [
+            {"id": "a", "texto": "—Vine —dijo— a buscarte.", "correcta": True, "razon": "Raya abre y cierra acotación."},
+            {"id": "b", "texto": "-Vine -dijo- a buscarte.", "correcta": False, "razon": "Guion en vez de raya."},
+            {"id": "c", "texto": "—Vine —dijo a buscarte.", "correcta": False, "razon": "Falta raya de cierre."},
+        ], "justificacion_obligatoria": True, "regla": "Raya para diálogo y aclaraciones"
+    }}],
+    99: [{"tipo": 2, "orden": 1, "payload": {
+        "enunciado": "Corrige los puntos suspensivos (evita redundancia):",
+        "oracion_incorrecta": "Compró pan, leche, huevos, etc, etc, etc...",
+        "respuesta_correcta": "Compró pan, leche, huevos...",
+        "regla": "Puntos suspensivos solos, sin 'etc' redundante"
+    }}],
+    100: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Integración final: clasifica cada oración por tipo de subordinada.",
+        "oraciones": [
+            {"texto": "Cuando llegó, salimos.", "categoria_correcta": "adverbial temporal"},
+            {"texto": "El libro que leí es bueno.", "categoria_correcta": "adjetiva"},
+            {"texto": "Dijo que vendría.", "categoria_correcta": "sustantiva"},
+            {"texto": "Juan estudia y Pedro trabaja.", "categoria_correcta": "coordinada"},
+        ],
+        "categorias": ["adverbial temporal", "adjetiva", "sustantiva", "coordinada", "yuxtapuesta"],
     }}],
 }
