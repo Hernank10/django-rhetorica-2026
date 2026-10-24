@@ -83,10 +83,16 @@ class TestProgresoTecnica(TestCase):
 # Data bloque A (sin tocar DB)
 # ══════════════════════════════════════════════════════════════
 class TestDataSeed(TestCase):
-    def test_20_tecnicas_bloque_A(self):
-        self.assertEqual(len(TECNICAS), 20)
-        for t in TECNICAS:
-            self.assertEqual(t["bloque"], "A")
+    def test_bloque_A_tiene_20(self):
+        bloque_a = [t for t in TECNICAS if t["bloque"] == "A"]
+        self.assertEqual(len(bloque_a), 20)
+        nums = sorted(t["numero"] for t in bloque_a)
+        self.assertEqual(nums, list(range(1, 21)))
+
+    def test_bloques_totales_acumulan(self):
+        # Escalable: no hardcodea total, valida coherencia
+        self.assertGreaterEqual(len(TECNICAS), 20)
+        self.assertEqual(len(TECNICAS), len({t["numero"] for t in TECNICAS}))
 
     def test_campos_requeridos(self):
         campos = ["numero", "bloque", "titulo", "teoria", "explicacion",
@@ -96,15 +102,19 @@ class TestDataSeed(TestCase):
                 self.assertIn(campo, t, f"Técnica {t.get('numero')} sin '{campo}'")
                 self.assertTrue(t[campo], f"Técnica {t['numero']} '{campo}' vacío")
 
-    def test_numeros_unicos_1_20(self):
+    def test_numeros_unicos_consecutivos(self):
         nums = sorted(t["numero"] for t in TECNICAS)
-        self.assertEqual(nums, list(range(1, 21)))
+        # Escalable: los números deben ser 1..N sin huecos ni duplicados
+        self.assertEqual(nums, list(range(1, len(TECNICAS) + 1)))
 
-    def test_20_ejercicios(self):
-        self.assertEqual(len(EJERCICIOS), 20)
-        for num in range(1, 21):
-            self.assertIn(num, EJERCICIOS)
-            self.assertGreaterEqual(len(EJERCICIOS[num]), 1)
+    def test_ejercicios_por_tecnica(self):
+        # Escalable: cada técnica debe tener al menos 1 ejercicio
+        nums_tecnicas = {t["numero"] for t in TECNICAS}
+        nums_ejercicios = set(EJERCICIOS.keys())
+        faltantes = nums_tecnicas - nums_ejercicios
+        self.assertEqual(faltantes, set(), f"Técnicas sin ejercicios: {faltantes}")
+        for num, ejs in EJERCICIOS.items():
+            self.assertGreaterEqual(len(ejs), 1, f"Técnica {num} sin ejercicios")
 
     def test_todos_los_tipos(self):
         tipos = {ej["tipo"] for ejs in EJERCICIOS.values() for ej in ejs}
@@ -120,8 +130,10 @@ class TestSeedIdempotente(TestCase):
         seed_main()
         n_t = TecnicaSintactica.objects.count()
         n_e = EjercicioTecnica.objects.count()
-        self.assertEqual(n_t, 20)
-        self.assertEqual(n_e, 20)
+        # Escalable: compara contra la data, no contra un número fijo
+        self.assertEqual(n_t, len(TECNICAS))
+        self.assertEqual(n_e, sum(len(v) for v in EJERCICIOS.values()))
+        # Segunda corrida: mismos totales
         seed_main()
         self.assertEqual(TecnicaSintactica.objects.count(), n_t)
         self.assertEqual(EjercicioTecnica.objects.count(), n_e)
