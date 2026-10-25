@@ -967,3 +967,164 @@ EJERCICIOS_56_60 = {
 }
 EJERCICIOS.update(EJERCICIOS_56_60)
 
+# ═══ E1: tecnicas 61-65 (el verbo: fundamentos y presente) ═══
+TECNICAS_E1 = [
+    {"numero": 61, "bloque": "E", "nivel": "basico",
+     "titulo": "Verbos regulares vs irregulares",
+     "teoria": "Los verbos regulares mantienen la raiz en toda la conjugacion y toman las terminaciones del modelo (-ar, -er, -ir). Los irregulares cambian la raiz o la terminacion.",
+     "explicacion": "Regular: amar (amo, amas, ama). Irregular: ser (soy, eres, es); ir (voy, vas, va); tener (tengo, tienes, tiene). Los irregulares pueden cambiar la vocal de la raiz (e -> ie: pensar -> pienso) o la consonante (tener -> tengo).",
+     "regla": "Regular: raiz fija. Irregular: cambia raiz o terminacion",
+     "ejemplo_correcto": "Amar: amo, amas, ama (regular). Tener: tengo, tienes (irregular).",
+     "ejemplo_incorrecto": "Amar: *amo, *amas, *ama (nada cambia, es regular)."},
+    {"numero": 62, "bloque": "E", "nivel": "basico",
+     "titulo": "Las 3 conjugaciones (-ar, -er, -ir)",
+     "teoria": "En espanol hay tres conjugaciones segun la terminacion del infinitivo: 1.a (-ar), 2.a (-er), 3.a (-ir).",
+     "explicacion": "Ejemplos: 1.a amar, cantar, saltar. 2.a temer, comer, beber. 3.a partir, vivir, subir. La vocal tematica (a/e/i) marca la conjugacion en toda la flexión. Saber la conjugacion ayuda a predecir formas regulares.",
+     "regla": "1a: -ar. 2a: -er. 3a: -ir",
+     "ejemplo_correcto": "Cantar (-ar, 1a), comer (-er, 2a), vivir (-ir, 3a).",
+     "ejemplo_incorrecto": "Vivir es 2a conjugacion. (es 3a)"},
+    {"numero": 63, "bloque": "E", "nivel": "basico",
+     "titulo": "Persona y numero",
+     "teoria": "El verbo varia en persona (1a, 2a, 3a) y numero (singular, plural) segun el sujeto.",
+     "explicacion": "1a singular: yo. 2a singular: tu. 3a singular: el/ella. 1a plural: nosotros. 2a plural: vosotros. 3a plural: ellos/ellas. En America, 'vosotros' se reemplaza por 'ustedes' (3a plural).",
+     "regla": "6 personas gramaticales: yo, tu, el, nosotros, vosotros, ellos",
+     "ejemplo_correcto": "Yo canto, tu cantas, el canta, nosotros cantamos.",
+     "ejemplo_incorrecto": "Yo cantas. (concordancia incorrecta)"},
+    {"numero": 64, "bloque": "E", "nivel": "basico",
+     "titulo": "Presente de indicativo",
+     "teoria": "El presente de indicativo expresa acciones actuales, habituales o verdades generales.",
+     "explicacion": "Usos: accion presente (yo como), habitual (todos los dias voy al trabajo), verdad general (el sol sale por el este), futuro inmediato (manana viajo a Bogota). Regulares: canto, cantas, canta, cantamos, cantais, cantan.",
+     "regla": "Presente: accion actual, habitual o verdad general",
+     "ejemplo_correcto": "Yo estudio espanol. El agua hierve a 100 grados.",
+     "ejemplo_incorrecto": "Yo estudio ayer. (el presente no expresa pasado)"},
+    {"numero": 65, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Preterito perfecto simple",
+     "teoria": "El preterito perfecto simple (o preterito indefinido) expresa acciones terminadas en el pasado, sin conexion con el presente.",
+     "explicacion": "Formas regulares: cante, cantaste, canto, cantamos, cantasteis, cantaron. Usos: accion puntual (ayer comi paella), serie de acciones terminadas (vino, saludo y se fue). Marcadores: ayer, la semana pasada, en 1999.",
+     "regla": "Preterito simple: accion terminada, sin conexion con presente",
+     "ejemplo_correcto": "Ayer cante en el coro.",
+     "ejemplo_incorrecto": "Ayer he cantado (mejor: cante, si es accion terminada)"},
+]
+TECNICAS.extend(TECNICAS_E1)
+
+# ═══ E1: ejercicios 61-65 ═══
+EJERCICIOS_61_65 = {
+    61: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada verbo: regular (R) o irregular (I)",
+        "oraciones": [
+            {"texto":"cantar","categoria_correcta":"regular"},
+            {"texto":"ser","categoria_correcta":"irregular"},
+            {"texto":"vivir","categoria_correcta":"regular"},
+            {"texto":"tener","categoria_correcta":"irregular"}],
+        "categorias": ["regular","irregular"]}}],
+    62: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "A que conjugacion pertenece 'vivir'?",
+        "opciones": [
+            {"id":"a","texto":"1a (-ar)","correcta":False,"razon":"Termina en -ir."},
+            {"id":"b","texto":"2a (-er)","correcta":False,"razon":"Termina en -ir, no -er."},
+            {"id":"c","texto":"3a (-ir)","correcta":True,"razon":"Vivir termina en -ir."}],
+        "justificacion_obligatoria": True, "regla": "3a conjugacion: -ir"}}],
+    63: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que persona es 'cantamos'?",
+        "opciones": [
+            {"id":"a","texto":"1a persona plural","correcta":True,"razon":"Nosotros cantamos."},
+            {"id":"b","texto":"3a persona plural","correcta":False,"razon":"Seria ellos cantan."},
+            {"id":"c","texto":"1a persona singular","correcta":False,"razon":"Seria yo canto."}],
+        "justificacion_obligatoria": True, "regla": "Nosotros = 1a plural"}}],
+    64: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'El sol sale por el este', que valor tiene el presente?",
+        "opciones": [
+            {"id":"a","texto":"Verdad general","correcta":True,"razon":"Expresa una verdad universal."},
+            {"id":"b","texto":"Accion pasada","correcta":False,"razon":"No es pasado."},
+            {"id":"c","texto":"Futuro inmediato","correcta":False,"razon":"No es futuro."}],
+        "justificacion_obligatoria": True, "regla": "Presente: verdad general"}}],
+    65: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que forma es correcta: 'Ayer ___ en el coro'?",
+        "opciones": [
+            {"id":"a","texto":"he cantado","correcta":False,"razon":"Preterito perfecto compuesto: accion conectada con presente."},
+            {"id":"b","texto":"cante","correcta":True,"razon":"Preterito simple: accion terminada en el pasado."},
+            {"id":"c","texto":"cantaba","correcta":False,"razon":"Imperfecto: accion habitual o en desarrollo."}],
+        "justificacion_obligatoria": True, "regla": "Ayer = preterito simple"}}],
+}
+EJERCICIOS.update(EJERCICIOS_61_65)
+
+# ═══ E2: tecnicas 66-70 (tiempos del pasado y futuro) ═══
+TECNICAS_E2 = [
+    {"numero": 66, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Preterito imperfecto",
+     "teoria": "El preterito imperfecto expresa acciones habituales, en desarrollo o descripciones en el pasado, sin marcar su fin.",
+     "explicacion": "Formas regulares: cantaba, cantabas, cantaba, cantabamos, cantabais, cantaban. Usos: habitual (de nino jugaba al futbol), accion en desarrollo (leia cuando sono el telefono), descripcion (la casa era grande). Marcadores: antes, siempre, cuando era nino.",
+     "regla": "Imperfecto: accion habitual o en desarrollo (sin fin marcado)",
+     "ejemplo_correcto": "Cuando era nino, jugaba al futbol todos los dias.",
+     "ejemplo_incorrecto": "Ayer jugaba al futbol (mejor: jugue, si fue puntual)"},
+    {"numero": 67, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Preterito perfecto compuesto",
+     "teoria": "El preterito perfecto compuesto (he cantado) expresa acciones pasadas con conexion con el presente, o acciones en un periodo que aun no ha terminado.",
+     "explicacion": "Formacion: haber (he, has, ha, hemos, habeis, han) + participio (cantado, comido, vivido). Usos: hoy he estudiado (periodo aun abierto), he estado en Paris (experiencia vital). En America Latina se prefiere el preterito simple: hoy estudie.",
+     "regla": "Perfecto compuesto: pasado con conexion con presente",
+     "ejemplo_correcto": "Hoy he trabajado mucho. (periodo aun abierto)",
+     "ejemplo_incorrecto": "Ayer he trabajado. (mejor: ayer trabaje)"},
+    {"numero": 68, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Pluscuamperfecto",
+     "teoria": "El pluscuamperfecto (habia cantado) expresa una accion pasada anterior a otra accion tambien pasada.",
+     "explicacion": "Formacion: haber en imperfecto (habia, habias, habia, habiamos, habiais, habian) + participio. Uso: 'Cuando llegue, ya se habian ido' (primero se fueron, luego llegue). Marca anterioridad respecto a un punto pasado.",
+     "regla": "Pluscuamperfecto: pasado del pasado (anterior a otro pasado)",
+     "ejemplo_correcto": "Cuando llegue, ya se habian ido.",
+     "ejemplo_incorrecto": "Cuando llegue, ya se han ido. (mezcla con presente)"},
+    {"numero": 69, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Futuro simple",
+     "teoria": "El futuro simple expresa acciones venideras respecto al momento del habla. Tambien puede expresar probabilidad o suposicion presente.",
+     "explicacion": "Formas regulares: cantare, cantaras, cantara, cantaremos, cantareis, cantaran. Usos: futuro (manana ire), probabilidad presente (seran las tres = probablemente son las tres), mandato atenuado (cantaras esa cancion).",
+     "regla": "Futuro: accion venidera o probabilidad presente",
+     "ejemplo_correcto": "Manana ire al cine. Seran las tres.",
+     "ejemplo_incorrecto": "Ayer ire al cine. (futuro no puede ser pasado)"},
+    {"numero": 70, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Condicional simple",
+     "teoria": "El condicional simple expresa acciones hipoteticas, probabilidad pasada o cortesia.",
+     "explicacion": "Formas regulares: cantaria, cantarias, cantaria, cantariamos, cantariais, cantarian. Usos: hipotesis (si tuviera dinero, viajaria), probabilidad pasada (serian las tres = probablemente eran las tres), cortesia (podrias ayudarme?).",
+     "regla": "Condicional: hipotesis, probabilidad pasada o cortesia",
+     "ejemplo_correcto": "Si tuviera dinero, viajaria. Podrias ayudarme?",
+     "ejemplo_incorrecto": "Si tengo dinero, viajaria. (mezcla indicativo + condicional, no encaja)"},
+]
+TECNICAS.extend(TECNICAS_E2)
+
+# ═══ E2: ejercicios 66-70 ═══
+EJERCICIOS_66_70 = {
+    66: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Cuando era nino, jugaba al futbol', que valor tiene 'jugaba'?",
+        "opciones": [
+            {"id":"a","texto":"Habitual","correcta":True,"razon":"Accion repetida en el pasado: imperfecto."},
+            {"id":"b","texto":"Puntual","correcta":False,"razon":"Seria 'jugue' si fuera puntual."},
+            {"id":"c","texto":"Futuro","correcta":False,"razon":"Es pasado."}],
+        "justificacion_obligatoria": True, "regla": "Imperfecto: habitual"}}],
+    67: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa 'Hoy he estudiado'?",
+        "opciones": [
+            {"id":"a","texto":"Accion terminada hace tiempo","correcta":False,"razon":"'Hoy' es periodo aun abierto."},
+            {"id":"b","texto":"Accion pasada en periodo aun abierto","correcta":True,"razon":"Perfecto compuesto con marcador de periodo abierto."},
+            {"id":"c","texto":"Accion futura","correcta":False,"razon":"Es pasado."}],
+        "justificacion_obligatoria": True, "regla": "He + participio = pasado conectado"}}],
+    68: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Cuando llegue, ya se habian ido', que expresa 'habian ido'?",
+        "opciones": [
+            {"id":"a","texto":"Accion futura","correcta":False,"razon":"Es pasado."},
+            {"id":"b","texto":"Pasado anterior a otro pasado","correcta":True,"razon":"Pluscuamperfecto: se fueron antes de que llegara."},
+            {"id":"c","texto":"Accion presente","correcta":False,"razon":"Es pasado."}],
+        "justificacion_obligatoria": True, "regla": "Pluscuamperfecto: pasado del pasado"}}],
+    69: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Seran las tres', que valor tiene el futuro?",
+        "opciones": [
+            {"id":"a","texto":"Futuro real","correcta":False,"razon":"No es el futuro literal."},
+            {"id":"b","texto":"Probabilidad presente","correcta":True,"razon":"'Seran las tres' = probablemente son las tres."},
+            {"id":"c","texto":"Mandato","correcta":False,"razon":"No es mandato."}],
+        "justificacion_obligatoria": True, "regla": "Futuro: probabilidad presente"}}],
+    70: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Podrias ayudarme?'",
+        "opciones": [
+            {"id":"a","texto":"Cortesia","correcta":True,"razon":"Condicional de cortesia, equivalente a 'puedes'."},
+            {"id":"b","texto":"Pasado","correcta":False,"razon":"No es pasado aqui."},
+            {"id":"c","texto":"Futuro","correcta":False,"razon":"No es futuro."}],
+        "justificacion_obligatoria": True, "regla": "Condicional: cortesia"}}],
+}
+EJERCICIOS.update(EJERCICIOS_66_70)
+
