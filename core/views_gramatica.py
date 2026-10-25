@@ -19,6 +19,26 @@ BLOQUES_INFO = {
     "G": "Reglas ortográficas (RAE 2010)",
 }
 
+BLOQUES_GENERATIVA = {
+    "A": "Fundamentos de la GGT",
+    "B": "Estructura X-barra",
+    "C": "Transformaciones",
+    "D": "Caso y papeles temáticos",
+    "E": "Rección y ligamiento",
+    "F": "Programa minimalista",
+    "G": "Aplicaciones al castellano",
+}
+
+BLOQUES_A1 = {
+    "A": "Alfabeto, fonética y saludos",
+    "B": "Artículos, género y número",
+    "C": "Presente, ser/estar/tener",
+    "D": "Vocabulario básico",
+    "E": "Preguntas, negación, adverbios",
+    "F": "Preposiciones y ubicación",
+    "G": "Frases útiles y situaciones",
+}
+
 
 @login_required
 def indice(request):
@@ -39,6 +59,26 @@ def indice(request):
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen})
 
 
+
+
+@login_required
+def indice_a1(request):
+    """Indice de las 100 tecnicas de Lengua Castellana A1."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="a1")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_A1.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user, modulo="a1")
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_a1": True, "es_generativa": False})
 
 
 @login_required
@@ -68,11 +108,19 @@ def tecnica(request, numero):
     progreso, _ = ProgresoGramatical.objects.get_or_create(usuario=request.user, tecnica=t)
     anterior = TecnicaGramatical.objects.filter(numero__lt=numero).order_by("-numero").first()
     siguiente = TecnicaGramatical.objects.filter(numero__gt=numero).order_by("numero").first()
+    if t.modulo == "generativa":
+        bname = BLOQUES_GENERATIVA.get(t.bloque, "")
+    elif t.modulo == "a1":
+        bname = BLOQUES_A1.get(t.bloque, "")
+    else:
+        bname = BLOQUES_INFO.get(t.bloque, "")
+
     return render(request, "core/gramatica/tecnica.html", {
         "tecnica": t, "ejercicios": ejercicios, "progreso": progreso,
         "anterior": anterior, "siguiente": siguiente,
-        "bloque_nombre": BLOQUES_INFO.get(t.bloque, ""),
+        "bloque_nombre": bname,
         "es_generativa": t.modulo == "generativa",
+        "es_a1": t.modulo == "a1",
     })
 
 
