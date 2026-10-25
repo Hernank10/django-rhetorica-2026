@@ -113,7 +113,7 @@
   if (!badge) return;
 
   function fetchBadge() {
-    fetch("/gramatica/ajax/contador/")
+    fetch("/gramatica/ajax/contador/?modulo=gramatica")
       .then(r => r.json())
       .then(d => {
         if (d.dominadas > 0) {
@@ -129,3 +129,26 @@
   fetchBadge();
   setInterval(fetchBadge, 60000);
 })();
+
+/* ─── Badge navbar: generativa count ─── */
+(function() {
+  "use strict";
+  const badge = document.getElementById("gramatica-generativa-badge");
+  if (!badge) return;
+  function fetchBadge() {
+    fetch("/gramatica/ajax/contador/?modulo=generativa")
+      .then(r => r.json())
+      .then(d => {
+        if (d.dominadas > 0) {
+          badge.textContent = d.dominadas;
+          badge.style.display = "";
+        } else {
+          badge.style.display = "none";
+        }
+      })
+      .catch(() => {});
+  }
+  fetchBadge();
+  setInterval(fetchBadge, 60000);
+})();
+

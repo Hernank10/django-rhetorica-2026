@@ -433,4 +433,21 @@ new Chart(document.getElementById('chartActividad'), {
   </div>
 </div>
 
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-warning">
+      <div class="card-header bg-warning text-dark fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-sitemap"></i> Gramatica generativa — 100 tecnicas</span>
+        <a href="{% url 'gramatica:progreso_generativa' %}" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Modelo de Chomsky: X-barra, transformaciones, caso, ligamiento, minimalismo y aplicaciones al castellano. 100 tecnicas.</p>
+        <a href="{% url 'gramatica:indice_generativa' %}" class="btn btn-warning text-dark"><i class="fas fa-list"></i> Ver las 100 tecnicas</a>
+        <a href="{% url 'gramatica:tecnica' 101 %}" class="btn btn-outline-warning"><i class="fas fa-play"></i> Empezar por la 101</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

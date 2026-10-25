@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-4 mb-5" style="max-width: 900px;">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <a href="{% url 'gramatica:indice' %}" class="btn btn-sm btn-outline-secondary">
+    <a href="{% if tecnica.modulo == 'generativa' %}{% url 'gramatica:indice_generativa' %}{% else %}{% url 'gramatica:indice' %}{% endif %}" class="btn btn-sm btn-outline-secondary">
       <i class="fas fa-arrow-left"></i> Volver al índice
     </a>
     <span class="badge bg-secondary">Bloque {{ tecnica.bloque }} — {{ bloque_nombre }}</span>

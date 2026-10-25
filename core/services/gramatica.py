@@ -64,16 +64,23 @@ def actualizar_progreso(usuario, tecnica, ejercicio, ok):
     return progreso
 
 
-def proximas_revisiones(usuario, n=5):
-    return ProgresoGramatical.objects.filter(
+def proximas_revisiones(usuario, n=5, modulo=None):
+    qs = ProgresoGramatical.objects.filter(
         usuario=usuario, proxima_revision__lte=timezone.now(),
-    ).select_related("tecnica").order_by("proxima_revision")[:n]
+    )
+    if modulo:
+        qs = qs.filter(tecnica__modulo=modulo)
+    return qs.select_related("tecnica").order_by("proxima_revision")[:n]
 
 
-def resumen_progreso(usuario):
+def resumen_progreso(usuario, modulo=None):
     qs = ProgresoGramatical.objects.filter(usuario=usuario)
+    total_qs = TecnicaGramatical.objects.all()
+    if modulo:
+        qs = qs.filter(tecnica__modulo=modulo)
+        total_qs = total_qs.filter(modulo=modulo)
     return {
-        "total": TecnicaGramatical.objects.count(),
+        "total": total_qs.count(),
         "iniciadas": qs.exclude(estado="no_iniciada").count(),
         "dominadas": qs.filter(estado="dominada").count(),
     }
