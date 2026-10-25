@@ -807,3 +807,163 @@ EJERCICIOS_46_50 = {
 }
 EJERCICIOS.update(EJERCICIOS_46_50)
 
+# ═══ D1: tecnicas 51-55 (grados y concordancia del adjetivo) ═══
+TECNICAS_D1 = [
+    {"numero": 51, "bloque": "D", "nivel": "basico",
+     "titulo": "Grados del adjetivo: positivo",
+     "teoria": "El grado positivo expresa la cualidad sin comparacion ni intensificacion. Es la forma base del adjetivo.",
+     "explicacion": "Ejemplos: alto, bajo, bueno, malo. 'Juan es alto' expresa la cualidad en grado positivo, sin comparar ni intensificar. Es la forma que aparece en el diccionario.",
+     "regla": "Positivo: cualidad sin comparacion",
+     "ejemplo_correcto": "Juan es alto (positivo).",
+     "ejemplo_incorrecto": "Juan es mas alto (es comparativo, no positivo)."},
+    {"numero": 52, "bloque": "D", "nivel": "intermedio",
+     "titulo": "Comparativo (mas... que, tan... como)",
+     "teoria": "El grado comparativo establece una comparacion entre dos entidades. Hay tres tipos: superioridad, igualdad e inferioridad.",
+     "explicacion": "Superioridad: mas + adj + que (Juan es mas alto que Pedro). Igualdad: tan + adj + como (Juan es tan alto como Pedro). Inferioridad: menos + adj + que (Juan es menos alto que Pedro). Irregulares: mejor/peor (no 'mas bueno/malo').",
+     "regla": "Comparativo: mas/menos/tan... que/como. Irreg: mejor, peor",
+     "ejemplo_correcto": "Juan es mas alto que Pedro. Maria es mejor que yo.",
+     "ejemplo_incorrecto": "Juan es mas alto de Pedro. (preposicion incorrecta)"},
+    {"numero": 53, "bloque": "D", "nivel": "intermedio",
+     "titulo": "Superlativo (-isimo, muy, el mas)",
+     "teoria": "El grado superlativo expresa la cualidad en su grado maximo. Hay dos tipos: absoluto (sin comparacion) y relativo (comparado con un grupo).",
+     "explicacion": "Absoluto: muy + adj (muy alto) o adj + -isimo (altisimo). Relativo: el/la/los/las mas + adj + de (el mas alto de la clase). Irregulares: optimo (muy bueno), pesimo (muy malo), maximo (muy grande), minimo (muy pequeno).",
+     "regla": "Superlativo: absoluto (muy/-isimo) o relativo (el mas... de)",
+     "ejemplo_correcto": "Altisimo, muy alto, el mas alto de todos.",
+     "ejemplo_incorrecto": "Mas altisimo (incorrecto: duplica superlativo)."},
+    {"numero": 54, "bloque": "D", "nivel": "basico",
+     "titulo": "Concordancia adjetivo-sustantivo",
+     "teoria": "El adjetivo concuerda con el sustantivo en genero y numero, aunque el sustantivo sea colectivo o haya varios sustantivos.",
+     "explicacion": "Regla general: mismo genero y numero. Excepciones: si varios sustantivos de distinto genero, adjetivo en masculino plural (Juan y Maria son altos). Si un sustantivo es de genero ambiguo, adjetivo segun el articulo: 'el agua fria' (femenino interno, articulo el).",
+     "regla": "Concordancia gen/num. Varios de distinto genero -> masc plural",
+     "ejemplo_correcto": "La casa blanca, el libro rojo, Juan y Maria son altos.",
+     "ejemplo_incorrecto": "La casa blanco, Juan y Maria son altas."},
+    {"numero": 55, "bloque": "D", "nivel": "intermedio",
+     "titulo": "Adjetivos de una vs dos terminaciones",
+     "teoria": "Los adjetivos de una terminacion no varian en genero (solo en numero). Los de dos terminaciones tienen forma masculina y femenina.",
+     "explicacion": "Una terminacion: feliz (feliz/feliz), fuerte (fuerte/fuerte), grande (grande/grande), interesante (interesante/interesante). Dos terminaciones: alto/alta, bueno/buena, pequeno/pequena, rojo/roja. Suelen terminar en -o los de dos terminaciones.",
+     "regla": "1 terminacion: no varia en genero. 2 terminaciones: masc/fem",
+     "ejemplo_correcto": "Nino feliz / nina feliz (una terminacion). Nino alto / nina alta (dos terminaciones).",
+     "ejemplo_incorrecto": "Nino feliça (no existe forma femenina de feliz)."},
+]
+TECNICAS.extend(TECNICAS_D1)
+
+# ═══ D1: ejercicios 51-55 ═══
+EJERCICIOS_51_55 = {
+    51: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Maria es inteligente', que grado tiene 'inteligente'?",
+        "opciones": [
+            {"id":"a","texto":"Positivo","correcta":True,"razon":"Expresa la cualidad sin comparar ni intensificar."},
+            {"id":"b","texto":"Comparativo","correcta":False,"razon":"No hay comparacion."},
+            {"id":"c","texto":"Superlativo","correcta":False,"razon":"No es grado maximo."}],
+        "justificacion_obligatoria": True, "regla": "Positivo = sin comparacion"}}],
+    52: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de comparativo es 'Juan es tan alto como Pedro'?",
+        "opciones": [
+            {"id":"a","texto":"Superioridad","correcta":False,"razon":"No expresa mayor altura."},
+            {"id":"b","texto":"Igualdad","correcta":True,"razon":"'Tan... como' expresa igualdad."},
+            {"id":"c","texto":"Inferioridad","correcta":False,"razon":"No expresa menor altura."}],
+        "justificacion_obligatoria": True, "regla": "Tan... como = igualdad"}}],
+    53: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que superlativo corresponde a 'muy bueno'?",
+        "opciones": [
+            {"id":"a","texto":"Buenisimo","correcta":False,"razon":"Es valido pero coloquial, no la forma culta."},
+            {"id":"b","texto":"Optimo","correcta":True,"razon":"Optimo = muy bueno (superlativo irregular)."},
+            {"id":"c","texto":"Mas bueno","correcta":False,"razon":"No es superlativo."}],
+        "justificacion_obligatoria": True, "regla": "Irregular: optimo = muy bueno"}}],
+    54: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan y Maria son ___', que forma del adjetivo 'alto' es correcta?",
+        "opciones": [
+            {"id":"a","texto":"Altas","correcta":False,"razon":"Juan es masculino: no todo el grupo es femenino."},
+            {"id":"b","texto":"Altos","correcta":True,"razon":"Generos mixtos: masculino plural."},
+            {"id":"c","texto":"Alto","correcta":False,"razon":"Falta plural."}],
+        "justificacion_obligatoria": True, "regla": "Generos mixtos: masc plural"}}],
+    55: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada adjetivo: 1 terminacion (U) o 2 terminaciones (D)",
+        "oraciones": [
+            {"texto":"feliz","categoria_correcta":"1 terminacion"},
+            {"texto":"alto","categoria_correcta":"2 terminaciones"},
+            {"texto":"fuerte","categoria_correcta":"1 terminacion"},
+            {"texto":"pequeno","categoria_correcta":"2 terminaciones"}],
+        "categorias": ["1 terminacion","2 terminaciones"]}}],
+}
+EJERCICIOS.update(EJERCICIOS_51_55)
+
+# ═══ D2: tecnicas 56-60 (tipos de adjetivo) ═══
+TECNICAS_D2 = [
+    {"numero": 56, "bloque": "D", "nivel": "avanzado",
+     "titulo": "Adjetivo explicativo vs especificativo",
+     "teoria": "El adjetivo explicativo anade informacion no esencial (va entre comas). El especificativo restringe el significado del sustantivo (sin coma).",
+     "explicacion": "Explicativo: 'Los alumnos, cansados, se fueron' (todos estaban cansados). Especificativo: 'Los alumnos cansados se fueron' (solo los cansados). La coma cambia el significado.",
+     "regla": "Explicativo: coma, no esencial. Especificativo: sin coma, restringe",
+     "ejemplo_correcto": "Los alumnos, cansados, se fueron. / Los alumnos cansados se fueron.",
+     "ejemplo_incorrecto": "Los alumnos cansados, se fueron. (coma mal puesta)"},
+    {"numero": 57, "bloque": "D", "nivel": "intermedio",
+     "titulo": "Apocope (buen, gran, primer)",
+     "teoria": "La apocope es la perdida de la vocal final de un adjetivo ante un sustantivo masculino singular.",
+     "explicacion": "Apocopados: bueno -> buen (buen dia), malo -> mal (mal tiempo), primero -> primer (primer piso), tercero -> tercer (tercer lugar), grande -> gran (gran hombre), santo -> san (san Juan). Ante sustantivo femenino no se apocopa: buena dia, primera vez.",
+     "regla": "Apocope: ante sustantivo masc sing. buen, mal, primer, gran",
+     "ejemplo_correcto": "Buen dia, primer piso, gran hombre.",
+     "ejemplo_incorrecto": "Buen semana (femenino: buena semana)."},
+    {"numero": 58, "bloque": "D", "nivel": "avanzado",
+     "titulo": "Adjetivos sustantivados (el bueno)",
+     "teoria": "Un adjetivo se sustantiva cuando funciona como sustantivo, generalmente precedido de articulo. Adquiere genero y numero propios.",
+     "explicacion": "Ejemplos: 'el bueno' (la persona buena), 'los ricos' (las personas ricas), 'lo importante' (la cosa importante). Tambien con articulo neutro 'lo': lo bello, lo esencial. En estos casos el adjetivo funciona como nucleo del sintagma nominal.",
+     "regla": "Adjetivo sustantivado: articulo + adj = sustantivo",
+     "ejemplo_correcto": "El bueno gano (el bueno = la persona buena).",
+     "ejemplo_incorrecto": "El bueno gano (aqui 'bueno' sigue siendo adjetivo, no sustantivado)."},
+    {"numero": 59, "bloque": "D", "nivel": "avanzado",
+     "titulo": "Adjetivos relacionales",
+     "teoria": "Los adjetivos relacionales expresan una relacion con un sustantivo (no una cualidad). No admiten grados ni se usan como predicativos.",
+     "explicacion": "Ejemplos: espanol (de Espana), mensual (del mes), musical (de la musica), presidencial (del presidente). No admiten 'muy' (*muy mensual) ni grado comparativo (*mas espanol). Tampoco van con ser/estar en grado positivo (*es muy espanol).",
+     "regla": "Relacional: relacion con sustantivo. No admite grados",
+     "ejemplo_correcto": "Horario mensual (relacion con mes).",
+     "ejemplo_incorrecto": "Horario muy mensual (no admite grado)."},
+    {"numero": 60, "bloque": "D", "nivel": "basico",
+     "titulo": "Adjetivos calificativos",
+     "teoria": "Los adjetivos calificativos expresan cualidades o propiedades del sustantivo. Admiten grados (positivo, comparativo, superlativo).",
+     "explicacion": "Ejemplos: alto, bajo, bueno, malo, bonito, feo, rapido, lento. Expresan propiedades que se pueden medir o comparar. Son la mayoria de los adjetivos en espanol. Admiten 'muy' y formas comparativas y superlativas.",
+     "regla": "Calificativo: cualidad, admite grados",
+     "ejemplo_correcto": "Casa grande, muy grande, mas grande que, grandisima.",
+     "ejemplo_incorrecto": "Casa presidencial (es relacional, no calificativo)."},
+]
+TECNICAS.extend(TECNICAS_D2)
+
+# ═══ D2: ejercicios 56-60 ═══
+EJERCICIOS_56_60 = {
+    56: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Los alumnos, cansados, se fueron', que tipo de adjetivo es 'cansados'?",
+        "opciones": [
+            {"id":"a","texto":"Explicativo","correcta":True,"razon":"Entre comas: informacion no esencial, todos estaban cansados."},
+            {"id":"b","texto":"Especificativo","correcta":False,"razon":"Seria sin comas: solo los cansados."}],
+        "justificacion_obligatoria": True, "regla": "Explicativo: coma"}}],
+    57: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma apocopada de 'primero'?",
+        "opciones": [
+            {"id":"a","texto":"Primer","correcta":True,"razon":"Ante sustantivo masculino singular: primer piso."},
+            {"id":"b","texto":"Primero","correcta":False,"razon":"No se apocopa ante sustantivo masc sing."},
+            {"id":"c","texto":"Primera","correcta":False,"razon":"Es femenino."}],
+        "justificacion_obligatoria": True, "regla": "Apocope: primer + sustantivo masc"}}],
+    58: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Lo importante es aprender', que funcion tiene 'importante'?",
+        "opciones": [
+            {"id":"a","texto":"Adjetivo calificativo","correcta":False,"razon":"Sustantivado por 'lo', funciona como sustantivo."},
+            {"id":"b","texto":"Adjetivo sustantivado","correcta":True,"razon":"Articulo neutro 'lo' + adj = sustantivado."},
+            {"id":"c","texto":"Adverbio","correcta":False,"razon":"No modifica verbo."}],
+        "justificacion_obligatoria": True, "regla": "Lo + adj = sustantivado"}}],
+    59: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de adjetivo es 'mensual'?",
+        "opciones": [
+            {"id":"a","texto":"Calificativo","correcta":False,"razon":"No expresa cualidad medible."},
+            {"id":"b","texto":"Relacional","correcta":True,"razon":"Expresa relacion con 'mes'. No admite grados."},
+            {"id":"c","texto":"Sustantivado","correcta":False,"razon":"No esta sustantivado aqui."}],
+        "justificacion_obligatoria": True, "regla": "Relacional: no admite grados"}}],
+    60: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de adjetivo admite grados (muy, mas... que)?",
+        "opciones": [
+            {"id":"a","texto":"Relacional","correcta":False,"razon":"No admite grados."},
+            {"id":"b","texto":"Calificativo","correcta":True,"razon":"Expresa cualidad, admite grados."},
+            {"id":"c","texto":"Sustantivado","correcta":False,"razon":"Funciona como sustantivo."}],
+        "justificacion_obligatoria": True, "regla": "Calificativo: admite grados"}}],
+}
+EJERCICIOS.update(EJERCICIOS_56_60)
+
