@@ -99,6 +99,7 @@ urlpatterns += i18n_patterns(
     path('estudiante/', include('core.urls_estudiante')),
     path('notificaciones/', include('core.urls_notificaciones')),
     path('sintaxis/', include('core.urls_sintaxis')),
+    path('gramatica/', include('core.urls_gramatica')),
     path('admin-panel/', views_admin.panel, name='admin_panel'),
 
     path('verificar/<str:codigo>/', verificar_certificado_publico, name='verificar_certificado_publico'),

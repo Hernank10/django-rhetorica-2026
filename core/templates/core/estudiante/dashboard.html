@@ -416,4 +416,21 @@ new Chart(document.getElementById('chartActividad'), {
   </div>
 </div>
 
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-info">
+      <div class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-book"></i> Gramatica castellana — 100 tecnicas</span>
+        <a href="{% url 'gramatica:progreso' %}" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Historia, clases de palabras, sustantivo, adjetivo, verbo, pronombres y ortografia RAE 2010. 100 tecnicas con ejercicio y retroalimentacion.</p>
+        <a href="{% url 'gramatica:indice' %}" class="btn btn-info text-white"><i class="fas fa-list"></i> Ver las 100 tecnicas</a>
+        <a href="{% url 'gramatica:tecnica' 1 %}" class="btn btn-outline-info"><i class="fas fa-play"></i> Empezar por la 1</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}
