@@ -764,3 +764,235 @@ EJERCICIOS_C = {
 }
 EJERCICIOS.update(EJERCICIOS_C)
 
+
+TECNICAS_51_55 = [
+    {"numero": 151, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Caso abstracto vs caso morfologico",
+     "teoria": "El caso abstracto es una marca sintactica invisible asignada por un nucleo (T, V, P). El caso morfologico es la manifestacion visible (terminaciones, pronombres).",
+     "explicacion": "En castellano el caso morfologico solo aparece en pronombres (yo/me/mi, tu/te/ti). En latin y aleman aparece tambien en sustantivos y adjetivos. La GGT estudia el caso abstracto como requisito universal.",
+     "regla": "Caso abstracto: invisible (T, V, P). Morfologico: visible (pronombres)",
+     "ejemplo_correcto": "En 'yo lo vi', 'yo' (nominativo) y 'lo' (acusativo) tienen caso morfologico visible.",
+     "ejemplo_incorrecto": "El caso abstracto y el morfologico son identicos en castellano."},
+    {"numero": 152, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Caso nominativo",
+     "teoria": "El caso nominativo lo asigna el nucleo T (tiempo) al sujeto de la oracion finita.",
+     "explicacion": "Ejemplo: 'Juan canta'. 'Juan' recibe caso nominativo de T. En pronombres: 'yo' (nominativo). Si el sujeto no recibe caso nominativo, la oracion es agramatical: *'Juan cantar' (infinitivo no asigna caso).",
+     "regla": "Nominativo: T -> sujeto finito",
+     "ejemplo_correcto": "En 'yo canto', 'yo' lleva nominativo.",
+     "ejemplo_incorrecto": "El sujeto puede quedar sin caso."},
+    {"numero": 153, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Caso acusativo",
+     "teoria": "El caso acusativo lo asigna el nucleo V (verbo transitivo) al complemento directo.",
+     "explicacion": "Ejemplo: 'Juan compro el libro'. 'El libro' recibe caso acusativo de V. En pronombres: 'lo/la' (acusativo). Los verbos transitivos asignan caso acusativo; los intransitivos no.",
+     "regla": "Acusativo: V transitivo -> CD",
+     "ejemplo_correcto": "En 'Juan lo compro', 'lo' lleva acusativo.",
+     "ejemplo_incorrecto": "El acusativo lo asigna T."},
+    {"numero": 154, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Caso dativo",
+     "teoria": "El caso dativo lo asigna el nucleo V (o P) al complemento indirecto.",
+     "explicacion": "Ejemplo: 'Juan dio un libro a Maria'. 'A Maria' recibe caso dativo (o caso oblicuo por P). En pronombres: 'le/les'. Los verbos de transferencia asignan dativo al receptor.",
+     "regla": "Dativo: V/P -> CI",
+     "ejemplo_correcto": "En 'le di el libro', 'le' lleva dativo.",
+     "ejemplo_incorrecto": "El dativo lo asigna T."},
+    {"numero": 155, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Caso genitivo",
+     "teoria": "El caso genitivo lo asigna el nucleo N al complemento posesivo del sintagma nominal. En castellano se realiza con 'de'.",
+     "explicacion": "Ejemplo: 'la casa de Juan'. 'De Juan' recibe caso genitivo del nucleo N 'casa'. En pronombres posesivos: 'mio, tuyo'. En latin y aleman el genitivo tiene caso morfologico propio; en castellano se hace con 'de'.",
+     "regla": "Genitivo: N -> complemento posesivo ('de Juan')",
+     "ejemplo_correcto": "En 'la casa de Juan', 'de Juan' lleva genitivo.",
+     "ejemplo_incorrecto": "El genitivo lo asigna V."},
+]
+TECNICAS.extend(TECNICAS_51_55)
+
+
+TECNICAS_56_60 = [
+    {"numero": 156, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Asignacion de caso por T (nominativo)",
+     "teoria": "El nucleo T asigna caso nominativo a su especificador (el sujeto) bajo concordancia.",
+     "explicacion": "Ejemplo: 'Juan canta'. T (presente, 3a sing) asigna nominativo a 'Juan'. Si el sujeto esta en infinitivo, T no puede asignar nominativo y el sujeto sube a otra oracion ('Quiero [que Juan cante]').",
+     "regla": "T asigna nominativo al Esp (sujeto)",
+     "ejemplo_correcto": "En 'Juan canta', T asigna nominativo a Juan.",
+     "ejemplo_incorrecto": "T asigna caso acusativo."},
+    {"numero": 157, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Asignacion de caso por V (acusativo)",
+     "teoria": "El verbo transitivo asigna caso acusativo a su complemento directo.",
+     "explicacion": "Ejemplo: 'Juan compro el libro'. V ('compro') asigna acusativo a 'el libro'. Los verbos intransitivos no asignan acusativo. En pasivas, el objeto sube a sujeto y recibe nominativo de T ('El libro fue comprado t').",
+     "regla": "V transitivo asigna acusativo al CD",
+     "ejemplo_correcto": "En 'compro el libro', V asigna acusativo a 'el libro'.",
+     "ejemplo_incorrecto": "El verbo intransitivo asigna acusativo."},
+    {"numero": 158, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Asignacion de caso por P (oblicuo)",
+     "teoria": "La preposicion asigna caso oblicuo (o caso de P) a su complemento.",
+     "explicacion": "Ejemplo: 'con Juan', 'de Maria', 'para ti'. P ('con', 'de', 'para') asigna caso oblicuo a su complemento. En pronombres: 'conmigo', 'contigo', 'para mi'. El caso oblicuo no es nominativo, acusativo ni dativo: es un caso 'por defecto' de P.",
+     "regla": "P asigna caso oblicuo a su complemento",
+     "ejemplo_correcto": "En 'conmigo', 'migo' (o 'mi') lleva caso oblicuo de P.",
+     "ejemplo_incorrecto": "P asigna nominativo."},
+    {"numero": 159, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Filtro de caso",
+     "teoria": "El filtro de caso (Chomsky, 1981) establece que todo SN explicito debe recibir caso. Si un SN no recibe caso, la oracion es agramatical.",
+     "explicacion": "Ejemplo: '*Juan cantar' es agramatical porque 'Juan' no recibe caso de T (infinitivo). En cambio, 'Quiero que Juan cante' es correcto porque T asigna nominativo. El filtro garantiza que todo SN tenga caso.",
+     "regla": "Filtro de caso: todo SN explicito necesita caso",
+     "ejemplo_correcto": "'Quiero que Juan cante' asigna caso a Juan.",
+     "ejemplo_incorrecto": "'Juan cantar' es gramatical."},
+    {"numero": 160, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Papeles tematicos: agente",
+     "teoria": "El papel tematico de agente es el que realiza la accion del verbo. Se asigna a la posicion de especificador del SV.",
+     "explicacion": "Ejemplo: 'Juan compro el libro'. 'Juan' es agente (el que compra). El agente se asigna en [Esp SV]. En pasivas, el agente puede aparecer en 'por': 'El libro fue comprado por Juan'. En pasivas reflejas se omite.",
+     "regla": "Agente: realiza la accion, en Esp SV",
+     "ejemplo_correcto": "En 'Juan compro', Juan es agente.",
+     "ejemplo_incorrecto": "El agente se asigna a T."},
+]
+TECNICAS.extend(TECNICAS_56_60)
+
+
+TECNICAS_61_65 = [
+    {"numero": 161, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Tema y paciente",
+     "teoria": "El tema es el elemento que sufre el cambio o es afectado por la accion. El paciente es el que recibe la accion de forma directa.",
+     "explicacion": "Ejemplo: 'Juan compro el libro'. 'El libro' es tema/paciente (el que se compra). 'Juan rompio la ventana': 'la ventana' es paciente. Se asignan en la posicion de complemento del V.",
+     "regla": "Tema/paciente: complemento del V (afectado)",
+     "ejemplo_correcto": "En 'Juan rompio la ventana', 'la ventana' es paciente.",
+     "ejemplo_incorrecto": "El paciente se asigna en el sujeto."},
+    {"numero": 162, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Meta, origen, locativo",
+     "teoria": "Estos papeles tematicos los asignan los verbos de movimiento y las preposiciones. Meta es destino, origen es punto de partida, locativo es lugar.",
+     "explicacion": "Ejemplo: 'Voy a Madrid' (meta = a Madrid), 'Vengo de Bogota' (origen = de Bogota), 'Vivo en Lima' (locativo = en Lima). Se asignan en el complemento del V o dentro del SP.",
+     "regla": "Meta: destino. Origen: punto de partida. Locativo: lugar",
+     "ejemplo_correcto": "En 'voy a Madrid', 'a Madrid' es meta.",
+     "ejemplo_incorrecto": "La meta es lo mismo que el origen."},
+    {"numero": 163, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Criterio tematico",
+     "teoria": "El criterio tematico (Chomsky, 1981) establece que cada argumento recibe exactamente un papel tematico, y cada papel tematico se asigna a un solo argumento.",
+     "explicacion": "Ejemplo: en 'Juan compro el libro', 'Juan' recibe agente y 'el libro' tema. Si un SN recibiera dos papeles tematicos, o si un papel se asignara a dos SN, la oracion seria agramatical. Es una restriccion bidireccional.",
+     "regla": "Criterio tematico: 1 papel por argumento, 1 argumento por papel",
+     "ejemplo_correcto": "Cada SN recibe exactamente un papel tematico.",
+     "ejemplo_incorrecto": "Un SN puede recibir dos papeles tematicos."},
+    {"numero": 164, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Estructura argumental del verbo",
+     "teoria": "La estructura argumental de un verbo es el conjunto de argumentos que exige. Cada verbo tiene una 'rejilla tematica' que especifica cuantos y cuales argumentos necesita.",
+     "explicacion": "Ejemplo: 'llover' (0 argumentos, impersonal), 'dormir' (1 argumento: agente), 'comprar' (2 argumentos: agente, tema), 'dar' (3 argumentos: agente, tema, meta). Si faltan argumentos, la oracion es agramatical o cambia de sentido.",
+     "regla": "Estructura argumental: argumentos que exige el verbo",
+     "ejemplo_correcto": "'Comprar' exige 2 argumentos: agente y tema.",
+     "ejemplo_incorrecto": "'Comprar' exige 1 argumento."},
+    {"numero": 165, "bloque": "D", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Verbos inacusativos vs inergativos",
+     "teoria": "Los inacusativos tienen un solo argumento que es tema/paciente (no agente). Los inergativos tienen un solo argumento que es agente.",
+     "explicacion": "Ejemplo: 'llegar, nacer, morir, caer' son inacusativos (el argumento es tema). 'Llorar, correr, dormir, nadar' son inergativos (el argumento es agente). La diferencia se ve en la auxiliar: 'ha llegado' (inacusativo) vs 'ha llorado' (inergativo).",
+     "regla": "Inacusativo: 1 argumento tema. Inergativo: 1 argumento agente",
+     "ejemplo_correcto": "'Nacer' es inacusativo (el sujeto es tema).",
+     "ejemplo_incorrecto": "'Nacer' es inergativo."},
+]
+TECNICAS.extend(TECNICAS_61_65)
+
+
+EJERCICIOS_D = {
+    151: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que distingue el caso abstracto del morfologico?",
+        "opciones": [
+            {"id": "a", "texto": "Abstracto: invisible (T, V, P); morfologico: visible (pronombres)", "correcta": True, "razon": "El castellano solo marca caso morfologico en pronombres."},
+            {"id": "b", "texto": "Son sinonimos", "correcta": False, "razon": "Son distintos."},
+            {"id": "c", "texto": "El morfologico solo existe en latin", "correcta": False, "razon": "En castellano existe en pronombres."},
+        ], "justificacion_obligatoria": True, "regla": "Abstracto invisible, morfologico visible"}}],
+    152: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que nucleo asigna el caso nominativo?",
+        "opciones": [
+            {"id": "a", "texto": "T (tiempo)", "correcta": True, "razon": "T asigna nominativo al sujeto."},
+            {"id": "b", "texto": "V (verbo)", "correcta": False, "razon": "V asigna acusativo."},
+            {"id": "c", "texto": "P (preposicion)", "correcta": False, "razon": "P asigna oblicuo."},
+        ], "justificacion_obligatoria": True, "regla": "Nominativo: T -> sujeto"}}],
+    153: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que nucleo asigna el caso acusativo?",
+        "opciones": [
+            {"id": "a", "texto": "V transitivo", "correcta": True, "razon": "V asigna acusativo al CD."},
+            {"id": "b", "texto": "T", "correcta": False, "razon": "T asigna nominativo."},
+            {"id": "c", "texto": "N", "correcta": False, "razon": "N asigna genitivo."},
+        ], "justificacion_obligatoria": True, "regla": "Acusativo: V -> CD"}}],
+    154: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que caso lleva 'le' en 'le di el libro'?",
+        "opciones": [
+            {"id": "a", "texto": "Dativo", "correcta": True, "razon": "El CI lleva dativo."},
+            {"id": "b", "texto": "Acusativo", "correcta": False, "razon": "Seria 'lo'."},
+            {"id": "c", "texto": "Nominativo", "correcta": False, "razon": "Seria 'el' (sujeto)."},
+        ], "justificacion_obligatoria": True, "regla": "Dativo: le (CI)"}}],
+    155: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'la casa de Juan', que caso lleva 'de Juan'?",
+        "opciones": [
+            {"id": "a", "texto": "Genitivo (asignado por N)", "correcta": True, "razon": "N asigna genitivo al complemento posesivo."},
+            {"id": "b", "texto": "Nominativo", "correcta": False, "razon": "Nominativo es T."},
+            {"id": "c", "texto": "Acusativo", "correcta": False, "razon": "Acusativo es V."},
+        ], "justificacion_obligatoria": True, "regla": "Genitivo: N -> posesivo"}}],
+    156: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan canta', quien asigna caso a 'Juan'?",
+        "opciones": [
+            {"id": "a", "texto": "T (presente, 3a sing)", "correcta": True, "razon": "T asigna nominativo al sujeto finito."},
+            {"id": "b", "texto": "V 'canta'", "correcta": False, "razon": "V asigna acusativo."},
+            {"id": "c", "texto": "Ninguno", "correcta": False, "razon": "Alguien debe asignar caso."},
+        ], "justificacion_obligatoria": True, "regla": "T asigna nominativo"}}],
+    157: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que pasa con el caso en 'Juan cantar' (infinitivo)?",
+        "opciones": [
+            {"id": "a", "texto": "Es agramatical porque 'Juan' no recibe caso", "correcta": True, "razon": "El infinitivo no asigna nominativo."},
+            {"id": "b", "texto": "Es gramatical", "correcta": False, "razon": "Falta caso para el sujeto."},
+            {"id": "c", "texto": "Es una pasiva", "correcta": False, "razon": "No es pasiva."},
+        ], "justificacion_obligatoria": True, "regla": "Infinitivo no asigna caso"}}],
+    158: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'conmigo', que caso lleva 'migo'?",
+        "opciones": [
+            {"id": "a", "texto": "Oblicuo (asignado por P)", "correcta": True, "razon": "P asigna caso oblicuo."},
+            {"id": "b", "texto": "Nominativo", "correcta": False, "razon": "Nominativo es T."},
+            {"id": "c", "texto": "Acusativo", "correcta": False, "razon": "Acusativo es V."},
+        ], "justificacion_obligatoria": True, "regla": "P asigna oblicuo"}}],
+    159: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el filtro de caso?",
+        "opciones": [
+            {"id": "a", "texto": "Todo SN explicito debe recibir caso", "correcta": True, "razon": "Si no, es agramatical."},
+            {"id": "b", "texto": "Los SN pueden quedar sin caso", "correcta": False, "razon": "No es correcto."},
+            {"id": "c", "texto": "Solo los pronombres necesitan caso", "correcta": False, "razon": "Todos los SN."},
+        ], "justificacion_obligatoria": True, "regla": "Filtro: todo SN necesita caso"}}],
+    160: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Quien es el agente en 'Juan compro el libro'?",
+        "opciones": [
+            {"id": "a", "texto": "Juan", "correcta": True, "razon": "El agente realiza la accion."},
+            {"id": "b", "texto": "El libro", "correcta": False, "razon": "Es el tema/paciente."},
+            {"id": "c", "texto": "No hay agente", "correcta": False, "razon": "Juan es agente."},
+        ], "justificacion_obligatoria": True, "regla": "Agente: realiza la accion"}}],
+    161: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica el papel tematico: agente (A) o tema/paciente (T)",
+        "oraciones": [
+            {"texto": "Juan", "categoria_correcta": "agente"},
+            {"texto": "el libro", "categoria_correcta": "tema/paciente"},
+            {"texto": "Maria", "categoria_correcta": "agente"},
+            {"texto": "la ventana", "categoria_correcta": "tema/paciente"},
+        ],
+        "categorias": ["agente", "tema/paciente"]}}],
+    162: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'voy a Madrid', que papel tematico es 'a Madrid'?",
+        "opciones": [
+            {"id": "a", "texto": "Meta", "correcta": True, "razon": "Destino del movimiento."},
+            {"id": "b", "texto": "Origen", "correcta": False, "razon": "Origen seria 'de Madrid'."},
+            {"id": "c", "texto": "Agente", "correcta": False, "razon": "No realiza la accion."},
+        ], "justificacion_obligatoria": True, "regla": "Meta: destino del movimiento"}}],
+    163: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el criterio tematico?",
+        "opciones": [
+            {"id": "a", "texto": "1 papel por argumento, 1 argumento por papel", "correcta": True, "razon": "Restriccion bidireccional."},
+            {"id": "b", "texto": "Un argumento puede tener 2 papeles", "correcta": False, "razon": "No es correcto."},
+            {"id": "c", "texto": "Un papel puede asignarse a 2 argumentos", "correcta": False, "razon": "No es correcto."},
+        ], "justificacion_obligatoria": True, "regla": "1:1 papeles-argumentos"}}],
+    164: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cuantos argumentos exige 'dar'?",
+        "opciones": [
+            {"id": "a", "texto": "3: agente, tema, meta", "correcta": True, "razon": "Alguien da algo a alguien."},
+            {"id": "b", "texto": "1: agente", "correcta": False, "razon": "No es suficiente."},
+            {"id": "c", "texto": "0", "correcta": False, "razon": "No es impersonal."},
+        ], "justificacion_obligatoria": True, "regla": "Dar: 3 argumentos"}}],
+    165: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de verbo es 'nacer'?",
+        "opciones": [
+            {"id": "a", "texto": "Inacusativo (sujeto = tema)", "correcta": True, "razon": "No hay agente, el sujeto es tema."},
+            {"id": "b", "texto": "Inergativo (sujeto = agente)", "correcta": False, "razon": "No realiza accion."},
+            {"id": "c", "texto": "Transitivo", "correcta": False, "razon": "No tiene CD."},
+        ], "justificacion_obligatoria": True, "regla": "Nacer: inacusativo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_D)
+
