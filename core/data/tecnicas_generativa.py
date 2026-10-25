@@ -459,3 +459,308 @@ EJERCICIOS_B = {
 }
 EJERCICIOS.update(EJERCICIOS_B)
 
+
+TECNICAS_31_35 = [
+    {"numero": 131, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Que es una transformacion",
+     "teoria": "Una transformacion es una operacion formal que convierte una estructura en otra. En la GGT clasica (1957, 1965), las transformaciones mapean la estructura profunda en la estructura superficial.",
+     "explicacion": "Ejemplo: la transformacion de pasiva convierte 'El nino lee el libro' (EP) en 'El libro es leido por el nino' (ES). En el minimalismo, el concepto de transformacion se reduce a Move (movimiento).",
+     "regla": "Transformacion: operacion que mapea una estructura a otra",
+     "ejemplo_correcto": "La pasiva es una transformacion de activa a pasiva.",
+     "ejemplo_incorrecto": "Las transformaciones no cambian la estructura."},
+    {"numero": 132, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento-alfa (muevase alfa)",
+     "teoria": "El movimiento-alfa es el principio general que dice: mueve cualquier categoria a cualquier posicion, pero solo si es necesario.",
+     "explicacion": "Alfa es una variable que puede ser cualquier categoria (SN, V, qu, etc). El movimiento no es libre: solo ocurre para satisfacer un rasgo o una necesidad estructural. En el minimalismo se llama simplemente Move.",
+     "regla": "Muevase alfa: mueve X a Y si es necesario",
+     "ejemplo_correcto": "En una interrogativa, el pronombre-qu se mueve a la posicion de C.",
+     "ejemplo_incorrecto": "El movimiento-alfa permite mover cualquier cosa sin restriccion."},
+    {"numero": 133, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Huella (trace) y cadena",
+     "teoria": "Cuando un elemento se mueve, deja una huella (trace, t) en su posicion original. El elemento movido y su huella forman una cadena.",
+     "explicacion": "Ejemplo: en 'Que compro Juan t?', 'que' se movio desde la posicion de objeto (t) a la posicion inicial. La huella t marca donde estaba originalmente. La cadena conecta el elemento movido con su huella.",
+     "regla": "Huella t: posicion original. Cadena: elemento movido + huella",
+     "ejemplo_correcto": "En 'que compro Juan t', t es la huella del objeto.",
+     "ejemplo_incorrecto": "El movimiento no deja rastro."},
+    {"numero": 134, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento del verbo a T",
+     "teoria": "En algunas lenguas el verbo se mueve desde su posicion en SV a la posicion del nucleo T (tiempo).",
+     "explicacion": "En frances, 'Jean mange souvent des pommes' -> 'Jean mange souvent' (el verbo sube). En ingles, el verbo se queda en SV. En castellano, el verbo sube a T. El movimiento V->T esta motivado por la concordancia con el sujeto.",
+     "regla": "V->T: el verbo sube a T en castellano",
+     "ejemplo_correcto": "En castellano 'Juan canta', el verbo sube a T para concordar con el sujeto.",
+     "ejemplo_incorrecto": "El verbo nunca se mueve a T."},
+    {"numero": 135, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento del sujeto a ST",
+     "teoria": "El sujeto se genera en el especificador del SV (posicion de agente) y se mueve al especificador del ST para satisfacer el rasgo EPP de T.",
+     "explicacion": "En 'Juan canta', 'Juan' se genera en [Esp SV] y se mueve a [Esp ST]. El rasgo EPP de T exige que el especificador del ST no este vacio. Por eso el sujeto sube.",
+     "regla": "Sujeto: Esp SV -> Esp ST (rasgo EPP)",
+     "ejemplo_correcto": "El sujeto se mueve de Esp-SV a Esp-ST.",
+     "ejemplo_incorrecto": "El sujeto se queda siempre en el SV."},
+]
+TECNICAS.extend(TECNICAS_31_35)
+
+
+TECNICAS_36_40 = [
+    {"numero": 136, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento-qu: interrogativas",
+     "teoria": "En interrogativas, el pronombre interrogativo (que, quien, cuando, donde, como) se mueve desde su posicion original a la posicion inicial de la oracion (C).",
+     "explicacion": "Ejemplo: 'Que compro Juan?' -> 'que' se mueve del objeto (t) a C. En ingles el movimiento-qu es visible ('What did John buy t?'), en chino no hay movimiento visible (queda in situ). El castellano tiene movimiento-qu visible.",
+     "regla": "Movimiento-qu: pronombre interrogativo -> C",
+     "ejemplo_correcto": "En 'Que compro Juan t?', que esta en C.",
+     "ejemplo_incorrecto": "En castellano el pronombre-qu nunca se mueve."},
+    {"numero": 137, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento-qu: relativas",
+     "teoria": "En oraciones relativas, el pronombre relativo se mueve desde su posicion original al inicio de la subordinada (C).",
+     "explicacion": "Ejemplo: 'El libro que compre t es bueno' -> 'que' se mueve del objeto (t) a C. El relativo encabeza la subordinada. Igual que en interrogativas, deja huella.",
+     "regla": "Relativas: relativo se mueve a C",
+     "ejemplo_correcto": "En 'el libro que compre t', que esta en C.",
+     "ejemplo_incorrecto": "Los relativos no se mueven."},
+    {"numero": 138, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento del nucleo",
+     "teoria": "El movimiento del nucleo es el desplazamiento de un nucleo (V, T, C) a otra posicion de nucleo.",
+     "explicacion": "Ejemplo: el verbo se mueve de V a T (V->T). En interrogativas en ingles, el auxiliar se mueve de T a C ('Did he buy t?'). En castellano no hay movimiento T->C visible.",
+     "regla": "Movimiento de nucleo: X0 -> Y0 (V->T, T->C)",
+     "ejemplo_correcto": "En ingles 'did he buy t', el auxiliar sube a C.",
+     "ejemplo_incorrecto": "Los nucleos no se mueven."},
+    {"numero": 139, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento de constituyentes",
+     "teoria": "El movimiento de constituyentes desplaza un sintagma completo (SN, SP, SC) a otra posicion, no solo el nucleo.",
+     "explicacion": "Ejemplo: en pasivas, el objeto SN se mueve al sujeto: 'El libro fue comprado t'. En topicalizacion, el SN se mueve al inicio: 'El libro, Juan compro t'. El constituyente mueve mantiene su integridad.",
+     "regla": "Movimiento de constituyentes: SN/SP/SC -> nueva posicion",
+     "ejemplo_correcto": "En 'el libro fue comprado t', el SN sube a sujeto.",
+     "ejemplo_incorrecto": "Solo se mueven palabras sueltas."},
+    {"numero": 140, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Restriccion de isla",
+     "teoria": "La restriccion de isla (Ross, 1967) prohibe mover un elemento fuera de ciertas estructuras (islas), como subordinadas o sintagmas nominales complejos.",
+     "explicacion": "Ejemplo: '*Quien dijo Maria [que compro el libro t]?' es agramatical: 'quien' no puede salir del SC. La subordinada es una isla. Restricciones: isla del SC, isla del SN, isla del sujeto.",
+     "regla": "Isla: no se puede mover un elemento fuera de ciertas estructuras",
+     "ejemplo_correcto": "Las subordinadas son islas: no extraes el objeto.",
+     "ejemplo_incorrecto": "Puedes mover cualquier elemento desde cualquier posicion."},
+]
+TECNICAS.extend(TECNICAS_36_40)
+
+
+TECNICAS_41_45 = [
+    {"numero": 141, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Principio de subyacencia",
+     "teoria": "El principio de subyacencia (Chomsky, 1973) prohibe mover un elemento a traves de mas de un nodo limite (SC o SN) en un solo paso.",
+     "explicacion": "Ejemplo: no puedes mover 'quien' desde dentro de un SC a otra oracion principal directamente. El movimiento debe ser ciclico: primero al SC, luego al siguiente. Cada paso atraviesa un nodo limite.",
+     "regla": "Subyacencia: no saltar mas de un nodo limite por paso",
+     "ejemplo_correcto": "El movimiento-qu es ciclico (paso por cada SC).",
+     "ejemplo_incorrecto": "Puedes mover un elemento a traves de muchos SC en un solo paso."},
+    {"numero": 142, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Restriccion de sujeto complejo",
+     "teoria": "La restriccion de sujeto complejo prohibe extraer un elemento de un SN que esta en posicion de sujeto.",
+     "explicacion": "Ejemplo: '*De quien [la madre t] es famosa?' es agramatical: 'de quien' no puede salir del SN sujeto. La restriccion protege el sujeto como isla. Solo se puede extraer del objeto.",
+     "regla": "Sujeto complejo = isla. Solo se extrae de objetos",
+     "ejemplo_correcto": "No puedes extraer de un SN en posicion de sujeto.",
+     "ejemplo_incorrecto": "Puedes extraer cualquier cosa del sujeto."},
+    {"numero": 143, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento-A vs movimiento-A-barra",
+     "teoria": "El movimiento-A (movimiento de argumento) desplaza un elemento a una posicion de argumento (Esp-ST, Esp-SV). El movimiento-A-barra lo hace a una posicion no-argumental (C, adjuntos).",
+     "explicacion": "Movimiento-A: sujeto de SV a sujeto de ST, objeto a sujeto en pasivas. Movimiento-A-barra: pronombre-qu a C, topicalizacion a la izquierda. Los dos tipos tienen propiedades distintas de ligamiento.",
+     "regla": "Mov-A: a posicion de argumento. Mov-A-barra: a no-argumento",
+     "ejemplo_correcto": "El pronombre-qu hace movimiento-A-barra a C.",
+     "ejemplo_incorrecto": "Todo movimiento es igual."},
+    {"numero": 144, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Insercion (do-support, hacer en espanol)",
+     "teoria": "En algunas lenguas, cuando no hay auxiliar para mover a C, se inserta un auxiliar de apoyo. En ingles es 'do', en espanol no hay equivalente directo.",
+     "explicacion": "Ejemplo: 'Did he buy?' — se inserta 'did' porque no hay auxiliar. En castellano no hay do-support: 'Compro?' funciona sin auxiliar. En preguntas negativas en ingles: 'Didn't he buy?'.",
+     "regla": "Do-support: insertar auxiliar cuando falta",
+     "ejemplo_correcto": "En ingles 'Did he buy?' inserta 'did'.",
+     "ejemplo_incorrecto": "El castellano tambien usa do-support."},
+    {"numero": 145, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Borrado en estructura superficial",
+     "teoria": "En la GGT clasica, el borrado (deletion) elimina elementos en la estructura superficial que no se pronuncian pero son interpretables.",
+     "explicacion": "Ejemplo: 'Juan compro un libro y Maria t tambien' — se borra 'compro un libro' bajo identidad. Otro: elipsis del verbo en respuestas: '-Quien vino? -Juan (vino)'. El borrado no es lo mismo que el movimiento.",
+     "regla": "Borrado: eliminar elementos en ES bajo identidad",
+     "ejemplo_correcto": "'Juan compro un libro y Maria tambien' borra 'compro un libro'.",
+     "ejemplo_incorrecto": "El borrado y el movimiento son lo mismo."},
+]
+TECNICAS.extend(TECNICAS_41_45)
+
+
+TECNICAS_46_50 = [
+    {"numero": 146, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Elipsis verbal",
+     "teoria": "La elipsis verbal es la omision de un verbo o sintagma verbal en contexto, recuperable del antecedente.",
+     "explicacion": "Ejemplo: 'Juan compro un libro y Maria tambien (compro un libro)'. El verbo 'compro' se elide pero se interpreta. La elipsis es una transformacion de borrado. Requiere identidad con el antecedente.",
+     "regla": "Elipsis verbal: omision recuperable del SV",
+     "ejemplo_correcto": "En 'Juan comio y Maria tambien', se elide 'comio'.",
+     "ejemplo_incorrecto": "La elipsis verbal no requiere antecedente."},
+    {"numero": 147, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Sujeto nulo (pro-drop) en castellano",
+     "teoria": "El castellano es una lengua pro-drop: permite omitir el sujeto pronominal porque el verbo lleva la informacion de persona y numero.",
+     "explicacion": "Ejemplo: 'Canto' = 'Yo canto'. El sujeto se recupera por la desinencia verbal. El ingles es no pro-drop: '*Sing' no es posible. El parametro pro-drop distingue lenguas. Castellano, italiano, griego son pro-drop; ingles, frances (parcialmente) no.",
+     "regla": "Pro-drop: se puede omitir el sujeto (castellano)",
+     "ejemplo_correcto": "En castellano 'canto' funciona sin 'yo'.",
+     "ejemplo_incorrecto": "En ingles 'sing' funciona sin 'I'."},
+    {"numero": 148, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Topicalizacion",
+     "teoria": "La topicalizacion mueve un constituyente al inicio de la oracion para marcarlo como topico (informacion conocida).",
+     "explicacion": "Ejemplo: 'El libro, Juan lo compro' — 'el libro' se mueve a la posicion inicial, y aparece un pronombre resuntivo 'lo'. El topico es lo que se comenta. La topicalizacion es movimiento-A-barra.",
+     "regla": "Topicalizacion: constituyente -> inicio (topico)",
+     "ejemplo_correcto": "En 'el libro, Juan lo compro', 'el libro' es topico.",
+     "ejemplo_incorrecto": "La topicalizacion no mueve nada."},
+    {"numero": 149, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Focalizacion",
+     "teoria": "La focalizacion marca un constituyente como foco (informacion nueva o contrastiva), generalmente con movimiento o prosodia especial.",
+     "explicacion": "Ejemplo: 'A JUAN vi (no a Pedro)' — el foco 'a Juan' se marca con prosodia y/o movimiento. La focalizacion puede ser in situ (solo prosodia) o con movimiento. En castellano el foco contrastivo suele ir al final.",
+     "regla": "Focalizacion: marca de informacion nueva o contrastiva",
+     "ejemplo_correcto": "En 'A JUAN vi', 'a Juan' es foco contrastivo.",
+     "ejemplo_incorrecto": "El foco y el topico son lo mismo."},
+    {"numero": 150, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Dislocacion a la izquierda",
+     "teoria": "La dislocacion a la izquierda mueve un constituyente al inicio de la oracion, dejando un pronombre resuntivo en su posicion original.",
+     "explicacion": "Ejemplo: 'El libro, lo compre ayer' — 'el libro' se disloca a la izquierda; 'lo' es el pronombre resuntivo. Es similar a la topicalizacion, pero mas marcada. La dislocacion es frecuente en castellano coloquial.",
+     "regla": "Dislocacion: constituyente -> inicio + pronombre resuntivo",
+     "ejemplo_correcto": "En 'el libro, lo compre', 'lo' es resuntivo.",
+     "ejemplo_incorrecto": "La dislocacion no deja pronombre."},
+]
+TECNICAS.extend(TECNICAS_46_50)
+
+
+EJERCICIOS_C = {
+    131: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es una transformacion en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Una operacion que convierte una estructura en otra", "correcta": True, "razon": "Mapea EP en ES."},
+            {"id": "b", "texto": "Un cambio de palabra", "correcta": False, "razon": "Es estructural."},
+            {"id": "c", "texto": "Un error del hablante", "correcta": False, "razon": "No es error."},
+        ], "justificacion_obligatoria": True, "regla": "Transformacion: EP -> ES"}}],
+    132: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el principio de 'movimiento-alfa'?",
+        "opciones": [
+            {"id": "a", "texto": "Mueve cualquier categoria si es necesario", "correcta": True, "razon": "Solo si satisface una necesidad estructural."},
+            {"id": "b", "texto": "Mueve cualquier cosa sin restriccion", "correcta": False, "razon": "No es libre."},
+            {"id": "c", "texto": "No se mueve nada", "correcta": False, "razon": "Hay movimiento."},
+        ], "justificacion_obligatoria": True, "regla": "Muevase alfa: solo si es necesario"}}],
+    133: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es una huella (trace) en sintaxis generativa?",
+        "opciones": [
+            {"id": "a", "texto": "La posicion original que deja un elemento movido", "correcta": True, "razon": "Marca donde estaba antes del movimiento."},
+            {"id": "b", "texto": "La posicion final del elemento", "correcta": False, "razon": "Esa es la nueva posicion."},
+            {"id": "c", "texto": "Un error de escritura", "correcta": False, "razon": "Es una marca teorica."},
+        ], "justificacion_obligatoria": True, "regla": "Huella = posicion original"}}],
+    134: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En castellano, el verbo sube a T?",
+        "opciones": [
+            {"id": "a", "texto": "Si, el verbo sube a T", "correcta": True, "razon": "En castellano hay movimiento V->T."},
+            {"id": "b", "texto": "No, el verbo se queda en SV", "correcta": False, "razon": "Eso pasa en ingles."},
+            {"id": "c", "texto": "Solo en infinitivo", "correcta": False, "razon": "El infinitivo no tiene T."},
+        ], "justificacion_obligatoria": True, "regla": "Castellano: V->T"}}],
+    135: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Por que el sujeto sube al especificador del ST?",
+        "opciones": [
+            {"id": "a", "texto": "Para satisfacer el rasgo EPP de T", "correcta": True, "razon": "T exige que su Esp este lleno."},
+            {"id": "b", "texto": "Porque no cabe en SV", "correcta": False, "razon": "Cabe pero T lo atrae."},
+            {"id": "c", "texto": "Por razones estilisticas", "correcta": False, "razon": "Es estructural."},
+        ], "justificacion_obligatoria": True, "regla": "EPP: T exige Esp lleno"}}],
+    136: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Que compro Juan t?', que es 't'?",
+        "opciones": [
+            {"id": "a", "texto": "La huella del objeto movido", "correcta": True, "razon": "'Que' se movio desde la posicion de objeto."},
+            {"id": "b", "texto": "Un error de tipeo", "correcta": False, "razon": "Es una huella."},
+            {"id": "c", "texto": "El sujeto", "correcta": False, "razon": "El sujeto es Juan."},
+        ], "justificacion_obligatoria": True, "regla": "t = huella del objeto"}}],
+    137: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'el libro que compre t', que funcion tiene 'que'?",
+        "opciones": [
+            {"id": "a", "texto": "Relativo movido a C", "correcta": True, "razon": "'Que' es el relativo que sube a C."},
+            {"id": "b", "texto": "Complementante de una sustantiva", "correcta": False, "razon": "Es relativo, no complementante."},
+            {"id": "c", "texto": "Conjuncion", "correcta": False, "razon": "No es conjuncion."},
+        ], "justificacion_obligatoria": True, "regla": "Relativo -> C"}}],
+    138: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es el movimiento de nucleo?",
+        "opciones": [
+            {"id": "a", "texto": "El desplazamiento de un nucleo (V, T, C) a otra posicion de nucleo", "correcta": True, "razon": "V->T, T->C."},
+            {"id": "b", "texto": "El movimiento de un SN", "correcta": False, "razon": "Eso es movimiento de constituyentes."},
+            {"id": "c", "texto": "El movimiento de una palabra suelta", "correcta": False, "razon": "Solo nucleos."},
+        ], "justificacion_obligatoria": True, "regla": "Movimiento de nucleo: X0->Y0"}}],
+    139: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'el libro fue comprado t', que tipo de movimiento hay?",
+        "opciones": [
+            {"id": "a", "texto": "Movimiento de constituyente (objeto a sujeto)", "correcta": True, "razon": "En pasivas el objeto sube a sujeto."},
+            {"id": "b", "texto": "Movimiento de nucleo", "correcta": False, "razon": "No es un nucleo."},
+            {"id": "c", "texto": "Movimiento-qu", "correcta": False, "razon": "No es interrogativo."},
+        ], "justificacion_obligatoria": True, "regla": "Pasiva: objeto -> sujeto"}}],
+    140: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que prohibe la restriccion de isla?",
+        "opciones": [
+            {"id": "a", "texto": "Mover un elemento fuera de ciertas estructuras (islas)", "correcta": True, "razon": "Las subordinadas son islas."},
+            {"id": "b", "texto": "Mover cualquier elemento", "correcta": False, "razon": "Todo lo contrario."},
+            {"id": "c", "texto": "Construir oraciones", "correcta": False, "razon": "No es eso."},
+        ], "justificacion_obligatoria": True, "regla": "Isla: no se extrae"}}],
+    141: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el principio de subyacencia?",
+        "opciones": [
+            {"id": "a", "texto": "No se puede saltar mas de un nodo limite por paso", "correcta": True, "razon": "Movimiento ciclico."},
+            {"id": "b", "texto": "Se puede saltar cualquier nodo", "correcta": False, "razon": "No es libre."},
+            {"id": "c", "texto": "No hay movimiento", "correcta": False, "razon": "Si hay."},
+        ], "justificacion_obligatoria": True, "regla": "Subyacencia: 1 nodo por paso"}}],
+    142: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que prohibe la restriccion de sujeto complejo?",
+        "opciones": [
+            {"id": "a", "texto": "Extraer un elemento de un SN en posicion de sujeto", "correcta": True, "razon": "El sujeto es isla."},
+            {"id": "b", "texto": "Extraer de un objeto", "correcta": False, "razon": "Del objeto si se puede."},
+            {"id": "c", "texto": "Extraer de una preposicion", "correcta": False, "razon": "No es la restriccion."},
+        ], "justificacion_obligatoria": True, "regla": "Sujeto complejo = isla"}}],
+    143: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que distingue movimiento-A de movimiento-A-barra?",
+        "opciones": [
+            {"id": "a", "texto": "Mov-A va a argumento; Mov-A-barra va a no-argumento", "correcta": True, "razon": "Posiciones distintas."},
+            {"id": "b", "texto": "Son identicos", "correcta": False, "razon": "Tienen propiedades distintas."},
+            {"id": "c", "texto": "Mov-A es solo de sujetos", "correcta": False, "razon": "No es exacto."},
+        ], "justificacion_obligatoria": True, "regla": "Mov-A: argumento; A-barra: no"}}],
+    144: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "El castellano tiene do-support como el ingles?",
+        "opciones": [
+            {"id": "a", "texto": "No, el castellano no tiene do-support", "correcta": True, "razon": "No hay auxiliar de apoyo."},
+            {"id": "b", "texto": "Si, usa 'hacer'", "correcta": False, "razon": "No es do-support."},
+            {"id": "c", "texto": "Solo en pasado", "correcta": False, "razon": "No."},
+        ], "justificacion_obligatoria": True, "regla": "Castellano: sin do-support"}}],
+    145: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es el borrado en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Eliminar elementos en ES bajo identidad", "correcta": True, "razon": "Es una transformacion."},
+            {"id": "b", "texto": "Mover un elemento", "correcta": False, "razon": "Es diferente."},
+            {"id": "c", "texto": "Un error de escritura", "correcta": False, "razon": "Es formal."},
+        ], "justificacion_obligatoria": True, "regla": "Borrado: elimina en ES"}}],
+    146: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan comio y Maria tambien', que se elide?",
+        "opciones": [
+            {"id": "a", "texto": "El verbo 'comio' en la segunda oracion", "correcta": True, "razon": "Elipsis verbal."},
+            {"id": "b", "texto": "El sujeto 'Maria'", "correcta": False, "razon": "El sujeto se mantiene."},
+            {"id": "c", "texto": "Nada", "correcta": False, "razon": "Se elide el SV."},
+        ], "justificacion_obligatoria": True, "regla": "Elipsis: SV omitido"}}],
+    147: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es el parametro pro-drop?",
+        "opciones": [
+            {"id": "a", "texto": "Permite omitir el sujeto pronominal (castellano)", "correcta": True, "razon": "Castellano es pro-drop."},
+            {"id": "b", "texto": "Permite omitir el verbo", "correcta": False, "razon": "No es eso."},
+            {"id": "c", "texto": "Obliga a omitir el objeto", "correcta": False, "razon": "No es eso."},
+        ], "justificacion_obligatoria": True, "regla": "Pro-drop: sujeto omitido"}}],
+    148: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'el libro, Juan lo compro', que es 'el libro'?",
+        "opciones": [
+            {"id": "a", "texto": "El topico (dislocado a la izquierda)", "correcta": True, "razon": "Marca informacion conocida."},
+            {"id": "b", "texto": "El sujeto", "correcta": False, "razon": "El sujeto es Juan."},
+            {"id": "c", "texto": "El objeto en su posicion original", "correcta": False, "razon": "Se movio al inicio."},
+        ], "justificacion_obligatoria": True, "regla": "Topico: al inicio"}}],
+    149: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'A JUAN vi', que funcion tiene 'a Juan'?",
+        "opciones": [
+            {"id": "a", "texto": "Foco contrastivo", "correcta": True, "razon": "Marca informacion nueva o contrastiva."},
+            {"id": "b", "texto": "Topico", "correcta": False, "razon": "Es foco, no topico."},
+            {"id": "c", "texto": "Sujeto", "correcta": False, "razon": "El sujeto es 'yo' (omitido)."},
+        ], "justificacion_obligatoria": True, "regla": "Foco: informacion nueva"}}],
+    150: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'el libro, lo compre', que es 'lo'?",
+        "opciones": [
+            {"id": "a", "texto": "Pronombre resuntivo", "correcta": True, "razon": "Recupera la posicion original del objeto."},
+            {"id": "b", "texto": "El topico", "correcta": False, "razon": "El topico es 'el libro'."},
+            {"id": "c", "texto": "El sujeto", "correcta": False, "razon": "El sujeto es 'yo' (omitido)."},
+        ], "justificacion_obligatoria": True, "regla": "Dislocacion: pronombre resuntivo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_C)
+
