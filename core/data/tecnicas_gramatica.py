@@ -1288,3 +1288,162 @@ EJERCICIOS_76_80 = {
 }
 EJERCICIOS.update(EJERCICIOS_76_80)
 
+# ═══ F1: tecnicas 81-85 (pronombres personales y demostrativos) ═══
+TECNICAS_F1 = [
+    {"numero": 81, "bloque": "F", "nivel": "basico",
+     "titulo": "Pronombres personales tonicos",
+     "teoria": "Los tonicos llevan acento prosodico propio y pueden ir solos o con preposicion: yo, tu, el, ella, nosotros, vosotros, ellos, ellas, usted, ustedes.",
+     "explicacion": "Funcionan como sujeto (yo canto), tras preposicion (para mi, con ella) o en comparaciones (mejor que tu). En espanol el sujeto pronominal suele omitirse ('canto' implica 'yo'). Se usan para enfasis o contraste: 'Yo lo hice, no tu'.",
+     "regla": "Tonicos: yo, tu, el, ella, nosotros... (sujeto o tras prep.)",
+     "ejemplo_correcto": "Yo canto. Vino para mi. Mejor que tu.",
+     "ejemplo_incorrecto": "Para yo. (tras preposicion: para mi)"},
+    {"numero": 82, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Pronombres atonos",
+     "teoria": "Los atonos se pronuncian unidos al verbo y nunca llevan acento propio: me, te, lo, la, le, nos, os, los, las, les, se.",
+     "explicacion": "Pueden ser reflexivos (me lavo), CD (lo veo), CI (le doy), o parte del verbo pronominal (me arrepiento). Posicion: antepuestos al verbo conjugado (lo veo) o pospuestos al infinitivo/gerundio/imperativo (verlo, viendolo, dime).",
+     "regla": "Atonos: me, te, lo, le, nos, os, los, les, se (junto al verbo)",
+     "ejemplo_correcto": "Lo veo. Damelo. Se lava.",
+     "ejemplo_incorrecto": "Veo lo. (pospuesto incorrecto en verbo conjugado)"},
+    {"numero": 83, "bloque": "F", "nivel": "avanzado",
+     "titulo": "Leismo, laismo, loismo",
+     "teoria": "El leismo es usar 'le' por 'lo' (CD masculino). El laismo, 'la' por 'le' (CI femenino). El loismo, 'lo' por 'le' (CI masculino).",
+     "explicacion": "Norma general: 'lo/la/los/las' para CD; 'le/les' para CI. Leismo aceptado: 'le' por 'lo' con persona masculina ('Le vi a Juan' - aceptado). Leismo rechazado: 'le' por 'lo' con cosa ('*Le vi el libro'). Laismo y loismo rechazados: 'La di el libro a Maria' (*'Le di el libro').",
+     "regla": "Norma: lo/la/los/las=CD. le/les=CI. Leismo de persona: aceptado",
+     "ejemplo_correcto": "Lo vi (CD). Le di el libro (CI). Le vi a Juan (leismo aceptado).",
+     "ejemplo_incorrecto": "La di el libro a Maria. (laismo: debe ser 'le')"},
+    {"numero": 84, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Demostrativos (este, ese, aquel)",
+     "teoria": "Los demostrativos indican proximidad o lejania respecto al hablante. Tienen tres grados: cercania (este), distancia media (ese) y lejania (aquel).",
+     "explicacion": "Formas: este/esta/esto/estos/estas, ese/esa/eso/esos/esas, aquel/aquella/aquello/aquellos/aquellas. Concordancia en genero y numero con el sustantivo. El neutro (esto, eso, aquello) no lleva sustantivo: 'esto es raro'. Desde RAE 2010, no llevan tilde diacritica.",
+     "regla": "Demostrativos: este (cerca), ese (medio), aquel (lejos). Sin tilde (RAE 2010)",
+     "ejemplo_correcto": "Este libro, esa casa, aquel arbol.",
+     "ejemplo_incorrecto": "Éste libro. (RAE 2010: sin tilde)"},
+    {"numero": 85, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Posesivos (mio, tuyo, suyo)",
+     "teoria": "Los posesivos indican a quien pertenece el sustantivo. Varian en persona, genero y numero.",
+     "explicacion": "Un poseedor: mio/mia/mios/mias, tuyo/tuya, suyo/suya. Varios: nuestro/nuestra, vuestro/vuestra, suyo/suya. Formas apocopadas (ante sustantivo): mi, tu, su, nuestro, vuestro. Tonicas (tras sustantivo o solas): mio, tuyo, suyo. Ej: 'mi libro' / 'el libro mio'.",
+     "regla": "Posesivos: mi/tu/su (apocope) o mio/tuyo/suyo (tonico)",
+     "ejemplo_correcto": "Mi libro. El libro mio. Es tuyo.",
+     "ejemplo_incorrecto": "Mio libro. (apocope: mi libro)"},
+]
+TECNICAS.extend(TECNICAS_F1)
+
+# ═══ F1: ejercicios 81-85 ═══
+EJERCICIOS_81_85 = {
+    81: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Vino para mi', que tipo de pronombre es 'mi'?",
+        "opciones": [
+            {"id":"a","texto":"Tonico","correcta":True,"razon":"Va tras preposicion, con acento prosodico: tonico."},
+            {"id":"b","texto":"Atono","correcta":False,"razon":"Los atonos no van tras preposicion."}],
+        "justificacion_obligatoria": True, "regla": "Tonico: tras prep."}}],
+    82: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que forma es correcta en 'Veo a Juan'?",
+        "opciones": [
+            {"id":"a","texto":"Lo veo","correcta":True,"razon":"CD masculino singular: lo."},
+            {"id":"b","texto":"Le veo","correcta":False,"razon":"Leismo con cosa no aceptado; con persona es aceptado en algunas zonas."},
+            {"id":"c","texto":"La veo","correcta":False,"razon":"Juan es masculino."}],
+        "justificacion_obligatoria": True, "regla": "CD masculino: lo"}}],
+    83: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma normativa de 'di el libro a Maria'?",
+        "opciones": [
+            {"id":"a","texto":"La di el libro","correcta":False,"razon":"Laismo: 'la' por 'le' es rechazado."},
+            {"id":"b","texto":"Le di el libro","correcta":True,"razon":"CI femenino: le (norma general)."},
+            {"id":"c","texto":"Lo di el libro","correcta":False,"razon":"Loismo: 'lo' por 'le' es rechazado."}],
+        "justificacion_obligatoria": True, "regla": "CI: le (no la/lo)"}}],
+    84: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se escribe 'este' en '___ libro es mio'?",
+        "opciones": [
+            {"id":"a","texto":"Este","correcta":True,"razon":"RAE 2010: sin tilde diacritica."},
+            {"id":"b","texto":"Éste","correcta":False,"razon":"RAE 2010 elimino la tilde."},
+            {"id":"c","texto":"Esté","correcta":False,"razon":"No existe esta forma."}],
+        "justificacion_obligatoria": True, "regla": "Sin tilde (RAE 2010)"}}],
+    85: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma apocopada correcta de 'mio'?",
+        "opciones": [
+            {"id":"a","texto":"Mio libro","correcta":False,"razon":"Apocope: mi libro."},
+            {"id":"b","texto":"Mi libro","correcta":True,"razon":"Ante sustantivo: apocope 'mi'."},
+            {"id":"c","texto":"Mia libro","correcta":False,"razon":"Concordancia incorrecta."}],
+        "justificacion_obligatoria": True, "regla": "Apocope: mi + sustantivo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_81_85)
+
+# ═══ F2: tecnicas 86-90 (relativos, interrogativos y determinantes) ═══
+TECNICAS_F2 = [
+    {"numero": 86, "bloque": "F", "nivel": "avanzado",
+     "titulo": "Relativos (que, quien, cual, cuyo)",
+     "teoria": "Los relativos introducen subordinadas adjetivas y se refieren a un antecedente. Son: que, quien, el cual, cuyo, donde, cuando, como.",
+     "explicacion": "Que: el mas comun (el libro que leo). Quien: tras preposicion o en explicativas (el hombre con quien hable). El cual: culto (la casa, la cual compramos). Cuyo: posesivo (el hombre cuyo hijo es medico). Donde/cuando/como: relativos de lugar/tiempo/modo.",
+     "regla": "Relativos: que, quien, el cual, cuyo, donde, cuando, como",
+     "ejemplo_correcto": "El libro que lei. El hombre con quien hable. La casa cuyo techo es rojo.",
+     "ejemplo_incorrecto": "El hombre que con quien hable. (duplicacion)"},
+    {"numero": 87, "bloque": "F", "nivel": "basico",
+     "titulo": "Interrogativos y exclamativos (que, quien, como)",
+     "teoria": "Los interrogativos y exclamativos introducen preguntas o exclamaciones. Llevan tilde diacritica.",
+     "explicacion": "Formas: que, quien, cual, cuanto, donde, cuando, como (con tilde en interrogativas/exclamativas). Ej: 'Que quieres?' (interrogativo), 'Que bonito!' (exclamativo). En indirectas tambien: 'No se que quieres'. Sin tilde cuando son relativos o conjunciones: 'Creo que vienes'.",
+     "regla": "Interrogativos/exclamativos: con tilde (que, quien, como)",
+     "ejemplo_correcto": "Que quieres? No se que quieres. Que bonito!",
+     "ejemplo_incorrecto": "Que quieres (sin tilde: no es interrogativo)"},
+    {"numero": 88, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Determinantes demostrativos",
+     "teoria": "Los demostrativos funcionan como determinantes cuando acompanan al sustantivo. Indican proximidad o lejania.",
+     "explicacion": "Formas: este/esta/estos/estas (cerca), ese/esa/esos/esas (medio), aquel/aquella/aquellos/aquellas (lejos). Acompanan al sustantivo: 'este libro'. Si lo sustituyen, son pronombres: 'este es mio'. Concordancia en genero y numero.",
+     "regla": "Determinantes demostrativos: acompanan al sustantivo",
+     "ejemplo_correcto": "Este libro. Esa casa. Aquellos arboles.",
+     "ejemplo_incorrecto": "Este es libro. (este pronombre, no determinante)"},
+    {"numero": 89, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Determinantes posesivos",
+     "teoria": "Los posesivos funcionan como determinantes cuando acompanan al sustantivo. Indican pertenencia.",
+     "explicacion": "Formas apocopadas: mi, tu, su, nuestro/a, vuestro/a (mi libro, tu casa). Formas tonicas: mio, tuyo, suyo (libro mio). Como determinantes, siempre van antepuestos en forma apocopada: 'mi libro' (no 'mio libro'). Si van pospuestos o solos, son adjetivos o pronombres.",
+     "regla": "Determinantes posesivos: mi, tu, su + sustantivo",
+     "ejemplo_correcto": "Mi libro. Tu casa. Nuestro coche.",
+     "ejemplo_incorrecto": "Mio libro. (apocope: mi)"},
+    {"numero": 90, "bloque": "F", "nivel": "intermedio",
+     "titulo": "Determinantes numerales (cardinales, ordinales)",
+     "teoria": "Los numerales cuantifican el sustantivo de forma precisa. Pueden ser cardinales (uno, dos, tres) u ordinales (primero, segundo, tercero).",
+     "explicacion": "Cardinales: uno, dos, tres, cuatro... (dos libros). Ordinales: primero, segundo, tercero... (primer piso, segundo lugar). Apocope: primero -> primer, tercero -> tercer (ante sustantivo masc. sing.). Tambien hay multiplicativos (doble, triple) y partitivos (medio, tercio).",
+     "regla": "Numerales: cardinales (uno, dos), ordinales (primero, segundo)",
+     "ejemplo_correcto": "Dos libros. Primer piso. Tercer lugar.",
+     "ejemplo_incorrecto": "Primero piso. (apocope: primer piso)"},
+]
+TECNICAS.extend(TECNICAS_F2)
+
+# ═══ F2: ejercicios 86-90 ═══
+EJERCICIOS_86_90 = {
+    86: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'El hombre cuyo hijo es medico', que tipo de relativo es 'cuyo'?",
+        "opciones": [
+            {"id":"a","texto":"Relativo posesivo","correcta":True,"razon":"'Cuyo' indica posesion: el hijo del hombre."},
+            {"id":"b","texto":"Relativo simple","correcta":False,"razon":"'Que' seria el simple."},
+            {"id":"c","texto":"Interrogativo","correcta":False,"razon":"No es pregunta."}],
+        "justificacion_obligatoria": True, "regla": "Cuyo: posesivo relativo"}}],
+    87: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Que quieres?', lleva tilde 'que' porque...",
+        "opciones": [
+            {"id":"a","texto":"Es interrogativo","correcta":True,"razon":"Los interrogativos llevan tilde diacritica."},
+            {"id":"b","texto":"Es relativo","correcta":False,"razon":"Sin tilde."},
+            {"id":"c","texto":"Es conjuncion","correcta":False,"razon":"Sin tilde."}],
+        "justificacion_obligatoria": True, "regla": "Interrogativo: con tilde"}}],
+    88: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Este libro es mio', que es 'este'?",
+        "opciones": [
+            {"id":"a","texto":"Determinante demostrativo","correcta":True,"razon":"Acompana al sustantivo 'libro'."},
+            {"id":"b","texto":"Pronombre demostrativo","correcta":False,"razon":"Seria si sustituyera: 'este es mio'."},
+            {"id":"c","texto":"Adjetivo","correcta":False,"razon":"No expresa cualidad."}],
+        "justificacion_obligatoria": True, "regla": "Determinante: acompana"}}],
+    89: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta del posesivo ante sustantivo?",
+        "opciones": [
+            {"id":"a","texto":"Mio libro","correcta":False,"razon":"Apocope: mi libro."},
+            {"id":"b","texto":"Mi libro","correcta":True,"razon":"Forma apocopada ante sustantivo."},
+            {"id":"c","texto":"Mia libro","correcta":False,"razon":"Concordancia incorrecta."}],
+        "justificacion_obligatoria": True, "regla": "Apocope: mi + sustantivo"}}],
+    90: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma apocopada de 'primero' ante sustantivo?",
+        "opciones": [
+            {"id":"a","texto":"Primero piso","correcta":False,"razon":"Apocope: primer piso."},
+            {"id":"b","texto":"Primer piso","correcta":True,"razon":"Ante sustantivo masc sing: primer."},
+            {"id":"c","texto":"Primera piso","correcta":False,"razon":"Concordancia incorrecta."}],
+        "justificacion_obligatoria": True, "regla": "Apocope: primer"}}],
+}
+EJERCICIOS.update(EJERCICIOS_86_90)
+
