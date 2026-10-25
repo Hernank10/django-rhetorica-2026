@@ -229,3 +229,88 @@ EJERCICIOS = {
             {"id": "c", "texto": "Twit", "correcta": False, "razon": "No es adaptacion al espanol."},
         ], "justificacion_obligatoria": True, "regla": "'Tuit' (no 'tweet')"}}],
 }
+
+# ═══ B1a: tecnicas 16-20 (clases de palabras) ═══
+TECNICAS_B1A = [
+    {"numero": 16, "bloque": "B", "nivel": "basico",
+     "titulo": "Las 9 clases de palabras",
+     "teoria": "En espanol hay 9 clases de palabras segun la Nueva gramatica (RAE 2009): sustantivo, adjetivo, determinante, pronombre, verbo, adverbio, preposicion, conjuncion e interjeccion.",
+     "explicacion": "La tradicion decia 8 (sin separar determinante de adjetivo). La RAE 2009 separa el determinante como clase propia: articulos, demostrativos, posesivos, numerales, indefinidos, interrogativos y exclamativos son determinantes cuando acompanan al sustantivo.",
+     "regla": "9 clases: sust, adj, det, pron, verbo, adv, prep, conj, interj",
+     "ejemplo_correcto": "En espanol hay 9 clases de palabras (RAE 2009).",
+     "ejemplo_incorrecto": "En espanol hay 8 clases de palabras (sin determinantes)."},
+    {"numero": 17, "bloque": "B", "nivel": "basico",
+     "titulo": "Sustantivo: definicion y tipos",
+     "teoria": "El sustantivo (o nombre) designa personas, animales, cosas, lugares, ideas o conceptos. Varia en genero y numero.",
+     "explicacion": "Es el nucleo del sintagma nominal. Puede ir con articulo, adjetivo y otros determinantes. Tipos: propio (Juan), comun (mesa), concreto (libro), abstracto (amor), contable (silla), no contable (agua), individual (arbol), colectivo (bosque).",
+     "regla": "Sustantivo = nombre (persona, cosa, lugar, idea)",
+     "ejemplo_correcto": "'Amor' es un sustantivo abstracto.",
+     "ejemplo_incorrecto": "'Amor' es un adjetivo."},
+    {"numero": 18, "bloque": "B", "nivel": "basico",
+     "titulo": "Adjetivo: definicion y tipos",
+     "teoria": "El adjetivo expresa cualidades o propiedades del sustantivo. Concuerda con el en genero y numero.",
+     "explicacion": "Tipos: calificativo (rojo, alto) o relacional (espanol, mensual). Los calificativos admiten grados (mas alto, altisimo). Los relacionales no admiten grados (*muy mensual).",
+     "regla": "Adjetivo = cualidad del sustantivo (concuerda en gen/num)",
+     "ejemplo_correcto": "La casa blanca (adj. concuerda con casa).",
+     "ejemplo_incorrecto": "La casa blanco (concordancia incorrecta)."},
+    {"numero": 19, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Determinante: definicion",
+     "teoria": "El determinante actualiza y precisa al sustantivo, indicando genero, numero, posesion, distancia, cantidad, etc.",
+     "explicacion": "Tipos: articulos (el, un), demostrativos (este, ese), posesivos (mi, tu), numerales (dos, tercero), indefinidos (algunos, varios), interrogativos (que), exclamativos (cuanto). Es determinante cuando acompana al sustantivo; si lo sustituye, es pronombre.",
+     "regla": "Determinante = actualiza al sustantivo (acompana)",
+     "ejemplo_correcto": "Este libro es mio. (Este = determinante, acompana a libro).",
+     "ejemplo_incorrecto": "Este libro es mio. (Este = pronombre, incorrecto)."},
+    {"numero": 20, "bloque": "B", "nivel": "basico",
+     "titulo": "Articulo: definido, indefinido, neutro",
+     "teoria": "El articulo es un tipo de determinante que presenta al sustantivo como conocido (definido) o desconocido (indefinido).",
+     "explicacion": "Definidos: el, la, los, las. Indefinidos: un, una, unos, unas. Neutro: lo (sustantiva adjetivos: lo bueno = la cosa buena). El neutro lo NO acompana a sustantivos sino que sustantiva adjetivos o adverbios.",
+     "regla": "Def: el/la/los/las. Indef: un/una/unos/unas. Neutro: lo",
+     "ejemplo_correcto": "Lo bueno de viajar es conocer.",
+     "ejemplo_incorrecto": "El bueno de viajar es conocer. (usa masculino en vez de neutro)"},
+]
+TECNICAS.extend(TECNICAS_B1A)
+
+# ═══ B1a: ejercicios 16-20 ═══
+EJERCICIOS_16_20 = {
+    16: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada palabra por su clase:",
+        "oraciones": [
+            {"texto": "el", "categoria_correcta": "determinante"},
+            {"texto": "corre", "categoria_correcta": "verbo"},
+            {"texto": "rapidamente", "categoria_correcta": "adverbio"},
+            {"texto": "pero", "categoria_correcta": "conjuncion"}],
+        "categorias": ["sustantivo","adjetivo","determinante","pronombre","verbo","adverbio","preposicion","conjuncion"]}}],
+    17: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual de estas palabras es un sustantivo?",
+        "opciones": [
+            {"id":"a","texto":"rapido","correcta":False,"razon":"Rapido es adjetivo."},
+            {"id":"b","texto":"cantar","correcta":False,"razon":"Cantar es verbo."},
+            {"id":"c","texto":"tristeza","correcta":True,"razon":"Tristeza es sustantivo abstracto."},
+            {"id":"d","texto":"muy","correcta":False,"razon":"Muy es adverbio."}],
+        "justificacion_obligatoria": True, "regla": "Sustantivo = nombre"}}],
+    18: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual de estas palabras es un adjetivo?",
+        "opciones": [
+            {"id":"a","texto":"libro","correcta":False,"razon":"Libro es sustantivo."},
+            {"id":"b","texto":"estudia","correcta":False,"razon":"Estudia es verbo."},
+            {"id":"c","texto":"hermoso","correcta":True,"razon":"Hermoso es adjetivo calificativo."},
+            {"id":"d","texto":"despacio","correcta":False,"razon":"Despacio es adverbio."}],
+        "justificacion_obligatoria": True, "regla": "Adjetivo = cualidad"}}],
+    19: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Esta casa es mia', que clase de palabra es 'esta'?",
+        "opciones": [
+            {"id":"a","texto":"Determinante demostrativo","correcta":True,"razon":"Acompana al sustantivo casa, por lo tanto es determinante."},
+            {"id":"b","texto":"Pronombre demostrativo","correcta":False,"razon":"Seria pronombre si sustituyera al sustantivo."},
+            {"id":"c","texto":"Adjetivo","correcta":False,"razon":"El adjetivo expresa cualidad; esta no."}],
+        "justificacion_obligatoria": True, "regla": "Determinante acompana al sustantivo"}}],
+    20: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que articulo falta en '___ importante es aprender'?",
+        "opciones": [
+            {"id":"a","texto":"El","correcta":False,"razon":"El masculino no sustantiva adjetivo aqui."},
+            {"id":"b","texto":"Lo","correcta":True,"razon":"Lo es el articulo neutro que sustantiva adjetivos."},
+            {"id":"c","texto":"La","correcta":False,"razon":"El femenino no aplica aqui."},
+            {"id":"d","texto":"Los","correcta":False,"razon":"El plural no aplica."}],
+        "justificacion_obligatoria": True, "regla": "Neutro lo + adjetivo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_16_20)
+

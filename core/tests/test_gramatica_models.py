@@ -42,14 +42,13 @@ class TestModelos(TestCase):
 
 
 class TestData(TestCase):
-    def test_15_tecnicas_bloque_A(self):
-        self.assertEqual(len(TECNICAS), 15)
-        for t in TECNICAS:
-            self.assertEqual(t["bloque"], "A")
+    def test_bloque_A_tiene_15(self):
+        bloque_a = [t for t in TECNICAS if t["bloque"] == "A"]
+        self.assertEqual(len(bloque_a), 15)
 
     def test_numeros_consecutivos(self):
         nums = sorted(t["numero"] for t in TECNICAS)
-        self.assertEqual(nums, list(range(1, 16)))
+        self.assertEqual(nums, list(range(1, len(TECNICAS) + 1)))
 
     def test_campos_requeridos(self):
         campos = ["numero", "bloque", "titulo", "teoria", "explicacion",
@@ -59,10 +58,11 @@ class TestData(TestCase):
                 self.assertIn(c, t)
                 self.assertTrue(t[c], f"Tecnica {t['numero']} campo {c} vacio")
 
-    def test_15_ejercicios(self):
-        self.assertEqual(len(EJERCICIOS), 15)
-        for i in range(1, 16):
-            self.assertIn(i, EJERCICIOS)
+    def test_ejercicios_por_tecnica(self):
+        nums_tecnicas = {t["numero"] for t in TECNICAS}
+        nums_ejercicios = set(EJERCICIOS.keys())
+        faltantes = nums_tecnicas - nums_ejercicios
+        self.assertEqual(faltantes, set(), f"Tecnicas sin ejercicios: {faltantes}")
 
 
 class TestSeedIdempotente(TestCase):
