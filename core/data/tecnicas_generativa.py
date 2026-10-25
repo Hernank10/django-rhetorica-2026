@@ -152,7 +152,7 @@ EJERCICIOS = {
         "enunciado": "Que representa una regla como SN -> Det N?",
         "opciones": [
             {"id": "a", "texto": "Una regla de reescritura que descompone un sintagma en sus constituyentes", "correcta": True, "razon": "Las reglas de reescritura describen la descomposicion."},
-            {"id": "b", "texto": "Una regla fonologica", "correcta": False, "razon": "Es sintáctica."},
+            {"id": "b", "texto": "Una regla fonológica", "correcta": False, "razon": "Es sintáctica."},
             {"id": "c", "texto": "Una regla de traduccion", "correcta": False, "razon": "No tiene que ver."},
         ], "justificacion_obligatoria": True, "regla": "Reescritura: descomposicion"}}],
     106: [{"tipo": 1, "orden": 1, "payload": {
@@ -525,7 +525,7 @@ TECNICAS_36_40 = [
     {"numero": 139, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
      "titulo": "Movimiento de constituyentes",
      "teoria": "El movimiento de constituyentes desplaza un sintagma completo (SN, SP, SC) a otra posicion, no solo el núcleo.",
-     "explicacion": "Ejemplo: en pasivas, el objeto SN se mueve al sujeto: 'El libro fue comprado t'. En topicalizacion, el SN se mueve al inicio: 'El libro, Juan compro t'. El constituyente mueve mantiene su integridad.",
+     "explicacion": "Ejemplo: en pasivas, el objeto SN se mueve al sujeto: 'El libro fue comprado t'. En topicalización, el SN se mueve al inicio: 'El libro, Juan compro t'. El constituyente mueve mantiene su integridad.",
      "regla": "Movimiento de constituyentes: SN/SP/SC -> nueva posicion",
      "ejemplo_correcto": "En 'el libro fue comprado t', el SN sube a sujeto.",
      "ejemplo_incorrecto": "Solo se mueven palabras sueltas."},
@@ -558,7 +558,7 @@ TECNICAS_41_45 = [
     {"numero": 143, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
      "titulo": "Movimiento-A vs movimiento-A-barra",
      "teoria": "El movimiento-A (movimiento de argumento) desplaza un elemento a una posicion de argumento (Esp-ST, Esp-SV). El movimiento-A-barra lo hace a una posicion no-argumental (C, adjuntos).",
-     "explicacion": "Movimiento-A: sujeto de SV a sujeto de ST, objeto a sujeto en pasivas. Movimiento-A-barra: pronombre-qu a C, topicalizacion a la izquierda. Los dos tipos tienen propiedades distintas de ligamiento.",
+     "explicacion": "Movimiento-A: sujeto de SV a sujeto de ST, objeto a sujeto en pasivas. Movimiento-A-barra: pronombre-qu a C, topicalización a la izquierda. Los dos tipos tienen propiedades distintas de ligamiento.",
      "regla": "Mov-A: a posicion de argumento. Mov-A-barra: a no-argumento",
      "ejemplo_correcto": "El pronombre-qu hace movimiento-A-barra a C.",
      "ejemplo_incorrecto": "Todo movimiento es igual."},
@@ -596,26 +596,26 @@ TECNICAS_46_50 = [
      "ejemplo_correcto": "En castellano 'canto' funciona sin 'yo'.",
      "ejemplo_incorrecto": "En ingles 'sing' funciona sin 'I'."},
     {"numero": 148, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
-     "titulo": "Topicalizacion",
-     "teoria": "La topicalizacion mueve un constituyente al inicio de la oración para marcarlo como topico (informacion conocida).",
-     "explicacion": "Ejemplo: 'El libro, Juan lo compro' — 'el libro' se mueve a la posicion inicial, y aparece un pronombre resuntivo 'lo'. El topico es lo que se comenta. La topicalizacion es movimiento-A-barra.",
-     "regla": "Topicalizacion: constituyente -> inicio (topico)",
+     "titulo": "Topicalización",
+     "teoria": "La topicalización mueve un constituyente al inicio de la oración para marcarlo como topico (informacion conocida).",
+     "explicacion": "Ejemplo: 'El libro, Juan lo compro' — 'el libro' se mueve a la posicion inicial, y aparece un pronombre resuntivo 'lo'. El topico es lo que se comenta. La topicalización es movimiento-A-barra.",
+     "regla": "Topicalización: constituyente -> inicio (topico)",
      "ejemplo_correcto": "En 'el libro, Juan lo compro', 'el libro' es topico.",
-     "ejemplo_incorrecto": "La topicalizacion no mueve nada."},
+     "ejemplo_incorrecto": "La topicalización no mueve nada."},
     {"numero": 149, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
-     "titulo": "Focalizacion",
-     "teoria": "La focalizacion marca un constituyente como foco (informacion nueva o contrastiva), generalmente con movimiento o prosodia especial.",
-     "explicacion": "Ejemplo: 'A JUAN vi (no a Pedro)' — el foco 'a Juan' se marca con prosodia y/o movimiento. La focalizacion puede ser in situ (solo prosodia) o con movimiento. En castellano el foco contrastivo suele ir al final.",
-     "regla": "Focalizacion: marca de informacion nueva o contrastiva",
+     "titulo": "Focalización",
+     "teoria": "La focalización marca un constituyente como foco (informacion nueva o contrastiva), generalmente con movimiento o prosodia especial.",
+     "explicacion": "Ejemplo: 'A JUAN vi (no a Pedro)' — el foco 'a Juan' se marca con prosodia y/o movimiento. La focalización puede ser in situ (solo prosodia) o con movimiento. En castellano el foco contrastivo suele ir al final.",
+     "regla": "Focalización: marca de informacion nueva o contrastiva",
      "ejemplo_correcto": "En 'A JUAN vi', 'a Juan' es foco contrastivo.",
      "ejemplo_incorrecto": "El foco y el topico son lo mismo."},
     {"numero": 150, "bloque": "C", "nivel": "avanzado", "modulo": "generativa",
-     "titulo": "Dislocacion a la izquierda",
-     "teoria": "La dislocacion a la izquierda mueve un constituyente al inicio de la oración, dejando un pronombre resuntivo en su posicion original.",
-     "explicacion": "Ejemplo: 'El libro, lo compre ayer' — 'el libro' se disloca a la izquierda; 'lo' es el pronombre resuntivo. Es similar a la topicalizacion, pero mas marcada. La dislocacion es frecuente en castellano coloquial.",
-     "regla": "Dislocacion: constituyente -> inicio + pronombre resuntivo",
+     "titulo": "Dislocación a la izquierda",
+     "teoria": "La dislocación a la izquierda mueve un constituyente al inicio de la oración, dejando un pronombre resuntivo en su posicion original.",
+     "explicacion": "Ejemplo: 'El libro, lo compre ayer' — 'el libro' se disloca a la izquierda; 'lo' es el pronombre resuntivo. Es similar a la topicalización, pero mas marcada. La dislocación es frecuente en castellano coloquial.",
+     "regla": "Dislocación: constituyente -> inicio + pronombre resuntivo",
      "ejemplo_correcto": "En 'el libro, lo compre', 'lo' es resuntivo.",
-     "ejemplo_incorrecto": "La dislocacion no deja pronombre."},
+     "ejemplo_incorrecto": "La dislocación no deja pronombre."},
 ]
 TECNICAS.extend(TECNICAS_46_50)
 
@@ -760,7 +760,7 @@ EJERCICIOS_C = {
             {"id": "a", "texto": "Pronombre resuntivo", "correcta": True, "razon": "Recupera la posicion original del objeto."},
             {"id": "b", "texto": "El topico", "correcta": False, "razon": "El topico es 'el libro'."},
             {"id": "c", "texto": "El sujeto", "correcta": False, "razon": "El sujeto es 'yo' (omitido)."},
-        ], "justificacion_obligatoria": True, "regla": "Dislocacion: pronombre resuntivo"}}],
+        ], "justificacion_obligatoria": True, "regla": "Dislocación: pronombre resuntivo"}}],
 }
 EJERCICIOS.update(EJERCICIOS_C)
 
@@ -1122,7 +1122,7 @@ EJERCICIOS_E = {
         "enunciado": "Que es la reccion en la GGT?",
         "opciones": [
             {"id": "a", "texto": "Relacion estructural entre un núcleo y su complemento/especificador", "correcta": True, "razon": "El núcleo rige a sus dependientes."},
-            {"id": "b", "texto": "Una regla fonologica", "correcta": False, "razon": "Es sintáctica."},
+            {"id": "b", "texto": "Una regla fonológica", "correcta": False, "razon": "Es sintáctica."},
             {"id": "c", "texto": "Un tipo de concordancia", "correcta": False, "razon": "No es solo concordancia."},
         ], "justificacion_obligatoria": True, "regla": "Reccion: núcleo rige dependientes"}}],
     167: [{"tipo": 1, "orden": 1, "payload": {
@@ -1313,7 +1313,7 @@ TECNICAS_91_95 = [
     {"numero": 191, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
      "titulo": "Orden SVO vs VSO vs VOS en castellano",
      "teoria": "El castellano es una lengua SVO basica, pero permite VSO y VOS por movimiento. El orden no marcado es SVO.",
-     "explicacion": "SVO: 'Juan compro el libro'. VSO: 'Compro Juan el libro' (enfasis). VOS: 'Compro el libro Juan' (foco). El castellano es flexible: el orden cambia por topicalizacion, focalizacion o razones pragmaticas.",
+     "explicacion": "SVO: 'Juan compro el libro'. VSO: 'Compro Juan el libro' (enfasis). VOS: 'Compro el libro Juan' (foco). El castellano es flexible: el orden cambia por topicalización, focalización o razones pragmaticas.",
      "regla": "Castellano: SVO basico. VSO/VOS por movimiento",
      "ejemplo_correcto": "SVO es el orden no marcado en castellano.",
      "ejemplo_incorrecto": "El castellano solo permite SVO."},
@@ -1402,7 +1402,7 @@ EJERCICIOS_FG = {
         "opciones": [
             {"id": "a", "texto": "Operación que combina dos objetos en uno", "correcta": True, "razon": "Merge(X, Y) = {X, Y}."},
             {"id": "b", "texto": "Una regla de movimiento", "correcta": False, "razon": "Eso es Move."},
-            {"id": "c", "texto": "Una regla fonologica", "correcta": False, "razon": "Es sintáctica."},
+            {"id": "c", "texto": "Una regla fonológica", "correcta": False, "razon": "Es sintáctica."},
         ], "justificacion_obligatoria": True, "regla": "Merge: combina dos objetos"}}],
     183: [{"tipo": 1, "orden": 1, "payload": {
         "enunciado": "Que hace Move en el minimalismo?",
@@ -1423,7 +1423,7 @@ EJERCICIOS_FG = {
         "opciones": [
             {"id": "a", "texto": "Un rasgo que aporta significado (género, número en N)", "correcta": True, "razon": "Los interpretables se interpretan en LF."},
             {"id": "b", "texto": "Un rasgo gramatical que se elimina", "correcta": False, "razon": "Eso es no interpretable."},
-            {"id": "c", "texto": "Un rasgo fonologico", "correcta": False, "razon": "Es sintáctico."},
+            {"id": "c", "texto": "Un rasgo fonológico", "correcta": False, "razon": "Es sintáctico."},
         ], "justificacion_obligatoria": True, "regla": "Interpretable: significado"}}],
     186: [{"tipo": 3, "orden": 1, "payload": {
         "enunciado": "Clasifica el rasgo: interpretable (I) o no interpretable (N)",
@@ -1452,7 +1452,7 @@ EJERCICIOS_FG = {
         "enunciado": "Que es la interfaz LF?",
         "opciones": [
             {"id": "a", "texto": "Nivel donde la estructura se interpreta semanticamente", "correcta": True, "razon": "Logical Form."},
-            {"id": "b", "texto": "Nivel fonologico", "correcta": False, "razon": "Eso es PF."},
+            {"id": "b", "texto": "Nivel fonológico", "correcta": False, "razon": "Eso es PF."},
             {"id": "c", "texto": "Un tipo de verbo", "correcta": False, "razon": "No es verbo."},
         ], "justificacion_obligatoria": True, "regla": "LF: sintaxis-semántica"}}],
     190: [{"tipo": 1, "orden": 1, "payload": {
