@@ -467,3 +467,153 @@ EJERCICIOS_226_230 = {
 }
 EJERCICIOS.update(EJERCICIOS_226_230)
 
+
+TECNICAS_231_240 = [
+    {"numero": 231, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El presente de indicativo: verbos -ar",
+     "teoria": "Los verbos regulares en -ar forman el presente añadiendo terminaciones al radical: -o, -as, -a, -amos, -áis, -an.",
+     "explicacion": "Ejemplo con 'hablar': radical habl- + terminaciones = hablo, hablas, habla, hablamos, habláis, hablan. El radical no cambia en los verbos regulares.",
+     "regla": "hablar: hablo, hablas, habla, hablamos, habláis, hablan",
+     "ejemplo_correcto": "Yo hablo español. Tú hablas inglés.",
+     "ejemplo_incorrecto": "Yo habla español. Tú hablo inglés."},
+    {"numero": 232, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El presente de indicativo: verbos -er",
+     "teoria": "Los verbos regulares en -er forman el presente: -o, -es, -e, -emos, -éis, -en.",
+     "explicacion": "Ejemplo con 'comer': radical com- + terminaciones = como, comes, come, comemos, coméis, comen. Los verbos -er comparten la vocal 'e' en la mayoría de formas.",
+     "regla": "comer: como, comes, come, comemos, coméis, comen",
+     "ejemplo_correcto": "Yo como fruta. Ella come pan.",
+     "ejemplo_incorrecto": "Yo como fruta. Ella como pan. (falta la -e: come)"},
+    {"numero": 233, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El presente de indicativo: verbos -ir",
+     "teoria": "Los verbos regulares en -ir forman el presente: -o, -es, -e, -imos, -ís, -en.",
+     "explicacion": "Ejemplo con 'vivir': radical viv- + terminaciones = vivo, vives, vive, vivimos, vivís, viven. La diferencia con -er está en 1ª y 2ª persona plural: -imos, -ís (no -emos, -éis).",
+     "regla": "vivir: vivo, vives, vive, vivimos, vivís, viven",
+     "ejemplo_correcto": "Vivo en Bogotá. Vivimos en Colombia.",
+     "ejemplo_incorrecto": "Vivo en Bogotá. Vivemos en Colombia. (debería ser vivimos)"},
+    {"numero": 234, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "Las tres conjugaciones: -ar, -er, -ir",
+     "teoria": "En español todos los verbos pertenecen a una de tres conjugaciones según la terminación del infinitivo: -ar (1ª), -er (2ª), -ir (3ª).",
+     "explicacion": "1ª conjugación (-ar): hablar, cantar, bailar. 2ª conjugación (-er): comer, beber, aprender. 3ª conjugación (-ir): vivir, escribir, recibir. Las tres tienen terminaciones distintas en el presente.",
+     "regla": "1ª: -ar. 2ª: -er. 3ª: -ir",
+     "ejemplo_correcto": "Hablar (1ª), comer (2ª), vivir (3ª).",
+     "ejemplo_incorrecto": "Hablar (1ª), comer (1ª), vivir (1ª). (todas son distintas)"},
+    {"numero": 235, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "Persona y número en el presente",
+     "teoria": "El verbo en presente varía según la persona (1ª, 2ª, 3ª) y el número (singular, plural). Hay 6 formas: yo, tú, él/ella, nosotros, vosotros, ellos/ellas.",
+     "explicacion": "Ejemplo con 'hablar': yo hablo, tú hablas, él habla, nosotros hablamos, vosotros habláis, ellos hablan. En América Latina se usa 'ustedes' (3ª plural) en lugar de 'vosotros'.",
+     "regla": "6 formas: yo, tú, él/ella, nosotros, vosotros/ustedes, ellos/ellas",
+     "ejemplo_correcto": "Nosotros hablamos español.",
+     "ejemplo_incorrecto": "Nosotros hablo español. (persona incorrecta)"},
+    {"numero": 236, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo ser: soy, eres, es...",
+     "teoria": "El verbo 'ser' es irregular. Formas en presente: soy, eres, es, somos, sois, son.",
+     "explicacion": "Se usa para: identidad (Soy Juan), origen (Soy de Colombia), profesión (Soy estudiante), características permanentes (Ella es alta), hora (Son las tres).",
+     "regla": "ser: soy, eres, es, somos, sois, son",
+     "ejemplo_correcto": "Soy estudiante. Ella es de España.",
+     "ejemplo_incorrecto": "Yo es estudiante. (debería ser 'soy')"},
+    {"numero": 237, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo estar: estoy, estás, está...",
+     "teoria": "El verbo 'estar' es irregular. Formas: estoy, estás, está, estamos, estáis, están.",
+     "explicacion": "Se usa para: estados temporales (Estoy cansado), ubicación (Estoy en casa), emociones (Estoy feliz). Las terminaciones siguen el patrón de -ar regular con algunas irregularidades en 1ª persona.",
+     "regla": "estar: estoy, estás, está, estamos, estáis, están",
+     "ejemplo_correcto": "Estoy en casa. ¿Cómo estás?",
+     "ejemplo_incorrecto": "Esto en casa. (falta la -y: estoy)"},
+    {"numero": 238, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "Ser vs estar: cualidad vs estado",
+     "teoria": "Ser expresa cualidad permanente o identidad; estar expresa estado temporal o ubicación.",
+     "explicacion": "Ser: 'Soy alto' (cualidad), 'Soy profesor' (identidad). Estar: 'Estoy cansado' (estado), 'Estoy en Madrid' (ubicación). Algunos adjetivos cambian de significado: 'Ser listo' (inteligente) vs 'Estar listo' (preparado).",
+     "regla": "Ser: cualidad/identidad. Estar: estado/ubicación",
+     "ejemplo_correcto": "Soy español. Estoy en Bogotá.",
+     "ejemplo_incorrecto": "Estoy español. (nacionalidad va con ser)"},
+    {"numero": 239, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo tener: tengo, tienes, tiene...",
+     "teoria": "El verbo 'tener' es irregular. Formas: tengo, tienes, tiene, tenemos, tenéis, tienen.",
+     "explicacion": "Se usa para: posesión (Tengo un coche), edad (Tengo 25 años), expresiones con sustantivos (tener hambre, sed, frío, calor, sueño, prisa). La 1ª persona 'tengo' tiene una -g- epentética.",
+     "regla": "tener: tengo, tienes, tiene, tenemos, tenéis, tienen",
+     "ejemplo_correcto": "Tengo 25 años. Tengo hambre.",
+     "ejemplo_incorrecto": "Tengo 25 años. Tengo hambre. (correcto) — 'Tengo 25 anos' (anos = anal, incorrecto)"},
+    {"numero": 240, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "Expresiones con tener",
+     "teoria": "En español muchas sensaciones se expresan con 'tener + sustantivo': tener hambre, sed, frío, calor, sueño, miedo, prisa.",
+     "explicacion": "tener hambre = to be hungry, tener sed = to be thirsty, tener frío = to be cold, tener calor = to be hot, tener sueño = to be sleepy, tener miedo = to be afraid, tener prisa = to be in a hurry. No se usa 'ser' ni 'estar' en estas expresiones.",
+     "regla": "tener + sustantivo (hambre, sed, frío, calor, sueño, miedo, prisa)",
+     "ejemplo_correcto": "Tengo hambre y sed.",
+     "ejemplo_incorrecto": "Soy hambre. (debería ser 'tengo hambre')"},
+]
+TECNICAS.extend(TECNICAS_231_240)
+
+
+EJERCICIOS_231_240 = {
+    231: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'hablar' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "hablo", "correcta": True, "razon": "1a sing -ar: hablo."},
+            {"id": "b", "texto": "habla", "correcta": False, "razon": "Esa es 3a persona."},
+            {"id": "c", "texto": "hablas", "correcta": False, "razon": "Esa es 2a persona."},
+        ], "justificacion_obligatoria": False, "regla": "hablar -> hablo"}}],
+    232: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'comer' en 3a persona singular?",
+        "opciones": [
+            {"id": "a", "texto": "come", "correcta": True, "razon": "3a sing -er: come."},
+            {"id": "b", "texto": "como", "correcta": False, "razon": "1a persona."},
+            {"id": "c", "texto": "comes", "correcta": False, "razon": "2a persona."},
+        ], "justificacion_obligatoria": False, "regla": "comer -> come"}}],
+    233: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'vivir' en 1a persona plural?",
+        "opciones": [
+            {"id": "a", "texto": "vivimos", "correcta": True, "razon": "1a plural -ir: vivimos."},
+            {"id": "b", "texto": "vivemos", "correcta": False, "razon": "Esa seria forma -er. Es vivimos."},
+            {"id": "c", "texto": "vivo", "correcta": False, "razon": "1a singular."},
+        ], "justificacion_obligatoria": False, "regla": "vivir -> vivimos"}}],
+    234: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "A que conjugacion pertenece 'aprender'?",
+        "opciones": [
+            {"id": "a", "texto": "1a (-ar)", "correcta": False, "razon": "Termina en -er, no -ar."},
+            {"id": "b", "texto": "2a (-er)", "correcta": True, "razon": "Aprender -> 2a conjugacion."},
+            {"id": "c", "texto": "3a (-ir)", "correcta": False, "razon": "Termina en -er."},
+        ], "justificacion_obligatoria": False, "regla": "Aprender: 2a conjugacion"}}],
+    235: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cuantas formas personales tiene el verbo en presente?",
+        "opciones": [
+            {"id": "a", "texto": "3 (yo, tú, él)", "correcta": False, "razon": "Faltan las plurales."},
+            {"id": "b", "texto": "6 (yo, tú, él, nosotros, vosotros, ellos)", "correcta": True, "razon": "6 personas gramaticales."},
+            {"id": "c", "texto": "8", "correcta": False, "razon": "Son 6."},
+        ], "justificacion_obligatoria": False, "regla": "6 personas"}}],
+    236: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'ser' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "soy", "correcta": True, "razon": "1a sing: soy."},
+            {"id": "b", "texto": "es", "correcta": False, "razon": "3a persona."},
+            {"id": "c", "texto": "somos", "correcta": False, "razon": "1a plural."},
+        ], "justificacion_obligatoria": False, "regla": "yo soy"}}],
+    237: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'estar' en 2a persona singular?",
+        "opciones": [
+            {"id": "a", "texto": "estás", "correcta": True, "razon": "2a sing: estás (con tilde)."},
+            {"id": "b", "texto": "esta", "correcta": False, "razon": "Esa es 3a persona."},
+            {"id": "c", "texto": "estoy", "correcta": False, "razon": "1a persona."},
+        ], "justificacion_obligatoria": False, "regla": "tú estás"}}],
+    238: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase usa ser/estar correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "Soy español. Estoy en Bogotá.", "correcta": True, "razon": "Nacionalidad con ser, ubicación con estar."},
+            {"id": "b", "texto": "Estoy español. Soy en Bogotá.", "correcta": False, "razon": "Al revés."},
+            {"id": "c", "texto": "Soy en Bogotá. Estoy español.", "correcta": False, "razon": "Incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "Ser: cualidad. Estar: ubicación"}}],
+    239: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'tener' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "tengo", "correcta": True, "razon": "1a sing: tengo (con -g-)."},
+            {"id": "b", "texto": "tieno", "correcta": False, "razon": "No existe."},
+            {"id": "c", "texto": "teno", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "yo tengo"}}],
+    240: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I am hungry' en español?",
+        "opciones": [
+            {"id": "a", "texto": "Soy hambre", "correcta": False, "razon": "Con tener: tengo hambre."},
+            {"id": "b", "texto": "Estoy hambre", "correcta": False, "razon": "Con tener: tengo hambre."},
+            {"id": "c", "texto": "Tengo hambre", "correcta": True, "razon": "Tener hambre."},
+        ], "justificacion_obligatoria": False, "regla": "Tengo hambre"}}],
+}
+EJERCICIOS.update(EJERCICIOS_231_240)
+
