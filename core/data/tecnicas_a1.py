@@ -307,3 +307,163 @@ EJERCICIOS_216_220 = {
 }
 EJERCICIOS.update(EJERCICIOS_216_220)
 
+
+TECNICAS_221_225 = [
+    {"numero": 221, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Demostrativos: este, ese, aquel",
+     "teoria": "Los demostrativos indican distancia del hablante: este (cerca), ese (distancia media), aquel (lejos).",
+     "explicacion": "Formas: este/esta/estos/estas (cerca), ese/esa/esos/esas (distancia media), aquel/aquella/aquellos/aquellas (lejos). Ejemplo: 'este libro' (aqui), 'ese libro' (ahi), 'aquel libro' (alli).",
+     "regla": "Este (cerca), ese (medio), aquel (lejos)",
+     "ejemplo_correcto": "Este libro es mio, ese es tuyo y aquel es suyo.",
+     "ejemplo_incorrecto": "Este libro, ese libro, aquel libro (sin demostrar distancia correctamente)"},
+    {"numero": 222, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Posesivos: mi, tu, su, nuestro",
+     "teoria": "Los posesivos indican pertenencia: mi (yo), tu (tu), su (el/ella), nuestro (nosotros), vuestro (vosotros).",
+     "explicacion": "Formas: mi/mis, tu/tus, su/sus, nuestro/nuestra/nuestros/nuestras. Ejemplo: mi libro, tu casa, su coche. Concuerdan en numero con el sustantivo: mis libros, tus casas.",
+     "regla": "Mi, tu, su, nuestro: pertenencia",
+     "ejemplo_correcto": "Mi casa, tus libros, nuestro coche.",
+     "ejemplo_incorrecto": "Mis casa, tu libros, nuestro coches."},
+    {"numero": 223, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Cuantificadores: mucho, poco, todo",
+     "teoria": "Los cuantificadores indican cantidad: mucho (a lot), poco (little), todo (all), bastante (enough), demasiado (too much).",
+     "explicacion": "Mucho/mucha/muchos/muchas concuerdan con el sustantivo. Ejemplo: mucho pan, mucha agua, muchos libros, muchas casas. Todo/toda/todos/todas similar.",
+     "regla": "Mucho, poco, todo: concuerdan con el sustantivo",
+     "ejemplo_correcto": "Tengo muchos libros y poca agua.",
+     "ejemplo_incorrecto": "Tengo mucho libros. (concordancia incorrecta)"},
+    {"numero": 224, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Numerales cardinales 1-20",
+     "teoria": "Los cardinales indican cantidad exacta: 1 uno, 2 dos, 3 tres... hasta 10 diez, y luego once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve, veinte.",
+     "explicacion": "Los numeros del 11 al 15 son irregulares: once, doce, trece, catorce, quince. Del 16 al 19 son compuestos: dieciseis, diecisiete, dieciocho, diecinueve (una sola palabra).",
+     "regla": "1-10 regulares, 11-15 irregulares, 16-20 compuestos",
+     "ejemplo_correcto": "Tengo veinte anos.",
+     "ejemplo_incorrecto": "Tengo veinte anos (sin tilde: veinte no lleva tilde)"},
+    {"numero": 225, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Interrogativos: que, cual, cuanto",
+     "teoria": "Los interrogativos introducen preguntas: que (what), cual (which), cuanto (how much), quien (who).",
+     "explicacion": "Ejemplos: ¿Que es esto? (what is this). ¿Cual prefieres? (which do you prefer). ¿Cuanto cuesta? (how much does it cost). Llevan tilde en interrogativas: qué, cuál, cuánto, quién.",
+     "regla": "Que, cual, cuanto, quien (con tilde en preguntas)",
+     "ejemplo_correcto": "¿Que quieres? ¿Cuanto cuesta?",
+     "ejemplo_incorrecto": "¿Que quieres? (sin tilde en que cuando es interrogativo)"},
+]
+TECNICAS.extend(TECNICAS_221_225)
+
+
+EJERCICIOS_221_225 = {
+    221: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que demostrativo usas para algo LEJOS?",
+        "opciones": [
+            {"id": "a", "texto": "este", "correcta": False, "razon": "Este es cerca."},
+            {"id": "b", "texto": "ese", "correcta": False, "razon": "Ese es distancia media."},
+            {"id": "c", "texto": "aquel", "correcta": True, "razon": "Aquel es lejos."},
+        ], "justificacion_obligatoria": False, "regla": "Aquel = lejos"}}],
+    222: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'my books' en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "mi libros", "correcta": False, "razon": "Concordancia: mis libros."},
+            {"id": "b", "texto": "mis libros", "correcta": True, "razon": "Plural: mis."},
+            {"id": "c", "texto": "mio libros", "correcta": False, "razon": "Apocope: mis."},
+        ], "justificacion_obligatoria": False, "regla": "Mis libros"}}],
+    223: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Tengo mucha agua", "correcta": True, "razon": "Agua es femenino: mucha."},
+            {"id": "b", "texto": "Tengo mucho agua", "correcta": False, "razon": "Agua es femenino."},
+            {"id": "c", "texto": "Tengo muchos agua", "correcta": False, "razon": "Agua es singular femenino."},
+        ], "justificacion_obligatoria": False, "regla": "Mucha agua"}}],
+    224: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se escribe el numero 15?",
+        "opciones": [
+            {"id": "a", "texto": "quince", "correcta": True, "razon": "15 = quince."},
+            {"id": "b", "texto": "diecicinco", "correcta": False, "razon": "No existe."},
+            {"id": "c", "texto": "cincodieci", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "15 = quince"}}],
+    225: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que interrogativo usas para preguntar el precio?",
+        "opciones": [
+            {"id": "a", "texto": "¿Que?", "correcta": False, "razon": "Que es 'what'."},
+            {"id": "b", "texto": "¿Cuanto?", "correcta": True, "razon": "Cuanto = how much."},
+            {"id": "c", "texto": "¿Quien?", "correcta": False, "razon": "Quien = who."},
+        ], "justificacion_obligatoria": False, "regla": "¿Cuanto cuesta?"}}],
+}
+EJERCICIOS.update(EJERCICIOS_221_225)
+
+
+TECNICAS_226_230 = [
+    {"numero": 226, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Concordancia adjetivo-sustantivo",
+     "teoria": "El adjetivo concuerda en genero y numero con el sustantivo que modifica.",
+     "explicacion": "Ejemplo: nino alto (m.s.), nina alta (f.s.), ninos altos (m.pl.), ninas altas (f.pl.). Adjetivos de una terminacion (feliz, grande) solo cambian en numero: nino feliz, nina feliz, ninos felices.",
+     "regla": "Adjetivo y sustantivo: mismo genero y numero",
+     "ejemplo_correcto": "Casa blanca, libros nuevos, flores bonitas.",
+     "ejemplo_incorrecto": "Casa blanco, libros nueva, flores bonito."},
+    {"numero": 227, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Orden basico: sustantivo + adjetivo",
+     "teoria": "En espanol el adjetivo suele ir despues del sustantivo: 'casa blanca' (white house), no 'blanca casa'.",
+     "explicacion": "Orden basico: sustantivo + adjetivo. Ejemplo: libro interesante, mesa grande, coche rojo. Algunos adjetivos pueden ir antes (gran hombre, buen dia) pero el orden comun es sustantivo primero.",
+     "regla": "Orden basico: sustantivo + adjetivo",
+     "ejemplo_correcto": "Un coche rojo, una casa grande.",
+     "ejemplo_incorrecto": "Un rojo coche, una grande casa."},
+    {"numero": 228, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Mayusculas: cuando usarlas",
+     "teoria": "En espanol se usan mayusculas al inicio de oracion, en nombres propios y despues de punto.",
+     "explicacion": "Mayuscula: inicio de oracion (Hoy es lunes), nombres propios (Juan, Madrid), paises (Espana, Colombia), meses NO (enero, febrero van en minuscula). Dias de la semana NO (lunes, martes).",
+     "regla": "Mayuscula: inicio, nombres propios. NO meses/dias",
+     "ejemplo_correcto": "Hoy es lunes. Vivo en Bogota.",
+     "ejemplo_incorrecto": "hoy es Lunes. vivo en bogota."},
+    {"numero": 229, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Tildes: cuando llevan tilde las palabras",
+     "teoria": "Las palabras llevan tilde segun su terminacion y su silaba tonica. Agudas: vocal, -n o -s final. Llanas: consonante (que no sea -n o -s). Esdrujulas: siempre.",
+     "explicacion": "Ejemplos: cafe (aguda con tilde), arbol (llana sin tilde porque termina en -l), lapiz (llana con tilde porque termina en -z), musica (esdrujula con tilde siempre).",
+     "regla": "Aguda: -vocal/-n/-s. Llana: consonante rara. Esdrujula: siempre",
+     "ejemplo_correcto": "Cafe, arbol, lapiz, musica.",
+     "ejemplo_incorrecto": "Cafe sin tilde, arbol con tilde, musica sin tilde."},
+    {"numero": 230, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Puntuacion basica: . , ? !",
+     "teoria": "La puntuacion basica en espanol: punto (.), coma (,), signos de interrogacion (¿?), signos de exclamacion (¡!).",
+     "explicacion": "El punto cierra oracion. La coma separa elementos. Los signos ¿? enmarcan preguntas: ¿Como estas? Los signos ¡! enmarcan exclamaciones: ¡Hola! El espanol usa ¿ y ¡ al inicio (unico idioma).",
+     "regla": "¿? preguntas, ¡! exclamaciones (con signo al inicio)",
+     "ejemplo_correcto": "¿Como estas? ¡Muy bien!",
+     "ejemplo_incorrecto": "Como estas? Muy bien! (sin signos de apertura)"},
+]
+TECNICAS.extend(TECNICAS_226_230)
+
+
+EJERCICIOS_226_230 = {
+    226: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase tiene concordancia correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Casa blanco", "correcta": False, "razon": "Casa es femenino: blanca."},
+            {"id": "b", "texto": "Casa blanca", "correcta": True, "razon": "Concordancia correcta."},
+            {"id": "c", "texto": "Casas blanco", "correcta": False, "razon": "Plural femenino: blancas."},
+        ], "justificacion_obligatoria": False, "regla": "Casa blanca"}}],
+    227: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el orden correcto en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "Coche rojo (sustantivo + adjetivo)", "correcta": True, "razon": "Orden basico espanol."},
+            {"id": "b", "texto": "Rojo coche (adjetivo + sustantivo)", "correcta": False, "razon": "Orden no comun."},
+            {"id": "c", "texto": "Coche el rojo", "correcta": False, "razon": "Orden incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "Sustantivo + adjetivo"}}],
+    228: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que palabra lleva mayuscula segun las reglas?",
+        "opciones": [
+            {"id": "a", "texto": "lunes", "correcta": False, "razon": "Dias de la semana: minuscula."},
+            {"id": "b", "texto": "Madrid", "correcta": True, "razon": "Nombres propios: mayuscula."},
+            {"id": "c", "texto": "enero", "correcta": False, "razon": "Meses: minuscula."},
+        ], "justificacion_obligatoria": False, "regla": "Nombres propios: mayuscula"}}],
+    229: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que palabra lleva tilde correctamente?",
+        "opciones": [
+            {"id": "a", "texto": "cafe (aguda, termina en vocal)", "correcta": True, "razon": "Cafe: aguda terminada en vocal."},
+            {"id": "b", "texto": "arbol (llana terminada en -l)", "correcta": False, "razon": "Arbol sin tilde (llana)."},
+            {"id": "c", "texto": "musica sin tilde", "correcta": False, "razon": "Musica es esdrujula con tilde."},
+        ], "justificacion_obligatoria": False, "regla": "Cafe con tilde"}}],
+    230: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la oracion correctamente puntuada?",
+        "opciones": [
+            {"id": "a", "texto": "¿Como estas? ¡Muy bien!", "correcta": True, "razon": "Con signos de apertura."},
+            {"id": "b", "texto": "Como estas? Muy bien!", "correcta": False, "razon": "Falta ¿ y ¡ al inicio."},
+            {"id": "c", "texto": "Como estas. Muy bien.", "correcta": False, "razon": "Sin signos de interrogacion."},
+        ], "justificacion_obligatoria": False, "regla": "¿? y ¡! al inicio"}}],
+}
+EJERCICIOS.update(EJERCICIOS_226_230)
+
