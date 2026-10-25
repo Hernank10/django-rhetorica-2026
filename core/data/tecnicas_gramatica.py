@@ -1447,3 +1447,165 @@ EJERCICIOS_86_90 = {
 }
 EJERCICIOS.update(EJERCICIOS_86_90)
 
+# ===== G1: tecnicas 91-95 (ortografia: letras) =====
+TECNICAS_G1 = [
+    {"numero": 91, "bloque": "G", "nivel": "basico",
+     "titulo": "Uso de b/v",
+     "teoria": "La b y la v suenan igual en espanol, pero se escriben distinto. Hay reglas que ayudan a recordar.",
+     "explicacion": "Con b: verbos en -bir (escribir, recibir, excepto hervir, servir, vivir); terminaciones -aba, -abas, -abamos del imperfecto (cantaba); palabras que empiezan por bu-, bur-, bus- (bueno, burro, buscar); prefijos bi-, bis-, biz- (bilingue, bisnieto). Con v: adjetivos en -avo, -ava, -ivo (octavo, esclava, activo); palabras que empiezan por eva-, eve-, evi-, evo- (evacuar, evitar, evolucion).",
+     "regla": "B: -bir, -aba, bu-, bi-. V: -avo/-ivo, eva-/eve-/evi-/evo-",
+     "ejemplo_correcto": "Escribir, cantaba, bueno, activo, evitar.",
+     "ejemplo_incorrecto": "Escrevibir, cantava, bueno -> activo."},
+    {"numero": 92, "bloque": "G", "nivel": "intermedio",
+     "titulo": "Uso de c/z/s (seseo, ceceo)",
+     "teoria": "La c (ante e, i), la z y la s representan fonemas distintos en el espanol peninsular, pero se neutralizan en seseo (America) y ceceo (parte de Andalucia).",
+     "explicacion": "En espanol peninsular: c/z = /z/ (theta), s = /s/. Seseo: casa y caza suenan igual (America, Canarias). Ceceo: casa y caza suenan con /z/ (theta). Regla ortografica comun: -cer/-cir (hacer, decir), -zar (empezar), -cion (cancion, aunque -sion en otros casos).",
+     "regla": "c/z/s: -cer/-cir, -zar, -cion. Seseo: America; ceceo: Andalucia",
+     "ejemplo_correcto": "Hacer, empezar, cancion. En America, casa y caza suenan igual.",
+     "ejemplo_incorrecto": "Haser, empesar, cansion."},
+    {"numero": 93, "bloque": "G", "nivel": "basico",
+     "titulo": "Uso de g/j",
+     "teoria": "La g (ante e, i) y la j suenan igual en espanol, pero hay reglas para distinguirlas.",
+     "explicacion": "Con g ante e, i: palabras con -ger, -gir (coger, dirigir, excepto tejer, crujir); palabras que empiezan por geo- (geografia); terminaciones -gen, -gente (origen, urgente). Con j: palabras con -jear (callejear); terminaciones -aje (garaje, viaje); preteritos fuertes (dije, traje, conduje).",
+     "regla": "G ante e/i: -ger/-gir, geo-. J: -jear, -aje, pret. dije/traje",
+     "ejemplo_correcto": "Coger, dirigir, geografia, garaje, dije.",
+     "ejemplo_incorrecto": "Cojer, dirijir, garagge."},
+    {"numero": 94, "bloque": "G", "nivel": "basico",
+     "titulo": "Uso de h",
+     "teoria": "La h es muda en espanol, pero su presencia o ausencia cambia el significado de algunas palabras.",
+     "explicacion": "Con h: palabras que empiezan por hie-, hue-, hia- (hielo, huevo, hiato); palabras que empiezan por herm-, horr-, hosp- (hermano, horrible, hospital); prefijo hidr-/hiper-/hipo- (hidraulico, hipermercado, hipopotamo). Sin h: ojala, asta (cuerno), hasta (preposicion, con h).",
+     "regla": "H: hie-/hue-, herm-/horr-/hosp-, hidr-/hiper-/hipo-",
+     "ejemplo_correcto": "Hielo, huevo, hermano, hidraulico, hasta.",
+     "ejemplo_incorrecto": "Ielo, uevo, ermano."},
+    {"numero": 95, "bloque": "G", "nivel": "basico",
+     "titulo": "Uso de ll/y",
+     "teoria": "La ll (elle) y la y (ye) representan fonemas distintos en espanol peninsular, pero se neutralizan en yeismo (gran parte de America y Espana).",
+     "explicacion": "Con ll: palabras con -ll- (llave, calle, caballo); diminutivos -illo/-illa (casilla, pasillo). Con y: palabras que terminan en -y (rey, ley, buey); formas verbales con y (voy, estoy, doy, soy); palabras con -y- (mayo, playa, ayer). Yeismo: ll y y suenan igual.",
+     "regla": "LL: -ll-, -illo/-illa. Y: -y final, voy/estoy/doy, mayo/playa",
+     "ejemplo_correcto": "Llave, casilla, rey, voy, mayo.",
+     "ejemplo_incorrecto": "Yave, casiya, rei, boi."},
+]
+TECNICAS.extend(TECNICAS_G1)
+
+# ===== G1: ejercicios 91-95 =====
+EJERCICIOS_91_95 = {
+    91: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada palabra: con b (B) o con v (V)",
+        "oraciones": [
+            {"texto":"escribir","categoria_correcta":"b"},
+            {"texto":"activo","categoria_correcta":"v"},
+            {"texto":"cantaba","categoria_correcta":"b"},
+            {"texto":"evitar","categoria_correcta":"v"}],
+        "categorias": ["b","v"]}}],
+    92: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En America, 'casa' y 'caza' suenan igual. Como se llama este fenomeno?",
+        "opciones": [
+            {"id":"a","texto":"Seseo","correcta":True,"razon":"En America, c/z/s suenan /s/: seseo."},
+            {"id":"b","texto":"Ceceo","correcta":False,"razon":"Ceceo es pronunciar todo con /z/ (theta), en parte de Andalucia."},
+            {"id":"c","texto":"Yeismo","correcta":False,"razon":"Yeismo es ll/y."}],
+        "justificacion_obligatoria": True, "regla": "Seseo: c/z/s -> /s/"}}],
+    93: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id":"a","texto":"Cojer","correcta":False,"razon":"-ger/-gir: coger con g."},
+            {"id":"b","texto":"Coger","correcta":True,"razon":"Verbo en -ger: coger."},
+            {"id":"c","texto":"Cogger","correcta":False,"razon":"Doble g incorrecta."}],
+        "justificacion_obligatoria": True, "regla": "-ger/-gir con g"}}],
+    94: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id":"a","texto":"Hielo","correcta":True,"razon":"Empieza por hie-: con h."},
+            {"id":"b","texto":"Ielo","correcta":False,"razon":"Falta la h (hie-)."},
+            {"id":"c","texto":"Yelo","correcta":False,"razon":"No es la forma correcta."}],
+        "justificacion_obligatoria": True, "regla": "hie- con h"}}],
+    95: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id":"a","texto":"Llave","correcta":True,"razon":"Con ll: llave."},
+            {"id":"b","texto":"Yave","correcta":False,"razon":"Yeismo no normativo."},
+            {"id":"c","texto":"Lave","correcta":False,"razon":"Falta la ll."}],
+        "justificacion_obligatoria": True, "regla": "LL: llave"}}],
+}
+EJERCICIOS.update(EJERCICIOS_91_95)
+
+# ===== G2: tecnicas 96-100 (m, tildes, puntuacion) =====
+TECNICAS_G2 = [
+    {"numero": 96, "bloque": "G", "nivel": "basico",
+     "titulo": "Uso de m antes de p/b",
+     "teoria": "En espanol, siempre se escribe m (no n) antes de p o b.",
+     "explicacion": "Regla: m ante p o b (campo, tambor, hombre, amplio, cambio). La regla es: m antes de p/b, n antes de otras consonantes (antes, andar, angulo). No confundir con prefijos que empiezan por en- (envase, enfriar): la n se mantiene porque la siguiente letra no es p/b.",
+     "regla": "m ante p/b (campo, tambor). n ante otras consonantes",
+     "ejemplo_correcto": "Campo, tambor, hombre, amplio.",
+     "ejemplo_incorrecto": "Canpo, tanbor, honbre, anplio."},
+    {"numero": 97, "bloque": "G", "nivel": "intermedio",
+     "titulo": "Acentuacion: agudas, llanas, esdrujulas",
+     "teoria": "Las palabras se clasifican segun la silaba tonica: agudas (ultima), llanas (penultima), esdrujulas (antepenultima) y sobresdrujulas (antes de la antepenultima).",
+     "explicacion": "Agudas: tilde si terminan en vocal, -n o -s (cafe, cancion, compas). Llanas: tilde si NO terminan en vocal, -n o -s (arbol, lapiz, crisis). Esdrujulas y sobresdrujulas: tilde siempre (musica, telefono). Ejemplos: cafe (aguda con tilde), arbol (llana sin tilde por terminar en -l), musica (esdrujula siempre con tilde).",
+     "regla": "Aguda: -vocal/-n/-s. Llana: no -vocal/-n/-s. Esdrujula: siempre",
+     "ejemplo_correcto": "Cafe (aguda), arbol (llana), musica (esdrujula).",
+     "ejemplo_incorrecto": "Cafe sin tilde, arbol con tilde, musica sin tilde."},
+    {"numero": 98, "bloque": "G", "nivel": "avanzado",
+     "titulo": "Acento diacritico (el/el, si/si)",
+     "teoria": "El acento diacritico distingue palabras que se escriben igual pero tienen distinta funcion gramatical.",
+     "explicacion": "Ejemplos: el (articulo) vs el (pronombre); si (condicional) vs si (afirmacion); tu (posesivo) vs tu (pronombre); mi (posesivo) vs mi (pronombre); mas (adverbio) vs mas (conjuncion = pero); aun (todavia) vs aun (incluso). RAE 2010: solo y demostrativos SIN tilde (antes se recomendaba).",
+     "regla": "Diacritico: el/el, si/si, tu/tu, mi/mi, mas/mas, aun/aun",
+     "ejemplo_correcto": "El libro (articulo) / El lo hizo (pronombre). Si vienes (condicional) / Si, quiero (afirmacion).",
+     "ejemplo_incorrecto": "El libro (sin tilde, ok). Si quiero (sin tilde: es afirmacion, deberia ser Si con tilde)."},
+    {"numero": 99, "bloque": "G", "nivel": "avanzado",
+     "titulo": "Diptongos, triptongos, hiatos",
+     "teoria": "Un diptongo es la union de dos vocales en una silaba. Un triptongo, tres. Un hiato es la separacion de dos vocales en silabas distintas.",
+     "explicacion": "Diptongo: vocal abierta + cerrada (ai-re), cerrada + abierta (tie-rra), cerrada + cerrada (ciu-dad). Triptongo: cerrada + abierta + cerrada (a-ve-ri-guais). Hiato: dos abiertas (a-e-re-o), abierta + cerrada tonica (pa-is), cerrada tonica + abierta (ba-hi-a). La h intercalada no impide el hiato (a-hi).",
+     "regla": "Diptongo: 1 silaba. Hiato: 2 silabas. Triptongo: 3 vocales",
+     "ejemplo_correcto": "Aire (diptongo), pais (hiato), averiguais (triptongo).",
+     "ejemplo_incorrecto": "A-i-re (no es diptongo)."},
+    {"numero": 100, "bloque": "G", "nivel": "avanzado",
+     "titulo": "Reglas de puntuacion RAE 2010",
+     "teoria": "La RAE 2010 fijo el sistema de puntuacion del espanol: punto, coma, punto y coma, dos puntos, comillas, parentesis, rayas, signos de interrogacion y exclamacion.",
+     "explicacion": "Signos de apertura y cierre: los de interrogacion y exclamacion son exclusivos del espanol. Comillas: angulares (preferidas), inglesas y simples. Raya: dialogo y aclaraciones. Parentesis: incisos. Punto: fin de oracion. Coma: enumeracion, vocativo, inciso. Dos puntos: cita, consecuencia. Punto y coma: separa miembros con comas internas. Puntos suspensivos: enumeracion abierta.",
+     "regla": "Puntuacion RAE 2010: interrogacion, exclamacion, comillas angulares",
+     "ejemplo_correcto": "Dijo: Vendre manana. Vienes? Claro!",
+     "ejemplo_incorrecto": "Comillas inglesas: aceptables pero no preferidas por la RAE."},
+]
+TECNICAS.extend(TECNICAS_G2)
+
+# ===== G2: ejercicios 96-100 =====
+EJERCICIOS_96_100 = {
+    96: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id":"a","texto":"Campo","correcta":True,"razon":"m antes de p: campo."},
+            {"id":"b","texto":"Canpo","correcta":False,"razon":"n incorrecta ante p."},
+            {"id":"c","texto":"Cammpo","correcta":False,"razon":"Doble m incorrecta."}],
+        "justificacion_obligatoria": True, "regla": "m ante p/b"}}],
+    97: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada palabra: aguda (A), llana (L), esdrujula (E)",
+        "oraciones": [
+            {"texto":"cafe","categoria_correcta":"aguda"},
+            {"texto":"arbol","categoria_correcta":"llana"},
+            {"texto":"musica","categoria_correcta":"esdrujula"},
+            {"texto":"cancion","categoria_correcta":"aguda"}],
+        "categorias": ["aguda","llana","esdrujula"]}}],
+    98: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Si, quiero', que funcion tiene 'Si' con tilde?",
+        "opciones": [
+            {"id":"a","texto":"Afirmacion","correcta":True,"razon":"Si con tilde = afirmacion."},
+            {"id":"b","texto":"Condicional","correcta":False,"razon":"Seria Si sin tilde: si vienes..."},
+            {"id":"c","texto":"Interrogativo","correcta":False,"razon":"No es pregunta."}],
+        "justificacion_obligatoria": True, "regla": "Si = afirmacion"}}],
+    99: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'pais', cuantas silabas hay?",
+        "opciones": [
+            {"id":"a","texto":"1 (diptongo)","correcta":False,"razon":"pais es hiato: pa-is."},
+            {"id":"b","texto":"2 (hiato)","correcta":True,"razon":"Vocal abierta + cerrada tonica: hiato."},
+            {"id":"c","texto":"3 (triptongo)","correcta":False,"razon":"Solo hay 2 vocales."}],
+        "justificacion_obligatoria": True, "regla": "Abierta + cerrada tonica = hiato"}}],
+    100: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que comillas prefiere la RAE 2010?",
+        "opciones": [
+            {"id":"a","texto":"Angulares","correcta":True,"razon":"Angulares son las preferidas en espanol."},
+            {"id":"b","texto":"Inglesas dobles","correcta":False,"razon":"Aceptables, pero no preferidas."},
+            {"id":"c","texto":"Simples","correcta":False,"razon":"Para citas dentro de citas."}],
+        "justificacion_obligatoria": True, "regla": "RAE 2010: angulares"}}],
+}
+EJERCICIOS.update(EJERCICIOS_96_100)
+
