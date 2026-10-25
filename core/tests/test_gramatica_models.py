@@ -74,4 +74,5 @@ class TestSeedIdempotente(TestCase):
         seed()
         self.assertEqual(TecnicaGramatical.objects.count(), n1)
         self.assertEqual(EjercicioGramatical.objects.count(), e1)
-        self.assertEqual(n1, 15)
+        # Dinamico: no hardcodear total
+        self.assertEqual(n1, len(TECNICAS))
