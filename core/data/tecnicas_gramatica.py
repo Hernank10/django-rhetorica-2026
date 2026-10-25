@@ -1128,3 +1128,163 @@ EJERCICIOS_66_70 = {
 }
 EJERCICIOS.update(EJERCICIOS_66_70)
 
+# ═══ E3: tecnicas 71-75 (modos y aspecto del verbo) ═══
+TECNICAS_E3 = [
+    {"numero": 71, "bloque": "E", "nivel": "basico",
+     "titulo": "Modo indicativo",
+     "teoria": "El modo indicativo expresa acciones reales, objetivas, seguras. Es el modo de la realidad.",
+     "explicacion": "Tiempos: presente, preterito (simple, imperfecto, compuesto, pluscuamperfecto), futuro, condicional. Ej: 'viene, vino, venia, ha venido, habia venido, vendra, vendria'. Se usa para hechos ciertos o probables.",
+     "regla": "Indicativo: realidad, hechos ciertos o probables",
+     "ejemplo_correcto": "Juan viene manana. Es seguro que viene.",
+     "ejemplo_incorrecto": "Es seguro que venga. (certeza pide indicativo)"},
+    {"numero": 72, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Modo subjuntivo",
+     "teoria": "El modo subjuntivo expresa acciones hipoteticas, deseos, dudas, emociones o mandatos negativos.",
+     "explicacion": "Tiempos: presente (venga), imperfecto (viniera/viniese), perfecto (haya venido), pluscuamperfecto (hubiera venido). Usos: deseo (ojala venga), duda (dudo que venga), emocion (me alegra que venga), posibilidad (es posible que venga).",
+     "regla": "Subjuntivo: deseo, duda, emocion, hipotesis",
+     "ejemplo_correcto": "Ojala venga. Dudo que venga. Me alegra que venga.",
+     "ejemplo_incorrecto": "Ojala viene. (deseo pide subjuntivo)"},
+    {"numero": 73, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Modo imperativo",
+     "teoria": "El modo imperativo expresa ordenes, mandatos, ruegos o consejos. Solo tiene formas propias en 2a persona (tu, vosotros). Las demas personas usan subjuntivo.",
+     "explicacion": "2a sing: canta (tu), come, vive. 2a plural: cantad, comed, vivid. Negativo: no cantes (subjuntivo). Las demas personas: cante usted, cantemos nosotros, canten ustedes. El imperativo no tiene 1a singular (yo).",
+     "regla": "Imperativo: ordenes. Propias solo tu/vosotros",
+     "ejemplo_correcto": "Canta! No cantes! Cante usted!",
+     "ejemplo_incorrecto": "Yo canta! (el imperativo no tiene 1a singular)"},
+    {"numero": 74, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Aspecto perfectivo vs imperfectivo",
+     "teoria": "El aspecto marca si la accion esta terminada (perfectivo) o en desarrollo / habitual (imperfectivo).",
+     "explicacion": "Perfectivos: preterito simple (cante), preterito perfecto compuesto (he cantado), pluscuamperfecto (habia cantado). Imperfectivos: presente (canto), imperfecto (cantaba), futuro (cantare), condicional (cantaria). 'Cante' (termine) vs 'cantaba' (habitual o en desarrollo).",
+     "regla": "Perfectivo: terminado. Imperfectivo: en desarrollo/habitual",
+     "ejemplo_correcto": "Ayer cante (perfectivo) vs cuando era nino cantaba (imperfectivo).",
+     "ejemplo_incorrecto": "Ayer cantaba (sugiere habitual, no puntual)"},
+    {"numero": 75, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Voz activa vs voz pasiva",
+     "teoria": "En la voz activa el sujeto realiza la accion. En la pasiva el sujeto la recibe.",
+     "explicacion": "Activa: 'El arquitecto construyo la casa'. Pasiva perifrastica: 'La casa fue construida por el arquitecto' (ser + participio + por). Pasiva refleja: 'Se construyo la casa' (se + verbo). La pasiva es menos frecuente en espanol que en ingles.",
+     "regla": "Activa: sujeto hace. Pasiva: sujeto recibe (ser+part+por / se+verbo)",
+     "ejemplo_correcto": "El arquitecto construyo la casa (activa). La casa fue construida por el arquitecto (pasiva).",
+     "ejemplo_incorrecto": "La casa construyo el arquitecto. (sujeto/objeto invertidos)"},
+]
+TECNICAS.extend(TECNICAS_E3)
+
+# ═══ E3: ejercicios 71-75 ═══
+EJERCICIOS_71_75 = {
+    71: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que modo expresa 'Juan viene manana'?",
+        "opciones": [
+            {"id":"a","texto":"Indicativo","correcta":True,"razon":"Hecho real o probable."},
+            {"id":"b","texto":"Subjuntivo","correcta":False,"razon":"No es deseo ni duda."},
+            {"id":"c","texto":"Imperativo","correcta":False,"razon":"No es orden."}],
+        "justificacion_obligatoria": True, "regla": "Indicativo: realidad"}}],
+    72: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que modo pide 'Ojala ___'?",
+        "opciones": [
+            {"id":"a","texto":"Indicativo (viene)","correcta":False,"razon":"El deseo pide subjuntivo."},
+            {"id":"b","texto":"Subjuntivo (venga)","correcta":True,"razon":"'Ojala' + subjuntivo expresa deseo."},
+            {"id":"c","texto":"Imperativo (ven)","correcta":False,"razon":"No es orden."}],
+        "justificacion_obligatoria": True, "regla": "Deseo = subjuntivo"}}],
+    73: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que forma del imperativo es correcta (negativa, tu)?",
+        "opciones": [
+            {"id":"a","texto":"No canta","correcta":False,"razon":"El negativo pide subjuntivo."},
+            {"id":"b","texto":"No cantes","correcta":True,"razon":"Negativo: no + subjuntivo."},
+            {"id":"c","texto":"No cantar","correcta":False,"razon":"No es imperativo."}],
+        "justificacion_obligatoria": True, "regla": "Imperativo negativo: subjuntivo"}}],
+    74: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Cantaba todos los dias', que aspecto tiene 'cantaba'?",
+        "opciones": [
+            {"id":"a","texto":"Perfectivo","correcta":False,"razon":"Accion terminada seria 'cante'."},
+            {"id":"b","texto":"Imperfectivo","correcta":True,"razon":"Habitual o en desarrollo: imperfecto."},
+            {"id":"c","texto":"Futuro","correcta":False,"razon":"Es pasado."}],
+        "justificacion_obligatoria": True, "regla": "Imperfecto: imperfectivo"}}],
+    75: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'La casa fue construida por el arquitecto', que voz es?",
+        "opciones": [
+            {"id":"a","texto":"Activa","correcta":False,"razon":"El sujeto recibe la accion."},
+            {"id":"b","texto":"Pasiva perifrastica","correcta":True,"razon":"Ser + participio + por."},
+            {"id":"c","texto":"Pasiva refleja","correcta":False,"razon":"Seria con 'se': 'se construyo'."}],
+        "justificacion_obligatoria": True, "regla": "Pasiva: ser + participio + por"}}],
+}
+EJERCICIOS.update(EJERCICIOS_71_75)
+
+# ═══ E4: tecnicas 76-80 (tipos de verbo) ═══
+TECNICAS_E4 = [
+    {"numero": 76, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Verbos copulativos (ser, estar, parecer)",
+     "teoria": "Los copulativos no tienen significado pleno: sirven de enlace entre sujeto y atributo. Son ser, estar y parecer.",
+     "explicacion": "Ser: cualidad esencial (Juan es alto). Estar: estado (Juan esta cansado). Parecer: apariencia (Juan parece cansado). El atributo concuerda con el sujeto. No confundir con predicativos: 'Juan corre rapido' (verbo pleno + predicativo).",
+     "regla": "Copulativos: ser, estar, parecer + atributo",
+     "ejemplo_correcto": "Juan es alto (cualidad). Juan esta cansado (estado).",
+     "ejemplo_incorrecto": "Juan corre alto. (correr no es copulativo)"},
+    {"numero": 77, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Verbos transitivos vs intransitivos",
+     "teoria": "Los transitivos necesitan complemento directo. Los intransitivos no lo necesitan.",
+     "explicacion": "Transitivos: 'compro un libro' (que compro?), 'veo la casa', 'amo a Maria'. Intransitivos: 'nace', 'muere', 'llega', 'duerme' (no piden CD). Algunos son ambos: 'corre' (intr.) / 'corre la maraton' (tr.) - 'correr' con CD es transitivo.",
+     "regla": "Transitivo: + CD. Intransitivo: sin CD",
+     "ejemplo_correcto": "Compro un libro (transitivo). Nace un nino (intransitivo).",
+     "ejemplo_incorrecto": "Compro. (falta el CD, salvo uso absoluto)"},
+    {"numero": 78, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Verbos pronominales",
+     "teoria": "Los pronominales se conjugan con un pronombre reflexivo (me, te, se, nos, os, se) que forma parte del verbo.",
+     "explicacion": "Ejemplos: arrepentirse, quejarse, acordarse, olvidarse, levantarse, sentarse, irse. El pronombre varia con la persona: me arrepiento, te arrepientes, se arrepiente. Sin el pronombre cambian de significado o son agramaticales. 'Ir' vs 'irse' (marcharse).",
+     "regla": "Pronominal: verbo + pron. reflexivo (obligatorio)",
+     "ejemplo_correcto": "Me arrepiento, te arrepientes, se arrepiente.",
+     "ejemplo_incorrecto": "Arrepiento (falta el pronombre me)"},
+    {"numero": 79, "bloque": "E", "nivel": "avanzado",
+     "titulo": "Perifrasis verbales (ir a + inf, estar + ger)",
+     "teoria": "La perifrasis verbal es la union de un verbo auxiliar + una forma no personal + a veces un nexo. Expresa matices de modo o aspecto.",
+     "explicacion": "Tipos aspectuales: ingresiva (ir a + inf: voy a cantar), progresiva (estar + ger: estoy cantando), terminativa (acabar de + inf: acabo de llegar). Modales: obligacion (tener que + inf, deber + inf), posibilidad (poder + inf).",
+     "regla": "Perifrasis: aux + (nexo) + forma no personal",
+     "ejemplo_correcto": "Voy a cantar. Estoy cantando. Tengo que ir.",
+     "ejemplo_incorrecto": "Voy cantar. (falta 'a' en la perifrasis)"},
+    {"numero": 80, "bloque": "E", "nivel": "intermedio",
+     "titulo": "Irregulares frecuentes: ser, estar, ir, haber, tener",
+     "teoria": "Algunos verbos irregulares son muy frecuentes y conviene memorizar sus formas basicas.",
+     "explicacion": "Ser: soy, eres, es, somos, sois, son; fui, era. Estar: estoy, estas, esta; estuve, estaba. Ir: voy, vas, va; fui, iba. Haber: he, has, ha; hube, habia. Tener: tengo, tienes, tiene; tuve, tenia. Presentan cambio de raiz o supletismo (ir: fui).",
+     "regla": "Irregulares frecuentes: memorizar formas clave",
+     "ejemplo_correcto": "Voy al cine. Tengo hambre. He comido.",
+     "ejemplo_incorrecto": "Vo al cine. (irregular: voy)"},
+]
+TECNICAS.extend(TECNICAS_E4)
+
+# ═══ E4: ejercicios 76-80 ═══
+EJERCICIOS_76_80 = {
+    76: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan esta cansado', que tipo de verbo es 'esta'?",
+        "opciones": [
+            {"id":"a","texto":"Copulativo","correcta":True,"razon":"Ser/estar/parecer son copulativos; el atributo es 'cansado'."},
+            {"id":"b","texto":"Transitivo","correcta":False,"razon":"No pide CD."},
+            {"id":"c","texto":"Pronominal","correcta":False,"razon":"No lleva pronombre reflexivo."}],
+        "justificacion_obligatoria": True, "regla": "Copulativo: ser/estar/parecer"}}],
+    77: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de verbo es 'compro' en 'Compro un libro'?",
+        "opciones": [
+            {"id":"a","texto":"Transitivo","correcta":True,"razon":"Pide CD: 'un libro'."},
+            {"id":"b","texto":"Intransitivo","correcta":False,"razon":"Necesita CD."},
+            {"id":"c","texto":"Copulativo","correcta":False,"razon":"No es copulativo."}],
+        "justificacion_obligatoria": True, "regla": "Transitivo: + CD"}}],
+    78: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta del verbo 'arrepentirse' en 1a singular?",
+        "opciones": [
+            {"id":"a","texto":"Arrepiento","correcta":False,"razon":"Falta el pronombre 'me'."},
+            {"id":"b","texto":"Me arrepiento","correcta":True,"razon":"Pronominal: me + arrepiento."},
+            {"id":"c","texto":"Arrepentirse","correcta":False,"razon":"Es el infinitivo."}],
+        "justificacion_obligatoria": True, "regla": "Pronominal: pron. + verbo"}}],
+    79: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de perifrasis es 'voy a cantar'?",
+        "opciones": [
+            {"id":"a","texto":"Aspectual ingresiva","correcta":True,"razon":"Ir a + inf marca inicio de accion."},
+            {"id":"b","texto":"Modal de obligacion","correcta":False,"razon":"No expresa obligacion."},
+            {"id":"c","texto":"Dos verbos independientes","correcta":False,"razon":"Es una unidad perifrastica."}],
+        "justificacion_obligatoria": True, "regla": "Ir a + inf = ingresiva"}}],
+    80: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta del verbo 'ir' en 1a singular presente?",
+        "opciones": [
+            {"id":"a","texto":"Vo","correcta":False,"razon":"'Ir' es irregular: voy."},
+            {"id":"b","texto":"Voy","correcta":True,"razon":"Irregular frecuente: voy."},
+            {"id":"c","texto":"Ibo","correcta":False,"razon":"No existe."}],
+        "justificacion_obligatoria": True, "regla": "Ir: voy"}}],
+}
+EJERCICIOS.update(EJERCICIOS_76_80)
+
