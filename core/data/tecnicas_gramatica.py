@@ -314,3 +314,88 @@ EJERCICIOS_16_20 = {
 }
 EJERCICIOS.update(EJERCICIOS_16_20)
 
+# ═══ B1b: tecnicas 21-25 (clases de palabras parte 2) ═══
+TECNICAS_B1B = [
+    {"numero": 21, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Pronombre: definicion y tipos",
+     "teoria": "El pronombre sustituye al sustantivo o al sintagma nominal sin nombrarlo. Tiene significado ocasional: solo se entiende por el contexto.",
+     "explicacion": "Tipos: personales (yo, tu, el, nosotros), demostrativos (este, ese, aquel), posesivos (mio, tuyo, suyo), relativos (que, quien, cual, cuyo), interrogativos (que, quien, cual, cuanto), indefinidos (alguien, nadie, algo, nada, todos).",
+     "regla": "Pronombre = sustituye al sustantivo (significado ocasional)",
+     "ejemplo_correcto": "Juan vino; el se sento. (el pronombre sustituye a Juan)",
+     "ejemplo_incorrecto": "Juan vino; Juan se sento. (repite, no usa pronombre)"},
+    {"numero": 22, "bloque": "B", "nivel": "basico",
+     "titulo": "Verbo: definicion",
+     "teoria": "El verbo es la palabra que expresa accion, proceso o estado. Es el nucleo del predicado y varia en persona, numero, tiempo, modo y aspecto.",
+     "explicacion": "Los verbos se conjugan (excepto infinitivos, gerundios y participios que son formas no personales). En espanol hay 3 conjugaciones: -ar (amar), -er (temer), -ir (partir).",
+     "regla": "Verbo = accion/proceso/estado. Nucleo del predicado",
+     "ejemplo_correcto": "'Corre' expresa accion. 'Es' expresa estado.",
+     "ejemplo_incorrecto": "'Corre' es un sustantivo."},
+    {"numero": 23, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Adverbio: definicion y tipos",
+     "teoria": "El adverbio modifica al verbo, al adjetivo u otro adverbio. Es invariable: no tiene genero ni numero.",
+     "explicacion": "Tipos: lugar (aqui, alla, cerca), tiempo (hoy, ayer, siempre), modo (bien, mal, rapidamente, asi), cantidad (mucho, poco, muy), duda (quizas, acaso), afirmacion (si, ciertamente), negacion (no, nunca, jamas).",
+     "regla": "Adverbio = modifica verbo/adjetivo/adverbio. Invariable",
+     "ejemplo_correcto": "Corre rapidamente. (rapidamente modifica a corre)",
+     "ejemplo_incorrecto": "Corre rapidos. (concordancia incorrecta: el adverbio no varia)"},
+    {"numero": 24, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Preposicion: lista cerrada",
+     "teoria": "La preposicion une palabras y establece relaciones de dependencia. Es una clase cerrada: hay 23 en espanol (RAE 2009).",
+     "explicacion": "Las 23: a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, segun, sin, sobre, tras, versus, via. 'Cabe' y 'so' son arcaicas. Algunas son locuciones: 'a pesar de', 'en virtud de'.",
+     "regla": "23 preposiciones en espanol (RAE 2009)",
+     "ejemplo_correcto": "Voy a casa con Juan por el parque.",
+     "ejemplo_incorrecto": "Voy casa Juan el parque. (sin preposiciones)"},
+    {"numero": 25, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Conjuncion: tipos",
+     "teoria": "La conjuncion une palabras, sintagmas u oraciones. Es invariable y no tiene significado pleno.",
+     "explicacion": "Tipos: coordinantes (y, e, ni, o, u, pero, sino, mas) y subordinantes (que, si, porque, aunque, cuando, mientras, para que). Las locuciones conjuntivas: 'sin embargo', 'a pesar de que', 'ya que'.",
+     "regla": "Conjuncion = une palabras/oraciones (coord. o subord.)",
+     "ejemplo_correcto": "Juan y Maria vienen porque quieren.",
+     "ejemplo_incorrecto": "Juan y Maria vienen ya que porque quieren. (doble conjuncion)"},
+]
+TECNICAS.extend(TECNICAS_B1B)
+
+# ═══ B1b: ejercicios 21-25 ═══
+EJERCICIOS_21_25 = {
+    21: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Maria vino y ella trajo el pastel', que es 'ella'?",
+        "opciones": [
+            {"id":"a","texto":"Sustantivo","correcta":False,"razon":"Ella no nombra, sustituye."},
+            {"id":"b","texto":"Pronombre personal","correcta":True,"razon":"Ella sustituye a Maria: pronombre personal femenino."},
+            {"id":"c","texto":"Articulo","correcta":False,"razon":"El articulo acompana al sustantivo, no lo sustituye."},
+            {"id":"d","texto":"Adjetivo","correcta":False,"razon":"El adjetivo expresa cualidad."}],
+        "justificacion_obligatoria": True, "regla": "Pronombre = sustituye al sustantivo"}}],
+    22: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual de estas palabras es un verbo?",
+        "opciones": [
+            {"id":"a","texto":"casa","correcta":False,"razon":"Casa es sustantivo."},
+            {"id":"b","texto":"corre","correcta":True,"razon":"Corre es forma del verbo correr."},
+            {"id":"c","texto":"rapido","correcta":False,"razon":"Rapido es adjetivo o adverbio."},
+            {"id":"d","texto":"muy","correcta":False,"razon":"Muy es adverbio."}],
+        "justificacion_obligatoria": True, "regla": "Verbo = accion/estado"}}],
+    23: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Habla muy claro', que clase de palabra es 'muy'?",
+        "opciones": [
+            {"id":"a","texto":"Adjetivo","correcta":False,"razon":"Muy no expresa cualidad del sustantivo."},
+            {"id":"b","texto":"Adverbio de cantidad","correcta":True,"razon":"Muy modifica al adverbio 'claro', es adverbio de cantidad."},
+            {"id":"c","texto":"Determinante","correcta":False,"razon":"No acompana al sustantivo."},
+            {"id":"d","texto":"Preposicion","correcta":False,"razon":"No une palabras."}],
+        "justificacion_obligatoria": True, "regla": "Adverbio = modifica verbo/adj/adv"}}],
+    24: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada palabra: preposicion (P) o conjuncion (C)",
+        "oraciones": [
+            {"texto":"con","categoria_correcta":"preposicion"},
+            {"texto":"pero","categoria_correcta":"conjuncion"},
+            {"texto":"para","categoria_correcta":"preposicion"},
+            {"texto":"porque","categoria_correcta":"conjuncion"}],
+        "categorias": ["preposicion","conjuncion"]}}],
+    25: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'No vino sino que llamo', que tipo de conjuncion es 'sino'?",
+        "opciones": [
+            {"id":"a","texto":"Copulativa","correcta":False,"razon":"Copulativas son y, e, ni (suman)."},
+            {"id":"b","texto":"Adversativa","correcta":True,"razon":"Sino opone una idea afirmativa a una negacion previa."},
+            {"id":"c","texto":"Disyuntiva","correcta":False,"razon":"Disyuntivas son o, u (alternan)."},
+            {"id":"d","texto":"Subordinante","correcta":False,"razon":"Sino coordina, no subordina."}],
+        "justificacion_obligatoria": True, "regla": "Sino = adversativa (tras negacion)"}}],
+}
+EJERCICIOS.update(EJERCICIOS_21_25)
+
