@@ -5,13 +5,13 @@ from django.db import models
 
 class TecnicaGramatical(models.Model):
     BLOQUES = [
-        ("A", "Historia de la gramatica castellana"),
+        ("A", "Historia de la gramática castellana"),
         ("B", "Clases de palabras"),
         ("C", "El sustantivo"),
         ("D", "El adjetivo"),
         ("E", "El verbo"),
         ("F", "Pronombres y determinantes"),
-        ("G", "Reglas ortograficas actuales (RAE 2010)"),
+        ("G", "Reglas ortográficas actuales (RAE 2010)"),
     ]
     NIVELES = [
         ("basico", "Basico"),

@@ -93,10 +93,10 @@ USE_I18N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ("es", _("Espanol")),
+    ("es", _("Español")),
     ("en", _("English")),
-    ("pt", _("Portugues")),
-    ("fr", _("Francais")),
+    ("pt", _("Portugués")),
+    ("fr", _("Francés")),
     ("de", _("Deutsch")),
     ("it", _("Italiano")),
     ("ca", _("Catala")),

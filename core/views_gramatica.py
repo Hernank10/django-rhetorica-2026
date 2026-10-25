@@ -10,13 +10,13 @@ from core.services import gramatica as engine
 
 
 BLOQUES_INFO = {
-    "A": "Historia de la gramatica castellana",
+    "A": "Historia de la gramática castellana",
     "B": "Clases de palabras",
     "C": "El sustantivo",
     "D": "El adjetivo",
     "E": "El verbo",
     "F": "Pronombres y determinantes",
-    "G": "Reglas ortograficas (RAE 2010)",
+    "G": "Reglas ortográficas (RAE 2010)",
 }
 
 
@@ -35,7 +35,7 @@ def indice(request):
         if items:
             dominadas = sum(1 for i in items if i["estado"] == "dominada")
             bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
-    resumen = engine.resumen_progreso(request.user)
+    resumen = engine.resumen_progreso(request.user, modulo="gramatica")
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen})
 
 
@@ -57,7 +57,7 @@ def indice_generativa(request):
         if items:
             dominadas = sum(1 for i in items if i["estado"] == "dominada")
             bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
-    resumen = engine.resumen_progreso(request.user)
+    resumen = engine.resumen_progreso(request.user, modulo="generativa")
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_generativa": True})
 
 
@@ -72,6 +72,7 @@ def tecnica(request, numero):
         "tecnica": t, "ejercicios": ejercicios, "progreso": progreso,
         "anterior": anterior, "siguiente": siguiente,
         "bloque_nombre": BLOQUES_INFO.get(t.bloque, ""),
+        "es_generativa": t.modulo == "generativa",
     })
 
 
@@ -97,18 +98,24 @@ def evaluar_ajax(request):
 
 
 @login_required
-def progreso(request):
-    resumen = engine.resumen_progreso(request.user)
-    proximas = list(engine.proximas_revisiones(request.user, n=10))
-    dominadas = ProgresoGramatical.objects.filter(usuario=request.user, estado="dominada").select_related("tecnica").order_by("tecnica__numero")
-    en_progreso = ProgresoGramatical.objects.filter(usuario=request.user, estado="en_progreso").select_related("tecnica").order_by("tecnica__numero")
+def progreso(request, modulo="gramatica"):
+    resumen = engine.resumen_progreso(request.user, modulo=modulo)
+    proximas = list(engine.proximas_revisiones(request.user, n=10, modulo=modulo))
+    dominadas = ProgresoGramatical.objects.filter(
+        usuario=request.user, estado="dominada", tecnica__modulo=modulo
+    ).select_related("tecnica").order_by("tecnica__numero")
+    en_progreso = ProgresoGramatical.objects.filter(
+        usuario=request.user, estado="en_progreso", tecnica__modulo=modulo
+    ).select_related("tecnica").order_by("tecnica__numero")
     return render(request, "core/gramatica/progreso.html", {
         "resumen": resumen, "proximas": proximas,
         "dominadas": dominadas, "en_progreso": en_progreso,
+        "modulo": modulo,
     })
 
 
 @login_required
 def contador_ajax(request):
-    r = engine.resumen_progreso(request.user)
+    modulo = request.GET.get("modulo") or None
+    r = engine.resumen_progreso(request.user, modulo=modulo)
     return JsonResponse({"dominadas": r["dominadas"], "total": r["total"]})
