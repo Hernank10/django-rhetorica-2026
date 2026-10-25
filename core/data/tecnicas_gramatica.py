@@ -563,3 +563,247 @@ EJERCICIOS_31_35 = {
 }
 EJERCICIOS.update(EJERCICIOS_31_35)
 
+# ═══ C1: tecnicas 36-40 (genero y numero del sustantivo) ═══
+TECNICAS_C1 = [
+    {"numero": 36, "bloque": "C", "nivel": "basico",
+     "titulo": "Genero masculino/femenino",
+     "teoria": "Todo sustantivo tiene genero gramatical: masculino (el) o femenino (la). No siempre coincide con el sexo.",
+     "explicacion": "Reglas generales: -o/-aje/-or suelen ser masculinos (libro, viaje, amor). -a/-cion/-dad/-tad/-umbre suelen ser femeninos (casa, cancion, ciudad, virtud, costumbre). Excepciones: 'dia', 'mapa', 'planeta' son masculinos; 'mano', 'foto' son femeninos.",
+     "regla": "Masculino: -o/-aje/-or. Femenino: -a/-cion/-dad/-tad/-umbre",
+     "ejemplo_correcto": "El problema, la solucion, el viaje, la ciudad.",
+     "ejemplo_incorrecto": "La problema, el solucion, la viaje, el ciudad."},
+    {"numero": 37, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Genero ambiguo (el/la)",
+     "teoria": "Algunos sustantivos admiten los dos generos con el mismo significado o con significados distintos.",
+     "explicacion": "Mismo significado: el/la mar, el/la azucar, el/la arte (plural: las artes). Significado distinto: el cometa (astro) / la cometa (juguete); el capital (dinero) / la capital (ciudad); el cura (sacerdote) / la cura (tratamiento).",
+     "regla": "Ambiguos: mismo significado (mar) o distinto (capital)",
+     "ejemplo_correcto": "El capital (dinero) / la capital (ciudad).",
+     "ejemplo_incorrecto": "La capital (dinero) / el capital (ciudad)."},
+    {"numero": 38, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Genero epiceno",
+     "teoria": "Sustantivos epicenos designan animales o personas sin distinguir sexo. El genero gramatical es fijo.",
+     "explicacion": "Ejemplos: la persona, la victima, la jirafa, el puma, el personaje. Para distinguir sexo se anade 'macho/hembra' o 'hombre/mujer': 'la victima (hombre)' o 'la victima (mujer)'.",
+     "regla": "Epiceno: genero fijo, sin distinguir sexo",
+     "ejemplo_correcto": "La victima era un hombre. (femenino gramatical, sexo masculino)",
+     "ejemplo_incorrecto": "El victima era un hombre. (cambio de genero incorrecto)"},
+    {"numero": 39, "bloque": "C", "nivel": "basico",
+     "titulo": "Genero y numero",
+     "teoria": "El sustantivo tiene dos accidentes gramaticales: genero (masculino/femenino) y numero (singular/plural).",
+     "explicacion": "El genero es inherente (no cambia), salvo en sustantivos que admiten los dos (el/la mar). El numero varia: singular (una entidad) vs plural (varias). Artículo y adjetivo concuerdan con el sustantivo en ambos.",
+     "regla": "Sustantivo: genero (fijo) + numero (variable)",
+     "ejemplo_correcto": "El nino alto / la nina alta / los ninos altos / las ninas altas.",
+     "ejemplo_incorrecto": "La nino alto (concordancia incorrecta)."},
+    {"numero": 40, "bloque": "C", "nivel": "basico",
+     "titulo": "Plural regular (-s, -es)",
+     "teoria": "El plural regular se forma anadiendo -s o -es segun la terminacion del singular.",
+     "explicacion": "Regla: si termina en vocal atona o -a/-e/-o, se anade -s (casa/casas, libro/libros). Si termina en consonante o vocal tonica (a, e, o tonicas), se anade -es (arbol/arboles, rubi/rubies). Excepcion: palabras terminadas en -s atona no cambian (el/los lunes).",
+     "regla": "Vocal atona: +s. Consonante o vocal tonica: +es",
+     "ejemplo_correcto": "Casa/casas, arbol/arboles, rubi/rubies, lunes/lunes.",
+     "ejemplo_incorrecto": "Arbol/arbols, rubi/rubis."},
+]
+TECNICAS.extend(TECNICAS_C1)
+
+# ═══ C1: ejercicios 36-40 ═══
+EJERCICIOS_36_40 = {
+    36: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada sustantivo por genero:",
+        "oraciones": [
+            {"texto":"problema","categoria_correcta":"masculino"},
+            {"texto":"solucion","categoria_correcta":"femenino"},
+            {"texto":"viaje","categoria_correcta":"masculino"},
+            {"texto":"ciudad","categoria_correcta":"femenino"}],
+        "categorias": ["masculino","femenino"]}}],
+    37: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa 'la capital' vs 'el capital'?",
+        "opciones": [
+            {"id":"a","texto":"Ambos = ciudad","correcta":False,"razon":"'El capital' es dinero."},
+            {"id":"b","texto":"La capital = ciudad; el capital = dinero","correcta":True,"razon":"Genero distingue significado."},
+            {"id":"c","texto":"Ambos = dinero","correcta":False,"razon":"'La capital' es ciudad."}],
+        "justificacion_obligatoria": True, "regla": "Capital: fem=ciudad, masc=dinero"}}],
+    38: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es 'la victima'?",
+        "opciones": [
+            {"id":"a","texto":"Epiceno (genero fijo)","correcta":True,"razon":"Epiceno: femenino gramatical sin distinguir sexo."},
+            {"id":"b","texto":"Ambiguo","correcta":False,"razon":"No admite los dos generos."},
+            {"id":"c","texto":"Comun (el/la victima)","correcta":False,"razon":"'Comun' es otra categoria."}],
+        "justificacion_obligatoria": True, "regla": "Epiceno: genero fijo"}}],
+    39: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que accidentes tiene el sustantivo?",
+        "opciones": [
+            {"id":"a","texto":"Solo numero","correcta":False,"razon":"Tambien tiene genero."},
+            {"id":"b","texto":"Genero y numero","correcta":True,"razon":"Son sus dos accidentes gramaticales."},
+            {"id":"c","texto":"Solo genero","correcta":False,"razon":"Tambien varia en numero."}],
+        "justificacion_obligatoria": True, "regla": "Genero + numero"}}],
+    40: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el plural de 'arbol'?",
+        "opciones": [
+            {"id":"a","texto":"Arbols","correcta":False,"razon":"Termina en consonante: +es."},
+            {"id":"b","texto":"Arboles","correcta":True,"razon":"Consonante final: se anade -es."},
+            {"id":"c","texto":"Arbolos","correcta":False,"razon":"No es la regla."}],
+        "justificacion_obligatoria": True, "regla": "Consonante: +es"}}],
+}
+EJERCICIOS.update(EJERCICIOS_36_40)
+
+# ═══ C2: tecnicas 41-45 (plural irregular + tipos de sustantivo) ═══
+TECNICAS_C2 = [
+    {"numero": 41, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Plural irregular (el/la, -z -> -ces)",
+     "teoria": "Algunos plurales no siguen la regla general y presentan formas irregulares.",
+     "explicacion": "Irregulares frecuentes: -z -> -ces (luz/luces, pez/peces). -s atona no cambia (lunes/lunes). Sustantivos que solo existen en plural: las gafas, las tijeras, los pantalones. Cambio de acento: caracter/caracteres, regimen/regimenes.",
+     "regla": "-z -> -ces. -s atona: sin cambio. Cambio de acento posible",
+     "ejemplo_correcto": "Luz/luces, lunes/lunes, caracter/caracteres.",
+     "ejemplo_incorrecto": "Luz/luzes, lunes/luness, caracter/caracters."},
+    {"numero": 42, "bloque": "C", "nivel": "basico",
+     "titulo": "Sustantivos colectivos",
+     "teoria": "Un sustantivo colectivo designa en singular un conjunto de entidades.",
+     "explicacion": "Ejemplos: equipo (conjunto de jugadores), rebaño (conjunto de ovejas), bosque (conjunto de arboles), enjambre (conjunto de abejas), gentio (conjunto de personas). Concuerdan en singular aunque designen plural: 'el equipo gano'.",
+     "regla": "Colectivo: singular que designa conjunto",
+     "ejemplo_correcto": "El equipo gano el partido.",
+     "ejemplo_incorrecto": "El equipo ganaron el partido."},
+    {"numero": 43, "bloque": "C", "nivel": "basico",
+     "titulo": "Sustantivos propios vs comunes",
+     "teoria": "Los propios designan una entidad unica (Juan, Madrid, Ebro). Los comunes designan clases (hombre, ciudad, rio).",
+     "explicacion": "Los propios se escriben con mayuscula inicial. Pueden llevar articulo (el Madrid de los Austrias) o no (Juan viene). Los comunes llevan articulo normalmente.",
+     "regla": "Propio: entidad unica, mayuscula. Comun: clase, minuscula",
+     "ejemplo_correcto": "Madrid (propio) es una ciudad (comun).",
+     "ejemplo_incorrecto": "madrid es una Ciudad."},
+    {"numero": 44, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Sustantivos abstractos vs concretos",
+     "teoria": "Los concretos designan entidades perceptibles por los sentidos. Los abstractos designan conceptos, ideas o sentimientos.",
+     "explicacion": "Concretos: mesa, arbol, perro, casa. Abstractos: amor, libertad, justicia, belleza, tiempo. Los abstractos no pueden ir con 'muchos/muchas' del mismo modo.",
+     "regla": "Concreto: perceptible. Abstracto: concepto",
+     "ejemplo_correcto": "'Mesa' es concreto; 'amor' es abstracto.",
+     "ejemplo_incorrecto": "'Mesa' es abstracto; 'amor' es concreto."},
+    {"numero": 45, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Sustantivos contables vs no contables",
+     "teoria": "Los contables se pueden contar (un libro, dos libros). Los no contables (o de masa) se miden pero no se cuentan (agua, arena, azucar).",
+     "explicacion": "Contables: libro, mesa, persona. No contables: agua, arena, azucar, harina. Los no contables no admiten plural normal, pero pueden admitir 'mucho/mucha'. Algunos son ambos segun contexto: 'un cafe' (taza) vs 'cafe' (sustancia).",
+     "regla": "Contable: se cuenta. No contable: se mide",
+     "ejemplo_correcto": "Dos libros (contable) / mucha agua (no contable).",
+     "ejemplo_incorrecto": "Dos aguas (incorrecto como masa)."},
+]
+TECNICAS.extend(TECNICAS_C2)
+
+# ═══ C2: ejercicios 41-45 ═══
+EJERCICIOS_41_45 = {
+    41: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el plural de 'luz'?",
+        "opciones": [
+            {"id":"a","texto":"Luzes","correcta":False,"razon":"-z -> -ces."},
+            {"id":"b","texto":"Luces","correcta":True,"razon":"Regla: -z -> -ces."},
+            {"id":"c","texto":"Luzs","correcta":False,"razon":"No es la regla."}],
+        "justificacion_obligatoria": True, "regla": "-z -> -ces"}}],
+    42: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es 'rebaño'?",
+        "opciones": [
+            {"id":"a","texto":"Individual","correcta":False,"razon":"No designa un individuo."},
+            {"id":"b","texto":"Colectivo","correcta":True,"razon":"Designa conjunto de ovejas."},
+            {"id":"c","texto":"Abstracto","correcta":False,"razon":"Es concreto."}],
+        "justificacion_obligatoria": True, "regla": "Colectivo: singular=conjunto"}}],
+    43: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: propio (P) o comun (C)",
+        "oraciones": [
+            {"texto":"Madrid","categoria_correcta":"propio"},
+            {"texto":"ciudad","categoria_correcta":"comun"},
+            {"texto":"Ebro","categoria_correcta":"propio"},
+            {"texto":"rio","categoria_correcta":"comun"}],
+        "categorias": ["propio","comun"]}}],
+    44: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: concreto (C) o abstracto (A)",
+        "oraciones": [
+            {"texto":"mesa","categoria_correcta":"concreto"},
+            {"texto":"amor","categoria_correcta":"abstracto"},
+            {"texto":"perro","categoria_correcta":"concreto"},
+            {"texto":"libertad","categoria_correcta":"abstracto"}],
+        "categorias": ["concreto","abstracto"]}}],
+    45: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de sustantivo es 'agua'?",
+        "opciones": [
+            {"id":"a","texto":"Contable","correcta":False,"razon":"No se cuenta (dos aguas suena raro)."},
+            {"id":"b","texto":"No contable (de masa)","correcta":True,"razon":"Se mide, no se cuenta."},
+            {"id":"c","texto":"Colectivo","correcta":False,"razon":"No designa conjunto."}],
+        "justificacion_obligatoria": True, "regla": "No contable: se mide"}}],
+}
+EJERCICIOS.update(EJERCICIOS_41_45)
+
+# ═══ C3: tecnicas 46-50 (individual/colectivo + sufijos) ═══
+TECNICAS_C3 = [
+    {"numero": 46, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Sustantivos individuales vs colectivos",
+     "teoria": "El individual designa un solo ser (oveja, arbol, estrella). El colectivo designa un conjunto (rebaño, bosque, constelacion).",
+     "explicacion": "Parejas: oveja/rebaño, arbol/bosque, estrella/constelacion, pez/banco, soldado/ejercito, persona/gente. El colectivo no es lo mismo que plural: 'rebaño' es singular pero designa conjunto.",
+     "regla": "Individual: uno. Colectivo: conjunto (aunque sea singular)",
+     "ejemplo_correcto": "Una oveja (individual) / un rebaño (colectivo).",
+     "ejemplo_incorrecto": "Un rebaño es plural."},
+    {"numero": 47, "bloque": "C", "nivel": "basico",
+     "titulo": "Diminutivos (-ito, -illo, -ico)",
+     "teoria": "Los diminutivos expresan tamano pequeno, afecto o cortesia. Los sufijos mas comunes son -ito, -illo, -ico.",
+     "explicacion": "-ito (casita, perrito) es el mas frecuente y afectivo. -illo (florecilla, rincon) es mas neutro o despectivo. -ico (momentico, gatico) es regional (Caribe, Colombia). Tambien -in (jardincito), -uelo (pequenuelo).",
+     "regla": "Diminutivos: -ito, -illo, -ico, -in",
+     "ejemplo_correcto": "Casita, florecilla, momentico.",
+     "ejemplo_incorrecto": "Casota (es aumentativo, no diminutivo)."},
+    {"numero": 48, "bloque": "C", "nivel": "basico",
+     "titulo": "Aumentativos (-on, -azo, -ote)",
+     "teoria": "Los aumentativos expresan tamano grande, intensidad o, a veces, desprecio.",
+     "explicacion": "-on (caseron, mujeron, arbolon): aumentativo grande. -azo (portazo, golazo, exitazo): accion brusca o gran impacto. -ote (grandote, gordote): tamano o desprecio.",
+     "regla": "Aumentativos: -on, -azo, -ote",
+     "ejemplo_correcto": "Caserón, portazo, grandote.",
+     "ejemplo_incorrecto": "Casita (es diminutivo)."},
+    {"numero": 49, "bloque": "C", "nivel": "intermedio",
+     "titulo": "Despectivos (-ucho, -astro, -zuelo)",
+     "teoria": "Los despectivos expresan desprecio, inferioridad o mala calidad.",
+     "explicacion": "-ucho: casucha, periodicucho, medicucho. -astro: poetastro, politicastro, medicastro. -zuelo: ladronzuelo, hombrezuelo. Se aplican sobre todo a personas y oficios con intencion despectiva.",
+     "regla": "Despectivos: -ucho, -astro, -zuelo",
+     "ejemplo_correcto": "Casucha, poetastro, ladronzuelo.",
+     "ejemplo_incorrecto": "Casita (es diminutivo afectivo, no despectivo)."},
+    {"numero": 50, "bloque": "C", "nivel": "avanzado",
+     "titulo": "Derivacion nominal (sufijos)",
+     "teoria": "La derivacion nominal forma sustantivos a partir de verbos o adjetivos mediante sufijos.",
+     "explicacion": "Sufijos nominalizadores: -cion (cantar -> cancion), -miento (sentir -> sentimiento), -dor (trabajar -> trabajador), -encia (existir -> existencia), -idad (feliz -> felicidad), -ez (noble -> nobleza), -ismo (social -> socialismo).",
+     "regla": "Derivacion nominal: -cion, -miento, -dor, -encia, -idad, -ez, -ismo",
+     "ejemplo_correcto": "Cantar -> cancion (sufijo -cion).",
+     "ejemplo_incorrecto": "Cantar -> cantar (no se deriva, sigue siendo verbo)."},
+]
+TECNICAS.extend(TECNICAS_C3)
+
+# ═══ C3: ejercicios 46-50 ═══
+EJERCICIOS_46_50 = {
+    46: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: individual (I) o colectivo (C)",
+        "oraciones": [
+            {"texto":"oveja","categoria_correcta":"individual"},
+            {"texto":"rebaño","categoria_correcta":"colectivo"},
+            {"texto":"arbol","categoria_correcta":"individual"},
+            {"texto":"bosque","categoria_correcta":"colectivo"}],
+        "categorias": ["individual","colectivo"]}}],
+    47: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'casita'?",
+        "opciones": [
+            {"id":"a","texto":"Aumentativo","correcta":False,"razon":"-ita es diminutivo."},
+            {"id":"b","texto":"Diminutivo","correcta":True,"razon":"-ita expresa tamano pequeno o afecto."},
+            {"id":"c","texto":"Despectivo","correcta":False,"razon":"-ita es afectivo."}],
+        "justificacion_obligatoria": True, "regla": "Diminutivo: -ito"}}],
+    48: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'portazo'?",
+        "opciones": [
+            {"id":"a","texto":"Aumentativo de accion brusca","correcta":True,"razon":"-azo marca accion brusca o gran impacto."},
+            {"id":"b","texto":"Diminutivo","correcta":False,"razon":"-azo es aumentativo."},
+            {"id":"c","texto":"Despectivo","correcta":False,"razon":"No es despectivo."}],
+        "justificacion_obligatoria": True, "regla": "Aumentativo: -azo"}}],
+    49: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'poetastro'?",
+        "opciones": [
+            {"id":"a","texto":"Diminutivo afectivo","correcta":False,"razon":"-astro es despectivo."},
+            {"id":"b","texto":"Despectivo","correcta":True,"razon":"-astro indica desprecio."},
+            {"id":"c","texto":"Aumentativo","correcta":False,"razon":"No expresa tamano grande."}],
+        "justificacion_obligatoria": True, "regla": "Despectivo: -astro"}}],
+    50: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el sustantivo derivado de 'cantar'?",
+        "opciones": [
+            {"id":"a","texto":"Cantante","correcta":True,"razon":"-ante forma sustantivo de agente."},
+            {"id":"b","texto":"Cantando","correcta":False,"razon":"Es gerundio, no sustantivo."},
+            {"id":"c","texto":"Cantado","correcta":False,"razon":"Es participio."}],
+        "justificacion_obligatoria": True, "regla": "Derivacion nominal: -ante/-cion"}}],
+}
+EJERCICIOS.update(EJERCICIOS_46_50)
+
