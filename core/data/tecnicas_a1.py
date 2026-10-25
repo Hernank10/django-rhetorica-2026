@@ -227,3 +227,83 @@ EJERCICIOS = {
         ], "justificacion_obligatoria": False, "regla": "5 = cinco"}}],
 }
 
+
+TECNICAS_216_220 = [
+    {"numero": 216, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "El articulo definido: el, la, los, las",
+     "teoria": "El articulo definido indica que el sustantivo es conocido. Tiene 4 formas: el (masc. sing.), la (fem. sing.), los (masc. plural), las (fem. plural).",
+     "explicacion": "Ejemplos: el libro, la mesa, los ninos, las casas. El articulo concuerda con el sustantivo en genero y numero. 'El' tambien ante femeninas con a- tonica: el agua, el area.",
+     "regla": "El (m.s.), la (f.s.), los (m.pl.), las (f.pl.)",
+     "ejemplo_correcto": "El libro es interesante. Las casas son grandes.",
+     "ejemplo_incorrecto": "La libro es interesante. (concordancia incorrecta)"},
+    {"numero": 217, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "El articulo indefinido: un, una, unos, unas",
+     "teoria": "El articulo indefinido indica que el sustantivo no es conocido o es la primera mencion. Tiene 4 formas: un (m.s.), una (f.s.), unos (m.pl.), unas (f.pl.).",
+     "explicacion": "Ejemplos: un libro, una mesa, unos ninos, unas casas. Se usa al presentar algo nuevo: 'Tengo un perro' (primera vez). 'El perro es marron' (ya conocido).",
+     "regla": "Un (m.s.), una (f.s.), unos (m.pl.), unas (f.pl.)",
+     "ejemplo_correcto": "Tengo un gato y una tortuga.",
+     "ejemplo_incorrecto": "Tengo uno gato. (antes de masc. sing. es 'un', no 'uno')"},
+    {"numero": 218, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Genero masculino y femenino",
+     "teoria": "Los sustantivos en espanol tienen genero: masculino o femenino. Generalmente -o es masculino, -a es femenino.",
+     "explicacion": "Masculino: nino, libro, coche, perro. Femenino: nina, mesa, casa, gata. Excepciones: 'problema', 'mapa', 'dia' son masculinos aunque terminan en -a. 'Mano', 'foto' son femeninos aunque terminan en -o.",
+     "regla": "Generalmente -o = masc., -a = fem. Hay excepciones",
+     "ejemplo_correcto": "El nino, la nina, el libro, la mesa.",
+     "ejemplo_incorrecto": "La nino, el nina, la libro, el mesa."},
+    {"numero": 219, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "El plural: -s y -es",
+     "teoria": "El plural en espanol se forma anadiendo -s o -es segun la terminacion del singular.",
+     "explicacion": "Regla general: si termina en vocal atona (a, e, o) se anade -s: casa -> casas, libro -> libros. Si termina en consonante se anade -es: arbol -> arboles, mesa -> mesaS (ya tiene s). Si termina en -z: -z -> -ces: luz -> luces.",
+     "regla": "Vocal atona: +s. Consonante o -z: +es / -ces",
+     "ejemplo_correcto": "Casa -> casas, arbol -> arboles, luz -> luces.",
+     "ejemplo_incorrecto": "Arbol -> arbols, luz -> luzes."},
+    {"numero": 220, "bloque": "B", "nivel": "basico", "modulo": "a1",
+     "titulo": "Concordancia articulo-sustantivo",
+     "teoria": "El articulo debe concordar con el sustantivo en genero (masculino/femenino) y numero (singular/plural).",
+     "explicacion": "El articulo copia los rasgos del sustantivo: 'el libro' (m.s.), 'la mesa' (f.s.), 'los libros' (m.pl.), 'las mesas' (f.pl.). Error comun: 'la problema' (deberia ser 'el problema').",
+     "regla": "Articulo y sustantivo: mismo genero y numero",
+     "ejemplo_correcto": "Los libros, las mesas, el problema, la mano.",
+     "ejemplo_incorrecto": "La problema, los mesa, el mano."},
+]
+TECNICAS.extend(TECNICAS_216_220)
+
+
+EJERCICIOS_216_220 = {
+    216: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el articulo definido correcto para 'libro'?",
+        "opciones": [
+            {"id": "a", "texto": "el", "correcta": True, "razon": "Libro es masculino singular: el libro."},
+            {"id": "b", "texto": "la", "correcta": False, "razon": "Libro es masculino."},
+            {"id": "c", "texto": "los", "correcta": False, "razon": "Libro es singular."},
+        ], "justificacion_obligatoria": False, "regla": "El libro"}}],
+    217: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que articulo indefinido usas con 'mesa'?",
+        "opciones": [
+            {"id": "a", "texto": "un", "correcta": False, "razon": "Mesa es femenino."},
+            {"id": "b", "texto": "una", "correcta": True, "razon": "Una mesa (fem. sing.)."},
+            {"id": "c", "texto": "unos", "correcta": False, "razon": "Mesa es singular."},
+        ], "justificacion_obligatoria": False, "regla": "Una mesa"}}],
+    218: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "'Problema' es masculino o femenino?",
+        "opciones": [
+            {"id": "a", "texto": "Masculino (el problema)", "correcta": True, "razon": "Termina en -a pero es masculino."},
+            {"id": "b", "texto": "Femenino (la problema)", "correcta": False, "razon": "Es masculino."},
+            {"id": "c", "texto": "Ambos", "correcta": False, "razon": "Solo masculino."},
+        ], "justificacion_obligatoria": False, "regla": "El problema (masculino)"}}],
+    219: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el plural de 'arbol'?",
+        "opciones": [
+            {"id": "a", "texto": "arbols", "correcta": False, "razon": "Termina en consonante: +es."},
+            {"id": "b", "texto": "arboles", "correcta": True, "razon": "Consonante final: se anade -es."},
+            {"id": "c", "texto": "arboles (con tilde)", "correcta": False, "razon": "Sin tilde."},
+        ], "justificacion_obligatoria": False, "regla": "Arbol -> arboles"}}],
+    220: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la concordancia correcta?",
+        "opciones": [
+            {"id": "a", "texto": "La problema", "correcta": False, "razon": "Problema es masculino: el problema."},
+            {"id": "b", "texto": "El problema", "correcta": True, "razon": "Masculino singular."},
+            {"id": "c", "texto": "Los problema", "correcta": False, "razon": "Plural incorrecto: los problemas."},
+        ], "justificacion_obligatoria": False, "regla": "El problema"}}],
+}
+EJERCICIOS.update(EJERCICIOS_216_220)
+
