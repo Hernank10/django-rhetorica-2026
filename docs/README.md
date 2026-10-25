@@ -2,8 +2,8 @@
 
 **Estado**: produccion
 **Commits en main**: 26
-**Tests**: 248+ (todos verdes)
-**Cobertura**: 97.09% | **~975 tests** verdes
+**Tests**: ~1040 (todos verdes)
+**Cobertura**: 97.19% | **~1040 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 6 modulos en produccion. Dependencias externas: spaCy + gTTS.
@@ -23,7 +23,7 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 936 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
 
-**Total**: ~975 tests, cobertura 97.09%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
+**Total**: ~1040 tests, cobertura 97.19%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
 ---
 
@@ -170,7 +170,7 @@ django-rhetorica/
 ## Estado tecnico
 
 - **Commits en main**: 26 (todos atomicos, mensajes claros)
-- **Cobertura**: 97.36% (> 97% requerido)
+- **Cobertura**: 97.19% (> 97% requerido)
 - **Working tree**: clean
 - **Dependencias fijadas**: spaCy 3.8.16, gTTS 2.5.4, Django 5.2.11
 - **Fragilidad conocida**: `gtts 2.5.4` requiere `click<8.2` pero spaCy trae `click>=8.2.1`.
@@ -180,6 +180,73 @@ django-rhetorica/
 ---
 
 ## Changelog
+
+### v1.3.1 — 2026-10-24 (dashboards por rol)
+        
+Extiende dashboards de profesor y admin con cards Notif + Tareas.
+- `services/tareas.py`: `tareas_profesor()` + `tareas_admin()`
+- `views_profesor.py`: dashboard con notif + tareas
+- `profesor/dashboard.html`: 2 cards al inicio
+- `views_admin.py` + `/admin-panel/`: dashboard superuser
+- `base.html`: link "Panel" solo staff
+- 6 tests
+
+### v1.3.0 — 2026-10-24 (sintaxis integrado en LMS)
+
+Módulo 10 navegable + notif al dominar.
+- Link "Sintaxis 100" en navbar + badge
+- Card en dashboard estudiante
+- Notificación al dominar técnica (idempotente)
+- 100 técnicas cargadas
+
+### v1.2.1 — 2026-10-24 (vistas sintaxis)
+
+5 vistas + 3 templates + JS AJAX.
+- `/sintaxis/`, `/sintaxis/tecnica/<n>/`, `/sintaxis/evaluar/`,
+  `/sintaxis/progreso/`, `/sintaxis/ajax/contador/`
+- 12 tests de vistas
+- Cobertura 97.21%
+
+### v1.2.0 — 2026-10-24 (módulo 10 completo en datos)
+
+100 técnicas cargadas (A-G).
+- 100 técnicas + 100 ejercicios (5 tipos)
+- Seed idempotente
+- 14 tests de modelos
+
+### v1.1.7 — 2026-10-24 (docs cierre v1.1.x)
+
+- modulo8: secciones 17-21 (notif, security, requirements, split, S3)
+- README: counts + changelog v1.1.0-v1.1.5
+- 12 H2 en artículo, 15 H2 en proyecto
+
+### v1.1.5 — 2026-10-24 (S3 opcional)
+
+`STORAGES` condicional via `USE_S3`. Compatible SeaweedFS/B2/AWS.
+- `settings/base.py`: switch S3/FileSystem
+- `conftest.py`: tests aislados de S3
+
+### v1.1.4 — 2026-10-24 (settings split)
+
+`settings.py` → paquete `base/dev/prod`.
+- `check --deploy` en prod: 0 warnings
+- `manage.py`/`wsgi.py`/`asgi.py`/`pytest.ini` actualizados
+
+### v1.1.3 — 2026-10-24 (requirements reproducibles)
+
+`requirements.txt` curado + `requirements-dev.txt`.
+- Fix reportlab 5→4.0.9, spacy 3.8→3.7.5 + click==8.1.7
+- Modelos spacy via `spacy download`
+
+### v1.1.2 — 2026-10-24 (SECRET_KEY rotada)
+
+SECRET_KEY fuera del código → `.env` + `.env.example`.
+- python-dotenv + BOM eliminado
+
+### v1.1.1 — 2026-10-23 (CRUD profesor tests)
+
+37 tests + decorador `@profesor_required` devuelve 403.
+- 8 permisos + 14 GET + 10 POST + 1 toggle + 4 botones
 
 ### v1.1.0 — 2026-10-23 (notificaciones + tareas)
 
@@ -205,48 +272,6 @@ django-rhetorica/
 
 **Deuda resuelta:** 6.5/8 items.
 **Deuda pendiente:** #7 deploy, #8 storage S3, bell visible, Parte B (CRUD profesor).
-
-### v1.1.5 — 2026-10-24 (S3 opcional)
-
-STORAGES condicional via USE_S3. Compatible SeaweedFS (dev), Backblaze B2 y AWS S3 (prod).
-- `settings/base.py`: STORAGES switch
-- `conftest.py`: USE_S3=False para tests aislados
-- Verificado: upload real + 37/37 tests
-
-### v1.1.4 — 2026-10-24 (settings split)
-
-Split `settings.py` en paquete base/dev/prod.
-- `check --deploy` en prod: 0 warnings (W004-W018)
-- `manage.py`/`wsgi.py`/`asgi.py`/`pytest.ini` actualizados
-
-### v1.1.3 — 2026-10-24 (requirements reproducibles)
-
-`requirements.txt` curado (19) + `requirements-dev.txt`.
-- Fix: reportlab 5.0.1→4.0.9 (xhtml2pdf<5)
-- Fix: spacy 3.8→3.7.5 + click==8.1.7 (gTTS<8.2)
-- Modelos spacy via `spacy download` (no PyPI)
-
-### v1.1.2 — 2026-10-24 (SECRET_KEY rotada)
-
-SECRET_KEY fuera del código → `.env` + `.env.example`.
-- `python-dotenv` agregado
-- `DEBUG`/`ALLOWED_HOSTS` desde env
-- BOM residual en `settings.py` eliminado
-
-### v1.1.1 — 2026-10-23 (CRUD profesor tests)
-
-37 tests CRUD profesor + decorador 403.
-- 8 permisos + 14 GET + 10 POST + 1 toggle + 4 botones
-- `@profesor_required` custom (403, no redirect)
-- 31/31 vistas protegidas
-
-### v1.1.0 — 2026-10-23 (notificaciones + tareas)
-
-Modelo Notificacion (9 tipos) + 3 señales + servicio idempotente.
-- `/notificaciones/` + 4 AJAX + campana
-- 3 cards en `/estudiante/`
-- 620 notifs seed (480 est + 140 prof)
-- Tests: +16
 
 ### v1.0.0 — 2026-10-22 (demo-ready)
 
