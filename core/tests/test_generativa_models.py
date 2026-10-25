@@ -8,15 +8,22 @@ from core.data.tecnicas_generativa import TECNICAS, EJERCICIOS
 
 
 class TestDataGenerativa(TestCase):
-    def test_15_tecnicas_bloque_A(self):
-        self.assertEqual(len(TECNICAS), 15)
+    def test_bloque_A_tiene_15(self):
+        bloque_a = [t for t in TECNICAS if t["bloque"] == "A"]
+        self.assertEqual(len(bloque_a), 15)
+        for t in bloque_a:
+            self.assertEqual(t["modulo"], "generativa")
+
+    def test_todos_modulo_generativa(self):
         for t in TECNICAS:
             self.assertEqual(t["modulo"], "generativa")
-            self.assertEqual(t["bloque"], "A")
 
     def test_numeros_consecutivos(self):
         nums = sorted(t["numero"] for t in TECNICAS)
-        self.assertEqual(nums, list(range(1, 16)))
+        # Generativas empiezan en 101 para no colisionar con las 100 gramaticas
+        inicio = min(nums)
+        self.assertEqual(inicio, 101)
+        self.assertEqual(nums, list(range(inicio, inicio + len(nums))))
 
     def test_campos_requeridos(self):
         campos = ["numero", "bloque", "titulo", "teoria", "explicacion", "regla", "ejemplo_correcto", "ejemplo_incorrecto", "nivel", "modulo"]
@@ -26,9 +33,10 @@ class TestDataGenerativa(TestCase):
                 self.assertTrue(t[c])
 
     def test_ejercicios(self):
-        self.assertEqual(len(EJERCICIOS), 15)
-        for i in range(1, 16):
-            self.assertIn(i, EJERCICIOS)
+        nums_tecnicas = {t["numero"] for t in TECNICAS}
+        nums_ejercicios = set(EJERCICIOS.keys())
+        faltantes = nums_tecnicas - nums_ejercicios
+        self.assertEqual(faltantes, set(), f"Tecnicas sin ejercicios: {faltantes}")
 
 
 class TestSeedGenerativa(TestCase):
@@ -39,7 +47,7 @@ class TestSeedGenerativa(TestCase):
         seed()
         n2 = TecnicaGramatical.objects.filter(modulo="generativa").count()
         self.assertEqual(n1, n2)
-        self.assertEqual(n1, 15)
+        self.assertEqual(n1, len(TECNICAS))
 
 
 class TestIndiceGenerativaView(TestCase):
