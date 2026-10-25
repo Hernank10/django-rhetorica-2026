@@ -399,3 +399,167 @@ EJERCICIOS_21_25 = {
 }
 EJERCICIOS.update(EJERCICIOS_21_25)
 
+# ═══ B2a: tecnicas 26-30 (comparaciones entre clases) ═══
+TECNICAS_B2A = [
+    {"numero": 26, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Sustantivo vs adjetivo",
+     "teoria": "El sustantivo tiene genero inherente (el/la) y puede ir con articulo. El adjetivo concuerda en genero y numero con el sustantivo al que modifica.",
+     "explicacion": "Prueba: si puedes decir 'el X' o 'la X' y tiene genero fijo, es sustantivo. Si varia en genero segun el sustantivo (nino bueno / nina buena), es adjetivo. Algunos adjetivos se sustantivan: 'el bueno'.",
+     "regla": "Sustantivo: genero inherente. Adjetivo: concuerda con sustantivo",
+     "ejemplo_correcto": "El nino es alto (alto = adjetivo que concuerda con nino).",
+     "ejemplo_incorrecto": "El alto es nino (ambiguedad: 'alto' sustantivado aqui)."},
+    {"numero": 27, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Adjetivo vs adverbio",
+     "teoria": "El adjetivo modifica al sustantivo (concuerda con el). El adverbio modifica al verbo, al adjetivo u otro adverbio, y es invariable.",
+     "explicacion": "Prueba: si varia en genero/numero, es adjetivo. Si no varia, es adverbio. 'Corre rapido' (adverbio) vs 'nino rapido' (adjetivo). Cuidado: 'rapido' puede ser ambos segun contexto.",
+     "regla": "Adjetivo: varia en gen/num. Adverbio: invariable",
+     "ejemplo_correcto": "Habla claro (claro = adverbio, invariable).",
+     "ejemplo_incorrecto": "Habla clara (concordancia incorrecta: el adverbio no varia)."},
+    {"numero": 28, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Pronombre vs determinante",
+     "teoria": "El determinante acompana al sustantivo (este libro). El pronombre lo sustituye (este es mio).",
+     "explicacion": "La misma palabra puede ser determinante o pronombre segun su funcion. Demostrativos, posesivos, numerales, indefinidos, interrogativos y exclamativos pueden ser ambos. La clave: si hay sustantivo explicito despues, es determinante.",
+     "regla": "Determinante acompana. Pronombre sustituye",
+     "ejemplo_correcto": "Este libro es mio. Este es mio. (libro: determinante vs pronombre).",
+     "ejemplo_incorrecto": "Este libro es mio. Este libro es mio. (doble articulo sin necesidad)."},
+    {"numero": 29, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Locuciones (nominal, adjetiva, verbal, adverbial, prepositiva)",
+     "teoria": "Una locucion es un grupo fijo de palabras que funciona como una sola clase. El significado no se deduce de las partes.",
+     "explicacion": "Tipos: nominal ('media naranja'), adjetiva ('de armas tomar'), verbal ('dar gato por liebre'), adverbial ('a menu-do', 'de repente'), prepositiva ('a pesar de', 'en virtud de'), conjuntiva ('sin embargo', 'ya que').",
+     "regla": "Locucion = grupo fijo con funcion de una clase",
+     "ejemplo_correcto": "'A pesar de' es locucion prepositiva.",
+     "ejemplo_incorrecto": "'A pesar de' es preposicion simple."},
+    {"numero": 30, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Perifrasis verbales",
+     "teoria": "Una perifrasis verbal es la union de un verbo auxiliar conjugado + una forma no personal (infinitivo, gerundio o participio) + a veces un nexo.",
+     "explicacion": "Tipos: modales (poder, deber, tener que + inf), aspectuales (ir a + inf, estar + ger, llevar + part). Ej: 'voy a cantar', 'estoy cantando', 'tengo que ir'. El auxiliar pierde su significado pleno.",
+     "regla": "Perifrasis: aux + (nexo) + forma no personal",
+     "ejemplo_correcto": "'Voy a cantar' es perifrasis de infinitivo.",
+     "ejemplo_incorrecto": "'Voy a cantar' son dos verbos independientes."},
+]
+TECNICAS.extend(TECNICAS_B2A)
+
+# ═══ B2a: ejercicios 26-30 ═══
+EJERCICIOS_26_30 = {
+    26: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: sustantivo (S) o adjetivo (A)",
+        "oraciones": [
+            {"texto":"mesa","categoria_correcta":"sustantivo"},
+            {"texto":"alto","categoria_correcta":"adjetivo"},
+            {"texto":"amor","categoria_correcta":"sustantivo"},
+            {"texto":"hermoso","categoria_correcta":"adjetivo"}],
+        "categorias": ["sustantivo","adjetivo"]}}],
+    27: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Corre rapido', que es 'rapido'?",
+        "opciones": [
+            {"id":"a","texto":"Adjetivo","correcta":False,"razon":"No concuerda con ningun sustantivo."},
+            {"id":"b","texto":"Adverbio de modo","correcta":True,"razon":"Modifica al verbo 'corre', invariable."},
+            {"id":"c","texto":"Sustantivo","correcta":False,"razon":"No nombra entidad."}],
+        "justificacion_obligatoria": True, "regla": "Adverbio modifica al verbo"}}],
+    28: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Este libro es mio', que es 'este'?",
+        "opciones": [
+            {"id":"a","texto":"Pronombre","correcta":False,"razon":"Acompana a 'libro', por lo tanto es determinante."},
+            {"id":"b","texto":"Determinante demostrativo","correcta":True,"razon":"Acompana al sustantivo 'libro'."},
+            {"id":"c","texto":"Adjetivo","correcta":False,"razon":"No expresa cualidad."}],
+        "justificacion_obligatoria": True, "regla": "Determinante acompaña"}}],
+    29: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de locucion es 'a pesar de'?",
+        "opciones": [
+            {"id":"a","texto":"Nominal","correcta":False,"razon":"No funciona como sustantivo."},
+            {"id":"b","texto":"Prepositiva","correcta":True,"razon":"Funciona como preposicion: 'a pesar de la lluvia'."},
+            {"id":"c","texto":"Verbal","correcta":False,"razon":"No funciona como verbo."},
+            {"id":"d","texto":"Conjuntiva","correcta":False,"razon":"No une oraciones."}],
+        "justificacion_obligatoria": True, "regla": "Locucion prepositiva"}}],
+    30: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que perifrasis es 'voy a cantar'?",
+        "opciones": [
+            {"id":"a","texto":"Aspectual ingresiva (ir a + inf)","correcta":True,"razon":"Ir a + infinitivo marca inicio de accion."},
+            {"id":"b","texto":"Modal de obligacion","correcta":False,"razon":"No expresa obligacion."},
+            {"id":"c","texto":"Dos verbos independientes","correcta":False,"razon":"Es una unidad."}],
+        "justificacion_obligatoria": True, "regla": "Ir a + inf = perifrasis ingresiva"}}],
+}
+EJERCICIOS.update(EJERCICIOS_26_30)
+
+# ═══ B2b: tecnicas 31-35 (morfologia) ═══
+TECNICAS_B2B = [
+    {"numero": 31, "bloque": "B", "nivel": "intermedio",
+     "titulo": "Palabras variables vs invariables",
+     "teoria": "Las palabras variables cambian de forma segun genero, numero, tiempo o modo. Las invariables no cambian nunca.",
+     "explicacion": "Variables: sustantivo (nino/nina/ninos/ninas), adjetivo (alto/alta), verbo (canto/cantas/canta), determinante (este/esta), pronombre personal (el/ella). Invariables: adverbio (hoy, siempre), preposicion (de, con), conjuncion (y, pero), interjeccion (ay, oh).",
+     "regla": "Variables: sust/adj/verbo/det/pron. Invariables: adv/prep/conj/interj",
+     "ejemplo_correcto": "'Alto' varia (alta, altos, altas): adjetivo.",
+     "ejemplo_incorrecto": "'Hoy' varia en genero."},
+    {"numero": 32, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Palabras lexicas vs gramaticales",
+     "teoria": "Las palabras lexicas (o de contenido) tienen significado pleno. Las gramaticales (o funcionales) solo tienen significado gramatical.",
+     "explicacion": "Lexicas: sustantivo, adjetivo, verbo, adverbio. Gramaticales: determinante, pronombre, preposicion, conjuncion. Algunas son ambiguas (adverbio puede ser lexico: 'rapidamente'; o gramatical: 'muy').",
+     "regla": "Lexicas: contenido. Gramaticales: funcion",
+     "ejemplo_correcto": "'Casa' es palabra lexica (tiene contenido).",
+     "ejemplo_incorrecto": "'De' es palabra lexica con contenido pleno."},
+    {"numero": 33, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Palabras simples, derivadas, compuestas",
+     "teoria": "Segun su estructura morfologica: simples (un solo lexema), derivadas (lexema + afijos), compuestas (dos o mas lexemas).",
+     "explicacion": "Simples: pan, sol, mar. Derivadas: pan-adero, sol-azo, mar-ino. Compuestas: sacacorchos, abrelatas, paraguas. Las compuestas pueden ser propias (dos lexemas: sacacorchos) o sintagmaticas (sustantivo + preposicion: ojo de buey).",
+     "regla": "Simple (1 lexema). Derivada (lexema + afijo). Compuesta (2+ lexemas)",
+     "ejemplo_correcto": "'Paraguas' es palabra compuesta.",
+     "ejemplo_incorrecto": "'Paraguas' es palabra simple."},
+    {"numero": 34, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Patrimoniales vs cultismos",
+     "teoria": "Las palabras patrimoniales evolucionaron del latin al castellano. Los cultismos se tomaron del latin directamente, sin evolucion, en epocas posteriores.",
+     "explicacion": "Ejemplos: 'hacer' (patrimonial de facere), 'factible' (cultismo de factibilis). 'Ojo' (patrimonial de oculum), 'ocular' (cultismo). A veces conviven las dos formas: 'hacer' / 'factible'.",
+     "regla": "Patrimonial: evoluciono del latin. Cultismo: tomada despues sin evolucion",
+     "ejemplo_correcto": "'Ojo' es patrimonial; 'ocular' es cultismo.",
+     "ejemplo_incorrecto": "'Ojo' y 'ocular' son ambas patrimoniales."},
+    {"numero": 35, "bloque": "B", "nivel": "avanzado",
+     "titulo": "Derivacion y composicion",
+     "teoria": "La derivacion anade afijos a un lexema (prefijos, sufijos, interfijos). La composicion une dos o mas lexemas.",
+     "explicacion": "Prefijos: re-, des-, in-, pre-, sub-. Sufijos: -cion, -miento, -dor, -ito, -on. Interfijos: -ec- (piececito), -it- (cafetera). Composicion: saca + corchos, abre + latas. Parasintesis: prefijo + lexema + sufijo en conjunto: des-templ-ado.",
+     "regla": "Derivacion = afijos. Composicion = 2+ lexemas. Parasintesis = afijos + composicion",
+     "ejemplo_correcto": "'Des-templ-ado' es parasintetica.",
+     "ejemplo_incorrecto": "'Des-templ-ado' es solo derivada."},
+]
+TECNICAS.extend(TECNICAS_B2B)
+
+# ═══ B2b: ejercicios 31-35 ═══
+EJERCICIOS_31_35 = {
+    31: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: variable (V) o invariable (I)",
+        "oraciones": [
+            {"texto":"alto","categoria_correcta":"variable"},
+            {"texto":"hoy","categoria_correcta":"invariable"},
+            {"texto":"cantar","categoria_correcta":"variable"},
+            {"texto":"pero","categoria_correcta":"invariable"}],
+        "categorias": ["variable","invariable"]}}],
+    32: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica: lexica (L) o gramatical (G)",
+        "oraciones": [
+            {"texto":"casa","categoria_correcta":"lexica"},
+            {"texto":"de","categoria_correcta":"gramatical"},
+            {"texto":"correr","categoria_correcta":"lexica"},
+            {"texto":"pero","categoria_correcta":"gramatical"}],
+        "categorias": ["lexica","gramatical"]}}],
+    33: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de palabra es 'sacacorchos'?",
+        "opciones": [
+            {"id":"a","texto":"Simple","correcta":False,"razon":"Tiene dos lexemas (saca + corchos)."},
+            {"id":"b","texto":"Compuesta","correcta":True,"razon":"Union de dos lexemas."},
+            {"id":"c","texto":"Derivada","correcta":False,"razon":"No anade sufijo ni prefijo a un solo lexema."}],
+        "justificacion_obligatoria": True, "regla": "Compuesta = 2+ lexemas"}}],
+    34: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que relacion hay entre 'ojo' y 'ocular'?",
+        "opciones": [
+            {"id":"a","texto":"Ambas son patrimoniales","correcta":False,"razon":"'Ocular' no evoluciono, es cultismo."},
+            {"id":"b","texto":"'Ojo' es patrimonial, 'ocular' es cultismo","correcta":True,"razon":"'Ojo' evoluciono del latin oculum; 'ocular' se tomo despues."},
+            {"id":"c","texto":"Ambas son cultismos","correcta":False,"razon":"'Ojo' evoluciono."}],
+        "justificacion_obligatoria": True, "regla": "Patrimonial + cultismo"}}],
+    35: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de formacion es 'des-templ-ado'?",
+        "opciones": [
+            {"id":"a","texto":"Derivacion simple","correcta":False,"razon":"Tiene prefijo Y sufijo a la vez."},
+            {"id":"b","texto":"Parasintetica","correcta":True,"razon":"Prefijo + lexema + sufijo en conjunto."},
+            {"id":"c","texto":"Composicion","correcta":False,"razon":"Solo hay un lexema (templ-)."}],
+        "justificacion_obligatoria": True, "regla": "Parasintesis = pref + lexema + suf"}}],
+}
+EJERCICIOS.update(EJERCICIOS_31_35)
+
