@@ -330,3 +330,11 @@ from .models_sintaxis import (  # noqa: E402, F401
     ProgresoTecnica,
     TecnicaSintactica,
 )
+
+
+# ─── Modelos de gramatica (modulo 11) ───
+from .models_gramatica import (  # noqa: E402, F401
+    EjercicioGramatical,
+    ProgresoGramatical,
+    TecnicaGramatical,
+)
