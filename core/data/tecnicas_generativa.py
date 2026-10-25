@@ -996,3 +996,235 @@ EJERCICIOS_D = {
 }
 EJERCICIOS.update(EJERCICIOS_D)
 
+
+TECNICAS_66_70 = [
+    {"numero": 166, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Teoria de reccion",
+     "teoria": "La reccion (government) es una relacion estructural entre un nucleo y su complemento o especificador. El nucleo 'rige' a sus dependientes.",
+     "explicacion": "Un nucleo X rige a su complemento y a su especificador. La reccion es clave para asignar caso y para el ligamiento. En el minimalismo, la reccion se reduce a relaciones de c-command y localidad.",
+     "regla": "Reccion: nucleo rige a complemento y especificador",
+     "ejemplo_correcto": "El verbo 'compro' rige a su objeto 'el libro'.",
+     "ejemplo_incorrecto": "La reccion no tiene relacion con la estructura."},
+    {"numero": 167, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Mando-c (c-command)",
+     "teoria": "Un nodo A manda-c a un nodo B si A no domina a B y el primer nodo ramificante que domina a A tambien domina a B. Es una relacion estructural fundamental.",
+     "explicacion": "En un arbol, un nodo manda-c a sus hermanos y a los descendientes de sus hermanos. El sujeto manda-c al objeto, pero el objeto no manda-c al sujeto. Es la base del ligamiento y la reccion.",
+     "regla": "Mando-c: A manda-c a B si su nodo dominante comun los cubre",
+     "ejemplo_correcto": "El sujeto manda-c al objeto en la oracion simple.",
+     "ejemplo_incorrecto": "Mando-c es lo mismo que dominar."},
+    {"numero": 168, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Principio A: anforas",
+     "teoria": "El Principio A del ligamiento dice que una anfora (reflexivo o reciproco) debe estar ligada dentro de su categoria rectora.",
+     "explicacion": "Ejemplo: 'Juan se lava' (se = Juan). 'se' es anfora, ligada por Juan en la misma oracion. Si no hay antecedente local, es agramatical: *'Juan dice que se lava' (se refiere a Juan pero esta en otra oracion).",
+     "regla": "Principio A: anfora ligada en su categoria rectora",
+     "ejemplo_correcto": "En 'Juan se lava', 'se' esta ligado por Juan.",
+     "ejemplo_incorrecto": "Una anfora puede estar libre en su oracion."},
+    {"numero": 169, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Principio B: pronombres",
+     "teoria": "El Principio B del ligamiento dice que un pronombre debe estar libre en su categoria rectora (no puede tener antecedente local).",
+     "explicacion": "Ejemplo: 'Juan dice que el viene'. 'el' es pronombre: no puede referirse a Juan (que esta en otra oracion, pero si estuviera en la misma, seria agramatical). En 'Juan lo vio', 'lo' no puede ser Juan.",
+     "regla": "Principio B: pronombre libre en su categoria rectora",
+     "ejemplo_correcto": "En 'Juan lo vio', 'lo' no es Juan.",
+     "ejemplo_incorrecto": "Un pronombre puede tener antecedente local."},
+    {"numero": 170, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Principio C: expresiones referenciales",
+     "teoria": "El Principio C del ligamiento dice que una expresion referencial (nombre propio, descripcion definida) debe estar libre en toda la oracion.",
+     "explicacion": "Ejemplo: 'Juan dice que Pedro viene'. 'Pedro' no puede referirse a 'Juan' (son distintos). 'El hombre dice que el hombre viene' es agramatical si ambos 'el hombre' son el mismo. Las expresiones referenciales no se ligan.",
+     "regla": "Principio C: expresion referencial libre en toda la oracion",
+     "ejemplo_correcto": "En 'Juan dice que Pedro viene', Pedro ≠ Juan.",
+     "ejemplo_incorrecto": "Un nombre propio puede tener antecedente."},
+]
+TECNICAS.extend(TECNICAS_66_70)
+
+
+TECNICAS_71_75 = [
+    {"numero": 171, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Ligamiento de 'se' reflexivo",
+     "teoria": "El 'se' reflexivo es una anfora que se liga a un antecedente local (sujeto). Puede ser reflexivo (se lava) o reciproco (se miran).",
+     "explicacion": "Ejemplo: 'Juan se lava' (se = Juan, reflexivo). 'Juan y Maria se miran' (se = Juan y Maria, reciproco). En ambos casos, 'se' esta ligado por el sujeto en la misma categoria rectora.",
+     "regla": "'Se' reflexivo: ligado al sujeto local",
+     "ejemplo_correcto": "En 'Juan se lava', 'se' esta ligado por Juan.",
+     "ejemplo_incorrecto": "'Se' puede estar libre."},
+    {"numero": 172, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Ligamiento de 'si mismo'",
+     "teoria": "'Si mismo' es una anfora intensiva que refuerza la reflexividad. Tambien debe estar ligada localmente.",
+     "explicacion": "Ejemplo: 'Juan se lava a si mismo'. 'Si mismo' refuerza 'se'. Si aparece sin 'se': 'Juan lava a si mismo' (tambien valido). En ambos casos, 'si mismo' se liga a Juan. No puede aparecer sin antecedente local.",
+     "regla": "'Si mismo': anfora que refuerza la reflexividad",
+     "ejemplo_correcto": "En 'Juan se lava a si mismo', 'si mismo' = Juan.",
+     "ejemplo_incorrecto": "'Si mismo' puede estar sin antecedente."},
+    {"numero": 173, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Pronombres y correferencia",
+     "teoria": "Los pronombres pueden ser correferentes con otros SN, pero no pueden tener antecedente en su categoria rectora local (Principio B).",
+     "explicacion": "Ejemplo: 'Juan dice que el viene'. 'el' puede ser Juan (correferencia a distancia) o no. Si fuera local: *'Juan lo vio' (lo ≠ Juan). La correferencia depende de la estructura y del contexto.",
+     "regla": "Pronombre: correferente posible, pero no localmente",
+     "ejemplo_correcto": "En 'Juan dice que el viene', 'el' puede ser Juan.",
+     "ejemplo_incorrecto": "En 'Juan lo vio', 'lo' es Juan."},
+    {"numero": 174, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "PRO y control",
+     "teoria": "PRO es el sujeto nulo de las oraciones infinitivas. Su interpretacion depende del verbo principal (control).",
+     "explicacion": "Ejemplo: 'Juan quiere [PRO venir]'. 'PRO' es el sujeto de 'venir', interpretado como Juan (control). 'PRO' no tiene forma fonetica pero si interpretacion. Es distinto de 'pro' (sujeto nulo finito, como en castellano).",
+     "regla": "PRO: sujeto nulo de infinitivo, interpretado por control",
+     "ejemplo_correcto": "En 'Juan quiere venir', PRO = Juan.",
+     "ejemplo_incorrecto": "PRO tiene forma fonetica."},
+    {"numero": 175, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Control con infinitivo",
+     "teoria": "El control es la interpretacion de PRO por un antecedente en la oracion principal. Puede ser control de sujeto u objeto.",
+     "explicacion": "Control de sujeto: 'Juan quiere [PRO venir]' (PRO = Juan). Control de objeto: 'Juan le pidio a Maria [PRO venir]' (PRO = Maria). El tipo de control depende del verbo principal.",
+     "regla": "Control: PRO se interpreta por el sujeto u objeto principal",
+     "ejemplo_correcto": "En 'Juan quiere venir', control de sujeto.",
+     "ejemplo_incorrecto": "PRO no tiene interpretacion."},
+]
+TECNICAS.extend(TECNICAS_71_75)
+
+
+TECNICAS_76_80 = [
+    {"numero": 176, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Sujeto tacito en subordinadas",
+     "teoria": "En subordinadas infinitivas, el sujeto puede ser tacito (PRO). En subordinadas finitas, el sujeto puede ser nulo (pro) en lenguas pro-drop.",
+     "explicacion": "Ejemplo: 'Juan quiere [PRO venir]' (sujeto tacito infinitivo). 'Juan dice [que pro viene]' (sujeto nulo finito, en castellano). El castellano permite ambos tipos; el ingles solo PRO (no pro).",
+     "regla": "Infinitivo: PRO. Finito pro-drop: pro",
+     "ejemplo_correcto": "En 'Juan dice que viene', 'pro' es el sujeto nulo.",
+     "ejemplo_incorrecto": "En ingles se permite 'pro' finito."},
+    {"numero": 177, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Restricciones de ligamiento en castellano",
+     "teoria": "El castellano sigue los principios A, B y C, pero con particularidades: el 'se' puede ser reflexivo, reciproco, pasivo reflejo o impersonal.",
+     "explicacion": "Ejemplo: 'Juan se lava' (reflexivo), 'Juan y Maria se miran' (reciproco), 'Se venden casas' (pasivo reflejo), 'Se trabaja mucho' (impersonal). La interpretacion depende del contexto y del verbo.",
+     "regla": "Castellano: 'se' con 4 valores (reflexivo, reciproco, pasivo, impersonal)",
+     "ejemplo_correcto": "'Se venden casas' es pasivo reflejo.",
+     "ejemplo_incorrecto": "El 'se' castellano solo es reflexivo."},
+    {"numero": 178, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Reccion del nucleo",
+     "teoria": "El nucleo rige a su complemento. Esta reccion es la base para la asignacion de caso acusativo (V) y oblicuo (P).",
+     "explicacion": "Ejemplo: 'compro el libro' — V 'compro' rige a SN 'el libro'. 'con Juan' — P 'con' rige a SN 'Juan'. La reccion requiere mando-c y localidad: el nucleo debe mandar-c al complemento.",
+     "regla": "Reccion del nucleo: X0 rige a su complemento",
+     "ejemplo_correcto": "En 'compro el libro', V rige a 'el libro'.",
+     "ejemplo_incorrecto": "El nucleo no rige a su complemento."},
+    {"numero": 179, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Reccion del especificador",
+     "teoria": "El nucleo tambien rige a su especificador en algunos casos (concordancia). La reccion del especificador es clave para la concordancia sujeto-verbo.",
+     "explicacion": "Ejemplo: 'Juan canta' — T rige a su especificador 'Juan' y concuerda con el (3a sing). La reccion del especificador explica la concordancia de numero y persona.",
+     "regla": "Reccion del especificador: T rige a su Esp",
+     "ejemplo_correcto": "En 'Juan canta', T rige a Juan y concuerda.",
+     "ejemplo_incorrecto": "El especificador no es regido."},
+    {"numero": 180, "bloque": "E", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Reccion y concordancia",
+     "teoria": "La concordancia es una relacion entre un nucleo funcional (T, D) y su especificador o complemento, basada en la reccion.",
+     "explicacion": "Ejemplo: 'los ninos cantan' — T concuerda con el sujeto plural (cantan), D concuerda con el sustantivo plural (ninos). La concordancia se da bajo reccion: el nucleo funcional rige a su dependiente y copia sus rasgos.",
+     "regla": "Concordancia: bajo reccion, el nucleo copia rasgos",
+     "ejemplo_correcto": "En 'los ninos cantan', T y D concuerdan.",
+     "ejemplo_incorrecto": "La concordancia es independiente de la estructura."},
+]
+TECNICAS.extend(TECNICAS_76_80)
+
+
+EJERCICIOS_E = {
+    166: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es la reccion en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Relacion estructural entre un nucleo y su complemento/especificador", "correcta": True, "razon": "El nucleo rige a sus dependientes."},
+            {"id": "b", "texto": "Una regla fonologica", "correcta": False, "razon": "Es sintactica."},
+            {"id": "c", "texto": "Un tipo de concordancia", "correcta": False, "razon": "No es solo concordancia."},
+        ], "justificacion_obligatoria": True, "regla": "Reccion: nucleo rige dependientes"}}],
+    167: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es el mando-c (c-command)?",
+        "opciones": [
+            {"id": "a", "texto": "Relacion estructural basada en el nodo dominante comun", "correcta": True, "razon": "El primer nodo ramificante que domina a A domina a B."},
+            {"id": "b", "texto": "Lo mismo que dominar", "correcta": False, "razon": "Es distinto."},
+            {"id": "c", "texto": "Una relacion lineal", "correcta": False, "razon": "Es estructural."},
+        ], "justificacion_obligatoria": True, "regla": "Mando-c: nodo dominante comun"}}],
+    168: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el Principio A del ligamiento?",
+        "opciones": [
+            {"id": "a", "texto": "Una anfora debe estar ligada en su categoria rectora", "correcta": True, "razon": "Reflexivos y reciprocros se ligan localmente."},
+            {"id": "b", "texto": "Una anfora debe estar libre", "correcta": False, "razon": "Eso es para pronombres (B)."},
+            {"id": "c", "texto": "No hay restricciones", "correcta": False, "razon": "Hay."},
+        ], "justificacion_obligatoria": True, "regla": "Principio A: anfora ligada localmente"}}],
+    169: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el Principio B del ligamiento?",
+        "opciones": [
+            {"id": "a", "texto": "Un pronombre debe estar libre en su categoria rectora", "correcta": True, "razon": "No puede tener antecedente local."},
+            {"id": "b", "texto": "Un pronombre debe estar ligado", "correcta": False, "razon": "Eso es anfora (A)."},
+            {"id": "c", "texto": "No hay restricciones", "correcta": False, "razon": "Hay."},
+        ], "justificacion_obligatoria": True, "regla": "Principio B: pronombre libre localmente"}}],
+    170: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el Principio C del ligamiento?",
+        "opciones": [
+            {"id": "a", "texto": "Una expresion referencial debe estar libre en toda la oracion", "correcta": True, "razon": "Nombres propios y descripciones definidas."},
+            {"id": "b", "texto": "Puede tener antecedente", "correcta": False, "razon": "No es correcto."},
+            {"id": "c", "texto": "Solo aplica a pronombres", "correcta": False, "razon": "Aplica a expresiones referenciales."},
+        ], "justificacion_obligatoria": True, "regla": "Principio C: referencial libre"}}],
+    171: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan se lava', que tipo de 'se' es?",
+        "opciones": [
+            {"id": "a", "texto": "Reflexivo", "correcta": True, "razon": "'Se' se refiere al sujeto Juan."},
+            {"id": "b", "texto": "Pasivo reflejo", "correcta": False, "razon": "No es pasivo."},
+            {"id": "c", "texto": "Impersonal", "correcta": False, "razon": "No es impersonal."},
+        ], "justificacion_obligatoria": True, "regla": "Se reflexivo: ligado al sujeto"}}],
+    172: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan se lava a si mismo', que funcion tiene 'si mismo'?",
+        "opciones": [
+            {"id": "a", "texto": "Refuerza la reflexividad", "correcta": True, "razon": "Es una anfora intensiva."},
+            {"id": "b", "texto": "Es un pronombre libre", "correcta": False, "razon": "Es anfora."},
+            {"id": "c", "texto": "Es un adverbio", "correcta": False, "razon": "No es adverbio."},
+        ], "justificacion_obligatoria": True, "regla": "'Si mismo': anfora intensiva"}}],
+    173: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Puede 'el' referirse a 'Juan' en 'Juan lo vio'?",
+        "opciones": [
+            {"id": "a", "texto": "No, por el Principio B", "correcta": True, "razon": "Un pronombre no puede tener antecedente local."},
+            {"id": "b", "texto": "Si, sin restriccion", "correcta": False, "razon": "Hay restriccion."},
+            {"id": "c", "texto": "Solo en pasivas", "correcta": False, "razon": "No es eso."},
+        ], "justificacion_obligatoria": True, "regla": "Pronombre: no antecedente local"}}],
+    174: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es PRO en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Sujeto nulo de infinitivo, interpretado por control", "correcta": True, "razon": "En 'Juan quiere PRO venir', PRO = Juan."},
+            {"id": "b", "texto": "Un pronombre fonetico", "correcta": False, "razon": "PRO no tiene forma fonetica."},
+            {"id": "c", "texto": "Un tipo de verbo", "correcta": False, "razon": "No es verbo."},
+        ], "justificacion_obligatoria": True, "regla": "PRO: sujeto nulo infinitivo"}}],
+    175: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan quiere venir', como se interpreta PRO?",
+        "opciones": [
+            {"id": "a", "texto": "PRO = Juan (control de sujeto)", "correcta": True, "razon": "El sujeto del principal controla PRO."},
+            {"id": "b", "texto": "PRO = Maria", "correcta": False, "razon": "No hay Maria."},
+            {"id": "c", "texto": "PRO no tiene interpretacion", "correcta": False, "razon": "Si la tiene."},
+        ], "justificacion_obligatoria": True, "regla": "Control de sujeto"}}],
+    176: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que sujeto tacito tiene 'Juan dice que viene'?",
+        "opciones": [
+            {"id": "a", "texto": "pro (sujeto nulo finito)", "correcta": True, "razon": "El castellano permite pro finito."},
+            {"id": "b", "texto": "PRO (sujeto nulo infinitivo)", "correcta": False, "razon": "PRO solo en infinitivo."},
+            {"id": "c", "texto": "No hay sujeto", "correcta": False, "razon": "Hay pro."},
+        ], "justificacion_obligatoria": True, "regla": "Finito: pro. Infinitivo: PRO"}}],
+    177: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'se venden casas', que valor tiene 'se'?",
+        "opciones": [
+            {"id": "a", "texto": "Pasivo reflejo", "correcta": True, "razon": "El verbo concuerda con 'casas' (sujeto paciente)."},
+            {"id": "b", "texto": "Reflexivo", "correcta": False, "razon": "No hay reflexividad."},
+            {"id": "c", "texto": "Impersonal", "correcta": False, "razon": "Hay sujeto paciente."},
+        ], "justificacion_obligatoria": True, "regla": "Se pasivo reflejo"}}],
+    178: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'compro el libro', que relacion hay entre V y el SN?",
+        "opciones": [
+            {"id": "a", "texto": "V rige al SN (reccion del nucleo)", "correcta": True, "razon": "El nucleo V rige a su complemento."},
+            {"id": "b", "texto": "No hay relacion", "correcta": False, "razon": "Hay reccion."},
+            {"id": "c", "texto": "El SN rige al V", "correcta": False, "razon": "Es al reves."},
+        ], "justificacion_obligatoria": True, "regla": "V rige a su complemento"}}],
+    179: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica el tipo de 'se': reflexivo (R), reciproco (Rec), pasivo reflejo (P), impersonal (I)",
+        "oraciones": [
+            {"texto": "Juan se lava", "categoria_correcta": "R"},
+            {"texto": "Juan y Maria se miran", "categoria_correcta": "Rec"},
+            {"texto": "Se venden casas", "categoria_correcta": "P"},
+            {"texto": "Se trabaja mucho", "categoria_correcta": "I"},
+        ],
+        "categorias": ["R", "Rec", "P", "I"]}}],
+    180: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'los ninos cantan', que explica la concordancia?",
+        "opciones": [
+            {"id": "a", "texto": "T rige a su Esp y copia rasgos", "correcta": True, "razon": "Concordancia bajo reccion."},
+            {"id": "b", "texto": "Es pura casualidad", "correcta": False, "razon": "Es estructural."},
+            {"id": "c", "texto": "El verbo copia del objeto", "correcta": False, "razon": "Copia del sujeto."},
+        ], "justificacion_obligatoria": True, "regla": "Concordancia: T rige Esp"}}],
+}
+EJERCICIOS.update(EJERCICIOS_E)
+
