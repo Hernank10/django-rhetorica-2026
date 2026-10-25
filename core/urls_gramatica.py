@@ -6,6 +6,7 @@ app_name = "gramatica"
 
 urlpatterns = [
     path("", v.indice, name="indice"),
+    path("generativa/", v.indice_generativa, name="indice_generativa"),
     path("tecnica/<int:numero>/", v.tecnica, name="tecnica"),
     path("evaluar/", v.evaluar_ajax, name="evaluar"),
     path("progreso/", v.progreso, name="progreso"),

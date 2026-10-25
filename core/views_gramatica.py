@@ -22,7 +22,7 @@ BLOQUES_INFO = {
 
 @login_required
 def indice(request):
-    tecnicas = TecnicaGramatical.objects.all()
+    tecnicas = TecnicaGramatical.objects.filter(modulo="gramatica")
     progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
     bloques = {}
     for letra, nombre in BLOQUES_INFO.items():
@@ -37,6 +37,28 @@ def indice(request):
             bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
     resumen = engine.resumen_progreso(request.user)
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen})
+
+
+
+
+@login_required
+def indice_generativa(request):
+    """Indice de las 100 tecnicas de gramatica generativa."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="generativa")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_INFO.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user)
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_generativa": True})
 
 
 @login_required

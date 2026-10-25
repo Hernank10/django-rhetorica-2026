@@ -28,6 +28,12 @@ class TecnicaGramatical(models.Model):
     ejemplo_correcto = models.TextField()
     ejemplo_incorrecto = models.TextField()
     nivel = models.CharField(max_length=20, choices=NIVELES, default="basico")
+    modulo = models.CharField(
+        max_length=20,
+        choices=[("gramatica", "Gramatica"), ("generativa", "Generativa")],
+        default="gramatica",
+        db_index=True,
+    )
 
     class Meta:
         ordering = ["numero"]
