@@ -1228,3 +1228,312 @@ EJERCICIOS_E = {
 }
 EJERCICIOS.update(EJERCICIOS_E)
 
+
+TECNICAS_81_85 = [
+    {"numero": 181, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Del modelo de Principios y Parametros al Minimalismo",
+     "teoria": "El Programa Minimalista (Chomsky, 1995) reduce la teoria a lo minimo necesario. Elimina niveles (EP/ES) y reemplaza transformaciones por Merge y Move.",
+     "explicacion": "En el modelo clasico habia muchos niveles (EP, ES, FL, FF) y reglas. El minimalismo propone solo dos interfaces (FL y FF) y una operacion basica (Merge) + una derivada (Move). El objetivo es la simplicidad teorica.",
+     "regla": "Minimalismo: solo FL + FF + Merge/Move",
+     "ejemplo_correcto": "El minimalismo reduce la teoria a lo minimo necesario.",
+     "ejemplo_incorrecto": "El minimalismo agrega mas niveles de representacion."},
+    {"numero": 182, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Merge (ensamble)",
+     "teoria": "Merge es la operacion basica del minimalismo: toma dos objetos sintacticos y los combina en uno nuevo.",
+     "explicacion": "Merge(X, Y) -> {X, Y}. Ejemplo: Merge(V, SN) = SV; Merge(T, SV) = ST; Merge(C, ST) = SC. Todo el arbol sintactico se construye por Merge binario. Es la operacion mas simple posible.",
+     "regla": "Merge: combina dos objetos en uno",
+     "ejemplo_correcto": "Merge('lee', 'el libro') = 'lee el libro'.",
+     "ejemplo_incorrecto": "Merge combina mas de dos objetos a la vez."},
+    {"numero": 183, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Move (movimiento)",
+     "teoria": "Move es la operacion que copia un elemento y lo re-mergea en otra posicion, dejando una huella.",
+     "explicacion": "Move(X) = copia X y la combina con otro nodo. Ejemplo: en interrogativas, 'que' se copia y se mueve a C. La huella queda en la posicion original. En el minimalismo, Move es 'Merge interno' (re-merge de un elemento ya presente).",
+     "regla": "Move: copia + re-merge (deja huella)",
+     "ejemplo_correcto": "En 'que compro t', 'que' se mueve a C.",
+     "ejemplo_incorrecto": "Move no deja huella."},
+    {"numero": 184, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Agree (concordancia)",
+     "teoria": "Agree es la operacion que establece concordancia entre un nucleo funcional y un elemento en su dominio (especificador o complemento) copiando rasgos.",
+     "explicacion": "Ejemplo: en 'Juan canta', T tiene rasgos no interpretables (persona, numero) que se valoran por Agree con 'Juan' (3a sing). El verbo copia los rasgos de T. Agree no mueve elementos, solo copia rasgos.",
+     "regla": "Agree: copia rasgos entre nucleo y dependiente",
+     "ejemplo_correcto": "T y Juan hacen Agree para concordancia.",
+     "ejemplo_incorrecto": "Agree mueve el sujeto."},
+    {"numero": 185, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Rasgos formales (features)",
+     "teoria": "Los rasgos formales son propiedades gramaticales de los elementos: persona, numero, genero, caso, tiempo. Se dividen en interpretables y no interpretables.",
+     "explicacion": "Ejemplo: 'nino' tiene rasgos [masc, sing] (interpretables). 'el' tiene [masc, sing, def] (algunos no interpretables). T tiene [pres, 3a, sing] que se valoran por Agree. La derivacion consiste en eliminar rasgos no interpretables.",
+     "regla": "Rasgos: interpretables (semanticos) vs no interpretables (gramaticales)",
+     "ejemplo_correcto": "El rasgo [plural] de 'ninos' es interpretable.",
+     "ejemplo_incorrecto": "Todos los rasgos son interpretables."},
+]
+TECNICAS.extend(TECNICAS_81_85)
+
+
+TECNICAS_86_90 = [
+    {"numero": 186, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Rasgos interpretables vs no interpretables",
+     "teoria": "Los rasgos interpretables aportan significado (genero, numero en N). Los no interpretables son gramaticales y deben eliminarse en la derivacion (persona, numero en T, caso).",
+     "explicacion": "Ejemplo: 'nino' tiene [masc, sing] interpretables. T en 'canta' tiene [3a, sing, pres] no interpretables: se valoran por Agree con el sujeto y luego se eliminan. Si un rasgo no interpretable no se valora, la derivacion falla.",
+     "regla": "Interpretables: significado. No interpretables: se eliminan",
+     "ejemplo_correcto": "El [plural] de 'ninos' es interpretable; el de T no.",
+     "ejemplo_incorrecto": "Todos los rasgos se conservan en la derivacion."},
+    {"numero": 187, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Economia y ultima instancia",
+     "teoria": "El principio de economia establece que las derivaciones deben ser lo mas cortas posibles. El movimiento solo ocurre en 'ultima instancia', si es necesario.",
+     "explicacion": "Ejemplo: si un rasgo puede valorarse sin mover, no se mueve. El movimiento-qu es necesario (ultima instancia) para valorar el rasgo [+qu] de C. Movimientos innecesarios violan la economia.",
+     "regla": "Economia: derivacion mas corta. Move solo si es necesario",
+     "ejemplo_correcto": "El movimiento-qu ocurre solo si C tiene rasgo [+qu].",
+     "ejemplo_incorrecto": "Se puede mover cualquier cosa sin justificacion."},
+    {"numero": 188, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Interfaz PF (forma fonetica)",
+     "teoria": "La interfaz PF (Phonetic Form) es el nivel donde la estructura sintactica se traduce en sonidos. Es una de las dos interfaces del minimalismo.",
+     "explicacion": "En PF se aplican reglas fonologicas y se pronuncian los elementos. Los elementos con rasgos no interpretables que no se eliminaron pueden causar problemas en PF (agramaticalidad). La interfaz PF conecta la sintaxis con la fonologia.",
+     "regla": "PF: interfaz sintaxis-fonologia (como se pronuncia)",
+     "ejemplo_correcto": "La estructura de 'Juan canta' se pronuncia via PF.",
+     "ejemplo_incorrecto": "PF es lo mismo que LF."},
+    {"numero": 189, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Interfaz LF (forma logica)",
+     "teoria": "La interfaz LF (Logical Form) es el nivel donde la estructura sintactica se interpreta semanticamente. Es la otra interfaz del minimalismo.",
+     "explicacion": "En LF se interpretan los elementos: quien es agente, quien es paciente, que se pregunta. El movimiento-qu deja huella que se interpreta en LF. La interfaz LF conecta la sintaxis con la semantica.",
+     "regla": "LF: interfaz sintaxis-semantica (como se interpreta)",
+     "ejemplo_correcto": "En 'que compro Juan t', LF interpreta 'que' como objeto.",
+     "ejemplo_incorrecto": "LF es lo mismo que PF."},
+    {"numero": 190, "bloque": "F", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "La derivacion minimalista",
+     "teoria": "La derivacion minimalista es el proceso por el cual se construye una oracion aplicando Merge, Move y Agree paso a paso desde el lexico hasta las interfaces.",
+     "explicacion": "Ejemplo: 'Juan canta'. 1) Se extraen del lexico: Juan, canta, T, C. 2) Merge(V, SN) -> SV. 3) Merge(T, SV) -> ST. 4) Move(Juan a Esp ST). 5) Agree(T, Juan). 6) Merge(C, ST) -> SC. 7) LF y PF. Cada paso es una operacion.",
+     "regla": "Derivacion: Merge + Move + Agree + interfaces",
+     "ejemplo_correcto": "La derivacion de 'Juan canta' usa Merge y Agree.",
+     "ejemplo_incorrecto": "La derivacion no sigue pasos."},
+]
+TECNICAS.extend(TECNICAS_86_90)
+
+
+TECNICAS_91_95 = [
+    {"numero": 191, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Orden SVO vs VSO vs VOS en castellano",
+     "teoria": "El castellano es una lengua SVO basica, pero permite VSO y VOS por movimiento. El orden no marcado es SVO.",
+     "explicacion": "SVO: 'Juan compro el libro'. VSO: 'Compro Juan el libro' (enfasis). VOS: 'Compro el libro Juan' (foco). El castellano es flexible: el orden cambia por topicalizacion, focalizacion o razones pragmaticas.",
+     "regla": "Castellano: SVO basico. VSO/VOS por movimiento",
+     "ejemplo_correcto": "SVO es el orden no marcado en castellano.",
+     "ejemplo_incorrecto": "El castellano solo permite SVO."},
+    {"numero": 192, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Sujeto nulo: parametro del castellano",
+     "teoria": "El castellano es una lengua pro-drop: permite el sujeto nulo (pro) porque el verbo lleva los rasgos de persona y numero.",
+     "explicacion": "Ejemplo: 'canto' = 'yo canto'. El parametro pro-drop se fija positivo en castellano. En ingles se fija negativo (obliga a 'I sing'). La diferencia se debe a la riqueza morfologica del verbo.",
+     "regla": "Castellano: pro-drop positivo (sujeto nulo)",
+     "ejemplo_correcto": "En castellano 'canto' funciona sin 'yo'.",
+     "ejemplo_incorrecto": "El castellano exige sujeto explicito siempre."},
+    {"numero": 193, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Movimiento del verbo en castellano",
+     "teoria": "En castellano el verbo sube desde V a T (movimiento V->T) para concordar con el sujeto.",
+     "explicacion": "Ejemplo: 'Juan canta'. El verbo 'canta' sube de V a T. En ingles el verbo no sube (se queda en V). La diferencia se debe a la riqueza de la flexion verbal: en castellano T atrae al verbo.",
+     "regla": "Castellano: V->T. Ingles: V se queda en SV",
+     "ejemplo_correcto": "En castellano el verbo sube a T.",
+     "ejemplo_incorrecto": "El verbo nunca sube a T."},
+    {"numero": 194, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Cliticos: estructura y movimiento",
+     "teoria": "Los cliticos (me, te, lo, la, le) son pronombres atonos que se adjuntan al verbo. En la GGT se analizan como nucleos funcionales o como elementos movidos.",
+     "explicacion": "Ejemplo: 'Juan lo compro'. 'lo' es un clitico que se adjunta al verbo. Algunos analisis lo tratan como D movido desde el SN objeto. Otros, como un nucleo funcional (Clitic Phrase, ClP).",
+     "regla": "Cliticos: pronombres atonos adjuntos al verbo",
+     "ejemplo_correcto": "En 'lo compro', 'lo' es clitico del objeto.",
+     "ejemplo_incorrecto": "Los cliticos son palabras independientes."},
+    {"numero": 195, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Doble negacion en castellano",
+     "teoria": "El castellano permite doble negacion: 'No vi a nadie'. Ambos elementos negativos no se cancelan (a diferencia del ingles).",
+     "explicacion": "Ejemplo: 'No vi a nadie' = 'no vi a persona alguna' (doble negacion concordante). En ingles 'I didn't see nobody' es agramatical (doble negacion cancela). En la GGT se analiza como concordancia negativa (NegP).",
+     "regla": "Castellano: doble negacion concordante (no cancela)",
+     "ejemplo_correcto": "'No vi a nadie' es gramatical en castellano.",
+     "ejemplo_incorrecto": "La doble negacion cancela el significado."},
+]
+TECNICAS.extend(TECNICAS_91_95)
+
+
+TECNICAS_96_100 = [
+    {"numero": 196, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Ser vs estar: analisis generativo",
+     "teoria": "En la GGT, 'ser' y 'estar' se analizan como copulativos. 'Ser' expresa cualidad esencial (individuo); 'estar' expresa estado (estadio).",
+     "explicacion": "Ejemplo: 'Juan es alto' (cualidad esencial, individuo) vs 'Juan esta cansado' (estado transitorio). En la GGT se propone que 'ser' selecciona un SV pequeno (Small Clause) con interpretacion individual; 'estar' con interpretacion de estadio.",
+     "regla": "Ser: cualidad (individuo). Estar: estado (estadio)",
+     "ejemplo_correcto": "'Juan es alto' (esencial) vs 'Juan esta cansado' (transitorio).",
+     "ejemplo_incorrecto": "Ser y estar son equivalentes."},
+    {"numero": 197, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Subordinadas sustantivas: analisis generativo",
+     "teoria": "Las subordinadas sustantivas son SC (sintagmas complementantes) que funcionan como argumento del verbo principal.",
+     "explicacion": "Ejemplo: 'Juan dijo [que Maria viene]'. El SC 'que Maria viene' es el complemento del verbo 'dijo'. Su nucleo C es 'que'. Si el verbo es transitivo, el SC recibe caso acusativo de V.",
+     "regla": "Sustantivas: SC como argumento de V",
+     "ejemplo_correcto": "En 'Juan dijo que Maria viene', el SC es complemento de 'dijo'.",
+     "ejemplo_incorrecto": "Las sustantivas son SN."},
+    {"numero": 198, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Relativas: analisis generativo",
+     "teoria": "Las relativas son SC que modifican a un antecedente nominal. El relativo se mueve desde su posicion original a C.",
+     "explicacion": "Ejemplo: 'El libro [que compre t] es bueno'. 'Que' se mueve de objeto (t) a C. El SC relativo modifica a 'el libro'. El antecedente y el relativo comparten referencia.",
+     "regla": "Relativas: SC que modifica N, relativo -> C",
+     "ejemplo_correcto": "En 'el libro que compre t', el SC modifica 'libro'.",
+     "ejemplo_incorrecto": "Las relativas son oraciones independientes."},
+    {"numero": 199, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Interrogativas: movimiento-qu",
+     "teoria": "Las interrogativas (directas e indirectas) tienen un pronombre-qu que se mueve a C.",
+     "explicacion": "Directa: 'Que compro Juan t?'. Indirecta: 'No se [que compro Juan t]'. En ambos casos, 'que' se mueve de objeto a C. El movimiento-qu es visible en castellano, pero puede ser in situ en otras lenguas (chino).",
+     "regla": "Interrogativas: pronombre-qu -> C",
+     "ejemplo_correcto": "En 'que compro t', 'que' esta en C.",
+     "ejemplo_incorrecto": "Las interrogativas no tienen movimiento."},
+    {"numero": 200, "bloque": "G", "nivel": "avanzado", "modulo": "generativa",
+     "titulo": "Analisis generativo completo de una oracion",
+     "teoria": "El analisis generativo completo integra todas las operaciones: Merge, Move, Agree, en las interfaces LF y PF.",
+     "explicacion": "Ejemplo: 'Juan compro el libro'. 1) Lexico: Juan, compro, el, libro. 2) Merge(el, libro) = SD. 3) Merge(compro, SD) = SV. 4) Merge(Juan, SV) = SV (sujeto en Esp). 5) Merge(T, SV) = ST. 6) Move(Juan a Esp ST). 7) Agree(T, Juan). 8) Merge(C, ST) = SC. 9) LF: interpretacion. 10) PF: pronunciacion.",
+     "regla": "Analisis completo: Merge + Move + Agree + LF/PF",
+     "ejemplo_correcto": "El analisis de 'Juan compro el libro' integra las 10 operaciones.",
+     "ejemplo_incorrecto": "El analisis completo solo requiere Move."},
+]
+TECNICAS.extend(TECNICAS_96_100)
+
+
+EJERCICIOS_FG = {
+    181: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que busca el Programa Minimalista?",
+        "opciones": [
+            {"id": "a", "texto": "Reducir la teoria a lo minimo necesario", "correcta": True, "razon": "Solo FL, FF, Merge y Move."},
+            {"id": "b", "texto": "Agregar mas niveles", "correcta": False, "razon": "Todo lo contrario."},
+            {"id": "c", "texto": "Eliminar la sintaxis", "correcta": False, "razon": "La sintaxis sigue."},
+        ], "justificacion_obligatoria": True, "regla": "Minimalismo: simplicidad"}}],
+    182: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es Merge en el minimalismo?",
+        "opciones": [
+            {"id": "a", "texto": "Operacion que combina dos objetos en uno", "correcta": True, "razon": "Merge(X, Y) = {X, Y}."},
+            {"id": "b", "texto": "Una regla de movimiento", "correcta": False, "razon": "Eso es Move."},
+            {"id": "c", "texto": "Una regla fonologica", "correcta": False, "razon": "Es sintactica."},
+        ], "justificacion_obligatoria": True, "regla": "Merge: combina dos objetos"}}],
+    183: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que hace Move en el minimalismo?",
+        "opciones": [
+            {"id": "a", "texto": "Copia un elemento y lo re-mergea, dejando huella", "correcta": True, "razon": "Re-merge interno."},
+            {"id": "b", "texto": "Combina dos objetos nuevos", "correcta": False, "razon": "Eso es Merge."},
+            {"id": "c", "texto": "Copia rasgos", "correcta": False, "razon": "Eso es Agree."},
+        ], "justificacion_obligatoria": True, "regla": "Move: copia + re-merge"}}],
+    184: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que hace Agree?",
+        "opciones": [
+            {"id": "a", "texto": "Copia rasgos entre nucleo y dependiente", "correcta": True, "razon": "Establece concordancia."},
+            {"id": "b", "texto": "Mueve el sujeto", "correcta": False, "razon": "Eso es Move."},
+            {"id": "c", "texto": "Combina objetos", "correcta": False, "razon": "Eso es Merge."},
+        ], "justificacion_obligatoria": True, "regla": "Agree: copia rasgos"}}],
+    185: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es un rasgo interpretable?",
+        "opciones": [
+            {"id": "a", "texto": "Un rasgo que aporta significado (genero, numero en N)", "correcta": True, "razon": "Los interpretables se interpretan en LF."},
+            {"id": "b", "texto": "Un rasgo gramatical que se elimina", "correcta": False, "razon": "Eso es no interpretable."},
+            {"id": "c", "texto": "Un rasgo fonologico", "correcta": False, "razon": "Es sintactico."},
+        ], "justificacion_obligatoria": True, "regla": "Interpretable: significado"}}],
+    186: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica el rasgo: interpretable (I) o no interpretable (N)",
+        "oraciones": [
+            {"texto": "plural de ninos", "categoria_correcta": "I"},
+            {"texto": "persona de T", "categoria_correcta": "N"},
+            {"texto": "genero de nino", "categoria_correcta": "I"},
+            {"texto": "caso de pronombre", "categoria_correcta": "N"},
+        ],
+        "categorias": ["I", "N"]}}],
+    187: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dice el principio de economia?",
+        "opciones": [
+            {"id": "a", "texto": "Las derivaciones deben ser lo mas cortas posibles", "correcta": True, "razon": "Move solo si es necesario."},
+            {"id": "b", "texto": "Se puede mover cualquier cosa", "correcta": False, "razon": "Solo si es necesario."},
+            {"id": "c", "texto": "No hay restricciones", "correcta": False, "razon": "Hay."},
+        ], "justificacion_obligatoria": True, "regla": "Economia: derivacion corta"}}],
+    188: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es la interfaz PF?",
+        "opciones": [
+            {"id": "a", "texto": "Nivel donde la estructura se traduce en sonidos", "correcta": True, "razon": "Phonetic Form."},
+            {"id": "b", "texto": "Nivel donde se interpreta el significado", "correcta": False, "razon": "Eso es LF."},
+            {"id": "c", "texto": "Un tipo de movimiento", "correcta": False, "razon": "No es movimiento."},
+        ], "justificacion_obligatoria": True, "regla": "PF: sintaxis-fonologia"}}],
+    189: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es la interfaz LF?",
+        "opciones": [
+            {"id": "a", "texto": "Nivel donde la estructura se interpreta semanticamente", "correcta": True, "razon": "Logical Form."},
+            {"id": "b", "texto": "Nivel fonologico", "correcta": False, "razon": "Eso es PF."},
+            {"id": "c", "texto": "Un tipo de verbo", "correcta": False, "razon": "No es verbo."},
+        ], "justificacion_obligatoria": True, "regla": "LF: sintaxis-semantica"}}],
+    190: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que operaciones integra la derivacion minimalista?",
+        "opciones": [
+            {"id": "a", "texto": "Merge + Move + Agree", "correcta": True, "razon": "Las tres operaciones basicas."},
+            {"id": "b", "texto": "Solo Merge", "correcta": False, "razon": "Faltan Move y Agree."},
+            {"id": "c", "texto": "Ninguna", "correcta": False, "razon": "Hay 3."},
+        ], "justificacion_obligatoria": True, "regla": "Derivacion: Merge+Move+Agree"}}],
+    191: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el orden basico del castellano?",
+        "opciones": [
+            {"id": "a", "texto": "SVO", "correcta": True, "razon": "Sujeto-Verbo-Objeto es el no marcado."},
+            {"id": "b", "texto": "VSO", "correcta": False, "razon": "Es marcado."},
+            {"id": "c", "texto": "VOS", "correcta": False, "razon": "Es marcado."},
+        ], "justificacion_obligatoria": True, "regla": "Castellano: SVO basico"}}],
+    192: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "El castellano es pro-drop?",
+        "opciones": [
+            {"id": "a", "texto": "Si, permite sujeto nulo", "correcta": True, "razon": "Ej: 'canto' sin 'yo'."},
+            {"id": "b", "texto": "No, exige sujeto explicito", "correcta": False, "razon": "Eso es el ingles."},
+            {"id": "c", "texto": "Solo en pasado", "correcta": False, "razon": "En todos los tiempos."},
+        ], "justificacion_obligatoria": True, "regla": "Castellano: pro-drop"}}],
+    193: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En castellano, el verbo sube a T?",
+        "opciones": [
+            {"id": "a", "texto": "Si, V->T", "correcta": True, "razon": "Para concordar con el sujeto."},
+            {"id": "b", "texto": "No, se queda en SV", "correcta": False, "razon": "Eso pasa en ingles."},
+            {"id": "c", "texto": "Solo en infinitivo", "correcta": False, "razon": "No."},
+        ], "justificacion_obligatoria": True, "regla": "Castellano: V->T"}}],
+    194: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que son los cliticos en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Pronombres atonos que se adjuntan al verbo", "correcta": True, "razon": "Ej: 'lo compro'."},
+            {"id": "b", "texto": "Palabras independientes", "correcta": False, "razon": "No son libres."},
+            {"id": "c", "texto": "Verbos auxiliares", "correcta": False, "razon": "No son verbos."},
+        ], "justificacion_obligatoria": True, "regla": "Cliticos: atonos, adjuntos"}}],
+    195: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En castellano, 'No vi a nadie' es:",
+        "opciones": [
+            {"id": "a", "texto": "Gramatical (doble negacion concordante)", "correcta": True, "razon": "En castellano la doble negacion no cancela."},
+            {"id": "b", "texto": "Agramatical", "correcta": False, "razon": "Es gramatical."},
+            {"id": "c", "texto": "Un error", "correcta": False, "razon": "Es correcto."},
+        ], "justificacion_obligatoria": True, "regla": "Doble negacion concordante"}}],
+    196: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que distingue 'ser' de 'estar' en la GGT?",
+        "opciones": [
+            {"id": "a", "texto": "Ser: cualidad esencial. Estar: estado transitorio", "correcta": True, "razon": "Individuo vs estadio."},
+            {"id": "b", "texto": "Son equivalentes", "correcta": False, "razon": "Son distintos."},
+            {"id": "c", "texto": "Ser es para tiempo pasado", "correcta": False, "razon": "No es eso."},
+        ], "justificacion_obligatoria": True, "regla": "Ser esencial, estar estadio"}}],
+    197: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Juan dijo que Maria viene', que es 'que Maria viene'?",
+        "opciones": [
+            {"id": "a", "texto": "Un SC (complemento de 'dijo')", "correcta": True, "razon": "Subordinada sustantiva = SC."},
+            {"id": "b", "texto": "Un SN", "correcta": False, "razon": "No es nominal."},
+            {"id": "c", "texto": "Un SP", "correcta": False, "razon": "No empieza por preposicion."},
+        ], "justificacion_obligatoria": True, "regla": "Sustantiva = SC"}}],
+    198: [{"tipo": 3, "orden": 1, "payload": {
+        "enunciado": "Clasifica cada subordinada: sustantiva (S) o relativa (R)",
+        "oraciones": [
+            {"texto": "Juan dijo que Maria viene", "categoria_correcta": "S"},
+            {"texto": "El libro que compre es bueno", "categoria_correcta": "R"},
+            {"texto": "Maria cree que Juan viene", "categoria_correcta": "S"},
+            {"texto": "La casa que vimos es grande", "categoria_correcta": "R"},
+        ],
+        "categorias": ["S", "R"]}}],
+    199: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'que compro Juan t', que tipo de movimiento hay?",
+        "opciones": [
+            {"id": "a", "texto": "Movimiento-qu (interrogativa)", "correcta": True, "razon": "'Que' se mueve a C."},
+            {"id": "b", "texto": "Movimiento de nucleo", "correcta": False, "razon": "No es nucleo."},
+            {"id": "c", "texto": "Movimiento-A", "correcta": False, "razon": "Es A-barra."},
+        ], "justificacion_obligatoria": True, "regla": "Interrogativa: movimiento-qu"}}],
+    200: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que operaciones integra el analisis generativo completo?",
+        "opciones": [
+            {"id": "a", "texto": "Merge + Move + Agree + LF/PF", "correcta": True, "razon": "Las 3 operaciones + 2 interfaces."},
+            {"id": "b", "texto": "Solo Merge", "correcta": False, "razon": "Faltan mas."},
+            {"id": "c", "texto": "Solo Move", "correcta": False, "razon": "Faltan mas."},
+        ], "justificacion_obligatoria": True, "regla": "Analisis completo: 5 elementos"}}],
+}
+EJERCICIOS.update(EJERCICIOS_FG)
+
