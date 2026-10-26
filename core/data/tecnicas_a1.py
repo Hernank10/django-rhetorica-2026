@@ -997,3 +997,223 @@ EJERCICIOS_256_265 = {
 }
 EJERCICIOS.update(EJERCICIOS_256_265)
 
+
+TECNICAS_266_280 = [
+    {"numero": 266, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar con que: ¿Que?",
+     "teoria": "¿Que? se usa para preguntar por cosas, acciones o definiciones.",
+     "explicacion": "Ejemplos: ¿Que es esto? (what is this?), ¿Que quieres? (what do you want?), ¿Que haces? (what are you doing?). Lleva tilde diacritica en interrogativas.",
+     "regla": "¿Que? = what? (con tilde)",
+     "ejemplo_correcto": "¿Que es esto? Es un libro.",
+     "ejemplo_incorrecto": "Que es esto? (falta ¿ al inicio)"},
+    {"numero": 267, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar con quien: ¿Quien?",
+     "teoria": "¿Quien? se usa para preguntar por personas. Plural: ¿Quienes?",
+     "explicacion": "Ejemplos: ¿Quien es? (who is it?), ¿Quien viene? (who is coming?), ¿Quienes son? (who are they?).",
+     "regla": "¿Quien? / ¿Quienes? = who?",
+     "ejemplo_correcto": "¿Quien es ese hombre?",
+     "ejemplo_incorrecto": "¿Quien son? (deberia ser quienes)"},
+    {"numero": 268, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar con donde: ¿Donde?",
+     "teoria": "¿Donde? se usa para preguntar por lugar o ubicacion.",
+     "explicacion": "Ejemplos: ¿Donde vives? (where do you live?), ¿Donde esta el baño? (where is the bathroom?), ¿De donde eres? (where are you from?).",
+     "regla": "¿Donde? = where?",
+     "ejemplo_correcto": "¿Donde vives? Vivo en Bogota.",
+     "ejemplo_incorrecto": "¿Donde vives? (respuesta sin tilde: Bogota -> Bogota con tilde)"},
+    {"numero": 269, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar con cuando: ¿Cuando?",
+     "teoria": "¿Cuando? se usa para preguntar por tiempo o momento.",
+     "explicacion": "Ejemplos: ¿Cuando vienes? (when are you coming?), ¿Cuando es tu cumpleanos? (when is your birthday?), ¿Desde cuando? (since when?).",
+     "regla": "¿Cuando? = when?",
+     "ejemplo_correcto": "¿Cuando es la fiesta? El sabado.",
+     "ejemplo_incorrecto": "Cuando es la fiesta. (sin signos de interrogacion)"},
+    {"numero": 270, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar con como: ¿Como?",
+     "teoria": "¿Como? se usa para preguntar por modo, manera o estado.",
+     "explicacion": "Ejemplos: ¿Como estas? (how are you?), ¿Como te llamas? (what is your name?), ¿Como se dice...? (how do you say...?), ¿Como vas al trabajo? (how do you get to work?).",
+     "regla": "¿Como? = how?",
+     "ejemplo_correcto": "¿Como estas? Muy bien, gracias.",
+     "ejemplo_incorrecto": "¿Como estas? (sin tilde en como cuando es interrogativo)"},
+    {"numero": 271, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar cantidad: ¿Cuanto/Cuantos?",
+     "teoria": "¿Cuanto? pregunta por cantidad incontable. ¿Cuantos/Cuantas? por cantidad contable.",
+     "explicacion": "¿Cuanto cuesta? (how much does it cost?), ¿Cuanto dinero tienes? (how much money?), ¿Cuantos anos tienes? (how many years?), ¿Cuantas personas hay? (how many people?). Concuerda en genero/numero con el sustantivo.",
+     "regla": "¿Cuanto? incontable. ¿Cuantos/as? contable (concuerda)",
+     "ejemplo_correcto": "¿Cuanto cuesta? ¿Cuantos hermanos tienes?",
+     "ejemplo_incorrecto": "¿Cuantos cuesta? (cuesta es incontable: cuanto)"},
+    {"numero": 272, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "¿Por que? vs porque (why vs because)",
+     "teoria": "¿Por que? (separado, con tilde) pregunta la causa. Porque (junto, sin tilde) responde la causa.",
+     "explicacion": "Pregunta: ¿Por que estudias espanol? (why do you study Spanish?). Respuesta: Porque me gusta (because I like it). Tambien: ¿Para que? (what for?), para (in order to).",
+     "regla": "¿Por que? = why? (separado + tilde). Porque = because (junto, sin tilde)",
+     "ejemplo_correcto": "¿Por que lloras? Porque estoy triste.",
+     "ejemplo_incorrecto": "¿Porque lloras? (junto: deberia ser separado ¿por que?)"},
+    {"numero": 273, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntar eleccion: ¿Cual? / ¿Cuales?",
+     "teoria": "¿Cual? se usa para preguntar por una opcion entre varias. Plural: ¿Cuales?",
+     "explicacion": "Ejemplos: ¿Cual prefieres? (which do you prefer?), ¿Cual es tu color favorito? (what is your favorite color?), ¿Cuales son tus libros? (which are your books?). No confundir con ¿Que? (definicion).",
+     "regla": "¿Cual? / ¿Cuales? = which? (entre opciones)",
+     "ejemplo_correcto": "¿Cual prefieres, te o cafe?",
+     "ejemplo_incorrecto": "¿Que prefieres? (correcto pero menos preciso que ¿cual?)"},
+    {"numero": 274, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preguntas de si/no",
+     "teoria": "Las preguntas cerradas se contestan con si o no. En espanol se distinguen por entonacion o por los signos ¿?.",
+     "explicacion": "Ejemplos: ¿Hablas espanol? Si / No. ¿Tienes hermanos? Si, tengo dos. ¿Vienes manana? No, no puedo. La entonacion sube al final en preguntas.",
+     "regla": "Pregunta cerrada: si/no. Usa ¿? y entonacion ascendente",
+     "ejemplo_correcto": "¿Hablas espanol? Si, un poco.",
+     "ejemplo_incorrecto": "Hablas espanol. (sin signos, es afirmacion)"},
+    {"numero": 275, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Signos de interrogacion: ¿...?",
+     "teoria": "En espanol las preguntas llevan signo de apertura ¿ y de cierre ?. Es unico del espanol.",
+     "explicacion": "Ejemplos: ¿Como estas? ¿Donde vives? ¿Que quieres? El signo ¿ va al inicio de la pregunta, ? al final. Tambien en preguntas dentro de oraciones: Juan, ¿vienes?",
+     "regla": "Toda pregunta: ¿...? (apertura + cierre)",
+     "ejemplo_correcto": "¿Como estas? ¿Que haces?",
+     "ejemplo_incorrecto": "Como estas? Que haces? (falta ¿ de apertura)"},
+    {"numero": 276, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Negacion simple: no",
+     "teoria": "Para negar una oracion, se coloca 'no' antes del verbo.",
+     "explicacion": "Ejemplos: No hablo frances (I don't speak French). No tengo tiempo (I don't have time). No quiero (I don't want to). El 'no' va siempre antes del verbo conjugado.",
+     "regla": "no + verbo (No hablo, no quiero)",
+     "ejemplo_correcto": "No hablo frances. No tengo tiempo.",
+     "ejemplo_incorrecto": "Hablo no frances. (orden incorrecto: no hablo)"},
+    {"numero": 277, "bloque": "E", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "Negacion doble: no... nada, no... nadie",
+     "teoria": "En espanol la doble negacion es correcta y no se cancela: no + verbo + nada/nadie/nunca.",
+     "explicacion": "Ejemplos: No veo nada (I don't see anything, lit. 'I don't see nothing'). No viene nadie (nobody comes). No como nunca (I never eat...). A diferencia del ingles, la doble negacion no cancela.",
+     "regla": "no + verbo + nada/nadie/nunca (doble negacion valida)",
+     "ejemplo_correcto": "No veo nada. No viene nadie.",
+     "ejemplo_incorrecto": "No veo algo. (deberia ser 'nada' con negacion)"},
+    {"numero": 278, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Adverbios de tiempo: hoy, ayer, manana",
+     "teoria": "Los adverbios de tiempo indican cuando ocurre la accion: hoy (today), ayer (yesterday), manana (tomorrow).",
+     "explicacion": "Ejemplos: Hoy es lunes. Ayer fui al cine. Manana voy al trabajo. Otros: ahora (now), despues (later), antes (before), siempre (always), nunca (never).",
+     "regla": "hoy, ayer, manana (tiempo)",
+     "ejemplo_correcto": "Hoy estudio. Ayer estudie. Manana estudiare.",
+     "ejemplo_incorrecto": "Manana fui al cine. (manana es futuro, no pasado)"},
+    {"numero": 279, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Adverbios de frecuencia: siempre, a veces, nunca",
+     "teoria": "Los adverbios de frecuencia indican con que asiduidad ocurre algo: siempre (always), a veces (sometimes), nunca (never).",
+     "explicacion": "Ejemplos: Siempre desayuno (I always have breakfast). A veces voy al cine (sometimes I go to the cinema). Nunca bebo alcohol (I never drink alcohol). Escala: siempre > casi siempre > a menudo > a veces > casi nunca > nunca.",
+     "regla": "siempre, a veces, nunca (frecuencia)",
+     "ejemplo_correcto": "Siempre estudio por la noche. Nunca llego tarde.",
+     "ejemplo_incorrecto": "Siempre no estudio. (deberia ser 'nunca estudio')"},
+    {"numero": 280, "bloque": "E", "nivel": "basico", "modulo": "a1",
+     "titulo": "Adverbios de cantidad: mucho, poco, muy",
+     "teoria": "Los adverbios de cantidad indican intensidad: muy (very), mucho (a lot), poco (little).",
+     "explicacion": "Muy + adjetivo/adverbio: muy alto, muy bien. Mucho/poco + verbo: trabajo mucho, come poco. Mucho/a/os/as + sustantivo (concuerda): muchos libros, poca agua. No confundir muy (intensidad) con mucho (cantidad).",
+     "regla": "Muy + adj/adv. Mucho/poco + verbo o + sustantivo (concuerda)",
+     "ejemplo_correcto": "Es muy alto. Trabajo mucho. Tengo pocos amigos.",
+     "ejemplo_incorrecto": "Es mucho alto. Trabajo muy. (muy va con adjetivo, mucho con verbo)"},
+]
+TECNICAS.extend(TECNICAS_266_280)
+
+
+EJERCICIOS_266_280 = {
+    266: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa '¿Que?'",
+        "opciones": [
+            {"id": "a", "texto": "What?", "correcta": True, "razon": "Que = what."},
+            {"id": "b", "texto": "Who?", "correcta": False, "razon": "Who = quien."},
+            {"id": "c", "texto": "Where?", "correcta": False, "razon": "Where = donde."},
+        ], "justificacion_obligatoria": False, "regla": "¿Que? = what?"}}],
+    267: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que interrogativo usas para preguntar por una persona?",
+        "opciones": [
+            {"id": "a", "texto": "¿Que?", "correcta": False, "razon": "Que = what (cosas)."},
+            {"id": "b", "texto": "¿Quien?", "correcta": True, "razon": "Quien = who."},
+            {"id": "c", "texto": "¿Donde?", "correcta": False, "razon": "Donde = where."},
+        ], "justificacion_obligatoria": False, "regla": "¿Quien? = who?"}}],
+    268: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que pregunta usas para saber la ubicacion?",
+        "opciones": [
+            {"id": "a", "texto": "¿Cuando?", "correcta": False, "razon": "Cuando = when."},
+            {"id": "b", "texto": "¿Donde?", "correcta": True, "razon": "Donde = where."},
+            {"id": "c", "texto": "¿Como?", "correcta": False, "razon": "Como = how."},
+        ], "justificacion_obligatoria": False, "regla": "¿Donde? = where?"}}],
+    269: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "¿Cuando? pregunta por...",
+        "opciones": [
+            {"id": "a", "texto": "Lugar", "correcta": False, "razon": "Lugar = donde."},
+            {"id": "b", "texto": "Tiempo", "correcta": True, "razon": "Cuando = when (tiempo)."},
+            {"id": "c", "texto": "Modo", "correcta": False, "razon": "Modo = como."},
+        ], "justificacion_obligatoria": False, "regla": "¿Cuando? = when (tiempo)"}}],
+    270: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que pregunta usas para saber como esta alguien?",
+        "opciones": [
+            {"id": "a", "texto": "¿Como estas?", "correcta": True, "razon": "Como = how."},
+            {"id": "b", "texto": "¿Que estas?", "correcta": False, "razon": "No se usa que aqui."},
+            {"id": "c", "texto": "¿Donde estas?", "correcta": False, "razon": "Donde = where."},
+        ], "justificacion_obligatoria": False, "regla": "¿Como estas? = how are you?"}}],
+    271: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como preguntas el precio?",
+        "opciones": [
+            {"id": "a", "texto": "¿Cuantos cuesta?", "correcta": False, "razon": "Cuesta es incontable: ¿cuanto?"},
+            {"id": "b", "texto": "¿Cuanto cuesta?", "correcta": True, "razon": "Cuanto (incontable) + cuesta."},
+            {"id": "c", "texto": "¿Cual cuesta?", "correcta": False, "razon": "Cual es which."},
+        ], "justificacion_obligatoria": False, "regla": "¿Cuanto cuesta?"}}],
+    272: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que forma es correcta para responder 'because'?",
+        "opciones": [
+            {"id": "a", "texto": "¿Por que?", "correcta": False, "razon": "Eso es pregunta."},
+            {"id": "b", "texto": "porque", "correcta": True, "razon": "Porque = because (junto, sin tilde)."},
+            {"id": "c", "texto": "por qué", "correcta": False, "razon": "Con tilde es pregunta."},
+        ], "justificacion_obligatoria": False, "regla": "porque = because (junto, sin tilde)"}}],
+    273: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que pregunta usas para elegir entre dos opciones?",
+        "opciones": [
+            {"id": "a", "texto": "¿Que?", "correcta": False, "razon": "Que = what (definicion)."},
+            {"id": "b", "texto": "¿Cual?", "correcta": True, "razon": "Cual = which (entre opciones)."},
+            {"id": "c", "texto": "¿Quien?", "correcta": False, "razon": "Quien = who."},
+        ], "justificacion_obligatoria": False, "regla": "¿Cual? = which?"}}],
+    274: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se responde a '¿Hablas espanol?'",
+        "opciones": [
+            {"id": "a", "texto": "Si, un poco", "correcta": True, "razon": "Pregunta de si/no."},
+            {"id": "b", "texto": "Hoy es lunes", "correcta": False, "razon": "No responde la pregunta."},
+            {"id": "c", "texto": "Muy bien", "correcta": False, "razon": "No responde si/no."},
+        ], "justificacion_obligatoria": False, "regla": "Pregunta si/no -> Si / No"}}],
+    275: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la oracion correctamente escrita como pregunta?",
+        "opciones": [
+            {"id": "a", "texto": "Como estas?", "correcta": False, "razon": "Falta ¿ al inicio."},
+            {"id": "b", "texto": "¿Como estas?", "correcta": True, "razon": "Con ¿ y ?."},
+            {"id": "c", "texto": "¿Como estas.", "correcta": False, "razon": "Cierra con . no con ?."},
+        ], "justificacion_obligatoria": False, "regla": "¿...? obligatorio"}}],
+    276: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I don't speak French'?",
+        "opciones": [
+            {"id": "a", "texto": "Hablo no frances", "correcta": False, "razon": "No va antes del verbo."},
+            {"id": "b", "texto": "No hablo frances", "correcta": True, "razon": "No + verbo."},
+            {"id": "c", "texto": "Hablo frances no", "correcta": False, "razon": "Orden incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "no + verbo"}}],
+    277: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I don't see anything'?",
+        "opciones": [
+            {"id": "a", "texto": "No veo algo", "correcta": False, "razon": "Con negacion: nada."},
+            {"id": "b", "texto": "No veo nada", "correcta": True, "razon": "Doble negacion valida."},
+            {"id": "c", "texto": "Veo no nada", "correcta": False, "razon": "Orden incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "No + verbo + nada"}}],
+    278: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que adverbio indica tiempo futuro?",
+        "opciones": [
+            {"id": "a", "texto": "ayer", "correcta": False, "razon": "Ayer = yesterday (pasado)."},
+            {"id": "b", "texto": "manana", "correcta": True, "razon": "Manana = tomorrow (futuro)."},
+            {"id": "c", "texto": "hoy", "correcta": False, "razon": "Hoy = today (presente)."},
+        ], "justificacion_obligatoria": False, "regla": "Manana = tomorrow"}}],
+    279: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que adverbio indica que algo nunca ocurre?",
+        "opciones": [
+            {"id": "a", "texto": "siempre", "correcta": False, "razon": "Siempre = always."},
+            {"id": "b", "texto": "a veces", "correcta": False, "razon": "A veces = sometimes."},
+            {"id": "c", "texto": "nunca", "correcta": True, "razon": "Nunca = never."},
+        ], "justificacion_obligatoria": False, "regla": "Nunca = never"}}],
+    280: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Es muy alto", "correcta": True, "razon": "Muy + adjetivo."},
+            {"id": "b", "texto": "Es mucho alto", "correcta": False, "razon": "Deberia ser muy."},
+            {"id": "c", "texto": "Trabajo muy", "correcta": False, "razon": "Deberia ser mucho."},
+        ], "justificacion_obligatoria": False, "regla": "Muy + adj, mucho + verbo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_266_280)
+
