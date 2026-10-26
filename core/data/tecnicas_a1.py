@@ -1217,3 +1217,153 @@ EJERCICIOS_266_280 = {
 }
 EJERCICIOS.update(EJERCICIOS_266_280)
 
+
+TECNICAS_281_290 = [
+    {"numero": 281, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preposicion 'en': ubicacion",
+     "teoria": "'En' indica ubicacion (lugar donde algo esta) o medio de transporte.",
+     "explicacion": "Ejemplos: Estoy en casa (I am at home), Vivo en Bogota (I live in Bogota), Voy en coche (I go by car). Tambien en tiempo: en enero, en 2024.",
+     "regla": "en + lugar (Estoy en casa, vivo en Madrid)",
+     "ejemplo_correcto": "Vivo en Colombia. El libro esta en la mesa.",
+     "ejemplo_incorrecto": "Vivo a Colombia. (lugar de residencia: en)"},
+    {"numero": 282, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preposicion 'de': posesion y origen",
+     "teoria": "'De' indica posesion (pertenencia) u origen (procedencia).",
+     "explicacion": "Posesion: el libro de Juan (Juan's book), la casa de mi madre. Origen: Soy de Colombia (I'm from Colombia), Vengo de Madrid. Contraccion: de + el = del (Vengo del trabajo).",
+     "regla": "de + posesor/origen (el libro de Juan, soy de Colombia)",
+     "ejemplo_correcto": "Soy de Colombia. El coche de mi padre.",
+     "ejemplo_incorrecto": "Soy en Colombia. (origen: de, no en)"},
+    {"numero": 283, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preposicion 'a': direccion",
+     "teoria": "'A' indica direccion (movimiento hacia un lugar) o destino.",
+     "explicacion": "Ejemplos: Voy a casa (I go home), Voy a Madrid (I go to Madrid), Voy al cine (I go to the cinema). Contraccion: a + el = al (al cine, al trabajo).",
+     "regla": "a + destino (Voy a casa, voy al cine)",
+     "ejemplo_correcto": "Voy a la escuela. Voy al trabajo.",
+     "ejemplo_incorrecto": "Voy en casa. (direccion: a, no en)"},
+    {"numero": 284, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preposicion 'con': compania",
+     "teoria": "'Con' indica compania (junto a alguien) o instrumento (con un objeto).",
+     "explicacion": "Compania: Voy con Juan (I go with Juan), Vivo con mis padres. Instrumento: Escribo con un lapiz (I write with a pencil). Formas especiales con pronombres: conmigo (with me), contigo (with you).",
+     "regla": "con + persona/instrumento (con Juan, con un lapiz)",
+     "ejemplo_correcto": "Voy al cine con mis amigos. Escribo con boligrafo.",
+     "ejemplo_incorrecto": "Voy al cine a mis amigos. (compania: con)"},
+    {"numero": 285, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Preposicion 'para': finalidad",
+     "teoria": "'Para' indica finalidad (proposito), destinatario o plazo.",
+     "explicacion": "Finalidad: Estudio para aprender (I study in order to learn). Destinatario: Este regalo es para ti (this gift is for you). Plazo: Es para manana (it's for tomorrow).",
+     "regla": "para + finalidad/destinatario (para aprender, para ti)",
+     "ejemplo_correcto": "Estudio para aprender espanol. Este libro es para ti.",
+     "ejemplo_incorrecto": "Estudio por aprender. (finalidad: para, no por)"},
+    {"numero": 286, "bloque": "F", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "Preposicion 'por': causa",
+     "teoria": "'Por' indica causa (motivo), medio o intercambio.",
+     "explicacion": "Causa: Gracias por tu ayuda (thanks for your help). Medio: Hablo por telefono. Intercambio: Cambio esto por aquello. Diferencia con 'para': 'por' = causa (porque), 'para' = finalidad (para que).",
+     "regla": "por + causa/medio (gracias por..., por telefono)",
+     "ejemplo_correcto": "Gracias por tu ayuda. Hablo por telefono.",
+     "ejemplo_incorrecto": "Gracias para tu ayuda. (causa: por, no para)"},
+    {"numero": 287, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Adverbios de lugar: aqui, ahi, alli",
+     "teoria": "Los adverbios de lugar indican distancia: aqui (near me), ahi (near you), alli (far from both).",
+     "explicacion": "Aqui = here (cercania al hablante). Ahi = there (cercania al oyente). Alli = there (lejania). En America Latina se usa 'aca' por 'aqui' y 'alla' por 'alli'.",
+     "regla": "aqui (near me), ahi (near you), alli (far)",
+     "ejemplo_correcto": "El libro esta aqui. La silla esta alli.",
+     "ejemplo_incorrecto": "El libro esta aca. (correcto en America, pero 'aqui' es más estándar)"},
+    {"numero": 288, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Encima de, debajo de",
+     "teoria": "Las locuciones prepositivas indican posicion relativa: encima de (on top of), debajo de (under).",
+     "explicacion": "Encima de: El libro esta encima de la mesa. Debajo de: El gato esta debajo de la cama. Tambien 'sobre' (on) es sinonimo de 'encima de'.",
+     "regla": "encima de (on top of), debajo de (under)",
+     "ejemplo_correcto": "El vaso esta encima de la mesa. El perro duerme debajo de la cama.",
+     "ejemplo_incorrecto": "El vaso esta encima la mesa. (falta 'de')"},
+    {"numero": 289, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Delante de, detras de, entre",
+     "teoria": "Las locuciones prepositivas indican posicion: delante de (in front of), detras de (behind), entre (between).",
+     "explicacion": "Delante de: El coche esta delante de la casa. Detras de: El jardin esta detras de la casa. Entre: El banco esta entre la farmacia y el supermercado.",
+     "regla": "delante de (in front), detras de (behind), entre (between)",
+     "ejemplo_correcto": "Me siento delante de la ventana. El perro esta detras de la puerta.",
+     "ejemplo_incorrecto": "Me siento delante la ventana. (falta 'de')"},
+    {"numero": 290, "bloque": "F", "nivel": "basico", "modulo": "a1",
+     "titulo": "Al lado de, cerca de, lejos de",
+     "teoria": "Estas locuciones indican proximidad o distancia: al lado de (next to), cerca de (near), lejos de (far from).",
+     "explicacion": "Al lado de: Vivo al lado del parque. Cerca de: La tienda esta cerca de casa. Lejos de: El aeropuerto esta lejos del centro. Nota: 'al lado de' es más cercano que 'cerca de'.",
+     "regla": "al lado de (next to), cerca de (near), lejos de (far from)",
+     "ejemplo_correcto": "Vivo al lado de la playa. El banco esta cerca de aqui.",
+     "ejemplo_incorrecto": "Vivo al lado la playa. (falta 'de')"},
+]
+TECNICAS.extend(TECNICAS_281_290)
+
+
+EJERCICIOS_281_290 = {
+    281: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I live in Madrid'?",
+        "opciones": [
+            {"id": "a", "texto": "Vivo a Madrid", "correcta": False, "razon": "Ubicacion: en."},
+            {"id": "b", "texto": "Vivo en Madrid", "correcta": True, "razon": "En Madrid (ubicacion)."},
+            {"id": "c", "texto": "Vivo de Madrid", "correcta": False, "razon": "De seria origen, no residencia."},
+        ], "justificacion_obligatoria": False, "regla": "Vivo en Madrid"}}],
+    282: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como indicas origen con 'ser'?",
+        "opciones": [
+            {"id": "a", "texto": "Soy en Colombia", "correcta": False, "razon": "Origen: de."},
+            {"id": "b", "texto": "Soy de Colombia", "correcta": True, "razon": "De Colombia (origen)."},
+            {"id": "c", "texto": "Soy a Colombia", "correcta": False, "razon": "Direccion: a."},
+        ], "justificacion_obligatoria": False, "regla": "Soy de Colombia"}}],
+    283: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I go to the cinema'?",
+        "opciones": [
+            {"id": "a", "texto": "Voy en el cine", "correcta": False, "razon": "Direccion: a."},
+            {"id": "b", "texto": "Voy al cine", "correcta": True, "razon": "A + el = al."},
+            {"id": "c", "texto": "Voy del cine", "correcta": False, "razon": "Del seria origen."},
+        ], "justificacion_obligatoria": False, "regla": "Voy al cine (a + el = al)"}}],
+    284: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'with me'?",
+        "opciones": [
+            {"id": "a", "texto": "con mi", "correcta": False, "razon": "Forma especial: conmigo."},
+            {"id": "b", "texto": "conmigo", "correcta": True, "razon": "Conmigo = with me."},
+            {"id": "c", "texto": "con yo", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "conmigo = with me"}}],
+    285: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'This gift is for you'?",
+        "opciones": [
+            {"id": "a", "texto": "Este regalo es por ti", "correcta": False, "razon": "Destinatario: para."},
+            {"id": "b", "texto": "Este regalo es para ti", "correcta": True, "razon": "Para ti (destinatario)."},
+            {"id": "c", "texto": "Este regalo es a ti", "correcta": False, "razon": "No se usa 'a' aqui."},
+        ], "justificacion_obligatoria": False, "regla": "para ti (destinatario)"}}],
+    286: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que preposicion usas en 'Gracias ___ tu ayuda'?",
+        "opciones": [
+            {"id": "a", "texto": "para", "correcta": False, "razon": "Para = finalidad."},
+            {"id": "b", "texto": "por", "correcta": True, "razon": "Por = causa."},
+            {"id": "c", "texto": "en", "correcta": False, "razon": "En = ubicacion."},
+        ], "justificacion_obligatoria": False, "regla": "Gracias por (causa)"}}],
+    287: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que adverbio significa 'here' (cerca del hablante)?",
+        "opciones": [
+            {"id": "a", "texto": "alli", "correcta": False, "razon": "Alli = far."},
+            {"id": "b", "texto": "ahi", "correcta": False, "razon": "Ahi = near you."},
+            {"id": "c", "texto": "aqui", "correcta": True, "razon": "Aqui = here."},
+        ], "justificacion_obligatoria": False, "regla": "Aqui = here"}}],
+    288: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa 'debajo de'?",
+        "opciones": [
+            {"id": "a", "texto": "On top of", "correcta": False, "razon": "Eso es encima de."},
+            {"id": "b", "texto": "Under", "correcta": True, "razon": "Debajo de = under."},
+            {"id": "c", "texto": "Next to", "correcta": False, "razon": "Eso es al lado de."},
+        ], "justificacion_obligatoria": False, "regla": "debajo de = under"}}],
+    289: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id": "a", "texto": "delante la casa", "correcta": False, "razon": "Falta 'de': delante de la casa."},
+            {"id": "b", "texto": "delante de la casa", "correcta": True, "razon": "Delante de + sustantivo."},
+            {"id": "c", "texto": "delante en la casa", "correcta": False, "razon": "No se usa 'en'."},
+        ], "justificacion_obligatoria": False, "regla": "delante de la casa"}}],
+    290: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresion significa 'next to'?",
+        "opciones": [
+            {"id": "a", "texto": "lejos de", "correcta": False, "razon": "Lejos = far from."},
+            {"id": "b", "texto": "al lado de", "correcta": True, "razon": "Al lado de = next to."},
+            {"id": "c", "texto": "cerca de", "correcta": False, "razon": "Cerca = near (menos preciso)."},
+        ], "justificacion_obligatoria": False, "regla": "al lado de = next to"}}],
+}
+EJERCICIOS.update(EJERCICIOS_281_290)
+
