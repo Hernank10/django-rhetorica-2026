@@ -957,3 +957,223 @@ EJERCICIOS_351_365 = {
 }
 EJERCICIOS.update(EJERCICIOS_351_365)
 
+
+TECNICAS_366_380 = [
+    {"numero": 366, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Regimen verbal: pensar en, depender de",
+     "teoria": "Muchos verbos exigen una preposicion fija antes de su complemento. Es el 'regimen verbal'.",
+     "explicacion": "Pensar en: Pienso en ti. Depender de: Depende de ti. Confiar en: Confio en ti. Contar con: Cuento contigo. Insistir en: Insisto en eso. La preposicion no se puede cambiar: 'pensar de' o 'depender en' son incorrectos.",
+     "regla": "pensar en / depender de / confiar en / contar con / insistir en",
+     "ejemplo_correcto": "Pienso en ti. Depende de ti. Confio en ti.",
+     "ejemplo_incorrecto": "Pienso de ti. (pensar rige en)"},
+    {"numero": 367, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Verbos con a / de: empezar a, terminar de",
+     "teoria": "Algunos verbos rigen 'a' o 'de' antes de un infinitivo: empezar a, aprender a, terminar de, acabar de, dejar de.",
+     "explicacion": "Empezar a + inf: Empece a estudiar. Aprender a + inf: Aprendi a nadar. Terminar de + inf: Termine de comer. Acabar de + inf: Acabo de llegar. Dejar de + inf: Deje de fumar. Cada verbo tiene su preposicion fija.",
+     "regla": "empezar a / aprender a / terminar de / acabar de / dejar de + infinitivo",
+     "ejemplo_correcto": "Empece a estudiar. Aprendi a nadar. Termine de comer.",
+     "ejemplo_incorrecto": "Empece de estudiar. (empezar rige a)"},
+    {"numero": 368, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis verbal: ir a + infinitivo",
+     "teoria": "La perifrasis 'ir a + infinitivo' expresa futuro inmediato o intencion.",
+     "explicacion": "Voy a estudiar (I am going to study). Vamos a salir (we are going out). ¿Que vas a hacer? Es la forma mas comun de futuro inmediato en el habla. Equivale al ingles 'be going to'.",
+     "regla": "ir (conjugado) + a + infinitivo (voy a comer)",
+     "ejemplo_correcto": "Voy a estudiar. Vamos a salir. ¿Que vas a hacer?",
+     "ejemplo_incorrecto": "Voy estudiar. (falta 'a' en la perifrasis)"},
+    {"numero": 369, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis: estar + gerundio",
+     "teoria": "La perifrasis 'estar + gerundio' expresa una accion en desarrollo en el momento.",
+     "explicacion": "Estoy estudiando (I am studying). Estas comiendo. Esta lloviendo. Gerundio: -ar -> -ando, -er/-ir -> -iendo. Con pronombres reflexivos: Estoy lavandome (o me estoy lavando). Es el equivalente al ingles 'be + -ing'.",
+     "regla": "estar (conjugado) + gerundio (-ando/-iendo): estoy comiendo",
+     "ejemplo_correcto": "Estoy estudiando. ¿Que estas haciendo? Esta lloviendo.",
+     "ejemplo_incorrecto": "Soy estudiando. (ser no forma perifrasis progresiva)"},
+    {"numero": 370, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis modales: tener que, deber, poder",
+     "teoria": "Las perifrasis modales expresan obligacion (tener que, deber) o posibilidad (poder).",
+     "explicacion": "Tener que + inf: Tengo que estudiar (obligacion personal, mas fuerte). Deber + inf: Debo estudiar (obligacion moral). Poder + inf: Puedo estudiar (posibilidad/capacidad). Haber de + inf (formal, poco usado): He de estudiar.",
+     "regla": "tener que / deber / poder + infinitivo",
+     "ejemplo_correcto": "Tengo que estudiar. Debo ayudar. Puedo ir.",
+     "ejemplo_incorrecto": "Tengo estudiar. (falta 'que' en tener que)"},
+    {"numero": 371, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis: acabar de + infinitivo",
+     "teoria": "La perifrasis 'acabar de + infinitivo' expresa una accion recien terminada.",
+     "explicacion": "Acabo de llegar (I just arrived). Acabas de comer. Acaba de salir. Es una accion pasada muy reciente. En negativo: 'No acabo de entenderlo' (no lo entiendo del todo).",
+     "regla": "acabar de + infinitivo: acabo de llegar",
+     "ejemplo_correcto": "Acabo de llegar. Acaba de salir.",
+     "ejemplo_incorrecto": "Acabo de llegue. (acabar de + infinitivo)"},
+    {"numero": 372, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis: volver a + infinitivo",
+     "teoria": "La perifrasis 'volver a + infinitivo' expresa repeticion de una accion.",
+     "explicacion": "Volvi a leer el libro (I read the book again). Vuelve a llamar. Volvemos a empezar. Equivale a 'again' en ingles. Con pronombre reflexivo: 'Me volvi a equivocar' (o 'Volvi a equivocarme').",
+     "regla": "volver a + infinitivo: volvi a leer",
+     "ejemplo_correcto": "Volvi a leer el libro. Vuelve a llamar. Volvemos a empezar.",
+     "ejemplo_incorrecto": "Volvi leer el libro. (falta 'a')"},
+    {"numero": 373, "bloque": "E", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Perifrasis: ponerse a, dejar de",
+     "teoria": "Ponerse a + inf: empezar una accion de forma repentina. Dejar de + inf: cesar una accion.",
+     "explicacion": "Ponerse a: Se puso a llorar (empezar a llorar de golpe). Me puse a estudiar. Dejar de: Deje de fumar. Deja de hablar. La diferencia: ponerse a es mas repentino; empezar a es mas neutro. Dejar de = cesar.",
+     "regla": "ponerse a + inf (inicio repentino) / dejar de + inf (cese)",
+     "ejemplo_correcto": "Se puso a llorar. Deje de fumar.",
+     "ejemplo_incorrecto": "Se puso llorar. (falta 'a')"},
+    {"numero": 374, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Verbos de percepcion + infinitivo / gerundio",
+     "teoria": "Los verbos de percepcion (ver, oir, escuchar, sentir) pueden ir con infinitivo o gerundio, con matices distintos.",
+     "explicacion": "Con infinitivo: accion completa (Vi cerrar la puerta - I saw the door close). Con gerundio: accion en desarrollo (Vi cerrando la puerta - I saw him closing it). Con infinitivo: enfoque en el final; con gerundio: enfoque en el proceso. Es una distincion sutil pero importante.",
+     "regla": "ver/oir + infinitivo (accion completa) / ver/oir + gerundio (en desarrollo)",
+     "ejemplo_correcto": "Vi salir el sol. Vi saliendo el sol.",
+     "ejemplo_incorrecto": "Vi salir el sol cerrando. (mezcla)"},
+    {"numero": 375, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Estar + participio (estado resultante)",
+     "teoria": "Estar + participio expresa el resultado de una accion, un estado. Es distinto de 'ser + participio' (pasiva).",
+     "explicacion": "Estar + part: La puerta esta cerrada (the door is closed - resultado). Ser + part: La puerta fue cerrada por el conserje (the door was closed - pasiva con agente). Estar: estado. Ser: accion pasiva. La concordancia es con el sujeto: 'Las puertas estan cerradas'.",
+     "regla": "estar + participio = estado resultante (esta cerrada)",
+     "ejemplo_correcto": "La puerta esta cerrada. Las ventanas estan abiertas.",
+     "ejemplo_incorrecto": "La puerta es cerrada. (si no hay agente explicito, estar)"},
+    {"numero": 376, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Participios irregulares frecuentes",
+     "teoria": "Algunos participios son irregulares y no siguen las terminaciones -ado/-ido: abierto, hecho, dicho, visto, puesto, escrito, roto, muerto, vuelto, cubierto.",
+     "explicacion": "Abrir -> abierto. Hacer -> hecho. Decir -> dicho. Ver -> visto. Poner -> puesto. Escribir -> escrito. Romper -> roto. Morir -> muerto. Volver -> vuelto. Cubrir -> cubierto. Se usan en perfecto, pluscuamperfecto, pasiva y estar + participio.",
+     "regla": "abierto, hecho, dicho, visto, puesto, escrito, roto, muerto, vuelto",
+     "ejemplo_correcto": "He abierto la puerta. Esta hecho. Lo he dicho. Lo he visto.",
+     "ejemplo_incorrecto": "He abrido la puerta. (abrir -> abierto)"},
+    {"numero": 377, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Ser + participio (pasiva perifrastica)",
+     "teoria": "La pasiva perifrastica se forma con 'ser + participio + por + agente'. Es menos frecuente en espanol que en ingles.",
+     "explicacion": "El arquitecto construyo la casa (activa). La casa fue construida por el arquitecto (pasiva perifrastica). Ser + participio + por + agente. El participio concuerda con el sujeto: 'Las casas fueron construidas'. En espanol se prefiere pasiva refleja: 'Se construyeron las casas'.",
+     "regla": "ser + participio + por + agente: fue construida por el arquitecto",
+     "ejemplo_correcto": "La casa fue construida por el arquitecto. Fue escrito por Cervantes.",
+     "ejemplo_incorrecto": "La casa construyo el arquitecto. (falta la pasiva)"},
+    {"numero": 378, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Pasiva refleja y se impersonal",
+     "teoria": "La pasiva refleja (se + verbo 3a persona) y el se impersonal (se + verbo 3a singular) son construcciones muy frecuentes en espanol.",
+     "explicacion": "Pasiva refleja: Se venden casas (casas = sujeto paciente). Se habla espanol (espanol = sujeto). Se impersonal: Se trabaja mucho aqui (no hay sujeto, accion general). Se dice que... (rumor). Se puede fumar aqui. Preferidas sobre la pasiva con ser en espanol.",
+     "regla": "se + verbo 3a (pasiva refleja o impersonal): se venden casas / se trabaja",
+     "ejemplo_correcto": "Se venden casas. Se trabaja mucho aqui. Se dice que...",
+     "ejemplo_incorrecto": "Se vende casas. (concordancia: plural -> se venden)"},
+    {"numero": 379, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Verbos con se: reflexivo, reciproco, pronominal",
+     "teoria": "El se puede tener distintos valores: reflexivo, reciproco, pronominal, dativo etico.",
+     "explicacion": "Reflexivo: Juan se lava (a si mismo). Reciproco: Juan y Maria se miran (uno a otro). Pronominal: Se arrepiente (verbo pronominal obligatorio). Dativo etico: Se comio el pastel (enfasis). Cambia de significado: ir (go) vs irse (leave).",
+     "regla": "se reflexivo/reciproco/pronominal: cambia el significado segun el verbo",
+     "ejemplo_correcto": "Se lava. Se miran. Se arrepiente. Se comio el pastel.",
+     "ejemplo_incorrecto": "Arrepiente. (falta 'se', obligatorio en pronominales)"},
+    {"numero": 380, "bloque": "E", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Repaso integrador E: verbos, preposiciones, construcciones",
+     "teoria": "Cierre del bloque E: integrar regimen verbal, perifrasis, pasivas y construcciones con se.",
+     "explicacion": "Ejemplo integrador: 'Acabo de llegar y me puse a estudiar. Tengo que aprender a conjugar mejor. La puerta esta cerrada porque se cierra a las diez. Se dice que el examen fue escrito por otro profesor. Vuelvo a repasar'. Regimen (pensar en, depender de), perifrasis (acabar de, ponerse a, tener que, aprender a, volver a), pasivas (fue escrito), pasiva refleja (se cierra), estado (esta cerrada).",
+     "regla": "Integracion: regimen + perifrasis + pasivas + se",
+     "ejemplo_correcto": "Acabo de llegar y me puse a estudiar. Tengo que aprender a conjugar mejor.",
+     "ejemplo_incorrecto": "Acabo llegar y me puse estudiar. Tengo aprender a conjugar. (faltan preposiciones)"},
+]
+TECNICAS.extend(TECNICAS_366_380)
+
+
+EJERCICIOS_366_380 = {
+    366: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que preposicion rige 'pensar'?",
+        "opciones": [
+            {"id": "a", "texto": "pensar en", "correcta": True, "razon": "Pensar en ti."},
+            {"id": "b", "texto": "pensar de", "correcta": False, "razon": "Incorrecto."},
+            {"id": "c", "texto": "pensar a", "correcta": False, "razon": "Incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "pensar en"}}],
+    367: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que preposicion rige 'empezar' antes de infinitivo?",
+        "opciones": [
+            {"id": "a", "texto": "empezar a", "correcta": True, "razon": "Empece a estudiar."},
+            {"id": "b", "texto": "empezar de", "correcta": False, "razon": "Incorrecto."},
+            {"id": "c", "texto": "empezar en", "correcta": False, "razon": "Incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "empezar a"}}],
+    368: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Voy a estudiar'?",
+        "opciones": [
+            {"id": "a", "texto": "Futuro inmediato / intencion", "correcta": True, "razon": "Ir a + inf."},
+            {"id": "b", "texto": "Pasado", "correcta": False, "razon": "No es pasado."},
+            {"id": "c", "texto": "Presente habitual", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "ir a + inf = futuro"}}],
+    369: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Estoy comiendo'?",
+        "opciones": [
+            {"id": "a", "texto": "Accion en desarrollo", "correcta": True, "razon": "Estar + gerundio."},
+            {"id": "b", "texto": "Accion terminada", "correcta": False, "razon": "No terminada."},
+            {"id": "c", "texto": "Accion futura", "correcta": False, "razon": "No futura."},
+        ], "justificacion_obligatoria": False, "regla": "estar + gerundio = progresivo"}}],
+    370: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se expresa obligacion personal con 'tener'?",
+        "opciones": [
+            {"id": "a", "texto": "tener que + inf", "correcta": True, "razon": "Tengo que estudiar."},
+            {"id": "b", "texto": "tener + inf", "correcta": False, "razon": "Falta que."},
+            {"id": "c", "texto": "tener a + inf", "correcta": False, "razon": "Incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "tener que + inf"}}],
+    371: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Acabo de llegar'?",
+        "opciones": [
+            {"id": "a", "texto": "Accion recien terminada", "correcta": True, "razon": "Acabar de + inf."},
+            {"id": "b", "texto": "Accion futura", "correcta": False, "razon": "No futura."},
+            {"id": "c", "texto": "Accion habitual", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "acabar de = recien"}}],
+    372: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Volvi a leer el libro'?",
+        "opciones": [
+            {"id": "a", "texto": "Repeticion de la accion", "correcta": True, "razon": "Volver a + inf = otra vez."},
+            {"id": "b", "texto": "Accion nueva", "correcta": False, "razon": "Es repeticion."},
+            {"id": "c", "texto": "Accion futura", "correcta": False, "razon": "No futura."},
+        ], "justificacion_obligatoria": False, "regla": "volver a = repeticion"}}],
+    373: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que perifrasis indica 'cese' de una accion?",
+        "opciones": [
+            {"id": "a", "texto": "dejar de + inf (deje de fumar)", "correcta": True, "razon": "Dejar de = cesar."},
+            {"id": "b", "texto": "ponerse a + inf", "correcta": False, "razon": "Ponerse a = empezar (repentino)."},
+            {"id": "c", "texto": "volver a + inf", "correcta": False, "razon": "Volver a = repetir."},
+        ], "justificacion_obligatoria": False, "regla": "dejar de = cesar"}}],
+    374: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la diferencia entre 'Vi salir el sol' y 'Vi saliendo el sol'?",
+        "opciones": [
+            {"id": "a", "texto": "Infinitivo = accion completa; gerundio = en desarrollo", "correcta": True, "razon": "Matiz aspectual."},
+            {"id": "b", "texto": "Son identicas", "correcta": False, "razon": "Diferente aspecto."},
+            {"id": "c", "texto": "Una es incorrecta", "correcta": False, "razon": "Ambas son correctas."},
+        ], "justificacion_obligatoria": False, "regla": "ver + inf (completa) / ver + ger (desarrollo)"}}],
+    375: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'La puerta esta cerrada'?",
+        "opciones": [
+            {"id": "a", "texto": "Estado resultante", "correcta": True, "razon": "Estar + participio = resultado."},
+            {"id": "b", "texto": "Pasiva con agente", "correcta": False, "razon": "Seria fue cerrada por X."},
+            {"id": "c", "texto": "Accion futura", "correcta": False, "razon": "No futura."},
+        ], "justificacion_obligatoria": False, "regla": "estar + part = estado"}}],
+    376: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es el participio de 'hacer'?",
+        "opciones": [
+            {"id": "a", "texto": "hecho", "correcta": True, "razon": "Irregular: hecho."},
+            {"id": "b", "texto": "hacido", "correcta": False, "razon": "No existe."},
+            {"id": "c", "texto": "hacho", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "hacer -> hecho"}}],
+    377: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es una pasiva perifrastica?",
+        "opciones": [
+            {"id": "a", "texto": "La casa fue construida por el arquitecto", "correcta": True, "razon": "Ser + part + por."},
+            {"id": "b", "texto": "El arquitecto construyo la casa", "correcta": False, "razon": "Eso es activa."},
+            {"id": "c", "texto": "Se construyo la casa", "correcta": False, "razon": "Eso es pasiva refleja."},
+        ], "justificacion_obligatoria": False, "regla": "ser + part + por = pasiva"}}],
+    378: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de oracion es 'Se venden casas'?",
+        "opciones": [
+            {"id": "a", "texto": "Pasiva refleja", "correcta": True, "razon": "Se + verbo, sujeto paciente."},
+            {"id": "b", "texto": "Reflexiva", "correcta": False, "razon": "No es reflexiva (no hay agente)."},
+            {"id": "c", "texto": "Impersonal", "correcta": False, "razon": "Hay sujeto: casas."},
+        ], "justificacion_obligatoria": False, "regla": "se venden casas = pasiva refleja"}}],
+    379: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la diferencia entre 'ir' e 'irse'?",
+        "opciones": [
+            {"id": "a", "texto": "ir = moverse; irse = marcharse", "correcta": True, "razon": "Cambio de significado."},
+            {"id": "b", "texto": "Son identicos", "correcta": False, "razon": "Diferente significado."},
+            {"id": "c", "texto": "irse es incorrecto", "correcta": False, "razon": "Es correcto."},
+        ], "justificacion_obligatoria": False, "regla": "ir = go / irse = leave"}}],
+    380: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que oracion NO tiene la preposicion correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Empece a estudiar", "correcta": False, "razon": "Correcto: empezar a."},
+            {"id": "b", "texto": "Pienso de ti", "correcta": True, "razon": "Incorrecto: pensar en ti."},
+            {"id": "c", "texto": "Depende de ti", "correcta": False, "razon": "Correcto: depender de."},
+        ], "justificacion_obligatoria": False, "regla": "pensar en (no de)"}}],
+}
+EJERCICIOS.update(EJERCICIOS_366_380)
+
