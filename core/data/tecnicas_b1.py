@@ -737,3 +737,223 @@ EJERCICIOS_341_350 = {
 }
 EJERCICIOS.update(EJERCICIOS_341_350)
 
+
+TECNICAS_351_365 = [
+    {"numero": 351, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Coordinadas copulativas: y, e",
+     "teoria": "Las oraciones coordinadas copulativas suman significados. Nexos: y (general), e (ante palabra que empieza por i- o hi-).",
+     "explicacion": "Y: Juan estudia y Maria trabaja. E: Habla ingles e italiano (e, no y, ante i-). Excepcion: 'y' ante 'hie-' (hielo) y ante diptongo (y hierro, y hielo). La coordinacion copulativa une elementos del mismo nivel sintactico.",
+     "regla": "y (general), e (ante i-/hi-): estudia y trabaja / ingles e italiano",
+     "ejemplo_correcto": "Estudio y trabajo. Habla frances e ingles.",
+     "ejemplo_incorrecto": "Habla frances y ingles. (ante i-: e)"},
+    {"numero": 352, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Coordinadas adversativas: pero, sino",
+     "teoria": "Las adversativas oponen significados. Nexos: pero (adversativa parcial), sino (adversativa excluyente, tras negacion), aunque (concesiva).",
+     "explicacion": "Pero: Es listo pero vago (contraste parcial). Sino: No es listo sino trabajador (excluyente, tras negacion). Aunque: Ire aunque llueva (concesion). 'Sino' solo aparece tras negacion; 'pero' en cualquier contexto.",
+     "regla": "pero (contraste), sino (excluyente tras negacion), aunque (concesion)",
+     "ejemplo_correcto": "Es listo pero vago. No es listo sino trabajador.",
+     "ejemplo_incorrecto": "Es listo sino vago. (sino requiere negacion previa)"},
+    {"numero": 353, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Coordinadas disyuntivas: o, u",
+     "teoria": "Las disyuntivas presentan alternativas. Nexos: o (general), u (ante palabra que empieza por o-/ho-).",
+     "explicacion": "O: ¿Vienes o te quedas? U: Siete u ocho (u, no o, ante o-). La disyuntiva puede ser excluyente (una u otra) o inclusiva (una, otra o ambas).",
+     "regla": "o (general), u (ante o-/ho-): siete u ocho / blanco o negro",
+     "ejemplo_correcto": "¿Cafe o te? Siete u ocho personas.",
+     "ejemplo_incorrecto": "Siete o ocho. (ante o-: u)"},
+    {"numero": 354, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Conectores de causa: porque, ya que, puesto que",
+     "teoria": "Los conectores causales introducen la causa o motivo. Los mas comunes: porque, ya que, puesto que, como, dado que.",
+     "explicacion": "Porque: No vino porque estaba enfermo. Ya que: Ya que estas aqui, ayudame. Puesto que: Puesto que no estudias, suspenderas. Como: Como llovia, no salimos. 'Porque' es el mas frecuente; 'ya que' y 'puesto que' son mas formales.",
+     "regla": "porque, ya que, puesto que, como, dado que + causa",
+     "ejemplo_correcto": "No vino porque estaba enfermo. Ya que estas aqui, ayudame.",
+     "ejemplo_incorrecto": "No vino por que estaba enfermo. (porque, junto)"},
+    {"numero": 355, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Conectores de consecuencia: por eso, asi que, entonces",
+     "teoria": "Los conectores consecutivos expresan el resultado de una accion previa. Los mas comunes: por eso, asi que, entonces, por lo tanto, en consecuencia.",
+     "explicacion": "Por eso: Llovia, por eso no salimos. Asi que: Estudie mucho, asi que aprobe. Entonces: No estudie, entonces suspenda. Por lo tanto (formal): El proyecto fracaso, por lo tanto hay que revisar. 'Asi que' y 'entonces' son mas coloquiales.",
+     "regla": "por eso, asi que, entonces, por lo tanto, en consecuencia + consecuencia",
+     "ejemplo_correcto": "Llovia, por eso no salimos. Estudie mucho, asi que aprobe.",
+     "ejemplo_incorrecto": "Llovia, asi que no salimos porque llovia. (redundante: mezcla causa y consecuencia)"},
+    {"numero": 356, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Conectores de contraste: sin embargo, no obstante",
+     "teoria": "Los conectores de contraste introducen una idea que se opone a la anterior. Los mas comunes: sin embargo, no obstante, ahora bien, por el contrario.",
+     "explicacion": "Sin embargo: Es caro; sin embargo, vale la pena (formal). No obstante: Estudio mucho; no obstante, no apruebo (muy formal). Por el contrario: No es vago; por el contrario, es muy trabajador. Estos conectores son mas formales que 'pero'.",
+     "regla": "sin embargo, no obstante, por el contrario + contraste (formal)",
+     "ejemplo_correcto": "Es caro; sin embargo, vale la pena. No obstante, no apruebo.",
+     "ejemplo_incorrecto": "Es caro, sin embargo vale la pena, pero es caro. (redundante)"},
+    {"numero": 357, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Conectores de orden: primero, despues, finalmente",
+     "teoria": "Los conectores de orden organizan el discurso. Los mas comunes: primero, en primer lugar, despues, luego, a continuacion, finalmente, por ultimo.",
+     "explicacion": "Primero / en primer lugar: introducen el primer punto. Despues / luego / a continuacion: siguiente punto. Finalmente / por ultimo: cierre. Ejemplo: 'Primero, estudia; despues, practica; finalmente, evalua'.",
+     "regla": "primero, despues, luego, finalmente / por ultimo",
+     "ejemplo_correcto": "Primero desayuno; despues voy al trabajo; finalmente, vuelvo a casa.",
+     "ejemplo_incorrecto": "Finalmente desayuno, despues voy al trabajo, primero vuelvo. (orden incorrecto)"},
+    {"numero": 358, "bloque": "D", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Conectores de adicion: ademas, encima, incluso",
+     "teoria": "Los conectores de adicion anaden informacion. Los mas comunes: ademas, encima, incluso, es mas, por anadidura.",
+     "explicacion": "Ademas (formal): Habla ingles; ademas, frances. Encima (coloquial, negativo): Llego tarde y, encima, sin avisar. Incluso: Todos vinieron, incluso Juan. Es mas: No estudio; es mas, ni siquiera fue a clase.",
+     "regla": "ademas, encima, incluso, es mas + adicion",
+     "ejemplo_correcto": "Habla ingles; ademas, frances. Llego tarde y, encima, sin avisar.",
+     "ejemplo_incorrecto": "Habla ingles, ademas, frances, tambien. (redundante: ademas + tambien)"},
+    {"numero": 359, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas sustantivas (que)",
+     "teoria": "Las subordinadas sustantivas funcionan como un sintagma nominal: sujeto, objeto directo o complemento. Nexo tipico: que.",
+     "explicacion": "Sujeto: Me molesta que llegues tarde. Objeto directo: Dijo que vendria. Complemento: Estoy seguro de que vendra. Con infinitivo si el sujeto coincide: Quiero venir (yo). Con sujeto distinto: Quiero que vengas (tu).",
+     "regla": "que + verbo conjugado (subjuntivo o indicativo segun el verbo principal)",
+     "ejemplo_correcto": "Me molesta que llegues tarde. Dijo que vendria. Quiero que vengas.",
+     "ejemplo_incorrecto": "Me molesta que llegas tarde. (me molesta = emocion -> subjuntivo)"},
+    {"numero": 360, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas relativas (que, quien, donde)",
+     "teoria": "Las relativas modifican a un antecedente. Nexos: que (general), quien/es (tras preposicion o en explicativas), donde (lugar), cuyo (posesivo).",
+     "explicacion": "Que: El libro que lei es bueno. Quien: El hombre con quien hable es mi vecino. Donde: La casa donde vivo es pequena. Cuyo: El escritor cuyo libro leimos es famoso. La relativa puede ser especificativa (sin comas) o explicativa (con comas).",
+     "regla": "que (general), quien (persona tras prep.), donde (lugar), cuyo (posesivo)",
+     "ejemplo_correcto": "El libro que lei. El hombre con quien hable. La casa donde vivo.",
+     "ejemplo_incorrecto": "El hombre que con quien hable. (duplicacion)"},
+    {"numero": 361, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas adverbiales causales",
+     "teoria": "Las causales introducen la causa o motivo. Nexos: porque, como, ya que, puesto que, dado que.",
+     "explicacion": "No vino porque estaba enfermo. Como llovia, no salimos. Ya que estas aqui, ayudame. Puesto que no estudias, suspenderas. 'Porque' es el mas frecuente. 'Como' suele ir al inicio de la oracion.",
+     "regla": "porque / como / ya que / puesto que / dado que + causa",
+     "ejemplo_correcto": "No fui porque estaba cansado. Como llovia, no sali.",
+     "ejemplo_incorrecto": "No fui por que estaba cansado. (porque, junto)"},
+    {"numero": 362, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas adverbiales finales (para que)",
+     "teoria": "Las finales expresan el proposito. Nexos: para que, a fin de que (con sujeto distinto); para + infinitivo (mismo sujeto).",
+     "explicacion": "Para que: Te lo digo para que lo sepas. A fin de que (formal): Estudio a fin de que me contraten. Para + infinitivo: Estudio para aprender. La diferencia: si el sujeto es el mismo, se usa 'para + infinitivo'; si es distinto, 'para que + subjuntivo'.",
+     "regla": "para + infinitivo (mismo sujeto) / para que + subjuntivo (sujeto distinto)",
+     "ejemplo_correcto": "Estudio para aprender. Te lo digo para que lo sepas.",
+     "ejemplo_incorrecto": "Estudio para que aprendo. (mismo sujeto: para + infinitivo)"},
+    {"numero": 363, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas adverbiales concesivas (aunque, a pesar de que)",
+     "teoria": "Las concesivas expresan una dificultad que no impide la accion principal. Nexos: aunque, a pesar de que, por mas que, si bien.",
+     "explicacion": "Aunque: Aunque llueva, saldre. Aunque llueve, salgo (indicativo: hecho real). A pesar de que (formal): A pesar de que estudio, no apruebo. Por mas que: Por mas que estudio, no apruebo. La eleccion indicativo/subjuntivo depende del conocimiento del hecho.",
+     "regla": "aunque + ind (hecho real) / aunque + subj (hipotesis). a pesar de que + ind",
+     "ejemplo_correcto": "Aunque llueva, saldre. Aunque llueve, salgo. A pesar de que estudio, no apruebo.",
+     "ejemplo_incorrecto": "Aunque llueve, saldre. (si no se sabe, subjuntivo: llueva)"},
+    {"numero": 364, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subordinadas adverbiales condicionales (si)",
+     "teoria": "Las condicionales expresan una condicion necesaria para que se cumpla la principal. Nexo tipico: si.",
+     "explicacion": "Condicional real: Si estudias, aprobaras (presente + futuro). Condicional irreal presente: Si estudiaras, aprobarias (subj imperfecto + condicional). Condicional irreal pasado: Si hubieras estudiado, habrias aprobado (pluscuamperfecto subj + condicional compuesto). El 'si' nunca lleva subjuntivo presente: 'si estudies' es incorrecto.",
+     "regla": "si + presente -> futuro. si + subj imp. -> condicional. si + plusc. subj. -> cond. compuesto",
+     "ejemplo_correcto": "Si estudias, aprobaras. Si estudiaras, aprobarias. Si hubieras estudiado, habrias aprobado.",
+     "ejemplo_incorrecto": "Si estudies, aprobaras. (si nunca + subjuntivo presente)"},
+    {"numero": 365, "bloque": "D", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Repaso integrador D: oraciones compuestas",
+     "teoria": "Cierre del bloque D: integrar coordinacion y subordinacion en un texto real.",
+     "explicacion": "Ejemplo integrador: 'Estudio porque quiero aprobar, pero a veces me cuesta. Como trabajo por la manana, estudio por la tarde. Si tengo tiempo, leo; si no, escucho podcasts. Aunque estoy cansado, sigo adelante, para que mi esfuerzo valga la pena'. Coordinacion + causales + condicionales + concesivas + finales + conectores.",
+     "regla": "Integracion: coordinacion + subordinacion (causa, finalidad, concesion, condicion)",
+     "ejemplo_correcto": "Estudio porque quiero aprobar, pero a veces me cuesta. Si tengo tiempo, leo. Aunque estoy cansado, sigo.",
+     "ejemplo_incorrecto": "Estudio porque quiero aprobar pero a veces me cuesta, como trabajo estudio, si tengo tiempo leo. (sin comas, sin estructura)"},
+]
+TECNICAS.extend(TECNICAS_351_365)
+
+
+EJERCICIOS_351_365 = {
+    351: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que nexo copulativo se usa antes de palabra con i-?",
+        "opciones": [
+            {"id": "a", "texto": "y", "correcta": False, "razon": "Y ante i- se convierte en e."},
+            {"id": "b", "texto": "e", "correcta": True, "razon": "E (ante i-/hi-): ingles e italiano."},
+            {"id": "c", "texto": "o", "correcta": False, "razon": "O es disyuntivo."},
+        ], "justificacion_obligatoria": False, "regla": "e ante i-/hi-"}}],
+    352: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta?",
+        "opciones": [
+            {"id": "a", "texto": "No es vago, sino trabajador", "correcta": True, "razon": "Sino (excluyente, tras negacion)."},
+            {"id": "b", "texto": "No es vago, pero trabajador", "correcta": False, "razon": "Con negacion, se prefiere sino."},
+            {"id": "c", "texto": "No es vago, aunque trabajador", "correcta": False, "razon": "Aunque no encaja aqui."},
+        ], "justificacion_obligatoria": False, "regla": "sino tras negacion"}}],
+    353: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que nexo se usa antes de 'ocho'?",
+        "opciones": [
+            {"id": "a", "texto": "siete o ocho", "correcta": False, "razon": "Ante o-: u."},
+            {"id": "b", "texto": "siete u ocho", "correcta": True, "razon": "U ante o-."},
+            {"id": "c", "texto": "siete y ocho", "correcta": False, "razon": "Y es copulativo."},
+        ], "justificacion_obligatoria": False, "regla": "u ante o-/ho-"}}],
+    354: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que conector es causal?",
+        "opciones": [
+            {"id": "a", "texto": "por eso", "correcta": False, "razon": "Por eso es consecutivo."},
+            {"id": "b", "texto": "porque", "correcta": True, "razon": "Porque = causa."},
+            {"id": "c", "texto": "sin embargo", "correcta": False, "razon": "Sin embargo = contraste."},
+        ], "justificacion_obligatoria": False, "regla": "porque = causa"}}],
+    355: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que conector es consecutivo?",
+        "opciones": [
+            {"id": "a", "texto": "por eso", "correcta": True, "razon": "Por eso = consecuencia."},
+            {"id": "b", "texto": "porque", "correcta": False, "razon": "Porque = causa."},
+            {"id": "c", "texto": "ademas", "correcta": False, "razon": "Ademas = adicion."},
+        ], "justificacion_obligatoria": False, "regla": "por eso = consecuencia"}}],
+    356: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que conector es de contraste (formal)?",
+        "opciones": [
+            {"id": "a", "texto": "sin embargo", "correcta": True, "razon": "Sin embargo = contraste formal."},
+            {"id": "b", "texto": "tambien", "correcta": False, "razon": "Tambien = adicion."},
+            {"id": "c", "texto": "primero", "correcta": False, "razon": "Primero = orden."},
+        ], "justificacion_obligatoria": False, "regla": "sin embargo = contraste"}}],
+    357: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que conector de orden cierra el discurso?",
+        "opciones": [
+            {"id": "a", "texto": "primero", "correcta": False, "razon": "Primero abre."},
+            {"id": "b", "texto": "despues", "correcta": False, "razon": "Despues continua."},
+            {"id": "c", "texto": "finalmente", "correcta": True, "razon": "Finalmente cierra."},
+        ], "justificacion_obligatoria": False, "regla": "finalmente = cierre"}}],
+    358: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que conector es de adicion?",
+        "opciones": [
+            {"id": "a", "texto": "ademas", "correcta": True, "razon": "Ademas = adicion."},
+            {"id": "b", "texto": "pero", "correcta": False, "razon": "Pero = contraste."},
+            {"id": "c", "texto": "porque", "correcta": False, "razon": "Porque = causa."},
+        ], "justificacion_obligatoria": False, "regla": "ademas = adicion"}}],
+    359: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que modo pide 'Me molesta que...'?",
+        "opciones": [
+            {"id": "a", "texto": "Subjuntivo (llegues)", "correcta": True, "razon": "Emocion -> subjuntivo."},
+            {"id": "b", "texto": "Indicativo (llegas)", "correcta": False, "razon": "Molesta pide subjuntivo."},
+            {"id": "c", "texto": "Futuro (llegaras)", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "emocion -> subjuntivo"}}],
+    360: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que relativo se usa tras preposicion con persona?",
+        "opciones": [
+            {"id": "a", "texto": "que", "correcta": False, "razon": "Con prep. + persona: quien."},
+            {"id": "b", "texto": "quien", "correcta": True, "razon": "El hombre con quien hable."},
+            {"id": "c", "texto": "donde", "correcta": False, "razon": "Donde = lugar."},
+        ], "justificacion_obligatoria": False, "regla": "prep. + persona -> quien"}}],
+    361: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es una subordinada causal?",
+        "opciones": [
+            {"id": "a", "texto": "No fui porque estaba cansado", "correcta": True, "razon": "Porque = causa."},
+            {"id": "b", "texto": "No fui para que descansaras", "correcta": False, "razon": "Para que = finalidad."},
+            {"id": "c", "texto": "No fui aunque me invitaste", "correcta": False, "razon": "Aunque = concesion."},
+        ], "justificacion_obligatoria": False, "regla": "porque = causal"}}],
+    362: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cuando el sujeto es el mismo, la final se construye con:",
+        "opciones": [
+            {"id": "a", "texto": "para + infinitivo (estudio para aprender)", "correcta": True, "razon": "Mismo sujeto -> infinitivo."},
+            {"id": "b", "texto": "para que + subjuntivo", "correcta": False, "razon": "Eso es para sujeto distinto."},
+            {"id": "c", "texto": "porque + indicativo", "correcta": False, "razon": "Eso es causa."},
+        ], "justificacion_obligatoria": False, "regla": "mismo sujeto -> para + inf"}}],
+    363: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Aunque llueva, saldre', que indica 'llueva' (subjuntivo)?",
+        "opciones": [
+            {"id": "a", "texto": "Hipotesis (no se si llovera)", "correcta": True, "razon": "Subjuntivo = hipotesis."},
+            {"id": "b", "texto": "Hecho real", "correcta": False, "razon": "Hecho real seria indicativo: llueve."},
+            {"id": "c", "texto": "Futuro", "correcta": False, "razon": "No es futuro."},
+        ], "justificacion_obligatoria": False, "regla": "aunque + subjuntivo = hipotesis"}}],
+    364: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de la condicional irreal presente?",
+        "opciones": [
+            {"id": "a", "texto": "Si estudiaras, aprobarias", "correcta": True, "razon": "Subj imperfecto + condicional."},
+            {"id": "b", "texto": "Si estudias, aprobarias", "correcta": False, "razon": "Mezcla: si + presente -> futuro."},
+            {"id": "c", "texto": "Si estudies, aprobarias", "correcta": False, "razon": "Si nunca + subjuntivo presente."},
+        ], "justificacion_obligatoria": False, "regla": "si + subj imp. -> condicional"}}],
+    365: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tipo de oracion es 'Si tengo tiempo, leo'?",
+        "opciones": [
+            {"id": "a", "texto": "Condicional real (si + presente -> presente/futuro)", "correcta": True, "razon": "Real: si + pres."},
+            {"id": "b", "texto": "Condicional irreal", "correcta": False, "razon": "Irreal seria si tuviera."},
+            {"id": "c", "texto": "Causal", "correcta": False, "razon": "Si es condicional."},
+        ], "justificacion_obligatoria": False, "regla": "si + presente = condicional real"}}],
+}
+EJERCICIOS.update(EJERCICIOS_351_365)
+
