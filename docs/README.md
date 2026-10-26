@@ -2,11 +2,11 @@
 
 **Estado**: produccion
 **Commits en main**: 26
-**Tests**: ~1040 (todos verdes)
+**Tests**: ~1300 (todos verdes)
 **Cobertura**: 97.19% | **~1040 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
-6 modulos en produccion. Dependencias externas: spaCy + gTTS.
+13 modulos en produccion (8 tecnicos + 5 curriculares). Dependencias externas: spaCy + gTTS.
 
 ---
 
@@ -22,8 +22,13 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 6 | Corpus y concordancia | produccion | 30 | [modulo6_corpus_completo.md](modulo6_corpus_completo.md) |
 | 7 | Parafrasis mecanica (sintaxis) | produccion | 105 | [modulo7_sintaxis_completo.md](modulo7_sintaxis_completo.md) |
 | 8 | LMS: hub + dashboards + populate | produccion | 936 + 8 E2E | [modulo8_lms_completo.md](modulo8_lms_completo.md) |
+| 10 | Sintaxis del castellano (100 tecnicas) | produccion | 57 | [modulo10_sintaxis.md](modulo10_sintaxis.md) |
+| 11 | Gramatica castellana (100 tecnicas) | produccion | 18 | [modulo11_gramatica.md](modulo11_gramatica.md) |
+| 12 | Gramatica generativa transformacional (100 tecnicas) | produccion | 8 | [modulo12_generativa.md](modulo12_generativa.md) |
+| 13 | Lengua Castellana A1 (100 tecnicas) | produccion | 10 | [modulo13_a1.md](modulo13_a1.md) |
+| 14 | Lengua Castellana B1 (100 tecnicas) | produccion | 5 | [modulo14_b1.md](modulo14_b1.md) |
 
-**Total**: ~1040 tests, cobertura 97.19%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
+**Total**: ~1300 tests, cobertura 97.19%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
 ---
 
