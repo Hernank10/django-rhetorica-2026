@@ -3,7 +3,7 @@
 **Estado**: produccion
 **Commits en main**: 26
 **Tests**: ~1300 (todos verdes)
-**Cobertura**: 97.19% | **~1040 tests** verdes
+**Cobertura**: 97.19% | **~1300 tests** verdes
 
 Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 13 modulos en produccion (8 tecnicos + 5 curriculares). Dependencias externas: spaCy + gTTS.
@@ -27,6 +27,7 @@ Plataforma pedagogica para ensenanza de linguistica y retorica en castellano.
 | 12 | Gramatica generativa transformacional (100 tecnicas) | produccion | 8 | [modulo12_generativa.md](modulo12_generativa.md) |
 | 13 | Lengua Castellana A1 (100 tecnicas) | produccion | 10 | [modulo13_a1.md](modulo13_a1.md) |
 | 14 | Lengua Castellana B1 (100 tecnicas) | produccion | 5 | [modulo14_b1.md](modulo14_b1.md) |
+| 15 | Sistema de certificaciones (5 niveles + auto-otorgamiento) | produccion | 13 | [modulo15_certificaciones.md](modulo15_certificaciones.md) |
 
 **Total**: ~1300 tests, cobertura 97.19%. **1.628 ejercicios** en DB (100% reales del pool, 0 placeholders). **564 recursos** (0 huérfanos).
 
