@@ -5,16 +5,25 @@ from core.data.tecnicas_a1 import TECNICAS, EJERCICIOS
 
 class TestDataA1(TestCase):
     def test_total_tecnicas(self):
-        self.assertEqual(len(TECNICAS), 50)
+        # Crecimiento progresivo hasta 100 (bloques A-G)
+        self.assertGreaterEqual(len(TECNICAS), 50)
+        self.assertLessEqual(len(TECNICAS), 100)
 
     def test_numeros_consecutivos(self):
         nums = sorted(t["numero"] for t in TECNICAS)
-        self.assertEqual(nums, list(range(201, 251)))
+        inicio = min(nums)
+        self.assertEqual(inicio, 201)
+        self.assertEqual(nums, list(range(inicio, inicio + len(nums))))
 
     def test_todos_modulo_a1(self):
+        # Bloques A-G (plan completo de 100 tecnicas A1)
+        BLOQUES_VALIDOS = {"A", "B", "C", "D", "E", "F", "G"}
         for t in TECNICAS:
             self.assertEqual(t["modulo"], "a1")
-            self.assertIn(t["bloque"], {"A", "B", "C"})
+            self.assertIn(
+                t["bloque"], BLOQUES_VALIDOS,
+                f"Tecnica {t['numero']} tiene bloque invalido: {t['bloque']}",
+            )
 
     def test_campos_requeridos(self):
         campos = ["numero", "bloque", "titulo", "teoria", "explicacion",

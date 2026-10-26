@@ -767,3 +767,83 @@ EJERCICIOS_241_250 = {
 }
 EJERCICIOS.update(EJERCICIOS_241_250)
 
+
+TECNICAS_251_255 = [
+    {"numero": 251, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "La familia: madre, padre, hermano",
+     "teoria": "El vocabulario basico de la familia inmediata: madre (mother), padre (father), hermano (brother), hermana (sister), hijo (son), hija (daughter).",
+     "explicacion": "Formas: madre/mamá, padre/papá, hermano, hermana, hijo, hija. 'Padres' (plural) = parents. 'Hermanos' puede significar 'brothers' o 'brothers and sisters' (plural mixto).",
+     "regla": "madre, padre, hermano, hermana, hijo, hija",
+     "ejemplo_correcto": "Mi madre se llama Ana. Mi hermano tiene 20 años.",
+     "ejemplo_incorrecto": "Mi hermano se llaman Ana. (concordancia incorrecta)"},
+    {"numero": 252, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "La familia extendida: abuelo, tío, primo",
+     "teoria": "El vocabulario de la familia extendida: abuelo/a (grandfather/mother), tío/a (uncle/aunt), primo/a (cousin), sobrino/a (nephew/niece).",
+     "explicacion": "Formas: abuelo/abuela, tío/tía, primo/prima, sobrino/sobrina. 'Nieto' (grandson/granddaughter). Los diminutivos afectivos son comunes: abuelito, tío Pepe, primita.",
+     "regla": "abuelo, tío, primo, sobrino (con variantes de género)",
+     "ejemplo_correcto": "Mi abuela tiene 80 años. Mi tío vive en México.",
+     "ejemplo_incorrecto": "Mi abuela tienen 80 años. (concordancia incorrecta)"},
+    {"numero": 253, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "La casa: cocina, baño, dormitorio",
+     "teoria": "Las habitaciones basicas de una casa: cocina (kitchen), baño (bathroom), dormitorio (bedroom), salón (living room), comedor (dining room).",
+     "explicacion": "Formas: cocina, baño, dormitorio, salón, comedor. 'Casa' = house; 'piso' o 'apartamento' = apartment. En España 'piso' se usa más; en América 'apartamento' o 'departamento'.",
+     "regla": "cocina, baño, dormitorio, salón, comedor",
+     "ejemplo_correcto": "Mi casa tiene tres dormitorios y dos baños.",
+     "ejemplo_incorrecto": "Mi casa tienen tres dormitorios. (concordancia incorrecta)"},
+    {"numero": 254, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los muebles: mesa, silla, cama, sofá",
+     "teoria": "Los muebles basicos: mesa (table), silla (chair), cama (bed), sofá (sofa), armario (wardrobe), nevera (fridge).",
+     "explicacion": "Formas: mesa, silla, cama, sofá, armario, nevera. La nevera también se llama 'refrigerador' o 'heladera' segun el pais. 'Estantería' = bookshelf.",
+     "regla": "mesa, silla, cama, sofá, armario, nevera",
+     "ejemplo_correcto": "En el salón hay un sofá y dos sillones.",
+     "ejemplo_incorrecto": "En el salón hay un sofá y dos sillas. (correcto pero 'sillones' es más apropiado en salón)"},
+    {"numero": 255, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los colores basicos",
+     "teoria": "Los colores basicos en español: rojo (red), azul (blue), verde (green), amarillo (yellow), negro (black), blanco (white).",
+     "explicacion": "Los colores concuerdan en género y número con el sustantivo: casa blanca, libros rojos. Algunos son invariables: 'rosa' (pink) no cambia por género; 'azul' solo cambia en número (azules). 'Naranja' (orange) es invariable.",
+     "regla": "rojo, azul, verde, amarillo, negro, blanco (concuerdan)",
+     "ejemplo_correcto": "El coche rojo. La casa blanca. Los libros azules.",
+     "ejemplo_incorrecto": "El coche roja. La casa blanco. (concordancia incorrecta)"},
+]
+TECNICAS.extend(TECNICAS_251_255)
+
+
+EJERCICIOS_251_255 = {
+    251: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'mother' en español?",
+        "opciones": [
+            {"id": "a", "texto": "padre", "correcta": False, "razon": "Padre = father."},
+            {"id": "b", "texto": "madre", "correcta": True, "razon": "Madre = mother."},
+            {"id": "c", "texto": "hermana", "correcta": False, "razon": "Hermana = sister."},
+        ], "justificacion_obligatoria": False, "regla": "Madre = mother"}}],
+    252: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'grandfather' en español?",
+        "opciones": [
+            {"id": "a", "texto": "abuelo", "correcta": True, "razon": "Abuelo = grandfather."},
+            {"id": "b", "texto": "tío", "correcta": False, "razon": "Tío = uncle."},
+            {"id": "c", "texto": "primo", "correcta": False, "razon": "Primo = cousin."},
+        ], "justificacion_obligatoria": False, "regla": "Abuelo = grandfather"}}],
+    253: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que habitacion es 'la cocina'?",
+        "opciones": [
+            {"id": "a", "texto": "Bathroom", "correcta": False, "razon": "Eso es baño."},
+            {"id": "b", "texto": "Kitchen", "correcta": True, "razon": "Cocina = kitchen."},
+            {"id": "c", "texto": "Bedroom", "correcta": False, "razon": "Eso es dormitorio."},
+        ], "justificacion_obligatoria": False, "regla": "Cocina = kitchen"}}],
+    254: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'chair' en español?",
+        "opciones": [
+            {"id": "a", "texto": "mesa", "correcta": False, "razon": "Mesa = table."},
+            {"id": "b", "texto": "cama", "correcta": False, "razon": "Cama = bed."},
+            {"id": "c", "texto": "silla", "correcta": True, "razon": "Silla = chair."},
+        ], "justificacion_obligatoria": False, "regla": "Silla = chair"}}],
+    255: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase tiene concordancia correcta?",
+        "opciones": [
+            {"id": "a", "texto": "La casa blanca", "correcta": True, "razon": "Casa es femenino: blanca."},
+            {"id": "b", "texto": "La casa blanco", "correcta": False, "razon": "Debe concordar: blanca."},
+            {"id": "c", "texto": "El casa blanca", "correcta": False, "razon": "Casa es femenino: la."},
+        ], "justificacion_obligatoria": False, "regla": "La casa blanca"}}],
+}
+EJERCICIOS.update(EJERCICIOS_251_255)
+
