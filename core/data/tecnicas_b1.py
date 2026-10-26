@@ -587,3 +587,153 @@ EJERCICIOS_331_340 = {
 }
 EJERCICIOS.update(EJERCICIOS_331_340)
 
+
+TECNICAS_341_350 = [
+    {"numero": 341, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Estilo directo vs estilo indirecto",
+     "teoria": "El estilo directo reproduce las palabras textuales (Dijo: Vengo). El estilo indirecto las reformula desde otra perspectiva (Dijo que venia).",
+     "explicacion": "Directo: 'Juan dijo: —Voy al cine'. Indirecto: 'Juan dijo que iba al cine'. En el indirecto cambian pronombres, tiempos verbales y marcadores temporales. Se introduce con verbos como decir, contar, explicar, preguntar. La conjuncion tipica es 'que'.",
+     "regla": "Directo: comillas. Indirecto: verbo + que + reformulacion",
+     "ejemplo_correcto": "Directo: 'Estoy cansado'. Indirecto: Dijo que estaba cansado.",
+     "ejemplo_incorrecto": "Dijo que estoy cansado. (si es pasado, cambio: estaba)"},
+    {"numero": 342, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Cambios de tiempo: presente -> imperfecto",
+     "teoria": "En estilo indirecto con verbo introductor en pasado, el presente del directo pasa a imperfecto.",
+     "explicacion": "'Vengo' (presente) -> 'Dijo que venia' (imperfecto). 'Estoy cansado' -> 'Dijo que estaba cansado'. 'Trabajo mucho' -> 'Dijo que trabajaba mucho'. El presente se retrocede un paso en la linea temporal.",
+     "regla": "presente -> imperfecto",
+     "ejemplo_correcto": "Dijo: 'Tengo hambre' -> Dijo que tenia hambre.",
+     "ejemplo_incorrecto": "Dijo que tengo hambre. (con verbo en pasado, retrocede: tenia)"},
+    {"numero": 343, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Cambios de tiempo: indefinido/perfecto -> pluscuamperfecto",
+     "teoria": "En estilo indirecto con verbo introductor en pasado, el indefinido y el perfecto del directo pasan a pluscuamperfecto.",
+     "explicacion": "'Fui al cine' (indefinido) -> 'Dijo que habia ido al cine' (pluscuamperfecto). 'He terminado' (perfecto) -> 'Dijo que habia terminado'. 'Llegue tarde' -> 'Dijo que habia llegado tarde'. Los tiempos del pasado retroceden a pluscuamperfecto.",
+     "regla": "indefinido/perfecto -> pluscuamperfecto",
+     "ejemplo_correcto": "'Ya he comido' -> Dijo que ya habia comido.",
+     "ejemplo_incorrecto": "Dijo que ya he comido. (retrocede: habia comido)"},
+    {"numero": 344, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Cambios de pronombres personales",
+     "teoria": "En estilo indirecto, los pronombres de 1a y 2a persona cambian segun quien habla y quien escucha.",
+     "explicacion": "Directo: Juan dijo: —Yo te quiero. Indirecto (hablando a Juan): 'Dijo que me queria' o 'Dijo que te queria' (dependiendo del receptor). La regla: 'yo' pasa a 'el/ella', 'tu' pasa a 'yo' o 'el' segun contexto. Es la parte mas delicada porque depende del punto de vista.",
+     "regla": "yo -> el/ella. tu -> yo (si el receptor es tu) o el (si no)",
+     "ejemplo_correcto": "Maria dijo: 'Te quiero' -> Maria dijo que me queria (a mi).",
+     "ejemplo_incorrecto": "Maria dijo que te queria (a mi). (deberia ser 'me queria')"},
+    {"numero": 345, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Cambios en marcadores temporales",
+     "teoria": "En estilo indirecto, los marcadores temporales se desplazan: hoy -> ese dia, ahora -> entonces, ayer -> el dia anterior, manana -> el dia siguiente.",
+     "explicacion": "Directo: 'Hoy voy al cine'. Indirecto: 'Dijo que ese dia iba al cine'. 'Ahora' -> 'entonces'. 'Ayer' -> 'el dia anterior'. 'Manana' -> 'el dia siguiente' / 'al dia siguiente'. 'La semana que viene' -> 'la semana siguiente'. Es un desplazamiento sistematico.",
+     "regla": "hoy -> ese dia. ahora -> entonces. ayer -> el dia anterior. manana -> el dia siguiente",
+     "ejemplo_correcto": "'Manana voy' -> Dijo que al dia siguiente iba.",
+     "ejemplo_incorrecto": "Dijo que manana iba. (retrocede: al dia siguiente)"},
+    {"numero": 346, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Cambios en demostrativos y posesivos",
+     "teoria": "Los demostrativos y posesivos tambien cambian en estilo indirecto segun la perspectiva.",
+     "explicacion": "Directo: 'Este libro es mio'. Indirecto: 'Dijo que ese libro era suyo'. 'Este' -> 'ese'. 'Mio' -> 'suyo'. 'Aqui' -> 'alli'. 'Ahora' -> 'entonces'. Son cambios de perspectiva: el hablante original ya no esta en la misma posicion fisica.",
+     "regla": "este -> ese. mio -> suyo. aqui -> alli",
+     "ejemplo_correcto": "'Mi casa esta aqui' -> Dijo que su casa estaba alli.",
+     "ejemplo_incorrecto": "Dijo que mi casa esta aqui. (retrocede: su casa estaba alli)"},
+    {"numero": 347, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Preguntas de si/no en estilo indirecto",
+     "teoria": "Las preguntas de si/no en estilo indirecto se introducen con 'si' (no con 'que'). No llevan signos de interrogacion.",
+     "explicacion": "Directo: '¿Vienes?' -> Indirecto: 'Pregunto si venia'. Directo: '¿Has comido?' -> 'Pregunto si habia comido'. La conjuncion es 'si', y el tiempo retrocede igual que en las afirmaciones. No lleva '¿?' porque no es pregunta directa.",
+     "regla": "Pregunta si/no -> preguntar si + tiempo retrocedido (sin '¿?')",
+     "ejemplo_correcto": "'¿Vienes?' -> Pregunto si venia.",
+     "ejemplo_incorrecto": "Pregunto que si venia. ('que' + 'si' es redundante)"},
+    {"numero": 348, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Preguntas con pronombre interrogativo en indirecto",
+     "teoria": "Las preguntas con pronombre interrogativo (que, donde, cuando, como, quien, cuanto) se mantienen con el mismo pronombre en estilo indirecto.",
+     "explicacion": "Directo: '¿Donde vives?' -> 'Pregunto donde vivia'. '¿Que haces?' -> 'Pregunto que hacia'. '¿Cuando llegaste?' -> 'Pregunto cuando habia llegado'. El pronombre se mantiene, el tiempo retrocede. Sin signos de interrogacion al final.",
+     "regla": "Pregunta con qu- -> mantener el qu- + tiempo retrocedido",
+     "ejemplo_correcto": "'¿Donde vives?' -> Pregunto donde vivia.",
+     "ejemplo_incorrecto": "Pregunto donde vives. (retrocede: vivia)"},
+    {"numero": 349, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Imperativo en estilo indirecto",
+     "teoria": "El imperativo del directo pasa a subjuntivo imperfecto en el indirecto.",
+     "explicacion": "Directo: '¡Ven!' -> Indirecto: 'Me dijo que viniera'. '¡Estudia!' -> 'Me dijo que estudiara'. '¡No salgas!' -> 'Me dijo que no saliera'. El imperativo desaparece y se transforma en subjuntivo imperfecto (o presente, si el verbo introductor es presente).",
+     "regla": "Imperativo -> subjuntivo imperfecto (con introductor pasado)",
+     "ejemplo_correcto": "'Ven aqui' -> Me dijo que fuera alli.",
+     "ejemplo_incorrecto": "Me dijo que ven aqui. (imperativo -> subjuntivo: fuera)"},
+    {"numero": 350, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Repaso integrador: estilo indirecto completo",
+     "teoria": "Cierre del bloque C: integrar todos los cambios del estilo indirecto en un texto narrativo.",
+     "explicacion": "Ejemplo: 'Juan me dijo: —Hoy he ido al cine con mi hermana. Ella esta muy contenta porque ha encontrado trabajo. Ven a cenar manana'. Indirecto: 'Juan me dijo que ese dia habia ido al cine con su hermana. Ella estaba muy contenta porque habia encontrado trabajo. Me dijo que fuera a cenar al dia siguiente'. Todos los cambios (tiempos, pronombres, marcadores) se aplican en cadena.",
+     "regla": "Integracion: tiempos + pronombres + marcadores + imperativo -> subjuntivo",
+     "ejemplo_correcto": "'Ven manana' -> Me dijo que fuera al dia siguiente.",
+     "ejemplo_incorrecto": "Me dijo que viene manana. (retrocede: fuera al dia siguiente)"},
+]
+TECNICAS.extend(TECNICAS_341_350)
+
+
+EJERCICIOS_341_350 = {
+    341: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que es el estilo indirecto?",
+        "opciones": [
+            {"id": "a", "texto": "Reformular las palabras de otro desde otra perspectiva", "correcta": True, "razon": "Indirecto = reformulacion."},
+            {"id": "b", "texto": "Reproducir las palabras textuales", "correcta": False, "razon": "Eso es estilo directo."},
+            {"id": "c", "texto": "Escribir en verso", "correcta": False, "razon": "No tiene que ver."},
+        ], "justificacion_obligatoria": False, "regla": "Indirecto = reformular"}}],
+    342: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En indirecto, 'Vengo' (presente) pasa a:",
+        "opciones": [
+            {"id": "a", "texto": "venia (imperfecto)", "correcta": True, "razon": "Presente -> imperfecto."},
+            {"id": "b", "texto": "vine (indefinido)", "correcta": False, "razon": "Es imperfecto, no indefinido."},
+            {"id": "c", "texto": "vendre (futuro)", "correcta": False, "razon": "Vendria seria condicional."},
+        ], "justificacion_obligatoria": False, "regla": "presente -> imperfecto"}}],
+    343: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En indirecto, 'Ya he comido' pasa a:",
+        "opciones": [
+            {"id": "a", "texto": "habia comido (pluscuamperfecto)", "correcta": True, "razon": "Perfecto -> pluscuamperfecto."},
+            {"id": "b", "texto": "comi (indefinido)", "correcta": False, "razon": "Retrocede a pluscuamperfecto."},
+            {"id": "c", "texto": "comeria (condicional)", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "perfecto -> pluscuamperfecto"}}],
+    344: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: 'Maria dijo: —Te quiero' (a ti). Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Maria dijo que me queria", "correcta": True, "razon": "Tu -> me (si soy yo el receptor)."},
+            {"id": "b", "texto": "Maria dijo que te queria", "correcta": False, "razon": "Deberia ser me queria si soy el receptor."},
+            {"id": "c", "texto": "Maria dijo que le queria", "correcta": False, "razon": "No correcto."},
+        ], "justificacion_obligatoria": False, "regla": "Tu -> me"}}],
+    345: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: 'Manana voy al cine'. Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Dijo que al dia siguiente iba al cine", "correcta": True, "razon": "Manana -> al dia siguiente."},
+            {"id": "b", "texto": "Dijo que manana iba al cine", "correcta": False, "razon": "Manana se desplaza: al dia siguiente."},
+            {"id": "c", "texto": "Dijo que manana va al cine", "correcta": False, "razon": "Doble error: tiempo y marcador."},
+        ], "justificacion_obligatoria": False, "regla": "manana -> al dia siguiente"}}],
+    346: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: 'Mi casa esta aqui'. Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Dijo que su casa estaba alli", "correcta": True, "razon": "Mi -> su, aqui -> alli."},
+            {"id": "b", "texto": "Dijo que mi casa esta aqui", "correcta": False, "razon": "No se aplicaron los cambios."},
+            {"id": "c", "texto": "Dijo que su casa esta aqui", "correcta": False, "razon": "Mezcla: estaba + alli."},
+        ], "justificacion_obligatoria": False, "regla": "mi -> su, aqui -> alli"}}],
+    347: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: '¿Vienes?'. Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Pregunto si venia", "correcta": True, "razon": "Pregunta si/no: si + tiempo retrocedido."},
+            {"id": "b", "texto": "Pregunto que venia", "correcta": False, "razon": "Con si, no con que."},
+            {"id": "c", "texto": "Pregunto que si venia", "correcta": False, "razon": "Redundante."},
+        ], "justificacion_obligatoria": False, "regla": "pregunta si/no -> preguntar si"}}],
+    348: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: '¿Donde vives?'. Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Pregunto donde vivia", "correcta": True, "razon": "El qu- se mantiene, el tiempo retrocede."},
+            {"id": "b", "texto": "Pregunto si vivia donde", "correcta": False, "razon": "Orden incorrecto."},
+            {"id": "c", "texto": "Pregunto donde vives", "correcta": False, "razon": "Deberia ser vivia."},
+        ], "justificacion_obligatoria": False, "regla": "qu- + tiempo retrocedido"}}],
+    349: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Directo: '¡Ven aqui!'. Indirecto:",
+        "opciones": [
+            {"id": "a", "texto": "Me dijo que fuera alli", "correcta": True, "razon": "Imperativo -> subjuntivo imperfecto."},
+            {"id": "b", "texto": "Me dijo que venir aqui", "correcta": False, "razon": "Infinitivo no correcto."},
+            {"id": "c", "texto": "Me dijo ven aqui", "correcta": False, "razon": "Falta que + subjuntivo."},
+        ], "justificacion_obligatoria": False, "regla": "imperativo -> subjuntivo"}}],
+    350: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En indirecto con introductor presente ('Dice que...'), el tiempo del subordinado:",
+        "opciones": [
+            {"id": "a", "texto": "Se mantiene en el tiempo original", "correcta": True, "razon": "Dice que viene (no retrocede)."},
+            {"id": "b", "texto": "Siempre retrocede al pasado", "correcta": False, "razon": "Solo si el introductor es pasado."},
+            {"id": "c", "texto": "Siempre va en subjuntivo", "correcta": False, "razon": "No siempre."},
+        ], "justificacion_obligatoria": False, "regla": "introductor presente -> sin retroceso"}}],
+}
+EJERCICIOS.update(EJERCICIOS_341_350)
+
