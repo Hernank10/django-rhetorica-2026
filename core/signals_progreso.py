@@ -157,3 +157,13 @@ def notif_logro(sender, instance, created, **kwargs):
         import logging
         logging.getLogger(__name__).warning(f"Error notif logro: {e}")
 
+@receiver(post_save, sender=ProgresoUsuario)
+def auto_cert_al_completar(sender, instance, created, **kwargs):
+    """Cuando un estudiante completa una leccion, verifica certs automaticos."""
+    if not getattr(instance, "completado", False):
+        return
+    from core.services.certificaciones import verificar_y_otorgar
+    try:
+        verificar_y_otorgar(instance.usuario)
+    except Exception:
+        pass  # el otorgamiento nunca rompe el flujo de progreso
