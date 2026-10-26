@@ -208,13 +208,8 @@ def lista_certificaciones(request):
     if request.user.is_superuser:
         emitidas = qs.order_by("-fecha_obtenida")
     else:
-        # Profesor: solo sus estudiantes (via cursos asignados)
-        cursos = Curso.objects.filter(profesor_asignado=request.user)
-        estudiantes = User.objects.filter(
-            grupos_estudiante__in=cursos
-        ) if hasattr(User, "grupos_estudiante") else User.objects.filter(
-            grupos__name="Estudiante"
-        )
+        # Profesor: estudiantes del sistema (simplificacion temporal)
+        estudiantes = User.objects.filter(groups__name="Estudiante")
         emitidas = qs.filter(user__in=estudiantes).order_by("-fecha_obtenida")
 
     disponibles = Certificacion.objects.filter(activa=True)

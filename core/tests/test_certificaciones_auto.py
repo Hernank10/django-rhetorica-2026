@@ -152,3 +152,24 @@ class TestVerificarYOtorgar(TestCase):
                 user=user2, certificacion=self.cert_facil
             ).exists()
         )
+
+class TestCoverageBranches(TestCase):
+    """Tests para cubrir branches especificos de certificaciones.py."""
+
+    def test_cumple_requisitos_falla_puntos(self):
+        """Cubre linea 46: falla por puntos insuficientes."""
+        stats = {"lecciones": 10, "puntos": 100, "tasa": 80}
+        self.assertFalse(cumple_requisitos(stats, {"puntos": 200}))
+
+    def test_cumple_requisitos_falla_tasa(self):
+        """Cubre linea 48: falla por tasa insuficiente."""
+        stats = {"lecciones": 10, "puntos": 100, "tasa": 50}
+        self.assertFalse(cumple_requisitos(stats, {"tasa": 75}))
+
+    def test_verificar_y_otorgar_anonimo(self):
+        """Cubre linea 63: usuario anonimo retorna lista vacia."""
+        from django.contrib.auth.models import AnonymousUser
+        anon = AnonymousUser()
+        nuevas = verificar_y_otorgar(anon)
+        self.assertEqual(nuevas, [])
+

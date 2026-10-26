@@ -36,7 +36,7 @@ class TestIndice(BaseGramaticaViewTest):
     def test_200(self):
         r = self.client.get(reverse("gramatica:indice"))
         self.assertEqual(r.status_code, 200)
-        self.assertContains(r, "Gramatica")
+        self.assertContains(r, "Gramática")
 
     def test_anonimo_redirect(self):
         self.client.logout()
@@ -103,4 +103,4 @@ class TestIntegracionDashboard(BaseGramaticaViewTest):
     def test_dashboard_muestra_card_gramatica(self):
         r = self.client.get(reverse("estudiante:dashboard"))
         self.assertEqual(r.status_code, 200)
-        self.assertContains(r, "Gramatica castellana")
+        self.assertContains(r, "Gramática castellana")
