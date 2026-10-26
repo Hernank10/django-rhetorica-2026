@@ -152,3 +152,47 @@
   setInterval(fetchBadge, 60000);
 })();
 
+/* ─── Badge navbar: A1 count ─── */
+(function() {
+  "use strict";
+  const badge = document.getElementById("gramatica-a1-badge");
+  if (!badge) return;
+  function fetchBadge() {
+    fetch("/gramatica/ajax/contador/?modulo=a1")
+      .then(r => r.json())
+      .then(d => {
+        if (d.dominadas > 0) {
+          badge.textContent = d.dominadas;
+          badge.style.display = "";
+        } else {
+          badge.style.display = "none";
+        }
+      })
+      .catch(() => {});
+  }
+  fetchBadge();
+  setInterval(fetchBadge, 60000);
+})();
+
+/* ─── Badge navbar: B1 count ─── */
+(function() {
+  "use strict";
+  const badge = document.getElementById("gramatica-b1-badge");
+  if (!badge) return;
+  function fetchBadge() {
+    fetch("/gramatica/ajax/contador/?modulo=b1")
+      .then(r => r.json())
+      .then(d => {
+        if (d.dominadas > 0) {
+          badge.textContent = d.dominadas;
+          badge.style.display = "";
+        } else {
+          badge.style.display = "none";
+        }
+      })
+      .catch(() => {});
+  }
+  fetchBadge();
+  setInterval(fetchBadge, 60000);
+})();
+
