@@ -617,3 +617,153 @@ EJERCICIOS_231_240 = {
 }
 EJERCICIOS.update(EJERCICIOS_231_240)
 
+
+TECNICAS_241_250 = [
+    {"numero": 241, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo ir: voy, vas, va...",
+     "teoria": "El verbo 'ir' es irregular. Formas: voy, vas, va, vamos, vais, van.",
+     "explicacion": "Se usa para: movimiento (Voy a casa), futuro próximo con 'a + infinitivo' (Voy a comer = I'm going to eat), planes (Vamos al cine). La forma 'voy' es muy irregular (v- en vez de i-).",
+     "regla": "ir: voy, vas, va, vamos, vais, van",
+     "ejemplo_correcto": "Voy a casa. Vamos a comer.",
+     "ejemplo_incorrecto": "Yo vo a casa. (falta la -y: voy)"},
+    {"numero": 242, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo hacer: hago, haces, hace...",
+     "teoria": "El verbo 'hacer' es irregular en 1ª persona. Formas: hago, haces, hace, hacemos, hacéis, hacen.",
+     "explicacion": "Se usa para: acciones (Hago la comida), clima (Hace frío, hace calor), tiempo (Hace dos años). Solo la 1ª persona (hago) es irregular; el resto sigue el patrón -er.",
+     "regla": "hacer: hago, haces, hace, hacemos, hacéis, hacen",
+     "ejemplo_correcto": "Hago la tarea. Hace frío hoy.",
+     "ejemplo_incorrecto": "Yo haco la tarea. (debería ser 'hago')"},
+    {"numero": 243, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo venir: vengo, vienes, viene...",
+     "teoria": "El verbo 'venir' es irregular (diptongación e→ie). Formas: vengo, vienes, viene, venimos, venís, vienen.",
+     "explicacion": "Se usa para: movimiento hacia el hablante (Ven aquí), origen (Vengo de Madrid). La 1ª persona es 'vengo' (con -g-). Las formas 2ª y 3ª tienen diptongación e→ie (vienes, viene).",
+     "regla": "venir: vengo, vienes, viene, venimos, venís, vienen",
+     "ejemplo_correcto": "Vengo de Colombia. ¿De dónde vienes?",
+     "ejemplo_incorrecto": "Yo veno de Colombia. (debería ser 'vengo')"},
+    {"numero": 244, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo poder: puedo, puedes, puede...",
+     "teoria": "El verbo 'poder' es irregular (diptongación o→ue). Formas: puedo, puedes, puede, podemos, podéis, pueden.",
+     "explicacion": "Se usa para: habilidad (Puedo nadar), permiso (¿Puedo entrar?), posibilidad (Puede llover). Las formas 1ª, 2ª y 3ª singular y 3ª plural tienen diptongación o→ue (puedo, puedes, puede, pueden).",
+     "regla": "poder: puedo, puedes, puede, podemos, podéis, pueden",
+     "ejemplo_correcto": "No puedo ir. ¿Puedes ayudarme?",
+     "ejemplo_incorrecto": "No podo ir. (debería ser 'puedo')"},
+    {"numero": 245, "bloque": "C", "nivel": "basico", "modulo": "a1",
+     "titulo": "El verbo querer: quiero, quieres, quiere...",
+     "teoria": "El verbo 'querer' es irregular (diptongación e→ie). Formas: quiero, quieres, quiere, queremos, queréis, quieren.",
+     "explicacion": "Se usa para: deseos (Quiero un café), amor (Te quiero), peticiones (¿Quieres venir?). Al igual que 'poder', las formas 1ª, 2ª, 3ª singular y 3ª plural tienen diptongación e→ie.",
+     "regla": "querer: quiero, quieres, quiere, queremos, queréis, quieren",
+     "ejemplo_correcto": "Quiero aprender español. ¿Quieres venir?",
+     "ejemplo_incorrecto": "Yo quero aprender. (debería ser 'quiero')"},
+    {"numero": 246, "bloque": "C", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "El presente continuo: estar + gerundio",
+     "teoria": "El presente continuo expresa acciones en desarrollo: 'estar + gerundio' (ando, iendo).",
+     "explicacion": "Formación: estar conjugado + verbo en gerundio. Gerundio -ar: -ando (hablando). Gerundio -er/-ir: -iendo (comiendo, viviendo). Ej: Estoy comiendo = I am eating. Equivale al inglés -ing.",
+     "regla": "estar + gerundio: estoy hablando, estás comiendo",
+     "ejemplo_correcto": "Estoy estudiando español. ¿Qué estás haciendo?",
+     "ejemplo_incorrecto": "Soy estudiando español. (debería ser 'estoy')"},
+    {"numero": 247, "bloque": "C", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "El verbo gustar: me gusta, te gusta...",
+     "teoria": "El verbo 'gustar' funciona diferente: el sujeto es lo que gusta, y la persona va en dativo (me, te, le, nos, os, les).",
+     "explicacion": "Formas: me gusta / me gustan, te gusta / te gustan, le gusta / le gustan, nos gusta / nos gustan, os gusta, les gusta / les gustan. Concordancia: 'Me gusta el café' (singular), 'Me gustan los libros' (plural).",
+     "regla": "gustar: me/te/le/nos/os/les + gusta(n)",
+     "ejemplo_correcto": "Me gusta el chocolate. Me gustan las fresas.",
+     "ejemplo_incorrecto": "Yo gusto el chocolate. (debería ser 'me gusta')"},
+    {"numero": 248, "bloque": "C", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "Verbos reflexivos: me lavo, te lavas",
+     "teoria": "Los verbos reflexivos se conjugan con pronombres reflexivos (me, te, se, nos, os, se) que indican que la acción recae sobre el mismo sujeto.",
+     "explicacion": "Ejemplo con 'lavarse': me lavo, te lavas, se lava, nos lavamos, os laváis, se lavan. Otros: levantarse (to get up), ducharse (to shower), vestirse (to dress), llamarse (to be called).",
+     "regla": "Reflexivos: me/te/se/nos/os/se + verbo",
+     "ejemplo_correcto": "Me lavo las manos. ¿A qué hora te levantas?",
+     "ejemplo_incorrecto": "Yo lavo me las manos. (orden incorrecto: me lavo)"},
+    {"numero": 249, "bloque": "C", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "Hay vs está/están",
+     "teoria": "'Hay' (de haber) indica existencia. 'Está/están' (de estar) indica ubicación específica.",
+     "explicacion": "Hay: existencia indefinida (Hay un libro en la mesa = there is a book). Está/están: ubicación definida (El libro está en la mesa = the book is). 'Hay' no cambia en plural: 'Hay tres libros' (no 'han').",
+     "regla": "Hay: existencia. Está/están: ubicación definida",
+     "ejemplo_correcto": "Hay un gato en el jardín. El gato está en el jardín.",
+     "ejemplo_incorrecto": "Hay tres libros. → OK. 'Está un gato en el jardín' → mejor hay"},
+    {"numero": 250, "bloque": "C", "nivel": "intermedio", "modulo": "a1",
+     "titulo": "Muy vs mucho",
+     "teoria": "'Muy' modifica adjetivos y adverbios (muy alto, muy bien). 'Mucho' modifica verbos y concuerda con sustantivos (trabajo mucho, muchos libros).",
+     "explicacion": "Muy + adjetivo: muy guapa, muy interesante. Muy + adverbio: muy bien, muy rápido. Mucho + verbo: trabajo mucho. Mucho/mucha/muchos/muchas + sustantivo: mucha agua, muchos libros. No se dice 'muy libros' ni 'mucho guapa'.",
+     "regla": "Muy: + adj/adv. Mucho: + verbo o + sustantivo (concordando)",
+     "ejemplo_correcto": "Es muy guapa. Trabajo mucho. Tengo muchos libros.",
+     "ejemplo_incorrecto": "Es mucho guapa. Trabajo muy. Tengo muy libros."},
+]
+TECNICAS.extend(TECNICAS_241_250)
+
+
+EJERCICIOS_241_250 = {
+    241: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'ir' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "voy", "correcta": True, "razon": "Irregular: voy."},
+            {"id": "b", "texto": "vo", "correcta": False, "razon": "Falta -y: voy."},
+            {"id": "c", "texto": "iro", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "ir -> voy"}}],
+    242: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'hacer' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "hago", "correcta": True, "razon": "Irregular: hago (con -g-)."},
+            {"id": "b", "texto": "haco", "correcta": False, "razon": "Deberia ser hago."},
+            {"id": "c", "texto": "hazo", "correcta": False, "razon": "Deberia ser hago."},
+        ], "justificacion_obligatoria": False, "regla": "hacer -> hago"}}],
+    243: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'venir' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "vengo", "correcta": True, "razon": "Irregular: vengo (con -g-)."},
+            {"id": "b", "texto": "veno", "correcta": False, "razon": "Falta -g-: vengo."},
+            {"id": "c", "texto": "vieno", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "venir -> vengo"}}],
+    244: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'poder' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "puedo", "correcta": True, "razon": "Diptongacion o->ue: puedo."},
+            {"id": "b", "texto": "podo", "correcta": False, "razon": "Deberia ser puedo."},
+            {"id": "c", "texto": "puede", "correcta": False, "razon": "Esa es 3a persona."},
+        ], "justificacion_obligatoria": False, "regla": "poder -> puedo"}}],
+    245: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'querer' en 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "quiero", "correcta": True, "razon": "Diptongacion e->ie: quiero."},
+            {"id": "b", "texto": "quero", "correcta": False, "razon": "Deberia ser quiero."},
+            {"id": "c", "texto": "quiere", "correcta": False, "razon": "Esa es 3a persona."},
+        ], "justificacion_obligatoria": False, "regla": "querer -> quiero"}}],
+    246: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se forma el presente continuo?",
+        "opciones": [
+            {"id": "a", "texto": "ser + gerundio", "correcta": False, "razon": "Es estar, no ser."},
+            {"id": "b", "texto": "estar + gerundio", "correcta": True, "razon": "Estoy comiendo."},
+            {"id": "c", "texto": "tener + gerundio", "correcta": False, "razon": "No."},
+        ], "justificacion_obligatoria": False, "regla": "estar + gerundio"}}],
+    247: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta con 'gustar'?",
+        "opciones": [
+            {"id": "a", "texto": "Me gusta el cafe", "correcta": True, "razon": "Correcto: me gusta."},
+            {"id": "b", "texto": "Yo gusto el cafe", "correcta": False, "razon": "Deberia ser 'me gusta'."},
+            {"id": "c", "texto": "Me gusto el cafe", "correcta": False, "razon": "Deberia ser 'me gusta'."},
+        ], "justificacion_obligatoria": False, "regla": "me gusta + sustantivo"}}],
+    248: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I get up at 7' en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "Me levanto a las 7", "correcta": True, "razon": "Reflexivo: me levanto."},
+            {"id": "b", "texto": "Levanto me a las 7", "correcta": False, "razon": "Orden incorrecto."},
+            {"id": "c", "texto": "Yo levanto a las 7", "correcta": False, "razon": "Falta 'me'."},
+        ], "justificacion_obligatoria": False, "regla": "me levanto"}}],
+    249: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que diferencia 'hay' de 'esta'?",
+        "opciones": [
+            {"id": "a", "texto": "Hay: existencia. Esta: ubicacion definida", "correcta": True, "razon": "Hay un libro / el libro esta."},
+            {"id": "b", "texto": "Son iguales", "correcta": False, "razon": "Distintos."},
+            {"id": "c", "texto": "Hay: ubicacion. Esta: existencia", "correcta": False, "razon": "Al reves."},
+        ], "justificacion_obligatoria": False, "regla": "Hay: existir. Esta: ubicar"}}],
+    250: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Es muy guapa", "correcta": True, "razon": "Muy + adjetivo."},
+            {"id": "b", "texto": "Es mucho guapa", "correcta": False, "razon": "Deberia ser 'muy'."},
+            {"id": "c", "texto": "Trabajo muy", "correcta": False, "razon": "Deberia ser 'mucho'."},
+        ], "justificacion_obligatoria": False, "regla": "muy + adj, mucho + verbo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_241_250)
+
