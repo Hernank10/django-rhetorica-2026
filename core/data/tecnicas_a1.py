@@ -847,3 +847,153 @@ EJERCICIOS_251_255 = {
 }
 EJERCICIOS.update(EJERCICIOS_251_255)
 
+
+TECNICAS_256_265 = [
+    {"numero": 256, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "La comida basica: pan, queso, carne",
+     "teoria": "El vocabulario basico de comida: pan, queso, carne, pollo, pescado, arroz, huevo, leche.",
+     "explicacion": "Alimentos comunes: pan (bread), queso (cheese), carne (meat), pollo (chicken), pescado (fish), arroz (rice), huevo (egg), leche (milk). Muchos son incontables (pan, arroz) o contables (huevo, manzana).",
+     "regla": "pan, queso, carne, pollo, pescado, arroz, huevo, leche",
+     "ejemplo_correcto": "Como pan con queso. El pollo esta rico.",
+     "ejemplo_incorrecto": "Como pan con quesos. (queso suele ser incontable)"},
+    {"numero": 257, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Las frutas: manzana, platano, naranja",
+     "teoria": "El vocabulario de frutas basicas: manzana, platano, naranja, fresa, uva, sandia, pina.",
+     "explicacion": "Frutas: manzana (apple), platano (banana), naranja (orange), fresa (strawberry), uva (grape), sandia (watermelon), pina (pineapple). Se pueden decir en singular o plural: 'una manzana' o 'manzanas'.",
+     "regla": "manzana, platano, naranja, fresa, uva, sandia, pina",
+     "ejemplo_correcto": "Me gustan las manzanas y los platanos.",
+     "ejemplo_incorrecto": "Me gusta las manzanas. (concordancia incorrecta)"},
+    {"numero": 258, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Las bebidas: agua, cafe, te, jugo",
+     "teoria": "El vocabulario de bebidas: agua, cafe, te, jugo, leche, vino, cerveza.",
+     "explicacion": "Bebidas: agua (water), cafe (coffee), te (tea), jugo (juice), leche (milk), vino (wine), cerveza (beer). 'Agua' es femenino pero usa 'el' por razon fonetica: 'el agua'.",
+     "regla": "agua, cafe, te, jugo, leche, vino, cerveza",
+     "ejemplo_correcto": "Bebo agua todos los dias. Tomo cafe por la manana.",
+     "ejemplo_incorrecto": "Bebo la agua. (agua con 'el' por a- tonica)"},
+    {"numero": 259, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los numeros del 11 al 20",
+     "teoria": "Los numeros del 11 al 20: once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve, veinte.",
+     "explicacion": "Del 11 al 15 son irregulares (once, doce, trece, catorce, quince). Del 16 al 19 son compuestos (dieci-seis, dieci-siete, dieci-ocho, dieci-nueve, en una sola palabra). 20 es veinte.",
+     "regla": "11 once, 12 doce, 13 trece, 14 catorce, 15 quince, 16 dieciseis... 20 veinte",
+     "ejemplo_correcto": "Tengo quince anos. Hay veinte personas.",
+     "ejemplo_incorrecto": "Tengo quince anos. (sin tilde: quince no lleva tilde)"},
+    {"numero": 260, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los numeros del 21 al 100",
+     "teoria": "Del 21 al 29 se escriben en una palabra: veintiuno, veintidos... Del 31 en adelante: treinta y uno, cuarenta y dos. Decenas: 30 treinta, 40 cuarenta, 50 cincuenta, 60 sesenta, 70 setenta, 80 ochenta, 90 noventa, 100 cien.",
+     "explicacion": "21-29: veintiuno, veintidos, veintitres, veinticuatro, veinticinco, veintiseis, veintisiete, veintiocho, veintinueve. 31-99: decena + 'y' + unidad (treinta y uno). 100 es 'cien' o 'ciento' antes de otro numero.",
+     "regla": "21-29 una palabra (veintiuno). 31-99: decena + y + unidad. 100 cien",
+     "ejemplo_correcto": "Tengo veinticinco anos. Mi abuelo tiene ochenta y dos.",
+     "ejemplo_incorrecto": "Tengo veinte y cinco anos. (deberia ser veinticinco)"},
+    {"numero": 261, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los dias de la semana",
+     "teoria": "Los siete dias de la semana: lunes, martes, miercoles, jueves, viernes, sabado, domingo.",
+     "explicacion": "En espanol los dias van en minuscula (lunes, martes...). La semana empieza el lunes y termina el domingo. El fin de semana es sabado y domingo. Para decir 'el lunes' se usa el articulo: 'el lunes voy al cine'.",
+     "regla": "lunes, martes, miercoles, jueves, viernes, sabado, domingo (minuscula)",
+     "ejemplo_correcto": "Hoy es lunes. El sabado voy al cine.",
+     "ejemplo_incorrecto": "Hoy es Lunes. (dias de la semana en minuscula)"},
+    {"numero": 262, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los meses del ano",
+     "teoria": "Los doce meses del ano: enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre.",
+     "explicacion": "En espanol los meses van en minuscula (enero, febrero...). Para decir el mes: 'en enero', 'en mayo'. 'Septiembre' tiene dos formas: septiembre y setiembre (ambas correctas).",
+     "regla": "enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre",
+     "ejemplo_correcto": "Mi cumpleanos es en mayo. En diciembre hace frio.",
+     "ejemplo_incorrecto": "Mi cumpleanos es en Mayo. (meses en minuscula)"},
+    {"numero": 263, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Las partes del cuerpo: cabeza, mano, pie",
+     "teoria": "Las partes basicas del cuerpo: cabeza, mano, pie, ojo, boca, nariz, brazo, pierna.",
+     "explicacion": "Partes del cuerpo: cabeza (head), mano (hand), pie (foot), ojo (eye), boca (mouth), nariz (nose), brazo (arm), pierna (leg). Con partes del cuerpo se usa 'me duele(n)': 'Me duele la cabeza', 'Me duelen los pies'.",
+     "regla": "cabeza, mano, pie, ojo, boca, nariz, brazo, pierna",
+     "ejemplo_correcto": "Me lavo las manos. Me duele la cabeza.",
+     "ejemplo_incorrecto": "Me duele las manos. (deberia ser 'me duelen')"},
+    {"numero": 264, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "La ropa: camisa, pantalon, zapato",
+     "teoria": "La ropa basica: camisa, pantalon, zapato, vestido, falda, chaqueta, calcetin.",
+     "explicacion": "Ropa: camisa (shirt), pantalon (trousers), zapato (shoe), vestido (dress), falda (skirt), chaqueta (jacket), calcetin (sock). Se usa con 'llevar' (to wear) o 'ponerse' (to put on): 'Llevo una camisa azul', 'Me pongo los zapatos'.",
+     "regla": "camisa, pantalon, zapato, vestido, falda, chaqueta, calcetin",
+     "ejemplo_correcto": "Llevo una camisa azul y pantalones negros.",
+     "ejemplo_incorrecto": "Llevo una camisa azul y pantalon negros. (concordancia)"},
+    {"numero": 265, "bloque": "D", "nivel": "basico", "modulo": "a1",
+     "titulo": "Los animales: perro, gato, pajaro",
+     "teoria": "Los animales basicos: perro, gato, pajaro, pez, caballo, vaca, cerdo.",
+     "explicacion": "Animales comunes: perro (dog), gato (cat), pajaro (bird), pez (fish), caballo (horse), vaca (cow), cerdo (pig). El genero cambia con el sexo del animal: 'el perro/la perra', 'el gato/la gata'.",
+     "regla": "perro, gato, pajaro, pez, caballo, vaca, cerdo",
+     "ejemplo_correcto": "Tengo un perro. El gato es negro.",
+     "ejemplo_incorrecto": "Tengo un perra. (perro/perra, concordancia)"},
+]
+TECNICAS.extend(TECNICAS_256_265)
+
+
+EJERCICIOS_256_265 = {
+    256: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'bread' en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "pan", "correcta": True, "razon": "Pan = bread."},
+            {"id": "b", "texto": "queso", "correcta": False, "razon": "Queso = cheese."},
+            {"id": "c", "texto": "carne", "correcta": False, "razon": "Carne = meat."},
+        ], "justificacion_obligatoria": False, "regla": "Pan = bread"}}],
+    257: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa 'platano'?",
+        "opciones": [
+            {"id": "a", "texto": "Apple", "correcta": False, "razon": "Eso es manzana."},
+            {"id": "b", "texto": "Banana", "correcta": True, "razon": "Platano = banana."},
+            {"id": "c", "texto": "Orange", "correcta": False, "razon": "Eso es naranja."},
+        ], "justificacion_obligatoria": False, "regla": "Platano = banana"}}],
+    258: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que articulo se usa con 'agua'?",
+        "opciones": [
+            {"id": "a", "texto": "la agua", "correcta": False, "razon": "Por a- tonica se usa 'el agua'."},
+            {"id": "b", "texto": "el agua", "correcta": True, "razon": "Agua es femenino pero usa 'el' por a- tonica."},
+            {"id": "c", "texto": "lo agua", "correcta": False, "razon": "No se usa 'lo' con agua."},
+        ], "justificacion_obligatoria": False, "regla": "el agua (a- tonica)"}}],
+    259: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se escribe el numero 15?",
+        "opciones": [
+            {"id": "a", "texto": "quince", "correcta": True, "razon": "15 = quince."},
+            {"id": "b", "texto": "diecicinco", "correcta": False, "razon": "No existe."},
+            {"id": "c", "texto": "cincodieci", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "15 = quince"}}],
+    260: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se escribe el numero 25?",
+        "opciones": [
+            {"id": "a", "texto": "veinte y cinco", "correcta": False, "razon": "21-29 van en una palabra."},
+            {"id": "b", "texto": "veinticinco", "correcta": True, "razon": "25 = veinticinco (una palabra)."},
+            {"id": "c", "texto": "vienticinco", "correcta": False, "razon": "Es veinticinco (con e)."},
+        ], "justificacion_obligatoria": False, "regla": "25 = veinticinco"}}],
+    261: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que dia viene despues del lunes?",
+        "opciones": [
+            {"id": "a", "texto": "martes", "correcta": True, "razon": "Despues del lunes viene el martes."},
+            {"id": "b", "texto": "miercoles", "correcta": False, "razon": "Miercoles viene despues del martes."},
+            {"id": "c", "texto": "domingo", "correcta": False, "razon": "Domingo es el ultimo dia."},
+        ], "justificacion_obligatoria": False, "regla": "lunes -> martes"}}],
+    262: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que mes viene despues de enero?",
+        "opciones": [
+            {"id": "a", "texto": "marzo", "correcta": False, "razon": "Marzo es el tercero."},
+            {"id": "b", "texto": "febrero", "correcta": True, "razon": "Despues de enero viene febrero."},
+            {"id": "c", "texto": "diciembre", "correcta": False, "razon": "Diciembre es el ultimo."},
+        ], "justificacion_obligatoria": False, "regla": "enero -> febrero"}}],
+    263: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'I have a headache' (lit. 'me duele...')?",
+        "opciones": [
+            {"id": "a", "texto": "Me duele la cabeza", "correcta": True, "razon": "Cabeza = head."},
+            {"id": "b", "texto": "Me duele el pie", "correcta": False, "razon": "Pie = foot."},
+            {"id": "c", "texto": "Me duele la mano", "correcta": False, "razon": "Mano = hand."},
+        ], "justificacion_obligatoria": False, "regla": "Cabeza = head"}}],
+    264: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'shirt' en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "pantalon", "correcta": False, "razon": "Pantalon = trousers."},
+            {"id": "b", "texto": "zapato", "correcta": False, "razon": "Zapato = shoe."},
+            {"id": "c", "texto": "camisa", "correcta": True, "razon": "Camisa = shirt."},
+        ], "justificacion_obligatoria": False, "regla": "Camisa = shirt"}}],
+    265: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como se dice 'dog' en espanol?",
+        "opciones": [
+            {"id": "a", "texto": "gato", "correcta": False, "razon": "Gato = cat."},
+            {"id": "b", "texto": "perro", "correcta": True, "razon": "Perro = dog."},
+            {"id": "c", "texto": "pajaro", "correcta": False, "razon": "Pajaro = bird."},
+        ], "justificacion_obligatoria": False, "regla": "Perro = dog"}}],
+}
+EJERCICIOS.update(EJERCICIOS_256_265)
+
