@@ -437,3 +437,153 @@ EJERCICIOS_316_330 = {
 }
 EJERCICIOS.update(EJERCICIOS_316_330)
 
+
+TECNICAS_331_340 = [
+    {"numero": 331, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo imperfecto regular (-ra)",
+     "teoria": "El subjuntivo imperfecto regular se forma del radical de 3ª persona plural del indefinido + terminaciones -ra: -ra, -ras, -ra, -ramos, -rais, -ran.",
+     "explicacion": "Hablar → hablaron → hablara, hablaras, hablara, habláramos, hablarais, hablaran. Comer → comieron → comiera, comieras, comiera... Vivir → vivieron → viviera, vivieras, viviera... Es el subjuntivo del pasado y de la hipótesis.",
+     "regla": "hablar → hablara, hablaras... comer → comiera, comieras... vivir → viviera, vivieras...",
+     "ejemplo_correcto": "Quería que hablaras con él. Si comieras más, estarías mejor.",
+     "ejemplo_incorrecto": "Quería que hablas con él. (concordancia temporal: hablara)"},
+    {"numero": 332, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo imperfecto: forma -se alternativa",
+     "teoria": "El subjuntivo imperfecto tiene dos formas paralelas: -ra (hablara) y -se (hablase). Son intercambiables en la mayoría de contextos.",
+     "explicacion": "hablara = hablase, hablaras = hablases, etc. Ejemplo: 'Si hablase con él, todo se resolvería'. La forma -se es más culta o literaria; la -ra es más frecuente en el habla. Usar una u otra no cambia el significado.",
+     "regla": "hablara = hablase. comiera = comiese. viviera = viviese",
+     "ejemplo_correcto": "Si tuviera / tuviese tiempo, viajaría. Quisiera / quisiese ir.",
+     "ejemplo_incorrecto": "Mezcla -ra y -se en la misma serie: *hablara, hablases, hablara..."},
+    {"numero": 333, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo imperfecto irregular (fuera, tuviera, hiciera)",
+     "teoria": "Los verbos irregulares en indefinido lo son también en subjuntivo imperfecto, porque se forma de la 3ª plural del indefinido.",
+     "explicacion": "ser/ir → fueron → fuera, fueras, fuera... tener → tuvieron → tuviera, tuvieras... hacer → hicieron → hiciera, hicieras... poder → pudieron → pudiera, pudieras... decir → dijeron → dijera, dijeras... venir → vinieron → viniera, vinieras... Si sabes el indefinido, sabes el imperfecto de subjuntivo.",
+     "regla": "fuera, tuviera, hiciera, pudiera, dijera, viniera",
+     "ejemplo_correcto": "Si fuera rico, viajaría. Quería que vinieras. Si hicieras eso, sería un error.",
+     "ejemplo_incorrecto": "Si seria rico, viajaría. (hipótesis: fuera, no seria)"},
+    {"numero": 334, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo pluscuamperfecto (hubiera hablado)",
+     "teoria": "El pluscuamperfecto de subjuntivo se forma con hubiera/hubiese + participio. Expresa una acción pasada irreal o hipotética anterior a otra.",
+     "explicacion": "Hubiera hablado, hubieras hablado, hubiera hablado, hubiéramos hablado, hubierais hablado, hubieran hablado. Equivalente con -se: hubiese hablado. Uso: 'Si hubiera estudiado, habría aprobado' (pasado irreal). 'Me sorprendió que hubiera llegado tan tarde'.",
+     "regla": "hubiera/hubiese + participio (hubiera hablado)",
+     "ejemplo_correcto": "Si hubiera estudiado, habría aprobado. Me sorprendió que hubiera llegado tarde.",
+     "ejemplo_incorrecto": "Si habría estudiado, habría aprobado. (hipótesis: hubiera, no habría)"},
+    {"numero": 335, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Concordancia temporal: presente + subjuntivo presente",
+     "teoria": "Si el verbo principal está en presente, futuro o imperativo, el subjuntivo va en presente.",
+     "explicacion": "Espero que vengas (presente + presente). Quiero que estudies (presente + presente). Es importante que sepas esto (presente + presente). Cuando el principal es presente/futuro, el subjuntivo subordinado va en presente.",
+     "regla": "Verbo principal en presente → subjuntivo en presente",
+     "ejemplo_correcto": "Espero que vengas. Quiero que estudies. Es importante que sepas.",
+     "ejemplo_incorrecto": "Espero que vinieras. (espero = presente → vengas)"},
+    {"numero": 336, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Concordancia temporal: pasado + subjuntivo imperfecto",
+     "teoria": "Si el verbo principal está en pasado (indefinido, imperfecto, pluscuamperfecto) o condicional, el subjuntivo va en imperfecto.",
+     "explicacion": "Esperaba que vinieras (imperfecto + imperfecto). Quería que estudiaras. Era importante que supieras. Quiso que viniera. El subjuntivo imperfecto es el 'subjuntivo del pasado'.",
+     "regla": "Verbo principal en pasado → subjuntivo en imperfecto",
+     "ejemplo_correcto": "Esperaba que vinieras. Quería que estudiaras. Era importante que supieras.",
+     "ejemplo_incorrecto": "Esperaba que vengas. (esperaba = pasado → vinieras)"},
+    {"numero": 337, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Ojalá + subjuntivo",
+     "teoria": "'Ojalá' (que ojalá) es una expresión de deseo que siempre pide subjuntivo.",
+     "explicacion": "Ojalá venga (deseo presente, posible → subjuntivo presente). Ojalá llueva mañana. Ojalá viniera (deseo presente, improbable → imperfecto). Ojalá hubiera venido (deseo pasado irreal → pluscuamperfecto). El tiempo del subjuntivo depende de la probabilidad del deseo.",
+     "regla": "Ojalá + subjuntivo (presente/imperfecto/pluscuamperfecto según probabilidad)",
+     "ejemplo_correcto": "Ojalá venga. Ojalá viniera. Ojalá hubiera venido.",
+     "ejemplo_incorrecto": "Ojalá viene. (ojalá siempre pide subjuntivo)"},
+    {"numero": 338, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo con expresiones impersonales (es importante que...)",
+     "teoria": "Las expresiones impersonales de valoración (es importante, es necesario, es posible, es triste, es bueno) piden subjuntivo cuando tienen sujeto propio.",
+     "explicacion": "Es importante que estudies (valoración + subjuntivo). Es necesario que vengas. Es posible que llueva. Es triste que se vaya. Si la expresión impersonal no tiene sujeto propio ('es importante estudiar'), va infinitivo.",
+     "regla": "Es importante/necesario/posible/triste + que + subjuntivo",
+     "ejemplo_correcto": "Es importante que estudies. Es posible que llueva. Es triste que se vaya.",
+     "ejemplo_incorrecto": "Es importante que estudias. (valoración → subjuntivo)"},
+    {"numero": 339, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Subjuntivo con conjunciones temporales (cuando, antes de que...)",
+     "teoria": "Las conjunciones de tiempo (cuando, antes de que, después de que, hasta que, mientras, en cuanto) piden subjuntivo cuando expresan una acción futura o hipotética respecto al presente.",
+     "explicacion": "Cuando vengas, te lo contaré (futuro → subjuntivo). Antes de que te vayas, dame un abrazo. Hasta que no estudies, no saldrás. Pero si la acción es habitual o pasada: 'Cuando vienes, me alegras' (habitual → indicativo), 'Cuando vino, me lo contó' (pasado → indicativo).",
+     "regla": "Cuando + futuro/hipotético → subjuntivo. Cuando + habitual/pasado → indicativo",
+     "ejemplo_correcto": "Cuando vengas, te lo contaré. Cuando vienes, me alegras.",
+     "ejemplo_incorrecto": "Cuando vienes (futuro), te lo contaré. (futuro → vengas)"},
+    {"numero": 340, "bloque": "C", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Aunque + indicativo vs aunque + subjuntivo",
+     "teoria": "'Aunque' puede ir con indicativo (hecho conocido) o con subjuntivo (hipótesis o desconocimiento).",
+     "explicacion": "Aunque llueve, voy a salir (indicativo = sé que llueve, es un hecho). Aunque llueva, voy a salir (subjuntivo = no sé si lloverá, es una hipótesis). El hablante elige el modo según su conocimiento de la realidad. Es una de las oposiciones más finas del español.",
+     "regla": "Aunque + indicativo = hecho real. Aunque + subjuntivo = hipótesis/duda",
+     "ejemplo_correcto": "Aunque llueve, salgo (sé que llueve). Aunque llueva, saldré (no sé si lloverá).",
+     "ejemplo_incorrecto": "Aunque llueva, salgo (mezcla: si sé que llueve → indicativo)"},
+]
+TECNICAS.extend(TECNICAS_331_340)
+
+
+EJERCICIOS_331_340 = {
+    331: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'hablar' en subjuntivo imperfecto, 1a persona?",
+        "opciones": [
+            {"id": "a", "texto": "hablara", "correcta": True, "razon": "Hablaron -> hablara."},
+            {"id": "b", "texto": "hable", "correcta": False, "razon": "Eso es subjuntivo presente."},
+            {"id": "c", "texto": "hablaria", "correcta": False, "razon": "Eso es condicional."},
+        ], "justificacion_obligatoria": False, "regla": "hablar -> hablara (subj imperfecto)"}}],
+    332: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma -se de 'hablara'?",
+        "opciones": [
+            {"id": "a", "texto": "hablase", "correcta": True, "razon": "Forma -se paralela de -ra."},
+            {"id": "b", "texto": "hablara", "correcta": False, "razon": "Eso es la forma -ra."},
+            {"id": "c", "texto": "hablase se", "correcta": False, "razon": "No existe."},
+        ], "justificacion_obligatoria": False, "regla": "hablara = hablase"}}],
+    333: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual es la forma correcta de 'ser' en subjuntivo imperfecto?",
+        "opciones": [
+            {"id": "a", "texto": "fuera", "correcta": True, "razon": "Fueron -> fuera."},
+            {"id": "b", "texto": "sea", "correcta": False, "razon": "Eso es subjuntivo presente."},
+            {"id": "c", "texto": "seria", "correcta": False, "razon": "Eso es condicional."},
+        ], "justificacion_obligatoria": False, "regla": "ser -> fuera"}}],
+    334: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que expresa 'Si hubiera estudiado, habria aprobado'?",
+        "opciones": [
+            {"id": "a", "texto": "Hipotesis pasada irreal", "correcta": True, "razon": "No estudio (pasado)."},
+            {"id": "b", "texto": "Hipotesis presente", "correcta": False, "razon": "Eso seria 'si estudiara'."},
+            {"id": "c", "texto": "Futuro", "correcta": False, "razon": "Es pasado."},
+        ], "justificacion_obligatoria": False, "regla": "hubiera + participio = pasado irreal"}}],
+    335: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Con 'Espero que...', que tiempo va en el subordinado?",
+        "opciones": [
+            {"id": "a", "texto": "Subjuntivo presente (vengas)", "correcta": True, "razon": "Espero = presente -> subj presente."},
+            {"id": "b", "texto": "Subjuntivo imperfecto (vinieras)", "correcta": False, "razon": "El principal es presente."},
+            {"id": "c", "texto": "Indicativo (vienes)", "correcta": False, "razon": "Espero pide subjuntivo."},
+        ], "justificacion_obligatoria": False, "regla": "presente -> subjuntivo presente"}}],
+    336: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Con 'Esperaba que...', que tiempo va en el subordinado?",
+        "opciones": [
+            {"id": "a", "texto": "Subjuntivo imperfecto (vinieras)", "correcta": True, "razon": "Esperaba = pasado -> subj imperfecto."},
+            {"id": "b", "texto": "Subjuntivo presente (vengas)", "correcta": False, "razon": "El principal es pasado."},
+            {"id": "c", "texto": "Indicativo (venias)", "correcta": False, "razon": "Esperaba pide subjuntivo."},
+        ], "justificacion_obligatoria": False, "regla": "pasado -> subjuntivo imperfecto"}}],
+    337: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que modo pide 'Ojala...'?",
+        "opciones": [
+            {"id": "a", "texto": "Subjuntivo", "correcta": True, "razon": "Ojala siempre pide subjuntivo."},
+            {"id": "b", "texto": "Indicativo", "correcta": False, "razon": "No, ojala pide subjuntivo."},
+            {"id": "c", "texto": "Infinitivo", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "Ojala + subjuntivo"}}],
+    338: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que modo pide 'Es importante que...'?",
+        "opciones": [
+            {"id": "a", "texto": "Subjuntivo (estudies)", "correcta": True, "razon": "Valoracion -> subjuntivo."},
+            {"id": "b", "texto": "Indicativo (estudias)", "correcta": False, "razon": "Es importante pide subjuntivo."},
+            {"id": "c", "texto": "Futuro (estudiaras)", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "es importante + subjuntivo"}}],
+    339: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Cuando ___ (venir), te lo contare', que forma es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "vengas", "correcta": True, "razon": "Accion futura -> subjuntivo."},
+            {"id": "b", "texto": "vienes", "correcta": False, "razon": "Es futuro, no presente."},
+            {"id": "c", "texto": "vendras", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "cuando + futuro -> subjuntivo"}}],
+    340: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En 'Aunque llueve, salgo', que indica 'llueve' (indicativo)?",
+        "opciones": [
+            {"id": "a", "texto": "Hecho real (se que llueve)", "correcta": True, "razon": "Indicativo = hecho conocido."},
+            {"id": "b", "texto": "Hipotesis", "correcta": False, "razon": "Hipotesis seria subjuntivo: llueva."},
+            {"id": "c", "texto": "Futuro", "correcta": False, "razon": "Llueve es presente."},
+        ], "justificacion_obligatoria": False, "regla": "aunque + indicativo = hecho real"}}],
+}
+EJERCICIOS.update(EJERCICIOS_331_340)
+
