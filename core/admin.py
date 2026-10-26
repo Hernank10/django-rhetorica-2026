@@ -33,3 +33,20 @@ class ContenidoJSONAdmin(admin.ModelAdmin):
     list_filter = ('categoria', 'creado_en')
 from core.admin_redaccion import *  # noqa: F401,E402
 from core.admin_srs import *  # noqa: F401,E402
+
+# ─── Certificaciones obtenidas (agregado v1.7.4) ───
+try:
+    from core.models import CertificacionObtenida
+
+    @admin.register(CertificacionObtenida)
+    class CertificacionObtenidaAdmin(admin.ModelAdmin):
+        list_display = (
+            "user", "certificacion", "fecha_obtenida",
+            "codigo_verificacion", "url_verificacion",
+        )
+        list_filter = ("certificacion", "fecha_obtenida")
+        search_fields = ("user__username", "codigo_verificacion")
+        ordering = ("-fecha_obtenida",)
+        autocomplete_fields = ("user",)
+except ImportError:
+    pass

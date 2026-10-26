@@ -199,9 +199,24 @@ def lista_evaluaciones(request):
 # ============================================================
 @profesor_required
 def lista_certificaciones(request):
-    emitidas = CertificacionObtenida.objects.select_related(
+    """Lista certificaciones. Profesor ve solo sus estudiantes; admin ve todas."""
+    qs = CertificacionObtenida.objects.select_related(
         "user", "certificacion"
-    ).order_by("-fecha_obtenida")
+    )
+
+    # Admin: ve todas
+    if request.user.is_superuser:
+        emitidas = qs.order_by("-fecha_obtenida")
+    else:
+        # Profesor: solo sus estudiantes (via cursos asignados)
+        cursos = Curso.objects.filter(profesor_asignado=request.user)
+        estudiantes = User.objects.filter(
+            grupos_estudiante__in=cursos
+        ) if hasattr(User, "grupos_estudiante") else User.objects.filter(
+            grupos__name="Estudiante"
+        )
+        emitidas = qs.filter(user__in=estudiantes).order_by("-fecha_obtenida")
+
     disponibles = Certificacion.objects.filter(activa=True)
     return render(request, "core/profesor/certificaciones/lista.html", {
         "emitidas": emitidas,
