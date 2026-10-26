@@ -1177,3 +1177,153 @@ EJERCICIOS_366_380 = {
 }
 EJERCICIOS.update(EJERCICIOS_366_380)
 
+
+TECNICAS_381_390 = [
+    {"numero": 381, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Viajes: aeropuerto y avion",
+     "teoria": "Vocabulario esencial de viajes en avion: aeropuerto, avion, billete, maleta, pasaporte, aduana, tarjeta de embarque, vuelo, equipaje.",
+     "explicacion": "Frases tipicas: 'Quiero un billete de ida y vuelta a Madrid'. 'El vuelo sale a las 10'. '¿Donde esta la puerta de embarque?'. 'Tengo una maleta facturada'. 'Pasaporte, por favor'. 'El avion esta retrasado'.",
+     "regla": "aeropuerto, avion, billete, maleta, pasaporte, aduana, equipaje, vuelo",
+     "ejemplo_correcto": "El vuelo a Madrid sale a las diez de la manana.",
+     "ejemplo_incorrecto": "El avion a Madrid sale del aeropuerto a las diez. (correcto pero redundante)"},
+    {"numero": 382, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Viajes: hotel y alojamiento",
+     "teoria": "Vocabulario de hotel: habitacion, reserva, recepcion, llave, cama, bano, desayuno, ascensor, factura.",
+     "explicacion": "Frases: 'Tengo una reserva a nombre de...'. '¿A que hora es el desayuno?'. 'La habitacion esta en el tercer piso'. '¿Puedo dejar la maleta en recepcion?'. 'Necesito una habitacion doble'. 'El ascensor no funciona'.",
+     "regla": "habitacion, reserva, recepcion, llave, desayuno, ascensor, factura",
+     "ejemplo_correcto": "Tengo una reserva a nombre de Garcia para dos noches.",
+     "ejemplo_incorrecto": "Tengo un reserva a nombre de Garcia. (reserva es femenino)"},
+    {"numero": 383, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Transporte urbano: metro, autobus, taxi",
+     "teoria": "Vocabulario de transporte urbano: metro, autobus, taxi, parada, estacion, billete, tarjeta, transbordo, anden.",
+     "explicacion": "Frases: '¿Donde esta la parada del autobus?'. 'Cojo el metro todos los dias'. '¿Cuanto cuesta un billete sencillo?'. 'Tienes que hacer transbordo en la linea 2'. 'El tren sale del anden 4'. 'Llamame un taxi, por favor'.",
+     "regla": "metro, autobus, taxi, parada, estacion, billete, tarjeta, transbordo",
+     "ejemplo_correcto": "Cojo el metro en la estacion de Sol y hago transbordo en la linea 2.",
+     "ejemplo_incorrecto": "Cojo el metro en la parada de Sol. (metro: estacion, no parada)"},
+    {"numero": 384, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Salud: medico, farmacia, sintomas",
+     "teoria": "Vocabulario de salud: medico, farmacia, receta, pastilla, dolor, fiebre, tos, gripe, resfriado, cita.",
+     "explicacion": "Frases: 'Necesito pedir cita con el medico'. 'Me duele la garganta y tengo fiebre'. '¿Tienes algo para la tos?'. 'Necesito esta receta'. 'Tengo gripe'. 'Me he resfriado'. 'Tome la pastilla cada ocho horas'.",
+     "regla": "medico, farmacia, receta, pastilla, dolor, fiebre, tos, gripe",
+     "ejemplo_correcto": "Me duele la cabeza y tengo fiebre. Necesito una cita con el medico.",
+     "ejemplo_incorrecto": "Tengo dolor del cabeza. (dolor de cabeza)"},
+    {"numero": 385, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Trabajo: entrevista, curriculo, sueldo",
+     "teoria": "Vocabulario laboral: entrevista, curriculo, sueldo, horario, jefe, companero, oficina, puesto, contrato.",
+     "explicacion": "Frases: 'Tengo una entrevista de trabajo el lunes'. 'Adjunto mi curriculo'. 'El sueldo es de 1500 euros al mes'. 'Mi horario es de 9 a 5'. 'Mi jefe es muy exigente'. 'Firme el contrato'. 'Trabajo en una oficina'.",
+     "regla": "entrevista, curriculo, sueldo, horario, jefe, contrato, puesto",
+     "ejemplo_correcto": "Tengo una entrevista de trabajo el lunes a las diez.",
+     "ejemplo_incorrecto": "Tengo un entrevista de trabajo. (entrevista es femenino)"},
+    {"numero": 386, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Educacion: asignatura, examen, aprobar/suspender",
+     "teoria": "Vocabulario educativo: asignatura, examen, clase, profesor, alumno, nota, aprobar, suspender, matricula, titulo.",
+     "explicacion": "Frases: 'Estudio cinco asignaturas este semestre'. 'Tengo un examen el jueves'. 'Aprobe el examen con un 8'. 'Suspendo matematicas'. 'La nota final es la media'. 'Me matricule en la universidad'. 'Tengo el titulo de grado'.",
+     "regla": "asignatura, examen, aprobar, suspender, nota, matricula, titulo",
+     "ejemplo_correcto": "Aprobe el examen de historia con un ocho. Suspendo matematicas.",
+     "ejemplo_incorrecto": "Aprobe el examen a un ocho. (con un ocho)"},
+    {"numero": 387, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Ocio: cine, teatro, concierto",
+     "teoria": "Vocabulario de ocio: cine, teatro, concierto, museo, entradas, funcion, pelicula, obra, aficion.",
+     "explicacion": "Frases: 'Vamos al cine el sabado'. 'Compre dos entradas para el teatro'. 'La pelicula empieza a las ocho'. 'El concierto es en el estadio'. 'Me gusta ir al museo'. 'Mi aficion es la fotografia'. '¿Quedamos para tomar algo?'.",
+     "regla": "cine, teatro, concierto, museo, entradas, pelicula, aficion",
+     "ejemplo_correcto": "Vamos al cine a ver una pelicula y luego tomamos algo.",
+     "ejemplo_incorrecto": "Vamos al teatro a ver una pelicula. (teatro: obra, no pelicula)"},
+    {"numero": 388, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Ciudad: servicios y lugares",
+     "teoria": "Vocabulario de ciudad: ayuntamiento, biblioteca, mercado, supermercado, banco, correos, comisaria, hospital.",
+     "explicacion": "Frases: 'El ayuntamiento esta en la plaza mayor'. 'Voy a la biblioteca a estudiar'. 'Compro fruta en el mercado'. 'Tengo que ir al banco'. 'Echo una carta en correos'. 'El hospital esta en las afueras'. 'Denuncie el robo en la comisaria'.",
+     "regla": "ayuntamiento, biblioteca, mercado, banco, correos, hospital",
+     "ejemplo_correcto": "Voy al banco y luego paso por correos a enviar un paquete.",
+     "ejemplo_incorrecto": "Voy a la banco. (banco es masculino: el banco)"},
+    {"numero": 389, "bloque": "F", "nivel": "intermedio", "modulo": "b1",
+     "titulo": "Medios y tecnologia: periodico, internet, movil",
+     "teoria": "Vocabulario de medios y tecnologia: periodico, revista, noticias, television, internet, movil, ordenador, correo electronico, red social.",
+     "explicacion": "Frases: 'Leo el periodico todas las mananas'. 'Vi las noticias en la television'. 'Busco informacion en internet'. 'Me escribio un correo electronico'. 'Mande un mensaje por el movil'. 'Subi la foto a las redes sociales'. 'Mi ordenador no funciona'.",
+     "regla": "periodico, revista, noticias, internet, movil, ordenador, correo electronico",
+     "ejemplo_correcto": "Busco las noticias en internet y luego leo el periodico.",
+     "ejemplo_incorrecto": "Busco las noticias en la internet. (internet: sin articulo o con 'la', ambas aceptadas; preferido sin)"},
+    {"numero": 390, "bloque": "F", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Emociones y sentimientos + repaso integrador F",
+     "teoria": "Vocabulario de emociones: alegria, tristeza, miedo, enfado, sorpresa, amor, nervios, tranquilidad, verguenza, orgullo.",
+     "explicacion": "Frases: 'Siento mucha alegria'. 'Tengo miedo a las alturas'. 'Estoy enfadado con el'. 'Me sorprendio la noticia'. 'Me da verguenza hablar en publico'. 'Estoy nervioso por el examen'. 'Me da tranquilidad estar en casa'. 'Estoy orgulloso de ti'. Verbos: sentir, tener, estar, dar.",
+     "regla": "alegria, tristeza, miedo, enfado, sorpresa, amor, nervios, orgullo",
+     "ejemplo_correcto": "Siento alegria. Tengo miedo. Estoy nervioso. Me da verguenza.",
+     "ejemplo_incorrecto": "Soy miedo. (miedo con tener: tengo miedo)"},
+]
+TECNICAS.extend(TECNICAS_381_390)
+
+
+EJERCICIOS_381_390 = {
+    381: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que documento necesitas para viajar al extranjero?",
+        "opciones": [
+            {"id": "a", "texto": "pasaporte", "correcta": True, "razon": "Pasaporte = passport."},
+            {"id": "b", "texto": "maleta", "correcta": False, "razon": "Maleta = suitcase."},
+            {"id": "c", "texto": "billete", "correcta": False, "razon": "Billete = ticket."},
+        ], "justificacion_obligatoria": False, "regla": "pasaporte = passport"}}],
+    382: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'I have a reservation'?",
+        "opciones": [
+            {"id": "a", "texto": "Tengo un reserva", "correcta": False, "razon": "Reserva es femenino: una reserva."},
+            {"id": "b", "texto": "Tengo una reserva", "correcta": True, "razon": "Reserva es femenino."},
+            {"id": "c", "texto": "Soy una reserva", "correcta": False, "razon": "Verbo incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "una reserva"}}],
+    383: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Donde coges el metro?",
+        "opciones": [
+            {"id": "a", "texto": "En la estacion de metro", "correcta": True, "razon": "Metro: estacion."},
+            {"id": "b", "texto": "En la parada de metro", "correcta": False, "razon": "Parada es para autobus, no metro."},
+            {"id": "c", "texto": "En el aeropuerto", "correcta": False, "razon": "Aeropuerto no es metro."},
+        ], "justificacion_obligatoria": False, "regla": "metro = estacion"}}],
+    384: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'I have a headache'?",
+        "opciones": [
+            {"id": "a", "texto": "Me duele la cabeza", "correcta": True, "razon": "Cabeza es singular: duele."},
+            {"id": "b", "texto": "Tengo un dolor cabeza", "correcta": False, "razon": "Falta 'de': dolor de cabeza."},
+            {"id": "c", "texto": "Estoy dolor de cabeza", "correcta": False, "razon": "Verbo incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "Me duele la cabeza"}}],
+    385: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que documento envias con la solicitud de trabajo?",
+        "opciones": [
+            {"id": "a", "texto": "curriculo", "correcta": True, "razon": "Curriculo = CV/resume."},
+            {"id": "b", "texto": "sueldo", "correcta": False, "razon": "Sueldo = salary."},
+            {"id": "c", "texto": "oficina", "correcta": False, "razon": "Oficina = office."},
+        ], "justificacion_obligatoria": False, "regla": "curriculo = CV"}}],
+    386: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que significa 'suspender un examen'?",
+        "opciones": [
+            {"id": "a", "texto": "Reprobar (fail)", "correcta": True, "razon": "Suspender = fail."},
+            {"id": "b", "texto": "Aprobar (pass)", "correcta": False, "razon": "Aprobar = pass."},
+            {"id": "c", "texto": "Posponer", "correcta": False, "razon": "Posponer = postpone."},
+        ], "justificacion_obligatoria": False, "regla": "suspender = fail"}}],
+    387: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que compras para entrar al teatro?",
+        "opciones": [
+            {"id": "a", "texto": "entradas", "correcta": True, "razon": "Entradas = tickets (cine/teatro)."},
+            {"id": "b", "texto": "billetes", "correcta": False, "razon": "Billete se usa para transporte, no teatro."},
+            {"id": "c", "texto": "reservas", "correcta": False, "razon": "Reserva es para hotel/restaurante."},
+        ], "justificacion_obligatoria": False, "regla": "entradas para teatro/cine"}}],
+    388: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Donde envias una carta?",
+        "opciones": [
+            {"id": "a", "texto": "En correos", "correcta": True, "razon": "Correos = post office."},
+            {"id": "b", "texto": "En el banco", "correcta": False, "razon": "Banco = bank."},
+            {"id": "c", "texto": "En el ayuntamiento", "correcta": False, "razon": "Ayuntamiento = city hall."},
+        ], "justificacion_obligatoria": False, "regla": "correos = post office"}}],
+    389: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que usas para navegar por internet?",
+        "opciones": [
+            {"id": "a", "texto": "ordenador", "correcta": True, "razon": "Ordenador = computer."},
+            {"id": "b", "texto": "periodico", "correcta": False, "razon": "Periodico = newspaper."},
+            {"id": "c", "texto": "revista", "correcta": False, "razon": "Revista = magazine."},
+        ], "justificacion_obligatoria": False, "regla": "ordenador = computer"}}],
+    390: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Tengo miedo a las alturas", "correcta": True, "razon": "Tener miedo (con tener)."},
+            {"id": "b", "texto": "Soy miedo a las alturas", "correcta": False, "razon": "Con tener: tengo miedo."},
+            {"id": "c", "texto": "Estoy miedo a las alturas", "correcta": False, "razon": "Con tener: tengo miedo."},
+        ], "justificacion_obligatoria": False, "regla": "tener miedo"}}],
+}
+EJERCICIOS.update(EJERCICIOS_381_390)
+
