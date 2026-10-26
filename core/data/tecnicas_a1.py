@@ -1367,3 +1367,153 @@ EJERCICIOS_281_290 = {
 }
 EJERCICIOS.update(EJERCICIOS_281_290)
 
+
+TECNICAS_291_300 = [
+    {"numero": 291, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "En el restaurante: pedir y pedir la cuenta",
+     "teoria": "En el restaurante se pide con 'quiero' o 'para mí'. Al final se pide 'la cuenta'.",
+     "explicacion": "Frases: 'Una mesa para dos, por favor' (a table for two). 'Quiero el menú del día'. 'Para mí, la sopa'. 'La cuenta, por favor'. 'Está rico/bueno'. 'Para beber, agua'.",
+     "regla": "Quiero + plato / La cuenta, por favor",
+     "ejemplo_correcto": "Una mesa para dos. Quiero la sopa. La cuenta, por favor.",
+     "ejemplo_incorrecto": "Dame comida. (poco cortés; mejor 'quiero...')"},
+    {"numero": 292, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "En la tienda: comprar",
+     "teoria": "En una tienda se pregunta precio, talla o color antes de comprar.",
+     "explicacion": "Frases: '¿Cuánto cuesta?' (how much does it cost?). '¿Tiene talla M?' (do you have size M?). '¿En qué color lo tiene?' (what color do you have?). 'Me lo llevo' (I'll take it). 'Es muy caro / muy barato'.",
+     "regla": "¿Cuánto cuesta? / Me lo llevo",
+     "ejemplo_correcto": "¿Cuánto cuesta esta camisa? Me la llevo.",
+     "ejemplo_incorrecto": "¿Cuánto es esta camisa costar? (mezcla)"},
+    {"numero": 293, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "En el médico: síntomas",
+     "teoria": "Para explicar síntomas al médico se usa 'me duele(n)' + parte del cuerpo, o 'tengo' + sustantivo (fiebre, tos).",
+     "explicacion": "Frases: 'Me duele la cabeza' (my head hurts). 'Me duelen los pies' (my feet hurt). 'Tengo fiebre / tos / dolor de garganta'. 'Me siento mal'. 'Necesito una receta'.",
+     "regla": "Me duele(n) + parte del cuerpo / Tengo + síntoma",
+     "ejemplo_correcto": "Me duele la cabeza y tengo fiebre.",
+     "ejemplo_incorrecto": "Tengo dolor la cabeza. (falta 'de': dolor de cabeza)"},
+    {"numero": 294, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "En el transporte: horarios y billetes",
+     "teoria": "Para viajar se pregunta horario, precio y destino del billete.",
+     "explicacion": "Frases: '¿A qué hora sale el tren?' (what time does the train leave?). 'Un billete a Madrid, por favor'. '¿Cuánto cuesta el metro?'. '¿Cuándo llega?' (when does it arrive?). 'Ida y vuelta' (round trip).",
+     "regla": "Un billete a + destino / ¿A qué hora sale...?",
+     "ejemplo_correcto": "Un billete a Madrid, ida y vuelta, por favor.",
+     "ejemplo_incorrecto": "Quiero un boleto para Madrid ir. (mezcla)"},
+    {"numero": 295, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Presentaciones formales vs informales",
+     "teoria": "La presentación cambia según el registro: informal (tú) o formal (usted).",
+     "explicacion": "Informal: 'Hola, soy Juan. ¿Y tú?'. Formal: 'Buenos días, soy Juan Pérez. ¿Cómo se llama usted?'. Informal: 'Encantado/a'. Formal: 'Mucho gusto'. En contextos profesionales siempre 'usted'.",
+     "regla": "Informal: hola + tú. Formal: buenos días + usted",
+     "ejemplo_correcto": "Buenos días, soy Juan Pérez. ¿Cómo se llama usted?",
+     "ejemplo_incorrecto": "Hola, soy Juan Pérez. ¿Cómo te llamas usted? (mezcla)"},
+    {"numero": 296, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Hablar del tiempo (clima)",
+     "teoria": "Para hablar del clima se usan 'hace' (frío/calor/sol/viento) y 'está' (lloviendo/nevando/nublado).",
+     "explicacion": "Hace: 'Hace frío' (it's cold), 'Hace calor' (it's hot), 'Hace sol', 'Hace viento'. Está: 'Está lloviendo' (it's raining), 'Está nevando', 'Está nublado'. Expresión: '¿Qué tiempo hace?' (what's the weather like?).",
+     "regla": "Hace + frío/calor/sol. Está + lloviendo/nevando",
+     "ejemplo_correcto": "Hoy hace frío y está lloviendo.",
+     "ejemplo_incorrecto": "Es frío hoy. (debería ser 'hace frío')"},
+    {"numero": 297, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Describir la familia",
+     "teoria": "Para describir la familia se combinan 'tengo' (posesión), 'es' (cualidad) y 'trabaja en' (profesión).",
+     "explicacion": "Frases: 'Tengo dos hermanos' (I have two brothers). 'Mi madre es alta' (my mother is tall). 'Mi padre trabaja en un banco' (my father works in a bank). 'Mi hermana tiene 20 años'. 'Somos cinco en mi familia'.",
+     "regla": "Tengo + miembros / Es + cualidad / Trabaja + en",
+     "ejemplo_correcto": "Tengo dos hermanos. Mi madre es profesora. Mi padre trabaja en un banco.",
+     "ejemplo_incorrecto": "Mi madre es alta y trabaja profesora. (falta 'de')"},
+    {"numero": 298, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Describir la casa",
+     "teoria": "Para describir la casa se combinan 'hay' (existencia) con 'es' (cualidad) y 'tiene' (posesión).",
+     "explicacion": "Frases: 'Mi casa es grande'. 'Hay tres habitaciones'. 'En el salón hay un sofá'. 'Tiene dos baños y una cocina'. 'Vivo en un piso pequeño'.",
+     "regla": "Hay + habitación / Es + grande/pequeña / Tiene + habitaciones",
+     "ejemplo_correcto": "Mi casa es pequeña. Hay dos habitaciones y un baño.",
+     "ejemplo_incorrecto": "Mi casa tiene dos habitaciones y hay una cocina. (correcto pero mezcla rara; mejor 'tiene' para posesión)"},
+    {"numero": 299, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Hablar de gustos: me gusta, me encanta",
+     "teoria": "Para expresar gustos: 'me gusta(n)' (I like), 'me encanta(n)' (I love), 'prefiero' (I prefer).",
+     "explicacion": "Frases: 'Me gusta el chocolate' (singular). 'Me gustan los libros' (plural). 'Me encanta viajar'. 'No me gusta nada'. 'Prefiero el té al café'. '¿Te gusta...?' (do you like...?)",
+     "regla": "Me gusta(n) + sustantivo. Me encanta(n) + sustantivo/verbo",
+     "ejemplo_correcto": "Me gusta el café. Me gustan las fresas. Me encanta viajar.",
+     "ejemplo_incorrecto": "Me gusta los libros. (debería ser 'gustan' por plural)"},
+    {"numero": 300, "bloque": "G", "nivel": "basico", "modulo": "a1",
+     "titulo": "Conversación A1 completa",
+     "teoria": "Una conversación A1 típica integra saludo, nombre, origen, profesión, gustos y despedida.",
+     "explicacion": "Ejemplo: 'Hola, ¿qué tal?' — 'Bien, gracias. ¿Y tú?' — 'Muy bien. ¿Cómo te llamas?' — 'Me llamo Ana. ¿Y tú?' — 'Soy Pedro. ¿De dónde eres?' — 'Soy de Colombia. ¿Y tú?' — 'De España. ¿A qué te dedicas?' — 'Soy estudiante. Me gusta leer.' — '¡Qué bien! Hasta luego.' — 'Adiós.'",
+     "regla": "Saludo + nombre + origen + profesión + gustos + despedida",
+     "ejemplo_correcto": "Hola, me llamo Ana. Soy de Colombia. Soy estudiante. Me gusta leer. Hasta luego.",
+     "ejemplo_incorrecto": "Hola. Soy estudiante de leer. (mezcla)"},
+]
+TECNICAS.extend(TECNICAS_291_300)
+
+
+EJERCICIOS_291_300 = {
+    291: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como pides la cuenta en un restaurante?",
+        "opciones": [
+            {"id": "a", "texto": "La cuenta, por favor", "correcta": True, "razon": "Pedir la cuenta."},
+            {"id": "b", "texto": "Dame la comida", "correcta": False, "razon": "Poco cortes; ademas es otra cosa."},
+            {"id": "c", "texto": "Quiero pagar ahora mismo", "correcta": False, "razon": "Directo; mejor 'la cuenta'."},
+        ], "justificacion_obligatoria": False, "regla": "La cuenta, por favor"}}],
+    292: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como preguntas el precio?",
+        "opciones": [
+            {"id": "a", "texto": "¿Cuanto cuesta?", "correcta": True, "razon": "Precio: cuanto cuesta."},
+            {"id": "b", "texto": "¿Que cuesta?", "correcta": False, "razon": "Que = what."},
+            {"id": "c", "texto": "¿Quien cuesta?", "correcta": False, "razon": "Quien = who."},
+        ], "justificacion_obligatoria": False, "regla": "¿Cuanto cuesta?"}}],
+    293: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'my head hurts'?",
+        "opciones": [
+            {"id": "a", "texto": "Me duele la cabeza", "correcta": True, "razon": "Cabeza es singular: duele."},
+            {"id": "b", "texto": "Me duelen la cabeza", "correcta": False, "razon": "Cabeza es singular."},
+            {"id": "c", "texto": "Tengo dolor la cabeza", "correcta": False, "razon": "Falta 'de'."},
+        ], "justificacion_obligatoria": False, "regla": "Me duele la cabeza"}}],
+    294: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como pides un billete a Madrid?",
+        "opciones": [
+            {"id": "a", "texto": "Un billete a Madrid, por favor", "correcta": True, "razon": "Billete a + destino."},
+            {"id": "b", "texto": "Un billete en Madrid", "correcta": False, "razon": "Preposicion: a."},
+            {"id": "c", "texto": "Un billete para Madrid ir", "correcta": False, "razon": "Orden incorrecto."},
+        ], "justificacion_obligatoria": False, "regla": "Billete a + destino"}}],
+    295: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Cual presentacion es FORMAL?",
+        "opciones": [
+            {"id": "a", "texto": "Hola, soy Juan. ¿Y tu?", "correcta": False, "razon": "Informal."},
+            {"id": "b", "texto": "Buenos dias, soy Juan. ¿Como se llama usted?", "correcta": True, "razon": "Formal (usted)."},
+            {"id": "c", "texto": "Hey, soy Juan", "correcta": False, "razon": "Muy informal."},
+        ], "justificacion_obligatoria": False, "regla": "Formal: buenos dias + usted"}}],
+    296: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'it is cold'?",
+        "opciones": [
+            {"id": "a", "texto": "Es frio", "correcta": False, "razon": "Deberia ser 'hace frio'."},
+            {"id": "b", "texto": "Hace frio", "correcta": True, "razon": "Clima: hace frio."},
+            {"id": "c", "texto": "Esta frio", "correcta": False, "razon": "Esta seria para otra cosa (agua, objeto)."},
+        ], "justificacion_obligatoria": False, "regla": "Hace frio"}}],
+    297: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como dices 'I have two brothers'?",
+        "opciones": [
+            {"id": "a", "texto": "Tengo dos hermanos", "correcta": True, "razon": "Tener para posesion."},
+            {"id": "b", "texto": "Soy dos hermanos", "correcta": False, "razon": "Soy = I am."},
+            {"id": "c", "texto": "Hay dos hermanos", "correcta": False, "razon": "Hay = there are."},
+        ], "justificacion_obligatoria": False, "regla": "Tengo + familia"}}],
+    298: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como describes que tu casa tiene 3 habitaciones?",
+        "opciones": [
+            {"id": "a", "texto": "Mi casa tiene tres habitaciones", "correcta": True, "razon": "Tener para posesion."},
+            {"id": "b", "texto": "Mi casa es tres habitaciones", "correcta": False, "razon": "No se usa ser aqui."},
+            {"id": "c", "texto": "Mi casa hay tres habitaciones", "correcta": False, "razon": "Hay es para existencia, no posesion."},
+        ], "justificacion_obligatoria": False, "regla": "Tiene + habitaciones"}}],
+    299: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que frase es correcta?",
+        "opciones": [
+            {"id": "a", "texto": "Me gusta las fresas", "correcta": False, "razon": "Fresas es plural: gustan."},
+            {"id": "b", "texto": "Me gustan las fresas", "correcta": True, "razon": "Gustan por plural."},
+            {"id": "c", "texto": "Me gustan la fresa", "correcta": False, "razon": "Fresa singular: gusta."},
+        ], "justificacion_obligatoria": False, "regla": "gusta(n) concordancia"}}],
+    300: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que pregunta pide origen?",
+        "opciones": [
+            {"id": "a", "texto": "¿De donde eres?", "correcta": True, "razon": "De donde = origen."},
+            {"id": "b", "texto": "¿A donde vas?", "correcta": False, "razon": "A donde = destino."},
+            {"id": "c", "texto": "¿Donde vives?", "correcta": False, "razon": "Donde vives = residencia actual."},
+        ], "justificacion_obligatoria": False, "regla": "De donde = origen"}}],
+}
+EJERCICIOS.update(EJERCICIOS_291_300)
+
