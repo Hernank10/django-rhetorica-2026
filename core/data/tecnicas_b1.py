@@ -1327,3 +1327,153 @@ EJERCICIOS_381_390 = {
 }
 EJERCICIOS.update(EJERCICIOS_381_390)
 
+
+TECNICAS_391_400 = [
+    {"numero": 391, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "En la agencia de viajes: planear un viaje",
+     "teoria": "En una agencia de viajes se combinan peticiones, informacion y decisiones: pedir folletos, preguntar precios, comparar opciones, reservar.",
+     "explicacion": "Frases utiles: 'Quisiera informacion sobre vuelos a Roma'. '¿Que incluye el paquete?'. 'Preferiria salir el viernes'. '¿Hay descuento para estudiantes?'. 'Me gustaria reservar dos noches de hotel'. '¿Puedo pagar con tarjeta?'. Uso de condicional (quisiera, preferiria) y subjuntivo (espero que...).",
+     "regla": "quisiera / preferiria / me gustaria + infinitivo (cortesia)",
+     "ejemplo_correcto": "Quisiera informacion sobre vuelos a Roma. Me gustaria reservar dos noches.",
+     "ejemplo_incorrecto": "Quiero que me des informacion sobre vuelos. (correcto pero mas directo; mejor quisiera)"},
+    {"numero": 392, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "En el restaurante: reserva, pedir, reclamar",
+     "teoria": "En el restaurante el lenguaje combina cortesia, peticion y (si hace falta) reclamacion. Se usan condicionales y formulas de cortesia.",
+     "explicacion": "Reservar: 'Quisiera reservar una mesa para dos a las nueve'. Pedir: 'Para mi, la sopa; y para el, el pollo'. Reclamar: 'Disculpe, pero esto no es lo que pedi'. '¿Podria traerme otra cosa?'. 'Creo que se ha equivocado'. Cortesia: 'por favor', 'disculpe', 'seria tan amable'.",
+     "regla": "quisiera reservar / para mi, ... / disculpe, pero...",
+     "ejemplo_correcto": "Quisiera reservar una mesa para dos a las nueve. Disculpe, esto no es lo que pedi.",
+     "ejemplo_incorrecto": "Dame una mesa para dos. (muy directo; mejor quisiera)"},
+    {"numero": 393, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "En el medico: describir sintomas detalladamente",
+     "teoria": "Describir sintomas al medico requiere combinar me duele(n) + parte del cuerpo, tengo + sintoma, desde hace + tiempo, y construir un relato.",
+     "explicacion": "Frases: 'Me duele la garganta desde hace tres dias'. 'Tengo fiebre y tos'. 'Me siento mareado'. 'No puedo dormir'. 'Me he tomado dos pastillas'. 'Soy alergico a la penicilina'. El medico pregunta: '¿Desde cuando?', '¿Donde le duele?', '¿Tiene fiebre?'.",
+     "regla": "me duele(n) + parte; tengo + sintoma; desde hace + tiempo",
+     "ejemplo_correcto": "Me duele la cabeza desde hace dos dias y tengo fiebre.",
+     "ejemplo_incorrecto": "Me duele la cabeza desde dos dias. (desde hace dos dias)"},
+    {"numero": 394, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "En el banco: abrir cuenta, cambiar dinero",
+     "teoria": "El banco requiere vocabulario especifico y formulas formales: cuenta, cajero, transferencia, cambio de moneda, comision, tarjeta.",
+     "explicacion": "Frases: 'Quisiera abrir una cuenta corriente'. '¿Que documentos necesito?'. 'Quiero cambiar euros a dolares'. '¿Cual es el tipo de cambio?'. '¿Hay comision?'. 'Necesito hacer una transferencia'. 'El cajero automatico esta fuera de servicio'.",
+     "regla": "quisiera abrir / quiero cambiar / necesito hacer + sustantivo",
+     "ejemplo_correcto": "Quisiera abrir una cuenta corriente. ¿Que documentos necesito?",
+     "ejemplo_incorrecto": "Quiero abrir una cuenta y tambien cambiar dinero y hacer una transferencia. (todo seguido sin pausas)"},
+    {"numero": 395, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "En la inmobiliaria: alquilar o comprar piso",
+     "teoria": "Alquilar o comprar vivienda requiere describir necesidades, preguntar condiciones y negociar: precio, contrato, servicios incluidos, fianza.",
+     "explicacion": "Frases: 'Busco un piso de dos habitaciones'. '¿Cuanto es el alquiler mensual?'. '¿Esta incluida la comunidad?'. '¿Cuanto es la fianza?'. '¿Se puede pagar a plazos?'. 'Quisiera ver el piso'. 'El contrato es por un ano, renovable'. Vocabulario: alquiler, fianza, comunidad, contrato, hipoteca.",
+     "regla": "busco + vivienda / ¿cuanto es el alquiler? / ¿esta incluido...?",
+     "ejemplo_correcto": "Busco un piso de dos habitaciones. ¿Cuanto es el alquiler mensual?",
+     "ejemplo_incorrecto": "Busco un piso dos habitaciones. (falta de: de dos habitaciones)"},
+    {"numero": 396, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Entrevista de trabajo: presentarse profesionalmente",
+     "teoria": "Una entrevista de trabajo combina presentacion formal, descripcion de experiencia y respuesta a preguntas tipicas. Se usa usted por defecto.",
+     "explicacion": "Presentacion: 'Buenos dias, soy Juan Garcia. Encantado'. Experiencia: 'He trabajado tres anos como comercial'. Formacion: 'Soy licenciado en Economia'. Preguntas: '¿Cuales son sus puntos fuertes?'. '¿Por que quiere trabajar aqui?'. Cierre: '¿Cuando sabre la respuesta?'. Todo en registro formal.",
+     "regla": "usted + he trabajado / soy licenciado / ¿por que quiere...?",
+     "ejemplo_correcto": "Buenos dias. Soy Juan Garcia. He trabajado tres anos como comercial.",
+     "ejemplo_incorrecto": "Hola, soy Juan. Trabaje tres anos. (demasiado informal para entrevista)"},
+    {"numero": 397, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Reclamar un producto defectuoso",
+     "teoria": "Reclamar requiere exponer el problema, presentar la prueba (ticket) y pedir una solucion (cambio, devolucion, reparacion). Se usa cortesia firme.",
+     "explicacion": "Frases: 'Compre este producto la semana pasada y no funciona'. 'Aqui tiene el ticket'. 'Quisiera que me lo cambiaran'. 'Me gustaria que me devolvieran el dinero'. '¿Puedo hablar con el encargado?'. 'Si no se soluciona, pondre una reclamacion'. Verbos: cambiar, devolver, reclamar, exigir.",
+     "regla": "compre X y no funciona / quisiera que me lo cambiaran / aqui tiene el ticket",
+     "ejemplo_correcto": "Compre este movil aqui la semana pasada y no funciona. Quisiera que me lo cambiaran.",
+     "ejemplo_incorrecto": "Este movil es malo. Cambiamelo. (agresivo y sin contexto)"},
+    {"numero": 398, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Hablar por telefono formalmente",
+     "teoria": "Una llamada formal tiene estructura fija: identificarse, decir el motivo, dejar un mensaje, despedirse.",
+     "explicacion": "Identificacion: 'Buenos dias, soy Maria Lopez'. Motivo: 'Llamo para preguntar por el pedido'. Dejar mensaje: '¿Podria decirle que me llame?'. Confirmacion: '¿Me puede repetir el numero, por favor?'. Despedida: 'Muchas gracias. Hasta luego'. Vocabulario: llamar, marcar, colgar, dejar un recado.",
+     "regla": "soy X / llamo para + inf / ¿podria decirle que...? / muchas gracias",
+     "ejemplo_correcto": "Buenos dias, soy Maria Lopez. Llamo para preguntar por el pedido. ¿Podria decirle que me llame?",
+     "ejemplo_incorrecto": "Hola, quiero hablar con Juan. (informal y sin motivo)"},
+    {"numero": 399, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Debatir: expresar opinion, acuerdo, desacuerdo",
+     "teoria": "Debatir requiere expresar opinion, mostrar acuerdo o desacuerdo con cortesia. Se usan formulas especificas y subjuntivo.",
+     "explicacion": "Opinion: 'En mi opinion...', 'Creo que...', 'Me parece que...', 'Estoy convencido de que...'. Acuerdo: 'Estoy de acuerdo', 'Tienes razon', 'Efectivamente'. Desacuerdo: 'No estoy de acuerdo', 'No comparto esa idea', 'Puede ser, pero...'. Subjuntivo para hipotesis: 'No creo que sea asi'. Cortesia para discrepar: 'Respeto tu opinion, pero...'.",
+     "regla": "creo que / en mi opinion / estoy de acuerdo / no comparto / puede ser, pero...",
+     "ejemplo_correcto": "En mi opinion, es una buena idea. No comparto esa idea, pero respeto tu opinion.",
+     "ejemplo_incorrecto": "Estas equivocado. (muy directo; mejor no comparto tu opinion)"},
+    {"numero": 400, "bloque": "G", "nivel": "avanzado", "modulo": "b1",
+     "titulo": "Repaso integrador B1 completo",
+     "teoria": "Cierre de B1: integrar todos los tiempos (presente, pasados, futuro, condicional, subjuntivo, imperativo), los conectores, el estilo indirecto y las construcciones complejas en un texto comunicativo real.",
+     "explicacion": "Ejemplo final: 'Cuando llegue a Madrid hace tres anos, no hablaba espanol. Estudié en una escuela y, aunque era dificil, aprobe el B1 en seis meses. Si no hubiera estudiado tanto, no habria conseguido el trabajo que tengo ahora. Hoy me alegra haber venido; ojala siga mejorando. Espero que mi experiencia sirva a otros'. Todos los tiempos y modos en un solo texto: imperfecto + indefinido + condicional compuesto + subjuntivo presente.",
+     "regla": "Integracion B1: presente + pasados + futuro + condicional + subjuntivo + conectores",
+     "ejemplo_correcto": "Cuando llegue, no hablaba espanol. Estudie y aprobe el B1. Si no hubiera estudiado, no habria conseguido trabajo.",
+     "ejemplo_incorrecto": "Cuando llegue no hablo espanol, estudio y apruebo. (sin control de tiempos pasados)"},
+]
+TECNICAS.extend(TECNICAS_391_400)
+
+
+EJERCICIOS_391_400 = {
+    391: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como pides informacion cortesmente en una agencia de viajes?",
+        "opciones": [
+            {"id": "a", "texto": "Quisiera informacion sobre vuelos a Roma", "correcta": True, "razon": "Cortesia con condicional."},
+            {"id": "b", "texto": "Dame informacion de vuelos", "correcta": False, "razon": "Muy directo."},
+            {"id": "c", "texto": "Quiero que me des informacion", "correcta": False, "razon": "Correcto pero mas directo que quisiera."},
+        ], "justificacion_obligatoria": False, "regla": "quisiera + inf = cortesia"}}],
+    392: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como reclamas un plato equivocado?",
+        "opciones": [
+            {"id": "a", "texto": "Disculpe, esto no es lo que pedi", "correcta": True, "razon": "Cortesia + claridad."},
+            {"id": "b", "texto": "Esto esta mal, cambialo", "correcta": False, "razon": "Demasiado directo."},
+            {"id": "c", "texto": "No quiero esto", "correcta": False, "razon": "Poco claro."},
+        ], "justificacion_obligatoria": False, "regla": "disculpe, pero..."}}],
+    393: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como describes un sintoma con duracion?",
+        "opciones": [
+            {"id": "a", "texto": "Me duele la cabeza desde hace dos dias", "correcta": True, "razon": "Desde hace + tiempo."},
+            {"id": "b", "texto": "Me duele la cabeza desde dos dias", "correcta": False, "razon": "Falta 'hace'."},
+            {"id": "c", "texto": "Tengo dolor de cabeza de dos dias", "correcta": False, "razon": "Construccion incorrecta."},
+        ], "justificacion_obligatoria": False, "regla": "desde hace + tiempo"}}],
+    394: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como preguntas el tipo de cambio en el banco?",
+        "opciones": [
+            {"id": "a", "texto": "¿Cual es el tipo de cambio?", "correcta": True, "razon": "Formula estandar."},
+            {"id": "b", "texto": "¿Como esta el cambio?", "correcta": False, "razon": "Informal, menos preciso."},
+            {"id": "c", "texto": "¿Cuanto es el cambio?", "correcta": False, "razon": "Aceptable pero menos preciso."},
+        ], "justificacion_obligatoria": False, "regla": "tipo de cambio"}}],
+    395: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que se paga al alquilar un piso (garantia)?",
+        "opciones": [
+            {"id": "a", "texto": "fianza", "correcta": True, "razon": "Fianza = deposit."},
+            {"id": "b", "texto": "hipoteca", "correcta": False, "razon": "Hipoteca = mortgage (comprar)."},
+            {"id": "c", "texto": "comunidad", "correcta": False, "razon": "Comunidad = monthly building fee."},
+        ], "justificacion_obligatoria": False, "regla": "fianza = deposit"}}],
+    396: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "En una entrevista formal, como te presentas?",
+        "opciones": [
+            {"id": "a", "texto": "Buenos dias, soy Juan Garcia. Encantado", "correcta": True, "razon": "Usted + formal."},
+            {"id": "b", "texto": "Hola, soy Juan. ¿Que tal?", "correcta": False, "razon": "Demasiado informal."},
+            {"id": "c", "texto": "Eh, soy Juan", "correcta": False, "razon": "Poco profesional."},
+        ], "justificacion_obligatoria": False, "regla": "formal: usted + encantado"}}],
+    397: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como pides un cambio de producto defectuoso?",
+        "opciones": [
+            {"id": "a", "texto": "Quisiera que me lo cambiaran", "correcta": True, "razon": "Subjuntivo + cortesia."},
+            {"id": "b", "texto": "Cambiamelo", "correcta": False, "razon": "Muy directo."},
+            {"id": "c", "texto": "Quiero cambiar", "correcta": False, "razon": "Falta objeto y cortesia."},
+        ], "justificacion_obligatoria": False, "regla": "quisiera que me lo cambiaran"}}],
+    398: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como empiezas una llamada formal?",
+        "opciones": [
+            {"id": "a", "texto": "Buenos dias, soy Maria Lopez. Llamo para...", "correcta": True, "razon": "Identificacion + motivo."},
+            {"id": "b", "texto": "Hola, ¿quien eres?", "correcta": False, "razon": "Informal."},
+            {"id": "c", "texto": "Diga", "correcta": False, "razon": "Muy informal."},
+        ], "justificacion_obligatoria": False, "regla": "soy X + llamo para"}}],
+    399: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Como expresas desacuerdo con cortesia?",
+        "opciones": [
+            {"id": "a", "texto": "No comparto esa idea, pero respeto tu opinion", "correcta": True, "razon": "Desacuerdo + cortesia."},
+            {"id": "b", "texto": "Estas equivocado", "correcta": False, "razon": "Muy directo."},
+            {"id": "c", "texto": "Que tonteria", "correcta": False, "razon": "Descortes."},
+        ], "justificacion_obligatoria": False, "regla": "no comparto... pero respeto"}}],
+    400: [{"tipo": 1, "orden": 1, "payload": {
+        "enunciado": "Que tiempo aparece en 'Si no hubiera estudiado, no habria conseguido trabajo'?",
+        "opciones": [
+            {"id": "a", "texto": "Pluscuamperfecto de subjuntivo + condicional compuesto", "correcta": True, "razon": "Hubiera + participio / habria + participio."},
+            {"id": "b", "texto": "Presente + futuro", "correcta": False, "razon": "Es pasado irreal."},
+            {"id": "c", "texto": "Imperfecto + indefinido", "correcta": False, "razon": "No aqui."},
+        ], "justificacion_obligatoria": False, "regla": "hubiera + part / habria + part"}}],
+}
+EJERCICIOS.update(EJERCICIOS_391_400)
+
