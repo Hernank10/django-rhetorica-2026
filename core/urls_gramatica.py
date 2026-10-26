@@ -8,6 +8,7 @@ urlpatterns = [
     path("", v.indice, name="indice"),
     path("generativa/", v.indice_generativa, name="indice_generativa"),
     path("a1/", v.indice_a1, name="indice_a1"),
+    path("b1/", v.indice_b1, name="indice_b1"),
     path("tecnica/<int:numero>/", v.tecnica, name="tecnica"),
     path("evaluar/", v.evaluar_ajax, name="evaluar"),
     path("progreso/", v.progreso, {"modulo": "gramatica"}, name="progreso"),

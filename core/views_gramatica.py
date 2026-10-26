@@ -39,6 +39,16 @@ BLOQUES_A1 = {
     "G": "Frases útiles y situaciones",
 }
 
+BLOQUES_B1 = {
+    "A": "Consolidación y pasado",
+    "B": "Futuro, condicional y subjuntivo",
+    "C": "Subjuntivo ampliado y estilo indirecto",
+    "D": "Oraciones compuestas y conectores",
+    "E": "Verbos, preposiciones y construcciones",
+    "F": "Vocabulario temático B1",
+    "G": "Situaciones comunicativas B1",
+}
+
 
 @login_required
 def indice(request):
@@ -102,6 +112,26 @@ def indice_generativa(request):
 
 
 @login_required
+def indice_b1(request):
+    """Indice de las 100 tecnicas de Lengua Castellana B1."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="b1")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_B1.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user, modulo="b1")
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_b1": True})
+
+
+@login_required
 def tecnica(request, numero):
     t = get_object_or_404(TecnicaGramatical, numero=numero)
     ejercicios = t.ejercicios.all()
@@ -112,6 +142,8 @@ def tecnica(request, numero):
         bname = BLOQUES_GENERATIVA.get(t.bloque, "")
     elif t.modulo == "a1":
         bname = BLOQUES_A1.get(t.bloque, "")
+    elif t.modulo == "b1":
+        bname = BLOQUES_B1.get(t.bloque, "")
     else:
         bname = BLOQUES_INFO.get(t.bloque, "")
 
@@ -121,6 +153,7 @@ def tecnica(request, numero):
         "bloque_nombre": bname,
         "es_generativa": t.modulo == "generativa",
         "es_a1": t.modulo == "a1",
+        "es_b1": t.modulo == "b1",
     })
 
 

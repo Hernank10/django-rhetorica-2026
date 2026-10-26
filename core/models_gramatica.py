@@ -30,7 +30,12 @@ class TecnicaGramatical(models.Model):
     nivel = models.CharField(max_length=20, choices=NIVELES, default="basico")
     modulo = models.CharField(
         max_length=20,
-        choices=[("gramatica", "Gramatica"), ("generativa", "Generativa")],
+        choices=[
+            ("gramatica", "Gramática"),
+            ("generativa", "Generativa"),
+            ("a1", "Lengua Castellana A1"),
+            ("b1", "Lengua Castellana B1"),
+        ],
         default="gramatica",
         db_index=True,
     )
