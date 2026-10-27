@@ -1,0 +1,2 @@
+# Preservar LF en scripts shell (evita errores en Render/Linux)
+*.sh text eol=lf
