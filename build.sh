@@ -21,3 +21,8 @@ if [ "$RUN_SEEDS" = "True" ]; then
   python scripts/seed_a1.py
   python scripts/seed_b1.py
 fi
+# Crear usuarios de prueba (solo si RUN_TEST_USERS es "True")
+if [ "$RUN_TEST_USERS" = "True" ]; then
+  echo "Creando usuarios de prueba..."
+  python manage.py seed_test_users
+fi
