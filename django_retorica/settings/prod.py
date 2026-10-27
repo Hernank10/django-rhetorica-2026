@@ -82,3 +82,6 @@ LOGGING = {
         },
     },
 }
+
+# WhiteNoise: no fallar si un JS/CSS referencia un archivo que no existe
+WHITENOISE_MANIFEST_STRICT = False
