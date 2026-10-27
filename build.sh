@@ -9,7 +9,7 @@ python manage.py migrate --noinput
 # Crear superusuario (solo si CREATE_SUPERUSER es "True")
 if [ "$CREATE_SUPERUSER" = "True" ]; then
   echo "Creando superusuario..."
-  python manage.py createsuperuser --no-input || true
+  python manage.py create_superuser
 fi
 
 # Ejecutar seeds (solo si RUN_SEEDS es "True")
