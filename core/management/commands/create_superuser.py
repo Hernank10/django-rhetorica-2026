@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 
 class Command(BaseCommand):
-    help = "Crea un superusuario si no existe, leyendo variables de entorno"
+    help = "Crea o actualiza un superusuario, leyendo variables de entorno"
 
     def handle(self, *args, **options):
         User = get_user_model()
@@ -18,14 +18,18 @@ class Command(BaseCommand):
             ))
             return
 
-        if User.objects.filter(username=username).exists():
-            self.stdout.write(self.style.WARNING(
-                f"El usuario {username} ya existe, no se crea de nuevo."
-            ))
-        else:
-            User.objects.create_superuser(
-                username=username, email=email, password=password
-            )
+        user, created = User.objects.get_or_create(username=username)
+        user.email = email
+        user.is_staff = True
+        user.is_superuser = True
+        user.set_password(password)
+        user.save()
+
+        if created:
             self.stdout.write(self.style.SUCCESS(
                 f"Superusuario {username} creado correctamente."
+            ))
+        else:
+            self.stdout.write(self.style.SUCCESS(
+                f"Contraseña del superusuario {username} actualizada correctamente."
             ))
