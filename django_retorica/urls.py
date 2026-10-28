@@ -74,12 +74,15 @@ from core import views_parafrasis
 from core import views_parafrasis_reordenamiento
 from core import views_admin
 from core import views_parafrasis_registro
+from core import views_debug
 
 
 # Rutas sin prefijo de idioma (admin + i18n + TTS)
 
 urlpatterns = [
 
+    path("debug/db/", views_debug.db_counts, name="debug_db"),
+    path("debug/reload/", views_debug.reload_fixture, name="debug_reload"),
     path('i18n/', include('django.conf.urls.i18n')),
 
     path('admin/', admin.site.urls),
