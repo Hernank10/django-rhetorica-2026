@@ -1,7 +1,6 @@
 from pathlib import Path
 
 from django.apps import apps
-from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -140,7 +139,6 @@ class Command(BaseCommand):
         # El fixture tiene PKs de est### de local (121..216) que no existen en Render.
         # Este bloque los remapea a testest### (o est###) si existen.
         try:
-            from django.contrib.auth import get_user_model
             User = get_user_model()
 
             Flashcard = apps.get_model("core", "Flashcard")
