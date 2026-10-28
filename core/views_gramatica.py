@@ -47,6 +47,7 @@ BLOQUES_B1 = {
     "E": "Verbos, preposiciones y construcciones",
     "F": "Vocabulario temático B1",
     "G": "Situaciones comunicativas B1",
+    "H": "Subjuntivo imperfecto y condicionales 2/3",
 }
 
 

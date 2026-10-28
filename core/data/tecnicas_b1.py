@@ -1477,3 +1477,7 @@ EJERCICIOS_391_400 = {
 }
 EJERCICIOS.update(EJERCICIOS_391_400)
 
+# Bloque H (401-410): subjuntivo imperfecto y condicionales 2/3
+from .tecnicas_b1_bloque_h import TECNICAS_401_410, EJERCICIOS_401_410
+TECNICAS.extend(TECNICAS_401_410)
+EJERCICIOS.update(EJERCICIOS_401_410)
