@@ -1,0 +1,2716 @@
+[
+{
+  "model": "core.tecnicagramatical",
+  "pk": 31,
+  "fields": {
+    "numero": 31,
+    "bloque": "B",
+    "titulo": "Palabras variables vs invariables",
+    "teoria": "Las palabras variables cambian de forma segun genero, numero, tiempo o modo. Las invariables no cambian nunca.",
+    "explicacion": "Variables: sustantivo (nino/nina/ninos/ninas), adjetivo (alto/alta), verbo (canto/cantas/canta), determinante (este/esta), pronombre personal (el/ella). Invariables: adverbio (hoy, siempre), preposicion (de, con), conjuncion (y, pero), interjeccion (ay, oh).",
+    "regla": "Variables: sust/adj/verbo/det/pron. Invariables: adv/prep/conj/interj",
+    "ejemplo_correcto": "'Alto' varia (alta, altos, altas): adjetivo.",
+    "ejemplo_incorrecto": "'Hoy' varia en genero.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 32,
+  "fields": {
+    "numero": 32,
+    "bloque": "B",
+    "titulo": "Palabras lexicas vs gramaticales",
+    "teoria": "Las palabras lexicas (o de contenido) tienen significado pleno. Las gramaticales (o funcionales) solo tienen significado gramatical.",
+    "explicacion": "Lexicas: sustantivo, adjetivo, verbo, adverbio. Gramaticales: determinante, pronombre, preposicion, conjuncion. Algunas son ambiguas (adverbio puede ser lexico: 'rapidamente'; o gramatical: 'muy').",
+    "regla": "Lexicas: contenido. Gramaticales: funcion",
+    "ejemplo_correcto": "'Casa' es palabra lexica (tiene contenido).",
+    "ejemplo_incorrecto": "'De' es palabra lexica con contenido pleno.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 33,
+  "fields": {
+    "numero": 33,
+    "bloque": "B",
+    "titulo": "Palabras simples, derivadas, compuestas",
+    "teoria": "Segun su estructura morfologica: simples (un solo lexema), derivadas (lexema + afijos), compuestas (dos o mas lexemas).",
+    "explicacion": "Simples: pan, sol, mar. Derivadas: pan-adero, sol-azo, mar-ino. Compuestas: sacacorchos, abrelatas, paraguas. Las compuestas pueden ser propias (dos lexemas: sacacorchos) o sintagmaticas (sustantivo + preposicion: ojo de buey).",
+    "regla": "Simple (1 lexema). Derivada (lexema + afijo). Compuesta (2+ lexemas)",
+    "ejemplo_correcto": "'Paraguas' es palabra compuesta.",
+    "ejemplo_incorrecto": "'Paraguas' es palabra simple.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 34,
+  "fields": {
+    "numero": 34,
+    "bloque": "B",
+    "titulo": "Patrimoniales vs cultismos",
+    "teoria": "Las palabras patrimoniales evolucionaron del latin al castellano. Los cultismos se tomaron del latin directamente, sin evolucion, en epocas posteriores.",
+    "explicacion": "Ejemplos: 'hacer' (patrimonial de facere), 'factible' (cultismo de factibilis). 'Ojo' (patrimonial de oculum), 'ocular' (cultismo). A veces conviven las dos formas: 'hacer' / 'factible'.",
+    "regla": "Patrimonial: evoluciono del latin. Cultismo: tomada despues sin evolucion",
+    "ejemplo_correcto": "'Ojo' es patrimonial; 'ocular' es cultismo.",
+    "ejemplo_incorrecto": "'Ojo' y 'ocular' son ambas patrimoniales.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 35,
+  "fields": {
+    "numero": 35,
+    "bloque": "B",
+    "titulo": "Derivacion y composicion",
+    "teoria": "La derivacion anade afijos a un lexema (prefijos, sufijos, interfijos). La composicion une dos o mas lexemas.",
+    "explicacion": "Prefijos: re-, des-, in-, pre-, sub-. Sufijos: -cion, -miento, -dor, -ito, -on. Interfijos: -ec- (piececito), -it- (cafetera). Composicion: saca + corchos, abre + latas. Parasintesis: prefijo + lexema + sufijo en conjunto: des-templ-ado.",
+    "regla": "Derivacion = afijos. Composicion = 2+ lexemas. Parasintesis = afijos + composicion",
+    "ejemplo_correcto": "'Des-templ-ado' es parasintetica.",
+    "ejemplo_incorrecto": "'Des-templ-ado' es solo derivada.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 36,
+  "fields": {
+    "numero": 36,
+    "bloque": "C",
+    "titulo": "Genero masculino/femenino",
+    "teoria": "Todo sustantivo tiene genero gramatical: masculino (el) o femenino (la). No siempre coincide con el sexo.",
+    "explicacion": "Reglas generales: -o/-aje/-or suelen ser masculinos (libro, viaje, amor). -a/-cion/-dad/-tad/-umbre suelen ser femeninos (casa, cancion, ciudad, virtud, costumbre). Excepciones: 'dia', 'mapa', 'planeta' son masculinos; 'mano', 'foto' son femeninos.",
+    "regla": "Masculino: -o/-aje/-or. Femenino: -a/-cion/-dad/-tad/-umbre",
+    "ejemplo_correcto": "El problema, la solucion, el viaje, la ciudad.",
+    "ejemplo_incorrecto": "La problema, el solucion, la viaje, el ciudad.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 37,
+  "fields": {
+    "numero": 37,
+    "bloque": "C",
+    "titulo": "Genero ambiguo (el/la)",
+    "teoria": "Algunos sustantivos admiten los dos generos con el mismo significado o con significados distintos.",
+    "explicacion": "Mismo significado: el/la mar, el/la azucar, el/la arte (plural: las artes). Significado distinto: el cometa (astro) / la cometa (juguete); el capital (dinero) / la capital (ciudad); el cura (sacerdote) / la cura (tratamiento).",
+    "regla": "Ambiguos: mismo significado (mar) o distinto (capital)",
+    "ejemplo_correcto": "El capital (dinero) / la capital (ciudad).",
+    "ejemplo_incorrecto": "La capital (dinero) / el capital (ciudad).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 38,
+  "fields": {
+    "numero": 38,
+    "bloque": "C",
+    "titulo": "Genero epiceno",
+    "teoria": "Sustantivos epicenos designan animales o personas sin distinguir sexo. El genero gramatical es fijo.",
+    "explicacion": "Ejemplos: la persona, la victima, la jirafa, el puma, el personaje. Para distinguir sexo se anade 'macho/hembra' o 'hombre/mujer': 'la victima (hombre)' o 'la victima (mujer)'.",
+    "regla": "Epiceno: genero fijo, sin distinguir sexo",
+    "ejemplo_correcto": "La victima era un hombre. (femenino gramatical, sexo masculino)",
+    "ejemplo_incorrecto": "El victima era un hombre. (cambio de genero incorrecto)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 39,
+  "fields": {
+    "numero": 39,
+    "bloque": "C",
+    "titulo": "Genero y numero",
+    "teoria": "El sustantivo tiene dos accidentes gramaticales: genero (masculino/femenino) y numero (singular/plural).",
+    "explicacion": "El genero es inherente (no cambia), salvo en sustantivos que admiten los dos (el/la mar). El numero varia: singular (una entidad) vs plural (varias). Artículo y adjetivo concuerdan con el sustantivo en ambos.",
+    "regla": "Sustantivo: genero (fijo) + numero (variable)",
+    "ejemplo_correcto": "El nino alto / la nina alta / los ninos altos / las ninas altas.",
+    "ejemplo_incorrecto": "La nino alto (concordancia incorrecta).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 40,
+  "fields": {
+    "numero": 40,
+    "bloque": "C",
+    "titulo": "Plural regular (-s, -es)",
+    "teoria": "El plural regular se forma anadiendo -s o -es segun la terminacion del singular.",
+    "explicacion": "Regla: si termina en vocal atona o -a/-e/-o, se anade -s (casa/casas, libro/libros). Si termina en consonante o vocal tonica (a, e, o tonicas), se anade -es (arbol/arboles, rubi/rubies). Excepcion: palabras terminadas en -s atona no cambian (el/los lunes).",
+    "regla": "Vocal atona: +s. Consonante o vocal tonica: +es",
+    "ejemplo_correcto": "Casa/casas, arbol/arboles, rubi/rubies, lunes/lunes.",
+    "ejemplo_incorrecto": "Arbol/arbols, rubi/rubis.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 41,
+  "fields": {
+    "numero": 41,
+    "bloque": "C",
+    "titulo": "Plural irregular (el/la, -z -> -ces)",
+    "teoria": "Algunos plurales no siguen la regla general y presentan formas irregulares.",
+    "explicacion": "Irregulares frecuentes: -z -> -ces (luz/luces, pez/peces). -s atona no cambia (lunes/lunes). Sustantivos que solo existen en plural: las gafas, las tijeras, los pantalones. Cambio de acento: caracter/caracteres, regimen/regimenes.",
+    "regla": "-z -> -ces. -s atona: sin cambio. Cambio de acento posible",
+    "ejemplo_correcto": "Luz/luces, lunes/lunes, caracter/caracteres.",
+    "ejemplo_incorrecto": "Luz/luzes, lunes/luness, caracter/caracters.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 42,
+  "fields": {
+    "numero": 42,
+    "bloque": "C",
+    "titulo": "Sustantivos colectivos",
+    "teoria": "Un sustantivo colectivo designa en singular un conjunto de entidades.",
+    "explicacion": "Ejemplos: equipo (conjunto de jugadores), rebaño (conjunto de ovejas), bosque (conjunto de arboles), enjambre (conjunto de abejas), gentio (conjunto de personas). Concuerdan en singular aunque designen plural: 'el equipo gano'.",
+    "regla": "Colectivo: singular que designa conjunto",
+    "ejemplo_correcto": "El equipo gano el partido.",
+    "ejemplo_incorrecto": "El equipo ganaron el partido.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 43,
+  "fields": {
+    "numero": 43,
+    "bloque": "C",
+    "titulo": "Sustantivos propios vs comunes",
+    "teoria": "Los propios designan una entidad unica (Juan, Madrid, Ebro). Los comunes designan clases (hombre, ciudad, rio).",
+    "explicacion": "Los propios se escriben con mayuscula inicial. Pueden llevar articulo (el Madrid de los Austrias) o no (Juan viene). Los comunes llevan articulo normalmente.",
+    "regla": "Propio: entidad unica, mayuscula. Comun: clase, minuscula",
+    "ejemplo_correcto": "Madrid (propio) es una ciudad (comun).",
+    "ejemplo_incorrecto": "madrid es una Ciudad.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 44,
+  "fields": {
+    "numero": 44,
+    "bloque": "C",
+    "titulo": "Sustantivos abstractos vs concretos",
+    "teoria": "Los concretos designan entidades perceptibles por los sentidos. Los abstractos designan conceptos, ideas o sentimientos.",
+    "explicacion": "Concretos: mesa, arbol, perro, casa. Abstractos: amor, libertad, justicia, belleza, tiempo. Los abstractos no pueden ir con 'muchos/muchas' del mismo modo.",
+    "regla": "Concreto: perceptible. Abstracto: concepto",
+    "ejemplo_correcto": "'Mesa' es concreto; 'amor' es abstracto.",
+    "ejemplo_incorrecto": "'Mesa' es abstracto; 'amor' es concreto.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 45,
+  "fields": {
+    "numero": 45,
+    "bloque": "C",
+    "titulo": "Sustantivos contables vs no contables",
+    "teoria": "Los contables se pueden contar (un libro, dos libros). Los no contables (o de masa) se miden pero no se cuentan (agua, arena, azucar).",
+    "explicacion": "Contables: libro, mesa, persona. No contables: agua, arena, azucar, harina. Los no contables no admiten plural normal, pero pueden admitir 'mucho/mucha'. Algunos son ambos segun contexto: 'un cafe' (taza) vs 'cafe' (sustancia).",
+    "regla": "Contable: se cuenta. No contable: se mide",
+    "ejemplo_correcto": "Dos libros (contable) / mucha agua (no contable).",
+    "ejemplo_incorrecto": "Dos aguas (incorrecto como masa).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 46,
+  "fields": {
+    "numero": 46,
+    "bloque": "C",
+    "titulo": "Sustantivos individuales vs colectivos",
+    "teoria": "El individual designa un solo ser (oveja, arbol, estrella). El colectivo designa un conjunto (rebaño, bosque, constelacion).",
+    "explicacion": "Parejas: oveja/rebaño, arbol/bosque, estrella/constelacion, pez/banco, soldado/ejercito, persona/gente. El colectivo no es lo mismo que plural: 'rebaño' es singular pero designa conjunto.",
+    "regla": "Individual: uno. Colectivo: conjunto (aunque sea singular)",
+    "ejemplo_correcto": "Una oveja (individual) / un rebaño (colectivo).",
+    "ejemplo_incorrecto": "Un rebaño es plural.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 47,
+  "fields": {
+    "numero": 47,
+    "bloque": "C",
+    "titulo": "Diminutivos (-ito, -illo, -ico)",
+    "teoria": "Los diminutivos expresan tamano pequeno, afecto o cortesia. Los sufijos mas comunes son -ito, -illo, -ico.",
+    "explicacion": "-ito (casita, perrito) es el mas frecuente y afectivo. -illo (florecilla, rincon) es mas neutro o despectivo. -ico (momentico, gatico) es regional (Caribe, Colombia). Tambien -in (jardincito), -uelo (pequenuelo).",
+    "regla": "Diminutivos: -ito, -illo, -ico, -in",
+    "ejemplo_correcto": "Casita, florecilla, momentico.",
+    "ejemplo_incorrecto": "Casota (es aumentativo, no diminutivo).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 48,
+  "fields": {
+    "numero": 48,
+    "bloque": "C",
+    "titulo": "Aumentativos (-on, -azo, -ote)",
+    "teoria": "Los aumentativos expresan tamano grande, intensidad o, a veces, desprecio.",
+    "explicacion": "-on (caseron, mujeron, arbolon): aumentativo grande. -azo (portazo, golazo, exitazo): accion brusca o gran impacto. -ote (grandote, gordote): tamano o desprecio.",
+    "regla": "Aumentativos: -on, -azo, -ote",
+    "ejemplo_correcto": "Caserón, portazo, grandote.",
+    "ejemplo_incorrecto": "Casita (es diminutivo).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 49,
+  "fields": {
+    "numero": 49,
+    "bloque": "C",
+    "titulo": "Despectivos (-ucho, -astro, -zuelo)",
+    "teoria": "Los despectivos expresan desprecio, inferioridad o mala calidad.",
+    "explicacion": "-ucho: casucha, periodicucho, medicucho. -astro: poetastro, politicastro, medicastro. -zuelo: ladronzuelo, hombrezuelo. Se aplican sobre todo a personas y oficios con intencion despectiva.",
+    "regla": "Despectivos: -ucho, -astro, -zuelo",
+    "ejemplo_correcto": "Casucha, poetastro, ladronzuelo.",
+    "ejemplo_incorrecto": "Casita (es diminutivo afectivo, no despectivo).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 50,
+  "fields": {
+    "numero": 50,
+    "bloque": "C",
+    "titulo": "Derivacion nominal (sufijos)",
+    "teoria": "La derivacion nominal forma sustantivos a partir de verbos o adjetivos mediante sufijos.",
+    "explicacion": "Sufijos nominalizadores: -cion (cantar -> cancion), -miento (sentir -> sentimiento), -dor (trabajar -> trabajador), -encia (existir -> existencia), -idad (feliz -> felicidad), -ez (noble -> nobleza), -ismo (social -> socialismo).",
+    "regla": "Derivacion nominal: -cion, -miento, -dor, -encia, -idad, -ez, -ismo",
+    "ejemplo_correcto": "Cantar -> cancion (sufijo -cion).",
+    "ejemplo_incorrecto": "Cantar -> cantar (no se deriva, sigue siendo verbo).",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 51,
+  "fields": {
+    "numero": 51,
+    "bloque": "D",
+    "titulo": "Grados del adjetivo: positivo",
+    "teoria": "El grado positivo expresa la cualidad sin comparacion ni intensificacion. Es la forma base del adjetivo.",
+    "explicacion": "Ejemplos: alto, bajo, bueno, malo. 'Juan es alto' expresa la cualidad en grado positivo, sin comparar ni intensificar. Es la forma que aparece en el diccionario.",
+    "regla": "Positivo: cualidad sin comparacion",
+    "ejemplo_correcto": "Juan es alto (positivo).",
+    "ejemplo_incorrecto": "Juan es mas alto (es comparativo, no positivo).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 52,
+  "fields": {
+    "numero": 52,
+    "bloque": "D",
+    "titulo": "Comparativo (mas... que, tan... como)",
+    "teoria": "El grado comparativo establece una comparacion entre dos entidades. Hay tres tipos: superioridad, igualdad e inferioridad.",
+    "explicacion": "Superioridad: mas + adj + que (Juan es mas alto que Pedro). Igualdad: tan + adj + como (Juan es tan alto como Pedro). Inferioridad: menos + adj + que (Juan es menos alto que Pedro). Irregulares: mejor/peor (no 'mas bueno/malo').",
+    "regla": "Comparativo: mas/menos/tan... que/como. Irreg: mejor, peor",
+    "ejemplo_correcto": "Juan es mas alto que Pedro. Maria es mejor que yo.",
+    "ejemplo_incorrecto": "Juan es mas alto de Pedro. (preposicion incorrecta)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 53,
+  "fields": {
+    "numero": 53,
+    "bloque": "D",
+    "titulo": "Superlativo (-isimo, muy, el mas)",
+    "teoria": "El grado superlativo expresa la cualidad en su grado maximo. Hay dos tipos: absoluto (sin comparacion) y relativo (comparado con un grupo).",
+    "explicacion": "Absoluto: muy + adj (muy alto) o adj + -isimo (altisimo). Relativo: el/la/los/las mas + adj + de (el mas alto de la clase). Irregulares: optimo (muy bueno), pesimo (muy malo), maximo (muy grande), minimo (muy pequeno).",
+    "regla": "Superlativo: absoluto (muy/-isimo) o relativo (el mas... de)",
+    "ejemplo_correcto": "Altisimo, muy alto, el mas alto de todos.",
+    "ejemplo_incorrecto": "Mas altisimo (incorrecto: duplica superlativo).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 54,
+  "fields": {
+    "numero": 54,
+    "bloque": "D",
+    "titulo": "Concordancia adjetivo-sustantivo",
+    "teoria": "El adjetivo concuerda con el sustantivo en genero y numero, aunque el sustantivo sea colectivo o haya varios sustantivos.",
+    "explicacion": "Regla general: mismo genero y numero. Excepciones: si varios sustantivos de distinto genero, adjetivo en masculino plural (Juan y Maria son altos). Si un sustantivo es de genero ambiguo, adjetivo segun el articulo: 'el agua fria' (femenino interno, articulo el).",
+    "regla": "Concordancia gen/num. Varios de distinto genero -> masc plural",
+    "ejemplo_correcto": "La casa blanca, el libro rojo, Juan y Maria son altos.",
+    "ejemplo_incorrecto": "La casa blanco, Juan y Maria son altas.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 55,
+  "fields": {
+    "numero": 55,
+    "bloque": "D",
+    "titulo": "Adjetivos de una vs dos terminaciones",
+    "teoria": "Los adjetivos de una terminacion no varian en genero (solo en numero). Los de dos terminaciones tienen forma masculina y femenina.",
+    "explicacion": "Una terminacion: feliz (feliz/feliz), fuerte (fuerte/fuerte), grande (grande/grande), interesante (interesante/interesante). Dos terminaciones: alto/alta, bueno/buena, pequeno/pequena, rojo/roja. Suelen terminar en -o los de dos terminaciones.",
+    "regla": "1 terminacion: no varia en genero. 2 terminaciones: masc/fem",
+    "ejemplo_correcto": "Nino feliz / nina feliz (una terminacion). Nino alto / nina alta (dos terminaciones).",
+    "ejemplo_incorrecto": "Nino feliça (no existe forma femenina de feliz).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 56,
+  "fields": {
+    "numero": 56,
+    "bloque": "D",
+    "titulo": "Adjetivo explicativo vs especificativo",
+    "teoria": "El adjetivo explicativo anade informacion no esencial (va entre comas). El especificativo restringe el significado del sustantivo (sin coma).",
+    "explicacion": "Explicativo: 'Los alumnos, cansados, se fueron' (todos estaban cansados). Especificativo: 'Los alumnos cansados se fueron' (solo los cansados). La coma cambia el significado.",
+    "regla": "Explicativo: coma, no esencial. Especificativo: sin coma, restringe",
+    "ejemplo_correcto": "Los alumnos, cansados, se fueron. / Los alumnos cansados se fueron.",
+    "ejemplo_incorrecto": "Los alumnos cansados, se fueron. (coma mal puesta)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 57,
+  "fields": {
+    "numero": 57,
+    "bloque": "D",
+    "titulo": "Apocope (buen, gran, primer)",
+    "teoria": "La apocope es la perdida de la vocal final de un adjetivo ante un sustantivo masculino singular.",
+    "explicacion": "Apocopados: bueno -> buen (buen dia), malo -> mal (mal tiempo), primero -> primer (primer piso), tercero -> tercer (tercer lugar), grande -> gran (gran hombre), santo -> san (san Juan). Ante sustantivo femenino no se apocopa: buena dia, primera vez.",
+    "regla": "Apocope: ante sustantivo masc sing. buen, mal, primer, gran",
+    "ejemplo_correcto": "Buen dia, primer piso, gran hombre.",
+    "ejemplo_incorrecto": "Buen semana (femenino: buena semana).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 58,
+  "fields": {
+    "numero": 58,
+    "bloque": "D",
+    "titulo": "Adjetivos sustantivados (el bueno)",
+    "teoria": "Un adjetivo se sustantiva cuando funciona como sustantivo, generalmente precedido de articulo. Adquiere genero y numero propios.",
+    "explicacion": "Ejemplos: 'el bueno' (la persona buena), 'los ricos' (las personas ricas), 'lo importante' (la cosa importante). Tambien con articulo neutro 'lo': lo bello, lo esencial. En estos casos el adjetivo funciona como nucleo del sintagma nominal.",
+    "regla": "Adjetivo sustantivado: articulo + adj = sustantivo",
+    "ejemplo_correcto": "El bueno gano (el bueno = la persona buena).",
+    "ejemplo_incorrecto": "El bueno gano (aqui 'bueno' sigue siendo adjetivo, no sustantivado).",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 59,
+  "fields": {
+    "numero": 59,
+    "bloque": "D",
+    "titulo": "Adjetivos relacionales",
+    "teoria": "Los adjetivos relacionales expresan una relacion con un sustantivo (no una cualidad). No admiten grados ni se usan como predicativos.",
+    "explicacion": "Ejemplos: espanol (de Espana), mensual (del mes), musical (de la musica), presidencial (del presidente). No admiten 'muy' (*muy mensual) ni grado comparativo (*mas espanol). Tampoco van con ser/estar en grado positivo (*es muy espanol).",
+    "regla": "Relacional: relacion con sustantivo. No admite grados",
+    "ejemplo_correcto": "Horario mensual (relacion con mes).",
+    "ejemplo_incorrecto": "Horario muy mensual (no admite grado).",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 60,
+  "fields": {
+    "numero": 60,
+    "bloque": "D",
+    "titulo": "Adjetivos calificativos",
+    "teoria": "Los adjetivos calificativos expresan cualidades o propiedades del sustantivo. Admiten grados (positivo, comparativo, superlativo).",
+    "explicacion": "Ejemplos: alto, bajo, bueno, malo, bonito, feo, rapido, lento. Expresan propiedades que se pueden medir o comparar. Son la mayoria de los adjetivos en espanol. Admiten 'muy' y formas comparativas y superlativas.",
+    "regla": "Calificativo: cualidad, admite grados",
+    "ejemplo_correcto": "Casa grande, muy grande, mas grande que, grandisima.",
+    "ejemplo_incorrecto": "Casa presidencial (es relacional, no calificativo).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 61,
+  "fields": {
+    "numero": 61,
+    "bloque": "E",
+    "titulo": "Verbos regulares vs irregulares",
+    "teoria": "Los verbos regulares mantienen la raiz en toda la conjugacion y toman las terminaciones del modelo (-ar, -er, -ir). Los irregulares cambian la raiz o la terminacion.",
+    "explicacion": "Regular: amar (amo, amas, ama). Irregular: ser (soy, eres, es); ir (voy, vas, va); tener (tengo, tienes, tiene). Los irregulares pueden cambiar la vocal de la raiz (e -> ie: pensar -> pienso) o la consonante (tener -> tengo).",
+    "regla": "Regular: raiz fija. Irregular: cambia raiz o terminacion",
+    "ejemplo_correcto": "Amar: amo, amas, ama (regular). Tener: tengo, tienes (irregular).",
+    "ejemplo_incorrecto": "Amar: *amo, *amas, *ama (nada cambia, es regular).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 62,
+  "fields": {
+    "numero": 62,
+    "bloque": "E",
+    "titulo": "Las 3 conjugaciones (-ar, -er, -ir)",
+    "teoria": "En espanol hay tres conjugaciones segun la terminacion del infinitivo: 1.a (-ar), 2.a (-er), 3.a (-ir).",
+    "explicacion": "Ejemplos: 1.a amar, cantar, saltar. 2.a temer, comer, beber. 3.a partir, vivir, subir. La vocal tematica (a/e/i) marca la conjugacion en toda la flexión. Saber la conjugacion ayuda a predecir formas regulares.",
+    "regla": "1a: -ar. 2a: -er. 3a: -ir",
+    "ejemplo_correcto": "Cantar (-ar, 1a), comer (-er, 2a), vivir (-ir, 3a).",
+    "ejemplo_incorrecto": "Vivir es 2a conjugacion. (es 3a)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 63,
+  "fields": {
+    "numero": 63,
+    "bloque": "E",
+    "titulo": "Persona y numero",
+    "teoria": "El verbo varia en persona (1a, 2a, 3a) y numero (singular, plural) segun el sujeto.",
+    "explicacion": "1a singular: yo. 2a singular: tu. 3a singular: el/ella. 1a plural: nosotros. 2a plural: vosotros. 3a plural: ellos/ellas. En America, 'vosotros' se reemplaza por 'ustedes' (3a plural).",
+    "regla": "6 personas gramaticales: yo, tu, el, nosotros, vosotros, ellos",
+    "ejemplo_correcto": "Yo canto, tu cantas, el canta, nosotros cantamos.",
+    "ejemplo_incorrecto": "Yo cantas. (concordancia incorrecta)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 64,
+  "fields": {
+    "numero": 64,
+    "bloque": "E",
+    "titulo": "Presente de indicativo",
+    "teoria": "El presente de indicativo expresa acciones actuales, habituales o verdades generales.",
+    "explicacion": "Usos: accion presente (yo como), habitual (todos los dias voy al trabajo), verdad general (el sol sale por el este), futuro inmediato (manana viajo a Bogota). Regulares: canto, cantas, canta, cantamos, cantais, cantan.",
+    "regla": "Presente: accion actual, habitual o verdad general",
+    "ejemplo_correcto": "Yo estudio espanol. El agua hierve a 100 grados.",
+    "ejemplo_incorrecto": "Yo estudio ayer. (el presente no expresa pasado)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 65,
+  "fields": {
+    "numero": 65,
+    "bloque": "E",
+    "titulo": "Preterito perfecto simple",
+    "teoria": "El preterito perfecto simple (o preterito indefinido) expresa acciones terminadas en el pasado, sin conexion con el presente.",
+    "explicacion": "Formas regulares: cante, cantaste, canto, cantamos, cantasteis, cantaron. Usos: accion puntual (ayer comi paella), serie de acciones terminadas (vino, saludo y se fue). Marcadores: ayer, la semana pasada, en 1999.",
+    "regla": "Preterito simple: accion terminada, sin conexion con presente",
+    "ejemplo_correcto": "Ayer cante en el coro.",
+    "ejemplo_incorrecto": "Ayer he cantado (mejor: cante, si es accion terminada)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 66,
+  "fields": {
+    "numero": 66,
+    "bloque": "E",
+    "titulo": "Preterito imperfecto",
+    "teoria": "El preterito imperfecto expresa acciones habituales, en desarrollo o descripciones en el pasado, sin marcar su fin.",
+    "explicacion": "Formas regulares: cantaba, cantabas, cantaba, cantabamos, cantabais, cantaban. Usos: habitual (de nino jugaba al futbol), accion en desarrollo (leia cuando sono el telefono), descripcion (la casa era grande). Marcadores: antes, siempre, cuando era nino.",
+    "regla": "Imperfecto: accion habitual o en desarrollo (sin fin marcado)",
+    "ejemplo_correcto": "Cuando era nino, jugaba al futbol todos los dias.",
+    "ejemplo_incorrecto": "Ayer jugaba al futbol (mejor: jugue, si fue puntual)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 67,
+  "fields": {
+    "numero": 67,
+    "bloque": "E",
+    "titulo": "Preterito perfecto compuesto",
+    "teoria": "El preterito perfecto compuesto (he cantado) expresa acciones pasadas con conexion con el presente, o acciones en un periodo que aun no ha terminado.",
+    "explicacion": "Formacion: haber (he, has, ha, hemos, habeis, han) + participio (cantado, comido, vivido). Usos: hoy he estudiado (periodo aun abierto), he estado en Paris (experiencia vital). En America Latina se prefiere el preterito simple: hoy estudie.",
+    "regla": "Perfecto compuesto: pasado con conexion con presente",
+    "ejemplo_correcto": "Hoy he trabajado mucho. (periodo aun abierto)",
+    "ejemplo_incorrecto": "Ayer he trabajado. (mejor: ayer trabaje)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 68,
+  "fields": {
+    "numero": 68,
+    "bloque": "E",
+    "titulo": "Pluscuamperfecto",
+    "teoria": "El pluscuamperfecto (habia cantado) expresa una accion pasada anterior a otra accion tambien pasada.",
+    "explicacion": "Formacion: haber en imperfecto (habia, habias, habia, habiamos, habiais, habian) + participio. Uso: 'Cuando llegue, ya se habian ido' (primero se fueron, luego llegue). Marca anterioridad respecto a un punto pasado.",
+    "regla": "Pluscuamperfecto: pasado del pasado (anterior a otro pasado)",
+    "ejemplo_correcto": "Cuando llegue, ya se habian ido.",
+    "ejemplo_incorrecto": "Cuando llegue, ya se han ido. (mezcla con presente)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 69,
+  "fields": {
+    "numero": 69,
+    "bloque": "E",
+    "titulo": "Futuro simple",
+    "teoria": "El futuro simple expresa acciones venideras respecto al momento del habla. Tambien puede expresar probabilidad o suposicion presente.",
+    "explicacion": "Formas regulares: cantare, cantaras, cantara, cantaremos, cantareis, cantaran. Usos: futuro (manana ire), probabilidad presente (seran las tres = probablemente son las tres), mandato atenuado (cantaras esa cancion).",
+    "regla": "Futuro: accion venidera o probabilidad presente",
+    "ejemplo_correcto": "Manana ire al cine. Seran las tres.",
+    "ejemplo_incorrecto": "Ayer ire al cine. (futuro no puede ser pasado)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 70,
+  "fields": {
+    "numero": 70,
+    "bloque": "E",
+    "titulo": "Condicional simple",
+    "teoria": "El condicional simple expresa acciones hipoteticas, probabilidad pasada o cortesia.",
+    "explicacion": "Formas regulares: cantaria, cantarias, cantaria, cantariamos, cantariais, cantarian. Usos: hipotesis (si tuviera dinero, viajaria), probabilidad pasada (serian las tres = probablemente eran las tres), cortesia (podrias ayudarme?).",
+    "regla": "Condicional: hipotesis, probabilidad pasada o cortesia",
+    "ejemplo_correcto": "Si tuviera dinero, viajaria. Podrias ayudarme?",
+    "ejemplo_incorrecto": "Si tengo dinero, viajaria. (mezcla indicativo + condicional, no encaja)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 71,
+  "fields": {
+    "numero": 71,
+    "bloque": "E",
+    "titulo": "Modo indicativo",
+    "teoria": "El modo indicativo expresa acciones reales, objetivas, seguras. Es el modo de la realidad.",
+    "explicacion": "Tiempos: presente, preterito (simple, imperfecto, compuesto, pluscuamperfecto), futuro, condicional. Ej: 'viene, vino, venia, ha venido, habia venido, vendra, vendria'. Se usa para hechos ciertos o probables.",
+    "regla": "Indicativo: realidad, hechos ciertos o probables",
+    "ejemplo_correcto": "Juan viene manana. Es seguro que viene.",
+    "ejemplo_incorrecto": "Es seguro que venga. (certeza pide indicativo)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 72,
+  "fields": {
+    "numero": 72,
+    "bloque": "E",
+    "titulo": "Modo subjuntivo",
+    "teoria": "El modo subjuntivo expresa acciones hipoteticas, deseos, dudas, emociones o mandatos negativos.",
+    "explicacion": "Tiempos: presente (venga), imperfecto (viniera/viniese), perfecto (haya venido), pluscuamperfecto (hubiera venido). Usos: deseo (ojala venga), duda (dudo que venga), emocion (me alegra que venga), posibilidad (es posible que venga).",
+    "regla": "Subjuntivo: deseo, duda, emocion, hipotesis",
+    "ejemplo_correcto": "Ojala venga. Dudo que venga. Me alegra que venga.",
+    "ejemplo_incorrecto": "Ojala viene. (deseo pide subjuntivo)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 73,
+  "fields": {
+    "numero": 73,
+    "bloque": "E",
+    "titulo": "Modo imperativo",
+    "teoria": "El modo imperativo expresa ordenes, mandatos, ruegos o consejos. Solo tiene formas propias en 2a persona (tu, vosotros). Las demas personas usan subjuntivo.",
+    "explicacion": "2a sing: canta (tu), come, vive. 2a plural: cantad, comed, vivid. Negativo: no cantes (subjuntivo). Las demas personas: cante usted, cantemos nosotros, canten ustedes. El imperativo no tiene 1a singular (yo).",
+    "regla": "Imperativo: ordenes. Propias solo tu/vosotros",
+    "ejemplo_correcto": "Canta! No cantes! Cante usted!",
+    "ejemplo_incorrecto": "Yo canta! (el imperativo no tiene 1a singular)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 74,
+  "fields": {
+    "numero": 74,
+    "bloque": "E",
+    "titulo": "Aspecto perfectivo vs imperfectivo",
+    "teoria": "El aspecto marca si la accion esta terminada (perfectivo) o en desarrollo / habitual (imperfectivo).",
+    "explicacion": "Perfectivos: preterito simple (cante), preterito perfecto compuesto (he cantado), pluscuamperfecto (habia cantado). Imperfectivos: presente (canto), imperfecto (cantaba), futuro (cantare), condicional (cantaria). 'Cante' (termine) vs 'cantaba' (habitual o en desarrollo).",
+    "regla": "Perfectivo: terminado. Imperfectivo: en desarrollo/habitual",
+    "ejemplo_correcto": "Ayer cante (perfectivo) vs cuando era nino cantaba (imperfectivo).",
+    "ejemplo_incorrecto": "Ayer cantaba (sugiere habitual, no puntual)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 75,
+  "fields": {
+    "numero": 75,
+    "bloque": "E",
+    "titulo": "Voz activa vs voz pasiva",
+    "teoria": "En la voz activa el sujeto realiza la accion. En la pasiva el sujeto la recibe.",
+    "explicacion": "Activa: 'El arquitecto construyo la casa'. Pasiva perifrastica: 'La casa fue construida por el arquitecto' (ser + participio + por). Pasiva refleja: 'Se construyo la casa' (se + verbo). La pasiva es menos frecuente en espanol que en ingles.",
+    "regla": "Activa: sujeto hace. Pasiva: sujeto recibe (ser+part+por / se+verbo)",
+    "ejemplo_correcto": "El arquitecto construyo la casa (activa). La casa fue construida por el arquitecto (pasiva).",
+    "ejemplo_incorrecto": "La casa construyo el arquitecto. (sujeto/objeto invertidos)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 76,
+  "fields": {
+    "numero": 76,
+    "bloque": "E",
+    "titulo": "Verbos copulativos (ser, estar, parecer)",
+    "teoria": "Los copulativos no tienen significado pleno: sirven de enlace entre sujeto y atributo. Son ser, estar y parecer.",
+    "explicacion": "Ser: cualidad esencial (Juan es alto). Estar: estado (Juan esta cansado). Parecer: apariencia (Juan parece cansado). El atributo concuerda con el sujeto. No confundir con predicativos: 'Juan corre rapido' (verbo pleno + predicativo).",
+    "regla": "Copulativos: ser, estar, parecer + atributo",
+    "ejemplo_correcto": "Juan es alto (cualidad). Juan esta cansado (estado).",
+    "ejemplo_incorrecto": "Juan corre alto. (correr no es copulativo)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 77,
+  "fields": {
+    "numero": 77,
+    "bloque": "E",
+    "titulo": "Verbos transitivos vs intransitivos",
+    "teoria": "Los transitivos necesitan complemento directo. Los intransitivos no lo necesitan.",
+    "explicacion": "Transitivos: 'compro un libro' (que compro?), 'veo la casa', 'amo a Maria'. Intransitivos: 'nace', 'muere', 'llega', 'duerme' (no piden CD). Algunos son ambos: 'corre' (intr.) / 'corre la maraton' (tr.) - 'correr' con CD es transitivo.",
+    "regla": "Transitivo: + CD. Intransitivo: sin CD",
+    "ejemplo_correcto": "Compro un libro (transitivo). Nace un nino (intransitivo).",
+    "ejemplo_incorrecto": "Compro. (falta el CD, salvo uso absoluto)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 78,
+  "fields": {
+    "numero": 78,
+    "bloque": "E",
+    "titulo": "Verbos pronominales",
+    "teoria": "Los pronominales se conjugan con un pronombre reflexivo (me, te, se, nos, os, se) que forma parte del verbo.",
+    "explicacion": "Ejemplos: arrepentirse, quejarse, acordarse, olvidarse, levantarse, sentarse, irse. El pronombre varia con la persona: me arrepiento, te arrepientes, se arrepiente. Sin el pronombre cambian de significado o son agramaticales. 'Ir' vs 'irse' (marcharse).",
+    "regla": "Pronominal: verbo + pron. reflexivo (obligatorio)",
+    "ejemplo_correcto": "Me arrepiento, te arrepientes, se arrepiente.",
+    "ejemplo_incorrecto": "Arrepiento (falta el pronombre me)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 79,
+  "fields": {
+    "numero": 79,
+    "bloque": "E",
+    "titulo": "Perifrasis verbales (ir a + inf, estar + ger)",
+    "teoria": "La perifrasis verbal es la union de un verbo auxiliar + una forma no personal + a veces un nexo. Expresa matices de modo o aspecto.",
+    "explicacion": "Tipos aspectuales: ingresiva (ir a + inf: voy a cantar), progresiva (estar + ger: estoy cantando), terminativa (acabar de + inf: acabo de llegar). Modales: obligacion (tener que + inf, deber + inf), posibilidad (poder + inf).",
+    "regla": "Perifrasis: aux + (nexo) + forma no personal",
+    "ejemplo_correcto": "Voy a cantar. Estoy cantando. Tengo que ir.",
+    "ejemplo_incorrecto": "Voy cantar. (falta 'a' en la perifrasis)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 80,
+  "fields": {
+    "numero": 80,
+    "bloque": "E",
+    "titulo": "Irregulares frecuentes: ser, estar, ir, haber, tener",
+    "teoria": "Algunos verbos irregulares son muy frecuentes y conviene memorizar sus formas basicas.",
+    "explicacion": "Ser: soy, eres, es, somos, sois, son; fui, era. Estar: estoy, estas, esta; estuve, estaba. Ir: voy, vas, va; fui, iba. Haber: he, has, ha; hube, habia. Tener: tengo, tienes, tiene; tuve, tenia. Presentan cambio de raiz o supletismo (ir: fui).",
+    "regla": "Irregulares frecuentes: memorizar formas clave",
+    "ejemplo_correcto": "Voy al cine. Tengo hambre. He comido.",
+    "ejemplo_incorrecto": "Vo al cine. (irregular: voy)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 81,
+  "fields": {
+    "numero": 81,
+    "bloque": "F",
+    "titulo": "Pronombres personales tonicos",
+    "teoria": "Los tonicos llevan acento prosodico propio y pueden ir solos o con preposicion: yo, tu, el, ella, nosotros, vosotros, ellos, ellas, usted, ustedes.",
+    "explicacion": "Funcionan como sujeto (yo canto), tras preposicion (para mi, con ella) o en comparaciones (mejor que tu). En espanol el sujeto pronominal suele omitirse ('canto' implica 'yo'). Se usan para enfasis o contraste: 'Yo lo hice, no tu'.",
+    "regla": "Tonicos: yo, tu, el, ella, nosotros... (sujeto o tras prep.)",
+    "ejemplo_correcto": "Yo canto. Vino para mi. Mejor que tu.",
+    "ejemplo_incorrecto": "Para yo. (tras preposicion: para mi)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 82,
+  "fields": {
+    "numero": 82,
+    "bloque": "F",
+    "titulo": "Pronombres atonos",
+    "teoria": "Los atonos se pronuncian unidos al verbo y nunca llevan acento propio: me, te, lo, la, le, nos, os, los, las, les, se.",
+    "explicacion": "Pueden ser reflexivos (me lavo), CD (lo veo), CI (le doy), o parte del verbo pronominal (me arrepiento). Posicion: antepuestos al verbo conjugado (lo veo) o pospuestos al infinitivo/gerundio/imperativo (verlo, viendolo, dime).",
+    "regla": "Atonos: me, te, lo, le, nos, os, los, les, se (junto al verbo)",
+    "ejemplo_correcto": "Lo veo. Damelo. Se lava.",
+    "ejemplo_incorrecto": "Veo lo. (pospuesto incorrecto en verbo conjugado)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 83,
+  "fields": {
+    "numero": 83,
+    "bloque": "F",
+    "titulo": "Leismo, laismo, loismo",
+    "teoria": "El leismo es usar 'le' por 'lo' (CD masculino). El laismo, 'la' por 'le' (CI femenino). El loismo, 'lo' por 'le' (CI masculino).",
+    "explicacion": "Norma general: 'lo/la/los/las' para CD; 'le/les' para CI. Leismo aceptado: 'le' por 'lo' con persona masculina ('Le vi a Juan' - aceptado). Leismo rechazado: 'le' por 'lo' con cosa ('*Le vi el libro'). Laismo y loismo rechazados: 'La di el libro a Maria' (*'Le di el libro').",
+    "regla": "Norma: lo/la/los/las=CD. le/les=CI. Leismo de persona: aceptado",
+    "ejemplo_correcto": "Lo vi (CD). Le di el libro (CI). Le vi a Juan (leismo aceptado).",
+    "ejemplo_incorrecto": "La di el libro a Maria. (laismo: debe ser 'le')",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 84,
+  "fields": {
+    "numero": 84,
+    "bloque": "F",
+    "titulo": "Demostrativos (este, ese, aquel)",
+    "teoria": "Los demostrativos indican proximidad o lejania respecto al hablante. Tienen tres grados: cercania (este), distancia media (ese) y lejania (aquel).",
+    "explicacion": "Formas: este/esta/esto/estos/estas, ese/esa/eso/esos/esas, aquel/aquella/aquello/aquellos/aquellas. Concordancia en genero y numero con el sustantivo. El neutro (esto, eso, aquello) no lleva sustantivo: 'esto es raro'. Desde RAE 2010, no llevan tilde diacritica.",
+    "regla": "Demostrativos: este (cerca), ese (medio), aquel (lejos). Sin tilde (RAE 2010)",
+    "ejemplo_correcto": "Este libro, esa casa, aquel arbol.",
+    "ejemplo_incorrecto": "Éste libro. (RAE 2010: sin tilde)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 85,
+  "fields": {
+    "numero": 85,
+    "bloque": "F",
+    "titulo": "Posesivos (mio, tuyo, suyo)",
+    "teoria": "Los posesivos indican a quien pertenece el sustantivo. Varian en persona, genero y numero.",
+    "explicacion": "Un poseedor: mio/mia/mios/mias, tuyo/tuya, suyo/suya. Varios: nuestro/nuestra, vuestro/vuestra, suyo/suya. Formas apocopadas (ante sustantivo): mi, tu, su, nuestro, vuestro. Tonicas (tras sustantivo o solas): mio, tuyo, suyo. Ej: 'mi libro' / 'el libro mio'.",
+    "regla": "Posesivos: mi/tu/su (apocope) o mio/tuyo/suyo (tonico)",
+    "ejemplo_correcto": "Mi libro. El libro mio. Es tuyo.",
+    "ejemplo_incorrecto": "Mio libro. (apocope: mi libro)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 86,
+  "fields": {
+    "numero": 86,
+    "bloque": "F",
+    "titulo": "Relativos (que, quien, cual, cuyo)",
+    "teoria": "Los relativos introducen subordinadas adjetivas y se refieren a un antecedente. Son: que, quien, el cual, cuyo, donde, cuando, como.",
+    "explicacion": "Que: el mas comun (el libro que leo). Quien: tras preposicion o en explicativas (el hombre con quien hable). El cual: culto (la casa, la cual compramos). Cuyo: posesivo (el hombre cuyo hijo es medico). Donde/cuando/como: relativos de lugar/tiempo/modo.",
+    "regla": "Relativos: que, quien, el cual, cuyo, donde, cuando, como",
+    "ejemplo_correcto": "El libro que lei. El hombre con quien hable. La casa cuyo techo es rojo.",
+    "ejemplo_incorrecto": "El hombre que con quien hable. (duplicacion)",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 87,
+  "fields": {
+    "numero": 87,
+    "bloque": "F",
+    "titulo": "Interrogativos y exclamativos (que, quien, como)",
+    "teoria": "Los interrogativos y exclamativos introducen preguntas o exclamaciones. Llevan tilde diacritica.",
+    "explicacion": "Formas: que, quien, cual, cuanto, donde, cuando, como (con tilde en interrogativas/exclamativas). Ej: 'Que quieres?' (interrogativo), 'Que bonito!' (exclamativo). En indirectas tambien: 'No se que quieres'. Sin tilde cuando son relativos o conjunciones: 'Creo que vienes'.",
+    "regla": "Interrogativos/exclamativos: con tilde (que, quien, como)",
+    "ejemplo_correcto": "Que quieres? No se que quieres. Que bonito!",
+    "ejemplo_incorrecto": "Que quieres (sin tilde: no es interrogativo)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 88,
+  "fields": {
+    "numero": 88,
+    "bloque": "F",
+    "titulo": "Determinantes demostrativos",
+    "teoria": "Los demostrativos funcionan como determinantes cuando acompanan al sustantivo. Indican proximidad o lejania.",
+    "explicacion": "Formas: este/esta/estos/estas (cerca), ese/esa/esos/esas (medio), aquel/aquella/aquellos/aquellas (lejos). Acompanan al sustantivo: 'este libro'. Si lo sustituyen, son pronombres: 'este es mio'. Concordancia en genero y numero.",
+    "regla": "Determinantes demostrativos: acompanan al sustantivo",
+    "ejemplo_correcto": "Este libro. Esa casa. Aquellos arboles.",
+    "ejemplo_incorrecto": "Este es libro. (este pronombre, no determinante)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 89,
+  "fields": {
+    "numero": 89,
+    "bloque": "F",
+    "titulo": "Determinantes posesivos",
+    "teoria": "Los posesivos funcionan como determinantes cuando acompanan al sustantivo. Indican pertenencia.",
+    "explicacion": "Formas apocopadas: mi, tu, su, nuestro/a, vuestro/a (mi libro, tu casa). Formas tonicas: mio, tuyo, suyo (libro mio). Como determinantes, siempre van antepuestos en forma apocopada: 'mi libro' (no 'mio libro'). Si van pospuestos o solos, son adjetivos o pronombres.",
+    "regla": "Determinantes posesivos: mi, tu, su + sustantivo",
+    "ejemplo_correcto": "Mi libro. Tu casa. Nuestro coche.",
+    "ejemplo_incorrecto": "Mio libro. (apocope: mi)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 90,
+  "fields": {
+    "numero": 90,
+    "bloque": "F",
+    "titulo": "Determinantes numerales (cardinales, ordinales)",
+    "teoria": "Los numerales cuantifican el sustantivo de forma precisa. Pueden ser cardinales (uno, dos, tres) u ordinales (primero, segundo, tercero).",
+    "explicacion": "Cardinales: uno, dos, tres, cuatro... (dos libros). Ordinales: primero, segundo, tercero... (primer piso, segundo lugar). Apocope: primero -> primer, tercero -> tercer (ante sustantivo masc. sing.). Tambien hay multiplicativos (doble, triple) y partitivos (medio, tercio).",
+    "regla": "Numerales: cardinales (uno, dos), ordinales (primero, segundo)",
+    "ejemplo_correcto": "Dos libros. Primer piso. Tercer lugar.",
+    "ejemplo_incorrecto": "Primero piso. (apocope: primer piso)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 91,
+  "fields": {
+    "numero": 91,
+    "bloque": "G",
+    "titulo": "Uso de b/v",
+    "teoria": "La b y la v suenan igual en espanol, pero se escriben distinto. Hay reglas que ayudan a recordar.",
+    "explicacion": "Con b: verbos en -bir (escribir, recibir, excepto hervir, servir, vivir); terminaciones -aba, -abas, -abamos del imperfecto (cantaba); palabras que empiezan por bu-, bur-, bus- (bueno, burro, buscar); prefijos bi-, bis-, biz- (bilingue, bisnieto). Con v: adjetivos en -avo, -ava, -ivo (octavo, esclava, activo); palabras que empiezan por eva-, eve-, evi-, evo- (evacuar, evitar, evolucion).",
+    "regla": "B: -bir, -aba, bu-, bi-. V: -avo/-ivo, eva-/eve-/evi-/evo-",
+    "ejemplo_correcto": "Escribir, cantaba, bueno, activo, evitar.",
+    "ejemplo_incorrecto": "Escrevibir, cantava, bueno -> activo.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 92,
+  "fields": {
+    "numero": 92,
+    "bloque": "G",
+    "titulo": "Uso de c/z/s (seseo, ceceo)",
+    "teoria": "La c (ante e, i), la z y la s representan fonemas distintos en el espanol peninsular, pero se neutralizan en seseo (America) y ceceo (parte de Andalucia).",
+    "explicacion": "En espanol peninsular: c/z = /z/ (theta), s = /s/. Seseo: casa y caza suenan igual (America, Canarias). Ceceo: casa y caza suenan con /z/ (theta). Regla ortografica comun: -cer/-cir (hacer, decir), -zar (empezar), -cion (cancion, aunque -sion en otros casos).",
+    "regla": "c/z/s: -cer/-cir, -zar, -cion. Seseo: America; ceceo: Andalucia",
+    "ejemplo_correcto": "Hacer, empezar, cancion. En America, casa y caza suenan igual.",
+    "ejemplo_incorrecto": "Haser, empesar, cansion.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 93,
+  "fields": {
+    "numero": 93,
+    "bloque": "G",
+    "titulo": "Uso de g/j",
+    "teoria": "La g (ante e, i) y la j suenan igual en espanol, pero hay reglas para distinguirlas.",
+    "explicacion": "Con g ante e, i: palabras con -ger, -gir (coger, dirigir, excepto tejer, crujir); palabras que empiezan por geo- (geografia); terminaciones -gen, -gente (origen, urgente). Con j: palabras con -jear (callejear); terminaciones -aje (garaje, viaje); preteritos fuertes (dije, traje, conduje).",
+    "regla": "G ante e/i: -ger/-gir, geo-. J: -jear, -aje, pret. dije/traje",
+    "ejemplo_correcto": "Coger, dirigir, geografia, garaje, dije.",
+    "ejemplo_incorrecto": "Cojer, dirijir, garagge.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 94,
+  "fields": {
+    "numero": 94,
+    "bloque": "G",
+    "titulo": "Uso de h",
+    "teoria": "La h es muda en espanol, pero su presencia o ausencia cambia el significado de algunas palabras.",
+    "explicacion": "Con h: palabras que empiezan por hie-, hue-, hia- (hielo, huevo, hiato); palabras que empiezan por herm-, horr-, hosp- (hermano, horrible, hospital); prefijo hidr-/hiper-/hipo- (hidraulico, hipermercado, hipopotamo). Sin h: ojala, asta (cuerno), hasta (preposicion, con h).",
+    "regla": "H: hie-/hue-, herm-/horr-/hosp-, hidr-/hiper-/hipo-",
+    "ejemplo_correcto": "Hielo, huevo, hermano, hidraulico, hasta.",
+    "ejemplo_incorrecto": "Ielo, uevo, ermano.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 95,
+  "fields": {
+    "numero": 95,
+    "bloque": "G",
+    "titulo": "Uso de ll/y",
+    "teoria": "La ll (elle) y la y (ye) representan fonemas distintos en espanol peninsular, pero se neutralizan en yeismo (gran parte de America y Espana).",
+    "explicacion": "Con ll: palabras con -ll- (llave, calle, caballo); diminutivos -illo/-illa (casilla, pasillo). Con y: palabras que terminan en -y (rey, ley, buey); formas verbales con y (voy, estoy, doy, soy); palabras con -y- (mayo, playa, ayer). Yeismo: ll y y suenan igual.",
+    "regla": "LL: -ll-, -illo/-illa. Y: -y final, voy/estoy/doy, mayo/playa",
+    "ejemplo_correcto": "Llave, casilla, rey, voy, mayo.",
+    "ejemplo_incorrecto": "Yave, casiya, rei, boi.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 96,
+  "fields": {
+    "numero": 96,
+    "bloque": "G",
+    "titulo": "Uso de m antes de p/b",
+    "teoria": "En espanol, siempre se escribe m (no n) antes de p o b.",
+    "explicacion": "Regla: m ante p o b (campo, tambor, hombre, amplio, cambio). La regla es: m antes de p/b, n antes de otras consonantes (antes, andar, angulo). No confundir con prefijos que empiezan por en- (envase, enfriar): la n se mantiene porque la siguiente letra no es p/b.",
+    "regla": "m ante p/b (campo, tambor). n ante otras consonantes",
+    "ejemplo_correcto": "Campo, tambor, hombre, amplio.",
+    "ejemplo_incorrecto": "Canpo, tanbor, honbre, anplio.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 97,
+  "fields": {
+    "numero": 97,
+    "bloque": "G",
+    "titulo": "Acentuacion: agudas, llanas, esdrujulas",
+    "teoria": "Las palabras se clasifican segun la silaba tonica: agudas (ultima), llanas (penultima), esdrujulas (antepenultima) y sobresdrujulas (antes de la antepenultima).",
+    "explicacion": "Agudas: tilde si terminan en vocal, -n o -s (cafe, cancion, compas). Llanas: tilde si NO terminan en vocal, -n o -s (arbol, lapiz, crisis). Esdrujulas y sobresdrujulas: tilde siempre (musica, telefono). Ejemplos: cafe (aguda con tilde), arbol (llana sin tilde por terminar en -l), musica (esdrujula siempre con tilde).",
+    "regla": "Aguda: -vocal/-n/-s. Llana: no -vocal/-n/-s. Esdrujula: siempre",
+    "ejemplo_correcto": "Cafe (aguda), arbol (llana), musica (esdrujula).",
+    "ejemplo_incorrecto": "Cafe sin tilde, arbol con tilde, musica sin tilde.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 98,
+  "fields": {
+    "numero": 98,
+    "bloque": "G",
+    "titulo": "Acento diacritico (el/el, si/si)",
+    "teoria": "El acento diacritico distingue palabras que se escriben igual pero tienen distinta funcion gramatical.",
+    "explicacion": "Ejemplos: el (articulo) vs el (pronombre); si (condicional) vs si (afirmacion); tu (posesivo) vs tu (pronombre); mi (posesivo) vs mi (pronombre); mas (adverbio) vs mas (conjuncion = pero); aun (todavia) vs aun (incluso). RAE 2010: solo y demostrativos SIN tilde (antes se recomendaba).",
+    "regla": "Diacritico: el/el, si/si, tu/tu, mi/mi, mas/mas, aun/aun",
+    "ejemplo_correcto": "El libro (articulo) / El lo hizo (pronombre). Si vienes (condicional) / Si, quiero (afirmacion).",
+    "ejemplo_incorrecto": "El libro (sin tilde, ok). Si quiero (sin tilde: es afirmacion, deberia ser Si con tilde).",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 99,
+  "fields": {
+    "numero": 99,
+    "bloque": "G",
+    "titulo": "Diptongos, triptongos, hiatos",
+    "teoria": "Un diptongo es la union de dos vocales en una silaba. Un triptongo, tres. Un hiato es la separacion de dos vocales en silabas distintas.",
+    "explicacion": "Diptongo: vocal abierta + cerrada (ai-re), cerrada + abierta (tie-rra), cerrada + cerrada (ciu-dad). Triptongo: cerrada + abierta + cerrada (a-ve-ri-guais). Hiato: dos abiertas (a-e-re-o), abierta + cerrada tonica (pa-is), cerrada tonica + abierta (ba-hi-a). La h intercalada no impide el hiato (a-hi).",
+    "regla": "Diptongo: 1 silaba. Hiato: 2 silabas. Triptongo: 3 vocales",
+    "ejemplo_correcto": "Aire (diptongo), pais (hiato), averiguais (triptongo).",
+    "ejemplo_incorrecto": "A-i-re (no es diptongo).",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 100,
+  "fields": {
+    "numero": 100,
+    "bloque": "G",
+    "titulo": "Reglas de puntuacion RAE 2010",
+    "teoria": "La RAE 2010 fijo el sistema de puntuacion del espanol: punto, coma, punto y coma, dos puntos, comillas, parentesis, rayas, signos de interrogacion y exclamacion.",
+    "explicacion": "Signos de apertura y cierre: los de interrogacion y exclamacion son exclusivos del espanol. Comillas: angulares (preferidas), inglesas y simples. Raya: dialogo y aclaraciones. Parentesis: incisos. Punto: fin de oracion. Coma: enumeracion, vocativo, inciso. Dos puntos: cita, consecuencia. Punto y coma: separa miembros con comas internas. Puntos suspensivos: enumeracion abierta.",
+    "regla": "Puntuacion RAE 2010: interrogacion, exclamacion, comillas angulares",
+    "ejemplo_correcto": "Dijo: Vendre manana. Vienes? Claro!",
+    "ejemplo_incorrecto": "Comillas inglesas: aceptables pero no preferidas por la RAE.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 101,
+  "fields": {
+    "numero": 1,
+    "bloque": "A",
+    "titulo": "Del latin vulgar al castellano",
+    "teoria": "El castellano nace del latin vulgar hablado en la peninsula iberica entre los siglos V y X, tras la caida del Imperio Romano.",
+    "explicacion": "No viene del latin clasico de Ciceron, sino del latin hablado por el pueblo, que evoluciono de forma distinta en cada region.",
+    "regla": "Castellano = evolucion del latin vulgar (no del clasico)",
+    "ejemplo_correcto": "El castellano proviene del latin vulgar.",
+    "ejemplo_incorrecto": "El castellano proviene del latin clasico.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 102,
+  "fields": {
+    "numero": 2,
+    "bloque": "A",
+    "titulo": "Glosas Emilianenses (s. X)",
+    "teoria": "Las Glosas Emilianenses son las primeras anotaciones escritas en una lengua romance peninsular, encontradas en el monasterio de San Millan de la Cogolla.",
+    "explicacion": "No son textos literarios sino aclaraciones marginales en romance para entender textos latinos. Marcan el nacimiento escrito del castellano.",
+    "regla": "Glosas Emilianenses = primeros textos escritos en romance (s. X)",
+    "ejemplo_correcto": "Las Glosas Emilianenses son del siglo X.",
+    "ejemplo_incorrecto": "Las Glosas Emilianenses son del siglo XV.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 103,
+  "fields": {
+    "numero": 3,
+    "bloque": "A",
+    "titulo": "Alfonso X el Sabio y el castellano oficial",
+    "teoria": "Alfonso X (s. XIII) hizo del castellano la lengua oficial de la corte y de la administracion, sustituyendo al latin.",
+    "explicacion": "Fijo la ortografia, impulso las traducciones y creo prosa cientifica en castellano. Por eso se le llama 'el Sabio'.",
+    "regla": "Alfonso X: castellano como lengua oficial (s. XIII)",
+    "ejemplo_correcto": "Alfonso X impulso el castellano como lengua oficial.",
+    "ejemplo_incorrecto": "Alfonso X prohibio el uso del castellano.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 104,
+  "fields": {
+    "numero": 4,
+    "bloque": "A",
+    "titulo": "Nebrija y su Gramatica castellana (1492)",
+    "teoria": "Antonio de Nebrija publico en 1492 la primera gramatica de una lengua romance europea: la Gramatica castellana.",
+    "explicacion": "La dedico a Isabel la Catolica. Fue la primera vez que se describieron sistematicamente las reglas del castellano.",
+    "regla": "Nebrija: primera gramatica del castellano (1492)",
+    "ejemplo_correcto": "Nebrija publico la Gramatica castellana en 1492.",
+    "ejemplo_incorrecto": "Nebrija publico la primera gramatica del latin en 1492.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 105,
+  "fields": {
+    "numero": 5,
+    "bloque": "A",
+    "titulo": "El Siglo de Oro",
+    "teoria": "Los siglos XVI y XVII (Siglo de Oro) consolidaron el castellano como lengua literaria y diplomatica, con autores como Cervantes, Lope de Vega y Quevedo.",
+    "explicacion": "Se publican el Quijote (1605, 1615), se fija la ortografia practica y el castellano se expande por America.",
+    "regla": "Siglo de Oro = consolidacion literaria del castellano",
+    "ejemplo_correcto": "El Quijote se publico en 1605.",
+    "ejemplo_incorrecto": "El Quijote se publico en el siglo XIX.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 106,
+  "fields": {
+    "numero": 6,
+    "bloque": "A",
+    "titulo": "Fundacion de la RAE (1713)",
+    "teoria": "La Real Academia Espanola fue fundada en 1713 por Juan Manuel Fernandez Pacheco, marques de Villena, bajo el reinado de Felipe V.",
+    "explicacion": "Su lema es 'limpia, fija y da esplendor'. Publico el Diccionario de Autoridades (1726-1739) y la primera Ortografia (1741).",
+    "regla": "RAE fundada en 1713",
+    "ejemplo_correcto": "La RAE se fundo en 1713.",
+    "ejemplo_incorrecto": "La RAE se fundo en 1813.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 107,
+  "fields": {
+    "numero": 7,
+    "bloque": "A",
+    "titulo": "Ortografia RAE 2010",
+    "teoria": "La Ortografia de la lengua espanola de 2010 es la referencia actual de las reglas ortograficas del castellano.",
+    "explicacion": "Unifico criterios y elimino excepciones. Por ejemplo, elimino la tilde en 'solo' (adverbio) y en los demostrativos, aunque admite su uso si hay ambiguedad.",
+    "regla": "Ortografia vigente: RAE 2010",
+    "ejemplo_correcto": "Segun la RAE 2010, 'solo' no lleva tilde.",
+    "ejemplo_incorrecto": "Segun la RAE 2010, 'solo' siempre lleva tilde.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 108,
+  "fields": {
+    "numero": 8,
+    "bloque": "A",
+    "titulo": "Nueva gramatica de la lengua espanola (2009)",
+    "teoria": "La Nueva gramatica (2009) es la gramatica academica de referencia actual, publicada por la RAE y la ASALE.",
+    "explicacion": "Sustituye a la Gramatica de 1931. Es descriptiva (no prescriptiva) y panhispanica: recoge el uso de todos los paises hispanohablantes.",
+    "regla": "Gramatica vigente: Nueva gramatica 2009",
+    "ejemplo_correcto": "La Nueva gramatica es de 2009.",
+    "ejemplo_incorrecto": "La Nueva gramatica es de 1931.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 109,
+  "fields": {
+    "numero": 9,
+    "bloque": "A",
+    "titulo": "Diccionario panhispanico de dudas (2005)",
+    "teoria": "El Diccionario panhispanico de dudas (DPD) resuelve dudas gramaticales, lexicas y ortograficas del castellano.",
+    "explicacion": "Es la obra de referencia para casos como 'dequeismo', 'leismo' o usos preposicionales. Panhispanico: cubre todo el mundo hispanohablante.",
+    "regla": "DPD (2005) = referencia de dudas del espanol",
+    "ejemplo_correcto": "El DPD aclara dudas como 'dequeismo'.",
+    "ejemplo_incorrecto": "El DPD solo recoge el espanol de Espana.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 110,
+  "fields": {
+    "numero": 10,
+    "bloque": "A",
+    "titulo": "El espanol en America",
+    "teoria": "El castellano llego a America en 1492 con Colon y evoluciono de forma independiente en cada region, dando lugar a variantes: mexicano, argentino, colombiano, etc.",
+    "explicacion": "Todas las variantes son igual de validas. La RAE y la ASALE trabajan juntas desde 1951 en la normativa panhispanica.",
+    "regla": "Espanol de America: variantes igual de validas",
+    "ejemplo_correcto": "El espanol de America tiene variantes regionales validas.",
+    "ejemplo_incorrecto": "Solo el espanol de Espana es correcto.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 111,
+  "fields": {
+    "numero": 11,
+    "bloque": "A",
+    "titulo": "El espanol global hoy",
+    "teoria": "El espanol es la segunda lengua materna del mundo (~500 millones de hablantes nativos) y la segunda mas estudiada como lengua extranjera.",
+    "explicacion": "Es lengua oficial en 21 paises. La mayor comunidad de hablantes esta en Mexico, seguida de EE.UU. (donde es la segunda lengua mas hablada).",
+    "regla": "Espanol: ~500M nativos, 21 paises oficiales",
+    "ejemplo_correcto": "Mexico tiene la mayor comunidad hispanohablante.",
+    "ejemplo_incorrecto": "Espana tiene la mayor comunidad hispanohablante.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 112,
+  "fields": {
+    "numero": 12,
+    "bloque": "A",
+    "titulo": "Historia de la ortografia espanola",
+    "teoria": "La ortografia espanola ha tenido 5 grandes reformas: 1741 (RAE), 1754, 1815, 1844 y 2010. La ultima simplifico reglas y unifico criterios.",
+    "explicacion": "Cambios notables: eliminacion de la tilde en 'solo' y demostrativos (2010), cambio de 'quorum' a 'cuorum', y de 'psicologia' a 'sicologia' (ya no se pronuncia la p-).",
+    "regla": "Ortografia espanola: 5 reformas desde 1741",
+    "ejemplo_correcto": "La ortografia ha cambiado desde 1741.",
+    "ejemplo_incorrecto": "La ortografia no ha cambiado desde el siglo XVIII.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 113,
+  "fields": {
+    "numero": 13,
+    "bloque": "A",
+    "titulo": "Historia de la acentuacion",
+    "teoria": "La tilde espanola surgio en el siglo XVI con Lebrija. La clasificacion actual (agudas, llanas, esdrujulas) se fijo en el siglo XIX y se simplifico en 1999 y 2010.",
+    "explicacion": "La tilde diacritica (para distinguir funciones: 'el'/'el') fue variando hasta la RAE 2010. Algunos paises conservan usos no normativos.",
+    "regla": "Clasificacion actual de tildes: desde s. XIX, actualizada 2010",
+    "ejemplo_correcto": "Las reglas de acentuacion se actualizaron en 2010.",
+    "ejemplo_incorrecto": "Las reglas de acentuacion son de 1492.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 114,
+  "fields": {
+    "numero": 14,
+    "bloque": "A",
+    "titulo": "Historia de la puntuacion",
+    "teoria": "El sistema de puntuacion espanol (punto, coma, punto y coma, dos puntos, comillas, parentesis, rayas) se fue configurando entre los siglos XVI y XVIII.",
+    "explicacion": "Los signos de interrogacion y exclamacion de apertura (¿ ? ¡ !) son una peculiaridad del espanol. La RAE 2010 aclaro usos de comillas, comas y rayas.",
+    "regla": "Signos de apertura ¿ ¡ son exclusivos del espanol",
+    "ejemplo_correcto": "El espanol usa '¿' al inicio de la pregunta.",
+    "ejemplo_incorrecto": "El espanol solo usa '?' al final, como el ingles.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 115,
+  "fields": {
+    "numero": 15,
+    "bloque": "A",
+    "titulo": "El espanol en la era digital",
+    "teoria": "Internet ha acelerado los cambios: anglicismos, nuevos sufijos y abreviaturas. La RAE admite y regula muchos de estos neologismos.",
+    "explicacion": "Ejemplos: 'tuit' (validado 2012), 'guglear' (aceptado en 2020 en el diccionario), 'cederrón' (adaptacion de CD-ROM). Otros se rechazan o se proponen alternativas.",
+    "regla": "La RAE acepta anglicismos adaptados al espanol",
+    "ejemplo_correcto": "'Tuit' es la forma recomendada (no 'tweet').",
+    "ejemplo_incorrecto": "'Tuit' no ha sido aceptado por la RAE.",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 116,
+  "fields": {
+    "numero": 16,
+    "bloque": "B",
+    "titulo": "Las 9 clases de palabras",
+    "teoria": "En espanol hay 9 clases de palabras segun la Nueva gramatica (RAE 2009): sustantivo, adjetivo, determinante, pronombre, verbo, adverbio, preposicion, conjuncion e interjeccion.",
+    "explicacion": "La tradicion decia 8 (sin separar determinante de adjetivo). La RAE 2009 separa el determinante como clase propia: articulos, demostrativos, posesivos, numerales, indefinidos, interrogativos y exclamativos son determinantes cuando acompanan al sustantivo.",
+    "regla": "9 clases: sust, adj, det, pron, verbo, adv, prep, conj, interj",
+    "ejemplo_correcto": "En espanol hay 9 clases de palabras (RAE 2009).",
+    "ejemplo_incorrecto": "En espanol hay 8 clases de palabras (sin determinantes).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 117,
+  "fields": {
+    "numero": 17,
+    "bloque": "B",
+    "titulo": "Sustantivo: definicion y tipos",
+    "teoria": "El sustantivo (o nombre) designa personas, animales, cosas, lugares, ideas o conceptos. Varia en genero y numero.",
+    "explicacion": "Es el nucleo del sintagma nominal. Puede ir con articulo, adjetivo y otros determinantes. Tipos: propio (Juan), comun (mesa), concreto (libro), abstracto (amor), contable (silla), no contable (agua), individual (arbol), colectivo (bosque).",
+    "regla": "Sustantivo = nombre (persona, cosa, lugar, idea)",
+    "ejemplo_correcto": "'Amor' es un sustantivo abstracto.",
+    "ejemplo_incorrecto": "'Amor' es un adjetivo.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 118,
+  "fields": {
+    "numero": 18,
+    "bloque": "B",
+    "titulo": "Adjetivo: definicion y tipos",
+    "teoria": "El adjetivo expresa cualidades o propiedades del sustantivo. Concuerda con el en genero y numero.",
+    "explicacion": "Tipos: calificativo (rojo, alto) o relacional (espanol, mensual). Los calificativos admiten grados (mas alto, altisimo). Los relacionales no admiten grados (*muy mensual).",
+    "regla": "Adjetivo = cualidad del sustantivo (concuerda en gen/num)",
+    "ejemplo_correcto": "La casa blanca (adj. concuerda con casa).",
+    "ejemplo_incorrecto": "La casa blanco (concordancia incorrecta).",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 119,
+  "fields": {
+    "numero": 19,
+    "bloque": "B",
+    "titulo": "Determinante: definicion",
+    "teoria": "El determinante actualiza y precisa al sustantivo, indicando genero, numero, posesion, distancia, cantidad, etc.",
+    "explicacion": "Tipos: articulos (el, un), demostrativos (este, ese), posesivos (mi, tu), numerales (dos, tercero), indefinidos (algunos, varios), interrogativos (que), exclamativos (cuanto). Es determinante cuando acompana al sustantivo; si lo sustituye, es pronombre.",
+    "regla": "Determinante = actualiza al sustantivo (acompana)",
+    "ejemplo_correcto": "Este libro es mio. (Este = determinante, acompana a libro).",
+    "ejemplo_incorrecto": "Este libro es mio. (Este = pronombre, incorrecto).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 120,
+  "fields": {
+    "numero": 20,
+    "bloque": "B",
+    "titulo": "Articulo: definido, indefinido, neutro",
+    "teoria": "El articulo es un tipo de determinante que presenta al sustantivo como conocido (definido) o desconocido (indefinido).",
+    "explicacion": "Definidos: el, la, los, las. Indefinidos: un, una, unos, unas. Neutro: lo (sustantiva adjetivos: lo bueno = la cosa buena). El neutro lo NO acompana a sustantivos sino que sustantiva adjetivos o adverbios.",
+    "regla": "Def: el/la/los/las. Indef: un/una/unos/unas. Neutro: lo",
+    "ejemplo_correcto": "Lo bueno de viajar es conocer.",
+    "ejemplo_incorrecto": "El bueno de viajar es conocer. (usa masculino en vez de neutro)",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 121,
+  "fields": {
+    "numero": 21,
+    "bloque": "B",
+    "titulo": "Pronombre: definicion y tipos",
+    "teoria": "El pronombre sustituye al sustantivo o al sintagma nominal sin nombrarlo. Tiene significado ocasional: solo se entiende por el contexto.",
+    "explicacion": "Tipos: personales (yo, tu, el, nosotros), demostrativos (este, ese, aquel), posesivos (mio, tuyo, suyo), relativos (que, quien, cual, cuyo), interrogativos (que, quien, cual, cuanto), indefinidos (alguien, nadie, algo, nada, todos).",
+    "regla": "Pronombre = sustituye al sustantivo (significado ocasional)",
+    "ejemplo_correcto": "Juan vino; el se sento. (el pronombre sustituye a Juan)",
+    "ejemplo_incorrecto": "Juan vino; Juan se sento. (repite, no usa pronombre)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 122,
+  "fields": {
+    "numero": 22,
+    "bloque": "B",
+    "titulo": "Verbo: definicion",
+    "teoria": "El verbo es la palabra que expresa accion, proceso o estado. Es el nucleo del predicado y varia en persona, numero, tiempo, modo y aspecto.",
+    "explicacion": "Los verbos se conjugan (excepto infinitivos, gerundios y participios que son formas no personales). En espanol hay 3 conjugaciones: -ar (amar), -er (temer), -ir (partir).",
+    "regla": "Verbo = accion/proceso/estado. Nucleo del predicado",
+    "ejemplo_correcto": "'Corre' expresa accion. 'Es' expresa estado.",
+    "ejemplo_incorrecto": "'Corre' es un sustantivo.",
+    "nivel": "basico",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 123,
+  "fields": {
+    "numero": 23,
+    "bloque": "B",
+    "titulo": "Adverbio: definicion y tipos",
+    "teoria": "El adverbio modifica al verbo, al adjetivo u otro adverbio. Es invariable: no tiene genero ni numero.",
+    "explicacion": "Tipos: lugar (aqui, alla, cerca), tiempo (hoy, ayer, siempre), modo (bien, mal, rapidamente, asi), cantidad (mucho, poco, muy), duda (quizas, acaso), afirmacion (si, ciertamente), negacion (no, nunca, jamas).",
+    "regla": "Adverbio = modifica verbo/adjetivo/adverbio. Invariable",
+    "ejemplo_correcto": "Corre rapidamente. (rapidamente modifica a corre)",
+    "ejemplo_incorrecto": "Corre rapidos. (concordancia incorrecta: el adverbio no varia)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 124,
+  "fields": {
+    "numero": 24,
+    "bloque": "B",
+    "titulo": "Preposicion: lista cerrada",
+    "teoria": "La preposicion une palabras y establece relaciones de dependencia. Es una clase cerrada: hay 23 en espanol (RAE 2009).",
+    "explicacion": "Las 23: a, ante, bajo, cabe, con, contra, de, desde, durante, en, entre, hacia, hasta, mediante, para, por, segun, sin, sobre, tras, versus, via. 'Cabe' y 'so' son arcaicas. Algunas son locuciones: 'a pesar de', 'en virtud de'.",
+    "regla": "23 preposiciones en espanol (RAE 2009)",
+    "ejemplo_correcto": "Voy a casa con Juan por el parque.",
+    "ejemplo_incorrecto": "Voy casa Juan el parque. (sin preposiciones)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 125,
+  "fields": {
+    "numero": 25,
+    "bloque": "B",
+    "titulo": "Conjuncion: tipos",
+    "teoria": "La conjuncion une palabras, sintagmas u oraciones. Es invariable y no tiene significado pleno.",
+    "explicacion": "Tipos: coordinantes (y, e, ni, o, u, pero, sino, mas) y subordinantes (que, si, porque, aunque, cuando, mientras, para que). Las locuciones conjuntivas: 'sin embargo', 'a pesar de que', 'ya que'.",
+    "regla": "Conjuncion = une palabras/oraciones (coord. o subord.)",
+    "ejemplo_correcto": "Juan y Maria vienen porque quieren.",
+    "ejemplo_incorrecto": "Juan y Maria vienen ya que porque quieren. (doble conjuncion)",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 126,
+  "fields": {
+    "numero": 26,
+    "bloque": "B",
+    "titulo": "Sustantivo vs adjetivo",
+    "teoria": "El sustantivo tiene genero inherente (el/la) y puede ir con articulo. El adjetivo concuerda en genero y numero con el sustantivo al que modifica.",
+    "explicacion": "Prueba: si puedes decir 'el X' o 'la X' y tiene genero fijo, es sustantivo. Si varia en genero segun el sustantivo (nino bueno / nina buena), es adjetivo. Algunos adjetivos se sustantivan: 'el bueno'.",
+    "regla": "Sustantivo: genero inherente. Adjetivo: concuerda con sustantivo",
+    "ejemplo_correcto": "El nino es alto (alto = adjetivo que concuerda con nino).",
+    "ejemplo_incorrecto": "El alto es nino (ambiguedad: 'alto' sustantivado aqui).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 127,
+  "fields": {
+    "numero": 27,
+    "bloque": "B",
+    "titulo": "Adjetivo vs adverbio",
+    "teoria": "El adjetivo modifica al sustantivo (concuerda con el). El adverbio modifica al verbo, al adjetivo u otro adverbio, y es invariable.",
+    "explicacion": "Prueba: si varia en genero/numero, es adjetivo. Si no varia, es adverbio. 'Corre rapido' (adverbio) vs 'nino rapido' (adjetivo). Cuidado: 'rapido' puede ser ambos segun contexto.",
+    "regla": "Adjetivo: varia en gen/num. Adverbio: invariable",
+    "ejemplo_correcto": "Habla claro (claro = adverbio, invariable).",
+    "ejemplo_incorrecto": "Habla clara (concordancia incorrecta: el adverbio no varia).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 128,
+  "fields": {
+    "numero": 28,
+    "bloque": "B",
+    "titulo": "Pronombre vs determinante",
+    "teoria": "El determinante acompana al sustantivo (este libro). El pronombre lo sustituye (este es mio).",
+    "explicacion": "La misma palabra puede ser determinante o pronombre segun su funcion. Demostrativos, posesivos, numerales, indefinidos, interrogativos y exclamativos pueden ser ambos. La clave: si hay sustantivo explicito despues, es determinante.",
+    "regla": "Determinante acompana. Pronombre sustituye",
+    "ejemplo_correcto": "Este libro es mio. Este es mio. (libro: determinante vs pronombre).",
+    "ejemplo_incorrecto": "Este libro es mio. Este libro es mio. (doble articulo sin necesidad).",
+    "nivel": "intermedio",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 129,
+  "fields": {
+    "numero": 29,
+    "bloque": "B",
+    "titulo": "Locuciones (nominal, adjetiva, verbal, adverbial, prepositiva)",
+    "teoria": "Una locucion es un grupo fijo de palabras que funciona como una sola clase. El significado no se deduce de las partes.",
+    "explicacion": "Tipos: nominal ('media naranja'), adjetiva ('de armas tomar'), verbal ('dar gato por liebre'), adverbial ('a menu-do', 'de repente'), prepositiva ('a pesar de', 'en virtud de'), conjuntiva ('sin embargo', 'ya que').",
+    "regla": "Locucion = grupo fijo con funcion de una clase",
+    "ejemplo_correcto": "'A pesar de' es locucion prepositiva.",
+    "ejemplo_incorrecto": "'A pesar de' es preposicion simple.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 130,
+  "fields": {
+    "numero": 30,
+    "bloque": "B",
+    "titulo": "Perifrasis verbales",
+    "teoria": "Una perifrasis verbal es la union de un verbo auxiliar conjugado + una forma no personal (infinitivo, gerundio o participio) + a veces un nexo.",
+    "explicacion": "Tipos: modales (poder, deber, tener que + inf), aspectuales (ir a + inf, estar + ger, llevar + part). Ej: 'voy a cantar', 'estoy cantando', 'tengo que ir'. El auxiliar pierde su significado pleno.",
+    "regla": "Perifrasis: aux + (nexo) + forma no personal",
+    "ejemplo_correcto": "'Voy a cantar' es perifrasis de infinitivo.",
+    "ejemplo_incorrecto": "'Voy a cantar' son dos verbos independientes.",
+    "nivel": "avanzado",
+    "modulo": "gramatica"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 131,
+  "fields": {
+    "numero": 101,
+    "bloque": "A",
+    "titulo": "Competencia vs actuación",
+    "teoria": "Chomsky (1965) distingue competencia (conocimiento interiorizado de la lengua) y actuación (uso concreto en situaciones reales).",
+    "explicacion": "La competencia es el sistema de reglas que el hablante conoce inconscientemente. La actuación es lo que produce al hablar, con fallos, pausas, errores. La lingüística estudia la competencia, no solo la actuación.",
+    "regla": "Competencia = conocimiento interno. Actuación = uso real",
+    "ejemplo_correcto": "Un hablante nativo sabe (competencia) que 'vinieron' es correcto aunque este cansado y diga 'vinio' (actuación).",
+    "ejemplo_incorrecto": "La lingüística generativa solo estudia los errores de la actuación.",
+    "nivel": "basico",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 132,
+  "fields": {
+    "numero": 102,
+    "bloque": "A",
+    "titulo": "Gramática universal (GU)",
+    "teoria": "La GU es el conjunto de principios y estructuras innatas comunes a todas las lenguas humanas que propuso Chomsky.",
+    "explicacion": "Los ninos adquieren su lengua materna con estimulos pobres. Chomsky explica esto con una capacidad innata: la GU. Todos los idiomas comparten principios universales; las diferencias son parametricas.",
+    "regla": "GU: principios innatos comunes a todas las lenguas",
+    "ejemplo_correcto": "Todos los idiomas tienen recursividad (capacidad de anidar estructuras).",
+    "ejemplo_incorrecto": "Cada idioma tiene una gramática completamente distinta sin nada en comun.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 133,
+  "fields": {
+    "numero": 103,
+    "bloque": "A",
+    "titulo": "Principios y parametros",
+    "teoria": "El modelo de Principios y Parametros (Chomsky, 1981) explica la variacion lingüística: los principios son universales; los parametros son opciones que cada lengua fija.",
+    "explicacion": "Ejemplo: el parámetro del sujeto nulo. En castellano se fija en 'si' (se puede omitir el sujeto: 'canto'); en ingles se fija en 'no' (hay que decir 'I sing'). Los principios son iguales para todas las lenguas.",
+    "regla": "Principios: universales. Parametros: opciones por lengua",
+    "ejemplo_correcto": "El castellano permite sujeto nulo; el ingles no.",
+    "ejemplo_incorrecto": "El castellano y el ingles tienen los mismos parametros.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 134,
+  "fields": {
+    "numero": 104,
+    "bloque": "A",
+    "titulo": "Estructura profunda vs estructura superficial",
+    "teoria": "En la teoría clasica de Chomsky (1965), cada oración tiene dos niveles: estructura profunda (EP) y estructura superficial (ES).",
+    "explicacion": "La EP es la representacion del significado basico, antes de aplicar transformaciones. La ES es la forma final que se pronuncia. Las transformaciones convierten EP en ES. En el minimalismo esta distincion se reemplaza por otras (Merge/Move).",
+    "regla": "EP: significado subyacente. ES: forma final pronunciada",
+    "ejemplo_correcto": "'Juan lee el libro' tiene la misma EP y ES (oración simple).",
+    "ejemplo_incorrecto": "La EP y la ES son idénticas en todas las oraciones.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 135,
+  "fields": {
+    "numero": 105,
+    "bloque": "A",
+    "titulo": "Reglas de reescritura (SN -> Det N)",
+    "teoria": "Las reglas de reescritura de la gramática generativa describen como se descompone un sintagma en sus constituyentes.",
+    "explicacion": "Ejemplo: SN -> Det N. Un sintagma nominal se reescribe como determinante + nombre. 'El nino' -> Det ('el') + N ('nino'). Se encadenan reglas: O -> SN SV; SN -> Det N; SV -> V SN.",
+    "regla": "Reescritura: X -> Y Z (descomposicion estructural)",
+    "ejemplo_correcto": "O -> SN SV; SN -> Det N; SV -> V (reglas basicas).",
+    "ejemplo_incorrecto": "SN -> N Det (orden invertido del castellano).",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 136,
+  "fields": {
+    "numero": 106,
+    "bloque": "A",
+    "titulo": "Reglas de estructura de frase",
+    "teoria": "Las reglas de estructura de frase (phrase structure rules) describen la jerarquia de constituyentes de una oración.",
+    "explicacion": "Son la base del componente sintáctico. Cada regla reescribe una categoría en dos o mas categorias. Ejemplos: O -> SN SV (oración = sintagma nominal + sintagma verbal). Se aplican recursivamente para generar todas las oraciones de una lengua.",
+    "regla": "Estructura de frase: reglas recursivas O -> SN SV",
+    "ejemplo_correcto": "O -> SN SV; SN -> Det N; SV -> V SN.",
+    "ejemplo_incorrecto": "Las reglas de estructura de frase no son recursivas.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 137,
+  "fields": {
+    "numero": 107,
+    "bloque": "A",
+    "titulo": "Recursividad sintáctica",
+    "teoria": "La recursividad es la capacidad de una regla de aplicarse a su propio resultado, generando estructuras de longitud ilimitada.",
+    "explicacion": "Ejemplo: 'Maria dijo que Juan creia que Pedro pensaba que...' — cada 'que' anida una nueva subordinada. Sin recursion, el lenguaje seria finito. Chomsky la considera una propiedad central del lenguaje humano.",
+    "regla": "Recursividad: una regla puede aplicarse a su propio resultado",
+    "ejemplo_correcto": "Maria dijo que Juan creia que Pedro pensaba que Ana vendria.",
+    "ejemplo_incorrecto": "La recursividad limita las oraciones a 10 palabras.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 138,
+  "fields": {
+    "numero": 108,
+    "bloque": "A",
+    "titulo": "Ambiguedad estructural",
+    "teoria": "La ambiguedad estructural (o gramatical) ocurre cuando una misma secuencia de palabras tiene mas de una estructura sintáctica posible.",
+    "explicacion": "Ejemplo clasico: 'El policia golpeo al ladron con la pistola' — 'con la pistola' puede modificar a 'golpeo' (instrumento) o a 'ladron' (que llevaba pistola). Chomsky (1957) la usa para defender la autonomia de la sintaxis.",
+    "regla": "Ambiguedad estructural: una secuencia, varias estructuras",
+    "ejemplo_correcto": "Veo al hombre con el telescopio (con el telescopio: yo lo veo a traves del telescopio o el hombre tiene un telescopio).",
+    "ejemplo_incorrecto": "La ambiguedad estructural es un error del hablante.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 139,
+  "fields": {
+    "numero": 109,
+    "bloque": "A",
+    "titulo": "Oraciones gramaticales vs agramaticales",
+    "teoria": "Una oración es gramatical si el sistema de reglas la genera; agramatical si viola alguna regla de la gramática.",
+    "explicacion": "En lingüística se marca con asterisco (*) lo agramatical. 'Juan canta' es gramatical; '*Juan cantan' es agramatical por fallo de concordancia. La gramaticalidad es una propiedad del sistema, no del significado.",
+    "regla": "Gramatical: generada por las reglas. Agramatical: * (viola regla)",
+    "ejemplo_correcto": "'Juan canta' (gramatical) vs '*Juan cantan' (agramatical).",
+    "ejemplo_incorrecto": "Todas las oraciones con significado son gramaticales.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 140,
+  "fields": {
+    "numero": 110,
+    "bloque": "A",
+    "titulo": "Aceptabilidad vs gramaticalidad",
+    "teoria": "La gramaticalidad es una propiedad del sistema lingüístico; la aceptabilidad es el juicio del hablante sobre si una oración es aceptable.",
+    "explicacion": "Una oración puede ser gramatical pero poco aceptable por complejidad: 'El hombre que la mujer que el nino vio saludo se fue' es gramatical pero dificil de procesar. Chomsky distingue ambas: la lingüística estudia la gramaticalidad, no solo la aceptabilidad.",
+    "regla": "Gramaticalidad: propiedad del sistema. Aceptabilidad: juicio del hablante",
+    "ejemplo_correcto": "Una oración con muchos anidamientos puede ser gramatical pero poco aceptable.",
+    "ejemplo_incorrecto": "Gramaticalidad y aceptabilidad son idénticas.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 141,
+  "fields": {
+    "numero": 111,
+    "bloque": "A",
+    "titulo": "El asterisco (*) en lingüística",
+    "teoria": "En lingüística, el asterisco (*) marca una secuencia agramatical. Es una convencion de la gramática generativa.",
+    "explicacion": "Ejemplo: *Juan cantan (agramatical). También marca reconstrucciones imposibles: *[CP que dijo Juan [TP que compro __]]. El asterisco es una marca teorica para distinguir lo posible de lo imposible.",
+    "regla": "Asterisco (*) = agramatical según las reglas",
+    "ejemplo_correcto": "*Juan cantan (agramatical por concordancia).",
+    "ejemplo_incorrecto": "El asterisco marca las oraciones con significado.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 142,
+  "fields": {
+    "numero": 112,
+    "bloque": "A",
+    "titulo": "Categorias lexicas vs funcionales",
+    "teoria": "La gramática generativa distingue categorias lexicas (N, V, A, Adv) de categorias funcionales (D, T, C).",
+    "explicacion": "Lexicas: contenido semántico (nino, correr, alto). Funcionales: papel gramatical (artículo, tiempo, complementante). En el minimalismo, las funcionales son las que 'activan' el movimiento y la concordancia.",
+    "regla": "Lexicas: contenido (N, V, A, Adv). Funcionales: papel (D, T, C)",
+    "ejemplo_correcto": "Determinante (el) es funcional; sustantivo (nino) es léxico.",
+    "ejemplo_incorrecto": "Todas las palabras son categorias lexicas.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 143,
+  "fields": {
+    "numero": 113,
+    "bloque": "A",
+    "titulo": "Núcleo, complemento, especificador",
+    "teoria": "La teoría X-barra (Chomsky, 1970) descompone todo sintagma en tres posiciones: núcleo (X), complemento y especificador.",
+    "explicacion": "El núcleo es la palabra central del sintagma (N en un SN). El complemento es lo que el núcleo selecciona ('de Juan' en 'el libro de Juan'). El especificador es una posicion externa ('muy' en 'muy alto'). Toda proyección máxima XP tiene estructura [Esp [X' X Compl]].",
+    "regla": "Núcleo (X) + complemento. Especificador (Esp) a la izquierda",
+    "ejemplo_correcto": "En 'el libro de fisica': núcleo=libro, complemento='de fisica'.",
+    "ejemplo_incorrecto": "El núcleo va siempre a la derecha.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 144,
+  "fields": {
+    "numero": 114,
+    "bloque": "A",
+    "titulo": "Proyección máxima vs proyección intermedia",
+    "teoria": "En la teoría X-barra hay tres niveles de proyección: X0 (núcleo), X' (proyección intermedia) y XP (proyección máxima).",
+    "explicacion": "X0 es la palabra misma. X' agrupa núcleo + complemento. XP agrega el especificador. Ej: N (libro) -> N' (libro de fisica) -> NP/SN (el libro de fisica). Cada nivel proyecta la estructura hacia arriba.",
+    "regla": "X0 -> X' (núcleo+compl) -> XP (espec+núcleo+compl)",
+    "ejemplo_correcto": "SN = XP; N' = libro de fisica; N = libro.",
+    "ejemplo_incorrecto": "Todos los sintagmas tienen solo dos niveles.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 145,
+  "fields": {
+    "numero": 115,
+    "bloque": "A",
+    "titulo": "El principio de proyección",
+    "teoria": "El principio de proyección (Chomsky, 1981) establece que las propiedades lexicas del núcleo se proyectan en la sintaxis.",
+    "explicacion": "Si un verbo exige dos argumentos (agente y tema), esa exigencia se refleja en la estructura sintáctica. Ej: 'dar' exige tres argumentos (alguien da algo a alguien). Si faltan, la oración es agramatical: *Juan da.",
+    "regla": "Principio de proyección: propiedades lexicas -> estructura sintáctica",
+    "ejemplo_correcto": "'Juan dio un libro a Maria' (cumple los 3 argumentos de 'dar').",
+    "ejemplo_incorrecto": "El principio de proyección solo aplica a nombres.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 146,
+  "fields": {
+    "numero": 116,
+    "bloque": "B",
+    "titulo": "Teoría X-barra: esquema general",
+    "teoria": "La teoría X-barra (Chomsky, 1970) describe como cualquier categoría proyecta su estructura sintáctica en 3 niveles: núcleo (X0), proyección intermedia (X') y proyección máxima (XP).",
+    "explicacion": "Esquema: XP -> [Especificador [X' X0 Complemento]]. Todo sintagma sigue este patron. El núcleo determina la categoría (N, V, P, A, Adv). El especificador y el complemento son opcionales según el núcleo.",
+    "regla": "X-barra: XP -> Esp [X' X0 Compl]",
+    "ejemplo_correcto": "Un SN 'el libro de fisica' sigue X-barra con N como núcleo.",
+    "ejemplo_incorrecto": "Cada sintagma tiene una estructura distinta sin patron comun.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 147,
+  "fields": {
+    "numero": 117,
+    "bloque": "B",
+    "titulo": "SN (sintagma nominal)",
+    "teoria": "El sintagma nominal tiene como núcleo un sustantivo (N). Su estructura X-barra es SN -> [Det [N' N Compl]].",
+    "explicacion": "El SN puede tener determinante (el, un) como especificador, un N como núcleo y un complemento (de fisica) opcional. En algunos análisis, el Det es un núcleo D y se proyecta como SD. Chomsky (1986) propone que el SN sea SD.",
+    "regla": "SN: núcleo N, especificador Det, complemento SP",
+    "ejemplo_correcto": "El libro de fisica: Det=el, N=libro, Compl=de fisica.",
+    "ejemplo_incorrecto": "El SN no tiene estructura interna.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 148,
+  "fields": {
+    "numero": 118,
+    "bloque": "B",
+    "titulo": "SV (sintagma verbal)",
+    "teoria": "El sintagma verbal tiene como núcleo un verbo (V). Su estructura es SV -> [V' V0 Compl].",
+    "explicacion": "El verbo selecciona su complemento. En 'Juan lee el libro', el SV = 'lee el libro', con 'lee' como núcleo V0 y 'el libro' como complemento SN. El verbo puede tener uno o dos complementos según su estructura argumental.",
+    "regla": "SV: núcleo V, complemento SN/SP",
+    "ejemplo_correcto": "En 'Juan lee el libro', lee es el núcleo del SV.",
+    "ejemplo_incorrecto": "El SV no tiene núcleo.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 149,
+  "fields": {
+    "numero": 119,
+    "bloque": "B",
+    "titulo": "SP (sintagma preposicional)",
+    "teoria": "El sintagma preposicional tiene como núcleo una preposición (P). Su estructura es SP -> [P' P0 Compl].",
+    "explicacion": "En 'de fisica', 'de' es P0 y 'fisica' es complemento SN. El SP funciona como complemento de otros nucleos (V o N) o como modificador. En algunos análisis, la preposición también puede ser núcleo de un SP con un SN como complemento.",
+    "regla": "SP: núcleo P, complemento SN",
+    "ejemplo_correcto": "En 'de fisica', de es el núcleo del SP.",
+    "ejemplo_incorrecto": "El SP tiene como núcleo un sustantivo.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 150,
+  "fields": {
+    "numero": 120,
+    "bloque": "B",
+    "titulo": "SA (sintagma adjetival)",
+    "teoria": "El sintagma adjetival tiene como núcleo un adjetivo (A). Su estructura es SA -> [Esp [A' A0 Compl]].",
+    "explicacion": "En 'muy alto', 'muy' es el especificador del SA y 'alto' es el núcleo A. En 'orgulloso de su hijo', el complemento es el SP 'de su hijo'. Los adjetivos pueden llevar especificador (muy) y complemento (de...).",
+    "regla": "SA: núcleo A, especificador Adv, complemento SP",
+    "ejemplo_correcto": "En 'muy orgulloso de su hijo': muy (Esp), orgulloso (A0), de su hijo (Compl).",
+    "ejemplo_incorrecto": "El SA tiene como núcleo un verbo.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 151,
+  "fields": {
+    "numero": 121,
+    "bloque": "B",
+    "titulo": "SAdv (sintagma adverbial)",
+    "teoria": "El sintagma adverbial tiene como núcleo un adverbio (Adv). Su estructura es SAdv -> [Esp [Adv' Adv0 Compl]].",
+    "explicacion": "En 'muy rapidamente', 'muy' es el especificador y 'rapidamente' el núcleo. En 'antes de la fiesta', 'antes' es núcleo y 'de la fiesta' complemento. Los adverbios pueden modificar a verbos, adjetivos u otros adverbios.",
+    "regla": "SAdv: núcleo Adv, especificador y complemento",
+    "ejemplo_correcto": "En 'muy rapidamente', muy (Esp) + rapidamente (Adv0).",
+    "ejemplo_incorrecto": "El SAdv tiene como núcleo un sustantivo.",
+    "nivel": "intermedio",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 152,
+  "fields": {
+    "numero": 122,
+    "bloque": "B",
+    "titulo": "SC (sintagma complementante)",
+    "teoria": "El SC (o CP en ingles) tiene como núcleo un complementante (C): que, si, para. Su estructura es SC -> [Esp [C' C0 ST]].",
+    "explicacion": "C0 puede ser 'que' en subordinadas sustantivas ('que venga'), 'si' en interrogativas indirectas ('si viene'), o estar vacio. El ST (sintagma tiempo) es su complemento. El SC es la proyección máxima de la oración subordinada.",
+    "regla": "SC: núcleo C (que/si/para), complemento ST",
+    "ejemplo_correcto": "En 'que Juan venga', 'que' es el núcleo C del SC.",
+    "ejemplo_incorrecto": "El SC no tiene núcleo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 153,
+  "fields": {
+    "numero": 123,
+    "bloque": "B",
+    "titulo": "ST (sintagma tiempo / flexion)",
+    "teoria": "El ST (o IP/SF en la tradicion) tiene como núcleo el tiempo o la flexion. Su estructura es ST -> [Esp [T' T0 SV]].",
+    "explicacion": "En la oración 'Juan lee', el ST tiene como especificador a 'Juan' (sujeto) y como núcleo T (tiempo presente). El SV 'lee' es el complemento. El ST es la proyección que alberga la concordancia y el tiempo de la oración.",
+    "regla": "ST: núcleo T (tiempo/flexion), especificador=sujeto",
+    "ejemplo_correcto": "En 'Juan lee', Juan es el especificador del ST.",
+    "ejemplo_incorrecto": "El ST no tiene relacion con el tiempo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 154,
+  "fields": {
+    "numero": 124,
+    "bloque": "B",
+    "titulo": "Núcleo funcional: T (Tiempo)",
+    "teoria": "T es el núcleo funcional que alberga los rasgos de tiempo y concordancia. Selecciona al SV como complemento.",
+    "explicacion": "T puede ser [+finito] (presente, pasado, futuro) o [-finito] (infinitivo). En 'Juan canta', T esta en presente y concuerda con Juan (3a sing). En 'Juan cantar', T es no finito. El movimiento del verbo a T se da en algunas lenguas (frances) pero no en otras.",
+    "regla": "T: tiempo + concordancia. Selecciona SV",
+    "ejemplo_correcto": "En 'Juan canta', T aporta el tiempo presente y la 3a persona.",
+    "ejemplo_incorrecto": "T no tiene relacion con el tiempo verbal.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 155,
+  "fields": {
+    "numero": 125,
+    "bloque": "B",
+    "titulo": "Núcleo funcional: C (Complementante)",
+    "teoria": "C es el núcleo funcional que introduce la oración subordinada. Sus valores tipicos: que, si, para.",
+    "explicacion": "C selecciona al ST como complemento. En 'que Juan venga', 'que' es C. En 'si viene', 'si' es C interrogativo. En oraciones principales C esta vacio. C es la posicion de aterrizaje del movimiento-qu en interrogativas.",
+    "regla": "C: introduce la subordinada (que/si/para)",
+    "ejemplo_correcto": "En 'que Juan venga', que es el núcleo C.",
+    "ejemplo_incorrecto": "C solo existe en oraciones principales.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 156,
+  "fields": {
+    "numero": 126,
+    "bloque": "B",
+    "titulo": "Núcleo funcional: D (Determinante)",
+    "teoria": "D es el núcleo funcional del sintagma determinante (SD). Contiene los articulos, demostrativos y posesivos.",
+    "explicacion": "Chomsky (1986) propone que los sintagmas nominales son en realidad SD: SD -> [D' D0 SN]. En 'el libro', 'el' es D y 'libro' es el SN complemento. El sujeto de la oración puede ser un SD.",
+    "regla": "D: núcleo funcional del SD (articulos, demostrativos)",
+    "ejemplo_correcto": "En 'el libro', el es D y libro es el SN complemento.",
+    "ejemplo_incorrecto": "D es una categoría léxica con contenido pleno.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 157,
+  "fields": {
+    "numero": 127,
+    "bloque": "B",
+    "titulo": "La concordancia como núcleo funcional",
+    "teoria": "La concordancia (género, número, persona) se aloja en los nucleos funcionales T (sujeto-verbo) y D (artículo-sustantivo).",
+    "explicacion": "En 'los ninos cantan', T concuerda con el sujeto plural (cantan), y D ('los') concuerda con el sustantivo plural (ninos). La concordancia es una relacion entre un núcleo funcional y su especificador o complemento.",
+    "regla": "Concordancia: nucleos funcionales T y D",
+    "ejemplo_correcto": "En 'los ninos cantan', T concuerda con el sujeto.",
+    "ejemplo_incorrecto": "La concordancia no tiene núcleo funcional.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 158,
+  "fields": {
+    "numero": 128,
+    "bloque": "B",
+    "titulo": "Estructura de la oración simple (ST)",
+    "teoria": "La oración simple se analiza como un ST: ST -> [Esp [T' T0 SV]]. El sujeto ocupa el especificador del ST.",
+    "explicacion": "En 'Juan canta', Juan (Esp del ST) concuerda con T (3a sing). El SV 'canta' es el complemento. Si el verbo se mueve a T, la estructura es [ST Juan [T' canta [SV t]]]. Este análisis es central en el minimalismo.",
+    "regla": "Oración simple = ST: [Esp [T' T SV]]",
+    "ejemplo_correcto": "ST -> [ST Juan [T' canta [SV <canta>]]].",
+    "ejemplo_incorrecto": "La oración simple no tiene estructura de ST.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 159,
+  "fields": {
+    "numero": 129,
+    "bloque": "B",
+    "titulo": "Estructura de la oración compuesta (SC)",
+    "teoria": "La oración compuesta se analiza como un SC: SC -> [C' C0 ST]. El complementante C introduce la subordinada.",
+    "explicacion": "En 'Maria dijo que Juan canta', el SC es 'que Juan canta' (C='que', ST='Juan canta'). El SC es el complemento del verbo 'dijo'. Las subordinadas sustantivas son SC.",
+    "regla": "Oración compuesta = SC: [C' C ST]",
+    "ejemplo_correcto": "SC = 'que Juan canta', con 'que' como núcleo C.",
+    "ejemplo_incorrecto": "La oración compuesta no tiene estructura de SC.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 160,
+  "fields": {
+    "numero": 130,
+    "bloque": "B",
+    "titulo": "Diagrama arboreo: como dibujarlo",
+    "teoria": "El diagrama arboreo (o árbol sintáctico) es la representacion grafica de la estructura X-barra de una oración.",
+    "explicacion": "Cada nodo es una categoría (S, SN, N, V). Las hojas son las palabras. Las ramas muestran la relacion madre-hija. Se dibuja de arriba hacia abajo. Ejemplo: 'El nino canta' -> O -> [SN [Det el] [N nino]] [SV [V canta]]. El árbol refleja la jerarquia de constituyentes.",
+    "regla": "Diagrama arboreo: nodos = categorias, hojas = palabras",
+    "ejemplo_correcto": "O -> [SN Det+N] [SV V] para 'el nino canta'.",
+    "ejemplo_incorrecto": "El diagrama arboreo es una simple lista de palabras.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 161,
+  "fields": {
+    "numero": 131,
+    "bloque": "C",
+    "titulo": "Que es una transformación",
+    "teoria": "Una transformación es una operación formal que convierte una estructura en otra. En la GGT clasica (1957, 1965), las transformaciones mapean la estructura profunda en la estructura superficial.",
+    "explicacion": "Ejemplo: la transformación de pasiva convierte 'El nino lee el libro' (EP) en 'El libro es leido por el nino' (ES). En el minimalismo, el concepto de transformación se reduce a Move (movimiento).",
+    "regla": "Transformación: operación que mapea una estructura a otra",
+    "ejemplo_correcto": "La pasiva es una transformación de activa a pasiva.",
+    "ejemplo_incorrecto": "Las transformaciones no cambian la estructura.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 162,
+  "fields": {
+    "numero": 132,
+    "bloque": "C",
+    "titulo": "Movimiento-alfa (muevase alfa)",
+    "teoria": "El movimiento-alfa es el principio general que dice: mueve cualquier categoría a cualquier posicion, pero solo si es necesario.",
+    "explicacion": "Alfa es una variable que puede ser cualquier categoría (SN, V, qu, etc). El movimiento no es libre: solo ocurre para satisfacer un rasgo o una necesidad estructural. En el minimalismo se llama simplemente Move.",
+    "regla": "Muevase alfa: mueve X a Y si es necesario",
+    "ejemplo_correcto": "En una interrogativa, el pronombre-qu se mueve a la posicion de C.",
+    "ejemplo_incorrecto": "El movimiento-alfa permite mover cualquier cosa sin restriccion.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 163,
+  "fields": {
+    "numero": 133,
+    "bloque": "C",
+    "titulo": "Huella (trace) y cadena",
+    "teoria": "Cuando un elemento se mueve, deja una huella (trace, t) en su posicion original. El elemento movido y su huella forman una cadena.",
+    "explicacion": "Ejemplo: en 'Que compro Juan t?', 'que' se movio desde la posicion de objeto (t) a la posicion inicial. La huella t marca donde estaba originalmente. La cadena conecta el elemento movido con su huella.",
+    "regla": "Huella t: posicion original. Cadena: elemento movido + huella",
+    "ejemplo_correcto": "En 'que compro Juan t', t es la huella del objeto.",
+    "ejemplo_incorrecto": "El movimiento no deja rastro.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 164,
+  "fields": {
+    "numero": 134,
+    "bloque": "C",
+    "titulo": "Movimiento del verbo a T",
+    "teoria": "En algunas lenguas el verbo se mueve desde su posicion en SV a la posicion del núcleo T (tiempo).",
+    "explicacion": "En frances, 'Jean mange souvent des pommes' -> 'Jean mange souvent' (el verbo sube). En ingles, el verbo se queda en SV. En castellano, el verbo sube a T. El movimiento V->T esta motivado por la concordancia con el sujeto.",
+    "regla": "V->T: el verbo sube a T en castellano",
+    "ejemplo_correcto": "En castellano 'Juan canta', el verbo sube a T para concordar con el sujeto.",
+    "ejemplo_incorrecto": "El verbo nunca se mueve a T.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 165,
+  "fields": {
+    "numero": 135,
+    "bloque": "C",
+    "titulo": "Movimiento del sujeto a ST",
+    "teoria": "El sujeto se genera en el especificador del SV (posicion de agente) y se mueve al especificador del ST para satisfacer el rasgo EPP de T.",
+    "explicacion": "En 'Juan canta', 'Juan' se genera en [Esp SV] y se mueve a [Esp ST]. El rasgo EPP de T exige que el especificador del ST no este vacio. Por eso el sujeto sube.",
+    "regla": "Sujeto: Esp SV -> Esp ST (rasgo EPP)",
+    "ejemplo_correcto": "El sujeto se mueve de Esp-SV a Esp-ST.",
+    "ejemplo_incorrecto": "El sujeto se queda siempre en el SV.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 166,
+  "fields": {
+    "numero": 136,
+    "bloque": "C",
+    "titulo": "Movimiento-qu: interrogativas",
+    "teoria": "En interrogativas, el pronombre interrogativo (que, quien, cuando, donde, como) se mueve desde su posicion original a la posicion inicial de la oración (C).",
+    "explicacion": "Ejemplo: 'Que compro Juan?' -> 'que' se mueve del objeto (t) a C. En ingles el movimiento-qu es visible ('What did John buy t?'), en chino no hay movimiento visible (queda in situ). El castellano tiene movimiento-qu visible.",
+    "regla": "Movimiento-qu: pronombre interrogativo -> C",
+    "ejemplo_correcto": "En 'Que compro Juan t?', que esta en C.",
+    "ejemplo_incorrecto": "En castellano el pronombre-qu nunca se mueve.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 167,
+  "fields": {
+    "numero": 137,
+    "bloque": "C",
+    "titulo": "Movimiento-qu: relativas",
+    "teoria": "En oraciones relativas, el pronombre relativo se mueve desde su posicion original al inicio de la subordinada (C).",
+    "explicacion": "Ejemplo: 'El libro que compre t es bueno' -> 'que' se mueve del objeto (t) a C. El relativo encabeza la subordinada. Igual que en interrogativas, deja huella.",
+    "regla": "Relativas: relativo se mueve a C",
+    "ejemplo_correcto": "En 'el libro que compre t', que esta en C.",
+    "ejemplo_incorrecto": "Los relativos no se mueven.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 168,
+  "fields": {
+    "numero": 138,
+    "bloque": "C",
+    "titulo": "Movimiento del núcleo",
+    "teoria": "El movimiento del núcleo es el desplazamiento de un núcleo (V, T, C) a otra posicion de núcleo.",
+    "explicacion": "Ejemplo: el verbo se mueve de V a T (V->T). En interrogativas en ingles, el auxiliar se mueve de T a C ('Did he buy t?'). En castellano no hay movimiento T->C visible.",
+    "regla": "Movimiento de núcleo: X0 -> Y0 (V->T, T->C)",
+    "ejemplo_correcto": "En ingles 'did he buy t', el auxiliar sube a C.",
+    "ejemplo_incorrecto": "Los nucleos no se mueven.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 169,
+  "fields": {
+    "numero": 139,
+    "bloque": "C",
+    "titulo": "Movimiento de constituyentes",
+    "teoria": "El movimiento de constituyentes desplaza un sintagma completo (SN, SP, SC) a otra posicion, no solo el núcleo.",
+    "explicacion": "Ejemplo: en pasivas, el objeto SN se mueve al sujeto: 'El libro fue comprado t'. En topicalización, el SN se mueve al inicio: 'El libro, Juan compro t'. El constituyente mueve mantiene su integridad.",
+    "regla": "Movimiento de constituyentes: SN/SP/SC -> nueva posicion",
+    "ejemplo_correcto": "En 'el libro fue comprado t', el SN sube a sujeto.",
+    "ejemplo_incorrecto": "Solo se mueven palabras sueltas.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 170,
+  "fields": {
+    "numero": 140,
+    "bloque": "C",
+    "titulo": "Restriccion de isla",
+    "teoria": "La restriccion de isla (Ross, 1967) prohibe mover un elemento fuera de ciertas estructuras (islas), como subordinadas o sintagmas nominales complejos.",
+    "explicacion": "Ejemplo: '*Quien dijo Maria [que compro el libro t]?' es agramatical: 'quien' no puede salir del SC. La subordinada es una isla. Restricciones: isla del SC, isla del SN, isla del sujeto.",
+    "regla": "Isla: no se puede mover un elemento fuera de ciertas estructuras",
+    "ejemplo_correcto": "Las subordinadas son islas: no extraes el objeto.",
+    "ejemplo_incorrecto": "Puedes mover cualquier elemento desde cualquier posicion.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 171,
+  "fields": {
+    "numero": 141,
+    "bloque": "C",
+    "titulo": "Principio de subyacencia",
+    "teoria": "El principio de subyacencia (Chomsky, 1973) prohibe mover un elemento a traves de mas de un nodo limite (SC o SN) en un solo paso.",
+    "explicacion": "Ejemplo: no puedes mover 'quien' desde dentro de un SC a otra oración principal directamente. El movimiento debe ser ciclico: primero al SC, luego al siguiente. Cada paso atraviesa un nodo limite.",
+    "regla": "Subyacencia: no saltar mas de un nodo limite por paso",
+    "ejemplo_correcto": "El movimiento-qu es ciclico (paso por cada SC).",
+    "ejemplo_incorrecto": "Puedes mover un elemento a traves de muchos SC en un solo paso.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 172,
+  "fields": {
+    "numero": 142,
+    "bloque": "C",
+    "titulo": "Restriccion de sujeto complejo",
+    "teoria": "La restriccion de sujeto complejo prohibe extraer un elemento de un SN que esta en posicion de sujeto.",
+    "explicacion": "Ejemplo: '*De quien [la madre t] es famosa?' es agramatical: 'de quien' no puede salir del SN sujeto. La restriccion protege el sujeto como isla. Solo se puede extraer del objeto.",
+    "regla": "Sujeto complejo = isla. Solo se extrae de objetos",
+    "ejemplo_correcto": "No puedes extraer de un SN en posicion de sujeto.",
+    "ejemplo_incorrecto": "Puedes extraer cualquier cosa del sujeto.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 173,
+  "fields": {
+    "numero": 143,
+    "bloque": "C",
+    "titulo": "Movimiento-A vs movimiento-A-barra",
+    "teoria": "El movimiento-A (movimiento de argumento) desplaza un elemento a una posicion de argumento (Esp-ST, Esp-SV). El movimiento-A-barra lo hace a una posicion no-argumental (C, adjuntos).",
+    "explicacion": "Movimiento-A: sujeto de SV a sujeto de ST, objeto a sujeto en pasivas. Movimiento-A-barra: pronombre-qu a C, topicalización a la izquierda. Los dos tipos tienen propiedades distintas de ligamiento.",
+    "regla": "Mov-A: a posicion de argumento. Mov-A-barra: a no-argumento",
+    "ejemplo_correcto": "El pronombre-qu hace movimiento-A-barra a C.",
+    "ejemplo_incorrecto": "Todo movimiento es igual.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 174,
+  "fields": {
+    "numero": 144,
+    "bloque": "C",
+    "titulo": "Insercion (do-support, hacer en espanol)",
+    "teoria": "En algunas lenguas, cuando no hay auxiliar para mover a C, se inserta un auxiliar de apoyo. En ingles es 'do', en espanol no hay equivalente directo.",
+    "explicacion": "Ejemplo: 'Did he buy?' — se inserta 'did' porque no hay auxiliar. En castellano no hay do-support: 'Compro?' funciona sin auxiliar. En preguntas negativas en ingles: 'Didn't he buy?'.",
+    "regla": "Do-support: insertar auxiliar cuando falta",
+    "ejemplo_correcto": "En ingles 'Did he buy?' inserta 'did'.",
+    "ejemplo_incorrecto": "El castellano también usa do-support.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 175,
+  "fields": {
+    "numero": 145,
+    "bloque": "C",
+    "titulo": "Borrado en estructura superficial",
+    "teoria": "En la GGT clasica, el borrado (deletion) elimina elementos en la estructura superficial que no se pronuncian pero son interpretables.",
+    "explicacion": "Ejemplo: 'Juan compro un libro y Maria t también' — se borra 'compro un libro' bajo identidad. Otro: elipsis del verbo en respuestas: '-Quien vino? -Juan (vino)'. El borrado no es lo mismo que el movimiento.",
+    "regla": "Borrado: eliminar elementos en ES bajo identidad",
+    "ejemplo_correcto": "'Juan compro un libro y Maria también' borra 'compro un libro'.",
+    "ejemplo_incorrecto": "El borrado y el movimiento son lo mismo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 176,
+  "fields": {
+    "numero": 146,
+    "bloque": "C",
+    "titulo": "Elipsis verbal",
+    "teoria": "La elipsis verbal es la omision de un verbo o sintagma verbal en contexto, recuperable del antecedente.",
+    "explicacion": "Ejemplo: 'Juan compro un libro y Maria también (compro un libro)'. El verbo 'compro' se elide pero se interpreta. La elipsis es una transformación de borrado. Requiere identidad con el antecedente.",
+    "regla": "Elipsis verbal: omision recuperable del SV",
+    "ejemplo_correcto": "En 'Juan comio y Maria también', se elide 'comio'.",
+    "ejemplo_incorrecto": "La elipsis verbal no requiere antecedente.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 177,
+  "fields": {
+    "numero": 147,
+    "bloque": "C",
+    "titulo": "Sujeto nulo (pro-drop) en castellano",
+    "teoria": "El castellano es una lengua pro-drop: permite omitir el sujeto pronominal porque el verbo lleva la informacion de persona y número.",
+    "explicacion": "Ejemplo: 'Canto' = 'Yo canto'. El sujeto se recupera por la desinencia verbal. El ingles es no pro-drop: '*Sing' no es posible. El parámetro pro-drop distingue lenguas. Castellano, italiano, griego son pro-drop; ingles, frances (parcialmente) no.",
+    "regla": "Pro-drop: se puede omitir el sujeto (castellano)",
+    "ejemplo_correcto": "En castellano 'canto' funciona sin 'yo'.",
+    "ejemplo_incorrecto": "En ingles 'sing' funciona sin 'I'.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 178,
+  "fields": {
+    "numero": 148,
+    "bloque": "C",
+    "titulo": "Topicalización",
+    "teoria": "La topicalización mueve un constituyente al inicio de la oración para marcarlo como topico (informacion conocida).",
+    "explicacion": "Ejemplo: 'El libro, Juan lo compro' — 'el libro' se mueve a la posicion inicial, y aparece un pronombre resuntivo 'lo'. El topico es lo que se comenta. La topicalización es movimiento-A-barra.",
+    "regla": "Topicalización: constituyente -> inicio (topico)",
+    "ejemplo_correcto": "En 'el libro, Juan lo compro', 'el libro' es topico.",
+    "ejemplo_incorrecto": "La topicalización no mueve nada.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 179,
+  "fields": {
+    "numero": 149,
+    "bloque": "C",
+    "titulo": "Focalización",
+    "teoria": "La focalización marca un constituyente como foco (informacion nueva o contrastiva), generalmente con movimiento o prosodia especial.",
+    "explicacion": "Ejemplo: 'A JUAN vi (no a Pedro)' — el foco 'a Juan' se marca con prosodia y/o movimiento. La focalización puede ser in situ (solo prosodia) o con movimiento. En castellano el foco contrastivo suele ir al final.",
+    "regla": "Focalización: marca de informacion nueva o contrastiva",
+    "ejemplo_correcto": "En 'A JUAN vi', 'a Juan' es foco contrastivo.",
+    "ejemplo_incorrecto": "El foco y el topico son lo mismo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 180,
+  "fields": {
+    "numero": 150,
+    "bloque": "C",
+    "titulo": "Dislocación a la izquierda",
+    "teoria": "La dislocación a la izquierda mueve un constituyente al inicio de la oración, dejando un pronombre resuntivo en su posicion original.",
+    "explicacion": "Ejemplo: 'El libro, lo compre ayer' — 'el libro' se disloca a la izquierda; 'lo' es el pronombre resuntivo. Es similar a la topicalización, pero mas marcada. La dislocación es frecuente en castellano coloquial.",
+    "regla": "Dislocación: constituyente -> inicio + pronombre resuntivo",
+    "ejemplo_correcto": "En 'el libro, lo compre', 'lo' es resuntivo.",
+    "ejemplo_incorrecto": "La dislocación no deja pronombre.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 181,
+  "fields": {
+    "numero": 151,
+    "bloque": "D",
+    "titulo": "Caso abstracto vs caso morfológico",
+    "teoria": "El caso abstracto es una marca sintáctica invisible asignada por un núcleo (T, V, P). El caso morfológico es la manifestacion visible (terminaciones, pronombres).",
+    "explicacion": "En castellano el caso morfológico solo aparece en pronombres (yo/me/mi, tu/te/ti). En latin y aleman aparece también en sustantivos y adjetivos. La GGT estudia el caso abstracto como requisito universal.",
+    "regla": "Caso abstracto: invisible (T, V, P). Morfológico: visible (pronombres)",
+    "ejemplo_correcto": "En 'yo lo vi', 'yo' (nominativo) y 'lo' (acusativo) tienen caso morfológico visible.",
+    "ejemplo_incorrecto": "El caso abstracto y el morfológico son idénticos en castellano.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 182,
+  "fields": {
+    "numero": 152,
+    "bloque": "D",
+    "titulo": "Caso nominativo",
+    "teoria": "El caso nominativo lo asigna el núcleo T (tiempo) al sujeto de la oración finita.",
+    "explicacion": "Ejemplo: 'Juan canta'. 'Juan' recibe caso nominativo de T. En pronombres: 'yo' (nominativo). Si el sujeto no recibe caso nominativo, la oración es agramatical: *'Juan cantar' (infinitivo no asigna caso).",
+    "regla": "Nominativo: T -> sujeto finito",
+    "ejemplo_correcto": "En 'yo canto', 'yo' lleva nominativo.",
+    "ejemplo_incorrecto": "El sujeto puede quedar sin caso.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 183,
+  "fields": {
+    "numero": 153,
+    "bloque": "D",
+    "titulo": "Caso acusativo",
+    "teoria": "El caso acusativo lo asigna el núcleo V (verbo transitivo) al complemento directo.",
+    "explicacion": "Ejemplo: 'Juan compro el libro'. 'El libro' recibe caso acusativo de V. En pronombres: 'lo/la' (acusativo). Los verbos transitivos asignan caso acusativo; los intransitivos no.",
+    "regla": "Acusativo: V transitivo -> CD",
+    "ejemplo_correcto": "En 'Juan lo compro', 'lo' lleva acusativo.",
+    "ejemplo_incorrecto": "El acusativo lo asigna T.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 184,
+  "fields": {
+    "numero": 154,
+    "bloque": "D",
+    "titulo": "Caso dativo",
+    "teoria": "El caso dativo lo asigna el núcleo V (o P) al complemento indirecto.",
+    "explicacion": "Ejemplo: 'Juan dio un libro a Maria'. 'A Maria' recibe caso dativo (o caso oblicuo por P). En pronombres: 'le/les'. Los verbos de transferencia asignan dativo al receptor.",
+    "regla": "Dativo: V/P -> CI",
+    "ejemplo_correcto": "En 'le di el libro', 'le' lleva dativo.",
+    "ejemplo_incorrecto": "El dativo lo asigna T.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 185,
+  "fields": {
+    "numero": 155,
+    "bloque": "D",
+    "titulo": "Caso genitivo",
+    "teoria": "El caso genitivo lo asigna el núcleo N al complemento posesivo del sintagma nominal. En castellano se realiza con 'de'.",
+    "explicacion": "Ejemplo: 'la casa de Juan'. 'De Juan' recibe caso genitivo del núcleo N 'casa'. En pronombres posesivos: 'mio, tuyo'. En latin y aleman el genitivo tiene caso morfológico propio; en castellano se hace con 'de'.",
+    "regla": "Genitivo: N -> complemento posesivo ('de Juan')",
+    "ejemplo_correcto": "En 'la casa de Juan', 'de Juan' lleva genitivo.",
+    "ejemplo_incorrecto": "El genitivo lo asigna V.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 186,
+  "fields": {
+    "numero": 156,
+    "bloque": "D",
+    "titulo": "Asignacion de caso por T (nominativo)",
+    "teoria": "El núcleo T asigna caso nominativo a su especificador (el sujeto) bajo concordancia.",
+    "explicacion": "Ejemplo: 'Juan canta'. T (presente, 3a sing) asigna nominativo a 'Juan'. Si el sujeto esta en infinitivo, T no puede asignar nominativo y el sujeto sube a otra oración ('Quiero [que Juan cante]').",
+    "regla": "T asigna nominativo al Esp (sujeto)",
+    "ejemplo_correcto": "En 'Juan canta', T asigna nominativo a Juan.",
+    "ejemplo_incorrecto": "T asigna caso acusativo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 187,
+  "fields": {
+    "numero": 157,
+    "bloque": "D",
+    "titulo": "Asignacion de caso por V (acusativo)",
+    "teoria": "El verbo transitivo asigna caso acusativo a su complemento directo.",
+    "explicacion": "Ejemplo: 'Juan compro el libro'. V ('compro') asigna acusativo a 'el libro'. Los verbos intransitivos no asignan acusativo. En pasivas, el objeto sube a sujeto y recibe nominativo de T ('El libro fue comprado t').",
+    "regla": "V transitivo asigna acusativo al CD",
+    "ejemplo_correcto": "En 'compro el libro', V asigna acusativo a 'el libro'.",
+    "ejemplo_incorrecto": "El verbo intransitivo asigna acusativo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 188,
+  "fields": {
+    "numero": 158,
+    "bloque": "D",
+    "titulo": "Asignacion de caso por P (oblicuo)",
+    "teoria": "La preposición asigna caso oblicuo (o caso de P) a su complemento.",
+    "explicacion": "Ejemplo: 'con Juan', 'de Maria', 'para ti'. P ('con', 'de', 'para') asigna caso oblicuo a su complemento. En pronombres: 'conmigo', 'contigo', 'para mi'. El caso oblicuo no es nominativo, acusativo ni dativo: es un caso 'por defecto' de P.",
+    "regla": "P asigna caso oblicuo a su complemento",
+    "ejemplo_correcto": "En 'conmigo', 'migo' (o 'mi') lleva caso oblicuo de P.",
+    "ejemplo_incorrecto": "P asigna nominativo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 189,
+  "fields": {
+    "numero": 159,
+    "bloque": "D",
+    "titulo": "Filtro de caso",
+    "teoria": "El filtro de caso (Chomsky, 1981) establece que todo SN explícito debe recibir caso. Si un SN no recibe caso, la oración es agramatical.",
+    "explicacion": "Ejemplo: '*Juan cantar' es agramatical porque 'Juan' no recibe caso de T (infinitivo). En cambio, 'Quiero que Juan cante' es correcto porque T asigna nominativo. El filtro garantiza que todo SN tenga caso.",
+    "regla": "Filtro de caso: todo SN explícito necesita caso",
+    "ejemplo_correcto": "'Quiero que Juan cante' asigna caso a Juan.",
+    "ejemplo_incorrecto": "'Juan cantar' es gramatical.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 190,
+  "fields": {
+    "numero": 160,
+    "bloque": "D",
+    "titulo": "Papeles tematicos: agente",
+    "teoria": "El papel tematico de agente es el que realiza la accion del verbo. Se asigna a la posicion de especificador del SV.",
+    "explicacion": "Ejemplo: 'Juan compro el libro'. 'Juan' es agente (el que compra). El agente se asigna en [Esp SV]. En pasivas, el agente puede aparecer en 'por': 'El libro fue comprado por Juan'. En pasivas reflejas se omite.",
+    "regla": "Agente: realiza la accion, en Esp SV",
+    "ejemplo_correcto": "En 'Juan compro', Juan es agente.",
+    "ejemplo_incorrecto": "El agente se asigna a T.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 191,
+  "fields": {
+    "numero": 161,
+    "bloque": "D",
+    "titulo": "Tema y paciente",
+    "teoria": "El tema es el elemento que sufre el cambio o es afectado por la accion. El paciente es el que recibe la accion de forma directa.",
+    "explicacion": "Ejemplo: 'Juan compro el libro'. 'El libro' es tema/paciente (el que se compra). 'Juan rompio la ventana': 'la ventana' es paciente. Se asignan en la posicion de complemento del V.",
+    "regla": "Tema/paciente: complemento del V (afectado)",
+    "ejemplo_correcto": "En 'Juan rompio la ventana', 'la ventana' es paciente.",
+    "ejemplo_incorrecto": "El paciente se asigna en el sujeto.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 192,
+  "fields": {
+    "numero": 162,
+    "bloque": "D",
+    "titulo": "Meta, origen, locativo",
+    "teoria": "Estos papeles tematicos los asignan los verbos de movimiento y las preposiciones. Meta es destino, origen es punto de partida, locativo es lugar.",
+    "explicacion": "Ejemplo: 'Voy a Madrid' (meta = a Madrid), 'Vengo de Bogota' (origen = de Bogota), 'Vivo en Lima' (locativo = en Lima). Se asignan en el complemento del V o dentro del SP.",
+    "regla": "Meta: destino. Origen: punto de partida. Locativo: lugar",
+    "ejemplo_correcto": "En 'voy a Madrid', 'a Madrid' es meta.",
+    "ejemplo_incorrecto": "La meta es lo mismo que el origen.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 193,
+  "fields": {
+    "numero": 163,
+    "bloque": "D",
+    "titulo": "Criterio tematico",
+    "teoria": "El criterio tematico (Chomsky, 1981) establece que cada argumento recibe exactamente un papel tematico, y cada papel tematico se asigna a un solo argumento.",
+    "explicacion": "Ejemplo: en 'Juan compro el libro', 'Juan' recibe agente y 'el libro' tema. Si un SN recibiera dos papeles tematicos, o si un papel se asignara a dos SN, la oración seria agramatical. Es una restriccion bidireccional.",
+    "regla": "Criterio tematico: 1 papel por argumento, 1 argumento por papel",
+    "ejemplo_correcto": "Cada SN recibe exactamente un papel tematico.",
+    "ejemplo_incorrecto": "Un SN puede recibir dos papeles tematicos.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 194,
+  "fields": {
+    "numero": 164,
+    "bloque": "D",
+    "titulo": "Estructura argumental del verbo",
+    "teoria": "La estructura argumental de un verbo es el conjunto de argumentos que exige. Cada verbo tiene una 'rejilla tematica' que específica cuantos y cuales argumentos necesita.",
+    "explicacion": "Ejemplo: 'llover' (0 argumentos, impersonal), 'dormir' (1 argumento: agente), 'comprar' (2 argumentos: agente, tema), 'dar' (3 argumentos: agente, tema, meta). Si faltan argumentos, la oración es agramatical o cambia de sentido.",
+    "regla": "Estructura argumental: argumentos que exige el verbo",
+    "ejemplo_correcto": "'Comprar' exige 2 argumentos: agente y tema.",
+    "ejemplo_incorrecto": "'Comprar' exige 1 argumento.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 195,
+  "fields": {
+    "numero": 165,
+    "bloque": "D",
+    "titulo": "Verbos inacusativos vs inergativos",
+    "teoria": "Los inacusativos tienen un solo argumento que es tema/paciente (no agente). Los inergativos tienen un solo argumento que es agente.",
+    "explicacion": "Ejemplo: 'llegar, nacer, morir, caer' son inacusativos (el argumento es tema). 'Llorar, correr, dormir, nadar' son inergativos (el argumento es agente). La diferencia se ve en la auxiliar: 'ha llegado' (inacusativo) vs 'ha llorado' (inergativo).",
+    "regla": "Inacusativo: 1 argumento tema. Inergativo: 1 argumento agente",
+    "ejemplo_correcto": "'Nacer' es inacusativo (el sujeto es tema).",
+    "ejemplo_incorrecto": "'Nacer' es inergativo.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 196,
+  "fields": {
+    "numero": 166,
+    "bloque": "E",
+    "titulo": "Teoría de reccion",
+    "teoria": "La reccion (government) es una relacion estructural entre un núcleo y su complemento o especificador. El núcleo 'rige' a sus dependientes.",
+    "explicacion": "Un núcleo X rige a su complemento y a su especificador. La reccion es clave para asignar caso y para el ligamiento. En el minimalismo, la reccion se reduce a relaciones de c-command y localidad.",
+    "regla": "Reccion: núcleo rige a complemento y especificador",
+    "ejemplo_correcto": "El verbo 'compro' rige a su objeto 'el libro'.",
+    "ejemplo_incorrecto": "La reccion no tiene relacion con la estructura.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 197,
+  "fields": {
+    "numero": 167,
+    "bloque": "E",
+    "titulo": "Mando-c (c-command)",
+    "teoria": "Un nodo A manda-c a un nodo B si A no domina a B y el primer nodo ramificante que domina a A también domina a B. Es una relacion estructural fundamental.",
+    "explicacion": "En un árbol, un nodo manda-c a sus hermanos y a los descendientes de sus hermanos. El sujeto manda-c al objeto, pero el objeto no manda-c al sujeto. Es la base del ligamiento y la reccion.",
+    "regla": "Mando-c: A manda-c a B si su nodo dominante comun los cubre",
+    "ejemplo_correcto": "El sujeto manda-c al objeto en la oración simple.",
+    "ejemplo_incorrecto": "Mando-c es lo mismo que dominar.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 198,
+  "fields": {
+    "numero": 168,
+    "bloque": "E",
+    "titulo": "Principio A: anforas",
+    "teoria": "El Principio A del ligamiento dice que una anfora (reflexivo o reciproco) debe estar ligada dentro de su categoría rectora.",
+    "explicacion": "Ejemplo: 'Juan se lava' (se = Juan). 'se' es anfora, ligada por Juan en la misma oración. Si no hay antecedente local, es agramatical: *'Juan dice que se lava' (se refiere a Juan pero esta en otra oración).",
+    "regla": "Principio A: anfora ligada en su categoría rectora",
+    "ejemplo_correcto": "En 'Juan se lava', 'se' esta ligado por Juan.",
+    "ejemplo_incorrecto": "Una anfora puede estar libre en su oración.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 199,
+  "fields": {
+    "numero": 169,
+    "bloque": "E",
+    "titulo": "Principio B: pronombres",
+    "teoria": "El Principio B del ligamiento dice que un pronombre debe estar libre en su categoría rectora (no puede tener antecedente local).",
+    "explicacion": "Ejemplo: 'Juan dice que el viene'. 'el' es pronombre: no puede referirse a Juan (que esta en otra oración, pero si estuviera en la misma, seria agramatical). En 'Juan lo vio', 'lo' no puede ser Juan.",
+    "regla": "Principio B: pronombre libre en su categoría rectora",
+    "ejemplo_correcto": "En 'Juan lo vio', 'lo' no es Juan.",
+    "ejemplo_incorrecto": "Un pronombre puede tener antecedente local.",
+    "nivel": "avanzado",
+    "modulo": "generativa"
+  }
+},
+{
+  "model": "core.tecnicagramatical",
+  "pk": 200,
+  "fields": {
+    "numero": 170,
+    "bloque": "E",
+    "titulo": "Principio C: expresiones referenciales",
+    "teoria": "El Principio C del ligamiento dice que una expresion referencial (nombre propio, descripcion definida) debe estar libre en toda la oración.",
+    "explicacion": "Ejemplo: 'Juan dice que Pedro viene'. 'Pedro' no puede referirse a 'Juan' (son distintos). 'El hombre dice que el hombre viene' es agramatical si ambos 'el hombre' son el mismo. Las expresiones referenciales no se ligan.",
+    "regla": "Principio C: expresion referencial libre en toda la oración",
+    "ejemplo_correcto": 
