@@ -37,24 +37,6 @@
   },
   {
     "model": "core.progresotecnica",
-    "pk": 3,
-    "fields": {
-      "usuario": [
-        "prof01"
-      ],
-      "tecnica": 1,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresotecnica",
     "pk": 4,
     "fields": {
       "usuario": [
@@ -66543,114 +66525,6 @@
       "sm2_ef": 2.5,
       "sm2_interval": 20,
       "sm2_repetitions": 3
-    }
-  },
-  {
-    "model": "core.progresotecnica",
-    "pk": 3698,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 14,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresotecnica",
-    "pk": 3699,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 3,
-      "estado": "en_progreso",
-      "aciertos_consecutivos": 1,
-      "intentos": 1,
-      "ultima_revision": "2026-10-27T03:11:40.532Z",
-      "proxima_revision": "2026-10-28T03:11:40.532Z",
-      "sm2_ef": 2.36,
-      "sm2_interval": 1,
-      "sm2_repetitions": 1
-    }
-  },
-  {
-    "model": "core.progresotecnica",
-    "pk": 3700,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 4,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 1,
-    "fields": {
-      "usuario": [
-        "prof01"
-      ],
-      "tecnica": 89,
-      "estado": "en_progreso",
-      "aciertos_consecutivos": 0,
-      "intentos": 1,
-      "ultima_revision": "2026-10-25T17:01:45.079Z",
-      "proxima_revision": "2026-10-26T17:01:45.079Z",
-      "sm2_ef": 1.96,
-      "sm2_interval": 1,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 2,
-    "fields": {
-      "usuario": [
-        "prof01"
-      ],
-      "tecnica": 131,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 3,
-    "fields": {
-      "usuario": [
-        "prof01"
-      ],
-      "tecnica": 139,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
     }
   },
   {
@@ -337465,84 +337339,12 @@
   },
   {
     "model": "core.progresogramatical",
-    "pk": 15049,
-    "fields": {
-      "usuario": [
-        "prof01"
-      ],
-      "tecnica": 390,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
     "pk": 15050,
     "fields": {
       "usuario": [
         "testest001"
       ],
       "tecnica": 331,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 15051,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 131,
-      "estado": "no_iniciada",
-      "aciertos_consecutivos": 0,
-      "intentos": 0,
-      "ultima_revision": null,
-      "proxima_revision": null,
-      "sm2_ef": 2.5,
-      "sm2_interval": 0,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 15052,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 132,
-      "estado": "en_progreso",
-      "aciertos_consecutivos": 0,
-      "intentos": 5,
-      "ultima_revision": "2026-10-27T01:33:54.901Z",
-      "proxima_revision": "2026-10-28T01:33:54.901Z",
-      "sm2_ef": 1.3,
-      "sm2_interval": 1,
-      "sm2_repetitions": 0
-    }
-  },
-  {
-    "model": "core.progresogramatical",
-    "pk": 15053,
-    "fields": {
-      "usuario": [
-        "admin01"
-      ],
-      "tecnica": 133,
       "estado": "no_iniciada",
       "aciertos_consecutivos": 0,
       "intentos": 0,
