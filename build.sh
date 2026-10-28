@@ -27,7 +27,7 @@ fi
 # Por eso debe correr ANTES de RUN_DEMO_CERTS.
 if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
   echo "Cargando fixture de contenido..."
-  python manage.py load_content_fixture --force
+  python manage.py load_content_fixture --force || true
 fi
 
 # Crear usuarios de prueba (solo si RUN_TEST_USERS es "True")
@@ -39,11 +39,11 @@ fi
 # Resetear passwords de usuarios est* (solo si RUN_RESET_DEMO es "True")
 if [ "$RUN_RESET_DEMO" = "True" ]; then
   echo "Reseteando passwords demo..."
-  python manage.py set_demo_passwords
+  python manage.py set_demo_passwords || true
 fi
 
 # Crear certificaciones de prueba (solo si RUN_DEMO_CERTS es "True")
 if [ "$RUN_DEMO_CERTS" = "True" ]; then
   echo "Creando certificaciones demo..."
-  python manage.py seed_demo_certs
+  python manage.py seed_demo_certs || true
 fi
