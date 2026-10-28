@@ -39,5 +39,5 @@ fi
 # Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
 if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
   echo "Cargando fixture de contenido..."
-  python manage.py load_content_fixture
+  python manage.py load_content_fixture --force
 fi
