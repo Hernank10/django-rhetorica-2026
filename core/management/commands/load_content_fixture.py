@@ -136,6 +136,73 @@ class Command(BaseCommand):
 
         self.stdout.write(f"[LOAD] {fixture_path}")
         call_command("loaddata", str(fixture_path), verbosity=2)
+        # ─── REMAP_FLASHCARDS: reasignar flashcards/reviews a usuarios válidos ───
+        # El fixture tiene PKs de est### de local (121..216) que no existen en Render.
+        # Este bloque los remapea a testest### (o est###) si existen.
+        try:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+
+            Flashcard = apps.get_model("core", "Flashcard")
+            Review = apps.get_model("core", "Review")
+
+            valid_pks = set(User.objects.values_list("pk", flat=True))
+            users_by_name = {u.username: u for u in User.objects.all()}
+
+            remapped_fc = 0
+            remapped_rv = 0
+            skipped_fc = 0
+
+            for fc in Flashcard.objects.all():
+                if fc.estudiante_id in valid_pks:
+                    continue
+                # Intentar remapear por offset: PK original = 120 + n
+                n = fc.estudiante_id - 120
+                if 1 <= n <= 96:
+                    for candidate in (f"testest{n:03d}", f"est{n:03d}"):
+                        target = users_by_name.get(candidate)
+                        if target:
+                            fc.estudiante = target
+                            fc.save(update_fields=["estudiante"])
+                            remapped_fc += 1
+                            break
+                    else:
+                        skipped_fc += 1
+                else:
+                    skipped_fc += 1
+
+            for rv in Review.objects.all():
+                if rv.flashcard.estudiante_id in valid_pks:
+                    continue
+                # La Review apunta a Flashcard; ya debería haberse remapeado
+                # Pero por si acaso, remapear la Flashcard también
+                fc = rv.flashcard
+                if fc.estudiante_id not in valid_pks:
+                    n = fc.estudiante_id - 120
+                    if 1 <= n <= 96:
+                        for candidate in (f"testest{n:03d}", f"est{n:03d}"):
+                            target = users_by_name.get(candidate)
+                            if target:
+                                fc.estudiante = target
+                                fc.save(update_fields=["estudiante"])
+                                remapped_fc += 1
+                                break
+                remapped_rv += 1
+
+            self.stdout.write(
+                self.style.SUCCESS(
+                    f"[REMAP] flashcards={remapped_fc} reviews={remapped_rv} skipped={skipped_fc}"
+                )
+            )
+            if skipped_fc:
+                self.stdout.write(
+                    self.style.WARNING(
+                        f"[REMAP] {skipped_fc} flashcards sin usuario válido (PK rango 121-216 esperado)"
+                    )
+                )
+        except Exception as e:
+            self.stdout.write(self.style.WARNING(f"[REMAP] fallo: {e}"))
+        # ─── FIN REMAP_FLASHCARDS ───
         self.stdout.write(
             self.style.SUCCESS(f"[OK] Fixture cargado: {fixture_path}")
         )
