@@ -23,6 +23,7 @@ def db_counts(request):
     targets = [
         ("core", "TecnicaGramatical"),
         ("core", "TecnicaSintactica"),
+        ("core", "TecnicaLinguistica"),
         ("core", "EjercicioGramatical"),
         ("core", "EjercicioTecnica"),
         ("core", "EjercicioLinguistico"),
@@ -35,6 +36,8 @@ def db_counts(request):
         ("core", "PreguntaEvaluacion"),
         ("core", "Certificacion"),
         ("core", "CertificacionObtenida"),
+        ("core", "Flashcard"),
+        ("core", "Review"),
         ("auth", "User"),
     ]
     data = {}

@@ -8,19 +8,23 @@ from django.db import transaction
 
 
 DELETE_ORDER = [
+    # Hijos primero, padres al final
     ("core", "PreguntaEvaluacion"),
     ("core", "EvaluacionCurso"),
     ("core", "Leccion"),
     ("core", "Modulo"),
     ("core", "Curso"),
+    ("core", "Review"),              # FK a Flashcard
+    ("core", "Flashcard"),           # FK a User
     ("core", "EjercicioGramatical"),
     ("core", "EjercicioTecnica"),
     ("core", "EjercicioLinguistico"),
     ("core", "TecnicaGramatical"),
     ("core", "TecnicaSintactica"),
+    ("core", "TecnicaLinguistica"),  # M2M desde Curso/Leccion
     ("core", "Recurso"),
     ("core", "ContenidoJSON"),
-    ("core", "Certificacion"),
+    ("core", "Certificacion"),       # cascada a CertificacionObtenida
 ]
 
 

@@ -1,5 +1,125 @@
 [
 {
+  "model": "core.tecnicalinguistica",
+  "pk": 1,
+  "fields": {
+    "nombre": "Técnica 01",
+    "descripcion": "Técnica lingüística 1",
+    "categoria": "morfologia",
+    "nivel": 1,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.078Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 2,
+  "fields": {
+    "nombre": "Técnica 02",
+    "descripcion": "Técnica lingüística 2",
+    "categoria": "sintaxis",
+    "nivel": 2,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.109Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 3,
+  "fields": {
+    "nombre": "Técnica 03",
+    "descripcion": "Técnica lingüística 3",
+    "categoria": "lexico",
+    "nivel": 3,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.141Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 4,
+  "fields": {
+    "nombre": "Técnica 04",
+    "descripcion": "Técnica lingüística 4",
+    "categoria": "redaccion",
+    "nivel": 4,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.172Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 5,
+  "fields": {
+    "nombre": "Técnica 05",
+    "descripcion": "Técnica lingüística 5",
+    "categoria": "filologia",
+    "nivel": 1,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.203Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 6,
+  "fields": {
+    "nombre": "Técnica 06",
+    "descripcion": "Técnica lingüística 6",
+    "categoria": "morfologia",
+    "nivel": 2,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.219Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 7,
+  "fields": {
+    "nombre": "Técnica 07",
+    "descripcion": "Técnica lingüística 7",
+    "categoria": "sintaxis",
+    "nivel": 3,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.250Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 8,
+  "fields": {
+    "nombre": "Técnica 08",
+    "descripcion": "Técnica lingüística 8",
+    "categoria": "lexico",
+    "nivel": 4,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.281Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 9,
+  "fields": {
+    "nombre": "Técnica 09",
+    "descripcion": "Técnica lingüística 9",
+    "categoria": "redaccion",
+    "nivel": 1,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.313Z"
+  }
+},
+{
+  "model": "core.tecnicalinguistica",
+  "pk": 10,
+  "fields": {
+    "nombre": "Técnica 10",
+    "descripcion": "Técnica lingüística 10",
+    "categoria": "filologia",
+    "nivel": 2,
+    "archivo_origen": "seed_test_data.py",
+    "creado_en": "2026-10-20T22:54:19.344Z"
+  }
+},
+{
   "model": "core.tecnicagramatical",
   "pk": 31,
   "fields": {
@@ -51790,7 +51910,7 @@
     "categoria_error": "",
     "idioma": "ES",
     "archivo_origen": null,
-    "creado_en": "2026-10-22T19:54:56.000Z"
+    "creado_en": "2026-10-22T19:54:56Z"
   }
 },
 {
@@ -52128,7 +52248,7 @@
     "categoria_error": "",
     "idioma": "ES",
     "archivo_origen": null,
-    "creado_en": "2026-10-22T19:54:57.000Z"
+    "creado_en": "2026-10-22T19:54:57Z"
   }
 },
 {
@@ -53246,7 +53366,7 @@
     "categoria_error": "",
     "idioma": "ES",
     "archivo_origen": null,
-    "creado_en": "2026-10-22T19:55:00.000Z"
+    "creado_en": "2026-10-22T19:55:00Z"
   }
 },
 {
@@ -53558,7 +53678,7 @@
     "categoria_error": "",
     "idioma": "ES",
     "archivo_origen": null,
-    "creado_en": "2026-10-22T19:55:01.000Z"
+    "creado_en": "2026-10-22T19:55:01Z"
   }
 },
 {
@@ -70842,7 +70962,7 @@
     "ejercicio": null,
     "orden": 0,
     "destacado": false,
-    "creado_en": "2026-10-12T02:48:22.000Z"
+    "creado_en": "2026-10-12T02:48:22Z"
   }
 },
 {
@@ -91467,9 +91587,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof01"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:15:56.063Z",
     "actualizado_en": "2026-10-11T21:15:56.063Z",
@@ -91492,9 +91614,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof02"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:15:58.579Z",
     "actualizado_en": "2026-10-11T21:15:58.579Z",
@@ -91517,9 +91641,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof03"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:01.542Z",
     "actualizado_en": "2026-10-11T21:16:01.542Z",
@@ -91542,9 +91668,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof04"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:04.913Z",
     "actualizado_en": "2026-10-11T21:16:04.913Z",
@@ -91567,9 +91695,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof05"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:07.159Z",
     "actualizado_en": "2026-10-11T21:16:07.159Z",
@@ -91592,9 +91722,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof06"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:09.764Z",
     "actualizado_en": "2026-10-11T21:16:09.764Z",
@@ -91617,9 +91749,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof07"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:12.552Z",
     "actualizado_en": "2026-10-11T21:16:12.552Z",
@@ -91642,9 +91776,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof08"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:15.805Z",
     "actualizado_en": "2026-10-11T21:16:15.805Z",
@@ -91667,9 +91803,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof09"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:18.310Z",
     "actualizado_en": "2026-10-11T21:16:18.310Z",
@@ -91692,9 +91830,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof01"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:20.702Z",
     "actualizado_en": "2026-10-11T21:16:20.702Z",
@@ -91717,9 +91857,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof02"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:23.093Z",
     "actualizado_en": "2026-10-11T21:16:23.093Z",
@@ -91742,9 +91884,11 @@
     "estado": "publicado",
     "duracion_estimada": 180,
     "puntos_totales": 500,
-    "creado_por": null,
+    "creado_por": [
+      "admin01"
+    ],
     "profesor_asignado": [
-      "prof03"
+      "admin01"
     ],
     "creado_en": "2026-10-11T21:16:25.672Z",
     "actualizado_en": "2026-10-11T21:16:25.672Z",
@@ -91768,10 +91912,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof02"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof02"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:03.647Z",
     "actualizado_en": "2026-10-20T22:54:03.663Z",
@@ -91797,10 +91941,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof03"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof03"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:03.772Z",
     "actualizado_en": "2026-10-20T22:54:03.772Z",
@@ -91826,10 +91970,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof04"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof04"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:03.804Z",
     "actualizado_en": "2026-10-20T22:54:03.804Z",
@@ -91855,10 +91999,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof05"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof05"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:03.835Z",
     "actualizado_en": "2026-10-20T22:54:03.835Z",
@@ -91884,10 +92028,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof06"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof06"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:03.895Z",
     "actualizado_en": "2026-10-20T22:54:03.896Z",
@@ -91913,10 +92057,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof07"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof07"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.054Z",
     "actualizado_en": "2026-10-20T22:54:04.054Z",
@@ -91942,10 +92086,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof08"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof08"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.114Z",
     "actualizado_en": "2026-10-20T22:54:04.115Z",
@@ -91971,10 +92115,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof09"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof09"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.206Z",
     "actualizado_en": "2026-10-20T22:54:04.207Z",
@@ -92000,10 +92144,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof01"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof01"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.250Z",
     "actualizado_en": "2026-10-20T22:54:04.250Z",
@@ -92029,10 +92173,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof02"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof02"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.283Z",
     "actualizado_en": "2026-10-20T22:54:04.283Z",
@@ -92058,10 +92202,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof03"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof03"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.330Z",
     "actualizado_en": "2026-10-20T22:54:04.330Z",
@@ -92087,10 +92231,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof04"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof04"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.361Z",
     "actualizado_en": "2026-10-20T22:54:04.361Z",
@@ -92116,10 +92260,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof05"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof05"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.408Z",
     "actualizado_en": "2026-10-20T22:54:04.408Z",
@@ -92145,10 +92289,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof06"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof06"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.439Z",
     "actualizado_en": "2026-10-20T22:54:04.455Z",
@@ -92174,10 +92318,10 @@
     "duracion_estimada": 120,
     "puntos_totales": 1000,
     "creado_por": [
-      "prof07"
+      "admin01"
     ],
     "profesor_asignado": [
-      "prof07"
+      "admin01"
     ],
     "creado_en": "2026-10-20T22:54:04.491Z",
     "actualizado_en": "2026-10-20T22:54:04.491Z",
@@ -108328,6 +108472,6368 @@
     "imagen": "cert_45.png",
     "fecha_creacion": "2026-10-20T22:54:43.874Z",
     "activa": true
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 36,
+  "fields": {
+    "estudiante": [
+      "est001"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est001",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:50.529Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 37,
+  "fields": {
+    "estudiante": [
+      "est001"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est001",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:50.716Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 38,
+  "fields": {
+    "estudiante": [
+      "est002"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est002",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:52.216Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 39,
+  "fields": {
+    "estudiante": [
+      "est002"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est002",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:52.326Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 40,
+  "fields": {
+    "estudiante": [
+      "est003"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est003",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:53.326Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 41,
+  "fields": {
+    "estudiante": [
+      "est003"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est003",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:53.529Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 42,
+  "fields": {
+    "estudiante": [
+      "est004"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est004",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:55.076Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 43,
+  "fields": {
+    "estudiante": [
+      "est004"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est004",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:55.264Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 44,
+  "fields": {
+    "estudiante": [
+      "est005"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est005",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:56.576Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 45,
+  "fields": {
+    "estudiante": [
+      "est005"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est005",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:56.654Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 46,
+  "fields": {
+    "estudiante": [
+      "est006"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est006",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:57.718Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 47,
+  "fields": {
+    "estudiante": [
+      "est006"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est006",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:57.780Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 48,
+  "fields": {
+    "estudiante": [
+      "est007"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est007",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:59.505Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 49,
+  "fields": {
+    "estudiante": [
+      "est007"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est007",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:54:59.661Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 50,
+  "fields": {
+    "estudiante": [
+      "est008"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est008",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:01.311Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 51,
+  "fields": {
+    "estudiante": [
+      "est008"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est008",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:01.436Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 52,
+  "fields": {
+    "estudiante": [
+      "est009"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est009",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:02.702Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 53,
+  "fields": {
+    "estudiante": [
+      "est009"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est009",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:02.858Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 54,
+  "fields": {
+    "estudiante": [
+      "est010"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est010",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:04.436Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 55,
+  "fields": {
+    "estudiante": [
+      "est010"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est010",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:04.655Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 56,
+  "fields": {
+    "estudiante": [
+      "est011"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est011",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:05.686Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 57,
+  "fields": {
+    "estudiante": [
+      "est011"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est011",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:05.780Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 58,
+  "fields": {
+    "estudiante": [
+      "est012"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est012",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:07.171Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 59,
+  "fields": {
+    "estudiante": [
+      "est012"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est012",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:07.249Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 60,
+  "fields": {
+    "estudiante": [
+      "est013"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est013",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:08.968Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 61,
+  "fields": {
+    "estudiante": [
+      "est013"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est013",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:09.062Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 62,
+  "fields": {
+    "estudiante": [
+      "est014"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est014",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:10.268Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 63,
+  "fields": {
+    "estudiante": [
+      "est014"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est014",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:10.359Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 64,
+  "fields": {
+    "estudiante": [
+      "est015"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est015",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:11.837Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 65,
+  "fields": {
+    "estudiante": [
+      "est015"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est015",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:11.931Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 66,
+  "fields": {
+    "estudiante": [
+      "est016"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est016",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:13.576Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 67,
+  "fields": {
+    "estudiante": [
+      "est016"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est016",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:13.716Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 68,
+  "fields": {
+    "estudiante": [
+      "est017"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est017",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:14.683Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 69,
+  "fields": {
+    "estudiante": [
+      "est017"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est017",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:14.761Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 70,
+  "fields": {
+    "estudiante": [
+      "est018"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est018",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:16.180Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 71,
+  "fields": {
+    "estudiante": [
+      "est018"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est018",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:16.242Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 72,
+  "fields": {
+    "estudiante": [
+      "est019"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est019",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:17.727Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 73,
+  "fields": {
+    "estudiante": [
+      "est019"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est019",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:17.821Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 74,
+  "fields": {
+    "estudiante": [
+      "est020"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est020",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:18.758Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 75,
+  "fields": {
+    "estudiante": [
+      "est020"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est020",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:18.934Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 76,
+  "fields": {
+    "estudiante": [
+      "est021"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est021",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:20.264Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 77,
+  "fields": {
+    "estudiante": [
+      "est021"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est021",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:20.420Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 78,
+  "fields": {
+    "estudiante": [
+      "est022"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est022",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:21.404Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 79,
+  "fields": {
+    "estudiante": [
+      "est022"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est022",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:21.483Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 80,
+  "fields": {
+    "estudiante": [
+      "est023"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est023",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:22.530Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 81,
+  "fields": {
+    "estudiante": [
+      "est023"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est023",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:22.592Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 82,
+  "fields": {
+    "estudiante": [
+      "est024"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est024",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:24.295Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 83,
+  "fields": {
+    "estudiante": [
+      "est024"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est024",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:24.373Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 84,
+  "fields": {
+    "estudiante": [
+      "est025"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est025",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:25.499Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 85,
+  "fields": {
+    "estudiante": [
+      "est025"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est025",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:25.592Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 86,
+  "fields": {
+    "estudiante": [
+      "est026"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est026",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:26.811Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 87,
+  "fields": {
+    "estudiante": [
+      "est026"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est026",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:26.967Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 88,
+  "fields": {
+    "estudiante": [
+      "est027"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est027",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:28.686Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 89,
+  "fields": {
+    "estudiante": [
+      "est027"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est027",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:28.780Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 90,
+  "fields": {
+    "estudiante": [
+      "est028"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est028",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:29.858Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 91,
+  "fields": {
+    "estudiante": [
+      "est028"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est028",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:29.945Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 92,
+  "fields": {
+    "estudiante": [
+      "est029"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est029",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:31.311Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 93,
+  "fields": {
+    "estudiante": [
+      "est029"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est029",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:31.483Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 94,
+  "fields": {
+    "estudiante": [
+      "est030"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est030",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:33.170Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 95,
+  "fields": {
+    "estudiante": [
+      "est030"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est030",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:33.264Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 96,
+  "fields": {
+    "estudiante": [
+      "est031"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est031",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:34.373Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 97,
+  "fields": {
+    "estudiante": [
+      "est031"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est031",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:34.452Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 98,
+  "fields": {
+    "estudiante": [
+      "est032"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est032",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:36.108Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 99,
+  "fields": {
+    "estudiante": [
+      "est032"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est032",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:36.280Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 100,
+  "fields": {
+    "estudiante": [
+      "est033"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est033",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:37.825Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 101,
+  "fields": {
+    "estudiante": [
+      "est033"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est033",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:38.020Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 102,
+  "fields": {
+    "estudiante": [
+      "est034"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est034",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:40.064Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 103,
+  "fields": {
+    "estudiante": [
+      "est034"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est034",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:40.189Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 104,
+  "fields": {
+    "estudiante": [
+      "est035"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est035",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:41.752Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 105,
+  "fields": {
+    "estudiante": [
+      "est035"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est035",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:42.174Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 106,
+  "fields": {
+    "estudiante": [
+      "est036"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est036",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:43.783Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 107,
+  "fields": {
+    "estudiante": [
+      "est036"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est036",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:43.862Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 108,
+  "fields": {
+    "estudiante": [
+      "est037"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est037",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:44.987Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 109,
+  "fields": {
+    "estudiante": [
+      "est037"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est037",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:45.143Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 110,
+  "fields": {
+    "estudiante": [
+      "est038"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est038",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:46.941Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 111,
+  "fields": {
+    "estudiante": [
+      "est038"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est038",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:47.097Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 112,
+  "fields": {
+    "estudiante": [
+      "est039"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est039",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:48.128Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 113,
+  "fields": {
+    "estudiante": [
+      "est039"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est039",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:48.222Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 114,
+  "fields": {
+    "estudiante": [
+      "est040"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est040",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:49.488Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 115,
+  "fields": {
+    "estudiante": [
+      "est040"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est040",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:49.660Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 116,
+  "fields": {
+    "estudiante": [
+      "est041"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est041",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:51.035Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 117,
+  "fields": {
+    "estudiante": [
+      "est041"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est041",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:51.113Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 118,
+  "fields": {
+    "estudiante": [
+      "est042"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est042",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:52.097Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 119,
+  "fields": {
+    "estudiante": [
+      "est042"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est042",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:52.176Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 120,
+  "fields": {
+    "estudiante": [
+      "est043"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est043",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:53.566Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 121,
+  "fields": {
+    "estudiante": [
+      "est043"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est043",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:53.660Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 122,
+  "fields": {
+    "estudiante": [
+      "est044"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est044",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:55.332Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 123,
+  "fields": {
+    "estudiante": [
+      "est044"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est044",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:55.410Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 124,
+  "fields": {
+    "estudiante": [
+      "est045"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est045",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:56.395Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 125,
+  "fields": {
+    "estudiante": [
+      "est045"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est045",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:56.473Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 126,
+  "fields": {
+    "estudiante": [
+      "est046"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est046",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:57.817Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 127,
+  "fields": {
+    "estudiante": [
+      "est046"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est046",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:57.973Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 128,
+  "fields": {
+    "estudiante": [
+      "est047"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est047",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:59.422Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 129,
+  "fields": {
+    "estudiante": [
+      "est047"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est047",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:55:59.485Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 130,
+  "fields": {
+    "estudiante": [
+      "est048"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est048",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:00.516Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 131,
+  "fields": {
+    "estudiante": [
+      "est048"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est048",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:00.703Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 132,
+  "fields": {
+    "estudiante": [
+      "est049"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est049",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:02.047Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 133,
+  "fields": {
+    "estudiante": [
+      "est049"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est049",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:02.203Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 134,
+  "fields": {
+    "estudiante": [
+      "est050"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est050",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:03.547Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 135,
+  "fields": {
+    "estudiante": [
+      "est050"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est050",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:03.610Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 136,
+  "fields": {
+    "estudiante": [
+      "est051"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est051",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:04.719Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 137,
+  "fields": {
+    "estudiante": [
+      "est051"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est051",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:04.875Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 138,
+  "fields": {
+    "estudiante": [
+      "est052"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est052",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:06.313Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 139,
+  "fields": {
+    "estudiante": [
+      "est052"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est052",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:06.751Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 140,
+  "fields": {
+    "estudiante": [
+      "est053"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est053",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:07.860Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 141,
+  "fields": {
+    "estudiante": [
+      "est053"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est053",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:07.954Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 142,
+  "fields": {
+    "estudiante": [
+      "est054"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est054",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:09.313Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 143,
+  "fields": {
+    "estudiante": [
+      "est054"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est054",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:09.391Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 144,
+  "fields": {
+    "estudiante": [
+      "est055"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est055",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:11.187Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 145,
+  "fields": {
+    "estudiante": [
+      "est055"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est055",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:11.281Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 146,
+  "fields": {
+    "estudiante": [
+      "est056"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est056",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:12.499Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 147,
+  "fields": {
+    "estudiante": [
+      "est056"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est056",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:12.671Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 148,
+  "fields": {
+    "estudiante": [
+      "est057"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est057",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:14.609Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 149,
+  "fields": {
+    "estudiante": [
+      "est057"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est057",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:14.781Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 150,
+  "fields": {
+    "estudiante": [
+      "est058"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est058",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:16.390Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 151,
+  "fields": {
+    "estudiante": [
+      "est058"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est058",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:16.484Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 152,
+  "fields": {
+    "estudiante": [
+      "est059"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est059",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:17.765Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 153,
+  "fields": {
+    "estudiante": [
+      "est059"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est059",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:17.828Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 154,
+  "fields": {
+    "estudiante": [
+      "est060"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est060",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:19.169Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 155,
+  "fields": {
+    "estudiante": [
+      "est060"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est060",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:19.325Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 156,
+  "fields": {
+    "estudiante": [
+      "est061"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est061",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:20.779Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 157,
+  "fields": {
+    "estudiante": [
+      "est061"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est061",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:20.857Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 158,
+  "fields": {
+    "estudiante": [
+      "est062"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est062",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:21.763Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 159,
+  "fields": {
+    "estudiante": [
+      "est062"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est062",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:21.841Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 160,
+  "fields": {
+    "estudiante": [
+      "est063"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est063",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:23.091Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 161,
+  "fields": {
+    "estudiante": [
+      "est063"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est063",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:23.248Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 162,
+  "fields": {
+    "estudiante": [
+      "est064"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est064",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:24.748Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 163,
+  "fields": {
+    "estudiante": [
+      "est064"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est064",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:24.826Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 164,
+  "fields": {
+    "estudiante": [
+      "est065"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est065",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:25.732Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 165,
+  "fields": {
+    "estudiante": [
+      "est065"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est065",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:25.826Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 166,
+  "fields": {
+    "estudiante": [
+      "est066"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est066",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:27.279Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 167,
+  "fields": {
+    "estudiante": [
+      "est066"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est066",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:27.451Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 168,
+  "fields": {
+    "estudiante": [
+      "est067"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est067",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:28.951Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 169,
+  "fields": {
+    "estudiante": [
+      "est067"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est067",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:29.029Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 170,
+  "fields": {
+    "estudiante": [
+      "est068"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est068",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:29.998Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 171,
+  "fields": {
+    "estudiante": [
+      "est068"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est068",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:30.186Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 172,
+  "fields": {
+    "estudiante": [
+      "est069"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est069",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:31.600Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 173,
+  "fields": {
+    "estudiante": [
+      "est069"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est069",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:31.772Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 174,
+  "fields": {
+    "estudiante": [
+      "est070"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est070",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:33.178Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 175,
+  "fields": {
+    "estudiante": [
+      "est070"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est070",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:33.272Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 176,
+  "fields": {
+    "estudiante": [
+      "est071"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est071",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:34.461Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 177,
+  "fields": {
+    "estudiante": [
+      "est071"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est071",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:34.633Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 178,
+  "fields": {
+    "estudiante": [
+      "est072"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est072",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:36.024Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 179,
+  "fields": {
+    "estudiante": [
+      "est072"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est072",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:36.446Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 180,
+  "fields": {
+    "estudiante": [
+      "est073"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est073",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:37.462Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 181,
+  "fields": {
+    "estudiante": [
+      "est073"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est073",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:37.555Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 182,
+  "fields": {
+    "estudiante": [
+      "est074"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est074",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:38.727Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 183,
+  "fields": {
+    "estudiante": [
+      "est074"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est074",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:38.790Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 184,
+  "fields": {
+    "estudiante": [
+      "est075"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est075",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:40.509Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 185,
+  "fields": {
+    "estudiante": [
+      "est075"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est075",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:40.587Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 186,
+  "fields": {
+    "estudiante": [
+      "est076"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est076",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:41.993Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 187,
+  "fields": {
+    "estudiante": [
+      "est076"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est076",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:42.181Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 188,
+  "fields": {
+    "estudiante": [
+      "est077"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est077",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:44.087Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 189,
+  "fields": {
+    "estudiante": [
+      "est077"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est077",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:44.243Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 190,
+  "fields": {
+    "estudiante": [
+      "est078"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est078",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:46.009Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 191,
+  "fields": {
+    "estudiante": [
+      "est078"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est078",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:46.102Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 192,
+  "fields": {
+    "estudiante": [
+      "est079"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est079",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:47.571Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 193,
+  "fields": {
+    "estudiante": [
+      "est079"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est079",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:47.649Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 194,
+  "fields": {
+    "estudiante": [
+      "est080"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est080",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:48.993Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 195,
+  "fields": {
+    "estudiante": [
+      "est080"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est080",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:49.165Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 196,
+  "fields": {
+    "estudiante": [
+      "est081"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est081",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:50.884Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 197,
+  "fields": {
+    "estudiante": [
+      "est081"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est081",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:50.962Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 198,
+  "fields": {
+    "estudiante": [
+      "est082"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est082",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:52.056Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 199,
+  "fields": {
+    "estudiante": [
+      "est082"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est082",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:52.134Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 200,
+  "fields": {
+    "estudiante": [
+      "est083"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est083",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:53.556Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 201,
+  "fields": {
+    "estudiante": [
+      "est083"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est083",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:53.728Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 202,
+  "fields": {
+    "estudiante": [
+      "est084"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est084",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:55.228Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 203,
+  "fields": {
+    "estudiante": [
+      "est084"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est084",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:55.322Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 204,
+  "fields": {
+    "estudiante": [
+      "est085"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est085",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:56.275Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 205,
+  "fields": {
+    "estudiante": [
+      "est085"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est085",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:56.478Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 206,
+  "fields": {
+    "estudiante": [
+      "est086"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est086",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:57.916Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 207,
+  "fields": {
+    "estudiante": [
+      "est086"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est086",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:57.994Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 208,
+  "fields": {
+    "estudiante": [
+      "est087"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est087",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:59.416Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 209,
+  "fields": {
+    "estudiante": [
+      "est087"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est087",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:56:59.494Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 210,
+  "fields": {
+    "estudiante": [
+      "est088"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est088",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:00.416Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 211,
+  "fields": {
+    "estudiante": [
+      "est088"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est088",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:00.572Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 212,
+  "fields": {
+    "estudiante": [
+      "est089"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est089",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:01.900Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 213,
+  "fields": {
+    "estudiante": [
+      "est089"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est089",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:02.322Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 214,
+  "fields": {
+    "estudiante": [
+      "est090"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est090",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:03.260Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 215,
+  "fields": {
+    "estudiante": [
+      "est090"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est090",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:03.338Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 216,
+  "fields": {
+    "estudiante": [
+      "est091"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est091",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:04.354Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 217,
+  "fields": {
+    "estudiante": [
+      "est091"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est091",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:04.416Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 218,
+  "fields": {
+    "estudiante": [
+      "est092"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est092",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:06.088Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 219,
+  "fields": {
+    "estudiante": [
+      "est092"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est092",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:06.182Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 220,
+  "fields": {
+    "estudiante": [
+      "est093"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est093",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:07.135Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 221,
+  "fields": {
+    "estudiante": [
+      "est093"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est093",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:07.229Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 222,
+  "fields": {
+    "estudiante": [
+      "est094"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est094",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:08.416Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 223,
+  "fields": {
+    "estudiante": [
+      "est094"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est094",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:08.588Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 224,
+  "fields": {
+    "estudiante": [
+      "est095"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est095",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:10.135Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 225,
+  "fields": {
+    "estudiante": [
+      "est095"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est095",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:10.229Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 226,
+  "fields": {
+    "estudiante": [
+      "est096"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 0 de est096",
+    "reverso": "Reverso 0",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:11.213Z"
+  }
+},
+{
+  "model": "core.flashcard",
+  "pk": 227,
+  "fields": {
+    "estudiante": [
+      "est096"
+    ],
+    "idioma": "ES",
+    "tipo": "vocabulario",
+    "frente": "Frente 1 de est096",
+    "reverso": "Reverso 1",
+    "explicacion": "",
+    "ejemplo": "",
+    "ejercicio": "",
+    "respuesta_ejercicio": "",
+    "fuente_id": null,
+    "categoria_gramatical": "sustantivo",
+    "creado_en": "2026-10-20T22:57:11.307Z"
+  }
+},
+{
+  "model": "core.review",
+  "pk": 36,
+  "fields": {
+    "flashcard": 36,
+    "programada_para": "2026-10-23",
+    "completada_en": "2026-10-22T18:30:11.948Z",
+    "calidad_respuesta": 0,
+    "intervalo_dias": 1,
+    "facilidad": 1.7000000000000002,
+    "repeticiones": 0
+  }
+},
+{
+  "model": "core.review",
+  "pk": 37,
+  "fields": {
+    "flashcard": 37,
+    "programada_para": "2026-10-23",
+    "completada_en": "2026-10-22T18:30:13.572Z",
+    "calidad_respuesta": 1,
+    "intervalo_dias": 1,
+    "facilidad": 1.96,
+    "repeticiones": 0
+  }
+},
+{
+  "model": "core.review",
+  "pk": 38,
+  "fields": {
+    "flashcard": 38,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 39,
+  "fields": {
+    "flashcard": 39,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 40,
+  "fields": {
+    "flashcard": 40,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 41,
+  "fields": {
+    "flashcard": 41,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 42,
+  "fields": {
+    "flashcard": 42,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 43,
+  "fields": {
+    "flashcard": 43,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 44,
+  "fields": {
+    "flashcard": 44,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 45,
+  "fields": {
+    "flashcard": 45,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 46,
+  "fields": {
+    "flashcard": 46,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 47,
+  "fields": {
+    "flashcard": 47,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 48,
+  "fields": {
+    "flashcard": 48,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 49,
+  "fields": {
+    "flashcard": 49,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 50,
+  "fields": {
+    "flashcard": 50,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 51,
+  "fields": {
+    "flashcard": 51,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 52,
+  "fields": {
+    "flashcard": 52,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 53,
+  "fields": {
+    "flashcard": 53,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 54,
+  "fields": {
+    "flashcard": 54,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 55,
+  "fields": {
+    "flashcard": 55,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 56,
+  "fields": {
+    "flashcard": 56,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 57,
+  "fields": {
+    "flashcard": 57,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 58,
+  "fields": {
+    "flashcard": 58,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 59,
+  "fields": {
+    "flashcard": 59,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 60,
+  "fields": {
+    "flashcard": 60,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 61,
+  "fields": {
+    "flashcard": 61,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 62,
+  "fields": {
+    "flashcard": 62,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 63,
+  "fields": {
+    "flashcard": 63,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 64,
+  "fields": {
+    "flashcard": 64,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 65,
+  "fields": {
+    "flashcard": 65,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 66,
+  "fields": {
+    "flashcard": 66,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 67,
+  "fields": {
+    "flashcard": 67,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 68,
+  "fields": {
+    "flashcard": 68,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 69,
+  "fields": {
+    "flashcard": 69,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 70,
+  "fields": {
+    "flashcard": 70,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 71,
+  "fields": {
+    "flashcard": 71,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 72,
+  "fields": {
+    "flashcard": 72,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 73,
+  "fields": {
+    "flashcard": 73,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 74,
+  "fields": {
+    "flashcard": 74,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 75,
+  "fields": {
+    "flashcard": 75,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 76,
+  "fields": {
+    "flashcard": 76,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 77,
+  "fields": {
+    "flashcard": 77,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 78,
+  "fields": {
+    "flashcard": 78,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 79,
+  "fields": {
+    "flashcard": 79,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 80,
+  "fields": {
+    "flashcard": 80,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 81,
+  "fields": {
+    "flashcard": 81,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 82,
+  "fields": {
+    "flashcard": 82,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 83,
+  "fields": {
+    "flashcard": 83,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 84,
+  "fields": {
+    "flashcard": 84,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 85,
+  "fields": {
+    "flashcard": 85,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 86,
+  "fields": {
+    "flashcard": 86,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 87,
+  "fields": {
+    "flashcard": 87,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 88,
+  "fields": {
+    "flashcard": 88,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 89,
+  "fields": {
+    "flashcard": 89,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 90,
+  "fields": {
+    "flashcard": 90,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 91,
+  "fields": {
+    "flashcard": 91,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 92,
+  "fields": {
+    "flashcard": 92,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 93,
+  "fields": {
+    "flashcard": 93,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 94,
+  "fields": {
+    "flashcard": 94,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 95,
+  "fields": {
+    "flashcard": 95,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 96,
+  "fields": {
+    "flashcard": 96,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 97,
+  "fields": {
+    "flashcard": 97,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 98,
+  "fields": {
+    "flashcard": 98,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 99,
+  "fields": {
+    "flashcard": 99,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 100,
+  "fields": {
+    "flashcard": 100,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 101,
+  "fields": {
+    "flashcard": 101,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 102,
+  "fields": {
+    "flashcard": 102,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 103,
+  "fields": {
+    "flashcard": 103,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 104,
+  "fields": {
+    "flashcard": 104,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 105,
+  "fields": {
+    "flashcard": 105,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 106,
+  "fields": {
+    "flashcard": 106,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 107,
+  "fields": {
+    "flashcard": 107,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 108,
+  "fields": {
+    "flashcard": 108,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 109,
+  "fields": {
+    "flashcard": 109,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 110,
+  "fields": {
+    "flashcard": 110,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 111,
+  "fields": {
+    "flashcard": 111,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 112,
+  "fields": {
+    "flashcard": 112,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 113,
+  "fields": {
+    "flashcard": 113,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 114,
+  "fields": {
+    "flashcard": 114,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 115,
+  "fields": {
+    "flashcard": 115,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 116,
+  "fields": {
+    "flashcard": 116,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 117,
+  "fields": {
+    "flashcard": 117,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 118,
+  "fields": {
+    "flashcard": 118,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 119,
+  "fields": {
+    "flashcard": 119,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 120,
+  "fields": {
+    "flashcard": 120,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 121,
+  "fields": {
+    "flashcard": 121,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 122,
+  "fields": {
+    "flashcard": 122,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 123,
+  "fields": {
+    "flashcard": 123,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 124,
+  "fields": {
+    "flashcard": 124,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 125,
+  "fields": {
+    "flashcard": 125,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 126,
+  "fields": {
+    "flashcard": 126,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 127,
+  "fields": {
+    "flashcard": 127,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 128,
+  "fields": {
+    "flashcard": 128,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 129,
+  "fields": {
+    "flashcard": 129,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 130,
+  "fields": {
+    "flashcard": 130,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 131,
+  "fields": {
+    "flashcard": 131,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 132,
+  "fields": {
+    "flashcard": 132,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 133,
+  "fields": {
+    "flashcard": 133,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 134,
+  "fields": {
+    "flashcard": 134,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 135,
+  "fields": {
+    "flashcard": 135,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 136,
+  "fields": {
+    "flashcard": 136,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 137,
+  "fields": {
+    "flashcard": 137,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 138,
+  "fields": {
+    "flashcard": 138,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 139,
+  "fields": {
+    "flashcard": 139,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 140,
+  "fields": {
+    "flashcard": 140,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 141,
+  "fields": {
+    "flashcard": 141,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 142,
+  "fields": {
+    "flashcard": 142,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 143,
+  "fields": {
+    "flashcard": 143,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 144,
+  "fields": {
+    "flashcard": 144,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 145,
+  "fields": {
+    "flashcard": 145,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 146,
+  "fields": {
+    "flashcard": 146,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 147,
+  "fields": {
+    "flashcard": 147,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 148,
+  "fields": {
+    "flashcard": 148,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 149,
+  "fields": {
+    "flashcard": 149,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 150,
+  "fields": {
+    "flashcard": 150,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 151,
+  "fields": {
+    "flashcard": 151,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 152,
+  "fields": {
+    "flashcard": 152,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 153,
+  "fields": {
+    "flashcard": 153,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 154,
+  "fields": {
+    "flashcard": 154,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 155,
+  "fields": {
+    "flashcard": 155,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 156,
+  "fields": {
+    "flashcard": 156,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 157,
+  "fields": {
+    "flashcard": 157,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 158,
+  "fields": {
+    "flashcard": 158,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 159,
+  "fields": {
+    "flashcard": 159,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 160,
+  "fields": {
+    "flashcard": 160,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 161,
+  "fields": {
+    "flashcard": 161,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 162,
+  "fields": {
+    "flashcard": 162,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 163,
+  "fields": {
+    "flashcard": 163,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 164,
+  "fields": {
+    "flashcard": 164,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 165,
+  "fields": {
+    "flashcard": 165,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 166,
+  "fields": {
+    "flashcard": 166,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 167,
+  "fields": {
+    "flashcard": 167,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 168,
+  "fields": {
+    "flashcard": 168,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 169,
+  "fields": {
+    "flashcard": 169,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 170,
+  "fields": {
+    "flashcard": 170,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 171,
+  "fields": {
+    "flashcard": 171,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 172,
+  "fields": {
+    "flashcard": 172,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 173,
+  "fields": {
+    "flashcard": 173,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 174,
+  "fields": {
+    "flashcard": 174,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 175,
+  "fields": {
+    "flashcard": 175,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 176,
+  "fields": {
+    "flashcard": 176,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 177,
+  "fields": {
+    "flashcard": 177,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 178,
+  "fields": {
+    "flashcard": 178,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 179,
+  "fields": {
+    "flashcard": 179,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 180,
+  "fields": {
+    "flashcard": 180,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 181,
+  "fields": {
+    "flashcard": 181,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 182,
+  "fields": {
+    "flashcard": 182,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 183,
+  "fields": {
+    "flashcard": 183,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 184,
+  "fields": {
+    "flashcard": 184,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 185,
+  "fields": {
+    "flashcard": 185,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 186,
+  "fields": {
+    "flashcard": 186,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 187,
+  "fields": {
+    "flashcard": 187,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 188,
+  "fields": {
+    "flashcard": 188,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 189,
+  "fields": {
+    "flashcard": 189,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 190,
+  "fields": {
+    "flashcard": 190,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 191,
+  "fields": {
+    "flashcard": 191,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 192,
+  "fields": {
+    "flashcard": 192,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 193,
+  "fields": {
+    "flashcard": 193,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 194,
+  "fields": {
+    "flashcard": 194,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 195,
+  "fields": {
+    "flashcard": 195,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 196,
+  "fields": {
+    "flashcard": 196,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 197,
+  "fields": {
+    "flashcard": 197,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 198,
+  "fields": {
+    "flashcard": 198,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 199,
+  "fields": {
+    "flashcard": 199,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 200,
+  "fields": {
+    "flashcard": 200,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 201,
+  "fields": {
+    "flashcard": 201,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 202,
+  "fields": {
+    "flashcard": 202,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 203,
+  "fields": {
+    "flashcard": 203,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 204,
+  "fields": {
+    "flashcard": 204,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 205,
+  "fields": {
+    "flashcard": 205,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 206,
+  "fields": {
+    "flashcard": 206,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 207,
+  "fields": {
+    "flashcard": 207,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 208,
+  "fields": {
+    "flashcard": 208,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 209,
+  "fields": {
+    "flashcard": 209,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 210,
+  "fields": {
+    "flashcard": 210,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 211,
+  "fields": {
+    "flashcard": 211,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 212,
+  "fields": {
+    "flashcard": 212,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 213,
+  "fields": {
+    "flashcard": 213,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 214,
+  "fields": {
+    "flashcard": 214,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 215,
+  "fields": {
+    "flashcard": 215,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 216,
+  "fields": {
+    "flashcard": 216,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 217,
+  "fields": {
+    "flashcard": 217,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 218,
+  "fields": {
+    "flashcard": 218,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 219,
+  "fields": {
+    "flashcard": 219,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 220,
+  "fields": {
+    "flashcard": 220,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 221,
+  "fields": {
+    "flashcard": 221,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 222,
+  "fields": {
+    "flashcard": 222,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 223,
+  "fields": {
+    "flashcard": 223,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 224,
+  "fields": {
+    "flashcard": 224,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 225,
+  "fields": {
+    "flashcard": 225,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 226,
+  "fields": {
+    "flashcard": 226,
+    "programada_para": "2026-10-21",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 1,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 227,
+  "fields": {
+    "flashcard": 227,
+    "programada_para": "2026-10-22",
+    "completada_en": null,
+    "calidad_respuesta": 4,
+    "intervalo_dias": 2,
+    "facilidad": 2.5,
+    "repeticiones": 1
+  }
+},
+{
+  "model": "core.review",
+  "pk": 228,
+  "fields": {
+    "flashcard": 36,
+    "programada_para": "2026-10-23",
+    "completada_en": null,
+    "calidad_respuesta": null,
+    "intervalo_dias": 1,
+    "facilidad": 1.7000000000000002,
+    "repeticiones": 0
+  }
+},
+{
+  "model": "core.review",
+  "pk": 229,
+  "fields": {
+    "flashcard": 37,
+    "programada_para": "2026-10-23",
+    "completada_en": null,
+    "calidad_respuesta": null,
+    "intervalo_dias": 1,
+    "facilidad": 1.96,
+    "repeticiones": 0
   }
 }
 ]
