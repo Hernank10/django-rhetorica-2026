@@ -22,6 +22,13 @@ if [ "$RUN_SEEDS" = "True" ]; then
   python scripts/seed_b1.py
 fi
 
+
+# Seeds de A2 (solo si RUN_SEED_A2 es "True")
+if [ "$RUN_SEED_A2" = "True" ]; then
+  echo "Ejecutando seed A2..."
+  python scripts/seed_a2.py || true
+fi
+
 # Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
 # IMPORTANTE: --force borra contenido y certificaciones (cascada).
 # Por eso debe correr ANTES de RUN_DEMO_CERTS.

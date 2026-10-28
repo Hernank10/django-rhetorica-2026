@@ -39,6 +39,15 @@ BLOQUES_A1 = {
     "G": "Frases útiles y situaciones",
 }
 
+
+BLOQUES_A2 = {
+    "A": "Pretérito indefinido regular",
+    # B-J se añadirán en fases 2 y 3
+}
+
+
+
+
 BLOQUES_B1 = {
     "A": "Consolidación y pasado",
     "B": "Futuro, condicional y subjuntivo",
@@ -90,6 +99,26 @@ def indice_a1(request):
             bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
     resumen = engine.resumen_progreso(request.user, modulo="a1")
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_a1": True, "es_generativa": False})
+
+
+@login_required
+def indice_a2(request):
+    """Indice de las 100 tecnicas de Lengua Castellana A2."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="a2")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_A2.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user, modulo="a2")
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_a2": True})
 
 
 @login_required
