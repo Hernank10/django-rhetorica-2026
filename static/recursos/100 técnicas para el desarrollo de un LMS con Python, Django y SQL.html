@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno Certificado · 100 técnicas para desarrollar un LMS</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#e8e6e0; --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;font-family:"Public Sans",system-ui,sans-serif;
+    background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),var(--bg);
+    color:var(--ink);-webkit-font-smoothing:antialiased;
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    position:sticky;top:0;z-index:1030;display:flex;align-items:center;
+    justify-content:space-between;gap:1rem;padding:.65rem 1.2rem;
+    background:linear-gradient(180deg,#fdfaf3,#f7f2e8);
+    border-bottom:3px double var(--navy);
+    box-shadow:0 1px 0 var(--bronze-line) inset;
+    flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:.85rem;min-width:0;}
+  .seal{
+    width:48px;height:48px;flex:0 0 auto;border-radius:50%;padding:3px;
+    border:1.5px dashed var(--bronze);display:grid;place-items:center;
+  }
+  .seal-inner{
+    width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);
+    display:grid;place-items:center;
+    background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);
+    color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:13px;
+    position:relative;
+  }
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:5px;color:var(--bronze);}
+  .seal-inner::before{top:4px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:4px;left:50%;transform:translateX(-50%);}
+  .brand h1{
+    font-family:"PT Serif",Georgia,serif;font-size:.92rem;margin:0;font-weight:700;
+    color:var(--navy);line-height:1.15;
+  }
+  .brand small{
+    font-size:.62rem;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;font-weight:700;
+  }
+
+  .acciones{display:flex;gap:.5rem;flex-wrap:wrap;}
+  .btn-doc{
+    font-family:"Public Sans",sans-serif;font-size:.7rem;font-weight:700;
+    letter-spacing:.5px;text-transform:uppercase;padding:.5rem .9rem;
+    border:1px solid var(--navy);background:var(--paper);color:var(--navy);
+    cursor:pointer;border-radius:3px;transition:.16s;
+  }
+  .btn-doc:hover{background:var(--navy-soft);}
+  .btn-doc.primary{background:var(--navy);color:var(--paper);}
+  .btn-doc.primary:hover{background:var(--navy-dark);}
+  .btn-doc.outline{border-color:var(--bronze);color:var(--bronze-dark);}
+  .btn-doc.outline:hover{background:var(--bronze-soft);}
+  .btn-doc:disabled{opacity:.4;cursor:not-allowed;}
+
+  /* ============ LAYOUT ============ */
+  .layout{display:grid;grid-template-columns:280px 1fr;gap:1.4rem;padding:1.4rem;max-width:1300px;margin:0 auto;align-items:start;}
+  @media (max-width:900px){.layout{grid-template-columns:1fr;padding:.8rem;}}
+
+  /* ============ SIDEBAR ============ */
+  .sidebar{
+    position:sticky;top:82px;max-height:calc(100vh - 100px);overflow-y:auto;
+    background:var(--paper);border:1px solid var(--navy);padding:4px;
+    box-shadow:var(--shadow);border-radius:4px;
+  }
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:.85rem;border-radius:3px;}
+  .side-label{
+    font-size:.6rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;
+    color:var(--bronze-dark);padding-bottom:.4rem;margin-bottom:.6rem;
+    border-bottom:1px solid var(--bronze-line);
+  }
+  .side-link{
+    display:flex;gap:.5rem;align-items:flex-start;width:100%;text-align:left;
+    background:none;border:none;padding:.5rem .6rem;cursor:pointer;
+    font-family:inherit;font-size:.76rem;line-height:1.35;color:var(--ink);
+    border-left:3px solid transparent;transition:.16s;border-radius:0 3px 3px 0;
+  }
+  .side-link:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .side-link.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .side-link .range{
+    flex:0 0 auto;font-family:"JetBrains Mono",monospace;font-size:.66rem;
+    color:var(--bronze-dark);background:var(--bronze-soft);padding:.05rem .35rem;
+    border:1px solid var(--bronze-line);font-weight:700;
+  }
+
+  /* ============ DOCUMENTO ============ */
+  .doc{
+    background:var(--paper);border:1px solid var(--navy);padding:6px;
+    box-shadow:var(--shadow);border-radius:4px;
+  }
+  .doc-inner{
+    border:1px solid var(--bronze-line);padding:2.4rem 2.6rem;border-radius:3px;
+    background:radial-gradient(circle at 100% 0%, var(--bronze-soft) 0%, transparent 40%), var(--paper);
+    position:relative;
+  }
+  @media (max-width:640px){.doc-inner{padding:1.4rem 1.1rem;}}
+
+  /* ---------- CERTIFICADO (portada) ---------- */
+  .certificado{
+    text-align:center;padding:2rem 1rem 3rem;position:relative;
+    page-break-after:always;
+  }
+  .certificado::before,
+  .certificado::after{
+    content:"";position:absolute;left:0;right:0;height:3px;
+    border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);
+  }
+  .certificado::before{top:0;}
+  .certificado::after{bottom:0;}
+  .cert-sello{
+    width:110px;height:110px;margin:0 auto 1.4rem;border-radius:50%;padding:5px;
+    border:2px dashed var(--bronze);display:grid;place-items:center;
+    position:relative;
+  }
+  .cert-sello-inner{
+    width:100%;height:100%;border-radius:50%;border:2px solid var(--navy);
+    display:grid;place-items:center;
+    background:radial-gradient(circle, var(--paper) 55%, var(--bronze-soft) 100%);
+    color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;
+    text-align:center;line-height:1.2;
+  }
+  .cert-sello-inner .anio{font-size:2rem;display:block;line-height:1;}
+  .cert-sello-inner .lbl{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--bronze-dark);font-weight:800;}
+  .cert-sello::before,.cert-sello::after{
+    content:"★ ★ ★";position:absolute;left:50%;transform:translateX(-50%);
+    font-size:.55rem;color:var(--bronze);letter-spacing:.3rem;
+  }
+  .cert-sello::before{top:-.6rem;}
+  .cert-sello::after{bottom:-.6rem;}
+
+  .cert-eyebrow{
+    font-size:.7rem;font-weight:800;letter-spacing:2.4px;text-transform:uppercase;
+    color:var(--bronze-dark);margin-bottom:.6rem;
+  }
+  .cert-titulo{
+    font-family:"PT Serif",Georgia,serif;font-size:clamp(1.3rem,3.4vw,2rem);
+    color:var(--navy);line-height:1.15;margin:0 0 1rem;font-weight:700;
+  }
+  .cert-linea{
+    width:60%;margin:1.2rem auto;height:1px;background:var(--bronze-line);
+    position:relative;
+  }
+  .cert-linea::before{content:"◆";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);padding:0 .5rem;color:var(--bronze);font-size:.7rem;}
+
+  .cert-otorgado{
+    font-family:"PT Serif",Georgia,serif;font-style:italic;
+    font-size:.92rem;color:var(--muted);margin:1rem 0 .4rem;
+  }
+  .cert-nombre{
+    font-family:"PT Serif",Georgia,serif;font-size:clamp(1.4rem,3.6vw,2.1rem);
+    font-weight:700;color:var(--navy);line-height:1.15;padding:.4rem .8rem;
+    border-bottom:1px dashed var(--bronze);display:inline-block;min-width:60%;
+    outline:none;transition:.15s;
+  }
+  .cert-nombre:hover,.cert-nombre:focus{background:var(--bronze-soft);}
+  .cert-desc{
+    font-family:"PT Serif",Georgia,serif;font-size:.92rem;line-height:1.7;
+    color:var(--ink);max-width:600px;margin:1.2rem auto 0;
+  }
+  .cert-firmas{
+    display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:560px;
+    margin:2.2rem auto 0;
+  }
+  .cert-firma{
+    border-top:1px solid var(--navy);padding-top:.5rem;text-align:center;
+  }
+  .cert-firma strong{
+    display:block;font-family:"PT Serif",Georgia,serif;font-size:.85rem;color:var(--navy);
+    outline:none;padding:.1rem .3rem;min-width:60%;
+  }
+  .cert-firma small{font-size:.62rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;font-weight:700;}
+  .cert-meta{
+    display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;
+    font-size:.68rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:700;
+    padding-top:1rem;border-top:1px solid var(--bronze-line);
+  }
+  .cert-meta span{outline:none;}
+  .cert-meta span:hover,.cert-meta span:focus{background:var(--bronze-soft);}
+
+  /* ---------- ÍNDICE ---------- */
+  .indice{padding:1rem 0 2rem;page-break-after:always;}
+  .indice h2{
+    font-family:"PT Serif",Georgia,serif;font-size:1.4rem;color:var(--navy);
+    margin:0 0 .4rem;text-align:center;
+  }
+  .indice .sub{
+    text-align:center;font-size:.72rem;color:var(--muted);letter-spacing:1.5px;
+    text-transform:uppercase;font-weight:700;margin-bottom:1.6rem;
+  }
+  .indice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  @media (max-width:640px){.indice-grid{grid-template-columns:1fr;}}
+  .indice-bloque{
+    border:1px solid var(--bronze-line);padding:.9rem 1rem;border-radius:3px;
+    background:var(--paper);border-left:3px solid var(--navy);
+  }
+  .indice-bloque h3{
+    font-family:"PT Serif",Georgia,serif;font-size:.95rem;color:var(--navy);
+    margin:0 0 .3rem;display:flex;gap:.5rem;align-items:baseline;
+  }
+  .indice-bloque h3 .num{
+    font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:700;
+    color:var(--bronze-dark);background:var(--bronze-soft);padding:.1rem .35rem;
+    border:1px solid var(--bronze-line);
+  }
+  .indice-bloque p{font-size:.76rem;color:var(--muted);margin:0;line-height:1.5;}
+
+  /* ---------- BLOQUES Y TÉCNICAS ---------- */
+  .bloque{margin-top:2.4rem;page-break-before:always;}
+  .bloque:first-of-type{page-break-before:avoid;}
+  .bloque-header{
+    padding:.9rem 1rem;background:var(--navy-soft);border-left:4px solid var(--navy);
+    border-radius:3px;margin-bottom:1.2rem;position:relative;
+  }
+  .bloque-header h2{
+    font-family:"PT Serif",Georgia,serif;font-size:1.15rem;color:var(--navy);
+    margin:0 0 .2rem;display:flex;gap:.6rem;align-items:baseline;flex-wrap:wrap;
+  }
+  .bloque-header .rango{
+    font-family:"JetBrains Mono",monospace;font-size:.68rem;font-weight:700;
+    color:var(--bronze-dark);background:var(--bronze-soft);padding:.15rem .45rem;
+    border:1px solid var(--bronze-line);
+  }
+  .bloque-header p{font-size:.78rem;color:var(--muted);margin:0;line-height:1.5;}
+
+  .tecnica{
+    display:grid;grid-template-columns:60px 1fr;gap:1rem;
+    padding:1rem 0;border-bottom:1px solid var(--line);
+    page-break-inside:avoid;
+  }
+  .tecnica:last-child{border-bottom:none;}
+  .tecnica .tecnica-num{
+    font-family:"PT Serif",Georgia,serif;font-size:1.6rem;font-weight:700;
+    color:var(--bronze);line-height:1;letter-spacing:-.5px;text-align:right;
+    padding-top:.15rem;
+  }
+  .tecnica .tecnica-body h3{
+    font-family:"PT Serif",Georgia,serif;font-size:.98rem;font-weight:700;
+    color:var(--navy);margin:0 0 .35rem;line-height:1.3;
+  }
+  .tecnica .tecnica-body p{
+    font-size:.84rem;line-height:1.6;color:var(--ink);margin:0 0 .5rem;
+  }
+  .tecnica .ejemplo{
+    font-family:"JetBrains Mono",monospace;font-size:.72rem;line-height:1.55;
+    background:var(--paper-2);border-left:3px solid var(--bronze);
+    padding:.5rem .75rem;border-radius:0 3px 3px 0;color:var(--navy-dark);
+    overflow-x:auto;white-space:pre-wrap;
+  }
+  @media (max-width:640px){
+    .tecnica{grid-template-columns:40px 1fr;gap:.6rem;}
+    .tecnica .tecnica-num{font-size:1.2rem;}
+  }
+
+  /* ============ TOAST ============ */
+  .app-toast{
+    position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--navy);color:var(--paper);padding:.65rem 1.2rem;
+    font-size:.75rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+    border:1px solid var(--bronze-line);box-shadow:var(--shadow);border-radius:3px;
+    opacity:0;transition:.25s;z-index:2000;
+  }
+  .app-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* ============ PRINT ============ */
+  @media print{
+    @page{size:A4;margin:2cm;}
+    body{background:#fff !important;}
+    .topbar,.sidebar,.app-toast,.no-print{display:none !important;}
+    .layout{display:block;padding:0;gap:0;max-width:none;margin:0;}
+    .doc{border:none;box-shadow:none;padding:0;background:#fff;}
+    .doc-inner{border:none;padding:0;background:#fff;}
+    .bloque{page-break-before:always;margin-top:0;}
+    .bloque:first-of-type{page-break-before:avoid;}
+    .bloque-header{background:#f5f3ed !important;border-left:4px solid #14213d;}
+    .tecnica{page-break-inside:avoid;}
+    .ejemplo{background:#f7f2e8 !important;border-left:3px solid #a67c52 !important;}
+    .certificado{min-height:calc(297mm - 4cm);display:flex;flex-direction:column;justify-content:center;}
+    a{color:inherit;text-decoration:none;}
+  }
+
+  /* ============ RESPONSIVE SIDEBAR ============ */
+  @media (max-width:900px){
+    .sidebar{
+      position:fixed;top:0;left:0;bottom:0;width:290px;max-height:100vh;
+      z-index:1050;padding:4px;transform:translateX(-105%);
+      transition:transform .28s ease;overflow-y:auto;border-radius:0 6px 6px 0;
+    }
+    .sidebar.open{transform:none;}
+    .btn-menu-mobile{display:inline-block !important;}
+  }
+  .btn-menu-mobile{display:none;}
+</style>
+</head>
+<body>
+
+<!-- ================= TOPBAR ================= -->
+<header class="topbar" role="banner">
+  <div class="brand">
+    <div class="seal" aria-hidden="true"><div class="seal-inner">LMS</div></div>
+    <div>
+      <h1>Cuaderno Certificado · 100 técnicas para desarrollar un LMS</h1>
+      <small>Python · Django · SQL · Pedagogía digital · Seguridad</small>
+    </div>
+  </div>
+  <div class="acciones">
+    <button class="btn-doc outline btn-menu-mobile" id="btnMenu" aria-label="Abrir menú">☰</button>
+    <button class="btn-doc primary" id="btnPrint" aria-label="Guardar como PDF">🖨 Guardar como PDF</button>
+    <button class="btn-doc outline" id="btnWord" aria-label="Descargar como Word">📄 Descargar Word</button>
+    <button class="btn-doc" id="btnReset" aria-label="Reiniciar campos">↺ Reiniciar</button>
+  </div>
+</header>
+
+<!-- ================= LAYOUT ================= -->
+<div class="layout">
+  <aside class="sidebar no-print" id="sidebar" aria-label="Navegación del documento">
+    <div class="sidebar-inner">
+      <div class="side-label">Contenido del documento</div>
+      <button class="side-link" data-target="certificado"><span class="range">§</span><span>Portada certificada</span></button>
+      <button class="side-link" data-target="indice"><span class="range">§</span><span>Índice general</span></button>
+      <div id="menuBloques"></div>
+    </div>
+  </aside>
+
+  <main class="doc" id="doc">
+    <div class="doc-inner" id="docInner">
+
+      <!-- ============ CERTIFICADO (portada) ============ -->
+      <section class="certificado" id="certificado" aria-label="Portada certificada">
+        <div class="cert-sello" aria-hidden="true">
+          <div class="cert-sello-inner">
+            <div>
+              <span class="anio">2025</span>
+              <span class="lbl">Certifica</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-eyebrow">República del Conocimiento · Formación Técnica</div>
+        <h1 class="cert-titulo">Certificado de Finalización<br>100 técnicas para desarrollar un LMS</h1>
+        <div class="cert-linea"></div>
+
+        <p class="cert-otorgado">Se otorga el presente certificado a</p>
+        <span class="cert-nombre" contenteditable="true" data-campo="nombre" aria-label="Nombre del estudiante">[Escriba aquí su nombre completo]</span>
+
+        <p class="cert-desc">
+          por haber completado el programa de formación técnica compuesto por <strong>100 técnicas</strong>
+          orientadas al diseño, desarrollo y despliegue de un Sistema de Gestión de Aprendizaje (LMS)
+          construido con <strong>Python, Django, SQL, Bootstrap y JavaScript moderno</strong>, con aplicación
+          pedagógica a la Lengua Castellana, y con énfasis en seguridad, accesibilidad y mantenimiento.
+        </p>
+
+        <div class="cert-firmas">
+          <div class="cert-firma">
+            <strong contenteditable="true" data-campo="docente">[Nombre del docente]</strong>
+            <small>Docente responsable</small>
+          </div>
+          <div class="cert-firma">
+            <strong contenteditable="true" data-campo="institucion">[Nombre de la institución]</strong>
+            <small>Institución emisora</small>
+          </div>
+        </div>
+
+        <div class="cert-meta">
+          <span contenteditable="true" data-campo="ciudad">Ciudad</span>
+          <span contenteditable="true" data-campo="fecha">Fecha de expedición</span>
+          <span>Radicado: <span contenteditable="true" data-campo="radicado">____</span></span>
+        </div>
+      </section>
+
+      <!-- ============ ÍNDICE GENERAL ============ -->
+      <section class="indice" id="indice" aria-label="Índice general">
+        <h2>Índice general</h2>
+        <div class="sub">100 técnicas · 5 bloques temáticos</div>
+        <div class="indice-grid" id="indiceGrid"></div>
+      </section>
+
+      <!-- ============ BLOQUES Y TÉCNICAS ============ -->
+      <div id="contenido"></div>
+
+    </div>
+  </main>
+</div>
+
+<div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATOS · 5 bloques · 100 técnicas
+   ===================================================================== */
+const BLOQUES = [
+{
+  id:"b1", emoji:"🐍", nombre:"Python · Fundamentos y lógica", rango:"1 – 15",
+  desc:"Del condicional al generador: la base del motor del LMS.",
+  tecnicas:[
+    {n:1, t:"if / elif / else para rutas adaptativas", c:"Deciden qué contenido mostrar según el desempeño del estudiante. Base del aprendizaje personalizado.", e:"if nota >= 4.5: ruta='avanzada'\nelif nota >= 3.0: ruta='estándar'\nelse: ruta='refuerzo'"},
+    {n:2, t:"Bucles for / while en lote", c:"Generan ejercicios, mensajes o tareas de forma masiva. El bucle for recorre secuencias; while repite mientras se cumpla una condición.", e:"for i in range(1, 21):\n    print(f'Ejercicio {i}')"},
+    {n:3, t:"Funciones reutilizables para calificar", c:"Encapsulan la lógica de calificación y evitan duplicar código en distintas vistas y apps.", e:"def calificar(r, c):\n    return 1.0 if r == c else 0.0"},
+    {n:4, t:"try / except para validar entradas", c:"Capturan errores en tiempo de ejecución. Si un estudiante envía texto donde se espera un número, el sistema no se cae.", e:"try: nota = float(input())\nexcept ValueError: print('Debes ingresar un número')"},
+    {n:5, t:"Listas y diccionarios para bancos", c:"Las listas ordenan secuencias; los diccionarios guardan pares clave-valor. Juntos modelan un banco de preguntas con opciones y respuestas.", e:"banco = [{'pregunta':'¿Qué es un sustantivo?',\n           'correcta': 0}]"},
+    {n:6, t:"Comprensión de listas para filtrar", c:"Forma compacta de crear listas aplicando una condición. Ideal para filtrar estudiantes por desempeño o tareas pendientes.", e:"aprobados = [e for e in est if e['nota'] >= 3.0]"},
+    {n:7, t:"Regex para errores ortográficos", c:"Las expresiones regulares detectan patrones en texto: tildes faltantes, dobles espacios, mayúsculas mal ubicadas.", e:"import re\nre.sub(r'\\bhabia\\b', 'había', texto)"},
+    {n:8, t:"Strings para análisis gramatical", c:"Los métodos de cadena (split, strip, lower, replace) limpian y dividen el texto. Base del conteo de palabras y la tokenización.", e:"palabras = texto.lower().replace(',', '').split()"},
+    {n:9, t:"Módulos y paquetes", c:"Organizan el código por dominio: usuarios, cursos, tareas, evaluaciones. Los paquetes agrupan módulos relacionados.", e:"lms/\n  usuarios/\n  cursos/\n  evaluaciones/\n  utils.py"},
+    {n:10, t:"POO: clases del dominio", c:"Las clases modelan entidades con atributos y métodos. Estudiante, Curso y Tarea son clases del dominio del LMS.", e:"class Estudiante:\n    def __init__(self, nombre):\n        self.nombre = nombre\n        self.notas = []"},
+    {n:11, t:"Decoradores para permisos", c:"Envuelven funciones para añadir comportamiento: verificar rol, registrar accesos, medir tiempo. En Django protegen vistas.", e:"@solo_profesor\ndef editar_nota(request): ..."},
+    {n:12, t:"Generadores para textos grandes", c:"Producen valores uno a uno, sin cargar todo en memoria. Ideales para procesar miles de ensayos sin saturar el servidor.", e:"def leer_lineas(a):\n    with open(a) as f:\n        for linea in f:\n            yield linea.strip()"},
+    {n:13, t:"datetime para plazos", c:"Calcula fechas de entrega, compara con la fecha actual, genera recordatorios y detecta entregas tardías.", e:"from datetime import datetime, timedelta\nplazo = datetime.now() + timedelta(days=7)"},
+    {n:14, t:"Archivos CSV / TXT para notas", c:"La librería csv importa y exporta calificaciones. Conecta el LMS con Excel o con sistemas institucionales.", e:"import csv\nwith open('notas.csv','w') as f:\n    w = csv.writer(f); w.writerow(['nombre','nota'])"},
+    {n:15, t:"NLP con NLTK / spaCy", c:"Tokenizan, lematizan y analizan morfológicamente texto en español. Base del análisis gramatical automatizado.", e:"import spacy\nnlp = spacy.load('es_core_news_sm')\ndoc = nlp('El niño corre')"}
+  ]
+},
+{
+  id:"b2", emoji:"🧱", nombre:"Django · Arquitectura del LMS", rango:"16 – 40",
+  desc:"Modelos, vistas, plantillas, admin, API y todo el esqueleto del sistema.",
+  tecnicas:[
+    {n:16, t:"Modelos (models.py) para el dominio", c:"Los modelos son clases que representan tablas. Django crea el esquema a partir de ellos: Usuario, Curso, Tarea, Calificación.", e:"class Curso(models.Model):\n    nombre = models.CharField(max_length=100)\n    profesor = models.ForeignKey(User, on_delete=models.CASCADE)"},
+    {n:17, t:"Migraciones", c:"Versionan la base de datos. Cada cambio en los modelos se traduce en una migración reproducible en cualquier servidor.", e:"python manage.py makemigrations\npython manage.py migrate"},
+    {n:18, t:"Autenticación integrada", c:"Django trae auth con login, logout, registro y gestión de contraseñas. Solo hay que activarlo en settings.", e:"from django.contrib.auth import authenticate, login\nuser = authenticate(request, username=u, password=p)\nif user: login(request, user)"},
+    {n:19, t:"Roles y permisos personalizados", c:"Grupos y permisos permiten definir roles: estudiante, profesor, coordinador, administrador. Se verifican con mixins o decoradores.", e:"class EsProfesorMixin(UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.groups.filter(name='Profesor').exists()"},
+    {n:20, t:"Vistas basadas en clases (CBV)", c:"Reutilizan lógica común: ListView, DetailView, CreateView, UpdateView, DeleteView. Ideales para el CRUD del LMS.", e:"class TareaListView(ListView):\n    model = Tarea\n    template_name = 'tareas/lista.html'"},
+    {n:21, t:"Vistas basadas en funciones (FBV)", c:"Para casos simples, son más directas. Reciben request y devuelven response. Se combinan con decoradores para permisos.", e:"@login_required\ndef inicio(request):\n    return render(request, 'inicio.html')"},
+    {n:22, t:"Plantillas y herencia", c:"Las plantillas usan extends y block para reutilizar la estructura. Un base.html contiene header, nav y footer.", e:"{% extends 'base.html' %}\n{% block contenido %}<h1>Cursos</h1>{% endblock %}"},
+    {n:23, t:"Formularios (forms.py)", c:"Generan HTML, validan datos y se conectan con modelos (ModelForm). Vía estándar para la entrega de tareas.", e:"class EntregaForm(forms.ModelForm):\n    class Meta:\n        model = Entrega\n        fields = ['archivo','comentario']"},
+    {n:24, t:"Validación personalizada", c:"Reglas de negocio: extensión mínima, formato de archivo, puntaje dentro de rango. Se define con clean_<campo>.", e:"def clean_archivo(self):\n    a = self.cleaned_data['archivo']\n    if a.size > 5_000_000: raise ValidationError('Máx 5 MB')\n    return a"},
+    {n:25, t:"Django Admin personalizado", c:"El admin es una interfaz de gestión inmediata. Se personaliza con list_display, search_fields, list_filter y acciones masivas.", e:"@admin.register(Tarea)\nclass TareaAdmin(admin.ModelAdmin):\n    list_display = ('titulo','curso','fecha_entrega')"},
+    {n:26, t:"urls.py por app", c:"Cada app tiene su propio urls.py. Las rutas se anidan con include() en el urls.py raíz. Organización a escala.", e:"urlpatterns = [\n    path('cursos/', include('cursos.urls')),\n    path('tareas/', include('tareas.urls')),\n]"},
+    {n:27, t:"Middleware para actividad", c:"Intercepta cada petición. Se usa para registrar actividad, medir tiempos o identificar al usuario. Capa transversal.", e:"class ActividadMiddleware:\n    def __init__(self, get_response): ...\n    def __call__(self, request):\n        return self.get_response(request)"},
+    {n:28, t:"FileField para entregas", c:"FileField e ImageField permiten subir archivos. Con upload_to se define la carpeta de ensayos, trabajos y evidencias.", e:"archivo = models.FileField(upload_to='entregas/%Y/%m/')"},
+    {n:29, t:"Paginación", c:"Divide listados largos en páginas. Mejora el rendimiento y la experiencia. Django trae Paginator listo para usar.", e:"class TareaListView(ListView):\n    model = Tarea\n    paginate_by = 20"},
+    {n:30, t:"Notificaciones internas", c:"Modelo Notificacion con destinatario, mensaje, leído y fecha. Se genera al calificar, comentar o recordar.", e:"class Notificacion(models.Model):\n    usuario = models.ForeignKey(User, on_delete=models.CASCADE)\n    mensaje = models.TextField()\n    leido = models.BooleanField(default=False)"},
+    {n:31, t:"Correos automáticos", c:"send_mail() envía correos desde Django. Se usan para recordatorios de entrega, resultados o recuperación de contraseña.", e:"from django.core.mail import send_mail\nsend_mail('Recordatorio', 'Vence mañana', 'lms@x.co', [alumno.email])"},
+    {n:32, t:"Internacionalización (i18n)", c:"Con gettext se marcan cadenas traducibles; con LocaleMiddleware se cambia el idioma según la sesión o el navegador.", e:"from django.utils.translation import gettext as _\nmensaje = _('Bienvenido al curso')"},
+    {n:33, t:"Comentarios y retroalimentación", c:"Modelo Comentario con autor, entrega, texto y fecha. El docente retroalimenta cada entrega en el hilo del estudiante.", e:"class Comentario(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n    texto = models.TextField()"},
+    {n:34, t:"Control de versiones de entregas", c:"Cada subida crea una nueva versión. Se conservan todas para ver la evolución y evitar pérdida de trabajos.", e:"class VersionEntrega(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    archivo = models.FileField(upload_to='versiones/')\n    numero = models.PositiveIntegerField(default=1)"},
+    {n:35, t:"Certificados en PDF", c:"Con ReportLab o WeasyPrint se generan certificados al finalizar el curso. Django sirve el PDF con FileResponse.", e:"from reportlab.pdfgen import canvas\nc = canvas.Canvas('cert.pdf')\nc.drawString(100, 750, f'Certifica a {user.username}')\nc.save()"},
+    {n:36, t:"Panel de estadísticas", c:"Vistas que agregan datos por estudiante: promedio, tareas entregadas, avance y tiempo. Se combinan ORM y gráficos.", e:"from django.db.models import Avg\npromedio = Calificacion.objects.filter(estudiante=u).aggregate(Avg('nota'))"},
+    {n:37, t:"Foros y mensajería", c:"Modelos Hilo y Mensaje permiten conversación entre estudiante y profesor. Se usa para dudas y tutorías asincrónicas.", e:"class Hilo(models.Model):\n    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)\n    titulo = models.CharField(max_length=200)\n    creado = models.DateTimeField(auto_now_add=True)"},
+    {n:38, t:"Calendario de actividades", c:"Vista de calendario con entregas, exámenes y eventos del curso. Se puede hacer con FullCalendar o HTML+CSS propio.", e:"class Evento(models.Model):\n    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)\n    titulo = models.CharField(max_length=100)\n    inicio = models.DateTimeField()"},
+    {n:39, t:"Django REST Framework (API)", c:"DRF expone el LMS como API para apps móviles o externas. Serializers traducen modelos a JSON; ViewSets manejan el CRUD.", e:"class CursoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Curso\n        fields = ['id','nombre','profesor']"},
+    {n:40, t:"Autenticación por token", c:"DRF permite TokenAuthentication. Cada usuario recibe un token que envía en el header Authorization. Ideal para apps móviles.", e:"REST_FRAMEWORK = {\n  'DEFAULT_AUTHENTICATION_CLASSES': [\n    'rest_framework.authentication.TokenAuthentication'\n  ]\n}"}
+  ]
+},
+{
+  id:"b3", emoji:"🗄", nombre:"SQL · Gestión de datos", rango:"41 – 60",
+  desc:"Esquemas, consultas, triggers, backups y optimización.",
+  tecnicas:[
+    {n:41, t:"Esquemas relacionales normalizados", c:"Un esquema normalizado evita redundancia y anomalías. Cada tabla modela una entidad; las relaciones se expresan con claves foráneas.", e:"-- estudiantes (id, nombre, email)\n-- cursos (id, nombre, profesor_id)\n-- inscripciones (estudiante_id, curso_id)"},
+    {n:42, t:"Claves primarias y foráneas", c:"La PK identifica cada fila. La FK conecta con otra tabla. Juntas garantizan integridad y permiten navegar el modelo relacional.", e:"CREATE TABLE notas (\n  id SERIAL PRIMARY KEY,\n  estudiante_id INT REFERENCES estudiantes(id),\n  valor NUMERIC(3,1)\n);"},
+    {n:43, t:"SELECT con WHERE", c:"WHERE filtra filas. Se combina con operadores (=, >, <, BETWEEN, LIKE, IN). Es la consulta más frecuente del sistema.", e:"SELECT nombre, nota FROM calificaciones\nWHERE nota < 3.0 AND curso_id = 5;"},
+    {n:44, t:"JOIN para combinar tablas", c:"JOIN une filas de dos o más tablas por una columna común. INNER JOIN devuelve coincidencias; LEFT JOIN incluye no coincidentes.", e:"SELECT e.nombre, n.valor\nFROM notas n\nJOIN estudiantes e ON e.id = n.estudiante_id;"},
+    {n:45, t:"GROUP BY para promedios", c:"GROUP BY agrupa filas y permite aplicar agregaciones. Se usa para promedios por curso, por grupo o por período.", e:"SELECT curso_id, AVG(valor) AS promedio\nFROM notas\nGROUP BY curso_id;"},
+    {n:46, t:"Subconsultas para riesgo académico", c:"Una subconsulta dentro de WHERE o FROM permite identificar estudiantes con promedio bajo, sin tareas o con inasistencias.", e:"SELECT nombre FROM estudiantes\nWHERE id IN (\n  SELECT estudiante_id FROM notas\n  GROUP BY estudiante_id HAVING AVG(valor) < 3.0\n);"},
+    {n:47, t:"Índices para optimizar", c:"Un índice acelera las búsquedas en columnas muy consultadas (email, curso_id, fecha). Se crea con CREATE INDEX.", e:"CREATE INDEX idx_notas_estudiante ON notas(estudiante_id);"},
+    {n:48, t:"Vistas (VIEWS)", c:"Una vista guarda una consulta con nombre. Simplifica reportes recurrentes y puede consultarse como una tabla.", e:"CREATE VIEW promedio_por_curso AS\nSELECT curso_id, AVG(valor) AS promedio\nFROM notas GROUP BY curso_id;"},
+    {n:49, t:"Triggers para promedios", c:"Un trigger se ejecuta automáticamente al insertar, actualizar o borrar. Se usa para recalcular el promedio al ingresar una nota.", e:"CREATE TRIGGER actualiza_promedio\nAFTER INSERT ON notas\nFOR EACH ROW EXECUTE FUNCTION recalcular();"},
+    {n:50, t:"Transacciones", c:"Agrupan varias operaciones en una unidad atómica. Si algo falla, se revierte todo con ROLLBACK. Evita datos inconsistentes.", e:"BEGIN;\nUPDATE notas SET valor=4.5 WHERE id=10;\nINSERT INTO auditoria (accion) VALUES ('cambio');\nCOMMIT;"},
+    {n:51, t:"Backup y restauración", c:"Un backup periódico protege contra pérdida de datos. Se programa con pg_dump/automysqlbackup o herramientas del proveedor.", e:"pg_dump -U postgres lms > respaldo_$(date +%F).sql"},
+    {n:52, t:"Agregaciones (COUNT, AVG, MAX, MIN)", c:"Calculan métricas sobre grupos de filas. Son la base de los paneles de desempeño y los reportes institucionales.", e:"SELECT curso_id, COUNT(*) AS n, AVG(valor), MAX(valor)\nFROM notas GROUP BY curso_id;"},
+    {n:53, t:"Normalización 3FN", c:"La tercera forma normal exige que no haya dependencias transitivas: cada atributo no clave debe depender solo de la PK.", e:"-- mal: estudiantes(id, nombre, curso, profesor)\n-- bien: estudiantes(id, nombre)\n--       cursos(id, profesor)"},
+    {n:54, t:"ORM de Django sobre SQL puro", c:"El ORM traduce objetos a SQL. Es más seguro (evita inyección) y portable. Se prefiere salvo reportes muy complejos.", e:"Calificacion.objects.filter(estudiante=u, valor__lt=3.0)"},
+    {n:55, t:"Consultas raw SQL", c:"Cuando el ORM no alcanza, se usa raw() con consultas parametrizadas. Nunca se concatenan cadenas: eso abre la puerta a inyección.", e:"Calificacion.objects.raw(\n  'SELECT * FROM notas WHERE valor < %s', [3.0]\n)"},
+    {n:56, t:"Integridad referencial", c:"Las FK garantizan que no existan notas huérfanas. ON DELETE RESTRICT protege; CASCADE limpia; SET NULL desvincula.", e:"FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)\n  ON DELETE CASCADE"},
+    {n:57, t:"Auditoría de cambios", c:"Una tabla de auditoría registra quién cambió qué y cuándo. Se llena con triggers o con el ORM. Indispensable en un LMS.", e:"CREATE TABLE auditoria (\n  id SERIAL PRIMARY KEY,\n  usuario TEXT, accion TEXT,\n  fecha TIMESTAMP DEFAULT NOW()\n);"},
+    {n:58, t:"Exportación a Excel / CSV", c:"Exportar resultados a CSV o Excel permite compartir con coordinación o entregar a las familias. Se hace desde SQL o Django.", e:"COPY (SELECT * FROM notas WHERE curso_id=5)\n  TO 'notas.csv' WITH CSV HEADER;"},
+    {n:59, t:"Optimización con EXPLAIN", c:"EXPLAIN muestra el plan de ejecución. Permite detectar escaneos completos, joins ineficientes y falta de índices.", e:"EXPLAIN ANALYZE\nSELECT * FROM notas WHERE estudiante_id = 5;"},
+    {n:60, t:"Particionamiento de tablas grandes", c:"Cuando una tabla crece demasiado, se particiona por rango (año, mes). Mejora el rendimiento de consultas y mantenimiento.", e:"CREATE TABLE notas_2024 PARTITION OF notas\nFOR VALUES FROM ('2024-01-01') TO ('2025-01-01');"}
+  ]
+},
+{
+  id:"b4", emoji:"📚", nombre:"Pedagogía digital · Lengua Castellana", rango:"61 – 80",
+  desc:"Corrector, rúbricas, banco de ejercicios, análisis gramatical y más.",
+  tecnicas:[
+    {n:61, t:"Corrector automático de ortografía", c:"Motor que detecta errores frecuentes (tildes, b/v, ll/y) y los marca en la entrega. Se apoya en diccionarios y reglas personalizadas.", e:"for p in palabras:\n    if p not in diccionario: marcar(p)"},
+    {n:62, t:"Analizador de coherencia y cohesión", c:"Analiza si el texto mantiene un tema central y si usa conectores adecuados. Cuenta párrafos, conectores y repeticiones.", e:"conectores = {'porque','sin embargo','además','por lo tanto'}\nn = sum(1 for p in palabras if p in conectores)"},
+    {n:63, t:"Banco dinámico de ejercicios", c:"Genera ejercicios aleatorios desde plantillas y parámetros. Evita copiar y asegura variedad en cada intento.", e:"import random\nverbo = random.choice(['hablar','comer','vivir'])"},
+    {n:64, t:"Retroalimentación automática", c:"El sistema devuelve un comentario según el tipo de error. Es más útil que un simple «incorrecto». Biblioteca de mensajes.", e:"mensajes = {\n  'tilde': 'Revisa la tilde en «habia → había».',\n  'concordancia': 'El verbo debe concordar con el sujeto.'\n}"},
+    {n:65, t:"Detector básico de plagio", c:"Compara la entrega con un corpus usando similitud de cadenas (difflib, cosine similarity).", e:"from difflib import SequenceMatcher\nsim = SequenceMatcher(None, a, b).ratio()\nif sim > 0.8: marcar_posible_plagio()"},
+    {n:66, t:"Rúbricas digitales configurables", c:"El docente define criterios con pesos. El sistema calcula la nota final a partir de las valoraciones por criterio.", e:"class Rubrica(models.Model):\n    tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)\nclass Criterio(models.Model):\n    peso = models.PositiveIntegerField(default=1)"},
+    {n:67, t:"Comprensión lectora con corrección", c:"Módulo con textos y preguntas de niveles literal, inferencial y crítico. Corrección automática con retroalimentación por nivel.", e:"niveles = ['literal', 'inferencial', 'crítico']\nfor p in preguntas:\n    p.nivel = random.choice(niveles)"},
+    {n:68, t:"Generador de cuestionarios de vocabulario", c:"Toma un campo semántico y genera preguntas de sinónimos, antónimos, definiciones y uso en contexto. Aleatoriza distractores.", e:"pregunta = {\n  'enunciado': f'Sinónimo de {palabra}',\n  'opciones': [sinonimo] + distractores\n}"},
+    {n:69, t:"Registro de progreso ortográfico", c:"Cada error se registra por tipo (tildes, b/v, ll/y). Se consulta para ver evolución a lo largo del curso.", e:"class ErrorOrtografico(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    tipo = models.CharField(max_length=30)\n    fecha = models.DateTimeField(auto_now_add=True)"},
+    {n:70, t:"Análisis morfosintáctico interactivo", c:"El estudiante señala categorías y funciones sobre un texto. El sistema valida con spaCy y reglas. Feedback por token.", e:"for token in doc:\n    categoria_correcta = token.pos_\n    if respuesta == categoria_correcta: acertar()"},
+    {n:71, t:"Autoevaluación", c:"El estudiante evalúa su propio desempeño antes de recibir la nota. Se contrasta con la evaluación del docente. Mejora la metacognición.", e:"class Autoevaluacion(models.Model):\n    entrega = models.OneToOneField(Entrega, on_delete=models.CASCADE)\n    nota_estimada = models.FloatField()"},
+    {n:72, t:"Biblioteca digital por niveles", c:"Catálogo de lecturas etiquetadas por nivel, género, extensión y complejidad. El sistema recomienda según el desempeño.", e:"class Lectura(models.Model):\n    titulo = models.CharField(max_length=200)\n    nivel = models.CharField(max_length=20)\n    genero = models.CharField(max_length=50)"},
+    {n:73, t:"Foro de debate literario moderado", c:"Espacio donde los estudiantes comentan una obra. El docente modera; el sistema alerta sobre lenguaje inapropiado.", e:"for p in palabras_prohibidas:\n    if p in comentario.lower(): alertar()"},
+    {n:74, t:"Editor colaborativo", c:"Varios estudiantes trabajan en un documento. Se registran cambios por autor y se permite comentar cada fragmento.", e:"class Cambio(models.Model):\n    documento = models.ForeignKey(Documento, on_delete=models.CASCADE)\n    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n    fragmento = models.TextField()"},
+    {n:75, t:"Etiquetas de errores comunes", c:"Taxonomía de errores: tilde, concordancia, dequeísmo, puntuación. Cada error se etiqueta para agrupar y graficar.", e:"ETIQUETAS = ['tilde','concordancia','dequeismo','puntuacion']"},
+    {n:76, t:"Informe de errores frecuentes por grupo", c:"Agrega errores por curso o grupo. Permite al docente planear refuerzos según lo que más se repite.", e:"from django.db.models import Count\ntop = ErrorOrtografico.objects.values('tipo').annotate(\n  n=Count('id')).order_by('-n')[:5]"},
+    {n:77, t:"Dictados con corrección automática", c:"El sistema reproduce un audio; el estudiante escribe. Se compara con el texto original y se marcan diferencias.", e:"from difflib import ndiff\ndiferencias = list(ndiff(original.split(), escrito.split()))"},
+    {n:78, t:"Línea de tiempo de escritura", c:"Cada entrega se marca en una línea temporal. Se ve la evolución de un estudiante a lo largo del curso.", e:"entregas = Entrega.objects.filter(estudiante=u).order_by('fecha')\nfor e in entregas: print(e.fecha, e.nota)"},
+    {n:79, t:"Comparador de versiones", c:"Muestra el diff entre dos versiones del mismo trabajo. Ayuda a ver la reescritura y el progreso del estudiante.", e:"from difflib import unified_diff\nd = unified_diff(v1.splitlines(), v2.splitlines())"},
+    {n:80, t:"Panel de «palabras difíciles»", c:"Cada estudiante tiene una lista de palabras que le cuestan. El sistema las repite en ejercicios de refuerzo.", e:"class PalabraDificil(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    palabra = models.CharField(max_length=50)\n    errores = models.PositiveIntegerField(default=1)"}
+  ]
+},
+{
+  id:"b5", emoji:"🔒", nombre:"Seguridad, despliegue y mantenimiento", rango:"81 – 100",
+  desc:"Hash, CSRF, HTTPS, pruebas, despliegue, monitoreo y accesibilidad.",
+  tecnicas:[
+    {n:81, t:"Hash de contraseñas", c:"Las contraseñas nunca se guardan en texto plano. Django usa PBKDF2 con sal por usuario y permite migrar el algoritmo sin perder datos.", e:"from django.contrib.auth.hashers import make_password\npwd_hash = make_password('secreta')"},
+    {n:82, t:"Protección CSRF", c:"Django trae CSRF por defecto. Los formularios deben incluir {% csrf_token %}; el middleware valida el token en cada POST.", e:"<form method=\"post\">\n  {% csrf_token %}\n  <input name=\"nota\">\n</form>"},
+    {n:83, t:"Protección contra inyección SQL", c:"Se previene usando el ORM o consultas parametrizadas. Nunca se concatenan cadenas con datos del usuario.", e:"# Correcto\nCalificacion.objects.filter(valor__lt=3.0)\n# Incorrecto\nraw(f\"WHERE valor < {valor}\")"},
+    {n:84, t:"Control de sesiones", c:"Las sesiones expiran por inactividad. Se configura SESSION_COOKIE_AGE y SESSION_EXPIRE_AT_BROWSER_CLOSE.", e:"SESSION_COOKIE_AGE = 60 * 60 * 2  # 2 horas\nSESSION_EXPIRE_AT_BROWSER_CLOSE = True"},
+    {n:85, t:"HTTPS obligatorio", c:"Todo el tráfico debe ir por HTTPS. Se configura SECURE_SSL_REDIRECT y HSTS para forzar el cifrado.", e:"SECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000"},
+    {n:86, t:"Variables de entorno", c:"Las credenciales nunca van en el código. Se cargan con os.environ o django-environ desde .env.", e:"import os\nSECRET_KEY = os.environ['DJANGO_SECRET_KEY']\nDEBUG = os.environ.get('DEBUG','False') == 'True'"},
+    {n:87, t:"Separación de entornos", c:"Desarrollo, pruebas y producción deben tener configuración separada. Un settings.py por entorno.", e:"# settings/base.py, settings/dev.py, settings/prod.py\n# manage.py --settings=settings.prod"},
+    {n:88, t:"Control de versiones con Git", c:"Todo el código en Git. Ramas por funcionalidad, PRs, revisión, merge. Se etiquetan las versiones desplegadas.", e:"git checkout -b feature/rubricas\ngit add .\ngit commit -m \"Añade rúbricas digitales\""},
+    {n:89, t:"Documentación del código", c:"Docstrings y README explican qué hace cada módulo. Es la memoria del proyecto cuando otros lo retomen.", e:"def calcular_promedio(notas):\n    \"\"\"Devuelve el promedio de una lista de notas.\"\"\"\n    return sum(notas) / len(notas)"},
+    {n:90, t:"Pruebas unitarias", c:"Validan funciones aisladas. Con pytest o unittest se asegura que el cálculo de notas y la validación funcionen siempre.", e:"def test_calcular_promedio():\n    assert calcular_promedio([4,5,3]) == 4.0"},
+    {n:91, t:"Pruebas de integración", c:"Simulan flujos completos: crear usuario, entregar tarea, calificar, ver nota. Detectan problemas entre módulos.", e:"def test_flujo(client, usuario):\n    client.force_login(usuario)\n    r = client.post('/tareas/1/entregar', {'archivo': f})\n    assert r.status_code == 302"},
+    {n:92, t:"Despliegue en servidor", c:"El proyecto se despliega en VPS, Heroku, Render, Railway o PythonAnywhere. Cada plataforma tiene su método.", e:"# Ejemplo Heroku\ngit push heroku main\nheroku run python manage.py migrate"},
+    {n:93, t:"Gunicorn (WSGI)", c:"En producción, Django corre detrás de un servidor WSGI como Gunicorn. El servidor de desarrollo no se usa en producción.", e:"gunicorn lms.wsgi:application --bind 0.0.0.0:8000 --workers 3"},
+    {n:94, t:"Nginx como proxy inverso", c:"Nginx recibe las peticiones, sirve archivos estáticos y pasa las dinámicas a Gunicorn. Configuración estándar.", e:"server {\n  listen 80;\n  location / { proxy_pass http://127.0.0.1:8000; }\n  location /static/ { alias /var/www/lms/static/; }\n}"},
+    {n:95, t:"Monitoreo de errores (logs)", c:"En producción se registran errores con LOGGING. Se revisan periódicamente o se envían a Sentry para detección proactiva.", e:"LOGGING = {\n  'handlers': {\n    'file': {'class':'logging.FileHandler','filename':'errores.log'}\n  }\n}"},
+    {n:96, t:"Backups automatizados", c:"Un cron o un servicio del proveedor hace backup diario y lo rota. Se prueban las restauraciones periódicamente.", e:"0 2 * * * pg_dump lms > /backups/lms_$(date +\\%F).sql"},
+    {n:97, t:"Escalabilidad", c:"Preparar el sistema para más usuarios: base de datos con réplicas, caché (Redis), CDN, workers asíncronos (Celery).", e:"CACHES = {\n  'default': {'BACKEND':'django_redis.cache.RedisCache',\n              'LOCATION':'redis://127.0.0.1:6379/1'}\n}"},
+    {n:98, t:"Accesibilidad web (WCAG)", c:"Contraste suficiente, navegación por teclado, texto alternativo, etiquetas en formularios. Todas las personas deben poder usar el LMS.", e:"<img src=\"grafico.png\" alt=\"Gráfico de notas del curso 5.º\">\n<label for=\"nota\">Nota</label>"},
+    {n:99, t:"Diseño responsivo", c:"El LMS debe verse bien en celular, tableta y escritorio. Se logra con CSS moderno: flexbox, grid y media queries.", e:"@media (max-width: 600px) {\n  .menu { flex-direction: column; }\n}"},
+    {n:100, t:"Capacitación continua", c:"Django, Python y las buenas prácticas evolucionan. El docente desarrollador debe actualizarse: releases, blogs, comunidades y cursos.", e:"# Buenas fuentes\n# docs.djangoproject.com\n# realpython.com\n# Comunidad Django Colombia"}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+const STORAGE_KEY = "cuaderno_certificado_lms_v1";
+let campos = {};
+try { campos = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ campos = {}; }
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function escapeHtml(s){
+  return (s||"").toString()
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function renderIndice(){
+  const grid = document.getElementById("indiceGrid");
+  grid.innerHTML = "";
+  BLOQUES.forEach(b => {
+    const d = document.createElement("div");
+    d.className = "indice-bloque";
+    d.innerHTML = `
+      <h3><span class="num">${b.rango}</span>${b.emoji} ${escapeHtml(b.nombre)}</h3>
+      <p>${escapeHtml(b.desc)}</p>
+    `;
+    grid.appendChild(d);
+  });
+}
+
+function renderContenido(){
+  const cont = document.getElementById("contenido");
+  cont.innerHTML = "";
+  BLOQUES.forEach((b, bi) => {
+    const sec = document.createElement("section");
+    sec.className = "bloque";
+    sec.id = b.id;
+    sec.innerHTML = `
+      <header class="bloque-header">
+        <h2>${b.emoji} Bloque ${bi+1}. ${escapeHtml(b.nombre)} <span class="rango">${b.rango}</span></h2>
+        <p>${escapeHtml(b.desc)}</p>
+      </header>
+    `;
+    b.tecnicas.forEach(t => {
+      const art = document.createElement("article");
+      art.className = "tecnica";
+      art.id = "tecnica-" + t.n;
+      art.innerHTML = `
+        <div class="tecnica-num" aria-hidden="true">${t.n}</div>
+        <div class="tecnica-body">
+          <h3>${escapeHtml(t.t)}</h3>
+          <p>${escapeHtml(t.c)}</p>
+          <div class="ejemplo">${escapeHtml(t.e)}</div>
+        </div>
+      `;
+      sec.appendChild(art);
+    });
+    cont.appendChild(sec);
+  });
+}
+
+function renderMenuBloques(){
+  const menu = document.getElementById("menuBloques");
+  menu.innerHTML = "";
+  BLOQUES.forEach((b, i) => {
+    const btn = document.createElement("button");
+    btn.className = "side-link";
+    btn.innerHTML = `<span class="range">${b.rango}</span><span>${escapeHtml(b.nombre)}</span>`;
+    btn.addEventListener("click", () => {
+      document.getElementById(b.id).scrollIntoView({behavior:"smooth", block:"start"});
+      document.querySelectorAll(".side-link").forEach(x => x.classList.remove("active"));
+      btn.classList.add("active");
+      cerrarSidebar();
+    });
+    menu.appendChild(btn);
+  });
+  // Enlaces a certificado e índice
+  document.querySelectorAll(".side-link[data-target]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.getElementById(btn.dataset.target).scrollIntoView({behavior:"smooth", block:"start"});
+      document.querySelectorAll(".side-link").forEach(x => x.classList.remove("active"));
+      btn.classList.add("active");
+      cerrarSidebar();
+    });
+  });
+}
+
+/* =====================================================================
+   CAMPOS EDITABLES + AUTOGUARDADO
+   ===================================================================== */
+function initCampos(){
+  document.querySelectorAll("[data-campo]").forEach(el => {
+    const k = el.dataset.campo;
+    if(campos[k]) el.textContent = campos[k];
+    el.addEventListener("input", () => {
+      campos[k] = el.textContent.trim();
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(campos)); } catch(e){}
+      mostrarToast("✓ Guardado");
+    });
+    el.addEventListener("blur", () => {
+      if(!el.textContent.trim()){
+        el.textContent = el.dataset.placeholder || "";
+      }
+    });
+  });
+}
+
+/* =====================================================================
+   IMPRIMIR (PDF)
+   ===================================================================== */
+document.getElementById("btnPrint").addEventListener("click", () => {
+  mostrarToast("Preparando documento…");
+  setTimeout(() => window.print(), 300);
+});
+
+/* =====================================================================
+   DESCARGAR WORD
+   ===================================================================== */
+function generarHtmlWord(){
+  const nombre = campos.nombre || "[Escriba su nombre]";
+  const docente = campos.docente || "[Docente]";
+  const institucion = campos.institucion || "[Institución]";
+  const ciudad = campos.ciudad || "Ciudad";
+  const fecha = campos.fecha || "Fecha";
+  const radicado = campos.radicado || "____";
+
+  let html = `
+<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<title>Cuaderno Certificado · 100 técnicas para desarrollar un LMS</title>
+<style>
+  @page { size:A4; margin:2cm; }
+  body{ font-family:"Georgia","PT Serif",serif; color:#14213d; line-height:1.5; }
+  h1{ font-family:"Georgia",serif; font-size:22pt; color:#14213d; text-align:center; margin:0 0 6pt; }
+  h2{ font-family:"Georgia",serif; font-size:14pt; color:#14213d; margin:20pt 0 8pt; border-bottom:1pt solid #14213d; padding-bottom:4pt; }
+  h3{ font-family:"Georgia",serif; font-size:11pt; color:#14213d; margin:12pt 0 4pt; }
+  p{ font-family:"Georgia",serif; font-size:10.5pt; margin:0 0 6pt; line-height:1.5; }
+  .cert{ text-align:center; padding:40pt 20pt; }
+  .cert-eyebrow{ font-size:9pt; letter-spacing:3pt; text-transform:uppercase; color:#7c5c39; font-weight:bold; }
+  .cert-titulo{ font-family:"Georgia",serif; font-size:20pt; color:#14213d; margin:12pt 0; line-height:1.2; }
+  .cert-nombre{ font-family:"Georgia",serif; font-size:22pt; color:#14213d; font-weight:bold; margin:18pt 0; border-bottom:1pt dashed #a67c52; display:inline-block; padding:0 40pt 4pt; }
+  .cert-desc{ font-family:"Georgia",serif; font-size:11pt; line-height:1.7; color:#14213d; max-width:480pt; margin:20pt auto; }
+  .cert-firmas{ width:100%; margin-top:50pt; }
+  .cert-firma{ display:inline-block; width:45%; text-align:center; vertical-align:top; padding-top:6pt; border-top:1pt solid #14213d; margin:0 2%; }
+  .cert-firma small{ font-size:8pt; color:#6b6355; letter-spacing:1pt; text-transform:uppercase; font-weight:bold; }
+  .cert-meta{ margin-top:30pt; font-size:8.5pt; color:#6b6355; letter-spacing:1pt; text-transform:uppercase; font-weight:bold; }
+  .indice-bloque{ border-left:3pt solid #14213d; padding-left:8pt; margin-bottom:10pt; }
+  .indice-bloque h3{ margin:0 0 3pt; }
+  .indice-bloque p{ font-size:10pt; color:#6b6355; margin:0; }
+  .bloque{ page-break-before:always; }
+  .tecnica{ padding:8pt 0; border-bottom:1pt solid #d8d2c3; page-break-inside:avoid; }
+  .tecnica-num{ display:inline-block; font-family:"Georgia",serif; font-size:14pt; font-weight:bold; color:#a67c52; margin-right:6pt; vertical-align:top; }
+  .tecnica-body{ display:inline-block; width:88%; vertical-align:top; }
+  .tecnica-body h3{ margin:0 0 3pt; }
+  .tecnica-body p{ font-size:10pt; margin:0 0 4pt; }
+  .ejemplo{ font-family:"Consolas","Courier New",monospace; font-size:9pt; background:#f7f2e8; border-left:3pt solid #a67c52; padding:6pt 10pt; margin:0; white-space:pre-wrap; color:#0a1528; }
+</style>
+</head>
+<body>
+
+<div class="cert">
+  <div class="cert-eyebrow">República del Conocimiento · Formación Técnica</div>
+  <h1 class="cert-titulo">Certificado de Finalización<br>100 técnicas para desarrollar un LMS</h1>
+  <p class="cert-desc">Se otorga el presente certificado a</p>
+  <div class="cert-nombre">${escapeHtml(nombre)}</div>
+  <p class="cert-desc">
+    por haber completado el programa de formación técnica compuesto por <b>100 técnicas</b>
+    orientadas al diseño, desarrollo y despliegue de un Sistema de Gestión de Aprendizaje (LMS)
+    construido con <b>Python, Django, SQL, Bootstrap y JavaScript moderno</b>, con aplicación
+    pedagógica a la Lengua Castellana, y con énfasis en seguridad, accesibilidad y mantenimiento.
+  </p>
+  <div class="cert-firmas">
+    <div class="cert-firma"><b>${escapeHtml(docente)}</b><br><small>Docente responsable</small></div>
+    <div class="cert-firma"><b>${escapeHtml(institucion)}</b><br><small>Institución emisora</small></div>
+  </div>
+  <div class="cert-meta">${escapeHtml(ciudad)} · ${escapeHtml(fecha)} · Radicado ${escapeHtml(radicado)}</div>
+</div>
+
+<div style="page-break-before:always;"></div>
+
+<h2>Índice general</h2>
+<p style="text-align:center; font-size:9pt; letter-spacing:2pt; text-transform:uppercase; color:#6b6355; font-weight:bold;">100 técnicas · 5 bloques temáticos</p>
+`;
+
+  BLOQUES.forEach(b => {
+    html += `
+<div class="indice-bloque">
+  <h3>${b.emoji} ${b.rango} — ${escapeHtml(b.nombre)}</h3>
+  <p>${escapeHtml(b.desc)}</p>
+</div>
+`;
+  });
+
+  BLOQUES.forEach((b, bi) => {
+    html += `
+<div class="bloque">
+  <h2>Bloque ${bi+1}. ${b.emoji} ${escapeHtml(b.nombre)} (${b.rango})</h2>
+  <p style="font-style:italic; color:#6b6355;">${escapeHtml(b.desc)}</p>
+`;
+    b.tecnicas.forEach(t => {
+      html += `
+<div class="tecnica">
+  <span class="tecnica-num">${t.n}.</span>
+  <div class="tecnica-body">
+    <h3>${escapeHtml(t.t)}</h3>
+    <p>${escapeHtml(t.c)}</p>
+    <div class="ejemplo">${escapeHtml(t.e)}</div>
+  </div>
+</div>
+`;
+    });
+    html += `</div>`;
+  });
+
+  html += `
+<hr>
+<p style="text-align:center; font-size:9pt; color:#6b6355; letter-spacing:1pt; text-transform:uppercase;">
+Fin del documento · 100 técnicas · Cuaderno certificado
+</p>
+</body>
+</html>`;
+  return html;
+}
+
+document.getElementById("btnWord").addEventListener("click", () => {
+  try {
+    const html = generarHtmlWord();
+    // BOM + MIME de Word
+    const blob = new Blob(['\ufeff', html], { type:"application/msword" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "cuaderno_certificado_LMS.doc";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    mostrarToast("✓ Documento Word descargado");
+  } catch(e){
+    mostrarToast("No se pudo generar el Word");
+    console.error(e);
+  }
+});
+
+/* =====================================================================
+   RESET
+   ===================================================================== */
+document.getElementById("btnReset").addEventListener("click", () => {
+  if(!confirm("¿Reiniciar los campos del certificado? Se borrarán nombre, docente, institución, fecha y radicado.")) return;
+  campos = {};
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e){}
+  document.querySelectorAll("[data-campo]").forEach(el => {
+    const k = el.dataset.campo;
+    if(k === "nombre") el.textContent = "[Escriba aquí su nombre completo]";
+    else if(k === "docente") el.textContent = "[Nombre del docente]";
+    else if(k === "institucion") el.textContent = "[Nombre de la institución]";
+    else if(k === "ciudad") el.textContent = "Ciudad";
+    else if(k === "fecha") el.textContent = "Fecha de expedición";
+    else if(k === "radicado") el.textContent = "____";
+  });
+  mostrarToast("✓ Campos reiniciados");
+});
+
+/* =====================================================================
+   SIDEBAR MÓVIL
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+document.getElementById("btnMenu").addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
+function cerrarSidebar(){ sidebar.classList.remove("open"); }
+document.addEventListener("click", e => {
+  if(window.innerWidth <= 900 && sidebar.classList.contains("open") &&
+     !sidebar.contains(e.target) && e.target.id !== "btnMenu"){
+    sidebar.classList.remove("open");
+  }
+});
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+let toastTimer = null;
+function mostrarToast(msg){
+  const t = document.getElementById("appToast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+renderIndice();
+renderContenido();
+renderMenuBloques();
+initCampos();
+
+// Placeholders de los campos editables
+document.querySelectorAll("[data-campo]").forEach(el => {
+  el.dataset.placeholder = el.textContent;
+});
+</script>
+</body>
+</html>

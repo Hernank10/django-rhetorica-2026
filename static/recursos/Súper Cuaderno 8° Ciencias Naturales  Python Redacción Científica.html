@@ -1,0 +1,2199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Súper Cuaderno 8° · Ciencias Naturales + Python + Redacción Científica</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --cielo:#0ea5e9; --hoja:#16a34a;
+  --oceano:#0369a1; --tierra:#92400e; --atm:#7c3aed; --biologia:#059669; --quimica:#c2410c;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+/* Barra superior */
+.topbar{background:linear-gradient(135deg,var(--biologia),var(--quimica));color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid #fff;color:#fff;text-align:center;line-height:32px;font-size:0.62rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.85);padding:0.35rem 0.75rem;border-radius:30px;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.nav-tabs-app button.active{background:#fff;border-color:#fff;color:var(--biologia);}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:0.35rem 0.7rem;border-radius:8px;font-size:0.72rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.3);}
+.user-badge{background:rgba(255,255,255,0.2);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.72rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.4rem;}
+.user-badge:hover{background:rgba(255,255,255,0.35);}
+.user-avatar{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--biologia);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;}
+.connection-pill{font-size:0.66rem;padding:0.2rem 0.6rem;border-radius:20px;background:#22c55e;color:#fff;font-weight:600;}
+.connection-pill.offline{background:#e74c3c;}
+
+/* Login/Registro */
+.auth-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--biologia),var(--quimica));display:none;align-items:center;justify-content:center;z-index:3000;padding:1rem;overflow-y:auto;}
+.auth-overlay.show{display:flex;}
+.auth-card{background:#fff;border-radius:20px;padding:2rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.auth-card h2{color:var(--biologia);margin-bottom:0.3rem;text-align:center;font-size:1.5rem;}
+.auth-card p.subtitle{color:#666;font-size:0.85rem;text-align:center;margin-bottom:1.5rem;}
+.auth-tabs{display:flex;gap:0.3rem;margin-bottom:1.5rem;background:#f0f0f0;border-radius:12px;padding:0.3rem;}
+.auth-tabs button{flex:1;background:transparent;border:none;padding:0.6rem;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;color:#666;transition:all 0.3s;}
+.auth-tabs button.active{background:#fff;color:var(--biologia);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.auth-form label{display:block;font-size:0.78rem;font-weight:600;color:#333;margin-bottom:0.3rem;margin-top:0.8rem;}
+.auth-form input, .auth-form select{width:100%;padding:0.7rem;border:2px solid #e5e5e5;border-radius:10px;font-size:0.85rem;font-family:'Public Sans',sans-serif;transition:border-color 0.3s;}
+.auth-form input:focus, .auth-form select:focus{outline:none;border-color:var(--biologia);}
+.auth-form button.primary{width:100%;margin-top:1.2rem;padding:0.8rem;background:var(--biologia);color:#fff;border:none;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.3s;}
+.auth-form button.primary:hover{background:var(--quimica);}
+.auth-error{background:#fee;color:#c0392b;padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-error.show{display:block;}
+.auth-success{background:#e6f7ed;color:var(--biologia);padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-success.show{display:block;}
+.auth-hint{font-size:0.72rem;color:#888;text-align:center;margin-top:1rem;line-height:1.5;}
+.users-list{max-height:180px;overflow-y:auto;margin-bottom:1rem;}
+.user-item{display:flex;align-items:center;gap:0.8rem;padding:0.7rem;border-radius:12px;cursor:pointer;transition:background 0.2s;border:2px solid transparent;}
+.user-item:hover{background:#f5f5f5;border-color:var(--biologia);}
+.user-item .avatar{width:40px;height:40px;border-radius:50%;background:var(--biologia);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;}
+.user-item .info{flex:1;}
+.user-item .info strong{display:block;font-size:0.85rem;color:#222;}
+.user-item .info span{font-size:0.72rem;color:#888;}
+.user-item .btn-delete{background:transparent;border:none;color:#c0392b;cursor:pointer;font-size:1rem;padding:0.3rem;}
+.user-item .btn-delete:hover{background:#fee;border-radius:6px;}
+
+/* Menú de usuario */
+.user-menu{position:absolute;top:100%;right:0;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.15);padding:0.5rem;min-width:200px;z-index:1500;display:none;}
+.user-menu.show{display:block;}
+.user-menu button{width:100%;text-align:left;background:transparent;border:none;padding:0.6rem 0.8rem;border-radius:8px;font-size:0.8rem;cursor:pointer;color:#333;display:flex;align-items:center;gap:0.5rem;}
+.user-menu button:hover{background:#f0f8f4;color:var(--biologia);}
+.user-menu hr{border:none;border-top:1px solid #eee;margin:0.3rem 0;}
+
+/* Layout principal */
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--biologia);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--biologia);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:#34d399;}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:160px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--biologia),var(--quimica));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--biologia);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--biologia);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:180px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:180px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--biologia),var(--quimica));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--quimica),#7c2d12);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.8;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--biologia);background:rgba(5,150,105,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--biologia);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--biologia);color:#fff;border-color:var(--biologia);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--biologia),var(--quimica));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--biologia);border-color:var(--biologia);color:#fff;}
+.punto.actual{border-color:var(--quimica);box-shadow:0 0 0 3px rgba(194,65,12,0.25);}
+
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--biologia);}
+.btn-accion{background:var(--biologia);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--quimica);}
+.btn-accion.secundario{background:var(--quimica);}
+.btn-accion.secundario:hover{background:var(--biologia);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+.certificado-portada{background:var(--bg-card);border:3px double var(--biologia);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--biologia);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--biologia);}
+.campo-editable{border-bottom:1px dashed var(--biologia);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(5,150,105,0.1);}
+.campo-editable:focus{outline:2px solid var(--biologia);background:rgba(5,150,105,0.05);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--biologia);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--biologia);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--biologia);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--biologia);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:#fff;border:none;color:var(--biologia);padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;font-weight:600;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.7);}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--biologia);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print,.auth-overlay{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ AUTH OVERLAY (LOGIN / REGISTRO) ============ -->
+<div class="auth-overlay show" id="authOverlay">
+  <div class="auth-card">
+    <h2>🔬 Súper Cuaderno 8° Ciencias</h2>
+    <p class="subtitle">Python + Textos Científicos + Comprensión Crítica + Redacción Científica + Sintaxis</p>
+
+    <div class="auth-tabs">
+      <button data-tab="login" class="active">Iniciar sesión</button>
+      <button data-tab="register">Crear cuenta</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="auth-panel" id="authPanelLogin">
+      <div id="usersListView">
+        <p style="font-size:0.8rem;color:#666;margin-bottom:0.8rem;">Selecciona tu perfil:</p>
+        <div class="users-list" id="usersList"></div>
+        <p class="auth-hint" id="noUsersHint" style="display:none;">No hay usuarios registrados. Crea una cuenta nueva.</p>
+      </div>
+      <div id="passwordView" style="display:none;">
+        <label>Contraseña de <span id="loginUserName" style="color:var(--biologia);"></span></label>
+        <input type="password" id="loginPassword" placeholder="Ingresa tu contraseña">
+        <div class="auth-error" id="loginError">Contraseña incorrecta.</div>
+        <button class="primary" id="btnDoLogin">Entrar</button>
+        <button class="primary" id="btnBackToUsers" style="background:#888;margin-top:0.5rem;">← Volver a la lista</button>
+      </div>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="auth-panel" id="authPanelRegister" style="display:none;">
+      <form class="auth-form" id="registerForm" onsubmit="return false;">
+        <label>Nombre completo</label>
+        <input type="text" id="regNombre" placeholder="Ej: María González" required>
+        <label>Curso</label>
+        <select id="regCurso">
+          <option value="8°A">8° A</option>
+          <option value="8°B">8° B</option>
+          <option value="8°C">8° C</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <label>Institución</label>
+        <input type="text" id="regInstitucion" placeholder="Ej: Colegio Nacional" required>
+        <label>Contraseña (mínimo 4 caracteres)</label>
+        <input type="password" id="regPassword" placeholder="••••••" required>
+        <label>Confirmar contraseña</label>
+        <input type="password" id="regPassword2" placeholder="••••••" required>
+        <div class="auth-error" id="regError"></div>
+        <div class="auth-success" id="regSuccess">¡Cuenta creada! Iniciando sesión...</div>
+        <button class="primary" id="btnDoRegister">Crear cuenta</button>
+      </form>
+      <p class="auth-hint">Tus datos se guardan solo en este dispositivo (localStorage). No se envía nada a internet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="sello">8°🔬</span>
+    <span>Súper Cuaderno · Ciencias Naturales</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="python">🐍 Python · 100</button>
+    <button data-mode="textos">🧪 Textos · 100</button>
+    <button data-mode="lectura">🔬 Comprensión · 100</button>
+    <button data-mode="redaccion">✍️ Redacción · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <span class="connection-pill" id="connectionPill">● En línea</span>
+    <div style="position:relative;">
+      <div class="user-badge" id="userBadge" title="Menú de usuario">
+        <span class="user-avatar" id="userAvatar">?</span>
+        <span id="userName">—</span>
+      </div>
+      <div class="user-menu" id="userMenu">
+        <button id="menuPerfil">👤 Ver mi perfil</button>
+        <button id="menuCambiar">🔄 Cambiar de usuario</button>
+        <hr>
+        <button id="menuExportar">📤 Exportar mi progreso</button>
+        <button id="menuEliminar" style="color:#c0392b;">🗑 Eliminar mi cuenta</button>
+      </div>
+    </div>
+    <button id="btnInstalar">⬇ Instalar</button>
+    <button id="btnTema">🌙</button>
+    <button id="btnReiniciar">↺</button>
+  </div>
+</header>
+
+<main class="app-container">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 8° Ciencias Naturales</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">500 técnicas · Continuación progresiva de Ciencias 6° y 7°</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🐍 Python para ciencias</h4><div id="barrasPython"></div></div>
+    <div class="chart-card"><h4>🧪 Textos científicos</h4><div id="barrasTextos"></div></div>
+    <div class="chart-card"><h4>🔬 Comprensión científica</h4><div id="barrasLectura"></div></div>
+    <div class="chart-card"><h4>✍️ Redacción científica</h4><div id="barrasRedaccion"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis castellana</h4><div id="barrasSintaxis"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--biologia)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--biologia)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado (500 técnicas)</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--biologia)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python para ciencias naturales · 100 técnicas (8°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-textos">
+  <h1 style="margin-bottom:1rem;">🧪 Textos científicos · 100 técnicas (8°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Expositivo · Descriptivo · Instructivo · Argumentativo científico</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progTxtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progTxtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesTxt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaTxt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-lectura">
+  <h1 style="margin-bottom:1rem;">🔬 Comprensión científica crítica · 100 técnicas (8°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLecText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLecFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLec"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLec"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-redaccion">
+  <h1 style="margin-bottom:1rem;">✍️ Redacción científica · 100 técnicas (8°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Proceso · Informe · Artículo · Estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progRedText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progRedFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesRed"></div></aside>
+    <div class="tecnica-panel" id="tecnicaRed"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis castellana · 100 técnicas (8°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Morfología · Oración simple · Oración compuesta · Normativa y estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller integrado · 26 herramientas (8° Ciencias)</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado de Finalización</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Súper Cuaderno 8° Grado · Ciencias Naturales · Python + Textos Científicos + Comprensión Crítica + Redacción Científica + Sintaxis Castellana
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 500 técnicas del programa de Ciencias Naturales de 8° grado, continuando el progreso iniciado en 6° y 7°</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Institución: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Área: <span class="campo-editable" contenteditable="true" data-campo="area">Ciencias Naturales</span></div>
+      <div>Curso: <span class="campo-editable" contenteditable="true" data-campo="curso">8° ____</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   SISTEMA DE USUARIOS (REGISTRO / LOGIN / PERFILES MÚLTIPLES)
+   ===================================================================== */
+const CLAVE_USUARIOS = 'ciencias8_usuarios';
+const CLAVE_SESION = 'ciencias8_sesion';
+
+let currentUser = null; // { id, nombre, curso, institucion, passHash }
+
+function hashPass(pass){
+  // Hash simple (NO usar en producción real; solo demo)
+  let h = 0;
+  const salt = 'ciencias8_2025';
+  const str = salt + pass;
+  for(let i=0;i<str.length;i++){
+    h = ((h<<5)-h) + str.charCodeAt(i);
+    h = h & h;
+  }
+  return 'h' + Math.abs(h).toString(36);
+}
+
+function getUsuarios(){
+  try { return JSON.parse(localStorage.getItem(CLAVE_USUARIOS)) || []; }
+  catch { return []; }
+}
+
+function saveUsuarios(users){
+  localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(users));
+}
+
+function getSesion(){
+  return localStorage.getItem(CLAVE_SESION);
+}
+
+function setSesion(id){
+  if(id) localStorage.setItem(CLAVE_SESION, id);
+  else localStorage.removeItem(CLAVE_SESION);
+}
+
+function getClaveArea(area){
+  return `ciencias8_${currentUser.id}_${area}_prog`;
+}
+
+function getClaveNotas(area){
+  return `ciencias8_${currentUser.id}_${area}_notas`;
+}
+
+function getClaveCampos(){
+  return `ciencias8_${currentUser.id}_campos`;
+}
+
+/* =====================================================================
+   RENDER DE LA PANTALLA DE AUTENTICACIÓN
+   ===================================================================== */
+function renderAuth(){
+  const users = getUsuarios();
+  const listView = document.getElementById('usersList');
+  const noUsers = document.getElementById('noUsersHint');
+  if(users.length === 0){
+    listView.innerHTML = '';
+    noUsers.style.display = 'block';
+  } else {
+    noUsers.style.display = 'none';
+    listView.innerHTML = users.map(u => `
+      <div class="user-item" data-id="${u.id}">
+        <div class="avatar">${u.nombre.charAt(0).toUpperCase()}</div>
+        <div class="info">
+          <strong>${u.nombre}</strong>
+          <span>${u.curso} · ${u.institucion}</span>
+        </div>
+        <button class="btn-delete" data-delete="${u.id}" title="Eliminar perfil">🗑</button>
+      </div>
+    `).join('');
+    listView.querySelectorAll('.user-item').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if(e.target.dataset.delete) return;
+        const id = el.dataset.id;
+        const u = users.find(x=>x.id===id);
+        document.getElementById('loginUserName').textContent = u.nombre;
+        document.getElementById('usersListView').style.display = 'none';
+        document.getElementById('passwordView').style.display = 'block';
+        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginPassword').dataset.userId = id;
+        document.getElementById('loginPassword').focus();
+        document.getElementById('loginError').classList.remove('show');
+      });
+    });
+    listView.querySelectorAll('[data-delete]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.delete;
+        if(!confirm('¿Eliminar este perfil y todo su progreso?')) return;
+        const remaining = getUsuarios().filter(x=>x.id!==id);
+        saveUsuarios(remaining);
+        renderAuth();
+      });
+    });
+  }
+}
+
+/* Login: verificar contraseña */
+document.getElementById('btnDoLogin').addEventListener('click', () => {
+  const input = document.getElementById('loginPassword');
+  const id = input.dataset.userId;
+  const pass = input.value;
+  const u = getUsuarios().find(x=>x.id===id);
+  if(!u){ document.getElementById('loginError').textContent = 'Usuario no encontrado.'; document.getElementById('loginError').classList.add('show'); return; }
+  if(u.passHash !== hashPass(pass)){
+    document.getElementById('loginError').textContent = 'Contraseña incorrecta.';
+    document.getElementById('loginError').classList.add('show');
+    return;
+  }
+  // Sesión iniciada
+  setSesion(id);
+  currentUser = u;
+  iniciarApp();
+});
+
+document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+  if(e.key==='Enter') document.getElementById('btnDoLogin').click();
+});
+
+document.getElementById('btnBackToUsers').addEventListener('click', () => {
+  document.getElementById('passwordView').style.display = 'none';
+  document.getElementById('usersListView').style.display = 'block';
+});
+
+/* Registrar usuario */
+document.getElementById('btnDoRegister').addEventListener('click', () => {
+  const nombre = document.getElementById('regNombre').value.trim();
+  const curso = document.getElementById('regCurso').value;
+  const institucion = document.getElementById('regInstitucion').value.trim();
+  const pass = document.getElementById('regPassword').value;
+  const pass2 = document.getElementById('regPassword2').value;
+  const errEl = document.getElementById('regError');
+  const okEl = document.getElementById('regSuccess');
+  errEl.classList.remove('show');
+  okEl.classList.remove('show');
+
+  if(!nombre){ errEl.textContent='Escribe tu nombre.'; errEl.classList.add('show'); return; }
+  if(!institucion){ errEl.textContent='Escribe tu institución.'; errEl.classList.add('show'); return; }
+  if(pass.length < 4){ errEl.textContent='La contraseña debe tener al menos 4 caracteres.'; errEl.classList.add('show'); return; }
+  if(pass !== pass2){ errEl.textContent='Las contraseñas no coinciden.'; errEl.classList.add('show'); return; }
+
+  const users = getUsuarios();
+  if(users.some(u => u.nombre.toLowerCase() === nombre.toLowerCase())){
+    errEl.textContent='Ya existe un usuario con ese nombre.';
+    errEl.classList.add('show');
+    return;
+  }
+
+  const nuevo = {
+    id: 'u' + Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    nombre, curso, institucion,
+    passHash: hashPass(pass),
+    creado: new Date().toISOString()
+  };
+  users.push(nuevo);
+  saveUsuarios(users);
+
+  okEl.textContent = '¡Cuenta creada! Iniciando sesión...';
+  okEl.classList.add('show');
+
+  setTimeout(() => {
+    setSesion(nuevo.id);
+    currentUser = nuevo;
+    iniciarApp();
+  }, 800);
+});
+
+/* Tabs login/registro */
+document.querySelectorAll('.auth-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.auth-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('authPanelLogin').style.display = tab==='login' ? 'block' : 'none';
+    document.getElementById('authPanelRegister').style.display = tab==='register' ? 'block' : 'none';
+    document.getElementById('passwordView').style.display = 'none';
+    document.getElementById('usersListView').style.display = 'block';
+    document.getElementById('loginError').classList.remove('show');
+    document.getElementById('regError').classList.remove('show');
+    document.getElementById('regSuccess').classList.remove('show');
+  });
+});
+
+/* =====================================================================
+   INICIO DE LA APP (después del login)
+   ===================================================================== */
+function iniciarApp(){
+  document.getElementById('authOverlay').classList.remove('show');
+  document.getElementById('userName').textContent = currentUser.nombre.split(' ')[0];
+  document.getElementById('userAvatar').textContent = currentUser.nombre.charAt(0).toUpperCase();
+  cargarEstado();
+  renderTodo();
+}
+
+/* Menú de usuario */
+document.getElementById('userBadge').addEventListener('click', (e) => {
+  e.stopPropagation();
+  document.getElementById('userMenu').classList.toggle('show');
+});
+document.addEventListener('click', () => {
+  document.getElementById('userMenu').classList.remove('show');
+});
+document.getElementById('userMenu').addEventListener('click', (e) => e.stopPropagation());
+
+document.getElementById('menuPerfil').addEventListener('click', () => {
+  alert(`👤 Perfil\n\nNombre: ${currentUser.nombre}\nCurso: ${currentUser.curso}\nInstitución: ${currentUser.institucion}\nID: ${currentUser.id}\nCreado: ${new Date(currentUser.creado).toLocaleDateString('es')}`);
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+document.getElementById('menuCambiar').addEventListener('click', () => {
+  if(!confirm('¿Cerrar sesión y cambiar de usuario?')) return;
+  setSesion(null);
+  currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  document.getElementById('usersListView').style.display = 'block';
+  document.getElementById('passwordView').style.display = 'none';
+  renderAuth();
+});
+
+document.getElementById('menuEliminar').addEventListener('click', () => {
+  if(!confirm('⚠️ Esta acción eliminará tu cuenta y TODO tu progreso. ¿Continuar?')) return;
+  const id = currentUser.id;
+  // Eliminar claves
+  ['py','txt','lec','red','sin'].forEach(a => {
+    localStorage.removeItem(getClaveArea(a));
+    localStorage.removeItem(getClaveNotas(a));
+  });
+  localStorage.removeItem(getClaveCampos());
+  // Eliminar usuario
+  saveUsuarios(getUsuarios().filter(u => u.id !== id));
+  setSesion(null);
+  currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  renderAuth();
+});
+
+document.getElementById('menuExportar').addEventListener('click', () => {
+  exportarProgresoUsuario();
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+function exportarProgresoUsuario(){
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const inf = `INFORME SÚPER CUADERNO 8° CIENCIAS NATURALES
+=========================================
+Usuario: ${currentUser.nombre}
+Curso: ${currentUser.curso}
+Institución: ${currentUser.institucion}
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🐍 Python para ciencias: ${py}/100
+🧪 Textos científicos: ${txt}/100
+🔬 Comprensión científica: ${lec}/100
+✍️ Redacción científica: ${red}/100
+🧩 Sintaxis castellana: ${sin}/100
+TOTAL: ${py+txt+lec+red+sin}/500
+`;
+  const blob = new Blob([inf], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `informe_${currentUser.nombre.replace(/\s+/g,'_')}_ciencias8.txt`;
+  a.click();
+}
+
+/* =====================================================================
+   BLOQUES
+   ===================================================================== */
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python avanzado para ciencias', rango:[1,20], icono:'🐍'},
+  {id:'py-datos', titulo:'Análisis de datos y estadística', rango:[21,40], icono:'📊'},
+  {id:'py-fisica', titulo:'Física avanzada', rango:[41,60], icono:'⚛️'},
+  {id:'py-quimica', titulo:'Química avanzada', rango:[61,80], icono:'⚗️'},
+  {id:'py-bio', titulo:'Biología, genética y Tierra', rango:[81,100], icono:'🌱'}
+];
+
+const bloquesTxt = [
+  {id:'txt-exp', titulo:'Texto expositivo-científico', rango:[1,30], icono:'📖'},
+  {id:'txt-des', titulo:'Texto descriptivo-técnico', rango:[31,55], icono:'🔍'},
+  {id:'txt-ins', titulo:'Protocolo experimental avanzado', rango:[56,80], icono:'📋'},
+  {id:'txt-arg', titulo:'Argumentación científica', rango:[81,100], icono:'⚖️'}
+];
+
+const bloquesLec = [
+  {id:'lec-niv', titulo:'Niveles de comprensión científica', rango:[1,20], icono:'🪜'},
+  {id:'lec-met', titulo:'Método científico y diseño experimental', rango:[21,40], icono:'🔬'},
+  {id:'lec-tipos', titulo:'Géneros científicos', rango:[41,60], icono:'📄'},
+  {id:'lec-datos', titulo:'Análisis de datos y modelado', rango:[61,80], icono:'📊'},
+  {id:'lec-eval', titulo:'Pensamiento crítico y ética científica', rango:[81,100], icono:'🧠'}
+];
+
+const bloquesRed = [
+  {id:'red-proc', titulo:'Redacción del proceso científico', rango:[1,25], icono:'📝'},
+  {id:'red-informe', titulo:'Informe de laboratorio avanzado', rango:[26,50], icono:'📋'},
+  {id:'red-articulo', titulo:'Artículo, póster y ponencia', rango:[51,75], icono:'📰'},
+  {id:'red-estilo', titulo:'Estilo y lenguaje científico', rango:[76,100], icono:'✒️'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfología avanzada', rango:[1,30], icono:'🔤'},
+  {id:'sin-simple', titulo:'Oración simple y compuesta', rango:[31,70], icono:'🧩'},
+  {id:'sin-norm', titulo:'Normativa, estilo y discurso', rango:[71,100], icono:'📐'}
+];
+
+/* =====================================================================
+   PYTHON 8° (100)
+   ===================================================================== */
+function generarTecnicasPython(){
+  const T = [
+    {t:'Programación orientada a objetos', c:'Clases para modelar experimentos y muestras.', e:'class Muestra:\n    def __init__(self, masa, volumen): ...'},
+    {t:'Clases con métodos', c:'Métodos que calculan propiedades.', e:'def densidad(self): return self.masa/self.volumen'},
+    {t:'Herencia', c:'Subclases especializadas.', e:'class Solido(Muestra): ...'},
+    {t:'Composición', c:'Objetos que contienen otros objetos.', e:'class Laboratorio:\n    def __init__(self): self.muestras = []'},
+    {t:'Encapsulamiento', c:'Atributos privados y propiedades.', e:'self._temperatura'},
+    {t:'Métodos especiales', c:'__str__, __repr__, __len__.', e:'def __str__(self): return f"Muestra {self.id}"'},
+    {t:'Listas por comprensión', c:'Filtrar y transformar.', e:'validos = [x for x in datos if x>0]'},
+    {t:'Diccionarios por comprensión', c:'Construir datos.', e:'cuadrados = {x:x**2 for x in range(10)}'},
+    {t:'Funciones lambda', c:'Funciones anónimas.', e:'ordenar = sorted(datos, key=lambda x: abs(x))'},
+    {t:'map y filter', c:'Aplicar y filtrar.', e:'pares = list(filter(lambda x: x%2==0, nums))'},
+    {t:'try/except/else/finally', c:'Manejo completo de errores.', e:'try: ...\nexcept ValueError: ...\nfinally: ...'},
+    {t:'Excepciones personalizadas', c:'Errores propios.', e:'class ErrorMedida(Exception): pass'},
+    {t:'Módulos y paquetes', c:'Organizar código.', e:'from mi_lib import calcular'},
+    {t:'Funciones recursivas', c:'Resolución recursiva.', e:'def factorial(n): return 1 if n<=1 else n*factorial(n-1)'},
+    {t:'Iteradores', c:'Objetos que se recorren.', e:'for x in iterador: ...'},
+    {t:'Generadores', c:'yield para valores perezosos.', e:'def pares(n):\n    for i in range(n):\n        if i%2==0: yield i'},
+    {t:'Decoradores', c:'Modificar funciones.', e:'@medir_tiempo\ndef calcular(): ...'},
+    {t:'Type hints', c:'Tipos declarados.', e:'def suma(a: int, b: int) -> int: ...'},
+    {t:'Docstrings', c:'Documentar funciones.', e:'"""Calcula la densidad."""'},
+    {t:'Testing básico', c:'assert para verificar.', e:'assert densidad(10, 2) == 5'},
+
+    {t:'Estadística descriptiva', c:'Media, mediana, moda.', e:'import statistics\nstatistics.mean(datos)'},
+    {t:'Desviación estándar', c:'Dispersión.', e:'statistics.stdev(datos)'},
+    {t:'Varianza', c:'Cuadrado de la desviación.', e:'statistics.variance(datos)'},
+    {t:'Percentiles', c:'Posición relativa.', e:'import numpy as np\nnp.percentile(datos, 25)'},
+    {t:'Correlación de Pearson', c:'Relación lineal.', e:'np.corrcoef(x, y)[0,1]'},
+    {t:'Regresión lineal', c:'Ajuste y = mx + b.', e:'m, b = np.polyfit(x, y, 1)'},
+    {t:'Ajuste polinómico', c:'Curvas de orden superior.', e:'np.polyfit(x, y, 2)'},
+    {t:'Interpolación', c:'Valores intermedios.', e:'np.interp(x_nuevo, x, y)'},
+    {t:'Suavizado', c:'Reducir ruido.', e:'# Media móvil'},
+    {t:'Detección de outliers', c:'Valores atípicos.', e:'[x for x in datos if abs(x-media) > 2*desv]'},
+    {t:'Filtrado por mediana', c:'Robusto a outliers.', e:'# Ventana de 3'},
+    {t:'Análisis de frecuencias', c:'Distribución.', e:'from collections import Counter\nCounter(datos)'},
+    {t:'Histograma', c:'Distribución visual.', e:'np.histogram(datos, bins=10)'},
+    {t:'Series temporales', c:'Datos en el tiempo.', e:'import pandas as pd\npd.Series(datos, index=fechas)'},
+    {t:'Pandas básico', c:'DataFrames.', e:'df = pd.read_csv("datos.csv")'},
+    {t:'Limpieza de datos', c:'NaN, duplicados.', e:'df.dropna(); df.drop_duplicates()'},
+    {t:'Estadística inferencial', c:'Contrastes.', e:'from scipy import stats\nstats.ttest_ind(a, b)'},
+    {t:'Intervalos de confianza', c:'Rango probable.', e:'# media ± 1.96*error'},
+    {t:'Chi-cuadrado', c:'Bondad de ajuste.', e:'stats.chisquare(obs, exp)'},
+    {t:'ANOVA', c:'Comparar medias.', e:'stats.f_oneway(g1, g2, g3)'},
+
+    {t:'Cinemática 2D', c:'Movimiento en dos dimensiones.', e:'x = v0*cos(a)*t\ny = v0*sin(a)*t - 0.5*g*t**2'},
+    {t:'Tiro parabólico', c:'Trayectoria curva.', e:'def trayectoria(v0, ang):\n    import math\n    return (v0**2*math.sin(2*math.radians(ang)))/9.8'},
+    {t:'Movimiento circular', c:'v = ωr, a = ω²r.', e:'def aceleracion_centripeta(v, r): return v**2/r'},
+    {t:'Dinámica', c:'Leyes de Newton.', e:'def fuerza_neta(fuerzas): return sum(fuerzas)'},
+    {t:'Trabajo y energía', c:'W = Fd·cosθ.', e:'import math\ndef trabajo(f, d, ang): return f*d*math.cos(math.radians(ang))'},
+    {t:'Conservación de energía', c:'Emec = Ec + Ep.', e:'Emec = 0.5*m*v**2 + m*9.8*h'},
+    {t:'Momento lineal', c:'p = mv.', e:'def momento(m, v): return m*v'},
+    {t:'Choques', c:'Elásticos e inelásticos.', e:'# Conservación de p'},
+    {t:'Impulso', c:'J = F·Δt = Δp.', e:'def impulso(f, dt): return f*dt'},
+    {t:'Ondas', c:'v = λf.', e:'def velocidad_onda(lam, f): return lam*f'},
+    {t:'Sonido', c:'Velocidad y frecuencia.', e:'v_sonido = 340  # m/s'},
+    {t:'Óptica', c:'Reflexión y refracción.', e:'# Ley de Snell: n1*sin(θ1) = n2*sin(θ2)'},
+    {t:'Electricidad', c:'Ley de Ohm.', e:'def voltaje(i, r): return i*r'},
+    {t:'Circuitos en serie y paralelo', c:'Resistencias.', e:'R_serie = sum(rs)\nR_paralelo = 1/sum(1/r for r in rs)'},
+    {t:'Potencia eléctrica', c:'P = VI.', e:'def potencia(v, i): return v*i'},
+    {t:'Campo eléctrico', c:'E = F/q.', e:'def campo(f, q): return f/q'},
+    {t:'Magnetismo', c:'Fuerza de Lorentz.', e:'def lorentz(q, v, b): return q*v*b'},
+    {t:'Termodinámica', c:'Primera ley.', e:'ΔU = Q - W'},
+    {t:'Gases ideales', c:'PV = nRT.', e:'def presion(n, t, v): return n*0.082*t/v'},
+    {t:'Calorimetría', c:'Q = mcΔT.', e:'def calor(m, c, dt): return m*c*dt'},
+    {t:'Entropía', c:'Segunda ley.', e:'ΔS = Q/T'},
+
+    {t:'Estequiometría', c:'Relaciones molares.', e:'# n = m/M'},
+    {t:'Balanceo de ecuaciones', c:'Ajustar coeficientes.', e:'# 2H2 + O2 → 2H2O'},
+    {t:'Cálculo de rendimiento', c:'% rendimiento.', e:'def rend(r, t): return r/t*100'},
+    {t:'Reactivo limitante', c:'Cuál se agota primero.', e:'# min(moles/coef)'},
+    {t:'Concentración molar', c:'M = n/V.', e:'def molaridad(n, v): return n/v'},
+    {t:'Dilución', c:'C₁V₁ = C₂V₂.', e:'def c2(c1, v1, v2): return c1*v1/v2'},
+    {t:'pH y pOH', c:'pH + pOH = 14.', e:'def ph(h): return -math.log10(h)'},
+    {t:'Titulación', c:'Ácido-base.', e:'# n_ácido = n_base'},
+    {t:'Equilibrio químico', c:'Constante K.', e:'K = [productos]/[reactivos]'},
+    {t:'Principio de Le Chatelier', c:'Respuesta a cambios.', e:'# Analizar dirección'},
+    {t:'Cinética química', c:'Velocidad de reacción.', e:'v = k[A]^m[B]^n'},
+    {t:'Energía de activación', c:'Barrera energética.', e:'# Arrhenius'},
+    {t:'Termoquímica', c:'ΔH de reacción.', e:'# Exotérmica ΔH<0'},
+    {t:'Oxidación-reducción', c:'Redox.', e:'# Transferencia de electrones'},
+    {t:'Electroquímica', c:'Celdas galvánicas.', e:'E°celda = E°cátodo - E°ánodo'},
+    {t:'Química orgánica', c:'Hidrocarburos.', e:'alcanos, alquenos, alquinos'},
+    {t:'Grupos funcionales', c:'Alcoholes, ácidos, aminas.', e:'-OH, -COOH, -NH2'},
+    {t:'Polímeros', c:'Macromoléculas.', e:'Polietileno, PVC'},
+    {t:'Bioquímica', c:'Carbohidratos, lípidos, proteínas.', e:'C, H, O, N'},
+    {t:'Enzimas', c:'Catalizadores biológicos.', e:'# Sitio activo'},
+
+    {t:'Genética mendeliana', c:'Leyes de Mendel.', e:'# 3:1 en F2'},
+    {t:'Cuadro de Punnett', c:'Cruces.', e:'# Aa × Aa'},
+    {t:'Herencia ligada al sexo', c:'Cromosomas X e Y.', e:'# Daltonismo'},
+    {t:'ADN y ARN', c:'Ácidos nucleicos.', e:'# A-T, G-C'},
+    {t:'Replicación', c:'Duplicación del ADN.', e:'# Semiconservativa'},
+    {t:'Transcripción', c:'ADN → ARNm.', e:'# A→U'},
+    {t:'Traducción', c:'ARNm → proteína.', e:'# Codones'},
+    {t:'Mutaciones', c:'Cambios en el ADN.', e:'# Puntuales y cromosómicas'},
+    {t:'Evolución', c:'Selección natural.', e:'# Darwin'},
+    {t:'Especiación', c:'Formación de especies.', e:'# Aislamiento'},
+    {t:'Ecología de poblaciones', c:'Crecimiento.', e:'# Logístico y exponencial'},
+    {t:'Ecosistemas', c:'Flujo de energía.', e:'# Pirámides tróficas'},
+    {t:'Ciclos biogeoquímicos', c:'C, N, P.', e:'# Ciclo del carbono'},
+    {t:'Cambio climático', c:'Modelos simples.', e:'# Serie temporal'},
+    {t:'Tectónica de placas', c:'Deriva continental.', e:'# Dorsales y fosas'},
+    {t:'Sismos', c:'Magnitud y energía.', e:'log E = 11.8 + 1.5 M'},
+    {t:'Volcanes', c:'Tipos de erupción.', e:'# Efusiva o explosiva'},
+    {t:'Rocas y minerales', c:'Ciclo de las rocas.', e:'# Ígneas, sedimentarias, metamórficas'},
+    {t:'Atmósfera', c:'Capas y composición.', e:'# Troposfera, estratosfera'},
+    {t:'Hidrósfera', c:'Distribución del agua.', e:'# 97% océanos'},
+    {t:'Energía renovable', c:'Solar, eólica, hidro.', e:'# Potencial de cada una'},
+    {t:'Simulación de ecosistema', c:'Modelar poblaciones.', e:'# Depredador-presa'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es una fórmula de arte.','No tiene relación con la ciencia.','Solo sirve para literatura.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TEXTOS CIENTÍFICOS 8° (100)
+   ===================================================================== */
+function generarTecnicasTextos(){
+  const T = [
+    {t:'Texto expositivo-científico avanzado', c:'Estructura: introducción, marco teórico, desarrollo, conclusión.', e:'"El ADN: estructura, función y replicación."'},
+    {t:'La introducción contextualizada', c:'Ubica el tema en un marco mayor.', e:'"En el estudio de la biología molecular..."'},
+    {t:'El marco teórico', c:'Conceptos y antecedentes.', e:'"Según Watson y Crick (1953)..."'},
+    {t:'El desarrollo estructurado', c:'Subtemas con jerarquía.', e:'"1. Estructura / 2. Función / 3. Replicación"'},
+    {t:'La conclusión sintética', c:'Recapitula y proyecta.', e:'"En resumen, el ADN es..."'},
+    {t:'Definiciones formales', c:'Precisas y concisas.', e:'"La mitosis es la división celular que produce células idénticas."'},
+    {t:'Clasificaciones jerárquicas', c:'Criterios claros.', e:'"Los seres vivos se clasifican en cinco reinos."'},
+    {t:'Descripciones de procesos', c:'Secuencia detallada.', e:'"La fotosíntesis ocurre en dos fases..."'},
+    {t:'Comparaciones y contrastes', c:'Diferencias y semejanzas.', e:'"A diferencia de la mitosis, la meiosis..."'},
+    {t:'Relaciones causa-efecto', c:'Explicar por qué.', e:'"El aumento de CO₂ produce..."'},
+    {t:'Datos cuantitativos precisos', c:'Cifras con unidad.', e:'"37 billones de células."'},
+    {t:'Vocabulario técnico definido', c:'Explicar términos.', e:'"La mitocondria, organelo encargado de..."'},
+    {t:'Verbos en presente científico', c:'Describir hechos.', e:'"La célula sintetiza proteínas."'},
+    {t:'Conectores causales', c:'porque, ya que, debido a.', e:'"El hielo flota porque es menos denso."'},
+    {t:'Conectores consecutivos', c:'por lo tanto, en consecuencia.', e:'"No hay agua; por lo tanto, no hay vida."'},
+    {t:'Conectores comparativos', c:'a diferencia de, mientras que.', e:'"Mientras que las plantas..."'},
+    {t:'Conectores de adición', c:'además, asimismo.', e:'"Además, el ADN se replica..."'},
+    {t:'Conectores de ejemplificación', c:'por ejemplo, como.', e:'"Por ejemplo, el jaguar..."'},
+    {t:'Títulos jerárquicos', c:'Organizar niveles.', e:'"1. Célula / 1.1. Estructura"'},
+    {t:'Negritas y cursivas funcionales', c:'Resaltar términos.', e:'"El **ADN** contiene..."'},
+    {t:'Esquemas y diagramas', c:'Apoyar explicaciones.', e:'Esquema del ADN.'},
+    {t:'Tablas comparativas', c:'Organizar datos.', e:'Comparación mitosis/meiosis.'},
+    {t:'Gráficos de apoyo', c:'Visualizar tendencias.', e:'Gráfico de crecimiento.'},
+    {t:'Fuentes académicas', c:'Citar rigurosamente.', e:'Según Alberts et al. (2022)...'},
+    {t:'Citas directas', c:'Reproducir textualmente.', e:'"La célula es..." (Alberts, 2022).'},
+    {t:'Paráfrasis', c:'Reformular con rigor.', e:'"Según Alberts..."'},
+    {t:'Referencias bibliográficas APA', c:'Formato estándar.', e:'Alberts, B. (2022). *Biología molecular*.'},
+    {t:'Referencias IEEE', c:'Numeradas.', e:'[1] B. Alberts, *Biología molecular*, 2022.'},
+    {t:'Glosario científico', c:'Definir términos.', e:'ADN: ácido desoxirribonucleico.'},
+    {t:'Notas al pie', c:'Aclaraciones adicionales.', e:'¹ Datos del Ministerio.'},
+    {t:'Resumen (abstract)', c:'Síntesis breve.', e:'"Se explica la estructura del ADN..."'},
+    {t:'Descripción anatómica', c:'Estructura de órganos.', e:'"El corazón tiene cuatro cavidades..."'},
+    {t:'Descripción fisiológica', c:'Funciones de sistemas.', e:'"El sistema digestivo transforma..."'},
+    {t:'Descripción celular', c:'Organelos.', e:'"La mitocondria produce ATP."'},
+    {t:'Descripción molecular', c:'Átomos y enlaces.', e:'"La molécula de agua es angular."'},
+    {t:'Descripción de un mineral', c:'Propiedades físicas.', e:'"El cuarzo tiene dureza 7."'},
+    {t:'Descripción de una roca', c:'Origen y composición.', e:'"El granito es ígneo intrusivo."'},
+    {t:'Descripción de un ecosistema', c:'Biomas.', e:'"El páramo es un ecosistema de alta montaña."'},
+    {t:'Descripción del clima', c:'Variables atmosféricas.', e:'"Clima tropical: 25-30 °C."'},
+    {t:'Descripción microscópica', c:'Con aumentos.', e:'"Con 400x se observan cloroplastos."'},
+    {t:'Descripción macroscópica', c:'A simple vista.', e:'"El hongo tiene sombrero y pie."'},
+    {t:'Descripción sensorial', c:'Los cinco sentidos.', e:'"La muestra huele a azufre."'},
+    {t:'Descripción cuantitativa', c:'Números.', e:'"El átomo mide 10⁻¹⁰ m."'},
+    {t:'Descripción cualitativa', c:'Sin cifras.', e:'"El agua es transparente."'},
+    {t:'Descripción funcional', c:'Para qué sirve.', e:'"Los glóbulos rojos transportan O₂."'},
+    {t:'Descripción estructural', c:'Cómo está formado.', e:'"La neurona tiene soma, dendritas y axón."'},
+    {t:'Descripción comparativa', c:'Contrastar.', e:'"La célula animal no tiene pared."'},
+    {t:'Descripción evolutiva', c:'Cambios en el tiempo.', e:'"Los mamíferos evolucionaron de reptiles."'},
+    {t:'Descripción de hábitat', c:'Dónde vive.', e:'"El oso andino entre 2.000 y 4.000 m."'},
+    {t:'Descripción del suelo', c:'Horizontes.', e:'"El horizonte A tiene humus."'},
+    {t:'Descripción del agua', c:'Estados y propiedades.', e:'"Punto de fusión 0 °C."'},
+    {t:'Descripción del aire', c:'Composición.', e:'"78 % N₂ y 21 % O₂."'},
+    {t:'Descripción del sistema solar', c:'Planetas.', e:'"Marte tarda 687 días."'},
+    {t:'Descripción de una estrella', c:'Tipo y evolución.', e:'"El Sol es tipo G."'},
+    {t:'Descripción de una galaxia', c:'Forma y composición.', e:'"Vía Láctea espiral."'},
+    {t:'Protocolo de laboratorio', c:'Pasos numerados.', e:'1. Preparar. 2. Medir. 3. Registrar.'},
+    {t:'Objetivo del protocolo', c:'Qué se comprueba.', e:'"Determinar el pH."'},
+    {t:'Materiales del protocolo', c:'Lista detallada.', e:'Vaso, pH-metro, disoluciones.'},
+    {t:'Reactivos del protocolo', c:'Sustancias y concentraciones.', e:'HCl 0.1 M.'},
+    {t:'Bioseguridad', c:'EPP y normas.', e:'Bata, guantes, gafas.'},
+    {t:'Procedimiento paso a paso', c:'Secuencia clara.', e:'1. Calibrar. 2. Sumergir. 3. Leer.'},
+    {t:'Verbos en imperativo', c:'Instrucciones.', e:'"Medir", "anotar".'},
+    {t:'Condicionales experimentales', c:'Si..., hacer...', e:'"Si el valor varía, repetir."'},
+    {t:'Repetición y promediado', c:'Reducir errores.', e:'"Promediar 3 medidas."'},
+    {t:'Registro en tabla', c:'Formato estandarizado.', e:'| Ensayo | Valor |'},
+    {t:'Control de variables', c:'Mantener condiciones.', e:'"Misma temperatura."'},
+    {t:'Grupo control y experimental', c:'Comparar.', e:'"Grupo A: sin tratamiento."'},
+    {t:'Uso de microscopio', c:'Enfoque y aumentos.', e:'1. Encender. 2. Ajustar. 3. Observar.'},
+    {t:'Preparación de disoluciones', c:'Pesar y disolver.', e:'5 g de NaCl en 100 mL.'},
+    {t:'Titulación', c:'Valorar disoluciones.', e:'Añadir gota a gota.'},
+    {t:'Uso de la balanza', c:'Precisión y calibración.', e:'Tarar antes de pesar.'},
+    {t:'Uso del termómetro', c:'Tiempo de estabilización.', e:'Esperar 1 minuto.'},
+    {t:'Medición de pH', c:'Calibrar y medir.', e:'pH-metro calibrado.'},
+    {t:'Cultivo de bacterias', c:'Siembra e incubación.', e:'Agar y 37 °C.'},
+    {t:'Cultivo de plantas', c:'Sustrato y riego.', e:'Tierra, agua, luz.'},
+    {t:'Recolección de muestras', c:'Técnica estéril.', e:'Frascos estériles.'},
+    {t:'Preservación de muestras', c:'Refrigeración.', e:'4 °C.'},
+    {t:'Análisis de muestras', c:'Métodos analíticos.', e:'Espectrofotometría.'},
+    {t:'Registro fotográfico', c:'Documentar.', e:'Foto con escala.'},
+    {t:'Eliminación de residuos', c:'Según tipo.', e:'Contenedor especial.'},
+    {t:'Tesis científica', c:'Idea a defender.', e:'"El cambio climático es antropogénico."'},
+    {t:'Argumento empírico', c:'Datos experimentales.', e:'"El 97 % de los estudios..."'},
+    {t:'Argumento de autoridad', c:'Cita de expertos.', e:'Según el IPCC (2023)...'},
+    {t:'Argumento causal', c:'Causa-efecto.', e:'"El CO₂ eleva la temperatura."'},
+    {t:'Argumento por analogía', c:'Comparar procesos.', e:'"Como en Venus..."'},
+    {t:'Refutación', c:'Rebatir con datos.', e:'"Aunque algunos dudan..."'},
+    {t:'Concesión', c:'Reconocer matices.', e:'"Es cierto que..., pero..."'},
+    {t:'Conclusión con proyección', c:'Cerrar invitando.', e:'"Reducir emisiones es urgente."'},
+    {t:'Contraargumento', c:'Anticipar objeciones.', e:'"Quienes niegan..."'},
+    {t:'Datos verificables', c:'Fuentes confiables.', e:'Según el IDEAM...'},
+    {t:'Distinguir hecho y opinión', c:'Hecho comprobable.', e:'"El agua hierve a 100 °C."'},
+    {t:'Conectores argumentativos', c:'porque, por tanto, sin embargo.', e:'"No hay datos; por tanto..."'},
+    {t:'Falacias comunes', c:'Errores de razonamiento.', e:'"Todos los científicos mienten."'},
+    {t:'Falacia ad hominem', c:'Atacar a la persona.', e:'"No le creas..."'},
+    {t:'Falacia de generalización', c:'Generalizar sin datos.', e:'"Todos los medicamentos..."'},
+    {t:'Ensayo científico escolar', c:'Tesis + datos.', e:'"La importancia de las vacunas."'},
+    {t:'Artículo de divulgación', c:'Explicar al público.', e:'"Cómo funciona el ADN."'},
+    {t:'Carta abierta científica', c:'A autoridades.', e:'"Carta al Ministerio."'},
+    {t:'Manifiesto científico', c:'Declaración colectiva.', e:'"Los estudiantes por el clima."'},
+    {t:'Debate científico', c:'Dos posiciones con datos.', e:'"¿Energía nuclear sí o no?"'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesTxt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'txt-exp',
+    opciones:[t.c,'Es un texto literario sin rigor.','No tiene relación con la ciencia.','Es un texto de ficción.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   COMPRENSIÓN CIENTÍFICA 8° (100)
+   ===================================================================== */
+function generarTecnicasLectura(){
+  const T = [
+    {t:'Nivel literal científico', c:'Datos explícitos.', e:'¿Cuál es el punto de fusión del agua?'},
+    {t:'Nivel inferencial científico', c:'Deducir con pistas.', e:'¿Por qué el hielo flota?'},
+    {t:'Nivel crítico científico', c:'Evaluar solidez de datos.', e:'¿La muestra fue suficiente?'},
+    {t:'Nivel apreciativo científico', c:'Valorar aportes.', e:'¿Qué importancia tiene este hallazgo?'},
+    {t:'Nivel creador científico', c:'Proponer nuevas hipótesis.', e:'¿Qué pasaría si cambiamos la variable?'},
+    {t:'Idea principal científica', c:'Tema central.', e:'"El texto explica la mitosis."'},
+    {t:'Ideas secundarias', c:'Detalles de apoyo.', e:'"Se mencionan sus fases."'},
+    {t:'Tema y subtemas', c:'Organización temática.', e:'Tema: ADN. Subtemas: estructura, función.'},
+    {t:'Título científico', c:'Resumir en pocas palabras.', e:'"Estructura del ADN."'},
+    {t:'Datos clave', c:'Cifras importantes.', e:'78 % N₂ en el aire.'},
+    {t:'Variables independientes', c:'Lo que cambia el investigador.', e:'Temperatura.'},
+    {t:'Variables dependientes', c:'Lo que se mide.', e:'Velocidad de reacción.'},
+    {t:'Variables controladas', c:'Lo que se mantiene.', e:'Presión.'},
+    {t:'Hipótesis contrastable', c:'Explicación a probar.', e:'"Si aumento T..."'},
+    {t:'Predicción', c:'Qué se espera.', e:'"La reacción será el doble."'},
+    {t:'Observación sistemática', c:'Registro cuidadoso.', e:'"Se observaron burbujas."'},
+    {t:'Medición con precisión', c:'Instrumentos calibrados.', e:'Balanza analítica.'},
+    {t:'Registro en tabla', c:'Datos organizados.', e:'| Ensayo | Valor |'},
+    {t:'Análisis estadístico', c:'Media, desviación, tendencia.', e:'x̄ = 22.5; σ = 0.8'},
+    {t:'Interpretación de gráficos', c:'Leer tendencias.', e:'La curva sube hasta 40 °C.'},
+    {t:'Identificación de patrones', c:'Regularidades.', e:'A mayor T, mayor v.'},
+    {t:'Comparación de grupos', c:'Control vs. experimental.', e:'Diferencia significativa.'},
+    {t:'Conclusión basada en datos', c:'Responder hipótesis.', e:'"Los datos apoyan la hipótesis."'},
+    {t:'Método científico completo', c:'Observación → hipótesis → experimento → conclusión.', e:'Secuencia fundamental.'},
+    {t:'Formulación de preguntas investigables', c:'Preguntas que se pueden probar.', e:'"¿Cómo afecta la luz al crecimiento?"'},
+    {t:'Hipótesis contrastables', c:'Deben poder probarse.', e:'"Si…, entonces…"'},
+    {t:'Diseño experimental riguroso', c:'Planear con control.', e:'Grupo control y experimental.'},
+    {t:'Control experimental', c:'Comparar contra referencia.', e:'Sin tratamiento.'},
+    {t:'Repetición y promediado', c:'Reducir errores.', e:'Tres repeticiones.'},
+    {t:'Fuentes de error', c:'Instrumentales y humanos.', e:'Balanza descalibrada.'},
+    {t:'Error absoluto y relativo', c:'Comparar con valor real.', e:'|medido - real|.'},
+    {t:'Precisión y exactitud', c:'Cercanía entre sí y al valor real.', e:'Balanza calibrada.'},
+    {t:'Cifras significativas', c:'Dígitos confiables.', e:'25.4 tiene 3.'},
+    {t:'Notación científica', c:'Números grandes o pequeños.', e:'3 × 10⁸ m/s.'},
+    {t:'Unidades del SI', c:'Metro, kilogramo, segundo, kelvin, mol, amperio.', e:'1 kg = 1000 g.'},
+    {t:'Conversión de unidades', c:'Cambiar de escala.', e:'1 km = 1000 m.'},
+    {t:'Análisis dimensional', c:'Verificar unidades.', e:'v = d/t → m/s.'},
+    {t:'Gráfico de dispersión', c:'Relación entre variables.', e:'x vs. y.'},
+    {t:'Ajuste lineal', c:'Recta de mejor ajuste.', e:'y = mx + b.'},
+    {t:'Coeficiente R²', c:'Bondad del ajuste.', e:'R² = 0.98.'},
+    {t:'Interpolación', c:'Valores entre datos.', e:'Estimar en x=3.'},
+    {t:'Extrapolación', c:'Valores fuera del rango.', e:'Predecir en x=20.'},
+    {t:'Análisis de incertidumbre', c:'Rango de error.', e:'± 0.5 °C.'},
+    {t:'Comunicación de resultados', c:'Informe riguroso.', e:'Abstract + datos + conclusión.'},
+    {t:'Artículo de investigación', c:'IMRyD.', e:'Introducción, Métodos, Resultados, Discusión.'},
+    {t:'Resumen (abstract)', c:'Síntesis del artículo.', e:'150 palabras.'},
+    {t:'Introducción científica', c:'Contexto y objetivo.', e:'"El objetivo fue..."'},
+    {t:'Materiales y métodos', c:'Cómo se hizo.', e:'"Se utilizaron..."'},
+    {t:'Resultados', c:'Datos obtenidos.', e:'"La media fue..."'},
+    {t:'Discusión', c:'Interpretación.', e:'"Estos resultados sugieren..."'},
+    {t:'Conclusión', c:'Respuesta al objetivo.', e:'"Se concluye que..."'},
+    {t:'Referencias', c:'Fuentes citadas.', e:'APA, IEEE, Vancouver.'},
+    {t:'Informe de laboratorio', c:'Documento escolar.', e:'Estructura IMRyD adaptada.'},
+    {t:'Protocolo experimental', c:'Instrucciones.', e:'Pasos numerados.'},
+    {t:'Ficha técnica', c:'Datos del producto.', e:'Punto de fusión.'},
+    {t:'Noticia científica', c:'Qué, quién, cuándo.', e:'"Científicos descubren..."'},
+    {t:'Póster científico', c:'Resumen visual.', e:'Gráficos y esquemas.'},
+    {t:'Infografía científica', c:'Datos visuales.', e:'Ciclo del agua.'},
+    {t:'Ensayo científico', c:'Reflexión con datos.', e:'"La ética en la ciencia."'},
+    {t:'Artículo de divulgación', c:'Para público general.', e:'"Cómo funciona el ADN."'},
+    {t:'Entrevista científica', c:'Voz del experto.', e:'A un biólogo.'},
+    {t:'Documental científico', c:'Audiovisual.', e:'"El universo."'},
+    {t:'Libro de texto científico', c:'Estructura didáctica.', e:'Capítulo de biología.'},
+    {t:'Glosario científico', c:'Definiciones.', e:'Al final del libro.'},
+    {t:'Interpretar tabla', c:'Filas y columnas.', e:'Temperaturas mensuales.'},
+    {t:'Interpretar gráfico de barras', c:'Comparar categorías.', e:'Precipitaciones.'},
+    {t:'Interpretar gráfico de líneas', c:'Tendencias.', e:'Temperatura anual.'},
+    {t:'Interpretar gráfico circular', c:'Proporciones.', e:'Composición del aire.'},
+    {t:'Interpretar histograma', c:'Distribución.', e:'Alturas.'},
+    {t:'Interpretar dispersión', c:'Relación.', e:'T vs. v.'},
+    {t:'Calcular promedios', c:'Suma/n.', e:'(20+22+24)/3.'},
+    {t:'Calcular porcentajes', c:'Parte/total×100.', e:'15/60 = 25 %.'},
+    {t:'Comparar magnitudes', c:'Mayor, menor, igual.', e:'Sol > Tierra.'},
+    {t:'Detectar tendencias', c:'Sube, baja o constante.', e:'La temperatura sube.'},
+    {t:'Detectar anomalías', c:'Datos atípicos.', e:'Valor 100 en invierno.'},
+    {t:'Verificar unidades', c:'Correctas en cada dato.', e:'25 °C.'},
+    {t:'Verificar cifras significativas', c:'Cantidad correcta.', e:'25.4 → 3 cifras.'},
+    {t:'Estimar resultados', c:'Cálculo aproximado.', e:'"Aproximadamente 100."'},
+    {t:'Comparar fuentes', c:'¿Dicen lo mismo?', e:'Dos libros.'},
+    {t:'Verificar autor', c:'¿Es experto?', e:'Biólogo.'},
+    {t:'Verificar fecha', c:'¿Es actual?', e:'2023.'},
+    {t:'Verificar editorial', c:'¿Confiable?', e:'Universidad.'},
+    {t:'Detectar sensacionalismo', c:'Titulares exagerados.', e:'"Cura milagrosa."'},
+    {t:'Detectar pseudociencia', c:'Sin método científico.', e:'"Producto milagroso."'},
+    {t:'Autoevaluación científica', c:'¿Entendí el texto?', e:'¿Puedo explicarlo?'},
+    {t:'Metacognición', c:'¿Qué estrategia me sirvió?', e:'Resumir, esquematizar.'},
+    {t:'Pensamiento crítico', c:'Cuestionar datos.', e:'¿Cómo lo saben?'},
+    {t:'Pensamiento creativo', c:'Nuevas preguntas.', e:'¿Qué pasaría si...?'},
+    {t:'Pensamiento sistémico', c:'Relaciones entre partes.', e:'Ciclo del carbono.'},
+    {t:'Pensamiento computacional', c:'Modelar con pasos.', e:'Algoritmo del experimento.'},
+    {t:'Evaluación formativa', c:'Revisar proceso.', e:'¿Cómo mejorar?'},
+    {t:'Evaluación sumativa', c:'Calificar producto.', e:'Nota del informe.'},
+    {t:'Rúbrica científica', c:'Criterios.', e:'Nivel 1-3.'},
+    {t:'Prueba tipo ICFES', c:'Con contexto.', e:'Según el texto...'},
+    {t:'Preguntas abiertas', c:'Explicar con palabras.', e:'Explica la mitosis.'},
+    {t:'Preguntas de aplicación', c:'Nuevos contextos.', e:'¿Cómo aplicar en casa?'},
+    {t:'Debate científico', c:'Discutir con datos.', e:'¿Energía nuclear?'},
+    {t:'Portafolio científico', c:'Recopilar.', e:'Informes, fotos.'},
+    {t:'Diario de campo', c:'Observaciones.', e:'Hoy observé...'},
+    {t:'Bitácora científica', c:'Registro diario.', e:'Hipótesis...'},
+    {t:'Ficha de lectura', c:'Resumen y valoración.', e:'De un libro científico.'},
+    {t:'Gráfico de progreso', c:'Avance.', e:'Nivel 1 → 3.'},
+    {t:'Coevaluación', c:'Evaluar al compañero.', e:'Revisar informe.'},
+    {t:'Retroalimentación', c:'Comentarios.', e:'Buen trabajo; profundiza.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesLec.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'lec-niv',
+    opciones:[t.c,'Es una técnica de arte.','No tiene relación con la ciencia.','Solo se usa en literatura.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   REDACCIÓN CIENTÍFICA 8° (100)
+   ===================================================================== */
+function generarTecnicasRedaccion(){
+  const T = [
+    {t:'Principios de redacción científica', c:'Claridad, precisión, objetividad, verificabilidad.', e:'"El agua hierve a 100 °C."'},
+    {t:'Claridad', c:'Frases directas.', e:'"La célula se divide."'},
+    {t:'Precisión', c:'Términos exactos.', e:'"Mitocondria" y no "cosa".'},
+    {t:'Objetividad', c:'Sin opiniones.', e:'"La temperatura fue 25 °C."'},
+    {t:'Verificabilidad', c:'Datos comprobables.', e:'Según el IDEAM...'},
+    {t:'Orden lógico', c:'Introducción, desarrollo, conclusión.', e:'Estructura estándar.'},
+    {t:'Coherencia', c:'Ideas conectadas.', e:'Un solo tema.'},
+    {t:'Cohesión', c:'Conectores.', e:'"Además", "por tanto".'},
+    {t:'Concisión', c:'Sin relleno.', e:'Evitar "es decir".'},
+    {t:'Precisión terminológica', c:'Vocabulario técnico.', e:'"Sustancia" y no "cosa".'},
+    {t:'Tiempos verbales', c:'Presente para hechos, pasado para experimentos.', e:'"Se observó que..."'},
+    {t:'Voz pasiva refleja', c:'Frecuente en ciencia.', e:'"Se calienta el agua."'},
+    {t:'Tercera persona', c:'Evitar "yo creo".', e:'"Se observa que..."'},
+    {t:'Cifras con unidades', c:'Escribir correctamente.', e:'25 °C, 10 kg.'},
+    {t:'Notación científica', c:'Números grandes.', e:'3 × 10⁸ m/s.'},
+    {t:'Símbolos definidos', c:'Primera vez.', e:'ADN, CO₂, ATP.'},
+    {t:'Citas y referencias', c:'Dar crédito.', e:'(Alberts, 2022).'},
+    {t:'Parafrasear', c:'Con palabras propias.', e:'Según Alberts...'},
+    {t:'Evitar plagio', c:'Siempre citar.', e:'Comillas y fuente.'},
+    {t:'Revisar ortografía', c:'Tildes y puntuación.', e:'Revisar antes.'},
+    {t:'Objetivo del experimento', c:'Qué se busca.', e:'"Determinar el pH."'},
+    {t:'Hipótesis', c:'Explicación tentativa.', e:'"Si…, entonces…".'},
+    {t:'Variables', c:'Independiente, dependiente, controladas.', e:'Temperatura.'},
+    {t:'Materiales', c:'Lista completa.', e:'Vaso, termómetro.'},
+    {t:'Método paso a paso', c:'Numerado.', e:'1. Preparar...'},
+    {t:'Control experimental', c:'Grupo sin tratamiento.', e:'Planta sin luz.'},
+    {t:'Grupo experimental', c:'Con tratamiento.', e:'Planta con luz.'},
+    {t:'Resultados en tabla', c:'Datos ordenados.', e:'| Ensayo | Valor |'},
+    {t:'Gráficos de resultados', c:'Visualizar.', e:'Línea de crecimiento.'},
+    {t:'Análisis de resultados', c:'Interpretación.', e:'"Los datos muestran..."'},
+    {t:'Discusión', c:'Comparar con teoría.', e:'"Coincide con..."'},
+    {t:'Conclusión', c:'Responder hipótesis.', e:'"Se confirma que..."'},
+    {t:'Limitaciones', c:'Qué no se pudo controlar.', e:'"Solo en una semana."'},
+    {t:'Recomendaciones', c:'Qué hacer después.', e:'"Repetir con más muestras."'},
+    {t:'Resumen (abstract)', c:'Síntesis breve.', e:'"Se estudió el efecto de..."'},
+    {t:'Palabras clave', c:'Términos principales.', e:'Luz, crecimiento, fotosíntesis.'},
+    {t:'Introducción', c:'Contexto y objetivo.', e:'"La fotosíntesis requiere luz..."'},
+    {t:'Marco teórico', c:'Conceptos previos.', e:'Definir fotosíntesis.'},
+    {t:'Metodología', c:'Cómo se hizo.', e:'"Se usaron dos grupos..."'},
+    {t:'Figuras numeradas', c:'"Figura 1: ...".', e:'Gráfico de crecimiento.'},
+    {t:'Tablas numeradas', c:'"Tabla 1: ...".', e:'Datos de pH.'},
+    {t:'Anexos', c:'Fotos y datos extra.', e:'"Anexo A: fotos."'},
+    {t:'Referencias bibliográficas', c:'Lista de fuentes.', e:'Alberts (2022).'},
+    {t:'Formato APA', c:'Normas de citación.', e:'Autor. (año). *Título*.'},
+    {t:'Formato IEEE', c:'Otra norma común.', e:'[1] A. Autor, *Título*.'},
+    {t:'Título del informe', c:'Descriptivo y breve.', e:'"Efecto de la luz..."'},
+    {t:'Autores y fecha', c:'Datos de identificación.', e:'"Ana, Luis, 2025."'},
+    {t:'Índice del informe', c:'Secciones y páginas.', e:'1. Introducción .... 3.'},
+    {t:'Extensión del informe', c:'Claro y conciso.', e:'2 a 5 páginas.'},
+    {t:'Presentación oral', c:'Exponer resultados.', e:'5 minutos.'},
+    {t:'Póster científico', c:'Resumen visual.', e:'Título, gráficos, conclusión.'},
+    {t:'Diapositivas', c:'Presentación digital.', e:'10 diapositivas.'},
+    {t:'Video del experimento', c:'Registro audiovisual.', e:'3 minutos.'},
+    {t:'Cuaderno de laboratorio', c:'Registro diario.', e:'Anotar todo.'},
+    {t:'Rúbrica del informe', c:'Criterios.', e:'Claridad, datos, conclusión.'},
+    {t:'Revisión entre compañeros', c:'Coevaluar.', e:'Leer el informe del otro.'},
+    {t:'Autoevaluación', c:'Reflexionar.', e:'¿Qué haría mejor?'},
+    {t:'Entrega del informe', c:'Formato y fecha.', e:'Impreso o digital.'},
+    {t:'Publicación del informe', c:'Compartir.', e:'Cartelera o blog.'},
+    {t:'Artículo científico escolar', c:'Estructura IMRyD adaptada.', e:'Similar a un artículo real.'},
+    {t:'Título atractivo', c:'Claro y específico.', e:'"Las abejas y la polinización."'},
+    {t:'Autores del artículo', c:'Nombre del estudiante.', e:'"Por Juan Pérez, 8°."'},
+    {t:'Resumen del artículo', c:'Abstract breve.', e:'"Se estudió..."'},
+    {t:'Palabras clave del artículo', c:'3-5 términos.', e:'"abejas, polinización"'},
+    {t:'Introducción del artículo', c:'Contexto.', e:'"Las abejas son importantes..."'},
+    {t:'Métodos del artículo', c:'Cómo se estudió.', e:'"Se observaron 3 flores..."'},
+    {t:'Resultados del artículo', c:'Datos.', e:'"Se contaron 20 visitas."'},
+    {t:'Discusión del artículo', c:'Interpretación.', e:'"Las abejas ayudan..."'},
+    {t:'Conclusión del artículo', c:'Cierre.', e:'"Es urgente protegerlas."'},
+    {t:'Referencias del artículo', c:'Fuentes.', e:'(FAO, 2022).'},
+    {t:'Póster científico completo', c:'Resumen visual.', e:'Título, autores, gráficos.'},
+    {t:'Infografía científica', c:'Datos visuales.', e:'Ciclo del agua.'},
+    {t:'Presentación oral', c:'Explicar con diapositivas.', e:'10 minutos.'},
+    {t:'Video científico', c:'Documental breve.', e:'3 minutos.'},
+    {t:'Blog científico escolar', c:'Publicar hallazgos.', e:'blog.ciencias...'},
+    {t:'Revista escolar', c:'Recopilar artículos.', e:'"Ciencia Joven #5".'},
+    {t:'Feria de ciencias', c:'Exponer el proyecto.', e:'Stand y póster.'},
+    {t:'Olimpiadas científicas', c:'Competir con otros colegios.', e:'Pruebas de conocimiento.'},
+    {t:'Cartelera científica', c:'Divulgar en el colegio.', e:'Mural del ciclo del agua.'},
+    {t:'Campaña científica escolar', c:'Concientizar.', e:'"Recicla en tu salón."'},
+    {t:'Glosario científico personal', c:'Lista de términos aprendidos.', e:'Fotosíntesis, célula, ADN.'},
+    {t:'Cuaderno de campo', c:'Registro diario.', e:'Observaciones, dibujos.'},
+    {t:'Bitácora de experimentos', c:'Todos los intentos.', e:'Incluye errores.'},
+    {t:'Portafolio científico', c:'Recopilación.', e:'Informes, fotos, dibujos.'},
+    {t:'Estilo formal', c:'Sin coloquialismos.', e:'Evitar "chévere".'},
+    {t:'Estilo impersonal', c:'Sin "yo creo".', e:'"Se observa..."'},
+    {t:'Estilo conciso', c:'Sin redundancias.', e:'Evitar "subir arriba".'},
+    {t:'Estilo coherente', c:'Unidad temática.', e:'Un solo tema.'},
+    {t:'Estilo cohesionado', c:'Conectores lógicos.', e:'"Sin embargo", "por tanto".'},
+    {t:'Evitar adjetivos valorativos', c:'"Bueno", "malo".', e:'Usar datos.'},
+    {t:'Evitar ambigüedades', c:'Precisar significados.', e:'"Aproximadamente 5 cm".'},
+    {t:'Evitar generalizaciones', c:'No decir "todos".', e:'Usar "la mayoría".'},
+    {t:'Usar ejemplos', c:'Ilustrar ideas.', e:'"Por ejemplo..."'},
+    {t:'Usar comparaciones', c:'Facilitar comprensión.', e:'"Como un motor..."'},
+    {t:'Revisar coherencia', c:'Verificar unidad.', e:'Releer el texto.'},
+    {t:'Revisar cohesión', c:'Conectores y pronombres.', e:'Verificar referencias.'},
+    {t:'Revisar precisión', c:'Términos exactos.', e:'Revisar vocabulario técnico.'},
+    {t:'Revisar puntuación', c:'Comas, puntos, dos puntos.', e:'Corregir signos.'},
+    {t:'Revisión final', c:'Leer en voz alta.', e:'Detectar errores.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesRed.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'red-proc',
+    opciones:[t.c,'Es una técnica de arte.','No tiene relación con la ciencia.','Solo se usa en matemáticas.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   SINTAXIS CASTELLANA 8° (100)
+   ===================================================================== */
+function generarTecnicasSintaxis(){
+  const T = [
+    {t:'Categorías gramaticales', c:'Sustantivo, adjetivo, verbo, adverbio, preposición, conjunción.', e:'Clasificación funcional.'},
+    {t:'Sustantivo: subclases', c:'Común/propio, concreto/abstracto.', e:'agua (común), gravedad (abstracto).'},
+    {t:'Género y número', c:'Reglas y excepciones.', e:'el agua / las aguas.'},
+    {t:'El artículo', c:'Determinado, indeterminado, neutro.', e:'el, un, lo importante.'},
+    {t:'El adjetivo: grados', c:'Positivo, comparativo, superlativo.', e:'alto, más alto, altísimo.'},
+    {t:'Adjetivos determinativos', c:'Demostrativos, posesivos, numerales.', e:'este, mi, tres.'},
+    {t:'El pronombre personal', c:'Tónicos y átonos.', e:'Él me lo dio a mí.'},
+    {t:'Colocación pronominal', c:'Anteposición y enclisis.', e:'Dímelo / Me lo dices.'},
+    {t:'El verbo: estructura', c:'Raíz + vocal temática + desinencia.', e:'cant-á-ba-mos.'},
+    {t:'Tiempos verbales', c:'Presente, pretéritos, futuros, condicional.', e:'amo, amé, amaré.'},
+    {t:'Modos verbales', c:'Indicativo, subjuntivo, imperativo.', e:'amo / ame / ama.'},
+    {t:'Formas no personales', c:'Infinitivo, gerundio, participio.', e:'cantar, cantando, cantado.'},
+    {t:'Perífrasis verbales', c:'Modales y aspectuales.', e:'Debe estudiar.'},
+    {t:'Verbos irregulares', c:'Cambios en raíz o desinencia.', e:'ir → voy, fui.'},
+    {t:'Verbos defectivos', c:'Solo en ciertas formas.', e:'abolir, atañer.'},
+    {t:'El adverbio', c:'Lugar, tiempo, modo, cantidad.', e:'aquí, ayer, bien.'},
+    {t:'Adverbios en -mente', c:'Formados desde adjetivos.', e:'rápida → rápidamente.'},
+    {t:'La preposición', c:'Enlaces: a, de, en, con, por.', e:'Voy a la casa.'},
+    {t:'Locuciones preposicionales', c:'Grupos con función prepositiva.', e:'a causa de.'},
+    {t:'La conjunción', c:'Coordinantes y subordinantes.', e:'y, pero, porque.'},
+    {t:'Locuciones conjuntivas', c:'Grupos con función conjuntiva.', e:'sin embargo.'},
+    {t:'Interjecciones', c:'Emociones.', e:'¡ay!, ¡oh!'},
+    {t:'Familia de palabras', c:'Comparten raíz.', e:'ciencia, científico.'},
+    {t:'Prefijos', c:'Al inicio.', e:'des-hacer.'},
+    {t:'Sufijos', c:'Al final.', e:'célula → celular.'},
+    {t:'Palabras simples y compuestas', c:'Una raíz / dos raíces.', e:'paraguas.'},
+    {t:'Sinónimos', c:'Significado parecido.', e:'agua / líquido.'},
+    {t:'Antónimos', c:'Significado opuesto.', e:'caliente / frío.'},
+    {t:'Homónimos', c:'Igual forma, distinto significado.', e:'vino / vino.'},
+    {t:'Polisemia', c:'Una palabra, varios significados.', e:'banco.'},
+    {t:'¿Qué es una oración?', c:'Unidad con verbo y sentido completo.', e:'El agua hierve.'},
+    {t:'Sujeto', c:'Quien realiza la acción.', e:'El agua (sujeto).'},
+    {t:'Predicado', c:'Lo que se dice del sujeto.', e:'hierve (predicado).'},
+    {t:'Sujeto expreso y elidido', c:'Se dice o se sobrentiende.', e:'(Nosotros) medimos.'},
+    {t:'Núcleo del sujeto', c:'Sustantivo o pronombre.', e:'El agua (núcleo: agua).'},
+    {t:'Núcleo del predicado', c:'Verbo conjugado.', e:'Juan mide (núcleo: mide).'},
+    {t:'Concordancia sujeto-verbo', c:'Mismo número y persona.', e:'El niño mide / Los niños miden.'},
+    {t:'Oraciones enunciativas', c:'Afirman o niegan.', e:'El agua hierve.'},
+    {t:'Oraciones interrogativas', c:'Preguntan. Usan ¿?', e:'¿A qué temperatura?'},
+    {t:'Oraciones exclamativas', c:'Emoción. ¡!', e:'¡Qué interesante!'},
+    {t:'Oraciones imperativas', c:'Órdenes.', e:'Mide la temperatura.'},
+    {t:'Predicado nominal', c:'Copulativo + atributo.', e:'El agua es transparente.'},
+    {t:'Predicado verbal', c:'Verbo predicativo.', e:'El agua hierve.'},
+    {t:'Verbos copulativos', c:'ser, estar, parecer.', e:'El agua está fría.'},
+    {t:'Atributo', c:'Cualidad del sujeto.', e:'El agua es transparente.'},
+    {t:'CD', c:'Recibe la acción.', e:'Medí la temperatura.'},
+    {t:'CI', c:'Destinatario.', e:'Entregué el informe a la profesora.'},
+    {t:'CC de lugar', c:'Dónde.', e:'Estudio en el laboratorio.'},
+    {t:'CC de tiempo', c:'Cuándo.', e:'Mediré mañana.'},
+    {t:'CC de modo', c:'Cómo.', e:'Observa atentamente.'},
+    {t:'CC de causa', c:'Por qué.', e:'Lloró por la emoción.'},
+    {t:'CC de finalidad', c:'Para qué.', e:'Estudio para aprobar.'},
+    {t:'Oraciones transitivas', c:'Llevan CD.', e:'Compré un microscopio.'},
+    {t:'Oraciones intransitivas', c:'No llevan CD.', e:'Nací en Bogotá.'},
+    {t:'Oraciones impersonales', c:'Sin sujeto.', e:'Llueve mucho.'},
+    {t:'Oraciones activas', c:'Sujeto realiza acción.', e:'El niño rompió el tubo.'},
+    {t:'Oraciones pasivas', c:'Ser + participio + por.', e:'El tubo fue roto.'},
+    {t:'Sujeto agente', c:'Quien realiza la acción en pasiva.', e:'por el niño.'},
+    {t:'Orden de la oración', c:'S + V + Complementos.', e:'María compró flores.'},
+    {t:'Concordancia artículo-sustantivo', c:'Género y número.', e:'la célula / las células.'},
+    {t:'Concordancia sustantivo-adjetivo', c:'Género y número.', e:'los átomos pequeños.'},
+    {t:'Oración compuesta', c:'Dos o más proposiciones.', e:'Quiero que vengas.'},
+    {t:'Yuxtaposición', c:'Sin nexo.', e:'Llegó, vio, venció.'},
+    {t:'Coordinación copulativa', c:'y, e, ni.', e:'Estudia y trabaja.'},
+    {t:'Coordinación adversativa', c:'pero, sino.', e:'Es listo, pero perezoso.'},
+    {t:'Coordinación disyuntiva', c:'o, u.', e:'¿Vienes o te quedas?'},
+    {t:'Subordinada sustantiva', c:'Funciona como sustantivo.', e:'Me gusta que cantes.'},
+    {t:'Subordinada adjetiva', c:'Complementa un sustantivo.', e:'El libro que leí.'},
+    {t:'Subordinada adverbial', c:'Causa, tiempo, condición.', e:'Iré cuando pueda.'},
+    {t:'Estilo directo', c:'Reproduce textualmente.', e:'Dijo: "Voy."'},
+    {t:'Estilo indirecto', c:'Reproduce con ajustes.', e:'Dijo que iba.'},
+    {t:'Uso de la coma', c:'Enumeraciones, vocativos.', e:'Compré pan, leche y huevos.'},
+    {t:'Coma vocativa', c:'Separa el nombre.', e:'Ana, ven aquí.'},
+    {t:'Punto y coma', c:'Separa oraciones relacionadas.', e:'Llegó tarde; sin embargo, entró.'},
+    {t:'Dos puntos', c:'Anuncian enumeración.', e:'Necesito: agua, sal y vaso.'},
+    {t:'Punto final', c:'Cierra oración.', e:'El agua hierve.'},
+    {t:'Puntos suspensivos', c:'Duda o suspenso.', e:'Bueno, yo creo que...'},
+    {t:'Signos de interrogación', c:'Encierran preguntas.', e:'¿Cómo estás?'},
+    {t:'Signos de exclamación', c:'Encierran emociones.', e:'¡Qué bonito!'},
+    {t:'Comillas', c:'Citas textuales.', e:'Le llamó "genio".'},
+    {t:'Paréntesis', c:'Aclaraciones.', e:'Nació en 1980 (en Madrid).'},
+    {t:'Guion largo para diálogos', c:'Intervenciones.', e:'—¿Vienes? —preguntó.'},
+    {t:'Mayúsculas al inicio', c:'Toda oración empieza con mayúscula.', e:'El perro corre.'},
+    {t:'Mayúsculas en nombres propios', c:'Personas, ciudades.', e:'Juan vive en Bogotá.'},
+    {t:'Mayúsculas tras punto', c:'Después de un punto.', e:'Llegó. Después se fue.'},
+    {t:'Dequeísmo', c:'Error: "de que" por "que".', e:'*Pienso de que → Pienso que.'},
+    {t:'Queísmo', c:'Error: omitir "de" antes de "que".', e:'*Me di cuenta que → Me di cuenta de que.'},
+    {t:'Leísmo', c:'Error: "le" por "lo".', e:'*Le vi → Lo vi.'},
+    {t:'Laísmo', c:'Error: "la" por "le".', e:'*La dije → Le dije.'},
+    {t:'Loísmo', c:'Error: "lo" por "le".', e:'*Lo di el libro → Le di el libro.'},
+    {t:'Pleonasmo', c:'Repetición innecesaria.', e:'*Subir arriba.'},
+    {t:'Anfibología', c:'Doble sentido.', e:'*Se venden mantas para niños.'},
+    {t:'Cosismo', c:'Abuso de "cosa".', e:'*Tengo una cosa que decirte.'},
+    {t:'Cacofonía', c:'Sonidos desagradables.', e:'*La caca de la vaca.'},
+    {t:'Barbarismo', c:'Palabras mal formadas.', e:'*Haiga por haya.'},
+    {t:'Ultracorrección', c:'Corregir de más.', e:'*Bilbado por Bilbao.'},
+    {t:'Muletillas', c:'Palabras repetidas.', e:'este, bueno, o sea.'},
+    {t:'Claridad', c:'Frases cortas y directas.', e:'El agua hierve.'},
+    {t:'Precisión', c:'Palabras exactas.', e:'"Caminó" mejor que "fue".'},
+    {t:'Coherencia', c:'Ideas conectadas.', e:'Un solo tema.'},
+    {t:'Cohesión', c:'Conectores y pronombres.', e:'Además, sin embargo.'},
+    {t:'Revisión final', c:'Leer y corregir.', e:'Revisar antes de entregar.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesSin.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'sin-morf',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene aplicación en castellano.'],
+    correcta:0
+  }));
+}
+
+const tecnicasPy = generarTecnicasPython();
+const tecnicasTxt = generarTecnicasTextos();
+const tecnicasLec = generarTecnicasLectura();
+const tecnicasRed = generarTecnicasRedaccion();
+const tecnicasSin = generarTecnicasSintaxis();
+
+/* =====================================================================
+   ESTADO DEL USUARIO ACTUAL
+   ===================================================================== */
+let estado = null;
+
+function cargarEstado(){
+  estado = {
+    py:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('py')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('py')))||{}, tecnicaActual:1, bloqueActual:'py-bas' },
+    txt:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('txt')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('txt')))||{}, tecnicaActual:1, bloqueActual:'txt-exp' },
+    lec:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('lec')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('lec')))||{}, tecnicaActual:1, bloqueActual:'lec-niv' },
+    red:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('red')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('red')))||{}, tecnicaActual:1, bloqueActual:'red-proc' },
+    sin:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('sin')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('sin')))||{}, tecnicaActual:1, bloqueActual:'sin-morf' },
+    tema: localStorage.getItem('ciencias8_tema')||'light',
+    modo:'dashboard'
+  };
+  // Aplicar tema
+  if(estado.tema==='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('btnTema').textContent='☀️';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    document.getElementById('btnTema').textContent='🌙';
+  }
+}
+
+function guardar(area){
+  const map = { py:'py', txt:'txt', lec:'lec', red:'red', sin:'sin' };
+  const k = map[area];
+  localStorage.setItem(getClaveArea(k), JSON.stringify(estado[area].progreso));
+  localStorage.setItem(getClaveNotas(k), JSON.stringify(estado[area].notas));
+  actualizarDashboard();
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(!currentUser) return;
+    document.querySelectorAll('#navTabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    estado.modo = btn.dataset.mode;
+    document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+estado.modo).classList.add('active');
+    if(estado.modo==='dashboard') actualizarDashboard();
+    if(estado.modo==='python') renderCuaderno('py');
+    if(estado.modo==='textos') renderCuaderno('txt');
+    if(estado.modo==='lectura') renderCuaderno('lec');
+    if(estado.modo==='redaccion') renderCuaderno('red');
+    if(estado.modo==='sintaxis') renderCuaderno('sin');
+    if(estado.modo==='taller') renderTaller();
+    if(estado.modo==='certificado') renderCertificado();
+  });
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  if(estado.tema==='dark') document.documentElement.setAttribute('data-theme', estado.tema);
+  else document.documentElement.removeAttribute('data-theme');
+  localStorage.setItem('ciencias8_tema', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+});
+
+document.getElementById('btnReiniciar').addEventListener('click',()=>{
+  if(!currentUser) return;
+  if(!confirm(`¿Reiniciar todo el progreso de ${currentUser.nombre} en Ciencias 8°?`)) return;
+  ['py','txt','lec','red','sin'].forEach(a=>{
+    localStorage.removeItem(getClaveArea(a));
+    localStorage.removeItem(getClaveNotas(a));
+  });
+  cargarEstado();
+  renderTodo();
+});
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function actualizarDashboard(){
+  if(!estado) return;
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const total = py+txt+lec+red+sin;
+  const pct = Math.round((total/500)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/500</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python</div></div>
+    <div class="kpi-card"><div class="kpi-value">${txt}/100</div><div class="kpi-label">🧪 Textos</div></div>
+    <div class="kpi-card"><div class="kpi-value">${lec}/100</div><div class="kpi-label">🔬 Comprensión</div></div>
+    <div class="kpi-card"><div class="kpi-value">${red}/100</div><div class="kpi-label">✍️ Redacción</div></div>
+    <div class="kpi-card"><div class="kpi-value">${sin}/100</div><div class="kpi-label">🧩 Sintaxis</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+  document.getElementById('barrasTextos').innerHTML = barras(bloquesTxt, tecnicasTxt, estado.txt.progreso);
+  document.getElementById('barrasLectura').innerHTML = barras(bloquesLec, tecnicasLec, estado.lec.progreso);
+  document.getElementById('barrasRedaccion').innerHTML = barras(bloquesRed, tecnicasRed, estado.red.progreso);
+  document.getElementById('barrasSintaxis').innerHTML = barras(bloquesSin, tecnicasSin, estado.sin.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/500)*120;
+    pts.push(`${x},${y}`);
+    acum += 42;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+/* =====================================================================
+   RENDER CUADERNO (reutilizable)
+   ===================================================================== */
+function renderCuaderno(area){
+  if(!estado) return;
+  const cfg = {
+    py: { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' },
+    txt:{ bloques: bloquesTxt, tecnicas: tecnicasTxt, contenedor:'tecnicaTxt', sidebar:'bloquesTxt', progText:'progTxtText', progFill:'progTxtFill' },
+    lec:{ bloques: bloquesLec, tecnicas: tecnicasLec, contenedor:'tecnicaLec', sidebar:'bloquesLec', progText:'progLecText', progFill:'progLecFill' },
+    red:{ bloques: bloquesRed, tecnicas: tecnicasRed, contenedor:'tecnicaRed', sidebar:'bloquesRed', progText:'progRedText', progFill:'progRedFill' },
+    sin:{ bloques: bloquesSin, tecnicas: tecnicasSin, contenedor:'tecnicaSin', sidebar:'bloquesSin', progText:'progSinText', progFill:'progSinFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${tec.concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardar(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardar(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardar(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+/* =====================================================================
+   TALLER (26 herramientas)
+   ===================================================================== */
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>🔬 Calculadora científica avanzada</h4>
+      <input id="calcExpr" placeholder="Ej: sqrt(16)+2**3">
+      <button class="btn-accion" id="btnCalc">Calcular</button>
+      <div class="resultado-box" id="rCalc"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Análisis estadístico completo</h4>
+      <textarea id="statDatos" placeholder="Un dato por línea:&#10;22.5&#10;23.1&#10;22.8"></textarea>
+      <button class="btn-accion" id="btnStat">Analizar</button>
+      <div class="resultado-box" id="rStat"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚡ Calculadora de física avanzada</h4>
+      <select id="fisTipo">
+        <option value="mru">MRU: x = v·t</option>
+        <option value="mrua">MRUA: x = v₀t + ½at²</option>
+        <option value="caida">Caída libre</option>
+        <option value="peso">Peso</option>
+        <option value="ec">Energía cinética</option>
+        <option value="ep">Energía potencial</option>
+        <option value="ohm">Ley de Ohm</option>
+        <option value="pot">Potencia eléctrica</option>
+        <option value="onda">Onda: v = λf</option>
+      </select>
+      <input id="fisA" type="number" placeholder="Valor 1">
+      <input id="fisB" type="number" placeholder="Valor 2">
+      <button class="btn-accion" id="btnFis">Calcular</button>
+      <div class="resultado-box" id="rFis"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚗️ Calculadora química</h4>
+      <select id="quimTipo">
+        <option value="densidad">Densidad</option>
+        <option value="moles">Moles</option>
+        <option value="molaridad">Molaridad</option>
+        <option value="ph">pH</option>
+        <option value="dilucion">Dilución</option>
+        <option value="calor">Calor</option>
+        <option value="rendimiento">Rendimiento</option>
+      </select>
+      <input id="quimA" type="number" step="any" placeholder="Valor 1">
+      <input id="quimB" type="number" step="any" placeholder="Valor 2">
+      <input id="quimC" type="number" step="any" placeholder="Valor 3 (opcional)">
+      <button class="btn-accion" id="btnQuim">Calcular</button>
+      <div class="resultado-box" id="rQuim"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌡️ Conversor de unidades</h4>
+      <input id="convVal" type="number" placeholder="100">
+      <select id="convTipo">
+        <option value="cm-m">cm → m</option>
+        <option value="m-km">m → km</option>
+        <option value="g-kg">g → kg</option>
+        <option value="ml-l">mL → L</option>
+        <option value="c-f">°C → °F</option>
+        <option value="f-c">°F → °C</option>
+        <option value="c-k">°C → K</option>
+      </select>
+      <button class="btn-accion" id="btnConv">Convertir</button>
+      <div class="resultado-box" id="rConv"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Analizador de ADN</h4>
+      <input id="adnSeq" placeholder="ATGCGTACGT">
+      <button class="btn-accion" id="btnAdn">Analizar</button>
+      <div class="resultado-box" id="rAdn"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧪 Detector tipo de texto científico</h4>
+      <textarea id="tipoTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnTipo">Detectar</button>
+      <div class="resultado-box" id="rTipo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Índice de legibilidad</h4>
+      <textarea id="legibTexto" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Analizador de hipótesis</h4>
+      <textarea id="hipTexto" placeholder="Si aumento T, entonces v aumenta."></textarea>
+      <button class="btn-accion" id="btnHip">Analizar</button>
+      <div class="resultado-box" id="rHip"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Detector de variables</h4>
+      <textarea id="varTexto" placeholder="Pega el método..."></textarea>
+      <button class="btn-accion" id="btnVar">Detectar</button>
+      <div class="resultado-box" id="rVar"></div>
+    </div>
+    <div class="herramienta-card"><h4>📋 Generador de tabla</h4>
+      <textarea id="tablaDatos" placeholder="Un dato por línea"></textarea>
+      <button class="btn-accion" id="btnTabla">Generar</button>
+      <div class="resultado-box" id="rTabla"></div>
+    </div>
+    <div class="herramienta-card"><h4>📐 Detector de vicios del lenguaje</h4>
+      <textarea id="vicTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnVic">Detectar</button>
+      <div class="resultado-box" id="rVic"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔤 Analizador morfológico</h4>
+      <textarea id="morfTexto" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector de tildes</h4>
+      <textarea id="tildTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTild">Corregir</button>
+      <div class="resultado-box" id="rTild"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Extractor de idea principal</h4>
+      <textarea id="ideaTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnIdea">Extraer</button>
+      <div class="resultado-box" id="rIdea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador de código Python</h4>
+      <select id="pyTipoGen">
+        <option value="promedio">Promedio de datos</option>
+        <option value="densidad">Densidad</option>
+        <option value="mru">Cinemática MRU</option>
+        <option value="ph">pH</option>
+        <option value="adn">Complemento de ADN</option>
+        <option value="regresion">Regresión lineal</option>
+      </select>
+      <input id="pyTextoGen" placeholder="Datos de entrada">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector términos científicos</h4>
+      <textarea id="termTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTerm">Detectar</button>
+      <div class="resultado-box" id="rTerm"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌍 Huella de carbono</h4>
+      <input id="hcKm" type="number" placeholder="Km/día">
+      <input id="hcElec" type="number" placeholder="kWh/mes">
+      <button class="btn-accion" id="btnHc">Calcular</button>
+      <div class="resultado-box" id="rHc"></div>
+    </div>
+    <div class="herramienta-card"><h4>🩺 Calculadora de IMC</h4>
+      <input id="imcPeso" type="number" placeholder="Peso (kg)">
+      <input id="imcAlt" type="number" step="any" placeholder="Altura (m)">
+      <button class="btn-accion" id="btnImc">Calcular</button>
+      <div class="resultado-box" id="rImc"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Cuadro de Punnett</h4>
+      <input id="punA" placeholder="Genotipo 1 (Aa)">
+      <input id="punB" placeholder="Genotipo 2 (Aa)">
+      <button class="btn-accion" id="btnPun">Cruzar</button>
+      <div class="resultado-box" id="rPun"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Serie temporal</h4>
+      <textarea id="serieDatos" placeholder="Un dato por línea en orden"></textarea>
+      <button class="btn-accion" id="btnSerie">Analizar tendencia</button>
+      <div class="resultado-box" id="rSerie"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌱 Analizador de ecosistema</h4>
+      <textarea id="ecoTexto" placeholder="Describe un ecosistema..."></textarea>
+      <button class="btn-accion" id="btnEco">Analizar</button>
+      <div class="resultado-box" id="rEco"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚛️ Balanceador de reacciones</h4>
+      <input id="balEc" placeholder="H2 + O2 = H2O">
+      <button class="btn-accion" id="btnBal">Sugerir</button>
+      <div class="resultado-box" id="rBal"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧮 Calculadora de moles y estequiometría</h4>
+      <input id="molMasa" type="number" placeholder="Masa (g)">
+      <input id="molMolar" type="number" placeholder="Masa molar (g/mol)">
+      <button class="btn-accion" id="btnMol">Calcular</button>
+      <div class="resultado-box" id="rMol"></div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe de progreso</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+  `;
+
+  // Calculadora
+  document.getElementById('btnCalc').addEventListener('click',()=>{
+    const e = document.getElementById('calcExpr').value;
+    try {
+      const r = Function('"use strict";const sqrt=Math.sqrt,sin=Math.sin,cos=Math.cos,tan=Math.tan,log=Math.log,PI=Math.PI;return ('+e+')')();
+      document.getElementById('rCalc').textContent = `= ${r}`;
+    } catch { document.getElementById('rCalc').textContent = 'Error.'; }
+  });
+
+  // Estadística
+  document.getElementById('btnStat').addEventListener('click',()=>{
+    const nums = document.getElementById('statDatos').value.split('\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
+    if(nums.length<2){ document.getElementById('rStat').textContent='Ingresa al menos 2 datos.'; return; }
+    const n=nums.length, media=nums.reduce((a,b)=>a+b,0)/n;
+    const sorted=[...nums].sort((a,b)=>a-b);
+    const mediana = n%2 ? sorted[Math.floor(n/2)] : (sorted[n/2-1]+sorted[n/2])/2;
+    const varianza = nums.reduce((s,x)=>s+(x-media)**2,0)/n;
+    const desv = Math.sqrt(varianza);
+    document.getElementById('rStat').innerHTML = `
+      <strong>N:</strong> ${n}<br>
+      <strong>Media:</strong> ${media.toFixed(2)}<br>
+      <strong>Mediana:</strong> ${mediana.toFixed(2)}<br>
+      <strong>Desviación:</strong> ${desv.toFixed(2)}<br>
+      <strong>Varianza:</strong> ${varianza.toFixed(2)}<br>
+      <strong>Mín/Máx:</strong> ${Math.min(...nums)} / ${Math.max(...nums)}
+    `;
+  });
+
+  // Física
+  document.getElementById('btnFis').addEventListener('click',()=>{
+    const t=document.getElementById('fisTipo').value;
+    const a=parseFloat(document.getElementById('fisA').value);
+    const b=parseFloat(document.getElementById('fisB').value);
+    let r,u,f;
+    if(t==='mru'){ r=a*b; f='x = v·t'; u='m'; }
+    else if(t==='mrua'){ r=0.5*a*b*b; f='x = ½at²'; u='m'; }
+    else if(t==='caida'){ r=0.5*9.8*a*a; f='h = ½gt²'; u='m'; }
+    else if(t==='peso'){ r=a*9.8; f='P = mg'; u='N'; }
+    else if(t==='ec'){ r=0.5*a*b*b; f='Ec = ½mv²'; u='J'; }
+    else if(t==='ep'){ r=a*9.8*b; f='Ep = mgh'; u='J'; }
+    else if(t==='ohm'){ r=a*b; f='V = IR'; u='V'; }
+    else if(t==='pot'){ r=a*b; f='P = VI'; u='W'; }
+    else { r=a*b; f='v = λf'; u='m/s'; }
+    document.getElementById('rFis').innerHTML = `${f}<br>Resultado: <strong>${r.toFixed(3)} ${u}</strong>`;
+  });
+
+  // Química
+  document.getElementById('btnQuim').addEventListener('click',()=>{
+    const t=document.getElementById('quimTipo').value;
+    const a=parseFloat(document.getElementById('quimA').value);
+    const b=parseFloat(document.getElementById('quimB').value);
+    const c=parseFloat(document.getElementById('quimC').value);
+    let r,u,f;
+    if(t==='densidad'){ r=a/b; f='d = m/V'; u='g/cm³'; }
+    else if(t==='moles'){ r=a/b; f='n = m/M'; u='mol'; }
+    else if(t==='molaridad'){ r=a/b; f='M = n/V'; u='M'; }
+    else if(t==='ph'){ r=-Math.log10(a); f='pH = -log[H⁺]'; u=''; }
+    else if(t==='dilucion'){ r=a*b/c; f='C₂ = C₁V₁/V₂'; u='M'; }
+    else if(t==='calor'){ r=a*b*c; f='Q = mcΔT'; u='J'; }
+    else { r=a/b*100; f='% rend = real/teórico×100'; u='%'; }
+    document.getElementById('rQuim').innerHTML = `${f}<br>Resultado: <strong>${r.toFixed(4)} ${u}</strong>`;
+  });
+
+  // Conversor
+  document.getElementById('btnConv').addEventListener('click',()=>{
+    const v=parseFloat(document.getElementById('convVal').value);
+    const t=document.getElementById('convTipo').value;
+    let r,u;
+    if(t==='cm-m'){ r=v/100; u='m'; }
+    else if(t==='m-km'){ r=v/1000; u='km'; }
+    else if(t==='g-kg'){ r=v/1000; u='kg'; }
+    else if(t==='ml-l'){ r=v/1000; u='L'; }
+    else if(t==='c-f'){ r=v*9/5+32; u='°F'; }
+    else if(t==='f-c'){ r=(v-32)*5/9; u='°C'; }
+    else { r=v+273.15; u='K'; }
+    document.getElementById('rConv').textContent = `${v} → ${r.toFixed(3)} ${u}`;
+  });
+
+  // ADN
+  document.getElementById('btnAdn').addEventListener('click',()=>{
+    const s=document.getElementById('adnSeq').value.toUpperCase().replace(/[^ATGC]/g,'');
+    if(!s){ document.getElementById('rAdn').textContent='Ingresa una secuencia.'; return; }
+    const comp = s.split('').map(b=>b==='A'?'T':b==='T'?'A':b==='G'?'C':b==='C'?'G':'?').join('');
+    const gc = ((s.match(/[GC]/g)||[]).length / s.length * 100).toFixed(1);
+    document.getElementById('rAdn').innerHTML = `
+      <strong>Secuencia:</strong> ${s}<br>
+      <strong>Complementaria:</strong> ${comp}<br>
+      <strong>Longitud:</strong> ${s.length} bases<br>
+      <strong>Contenido GC:</strong> ${gc}%
+    `;
+  });
+
+  // Tipo texto
+  document.getElementById('btnTipo').addEventListener('click',()=>{
+    const t = document.getElementById('tipoTexto').value;
+    let tipo='Expositivo científico';
+    if(/^\s*1\.|paso 1|primer paso|materiales|procedimiento/i.test(t)) tipo='Instructivo (protocolo)';
+    else if(/porque|por tanto|en consecuencia|debemos|considero/i.test(t)) tipo='Argumentativo científico';
+    else if(/es|son|está|están|tiene|color|forma/i.test(t) && !/porque|por tanto/i.test(t)) tipo='Descriptivo científico';
+    else if(/se define|consiste|proceso|se caracteriza|se clasifica/i.test(t)) tipo='Expositivo científico';
+    document.getElementById('rTipo').innerHTML = `<strong>Tipo probable:</strong> ${tipo}`;
+  });
+
+  // Legibilidad
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('legibTexto').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const idx=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const nivel=idx>90?'Muy fácil':idx>80?'Fácil':idx>70?'Normal':idx>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML = `FH: <strong>${idx.toFixed(1)}</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  // Hipótesis
+  document.getElementById('btnHip').addEventListener('click',()=>{
+    const t=document.getElementById('hipTexto').value;
+    const tieneSi=/\bsi\b/i.test(t);
+    const tieneEntonces=/\bentonces\b/i.test(t);
+    const partes=t.split(/\bentonces\b/i);
+    document.getElementById('rHip').innerHTML = `
+      ${tieneSi?'✅ "si" (condición)':'⚠️ Falta "si"'}<br>
+      ${tieneEntonces?'✅ "entonces" (predicción)':'⚠️ Falta "entonces"'}<br>
+      ${partes[0]?`<br><strong>Variable independiente:</strong> ${partes[0].replace(/si/i,'').trim()}`:''}
+      ${partes[1]?`<br><strong>Variable dependiente:</strong> ${partes[1].trim()}`:''}
+    `;
+  });
+
+  // Variables
+  document.getElementById('btnVar').addEventListener('click',()=>{
+    const t=document.getElementById('varTexto').value.toLowerCase();
+    const v=[];
+    if(/\b(temperatura|calor|frío)\b/.test(t)) v.push('🌡️ Temperatura');
+    if(/\b(luz|iluminación|sol)\b/.test(t)) v.push('☀️ Luz');
+    if(/\b(agua|riego|humedad)\b/.test(t)) v.push('💧 Agua');
+    if(/\b(tiempo|días|horas|minutos)\b/.test(t)) v.push('⏱️ Tiempo');
+    if(/\b(masa|peso)\b/.test(t)) v.push('⚖️ Masa');
+    if(/\b(altura|crecimiento|tamaño)\b/.test(t)) v.push('📏 Altura');
+    if(/\b(ph|acidez|alcalinidad)\b/.test(t)) v.push('🧪 pH');
+    if(/\b(concentración|molaridad)\b/.test(t)) v.push('⚗️ Concentración');
+    if(/\b(voltaje|corriente|resistencia)\b/.test(t)) v.push('⚡ Electricidad');
+    document.getElementById('rVar').innerHTML = v.length ? v.join('<br>') : 'No se detectaron variables.';
+  });
+
+  // Tabla
+  document.getElementById('btnTabla').addEventListener('click',()=>{
+    const datos=document.getElementById('tablaDatos').value.split('\n').map(x=>x.trim()).filter(x=>x);
+    if(!datos.length){ document.getElementById('rTabla').textContent='Ingresa datos.'; return; }
+    let tabla='| # | Valor |\n|---|-------|\n';
+    datos.forEach((d,i)=>{ tabla+=`| ${i+1} | ${d} |\n`; });
+    document.getElementById('rTabla').textContent=tabla;
+  });
+
+  // Vicios
+  document.getElementById('btnVic').addEventListener('click',()=>{
+    const t=document.getElementById('vicTexto').value;
+    const v=[];
+    if(/\b(pienso|creo|opino) de que\b/gi.test(t)) v.push('⚠️ Dequeísmo');
+    if(/\bme di cuenta que\b/gi.test(t)) v.push('⚠️ Queísmo');
+    if(/\ble vi\b/gi.test(t)) v.push('⚠️ Leísmo');
+    if(/\bla dije\b/gi.test(t)) v.push('⚠️ Laísmo');
+    if(/\b(subir arriba|bajar abajo)\b/gi.test(t)) v.push('⚠️ Pleonasmo');
+    if(/\b(cosa)\b/gi.test(t)) v.push('⚠️ Cosismo');
+    if(/\b(haiga|accesar|prevee|dijistes)\b/gi.test(t)) v.push('⚠️ Barbarismo');
+    document.getElementById('rVic').innerHTML = v.length ? v.join('<br>') : '✅ Sin vicios.';
+  });
+
+  // Morfológico
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t=document.getElementById('morfTexto').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Desconocida';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente|ayer|hoy|mañana|aquí|allí)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|comer|correr|leer|escribir|medir|pesar|calentar|disolver)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sustantivo/Adjetivo';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML=analisis.join('<br>');
+  });
+
+  // Tildes
+  document.getElementById('btnTild').addEventListener('click',()=>{
+    const t=document.getElementById('tildTexto').value;
+    const errores=[];
+    const reglas=[
+      {re:/\besta\b/g, sug:'está (verbo)'},
+      {re:/\bmas\b/g, sug:'más (adverbio)'},
+      {re:/\bsolo\b/g, sug:'sólo (tradicional)'},
+      {re:/\bde que\b/gi, sug:'que (posible dequeísmo)'}
+    ];
+    reglas.forEach(r=>{ if(r.re.test(t)) errores.push(`⚠️ ${r.sug}`); });
+    document.getElementById('rTild').innerHTML = errores.length ? errores.join('<br>') : '✅ Sin errores.';
+  });
+
+  // Idea
+  document.getElementById('btnIdea').addEventListener('click',()=>{
+    const t=document.getElementById('ideaTexto').value;
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const freq={};
+    oraciones.forEach(o=>{
+      o.toLowerCase().split(/\s+/).forEach(p=>{
+        p=p.replace(/[^\wáéíóúñ]/g,'');
+        if(p.length>3 && !stop.has(p)) freq[p]=(freq[p]||0)+1;
+      });
+    });
+    const top=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    const mejor=oraciones.reduce((best,o)=>{
+      const score=top.reduce((s,[w,c])=>s+(o.toLowerCase().includes(w)?c:0),0);
+      return score>best.score?{o,score}:best;
+    },{o:'',score:-1});
+    document.getElementById('rIdea').innerHTML = `<strong>Palabras clave:</strong> ${top.map(x=>x[0]).join(', ')}<br><br><strong>Idea principal:</strong><br>${mejor.o.trim()}.`;
+  });
+
+  // PyGen
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipoGen').value;
+    const texto=document.getElementById('pyTextoGen').value||'22,23,25,24';
+    let code='';
+    if(tipo==='promedio'){
+      code=`datos = [${texto}]\nmedia = sum(datos)/len(datos)\nprint(f"Media: {media:.2f}")`;
+    } else if(tipo==='densidad'){
+      code=`masa = 100\nvolumen = 50\ndensidad = masa/volumen\nprint(f"Densidad: {densidad:.2f} g/cm³")`;
+    } else if(tipo==='mru'){
+      code=`v = 20\nt = 15\nx = v*t\nprint(f"Posición: {x} m")`;
+    } else if(tipo==='ph'){
+      code=`import math\nH = 1e-7\nph = -math.log10(H)\nprint(f"pH = {ph:.2f}")`;
+    } else if(tipo==='adn'){
+      code=`secuencia = "${texto}"\ncomp = {"A":"T","T":"A","G":"C","C":"G"}\ncomplementaria = "".join(comp[b] for b in secuencia.upper())\nprint(complementaria)`;
+    } else {
+      code=`import numpy as np\nx = np.array([1,2,3,4,5])\ny = np.array([2.1,4.0,5.9,8.1,10.0])\nm, b = np.polyfit(x, y, 1)\nprint(f"y = {m:.2f}x + {b:.2f}")`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  // Términos
+  document.getElementById('btnTerm').addEventListener('click',()=>{
+    const t=document.getElementById('termTexto').value.toLowerCase();
+    const terminos=['fotosíntesis','célula','átomo','molécula','energía','materia','ecosistema','biodiversidad','temperatura','densidad','reacción','sustancia','mitosis','meiosis','adn','proteína','bacteria','volcán','sismo','clima','hábitat','evaporación','condensación','gravedad','oxidación','combustión','disolución','soluto','ph','cinemática','fuerza','aceleración','potencia','circuito','voltaje','corriente','gen','alelo','proteína','enzima'];
+    const encontrados=terminos.filter(x=>t.includes(x));
+    document.getElementById('rTerm').innerHTML = encontrados.length ?
+      `Términos (${encontrados.length}):<br>${encontrados.map(x=>'• '+x).join('<br>')}` :
+      'No se detectaron términos.';
+  });
+
+  // Huella
+  document.getElementById('btnHc').addEventListener('click',()=>{
+    const km=parseFloat(document.getElementById('hcKm').value)||0;
+    const kwh=parseFloat(document.getElementById('hcElec').value)||0;
+    const co2 = km*0.192*365 + kwh*0.4*12;
+    document.getElementById('rHc').innerHTML = `Huella: <strong>${co2.toFixed(0)} kg CO₂/año</strong><br>Equivale a plantar ~${Math.ceil(co2/20)} árboles.`;
+  });
+
+  // IMC
+  document.getElementById('btnImc').addEventListener('click',()=>{
+    const p=parseFloat(document.getElementById('imcPeso').value);
+    const a=parseFloat(document.getElementById('imcAlt').value);
+    if(!p||!a){ document.getElementById('rImc').textContent='Ingresa peso y altura.'; return; }
+    const imc = p/(a*a);
+    let cat = imc<18.5?'Bajo peso':imc<25?'Normal':imc<30?'Sobrepeso':'Obesidad';
+    document.getElementById('rImc').innerHTML = `IMC: <strong>${imc.toFixed(1)}</strong><br>${cat}`;
+  });
+
+  // Punnett
+  document.getElementById('btnPun').addEventListener('click',()=>{
+    const a=document.getElementById('punA').value.padEnd(2,'?');
+    const b=document.getElementById('punB').value.padEnd(2,'?');
+    const cruz = [[a[0]+b[0],a[0]+b[1]],[a[1]+b[0],a[1]+b[1]]];
+    let html='<table style="border-collapse:collapse;font-family:monospace;font-size:0.85rem;">';
+    html += `<tr><td style="border:1px solid #999;padding:0.3rem;">&nbsp;</td><td style="border:1px solid #999;padding:0.3rem;">${b[0]}</td><td style="border:1px solid #999;padding:0.3rem;">${b[1]}</td></tr>`;
+    html += `<tr><td style="border:1px solid #999;padding:0.3rem;">${a[0]}</td><td style="border:1px solid #999;padding:0.3rem;">${cruz[0][0]}</td><td style="border:1px solid #999;padding:0.3rem;">${cruz[0][1]}</td></tr>`;
+    html += `<tr><td style="border:1px solid #999;padding:0.3rem;">${a[1]}</td><td style="border:1px solid #999;padding:0.3rem;">${cruz[1][0]}</td><td style="border:1px solid #999;padding:0.3rem;">${cruz[1][1]}</td></tr>`;
+    html += '</table>';
+    html += `<br><strong>Genotipos:</strong> ${cruz.flat().join(', ')}`;
+    document.getElementById('rPun').innerHTML = html;
+  });
+
+  // Serie
+  document.getElementById('btnSerie').addEventListener('click',()=>{
+    const datos=document.getElementById('serieDatos').value.split('\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
+    if(datos.length<2){ document.getElementById('rSerie').textContent='Ingresa al menos 2 datos.'; return; }
+    const pendiente = (datos[datos.length-1] - datos[0]) / (datos.length-1);
+    const tendencia = pendiente>0.1?'Ascendente 📈':pendiente<-0.1?'Descendente 📉':'Estable ➡️';
+    document.getElementById('rSerie').innerHTML = `
+      <strong>N:</strong> ${datos.length}<br>
+      <strong>Primero:</strong> ${datos[0]}<br>
+      <strong>Último:</strong> ${datos[datos.length-1]}<br>
+      <strong>Cambio:</strong> ${(datos[datos.length-1]-datos[0]).toFixed(2)}<br>
+      <strong>Pendiente:</strong> ${pendiente.toFixed(3)}<br>
+      <strong>Tendencia:</strong> ${tendencia}
+    `;
+  });
+
+  // Ecosistema
+  document.getElementById('btnEco').addEventListener('click',()=>{
+    const t=document.getElementById('ecoTexto').value.toLowerCase();
+    const el=[];
+    if(/productor|planta|árbol|hierba/.test(t)) el.push('🌱 Productores');
+    if(/herbívoro|conejo|vaca|insecto/.test(t)) el.push('🐰 Herbívoros');
+    if(/carnívoro|jaguar|águila|lobo/.test(t)) el.push('🦁 Carnívoros');
+    if(/descomponedor|hongo|bacteria/.test(t)) el.push('🍄 Descomponedores');
+    if(/clima|temperatura|lluvia/.test(t)) el.push('🌦️ Factores abióticos');
+    if(/suelo|roca|mineral/.test(t)) el.push('🪨 Suelo');
+    if(/agua|río|lago/.test(t)) el.push('💧 Agua');
+    document.getElementById('rEco').innerHTML = el.length ? `Componentes:<br>${el.join('<br>')}` : 'No se detectaron componentes.';
+  });
+
+  // Balanceo
+  document.getElementById('btnBal').addEventListener('click',()=>{
+    const e=document.getElementById('balEc').value;
+    const comunes={'H2 + O2 = H2O':'2 H2 + O2 = 2 H2O','N2 + H2 = NH3':'N2 + 3 H2 = 2 NH3','CH4 + O2 = CO2 + H2O':'CH4 + 2 O2 = CO2 + 2 H2O'};
+    document.getElementById('rBal').textContent = comunes[e.replace(/\s+/g,' ').trim()] || 'Revisa los átomos de cada lado.';
+  });
+
+  // Moles
+  document.getElementById('btnMol').addEventListener('click',()=>{
+    const m=parseFloat(document.getElementById('molMasa').value);
+    const M=parseFloat(document.getElementById('molMolar').value);
+    if(!m||!M){ document.getElementById('rMol').textContent='Ingresa masa y masa molar.'; return; }
+    const n = m/M;
+    document.getElementById('rMol').innerHTML = `n = m/M<br><strong>${n.toFixed(4)} moles</strong>`;
+  });
+
+  // Exportar
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    exportarProgresoUsuario();
+    document.getElementById('rExportar').textContent = 'Informe generado y descargado.';
+  });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function renderCertificado(){
+  const campos=JSON.parse(localStorage.getItem(getClaveCampos()))||{};
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c=el.dataset.campo;
+    if(campos[c]) el.textContent=campos[c];
+    if(c==='nombre' && currentUser) el.textContent = currentUser.nombre;
+    if(c==='institucion' && currentUser) el.textContent = currentUser.institucion;
+    if(c==='curso' && currentUser) el.textContent = currentUser.curso;
+    el.addEventListener('blur',()=>{
+      campos[c]=el.textContent;
+      localStorage.setItem(getClaveCampos(),JSON.stringify(campos));
+    });
+  });
+  document.getElementById('selloAnio').textContent=new Date().getFullYear();
+
+  const todos=[
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python para ciencias naturales (8°)'},
+    {bloques:bloquesTxt, tecnicas:tecnicasTxt, tipo:'🧪 Textos científicos (8°)'},
+    {bloques:bloquesLec, tecnicas:tecnicasLec, tipo:'🔬 Comprensión científica crítica (8°)'},
+    {bloques:bloquesRed, tecnicas:tecnicasRed, tipo:'✍️ Redacción científica (8°)'},
+    {bloques:bloquesSin, tecnicas:tecnicasSin, tipo:'🧩 Sintaxis castellana (8°)'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--biologia);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#059669;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #059669;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #059669;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=`certificado_${currentUser.nombre.replace(/\s+/g,'_')}_ciencias8.doc`; a.click();
+}
+
+/* =====================================================================
+   PWA
+   ===================================================================== */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnInstalar')?.addEventListener('click',()=>{
+  if(deferredPrompt) deferredPrompt.prompt();
+  else alert('Usa el menú del navegador → "Instalar app" o "Añadir a pantalla de inicio".');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='ciencias8-cuaderno';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+window.addEventListener('online',()=>{
+  document.getElementById('connectionPill').textContent='● En línea';
+  document.getElementById('connectionPill').classList.remove('offline');
+});
+window.addEventListener('offline',()=>{
+  document.getElementById('connectionPill').textContent='○ Sin conexión';
+  document.getElementById('connectionPill').classList.add('offline');
+});
+
+/* =====================================================================
+   INICIALIZACIÓN
+   ===================================================================== */
+function renderTodo(){
+  if(!estado) return;
+  actualizarDashboard();
+  if(estado.modo==='python') renderCuaderno('py');
+  if(estado.modo==='textos') renderCuaderno('txt');
+  if(estado.modo==='lectura') renderCuaderno('lec');
+  if(estado.modo==='redaccion') renderCuaderno('red');
+  if(estado.modo==='sintaxis') renderCuaderno('sin');
+  if(estado.modo==='taller') renderTaller();
+  if(estado.modo==='certificado') renderCertificado();
+}
+
+/* Arranque: verificar si ya hay sesión activa */
+(function init(){
+  renderAuth();
+  const sesionId = getSesion();
+  if(sesionId){
+    const u = getUsuarios().find(x=>x.id===sesionId);
+    if(u){
+      currentUser = u;
+      iniciarApp();
+      return;
+    } else {
+      setSesion(null);
+    }
+  }
+  // Si no hay sesión, mostrar overlay
+  document.getElementById('authOverlay').classList.add('show');
+})();
+</script>
+</body>
+</html>

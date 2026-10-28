@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🟡 Súper Cuaderno 6° Bachilleres · Ciencias Naturales (Amarillo)</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#fffdf5; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#f0e6c8; --shadow:0 4px 20px rgba(180,140,10,0.10); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --cielo:#0ea5e9; --hoja:#16a34a;
+  --oceano:#0369a1; --tierra:#92400e; --atm:#7c3aed; --biologia:#059669; --quimica:#c2410c;
+  --nucleo:#4f46e5; --cuantica:#db2777; --astro:#4338ca; --neuro:#0891b2;
+  --ciencia10:#dc2626; --ciencia10b:#f59e0b;
+  --grado11:#0f766e; --grado11b:#0891b2;
+  --univ:#7c3aed; --univb:#c026d3; --univc:#1e293b;
+  --u11:#047857; --u11b:#065f46; --u11c:#059669;
+  --amarillo:#f59e0b; --amarillo-dark:#b45309; --amarillo-light:#fcd34d;
+  --amarillo-bg:#fef3c7; --amarillo-hover:#fbbf24;
+  --grado6:#eab308; --grado6b:#ca8a04; --grado6c:#854d0e;
+}
+[data-theme="dark"]{
+  --bg:#1a1608; --bg-card:#292008; --text:#f5f0dc; --text-muted:#b8a878;
+  --border:#4a3d10; --shadow:0 4px 20px rgba(0,0,0,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--amarillo-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+.topbar{background:linear-gradient(135deg,var(--grado6),var(--grado6b));color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(180,140,10,0.3);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid #fff;color:#fff;text-align:center;line-height:32px;font-size:0.55rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.9);padding:0.35rem 0.75rem;border-radius:30px;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.nav-tabs-app button.active{background:#fff;border-color:#fff;color:var(--grado6c);}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:0.35rem 0.7rem;border-radius:8px;font-size:0.72rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.3);}
+.user-badge{background:rgba(255,255,255,0.25);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.72rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.4rem;}
+.user-badge:hover{background:rgba(255,255,255,0.4);}
+.user-avatar{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--grado6c);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;}
+.connection-pill{font-size:0.66rem;padding:0.2rem 0.6rem;border-radius:20px;background:#22c55e;color:#fff;font-weight:600;}
+.connection-pill.offline{background:#e74c3c;}
+
+.auth-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--grado6),var(--grado6c));display:none;align-items:center;justify-content:center;z-index:3000;padding:1rem;overflow-y:auto;}
+.auth-overlay.show{display:flex;}
+.auth-card{background:#fff;border-radius:20px;padding:2rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.auth-card h2{color:var(--grado6c);margin-bottom:0.3rem;text-align:center;font-size:1.5rem;}
+.auth-card p.subtitle{color:#666;font-size:0.85rem;text-align:center;margin-bottom:1.5rem;}
+.auth-tabs{display:flex;gap:0.3rem;margin-bottom:1.5rem;background:#fef3c7;border-radius:12px;padding:0.3rem;}
+.auth-tabs button{flex:1;background:transparent;border:none;padding:0.6rem;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;color:#92400e;transition:all 0.3s;}
+.auth-tabs button.active{background:#fff;color:var(--grado6c);box-shadow:0 2px 8px rgba(180,140,10,0.15);}
+.auth-form label{display:block;font-size:0.78rem;font-weight:600;color:#333;margin-bottom:0.3rem;margin-top:0.8rem;}
+.auth-form input, .auth-form select{width:100%;padding:0.7rem;border:2px solid #f0e6c8;border-radius:10px;font-size:0.85rem;font-family:'Public Sans',sans-serif;transition:border-color 0.3s;background:#fffdf5;}
+.auth-form input:focus, .auth-form select:focus{outline:none;border-color:var(--grado6);}
+.auth-form button.primary{width:100%;margin-top:1.2rem;padding:0.8rem;background:var(--grado6b);color:#fff;border:none;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.3s;}
+.auth-form button.primary:hover{background:var(--grado6c);}
+.auth-error{background:#fee;color:#c0392b;padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-error.show{display:block;}
+.auth-success{background:#fef3c7;color:var(--grado6c);padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-success.show{display:block;}
+.auth-hint{font-size:0.72rem;color:#888;text-align:center;margin-top:1rem;line-height:1.5;}
+.users-list{max-height:180px;overflow-y:auto;margin-bottom:1rem;}
+.user-item{display:flex;align-items:center;gap:0.8rem;padding:0.7rem;border-radius:12px;cursor:pointer;transition:background 0.2s;border:2px solid transparent;}
+.user-item:hover{background:#fffbeb;border-color:var(--grado6);}
+.user-item .avatar{width:40px;height:40px;border-radius:50%;background:var(--grado6b);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;}
+.user-item .info{flex:1;}
+.user-item .info strong{display:block;font-size:0.85rem;color:#222;}
+.user-item .info span{font-size:0.72rem;color:#888;}
+.user-item .btn-delete{background:transparent;border:none;color:#c0392b;cursor:pointer;font-size:1rem;padding:0.3rem;}
+.user-item .btn-delete:hover{background:#fee;border-radius:6px;}
+
+.user-menu{position:absolute;top:100%;right:0;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(180,140,10,0.25);padding:0.5rem;min-width:220px;z-index:1500;display:none;}
+.user-menu.show{display:block;}
+.user-menu button{width:100%;text-align:left;background:transparent;border:none;padding:0.6rem 0.8rem;border-radius:8px;font-size:0.8rem;cursor:pointer;color:#333;display:flex;align-items:center;gap:0.5rem;}
+.user-menu button:hover{background:#fef3c7;color:var(--grado6c);}
+.user-menu hr{border:none;border-top:1px solid #eee;margin:0.3rem 0;}
+
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--grado6);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--grado6c);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:var(--amarillo-light);}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:170px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--grado6),var(--grado6c));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;color:var(--grado6c);}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--amarillo-bg);}
+.sidebar .bloque-item.active{background:var(--grado6b);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--amarillo-dark);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--grado6);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:180px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:180px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--grado6),var(--grado6b));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--grado6b),var(--grado6c));color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.9;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--amarillo-bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;background:#fff;}
+.ejercicio-box .opcion:hover{border-color:var(--grado6);background:#fef9e7;}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box{background:#3a2f08;}
+[data-theme="dark"] .ejercicio-box .opcion{background:#4a3d10;color:#f5f0dc;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--grado6);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--grado6b);color:#fff;border-color:var(--grado6b);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--grado6),var(--grado6c));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--grado6b);border-color:var(--grado6b);color:#fff;}
+.punto.actual{border-color:var(--grado6c);box-shadow:0 0 0 3px rgba(202,138,4,0.3);}
+
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-top:3px solid var(--grado6);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;color:var(--grado6c);}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--grado6);}
+.btn-accion{background:var(--grado6b);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);font-weight:600;}
+.btn-accion:hover{background:var(--grado6c);}
+.btn-accion.secundario{background:var(--grado6c);}
+.btn-accion.secundario:hover{background:var(--grado6b);}
+.resultado-box{background:var(--amarillo-bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+[data-theme="dark"] .resultado-box{background:#3a2f08;}
+
+.certificado-portada{background:var(--bg-card);border:3px double var(--grado6);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;box-shadow:0 8px 30px rgba(180,140,10,0.15);}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--grado6b);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--grado6c);background:#fff;box-shadow:0 4px 15px rgba(180,140,10,0.2);}
+.campo-editable{border-bottom:1px dashed var(--grado6b);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:var(--amarillo-bg);}
+.campo-editable:focus{outline:2px solid var(--grado6);background:var(--amarillo-bg);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;border-left:4px solid var(--grado6);}
+.bloque-cert h3{border-bottom:2px solid var(--grado6);padding-bottom:0.5rem;margin-bottom:1rem;color:var(--grado6c);}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--grado6b);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--amarillo-bg);border-left:3px solid var(--grado6);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+[data-theme="dark"] .tecnica-cert .ejemplo{background:#3a2f08;}
+
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--grado6b);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:#fff;border:none;color:var(--grado6c);padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;font-weight:600;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.7);}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--grado6);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print,.auth-overlay{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ AUTH OVERLAY ============ -->
+<div class="auth-overlay show" id="authOverlay">
+  <div class="auth-card">
+    <h2>🟡 Súper Cuaderno 6° Bachilleres</h2>
+    <p class="subtitle">Ciencias Naturales · Primer año de bachillerato · Paleta Amarilla</p>
+
+    <div class="auth-tabs">
+      <button data-tab="login" class="active">Iniciar sesión</button>
+      <button data-tab="register">Crear cuenta</button>
+    </div>
+
+    <div class="auth-panel" id="authPanelLogin">
+      <div id="usersListView">
+        <p style="font-size:0.8rem;color:#666;margin-bottom:0.8rem;">Selecciona tu perfil:</p>
+        <div class="users-list" id="usersList"></div>
+        <p class="auth-hint" id="noUsersHint" style="display:none;">No hay usuarios registrados. Crea una cuenta nueva.</p>
+      </div>
+      <div id="passwordView" style="display:none;">
+        <label>Contraseña de <span id="loginUserName" style="color:var(--grado6c);"></span></label>
+        <input type="password" id="loginPassword" placeholder="Ingresa tu contraseña">
+        <div class="auth-error" id="loginError">Contraseña incorrecta.</div>
+        <button class="primary" id="btnDoLogin">Entrar</button>
+        <button class="primary" id="btnBackToUsers" style="background:#888;margin-top:0.5rem;">← Volver a la lista</button>
+      </div>
+    </div>
+
+    <div class="auth-panel" id="authPanelRegister" style="display:none;">
+      <form class="auth-form" id="registerForm" onsubmit="return false;">
+        <label>Nombre completo</label>
+        <input type="text" id="regNombre" placeholder="Ej: Juan Pérez" required>
+        <label>Curso</label>
+        <select id="regCurso">
+          <option value="6°A">6° A</option>
+          <option value="6°B">6° B</option>
+          <option value="6°C">6° C</option>
+          <option value="6°D">6° D</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <label>Institución</label>
+        <input type="text" id="regInstitucion" placeholder="Ej: Colegio Nacional" required>
+        <label>Contraseña (mínimo 4 caracteres)</label>
+        <input type="password" id="regPassword" placeholder="••••••" required>
+        <label>Confirmar contraseña</label>
+        <input type="password" id="regPassword2" placeholder="••••••" required>
+        <div class="auth-error" id="regError"></div>
+        <div class="auth-success" id="regSuccess">¡Cuenta creada! Iniciando sesión...</div>
+        <button class="primary" id="btnDoRegister">Crear cuenta</button>
+      </form>
+      <p class="auth-hint">Tus datos se guardan solo en este dispositivo (localStorage). No se envía nada a internet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="sello">6°🟡</span>
+    <span>Súper Cuaderno · Ciencias Naturales · Amarillo</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="python">🐍 Python · 100</button>
+    <button data-mode="textos">🧪 Textos · 100</button>
+    <button data-mode="lectura">🔬 Comprensión · 100</button>
+    <button data-mode="redaccion">✍️ Redacción · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <span class="connection-pill" id="connectionPill">● En línea</span>
+    <div style="position:relative;">
+      <div class="user-badge" id="userBadge" title="Menú de usuario">
+        <span class="user-avatar" id="userAvatar">?</span>
+        <span id="userName">—</span>
+      </div>
+      <div class="user-menu" id="userMenu">
+        <button id="menuPerfil">👤 Ver mi perfil</button>
+        <button id="menuCambiar">🔄 Cambiar de usuario</button>
+        <hr>
+        <button id="menuExportar">📤 Exportar mi progreso</button>
+        <button id="menuEliminar" style="color:#c0392b;">🗑 Eliminar mi cuenta</button>
+      </div>
+    </div>
+    <button id="btnInstalar">⬇ Instalar</button>
+    <button id="btnTema">🌙</button>
+    <button id="btnReiniciar">↺</button>
+  </div>
+</header>
+
+<main class="app-container">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 6° Ciencias Naturales (Amarillo)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">500 técnicas · Fundamentos de ciencias naturales para bachilleres · ¡Empecemos!</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🐍 Python para ciencias</h4><div id="barrasPython"></div></div>
+    <div class="chart-card"><h4>🧪 Textos científicos</h4><div id="barrasTextos"></div></div>
+    <div class="chart-card"><h4>🔬 Comprensión científica</h4><div id="barrasLectura"></div></div>
+    <div class="chart-card"><h4>✍️ Redacción científica</h4><div id="barrasRedaccion"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis castellana</h4><div id="barrasSintaxis"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--grado6b)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--grado6c)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado (500 técnicas)</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--grado6b)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python para ciencias · 100 técnicas (6°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-textos">
+  <h1 style="margin-bottom:1rem;">🧪 Textos científicos · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Expositivo · Descriptivo · Instructivo · Argumentativo científico</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progTxtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progTxtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesTxt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaTxt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-lectura">
+  <h1 style="margin-bottom:1rem;">🔬 Comprensión científica crítica · 100 técnicas (6°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLecText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLecFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLec"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLec"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-redaccion">
+  <h1 style="margin-bottom:1rem;">✍️ Redacción científica · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Proceso · Informe · Artículo · Estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progRedText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progRedFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesRed"></div></aside>
+    <div class="tecnica-panel" id="tecnicaRed"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis castellana · 100 técnicas (6°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Morfología · Oración simple · Normativa y estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller 6° Bachilleres · 22 herramientas (Amarillo)</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado 6° Bachilleres</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Ciencias Naturales · Primer año de bachillerato · Nivel Amarillo 🟡
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 500 técnicas del programa de Ciencias Naturales de 6° bachilleres, sentando las bases para los siguientes años</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Institución: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Área: <span class="campo-editable" contenteditable="true" data-campo="area">Ciencias Naturales</span></div>
+      <div>Curso: <span class="campo-editable" contenteditable="true" data-campo="curso">6° ____</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   SISTEMA DE USUARIOS
+   ===================================================================== */
+const CLAVE_USUARIOS = 'ciencias6Amarillo_usuarios';
+const CLAVE_SESION = 'ciencias6Amarillo_sesion';
+let currentUser = null;
+
+function hashPass(pass){
+  let h = 0;
+  const salt = 'ciencias6Amarillo_2025';
+  const str = salt + pass;
+  for(let i=0;i<str.length;i++){ h = ((h<<5)-h) + str.charCodeAt(i); h = h & h; }
+  return 'h' + Math.abs(h).toString(36);
+}
+function getUsuarios(){ try { return JSON.parse(localStorage.getItem(CLAVE_USUARIOS)) || []; } catch { return []; } }
+function saveUsuarios(users){ localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(users)); }
+function getSesion(){ return localStorage.getItem(CLAVE_SESION); }
+function setSesion(id){ id ? localStorage.setItem(CLAVE_SESION, id) : localStorage.removeItem(CLAVE_SESION); }
+function getClaveArea(a){ return `ciencias6Amarillo_${currentUser.id}_${a}_prog`; }
+function getClaveNotas(a){ return `ciencias6Amarillo_${currentUser.id}_${a}_notas`; }
+function getClaveCampos(){ return `ciencias6Amarillo_${currentUser.id}_campos`; }
+
+function renderAuth(){
+  const users = getUsuarios();
+  const listView = document.getElementById('usersList');
+  const noUsers = document.getElementById('noUsersHint');
+  if(users.length === 0){
+    listView.innerHTML = '';
+    noUsers.style.display = 'block';
+  } else {
+    noUsers.style.display = 'none';
+    listView.innerHTML = users.map(u => `
+      <div class="user-item" data-id="${u.id}">
+        <div class="avatar">${u.nombre.charAt(0).toUpperCase()}</div>
+        <div class="info"><strong>${u.nombre}</strong><span>${u.curso} · ${u.institucion}</span></div>
+        <button class="btn-delete" data-delete="${u.id}" title="Eliminar perfil">🗑</button>
+      </div>
+    `).join('');
+    listView.querySelectorAll('.user-item').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if(e.target.dataset.delete) return;
+        const id = el.dataset.id;
+        const u = users.find(x=>x.id===id);
+        document.getElementById('loginUserName').textContent = u.nombre;
+        document.getElementById('usersListView').style.display = 'none';
+        document.getElementById('passwordView').style.display = 'block';
+        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginPassword').dataset.userId = id;
+        document.getElementById('loginPassword').focus();
+        document.getElementById('loginError').classList.remove('show');
+      });
+    });
+    listView.querySelectorAll('[data-delete]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.delete;
+        if(!confirm('¿Eliminar este perfil y todo su progreso?')) return;
+        saveUsuarios(getUsuarios().filter(x=>x.id!==id));
+        renderAuth();
+      });
+    });
+  }
+}
+
+document.getElementById('btnDoLogin').addEventListener('click', () => {
+  const input = document.getElementById('loginPassword');
+  const id = input.dataset.userId;
+  const u = getUsuarios().find(x=>x.id===id);
+  if(!u){ document.getElementById('loginError').textContent='Usuario no encontrado.'; document.getElementById('loginError').classList.add('show'); return; }
+  if(u.passHash !== hashPass(input.value)){
+    document.getElementById('loginError').textContent = 'Contraseña incorrecta.';
+    document.getElementById('loginError').classList.add('show');
+    return;
+  }
+  setSesion(id); currentUser = u; iniciarApp();
+});
+
+document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+  if(e.key==='Enter') document.getElementById('btnDoLogin').click();
+});
+
+document.getElementById('btnBackToUsers').addEventListener('click', () => {
+  document.getElementById('passwordView').style.display = 'none';
+  document.getElementById('usersListView').style.display = 'block';
+});
+
+document.getElementById('btnDoRegister').addEventListener('click', () => {
+  const nombre = document.getElementById('regNombre').value.trim();
+  const curso = document.getElementById('regCurso').value;
+  const institucion = document.getElementById('regInstitucion').value.trim();
+  const pass = document.getElementById('regPassword').value;
+  const pass2 = document.getElementById('regPassword2').value;
+  const errEl = document.getElementById('regError');
+  const okEl = document.getElementById('regSuccess');
+  errEl.classList.remove('show'); okEl.classList.remove('show');
+  if(!nombre){ errEl.textContent='Escribe tu nombre.'; errEl.classList.add('show'); return; }
+  if(!institucion){ errEl.textContent='Escribe tu institución.'; errEl.classList.add('show'); return; }
+  if(pass.length < 4){ errEl.textContent='Contraseña muy corta (mínimo 4).'; errEl.classList.add('show'); return; }
+  if(pass !== pass2){ errEl.textContent='Las contraseñas no coinciden.'; errEl.classList.add('show'); return; }
+  const users = getUsuarios();
+  if(users.some(u => u.nombre.toLowerCase() === nombre.toLowerCase())){
+    errEl.textContent='Ya existe un usuario con ese nombre.'; errEl.classList.add('show'); return;
+  }
+  const nuevo = { id: 'u'+Date.now().toString(36)+Math.random().toString(36).slice(2,6), nombre, curso, institucion, passHash: hashPass(pass), creado: new Date().toISOString() };
+  users.push(nuevo); saveUsuarios(users);
+  okEl.textContent = '¡Cuenta creada! Iniciando sesión...'; okEl.classList.add('show');
+  setTimeout(() => { setSesion(nuevo.id); currentUser = nuevo; iniciarApp(); }, 800);
+});
+
+document.querySelectorAll('.auth-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.auth-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('authPanelLogin').style.display = tab==='login' ? 'block' : 'none';
+    document.getElementById('authPanelRegister').style.display = tab==='register' ? 'block' : 'none';
+    document.getElementById('passwordView').style.display = 'none';
+    document.getElementById('usersListView').style.display = 'block';
+    document.getElementById('loginError').classList.remove('show');
+    document.getElementById('regError').classList.remove('show');
+    document.getElementById('regSuccess').classList.remove('show');
+  });
+});
+
+function iniciarApp(){
+  document.getElementById('authOverlay').classList.remove('show');
+  document.getElementById('userName').textContent = currentUser.nombre.split(' ')[0];
+  document.getElementById('userAvatar').textContent = currentUser.nombre.charAt(0).toUpperCase();
+  cargarEstado(); renderTodo();
+}
+
+document.getElementById('userBadge').addEventListener('click', (e) => { e.stopPropagation(); document.getElementById('userMenu').classList.toggle('show'); });
+document.addEventListener('click', () => { document.getElementById('userMenu').classList.remove('show'); });
+document.getElementById('userMenu').addEventListener('click', (e) => e.stopPropagation());
+
+document.getElementById('menuPerfil').addEventListener('click', () => {
+  alert(`🟡 Perfil 6° Bachilleres\n\nNombre: ${currentUser.nombre}\nCurso: ${currentUser.curso}\nInstitución: ${currentUser.institucion}\nID: ${currentUser.id}\nCreado: ${new Date(currentUser.creado).toLocaleDateString('es')}`);
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+document.getElementById('menuCambiar').addEventListener('click', () => {
+  if(!confirm('¿Cerrar sesión y cambiar de usuario?')) return;
+  setSesion(null); currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  document.getElementById('usersListView').style.display = 'block';
+  document.getElementById('passwordView').style.display = 'none';
+  renderAuth();
+});
+
+document.getElementById('menuEliminar').addEventListener('click', () => {
+  if(!confirm('⚠️ Esta acción eliminará tu cuenta y TODO tu progreso. ¿Continuar?')) return;
+  const id = currentUser.id;
+  ['py','txt','lec','red','sin'].forEach(a => {
+    localStorage.removeItem(getClaveArea(a));
+    localStorage.removeItem(getClaveNotas(a));
+  });
+  localStorage.removeItem(getClaveCampos());
+  saveUsuarios(getUsuarios().filter(u => u.id !== id));
+  setSesion(null); currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  renderAuth();
+});
+
+document.getElementById('menuExportar').addEventListener('click', () => {
+  exportarProgresoUsuario();
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+function exportarProgresoUsuario(){
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const inf = `INFORME SÚPER CUADERNO 6° BACHILLERES · CIENCIAS NATURALES 🟡
+=========================================================
+Usuario: ${currentUser.nombre}
+Curso: ${currentUser.curso}
+Institución: ${currentUser.institucion}
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🐍 Python: ${py}/100
+🧪 Textos científicos: ${txt}/100
+🔬 Comprensión científica: ${lec}/100
+✍️ Redacción científica: ${red}/100
+🧩 Sintaxis castellana: ${sin}/100
+TOTAL: ${py+txt+lec+red+sin}/500
+`;
+  const blob = new Blob([inf], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `informe_${currentUser.nombre.replace(/\s+/g,'_')}_ciencias6_amarillo.txt`;
+  a.click();
+}
+
+/* =====================================================================
+   BLOQUES · 6° BACHILLERES AMARILLO
+   ===================================================================== */
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python básico para ciencias', rango:[1,20], icono:'🐍'},
+  {id:'py-datos', titulo:'Datos y mediciones', rango:[21,40], icono:'📊'},
+  {id:'py-nat', titulo:'Simulaciones naturales', rango:[41,60], icono:'🌱'},
+  {id:'py-quim', titulo:'Química y física básica', rango:[61,80], icono:'⚗️'},
+  {id:'py-eco', titulo:'Ecología y ambiente', rango:[81,100], icono:'🌍'}
+];
+
+const bloquesTxt = [
+  {id:'txt-exp', titulo:'Texto expositivo científico', rango:[1,30], icono:'📖'},
+  {id:'txt-des', titulo:'Texto descriptivo científico', rango:[31,55], icono:'🔍'},
+  {id:'txt-ins', titulo:'Texto instructivo (protocolo)', rango:[56,80], icono:'📋'},
+  {id:'txt-arg', titulo:'Texto argumentativo científico', rango:[81,100], icono:'⚖️'}
+];
+
+const bloquesLec = [
+  {id:'lec-niv', titulo:'Niveles de comprensión', rango:[1,20], icono:'🪜'},
+  {id:'lec-met', titulo:'Método científico', rango:[21,40], icono:'🔬'},
+  {id:'lec-tipos', titulo:'Tipos de texto científico', rango:[41,60], icono:'📄'},
+  {id:'lec-datos', titulo:'Gráficos, tablas y datos', rango:[61,80], icono:'📊'},
+  {id:'lec-eval', titulo:'Pensamiento crítico científico', rango:[81,100], icono:'🧠'}
+];
+
+const bloquesRed = [
+  {id:'red-proc', titulo:'Redacción del proceso científico', rango:[1,25], icono:'📝'},
+  {id:'red-informe', titulo:'El informe de laboratorio', rango:[26,50], icono:'📋'},
+  {id:'red-articulo', titulo:'Artículo y póster escolar', rango:[51,75], icono:'📰'},
+  {id:'red-estilo', titulo:'Estilo y lenguaje científico', rango:[76,100], icono:'✒️'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfología básica', rango:[1,35], icono:'🔤'},
+  {id:'sin-simple', titulo:'Oración simple', rango:[36,65], icono:'🧩'},
+  {id:'sin-norm', titulo:'Normativa y estilo', rango:[66,100], icono:'📐'}
+];
+
+/* =====================================================================
+   PYTHON 6° AMARILLO (100)
+   ===================================================================== */
+function generarTecnicasPython(){
+  const T = [
+    {t:'¿Qué es Python?', c:'Un lenguaje de programación fácil de leer, como escribir en inglés. Sirve para crear programas que procesan textos y calculan cosas.', e:'print("¡Hola, ciencia!")'},
+    {t:'Mostrar mensajes con print()', c:'print() sirve para mostrar en pantalla lo que escribimos.', e:'print("Bienvenidos a Ciencias Naturales")'},
+    {t:'Las variables', c:'Una variable es como una caja donde guardamos información.', e:'nombre = "Ana"\nedad = 12'},
+    {t:'Tipos de datos', c:'Textos (str), números enteros (int), decimales (float) y verdadero/falso (bool).', e:'titulo = "El cuerpo humano"\npaginas = 200\nterminado = True'},
+    {t:'Guardar un texto en una variable', c:'Podemos guardar párrafos completos en una variable.', e:'parrafo = "Las plantas realizan fotosíntesis..."'},
+    {t:'Pedir datos al usuario', c:'input() permite que la persona escriba algo.', e:'nombre = input("¿Cómo te llamas? ")\nprint("Hola", nombre)'},
+    {t:'Sumar y restar', c:'Los operadores + - * / sirven para hacer operaciones.', e:'a = 5\nb = 3\nprint(a + b)  # 8'},
+    {t:'El operador de texto', c:'El signo + también une textos (concatenar).', e:'print("Hola " + "mundo")'},
+    {t:'Repetir texto', c:'El signo * repite un texto varias veces.', e:'print("ja" * 3)  # jajaja'},
+    {t:'Comparar valores', c:'== significa "es igual a", != "es diferente de".', e:'print(5 == 5)  # True'},
+    {t:'Condicional if', c:'if significa "si". Ejecuta código solo si se cumple algo.', e:'nota = 4.5\nif nota >= 3:\n    print("Aprobado")'},
+    {t:'Condicional if/else', c:'else significa "si no". Es la alternativa.', e:'if nota >= 3:\n    print("Aprobado")\nelse:\n    print("Reprobado")'},
+    {t:'Condicional elif', c:'elif sirve para poner más condiciones intermedias.', e:'if nota >= 4.5:\n    print("Excelente")\nelif nota >= 3:\n    print("Aprobado")\nelse:\n    print("Reprobado")'},
+    {t:'Bucle for', c:'for sirve para repetir algo varias veces.', e:'for i in range(5):\n    print("Vuelta", i)'},
+    {t:'Bucle while', c:'while repite mientras una condición sea verdadera.', e:'n = 3\nwhile n > 0:\n    print(n)\n    n = n - 1'},
+    {t:'Listas', c:'Una lista guarda varios elementos en orden.', e:'frutas = ["manzana", "pera", "uva"]\nprint(frutas[0])  # manzana'},
+    {t:'Recorrer una lista', c:'Con for podemos visitar cada elemento de una lista.', e:'for f in frutas:\n    print(f)'},
+    {t:'Añadir a una lista', c:'append() agrega un elemento al final.', e:'frutas.append("mango")'},
+    {t:'Funciones', c:'Una función es un bloque de código que podemos reutilizar.', e:'def saludar(nombre):\n    return "Hola " + nombre'},
+    {t:'Comentarios', c:'Los comentarios empiezan con # y sirven para explicar el código.', e:'# Esto es un comentario\nprint("Hola")'},
+
+    {t:'Longitud de un texto', c:'len() nos dice cuántos caracteres tiene un texto.', e:'len("Hola")  # 4'},
+    {t:'Mayúsculas y minúsculas', c:'upper() pone todo en mayúsculas; lower() en minúsculas.', e:'"hola".upper()  # HOLA'},
+    {t:'Primera letra mayúscula', c:'capitalize() pone la primera letra mayúscula.', e:'"hola mundo".capitalize()  # Hola mundo'},
+    {t:'Título con mayúsculas', c:'title() pone mayúscula en cada palabra.', e:'"el cuerpo humano".title()  # El Cuerpo Humano'},
+    {t:'Quitar espacios', c:'strip() quita espacios al inicio y al final.', e:'"  hola  ".strip()  # hola'},
+    {t:'Reemplazar palabras', c:'replace() cambia una palabra por otra.', e:'"El gato come".replace("gato", "perro")'},
+    {t:'Buscar una palabra', c:'in nos dice si una palabra está dentro de un texto.', e:'"casa" in "Mi casa es grande"  # True'},
+    {t:'Contar palabras', c:'split() separa el texto en palabras y len() las cuenta.', e:'len("Hola amigo mío".split())  # 3'},
+    {t:'Contar vocales', c:'Podemos recorrer un texto y contar vocales.', e:'texto = "murciélago"\nvocales = 0\nfor c in texto:\n    if c in "aeiouáéíóú":\n        vocales = vocales + 1'},
+    {t:'Contar consonantes', c:'Contamos las letras que no son vocales.', e:'consonantes = 0\nfor c in texto.lower():\n    if c.isalpha() and c not in "aeiou":\n        consonantes += 1'},
+    {t:'Invertir un texto', c:'Con [::-1] podemos leer al revés.', e:'"hola"[::-1]  # aloh'},
+    {t:'Primeras letras', c:'Con texto[:5] tomamos los primeros 5 caracteres.', e:'"murciélago"[:5]  # murci'},
+    {t:'Últimas letras', c:'Con texto[-4:] tomamos los últimos 4 caracteres.', e:'"murciélago"[-4:]  # lago'},
+    {t:'Separar en palabras', c:'split() sin argumento separa por espacios.', e:'"El perro corre".split()  # ["El","perro","corre"]'},
+    {t:'Unir palabras', c:'join() une una lista de palabras.', e:'" ".join(["El","perro","corre"])'},
+    {t:'Poner en orden alfabético', c:'sorted() ordena alfabéticamente.', e:'sorted(["pera","manzana","uva"])'},
+    {t:'Quitar palabras repetidas', c:'set() elimina duplicados.', e:'set("banana")  # {"b","a","n"}'},
+    {t:'Contar cuántas veces aparece', c:'count() cuenta cuántas veces aparece algo.', e:'"banana".count("a")  # 3'},
+    {t:'Detectar si empieza con...', c:'startswith() verifica el inicio de un texto.', e:'"Hola mundo".startswith("Hola")'},
+    {t:'Detectar si termina con...', c:'endswith() verifica el final de un texto.', e:'"Hola mundo".endswith(".")'},
+
+    {t:'Separar en oraciones', c:'Podemos dividir un párrafo en oraciones por los puntos.', e:'import re\noraciones = re.split(r"[.!?]+", texto)'},
+    {t:'Contar oraciones', c:'Contamos cuántas oraciones tiene un párrafo.', e:'len(re.findall(r"[.!?]+", texto))'},
+    {t:'Separar en párrafos', c:'Dividimos por doble salto de línea.', e:'parrafos = texto.split("\\n\\n")'},
+    {t:'Buscar artículos', c:'Los artículos son: el, la, los, las, un, una, unos, unas.', e:'import re\narts = re.findall(r"\\b(el|la|los|las|un|una)\\b", texto.lower())'},
+    {t:'Buscar preposiciones', c:'Preposiciones: a, ante, bajo, con, contra, de, desde, en, entre, hacia, hasta, para, por, según, sin, sobre, tras.', e:'preps = re.findall(r"\\b(a|de|en|con|por|para|sin|sobre)\\b", texto.lower())'},
+    {t:'Buscar conjunciones', c:'Conjunciones: y, e, o, u, pero, sino, porque, aunque.', e:'conj = re.findall(r"\\b(y|e|o|u|pero|sino|porque)\\b", texto.lower())'},
+    {t:'Buscar pronombres', c:'Pronombres: yo, tú, él, ella, nosotros, me, te, se, lo, la, le.', e:'pros = re.findall(r"\\b(yo|tú|él|ella|me|te|se|lo|la|le)\\b", texto.lower())'},
+    {t:'Buscar verbos (terminaciones)', c:'Los verbos en infinitivo terminan en -ar, -er, -ir.', e:'import re\nverbos = re.findall(r"\\b\\w+(ar|er|ir)\\b", texto.lower())'},
+    {t:'Buscar adjetivos (heurística)', c:'Palabras que describen al sustantivo. Suelen terminar en -oso, -osa, -able.', e:'import re\nadjs = re.findall(r"\\b\\w+(oso|osa|able|ible)\\b", texto.lower())'},
+    {t:'Buscar adverbios -mente', c:'Muchos adverbios de modo terminan en -mente.', e:'advs = re.findall(r"\\b\\w+mente\\b", texto.lower())'},
+    {t:'Palabra más larga', c:'Buscamos la palabra con más letras.', e:'max(texto.split(), key=len)'},
+    {t:'Palabra más corta', c:'Buscamos la palabra con menos letras.', e:'min(texto.split(), key=len)'},
+    {t:'Frecuencia de palabras', c:'Contamos cuántas veces aparece cada palabra.', e:'from collections import Counter\nCounter(texto.lower().split()).most_common(5)'},
+    {t:'Palabras repetidas', c:'Detectamos palabras que aparecen más de una vez.', e:'c = Counter(palabras)\nrepetidas = [p for p, n in c.items() if n > 1]'},
+    {t:'Detectar mayúsculas', c:'Verificar si una oración empieza con mayúscula.', e:'oracion[0].isupper()'},
+    {t:'Detectar punto final', c:'Verificar si la oración termina en punto.', e:'texto.strip().endswith((".", "!", "?"))'},
+    {t:'Verificar concordancia', c:'Artículo y sustantivo deben coincidir en género y número.', e:'# "la casa" ✓ / "el casa" ✗'},
+    {t:'Separar sílabas (aproximado)', c:'Podemos separar por grupos de vocales.', e:'import re\nre.findall(r"[aeiouáéíóú]+|[^aeiouáéíóú]+", palabra)'},
+    {t:'Contar sílabas', c:'Estimamos sílabas contando grupos de vocales.', e:'len(re.findall(r"[aeiouáéíóú]+", palabra.lower()))'},
+    {t:'Detectar diptongos', c:'Un diptongo son dos vocales juntas en la misma sílaba.', e:'re.findall(r"[aeiou][aeiou]", palabra.lower())'},
+
+    {t:'Detectar "de que" mal usado', c:'A veces escribimos "de que" cuando solo va "que".', e:'re.findall(r"\\b(pienso|creo|opino) de que\\b", texto.lower())'},
+    {t:'Detectar "que" faltante', c:'Otras veces falta el "de" antes de "que".', e:'re.findall(r"\\b(me di cuenta|me acuerdo) que\\b", texto.lower())'},
+    {t:'Detectar "la" mal usado', c:'A veces usamos "la" cuando va "le".', e:'re.findall(r"\\bla\\s+(dije|di|conté)\\b", texto.lower())'},
+    {t:'Detectar "le" mal usado', c:'A veces usamos "le" cuando va "lo".', e:'re.findall(r"\\ble\\s+(vi|conocí|encontré)\\b", texto.lower())'},
+    {t:'Detectar muletillas', c:'Palabras que repetimos sin necesidad: "o sea", "este", "bueno", "pues".', e:'re.findall(r"\\b(o sea|bueno|pues|este|eh)\\b", texto.lower())'},
+    {t:'Detectar repeticiones', c:'Frases o palabras que se repiten demasiado.', e:'re.findall(r"\\b(\\w{3,})\\s+\\1\\b", texto.lower())'},
+    {t:'Oraciones muy largas', c:'Las oraciones de más de 30 palabras son difíciles de leer.', e:'[o for o in oraciones if len(o.split()) > 30]'},
+    {t:'Detectar "subir arriba"', c:'Redundancia: "subir arriba", "bajar abajo", "salir afuera".', e:'re.findall(r"\\b(subir arriba|bajar abajo|salir afuera)\\b", texto.lower())'},
+    {t:'Detectar voz pasiva', c:'La voz pasiva usa "ser + participio + por".', e:'re.findall(r"\\b(fue|es|era)\\s+\\w+ado\\s+por\\b", texto.lower())'},
+    {t:'Verificar espacios antes de comas', c:'No debe haber espacio antes de una coma.', e:'re.findall(r"\\s+[,.;:]", texto)'},
+    {t:'Verificar tildes en "esta/está"', c:'"Esta" (demostrativo) vs. "está" (verbo).', e:'re.findall(r"\\besta\\b", texto)'},
+    {t:'Verificar tildes en "mas/más"', c:'"Mas" (pero) vs. "más" (cantidad).', e:'re.findall(r"\\bmas\\b", texto)'},
+    {t:'Verificar tildes en "solo/sólo"', c:'"Solo" (sin compañía) vs. "sólo" (solamente).', e:'re.findall(r"\\bsolo\\b", texto)'},
+    {t:'Comillas correctas', c:'Verificar que las comillas estén balanceadas.', e:'texto.count("\\"") % 2 == 0'},
+    {t:'Paréntesis balanceados', c:'Verificar que los paréntesis abran y cierren.', e:'texto.count("(") == texto.count(")")'},
+    {t:'Comprobar mayúscula tras punto', c:'Después de un punto debe ir mayúscula.', e:'re.findall(r"\\.\\s+[a-z]", texto)'},
+    {t:'Buscar sinónimos', c:'Diccionario simple de sinónimos frecuentes.', e:'sin = {"casa":"hogar","auto":"coche","feliz":"contento"}'},
+    {t:'Buscar antónimos', c:'Diccionario simple de antónimos.', e:'ant = {"alto":"bajo","bueno":"malo","día":"noche"}'},
+    {t:'Sugerir mejoras de estilo', c:'Sugerimos reemplazar palabras repetidas por sinónimos.', e:'palabra = sin.get(palabra, palabra)'},
+    {t:'Resumen automático', c:'Tomamos las oraciones con más palabras clave.', e:'sorted(oraciones, key=lambda o: sum(p in o.lower() for p in claves))[:3]'},
+
+    {t:'Generador de oraciones', c:'Creamos oraciones al azar combinando sujeto + verbo + complemento.', e:'random.choice(sujetos) + " " + random.choice(verbos)'},
+    {t:'Banco de ejercicios', c:'Guardamos una lista de ejercicios autocorregibles.', e:'ej = [{"pregunta":"¿Cuál es el sujeto?","respuesta":"Juan"}]'},
+    {t:'Corrector ortográfico simple', c:'Diccionario de palabras frecuentes mal escritas.', e:'errores = {"haber":"a ver","porque":"por que"}'},
+    {t:'Dictado interactivo', c:'Generamos frases para dictar y comparar.', e:'frase = "El perro corre por el parque"'},
+    {t:'Comparar dos versiones', c:'Diferencias entre texto original y corregido.', e:'import difflib\ndifflib.unified_diff(a.split(), b.split())'},
+    {t:'Rúbrica de evaluación', c:'Criterios ponderados para calificar redacciones.', e:'rubrica = {"cohesión":30,"coherencia":30,"ortografía":20,"estilo":20}'},
+    {t:'Calcular nota final', c:'Aplicamos los pesos de la rúbrica.', e:'sum(peso*puntaje for peso,puntaje in zip(pesos,puntos))/100'},
+    {t:'Insignias por logros', c:'Desbloqueamos medallas al alcanzar hitos.', e:'if progreso >= 50: insignias.append("Medio camino")'},
+    {t:'Exportar informe', c:'Generamos un .txt con estadísticas del estudiante.', e:'with open("informe.txt","w") as f:\n    f.write(texto)'},
+    {t:'Analizar tipos de errores', c:'Contamos qué tipo de error comete más el estudiante.', e:'Counter(tipos_errores).most_common()'},
+    {t:'Quiz de opción múltiple', c:'Elegir la palabra correcta entre varias opciones.', e:'random.shuffle(opciones)'},
+    {t:'Retroalimentación automática', c:'Mensaje según el puntaje obtenido.', e:'"¡Excelente!" if nota >= 4.5 else "Sigue practicando"'},
+    {t:'Nivel de lectura del texto', c:'Calculamos qué tan fácil es leer un texto.', e:'206.84 - 0.60*silabas - 1.02*oraciones'},
+    {t:'Índice de niebla', c:'Otra fórmula para medir dificultad de lectura.', e:'0.4*(palabras/oraciones) + 0.4*((palabras_largas*100)/palabras)'},
+    {t:'Detectar plagio simple', c:'Buscamos fragmentos largos repetidos entre textos.', e:'[f for f in fragmentos if f in otro_texto]'},
+    {t:'Glosario interactivo', c:'Diccionario de términos con definiciones.', e:'glosario = {"sintaxis":"orden de las palabras"}'},
+    {t:'Línea de tiempo de eventos', c:'Ordenamos eventos cronológicamente.', e:'sorted(eventos, key=lambda e: e["anio"])'},
+    {t:'Generar flashcards', c:'Pares de pregunta/respuesta para repaso.', e:'flashcards = [{"q":"sujeto","a":"quien realiza la acción"}]'},
+    {t:'Resaltar palabras clave', c:'Marcamos palabras importantes en un texto.', e:'re.sub(r"\\b(importante|clave)\\b", r"<mark>\\1</mark>", texto)'},
+    {t:'Analizar progreso del curso', c:'Estadísticas por bloque y por estudiante.', e:'progreso = {bloque: completadas/total for bloque in bloques}'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es una función exclusiva de matemáticas.','Sirve solo para imprimir números.','No tiene aplicación en Lengua Castellana.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TEXTOS CIENTÍFICOS 6° AMARILLO (100)
+   ===================================================================== */
+function generarTecnicasTextos(){
+  const T = [
+    {t:'¿Qué es un texto científico?', c:'Explica un tema natural de forma clara, ordenada y verificable.', e:'"El agua es un recurso natural esencial para la vida."'},
+    {t:'La introducción científica', c:'Presenta el tema y su importancia.', e:'"En este texto estudiaremos el ciclo del agua."'},
+    {t:'El desarrollo científico', c:'Explica con datos, ejemplos y relaciones.', e:'"El agua se evapora cuando recibe calor..."'},
+    {t:'La conclusión científica', c:'Sintetiza lo aprendido.', e:'"En resumen, el agua circula constantemente por el planeta."'},
+    {t:'Definiciones científicas', c:'Explicar qué significa un término.', e:'"La fotosíntesis es el proceso por el cual las plantas producen su alimento."'},
+    {t:'Ejemplos científicos', c:'Ilustrar con casos concretos.', e:'"Por ejemplo, el maíz es una planta que realiza fotosíntesis."'},
+    {t:'Clasificaciones', c:'Agrupar seres vivos u objetos.', e:'"Los animales se clasifican en vertebrados e invertebrados."'},
+    {t:'Comparaciones', c:'Contrastar dos elementos.', e:'"A diferencia del agua, el aceite no se disuelve."'},
+    {t:'Causa y consecuencia', c:'Explicar por qué ocurre algo y qué produce.', e:'"La contaminación causa enfermedades respiratorias."'},
+    {t:'Datos y cifras', c:'Usar números y estadísticas.', e:'"El 70 % de la Tierra está cubierto por agua."'},
+    {t:'Lenguaje objetivo', c:'Escribir sin opiniones personales.', e:'"El agua hierve a 100 °C."'},
+    {t:'Verbos en presente', c:'El texto científico usa presente.', e:'"La Tierra gira alrededor del Sol."'},
+    {t:'Sustantivos científicos', c:'Usar términos exactos.', e:'fotosíntesis, mitocondria, célula, átomo.'},
+    {t:'Adjetivos precisos', c:'Evitar "grande" o "bueno"; usar "de 5 kg".', e:'"El átomo de hidrógeno tiene 1 protón."'},
+    {t:'Conectores de causa', c:'Porque, ya que, debido a.', e:'"El hielo flota porque es menos denso que el agua."'},
+    {t:'Conectores de consecuencia', c:'Por lo tanto, en consecuencia.', e:'"No llueve; por lo tanto, el río baja su caudal."'},
+    {t:'Conectores de comparación', c:'A diferencia de, mientras que.', e:'"Mientras que las plantas producen su alimento, los animales lo consumen."'},
+    {t:'Conectores de adición', c:'Además, también, asimismo.', e:'"Además, el agua es necesaria para la fotosíntesis."'},
+    {t:'Títulos y subtítulos', c:'Organizar el texto.', e:'"1. Introducción / 2. Ciclo del agua / 3. Conclusión"'},
+    {t:'Negritas y cursivas', c:'Resaltar términos clave.', e:'"El **ADN** contiene la información genética."'},
+    {t:'Imágenes y esquemas', c:'Apoyar la explicación visualmente.', e:'Esquema del ciclo del agua.'},
+    {t:'Tablas de datos', c:'Organizar información.', e:'Tabla de temperaturas por mes.'},
+    {t:'Gráficos científicos', c:'Mostrar tendencias.', e:'Gráfico de crecimiento de una planta.'},
+    {t:'Fuentes de información', c:'Citar libros, artículos o webs.', e:'"Según el IDEAM (2023)..."'},
+    {t:'Citas textuales', c:'Reproducir lo que dijo un experto.', e:'"El agua es el solvente universal" (Smith, 2019).'},
+    {t:'Parafrasear', c:'Decir con tus palabras lo que dice un autor.', e:'"Según el IDEAM, el agua circula constantemente."'},
+    {t:'Referencias bibliográficas', c:'Listar las fuentes usadas.', e:'IDEAM. (2023). *Informe del agua en Colombia*.'},
+    {t:'Notas al pie', c:'Aclaraciones o fuentes.', e:'¹ Datos tomados del Ministerio de Ambiente.'},
+    {t:'Glosario científico', c:'Lista de términos con su significado.', e:'Fotosíntesis: proceso de producción de alimento en plantas.'},
+    {t:'Índice del texto', c:'Lista de secciones y páginas.', e:'1. Introducción .... 3'},
+
+    {t:'Descripción científica de un ser vivo', c:'Detallar partes y función.', e:'"El jaguar tiene pelaje dorado con manchas negras, garras retráctiles y colmillos fuertes."'},
+    {t:'Describir una planta', c:'Raíz, tallo, hojas, flor, fruto.', e:'"El girasol tiene tallo largo, hojas grandes y flores amarillas."'},
+    {t:'Describir un animal', c:'Anatomía y comportamiento.', e:'"La abeja tiene alas membranosas, antenas y aguijón."'},
+    {t:'Describir un ecosistema', c:'Factores bióticos y abióticos.', e:'"El páramo tiene clima frío, vegetación baja y suelos húmedos."'},
+    {t:'Describir un mineral', c:'Color, dureza, brillo, forma.', e:'"El cuarzo es transparente, duro y con brillo vítreo."'},
+    {t:'Describir una roca', c:'Ígnea, sedimentaria o metamórfica.', e:'"El granito es una roca ígnea con cristales visibles."'},
+    {t:'Describir un fenómeno natural', c:'Detallar cómo ocurre.', e:'"El arcoíris se forma cuando la luz se refracta en gotas de agua."'},
+    {t:'Describir el clima', c:'Temperatura, humedad, vientos.', e:'"El clima de Bogotá es frío y húmedo, con temperaturas de 8 a 20 °C."'},
+    {t:'Describir un proceso', c:'Paso a paso.', e:'"La fotosíntesis ocurre en los cloroplastos."'},
+    {t:'Descripción microscópica', c:'Lo que se ve al microscopio.', e:'"La célula vegetal tiene pared celular y cloroplastos."'},
+    {t:'Descripción macroscópica', c:'Lo que se ve a simple vista.', e:'"La hoja es verde, ovalada y con bordes dentados."'},
+    {t:'Descripción sensorial', c:'Usar los cinco sentidos.', e:'"La tierra mojada huele a humedad y se siente fría."'},
+    {t:'Descripción cuantitativa', c:'Con números y unidades.', e:'"El árbol mide 12 metros y su tronco 40 cm de diámetro."'},
+    {t:'Descripción cualitativa', c:'Con cualidades sin números.', e:'"La mariposa es colorida y de vuelo suave."'},
+    {t:'Descripción funcional', c:'Para qué sirve.', e:'"Las raíces absorben agua y nutrientes del suelo."'},
+    {t:'Descripción estructural', c:'Cómo está formado.', e:'"La flor tiene pétalos, sépalos, estambres y pistilo."'},
+    {t:'Descripción comparativa', c:'Comparar con otro ser u objeto.', e:'"El jaguar es más grande que el puma."'},
+    {t:'Descripción evolutiva', c:'Cómo cambia en el tiempo.', e:'"La semilla germina, crece y se convierte en planta."'},
+    {t:'Descripción de un hábitat', c:'Dónde vive un ser vivo.', e:'"El cóndor vive en los Andes, a más de 3.000 m."'},
+    {t:'Descripción del suelo', c:'Capas y composición.', e:'"El suelo tiene humus, minerales, agua y aire."'},
+    {t:'Descripción del aire', c:'Composición: N₂, O₂, CO₂.', e:'"El aire tiene 78 % nitrógeno y 21 % oxígeno."'},
+    {t:'Descripción del agua', c:'Estados y propiedades.', e:'"El agua es incolora, inodora e insípida."'},
+    {t:'Descripción del Sol', c:'Estrella del sistema solar.', e:'"El Sol es una estrella que produce luz y calor."'},
+    {t:'Descripción de la Luna', c:'Satélite natural de la Tierra.', e:'"La Luna no tiene luz propia; refleja la del Sol."'},
+    {t:'Descripción de los planetas', c:'Mercurio a Neptuno.', e:'"Marte es el planeta rojo por su óxido de hierro."'},
+
+    {t:'¿Qué es un texto instructivo?', c:'Indica pasos ordenados para hacer algo.', e:'Un protocolo de laboratorio.'},
+    {t:'El protocolo de laboratorio', c:'Pasos claros y numerados.', e:'1. Colocar el agua. 2. Encender el mechero.'},
+    {t:'Materiales e instrumentos', c:'Lista de lo necesario.', e:'Vaso de precipitados, termómetro, mechero.'},
+    {t:'Reactivos', c:'Sustancias a usar.', e:'Agua destilada, sal, vinagre.'},
+    {t:'Precauciones de seguridad', c:'Normas para evitar accidentes.', e:'"Usar gafas y guantes."'},
+    {t:'Pasos ordenados', c:'Secuencia lógica.', e:'1. Preparar. 2. Medir. 3. Mezclar.'},
+    {t:'Verbos en imperativo', c:'Los protocolos usan imperativo.', e:'"Mezclar", "medir", "observar".'},
+    {t:'Instrucciones condicionales', c:'"Si ocurre X, hacer Y".', e:'"Si la temperatura sube, retirar el mechero."'},
+    {t:'Registro de datos', c:'Anotar lo observado.', e:'"Anotar la temperatura cada minuto."'},
+    {t:'Repetición del experimento', c:'Repetir para verificar.', e:'"Repetir 3 veces el experimento."'},
+    {t:'Control de variables', c:'Mantener condiciones iguales.', e:'"Usar el mismo volumen de agua."'},
+    {t:'Tabla de registro', c:'Formato para anotar.', e:'| Tiempo (min) | Temperatura (°C) |'},
+    {t:'Observaciones', c:'Registrar lo que se ve.', e:'"El agua empezó a burbujear a los 5 min."'},
+    {t:'Resultados', c:'Lo que se obtuvo.', e:'"El agua hirvió a 98 °C."'},
+    {t:'Conclusión del experimento', c:'Qué aprendimos.', e:'"El agua hierve cerca de 100 °C."'},
+    {t:'Instrucciones de un microscopio', c:'Cómo usarlo.', e:'1. Encender. 2. Poner la muestra. 3. Enfocar.'},
+    {t:'Instrucciones de un kit de química', c:'Preparar una disolución.', e:'"Disolver 5 g de sal en 100 mL de agua."'},
+    {t:'Instrucciones de cultivo', c:'Sembrar una planta.', e:'1. Poner tierra. 2. Sembrar. 3. Regar.'},
+    {t:'Instrucciones de medición', c:'Usar una balanza.', e:'"Colocar el objeto y leer la masa."'},
+    {t:'Instrucciones de uso de un termómetro', c:'Medir temperatura.', e:'"Esperar 1 minuto antes de leer."'},
+    {t:'Instrucciones de pH', c:'Usar papel tornasol.', e:'"Sumergir la tira y comparar con la escala."'},
+    {t:'Instrucciones de recolección', c:'Tomar muestras.', e:'"Tomar muestras de agua en frascos limpios."'},
+    {t:'Instrucciones de clasificación', c:'Organizar muestras.', e:'"Clasificar las hojas por forma y borde."'},
+    {t:'Instrucciones de seguridad química', c:'Manejo de sustancias.', e:'"No oler directamente los reactivos."'},
+    {t:'Instrucciones de primeros auxilios', c:'Qué hacer en caso de accidente.', e:'"Lavar con agua abundante y avisar al docente."'},
+
+    {t:'¿Qué es un texto argumentativo científico?', c:'Defiende una idea con datos y razones.', e:'"El cambio climático es causado por la actividad humana."'},
+    {t:'La tesis científica', c:'La idea que se defiende.', e:'"Reciclar reduce la contaminación."'},
+    {t:'Argumento con datos', c:'Usar cifras y estudios.', e:'"El 70 % de los residuos puede reciclarse."'},
+    {t:'Argumento por ejemplo', c:'Casos concretos.', e:'"En Suecia, el 99 % de la basura se recicla."'},
+    {t:'Argumento por autoridad', c:'Cita de expertos.', e:'"Según la OMS, la contaminación causa 7 millones de muertes al año."'},
+    {t:'Argumento por causa-efecto', c:'Relación de causas y consecuencias.', e:'"El CO₂ aumenta la temperatura global."'},
+    {t:'Refutación', c:'Responder a la opinión contraria.', e:'"Aunque algunos dudan, los datos son claros."'},
+    {t:'Conclusión persuasiva', c:'Cerrar invitando a actuar.', e:'"Recicla desde hoy: el planeta lo necesita."'},
+    {t:'Frase de apertura', c:'Llamar la atención.', e:'"¿Sabías que cada persona produce 1 kg de basura al día?"'},
+    {t:'Frase de cierre', c:'Reforzar la idea.', e:'"El futuro del planeta está en nuestras manos."'},
+    {t:'Conectores argumentativos', c:'Porque, por tanto, en consecuencia.', e:'"No llueve; por tanto, hay sequía."'},
+    {t:'Datos verificables', c:'Comprobar la fuente.', e:'"Según el IDEAM..."'},
+    {t:'Fuentes confiables', c:'Universidades, ministerios, OMS.', e:'Informes oficiales.'},
+    {t:'Distinguir hecho y opinión', c:'Hecho: se comprueba. Opinión: personal.', e:'Hecho: "el agua hierve a 100 °C".'},
+    {t:'Falacias ambientales', c:'Errores de razonamiento.', e:'"Todos los políticos mienten."'},
+    {t:'Artículo científico escolar', c:'Tesis, datos, conclusión.', e:'"El reciclaje escolar reduce residuos."'},
+    {t:'Ensayo científico escolar', c:'Reflexión con datos.', e:'"La importancia de las abejas."'},
+    {t:'Carta al editor', c:'Opinión sobre tema científico.', e:'"Señor director, urge proteger los páramos."'},
+    {t:'Manifiesto ambiental', c:'Declaración de compromiso.', e:'"Nos comprometemos a reducir plásticos."'},
+    {t:'Debate científico', c:'Dos posiciones con datos.', e:'"¿Energía nuclear sí o no?"'},
+    {t:'Reseña científica', c:'Comentar un libro o documental.', e:'"El documental *Planeta Tierra* muestra..."'},
+    {t:'Propuesta de solución', c:'Sugerir acciones concretas.', e:'"Proponemos instalar paneles solares."'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesTxt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'txt-exp',
+    opciones:[t.c,'Es un texto literario sin rigor.','No tiene relación con la ciencia.','Es un texto de ficción.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   COMPRENSIÓN 6° AMARILLO (100)
+   ===================================================================== */
+function generarTecnicasLectura(){
+  const T = [
+    {t:'Nivel literal', c:'Encontrar información que está escrita claramente en el texto.', e:'¿Quién era el personaje principal?'},
+    {t:'Nivel inferencial', c:'Deducir lo que no está escrito, usando pistas.', e:'¿Por qué el personaje estaba triste?'},
+    {t:'Nivel crítico', c:'Opinar y evaluar lo que dice el texto.', e:'¿Estás de acuerdo con lo que hizo?'},
+    {t:'Nivel apreciativo', c:'Valorar la belleza y emociones del texto.', e:'¿Qué sentimientos te produjo?'},
+    {t:'Nivel creador', c:'Crear algo nuevo a partir del texto.', e:'¿Cómo continuarías la historia?'},
+    {t:'La idea principal', c:'Es lo más importante que dice el texto.', e:'El texto trata sobre la amistad.'},
+    {t:'Las ideas secundarias', c:'Detalles que apoyan la idea principal.', e:'Además, se menciona que...'},
+    {t:'El tema', c:'Asunto general del texto.', e:'La amistad, la muerte, la libertad.'},
+    {t:'El título', c:'Resume el texto con pocas palabras.', e:'Un buen título sería "La amistad verdadera".'},
+    {t:'Los personajes', c:'Quiénes aparecen en la historia.', e:'Protagonista: Juan. Secundarios: María y Pedro.'},
+    {t:'El escenario', c:'Lugar y tiempo donde ocurre la acción.', e:'En un pueblo, hace muchos años.'},
+    {t:'La trama', c:'Los hechos que ocurren en la historia.', e:'Inicio: sale de casa. Nudo: se pierde. Desenlace: vuelve.'},
+    {t:'El conflicto', c:'El problema que enfrenta el personaje.', e:'El conflicto es hombre contra naturaleza.'},
+    {t:'El narrador', c:'Quién cuenta la historia.', e:'Narrador en primera persona.'},
+    {t:'El punto de vista', c:'Desde dónde se cuenta la historia.', e:'Visión de un niño.'},
+    {t:'El tiempo narrativo', c:'Orden en que se cuentan los hechos.', e:'Flashback (recuerdo del pasado).'},
+    {t:'El ritmo', c:'Velocidad con que se cuentan los hechos.', e:'Escenas lentas vs. resúmenes rápidos.'},
+    {t:'El ambiente', c:'Atmósfera emocional del relato.', e:'Ambiente tenso y misterioso.'},
+    {t:'Los símbolos', c:'Objetos que representan ideas.', e:'La lluvia representa tristeza.'},
+    {t:'El tono', c:'Actitud del narrador hacia lo que cuenta.', e:'Tono irónico o melancólico.'},
+
+    {t:'Leer el título primero', c:'Antes de leer, mira el título y piensa de qué tratará.', e:'Título: "El viaje". ¿De qué crees que trata?'},
+    {t:'Mirar las imágenes', c:'Las imágenes dan pistas sobre el contenido.', e:'¿Qué muestra la ilustración?'},
+    {t:'Predecir', c:'Adivinar lo que pasará antes de leer.', e:'Por el título, creo que...'},
+    {t:'Activar lo que ya sabes', c:'Relacionar el texto con tus experiencias.', e:'Esto se parece a cuando yo...'},
+    {t:'Hacer preguntas', c:'Preguntar antes, durante y después de leer.', e:'¿Qué? ¿Quién? ¿Cómo? ¿Por qué?'},
+    {t:'Imaginar lo que lees', c:'Crear imágenes mentales de la historia.', e:'Veo al personaje caminando por...'},
+    {t:'Decir con tus palabras', c:'Explicar lo leído con tus propias palabras.', e:'En otras palabras, el autor dice que...'},
+    {t:'Hacer un resumen', c:'Contar lo esencial del texto en pocas palabras.', e:'El texto trata de...'},
+    {t:'Hacer un mapa conceptual', c:'Organizar las ideas en un esquema.', e:'Idea central → ramas → subramas.'},
+    {t:'Subrayar lo importante', c:'Marcar las ideas principales.', e:'Subrayar las ideas principales de cada párrafo.'},
+    {t:'Escribir al lado del texto', c:'Anotar comentarios y dudas.', e:'"Esto se relaciona con..."'},
+    {t:'Deducir palabras nuevas', c:'Adivinar el significado por el contexto.', e:'Por el contexto, "efímero" significa breve.'},
+    {t:'Buscar en el diccionario', c:'Cuando no entiendes una palabra, búscala.', e:'Buscar "efímero" en el diccionario.'},
+    {t:'Releer', c:'Volver a leer si no entendiste.', e:'Leer de nuevo el párrafo 3.'},
+    {t:'Leer en voz alta', c:'Escuchar el ritmo ayuda a comprender.', e:'Leer el diálogo con voz distinta.'},
+    {t:'Leer en grupo', c:'Compartir la lectura y comentar.', e:'Cada uno lee un párrafo y comenta.'},
+    {t:'Leer con preguntas del docente', c:'El profesor guía la lectura con preguntas.', e:'¿Qué crees que pasará ahora?'},
+    {t:'Leer solo', c:'Leer a tu propio ritmo, sin prisa.', e:'Elegir un libro y leerlo completo.'},
+    {t:'Marcar el vocabulario', c:'Anotar las palabras desconocidas.', e:'Lista de palabras nuevas y su significado.'},
+    {t:'Volver a contar la historia', c:'Contar la historia con tus palabras a alguien.', e:'Le cuento a mi compañero lo que leí.'},
+
+    {t:'Leer un cuento', c:'Identificar personajes, trama y desenlace.', e:'¿Quiénes son los personajes? ¿Qué pasa al final?'},
+    {t:'Leer un poema', c:'Fijarse en el ritmo, la rima y las imágenes.', e:'¿Qué sientes al leer el poema?'},
+    {t:'Leer una noticia', c:'Identificar qué, quién, cuándo, dónde, por qué.', e:'¿Qué ocurrió? ¿Quién? ¿Cuándo?'},
+    {t:'Leer un texto expositivo', c:'Buscar la idea principal y los datos.', e:'¿Qué explica el texto? ¿Qué datos da?'},
+    {t:'Leer un texto argumentativo', c:'Identificar la tesis y los argumentos.', e:'¿Qué defiende el autor? ¿Con qué razones?'},
+    {t:'Leer una biografía', c:'Seguir la vida de una persona en orden.', e:'Nació en... Estudió... Murió en...'},
+    {t:'Leer una carta', c:'Identificar remitente, destinatario y mensaje.', e:'¿Quién escribe? ¿A quién? ¿Qué dice?'},
+    {t:'Leer una receta', c:'Seguir los pasos en orden.', e:'Primero... Luego... Finalmente...'},
+    {t:'Leer un cómic', c:'Relacionar imágenes y textos.', e:'¿Qué dice el globo de diálogo?'},
+    {t:'Leer una fábula', c:'Identificar la moraleja.', e:'¿Qué enseñanza deja la historia?'},
+    {t:'Leer un mito', c:'Identificar dioses, héroes y explicación.', e:'¿Qué explica este mito?'},
+    {t:'Leer una leyenda', c:'Separar lo real de lo fantástico.', e:'¿Qué parte es real y qué parte es fantasía?'},
+    {t:'Leer una obra de teatro', c:'Identificar diálogos y acotaciones.', e:'¿Qué dice el personaje? ¿Qué hace?'},
+    {t:'Leer un ensayo', c:'Seguir la argumentación del autor.', e:'¿Cuál es la tesis? ¿Qué argumentos usa?'},
+    {t:'Leer una reseña', c:'Identificar la opinión del crítico.', e:'¿Le gustó la obra? ¿Por qué?'},
+    {t:'Leer un anuncio', c:'Identificar qué vende y cómo persuade.', e:'¿Qué producto promociona? ¿Cómo lo hace?'},
+    {t:'Leer un texto científico', c:'Identificar datos, definiciones y procesos.', e:'¿Qué explica? ¿Qué datos aporta?'},
+    {t:'Leer un texto digital', c:'Navegar por enlaces e hipertexto.', e:'Hacer clic en el enlace para ampliar.'},
+    {t:'Leer un instructivo', c:'Seguir los pasos para hacer algo.', e:'Paso 1... Paso 2... Paso 3...'},
+    {t:'Leer

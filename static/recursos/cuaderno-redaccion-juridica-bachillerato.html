@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de redacción jurídica · Bachillerato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F2ED;
+    --line:#D8D2C4;
+    --ink:#1B2340;
+    --ink-soft:#5B6478;
+    --navy:#2C3E64;
+    --navy-dark:#1B2A47;
+    --brass:#8C7136;
+    --cream:#F1EADA;
+    --good:#2E6B45;
+    --bad:#B23A3A;
+    --bad-bg:#F7E5E4;
+    --card-shadow: 0 1px 0 rgba(27,35,64,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    padding:26px 20px 60px;
+  }
+  header.top{ margin-bottom:18px; position:relative; }
+  .seal{
+    position:absolute; top:-8px; right:-6px; width:82px; height:82px;
+    border-radius:50%; border:1.5px solid var(--brass); opacity:0.25; z-index:0;
+  }
+  .seal::after{
+    content:""; position:absolute; inset:9px; border-radius:50%; border:1px solid var(--brass);
+  }
+  .eyebrow{ font-size:12.5px; color:var(--navy); font-weight:700; text-transform:uppercase; letter-spacing:0.06em; position:relative; z-index:1; }
+  h1{
+    font-family:'PT Serif', serif;
+    font-weight:700;
+    font-size:27px;
+    line-height:1.18;
+    margin:5px 0 8px;
+    color:var(--ink);
+    position:relative; z-index:1;
+  }
+  .lede{ color:var(--ink-soft); font-size:14.5px; line-height:1.55; margin:0 0 8px; max-width:46ch; position:relative; z-index:1; }
+  .rule-top{ border-top:2px solid var(--ink); border-bottom:1px solid var(--ink); height:3px; margin-bottom:14px; }
+  .progress-wrap{ display:flex; align-items:center; gap:10px; margin-top:14px; }
+  .progress-track{ flex:1; height:5px; border-radius:2px; background:var(--line); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--navy); border-radius:2px; transition:width .4s ease; }
+  .progress-label{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; font-variant-numeric: tabular-nums; }
+
+  .cat-list{ list-style:none; margin:22px 0 0; padding:0; border-top:1px solid var(--line); }
+  .cat-item{ border-bottom:1px solid var(--line); }
+  .cat-btn{
+    width:100%; text-align:left; background:none; border:none;
+    padding:16px 4px; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    font-family:inherit; color:var(--ink);
+  }
+  .cat-num{ font-family:'PT Serif', serif; font-size:15px; color:var(--navy); width:24px; flex-shrink:0; font-weight:700; }
+  .cat-text{ flex:1; min-width:0; }
+  .cat-name{ font-size:15.5px; font-weight:700; line-height:1.3; }
+  .cat-sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  .cat-progress{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--good); font-weight:600; white-space:nowrap; }
+  .cat-btn:active{ opacity:0.6; }
+
+  .deck-header{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .back-btn{ background:none; border:1px solid var(--line); border-radius:4px; padding:7px 12px; font-size:13px; color:var(--ink); font-family:inherit; cursor:pointer; }
+  .back-btn:active{ background:var(--line); }
+  .deck-title{ font-family:'PT Serif', serif; font-size:17px; font-weight:700; flex:1; min-width:0; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:2px;
+    border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);
+    padding:20px 20px 18px; box-shadow:var(--card-shadow); margin-top:8px;
+  }
+  .card-eyebrow{ display:flex; justify-content:space-between; align-items:baseline; font-size:12px; color:var(--navy); font-weight:700; margin-bottom:8px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.03em; }
+  .card-title{ font-family:'PT Serif', serif; font-size:19px; font-weight:700; line-height:1.3; margin:0 0 14px; }
+  .block-label{ font-size:11.5px; font-weight:700; color:var(--ink-soft); margin:16px 0 5px; text-transform:uppercase; letter-spacing:0.05em; }
+  .block-label:first-of-type{ margin-top:0; }
+  .concept-text{ font-size:15px; line-height:1.58; margin:0; }
+  .example-box{
+    background:var(--cream);
+    border-left:3px solid var(--brass);
+    border-radius:0 4px 4px 0;
+    padding:10px 12px;
+    font-size:14px; line-height:1.55; color:#3D3320;
+  }
+  .exercise-prompt{ font-size:14.5px; line-height:1.55; margin:0 0 10px; color:var(--ink); }
+
+  .answer-row{ display:flex; gap:8px; }
+  input[type="text"]{
+    flex:1; border:1px solid var(--line); border-radius:4px; padding:10px 12px;
+    font-family:'IBM Plex Mono', monospace; font-size:14.5px; background:#FEFDFB; color:var(--ink);
+  }
+  input[type="text"]:focus{ outline:2px solid var(--navy); outline-offset:1px; }
+  textarea{
+    width:100%; min-height:90px; resize:vertical; border:1px solid var(--line); border-radius:4px;
+    padding:10px 12px; font-family:inherit; font-size:14.5px; background:#FEFDFB; color:var(--ink);
+  }
+  textarea:focus{ outline:2px solid var(--navy); outline-offset:1px; }
+
+  .check-btn, .save-btn{
+    background:var(--navy); color:#fff; border:none; border-radius:4px; padding:9px 16px;
+    font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; white-space:nowrap;
+  }
+  .check-btn:active, .save-btn:active{ background:var(--navy-dark); }
+
+  .feedback{ margin-top:10px; padding:9px 12px; border-radius:4px; font-size:14px; font-weight:500; display:none; }
+  .feedback.ok{ display:block; background:#E4F0E9; color:var(--good); }
+  .feedback.bad{ display:block; background:var(--bad-bg); color:var(--bad); }
+
+  .reveal-row{ margin-top:8px; }
+  .reveal-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; padding:0; }
+  .solution-box{ margin-top:8px; font-size:14px; color:var(--ink); background:var(--paper); border:1px dashed var(--line); border-radius:4px; padding:8px 10px; display:none; }
+  .solution-box.show{ display:block; }
+
+  .card-actions{ display:flex; gap:8px; margin-top:10px; align-items:center; }
+  .saved-tag{ font-size:12.5px; color:var(--good); font-weight:600; opacity:0; transition:opacity .3s; }
+  .saved-tag.show{ opacity:1; }
+  .done-check{ margin-left:auto; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  .done-dot{ width:8px; height:8px; border-radius:50%; background:var(--line); display:inline-block; }
+  .done-dot.on{ background:var(--good); }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+  .nav-btn{ background:none; border:1px solid var(--line); border-radius:4px; padding:9px 14px; font-size:14px; font-family:inherit; color:var(--ink); cursor:pointer; }
+  .nav-btn:disabled{ opacity:0.3; }
+  .nav-btn:active:not(:disabled){ background:var(--line); }
+  .dots{ display:flex; gap:5px; flex-wrap:wrap; justify-content:center; max-width:150px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--line); }
+  .dot.active{ background:var(--navy); width:16px; border-radius:3px; }
+  .dot.done{ background:var(--good); }
+
+  .reset-row{ margin-top:26px; text-align:center; }
+  .reset-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <header class="top">
+    <div class="seal"></div>
+    <div class="eyebrow">Redacción jurídica colombiana · 6º a 11º</div>
+    <h1>Cuaderno de redacción jurídica</h1>
+    <p class="lede">Cien técnicas avanzadas de sintaxis, puntuación, ortografía castellana y estilo universitario aplicadas a la redacción jurídica colombiana, en diez bloques.</p>
+    <div class="rule-top"></div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="progress-label" id="globalLabel">0/100 practicadas</div>
+    </div>
+  </header>
+
+  <section id="menuView">
+    <ul class="cat-list" id="catList"></ul>
+    <div class="reset-row">
+      <button class="reset-link" id="resetBtn">Borrar todo mi progreso</button>
+    </div>
+  </section>
+
+  <section id="deckView" class="hidden">
+    <div class="deck-header">
+      <button class="back-btn" id="backBtn">← Bloques</button>
+      <div class="deck-title" id="deckTitle"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">
+        <span id="cardNum"></span>
+        <span id="catName"></span>
+      </div>
+      <h2 class="card-title" id="cardTitle"></h2>
+
+      <div class="block-label">Concepto</div>
+      <p class="concept-text" id="cardConcept"></p>
+
+      <div class="block-label">Ejemplo</div>
+      <div class="example-box" id="cardExample"></div>
+
+      <div class="block-label">Ejercicio interactivo</div>
+      <p class="exercise-prompt" id="cardExercise"></p>
+
+      <div id="inputExercise">
+        <div class="answer-row">
+          <input type="text" id="cardInput" placeholder="Tu respuesta...">
+          <button class="check-btn" id="checkBtn">Comprobar</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="reveal-row"><button class="reveal-link" id="revealBtn">Ver solución</button></div>
+        <div class="solution-box" id="solutionBox"></div>
+      </div>
+
+      <div id="textExercise">
+        <textarea id="cardAnswer" placeholder="Escribe aquí tu respuesta..."></textarea>
+        <div class="card-actions">
+          <button class="save-btn" id="saveBtn">Guardar</button>
+          <span class="saved-tag" id="savedTag">Guardado ✓</span>
+        </div>
+      </div>
+
+      <div class="card-actions" id="doneRow">
+        <span class="done-check"><span class="done-dot" id="doneDot"></span><span id="doneLabel">sin practicar</span></span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">← Anterior</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">Siguiente →</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// item = [title, concepto, ejemplo, ejercicio, tipo, respuestas]
+// tipo "input": respuestas es un array de strings aceptadas (se normalizan)
+// tipo "text": respuestas es null (ejercicio abierto, se guarda sin corregir)
+
+const CATEGORIES = [
+{name:"Sintaxis jurídica", sub:"Estructura de la oración en textos legales", items:[
+["Mantener el orden lógico sujeto-verbo-predicado","Alejarse del orden lógico sujeto-verbo-complemento dificulta la comprensión; se recomienda mantenerlo salvo razón justificada.","«El demandante presentó la acción de tutela el día 5 de marzo» es más claro que invertir el orden con múltiples incisos antes del verbo.","Reescribe en orden lógico: «El día 5 de marzo, ante el juzgado competente, fue presentada por el demandante la acción de tutela.»","text",null],
+["Evitar oraciones subordinadas excesivamente anidadas","Acumular varias subordinadas dentro de una misma oración dificulta seguir el sentido; conviene dividir en oraciones más cortas.","En vez de una sola oración con cinco subordinadas encadenadas, es preferible dividir la idea en dos o tres oraciones independientes.","Divide esta oración en dos más simples: «El contrato, que fue firmado por las partes que asistieron a la audiencia que se celebró el lunes, quedó sin efecto.»","text",null],
+["Usar la voz activa para mayor claridad","La voz activa identifica claramente quién realiza la acción; la voz pasiva en exceso puede diluir la responsabilidad del sujeto.","«El tribunal revocó la sentencia» (voz activa, clara) es preferible a «la sentencia fue revocada» cuando importa señalar quién revocó.","Reescribe en voz activa: «La demanda fue presentada por el apoderado.» → El apoderado ___ la demanda.","input",["presentó","presento"]],
+["Evitar el uso excesivo de gerundios","El uso excesivo del gerundio («siendo», «existiendo») puede generar ambigüedad temporal o causal; conviene usar estructuras más precisas.","En vez de «existiendo pruebas suficientes, se condenó al acusado», es más claro «como existían pruebas suficientes, se condenó al acusado».","Reescribe evitando el gerundio inicial: «Siendo las diez de la mañana, se dio inicio a la audiencia.»","text",null],
+["Evitar el hipérbaton innecesario","El hipérbaton es común en el lenguaje jurídico tradicional, pero su uso excesivo dificulta la lectura moderna.","«Solicito, respetuosamente, se sirva el despacho decretar la nulidad» puede reescribirse como «solicito respetuosamente que el despacho decrete la nulidad».","Reescribe en orden más natural: «Procede, en consecuencia, este despacho a resolver de fondo el asunto.»","text",null],
+["Mantener la concordancia entre sujeto y verbo","En oraciones largas con sujetos compuestos o incisos extensos, es fácil perder la concordancia correcta entre sujeto y verbo.","«El conjunto de pruebas presentadas por las partes, junto con los testimonios recopilados, fue determinante» (sujeto singular, verbo singular).","Completa manteniendo la concordancia: «El juez, junto con los peritos designados, ___ (revisar) el expediente.»","input",["revisó","reviso"]],
+["Coordinación y subordinación en textos normativos","Identificar si dos ideas están coordinadas o subordinadas ayuda a puntuar y estructurar correctamente un artículo o cláusula.","«El contrato se resuelve si una de las partes incumple» tiene una subordinada condicional que depende de la principal.","Identifica si esta oración tiene coordinación o subordinación: «El deudor pagará la deuda y el acreedor entregará el bien.»","text",null],
+["Evitar la ambigüedad referencial de los pronombres","Un pronombre («este», «aquel», «dicho») debe referirse sin ambigüedad a un antecedente claro, especialmente con varios sujetos mencionados.","«El demandante y el demandado presentaron sus alegatos; este último solicitó la nulidad» aclara a cuál de los dos se refiere.","Reescribe eliminando la ambigüedad: «El apoderado se reunió con el juez y luego este presentó un recurso.» (¿quién presentó el recurso?)","text",null],
+["Oraciones impersonales en normas jurídicas","Muchas normas usan estructuras impersonales («se prohíbe», «se establece») para dar carácter general y objetivo a la disposición.","«Se prohíbe el ingreso de menores sin acompañante» tiene una estructura impersonal apropiada para una norma general.","Convierte a forma impersonal: «El reglamento prohíbe fumar en las instalaciones.» → ___ fumar en las instalaciones.","input",["se prohíbe","se prohibe"]],
+["Revisar la extensión de las oraciones en un párrafo","Alternar oraciones de distinta extensión, sin que todas sean excesivamente largas, mejora la legibilidad de un párrafo jurídico.","Un párrafo compuesto solo de oraciones de más de 40 palabras resulta agotador; intercalar oraciones breves facilita la lectura.","Toma un párrafo jurídico largo (real o inventado) y divídelo en al menos dos oraciones de menor extensión.","text",null]
+]},
+{name:"Puntuación en textos jurídicos", sub:"Comas, punto y coma, dos puntos y más", items:[
+["Coma para separar incisos explicativos","Los incisos que aclaran o añaden información secundaria se separan con comas.","«El juez, doctor Andrés Pérez, dictó sentencia el día de ayer» usa comas para delimitar el inciso con el nombre del juez.","Añade las comas necesarias: «El demandante quien actuó por medio de apoderado no asistió a la audiencia.»","text",null],
+["Punto y coma para ideas relacionadas extensas","El punto y coma separa ideas relacionadas entre sí que ya contienen comas internamente, evitando confusión con el punto.","«El primer testigo declaró sobre los hechos del 5 de mayo; el segundo, sobre los ocurridos el 10 de junio» separa dos ideas paralelas extensas.","Reescribe usando punto y coma donde corresponda: «El contrato establece las obligaciones del arrendador estas incluyen el mantenimiento del inmueble el contrato también establece las obligaciones del arrendatario estas incluyen el pago oportuno.»","text",null],
+["Dos puntos antes de una enumeración normativa","Los dos puntos introducen una enumeración, como los numerales de un artículo o los requisitos de un procedimiento.","«Son requisitos para la acción: 1. legitimación, 2. interés jurídico, 3. oportunidad» usa dos puntos antes de la enumeración.","Escribe una oración que use los dos puntos para introducir una enumeración de tres requisitos de un procedimiento.","text",null],
+["El punto en las abreviaturas jurídicas","Abreviaturas jurídicas comunes (art., núm., cfr., ibíd.) requieren punto al final salvo que se use la forma completa.","«Ver art. 29 de la Constitución» usa correctamente la abreviatura con punto.","¿Cuál es la abreviatura correcta de «artículo» en un texto jurídico?","input",["art."]],
+["Comillas para citas textuales de normas o sentencias","Al citar textualmente el contenido de una norma o una sentencia, debe usarse comillas para distinguir la cita de las palabras propias.","La Corte señaló que «el derecho al debido proceso es fundamental», citando textualmente el fragmento de la sentencia.","Escribe una oración que cite textualmente (entre comillas) un fragmento breve de una norma inventada.","text",null],
+["Evitar el uso excesivo de paréntesis","Aunque el paréntesis es útil para aclaraciones breves, su uso excesivo dentro de un mismo párrafo fragmenta la lectura.","Un párrafo con tres o cuatro paréntesis distintos resulta más difícil de leer que uno con la información integrada.","Reescribe integrando la información del paréntesis: «El contrato (firmado el 3 de enero) fue anulado (por vicio de forma).»","text",null],
+["Puntuar correctamente citas de artículos y numerales","Al citar un artículo con numerales o literales, se usan comas o el símbolo «°» según la convención adoptada, con consistencia en todo el texto.","«El artículo 29, numeral 3°, establece...» mantiene una puntuación clara y consistente.","Escribe correctamente una cita de un artículo con un numeral, siguiendo el formato «artículo [número], numeral [número]°».","text",null],
+["La raya para incisos extensos","La raya se usa para incisos más largos o que requieren mayor énfasis que los delimitados por comas.","«El testigo —cuya declaración fue determinante para el fallo— no pudo asistir a la audiencia de hoy» usa rayas para un inciso extenso.","Escribe una oración jurídica con un inciso extenso delimitado por rayas.","text",null],
+["Evitar la coma antes de «que» restrictivo","Cuando la subordinada con «que» especifica o restringe el sustantivo, no debe separarse con coma.","«Los testigos que declararon el día de la audiencia fueron citados nuevamente» no lleva coma porque «que declararon...» especifica cuáles testigos.","¿La oración «los documentos que faltan deben presentarse» necesita coma antes de «que»? Responde sí o no.","input",["no"]],
+["Puntuación final de listas y numerales","Los elementos de una lista o numerales suelen puntuarse con punto y coma entre ellos, y punto final tras el último elemento.","«1. Presentar la demanda; 2. Notificar al demandado; 3. Esperar la respuesta.» mantiene una puntuación consistente entre numerales.","Escribe una lista breve de tres pasos de un procedimiento, puntuando correctamente entre los numerales.","text",null]
+]},
+{name:"Ortografía y normativa avanzada", sub:"Dequeísmo, queísmo, mayúsculas y más", items:[
+["Evitar el dequeísmo","El dequeísmo es el uso incorrecto de «de que» cuando no corresponde, generalmente con verbos que no requieren la preposición «de».","Decir «pienso de que la sentencia es injusta» es incorrecto (dequeísmo); lo correcto es «pienso que la sentencia es injusta».","Corrige el dequeísmo: «El juez opina de que la prueba es válida.» → El juez opina ___ la prueba es válida.","input",["que"]],
+["Evitar el queísmo","El queísmo es la omisión incorrecta de la preposición «de» cuando el verbo sí la requiere.","Decir «me acuerdo que firmamos el contrato» es incorrecto (queísmo); lo correcto es «me acuerdo de que firmamos el contrato».","Corrige el queísmo: «El testigo se percató que faltaba un documento.» → El testigo se percató ___ que faltaba un documento.","input",["de"]],
+["Usar correctamente los porqués","«Por qué» pregunta causa, «porque» responde causa, «porqué» es sustantivo, y «por que» aparece en preposición + relativo.","«No se explicó el porqué de la decisión» usa el sustantivo «porqué» correctamente.","Completa: «El fallo no explicó ___ de la decisión.» (sustantivo)","input",["el porqué","porqué"]],
+["Diferenciar «sino» y «si no»","«Sino» indica contraste u oposición; «si no» es la conjunción condicional «si» más la negación «no».","«No se trata de una nulidad, sino de una simple corrección» usa «sino» correctamente para el contraste.","Completa: «___ presenta el recurso a tiempo, perderá el derecho a apelar.»","input",["si no"]],
+["Mayúsculas en cargos y entidades","Los nombres propios de instituciones llevan mayúscula, pero los cargos genéricos generalmente se escriben en minúscula.","«La Corte Constitucional se pronunció; el magistrado ponente explicó su voto» usa mayúscula en la entidad y minúscula en el cargo.","¿«Corte Constitucional» se escribe con mayúscula o minúscula inicial en ambas palabras?","input",["mayúscula","mayuscula"]],
+["Mayúscula o minúscula en unidades normativas","Al citar una unidad normativa específica con su número (Artículo 15), suele usarse mayúscula; usada de forma genérica, se escribe en minúscula.","«El Artículo 15 de la ley establece...» (uso específico); «el artículo correspondiente regula la materia» (uso genérico).","Explica con un ejemplo la diferencia entre usar «artículo» con mayúscula y con minúscula, según el contexto.","text",null],
+["Diferenciar «halla» y «haya»","«Halla» viene del verbo «hallar»; «haya» es una forma del verbo «haber», usada en subjuntivo.","«No se halla registro de la notificación» usa «halla»; «es posible que no haya recibido la notificación» usa «haya».","Completa: «Es posible que el demandado no ___ recibido la citación.»","input",["haya"]],
+["Diferenciar «a ver» y «haber»","«A ver» es la preposición «a» más el verbo «ver»; «haber» es un verbo auxiliar o impersonal.","«Debe haber una notificación previa» usa el verbo «haber»; «vamos a ver el expediente» usa «a ver».","Completa: «Tiene que ___ una prueba que respalde la afirmación.»","input",["haber"]],
+["Evitar laísmo, loísmo y leísmo","El laísmo, loísmo y leísmo son usos incorrectos de «la», «lo» y «le» como complemento directo o indirecto.","Decir «la dije la verdad» (laísmo) es incorrecto; lo correcto es «le dije la verdad».","Corrige el laísmo: «La notifiqué el fallo a la demandante.» → ___ notifiqué el fallo a la demandante.","input",["le"]],
+["Tilde diacrítica en textos formales","Palabras como «él/el» deben revisarse con la normativa vigente para su correcto uso.","«Él presentó el recurso» usa tilde en el pronombre «él» para diferenciarlo del artículo «el».","Completa correctamente: «___ juez decidió aplazar la audiencia.» (artículo, sin tilde)","input",["el"]]
+]},
+{name:"Vicios del lenguaje y claridad", sub:"Arcaísmos, redundancias y jerga", items:[
+["Evitar el arcaísmo innecesario","Expresiones arcaicas como «por cuanto», «en tal virtud» pueden reemplazarse por formas más claras sin perder precisión.","En vez de «en tal virtud, procede este despacho a resolver», puede escribirse «por lo tanto, este despacho resuelve».","Reescribe con lenguaje más actual: «Por cuanto lo anterior, y en mérito de lo expuesto, resuélvese lo siguiente.»","text",null],
+["Evitar redundancias jurídicas innecesarias","Expresiones como «nulo y sin ningún valor» repiten la misma idea; conviene elegir un solo término preciso.","En vez de «el acto es nulo y sin ningún valor», basta decir «el acto es nulo».","Elimina la redundancia: «La prueba es clara, evidente y manifiesta para el tribunal.»","text",null],
+["Reducir la jerga innecesaria para el público general","Cuando el texto está dirigido al público general, conviene explicar o simplificar tecnicismos innecesarios.","En vez de usar solo «in dubio pro reo», se puede aclarar «en caso de duda, se favorece al acusado (in dubio pro reo)».","Elige un tecnicismo jurídico y escribe cómo lo explicarías en lenguaje sencillo para alguien sin formación legal.","text",null],
+["Evitar oraciones excesivamente pasivas","El uso reiterado de la voz pasiva puede diluir quién es responsable de una acción.","«Se cometieron irregularidades» oculta quién las cometió; «el funcionario cometió irregularidades» identifica al responsable.","Reescribe identificando al responsable: «Se incumplieron los plazos establecidos en el contrato.»","text",null],
+["Sustituir muletillas jurídicas vacías","Frases como «en aras de» a veces se usan sin aportar contenido real; conviene revisar si añaden precisión o solo relleno.","En vez de «en aras de garantizar la transparencia», puede ser más directo «para garantizar la transparencia».","Reescribe eliminando muletillas: «En aras de lo anteriormente expuesto, y de conformidad con lo señalado, se decide lo siguiente.»","text",null],
+["Evitar la ambigüedad en plazos y fechas","Los plazos jurídicos deben expresarse sin ambigüedad, especificando si son días hábiles o calendario.","«Dentro de los tres (3) días hábiles siguientes a la notificación» es más claro que «en tres días».","Reescribe eliminando la ambigüedad del plazo: «El demandado deberá responder en pocos días.»","text",null],
+["Evitar dobles negaciones confusas","Acumular varias negaciones en una misma oración puede generar confusión sobre el sentido final.","«No es que no proceda la nulidad» resulta confuso; es más claro «la nulidad sí procede» o «no procede».","Reescribe eliminando la doble negación: «No se puede decir que no existan pruebas suficientes.»","text",null],
+["Precisar sujetos vagos («las partes», «los interesados»)","Especificar a qué parte concreta se refiere una oración evita ambigüedades en la aplicación de una norma.","En vez de «las partes deberán cumplir», es más preciso «el arrendador y el arrendatario deberán cumplir, cada uno, sus obligaciones».","Reescribe especificando el sujeto concreto: «El interesado deberá presentar la documentación correspondiente.»","text",null],
+["Evitar la sobreexplicación innecesaria","Explicar de forma redundante algo ya evidente por el contexto alarga innecesariamente el texto.","Decir «el contrato, es decir, el acuerdo escrito que las obliga legalmente» es redundante si el lector ya conoce el concepto.","Reescribe eliminando la explicación innecesaria: «El demandante, es decir, la persona que presenta la demanda, solicitó la indemnización.»","text",null],
+["Aplicar el principio de economía del lenguaje","Expresar una idea con el menor número de palabras necesarias, sin sacrificar precisión, mejora la claridad.","«Se resuelve declarar la nulidad del acto» puede simplificarse a «se declara la nulidad del acto».","Reescribe de forma más económica: «Se procede en este acto a llevar a cabo la declaración correspondiente de nulidad del acto administrativo en cuestión.»","text",null]
+]},
+{name:"Estilo universitario", sub:"Objetividad, precisión y conectores", items:[
+["Mantener un tono objetivo e impersonal","El estilo universitario y jurídico formal evita expresiones subjetivas o coloquiales.","En vez de «me parece increíble que el juez decidiera esto», es más apropiado «la decisión del juez resulta cuestionable por las siguientes razones».","Reescribe en tono más objetivo: «Creo que esta ley es una mala idea.»","text",null],
+["Evitar coloquialismos en textos académicos","Expresiones coloquiales no son apropiadas en un registro universitario o jurídico formal.","En vez de «hay un montón de jurisprudencia sobre esto», es más formal «existe abundante jurisprudencia sobre esta materia».","Reescribe eliminando el coloquialismo: «El caso tiene un montón de detalles complicados.»","text",null],
+["Usar conectores argumentativos con precisión","Conectores como «sin embargo» o «por consiguiente» deben usarse según la relación lógica exacta que se quiere expresar.","«Sin embargo» indica contraste; «por consiguiente» indica una conclusión derivada de lo anterior.","¿Qué conector usarías para introducir una conclusión derivada de lo dicho antes: «sin embargo» o «por consiguiente»?","input",["por consiguiente"]],
+["Evitar la primera persona en textos formales","Muchos textos universitarios y jurídicos prefieren evitar «yo creo», usando formas impersonales o la tercera persona.","En vez de «yo pienso que la norma es ambigua», se prefiere «la norma resulta ambigua».","Reescribe evitando la primera persona: «Yo creo que el artículo necesita una reforma.»","text",null],
+["Mantener consistencia terminológica","Usar siempre el mismo término para un mismo concepto evita confusiones en textos técnicos.","Si se elige «demandante» al inicio, conviene mantenerlo en todo el documento en vez de alternar con «actor» sin necesidad.","Revisa un párrafo y verifica si usa un mismo término de forma consistente para referirse a una misma persona o concepto.","text",null],
+["Citar con precisión las fuentes consultadas","Toda afirmación que provenga de una fuente externa debe citarse con precisión.","«Según el artículo 29 de la Constitución Política, el debido proceso...» cita la fuente de forma precisa.","Escribe una oración que cite con precisión una fuente normativa que respalde una afirmación.","text",null],
+["Diferenciar descripción y argumentación","Describir expone hechos o el contenido de una norma; argumentar implica tomar una postura y justificarla con razones.","«La ley establece una sanción de multa» es descripción; «esta sanción resulta insuficiente porque no disuade» es argumentación.","Escribe una oración descriptiva y otra argumentativa sobre el mismo tema jurídico.","text",null],
+["Usar lenguaje inclusivo sin sacrificar formalidad","Es posible redactar de forma inclusiva sin perder la formalidad ni la fluidez del texto.","En vez de repetir «el trabajador o la trabajadora» en cada oración, se puede usar «el personal» o alternar con cuidado.","Reescribe de forma inclusiva sin perder fluidez: «El abogado debe presentar sus pruebas a tiempo.»","text",null],
+["Evitar la sobreabundancia de citas textuales","Un texto universitario debe equilibrar las citas textuales con el análisis propio.","En vez de citar tres párrafos completos, conviene citar solo la frase clave y explicar su relevancia con palabras propias.","Elige una idea de una fuente y practica resumirla con tus propias palabras, citando solo una frase clave si es necesario.","text",null],
+["Estructurar párrafos con una idea central","Un párrafo bien estructurado desarrolla una sola idea central, apoyada por argumentos o ejemplos.","Un párrafo sobre «los requisitos de la acción de tutela» no debería mezclar información sobre otro mecanismo distinto.","Escribe un párrafo de al menos cuatro líneas que desarrolle una sola idea central sobre un tema jurídico de tu elección.","text",null]
+]},
+{name:"Estructura de documentos jurídicos", sub:"Memoriales, sentencias, contratos y más", items:[
+["Partes básicas de un memorial","Un memorial suele incluir el encabezado, los hechos, los fundamentos de derecho, la petición y la firma.","Un memorial dirigido a un juzgado comienza señalando el despacho, el número de proceso y las partes involucradas.","Enumera, en orden, las partes básicas que incluirías en un memorial judicial sencillo.","text",null],
+["Hechos y fundamentos de derecho","Los hechos narran lo ocurrido de forma objetiva; los fundamentos de derecho explican las normas aplicables a esos hechos.","«El 5 de marzo se celebró un contrato de arrendamiento» es un hecho; «el artículo 2035 del Código Civil regula esta materia» es un fundamento.","Escribe un hecho breve y, a continuación, un fundamento de derecho que podría aplicarse a ese hecho.","text",null],
+["Estructura básica de una sentencia","Una sentencia suele incluir antecedentes, consideraciones y la parte resolutiva.","En la parte resolutiva, el juez suele usar la fórmula «resuelve» seguida de la decisión concreta.","Describe la diferencia entre las «consideraciones» y la «parte resolutiva» de una sentencia.","text",null],
+["Elementos de un contrato básico","Un contrato suele incluir las partes, el objeto, las obligaciones de cada parte, el plazo y las condiciones de terminación.","Un contrato de arrendamiento especifica quién es el arrendador, el arrendatario, el inmueble y el canon a pagar.","Enumera los elementos básicos que incluirías al redactar un contrato sencillo.","text",null],
+["Estructura de una resolución administrativa","Una resolución suele incluir considerandos y una parte resolutiva que expresa la decisión final de la autoridad.","Los considerandos explican las razones legales y de hecho que justifican la decisión final.","Escribe brevemente un considerando para una resolución administrativa sobre un tema inventado.","text",null],
+["«Considerando que» y «por cuanto»","Ambas expresiones introducen la motivación de una decisión, aunque «considerando que» es más frecuente hoy.","«Considerando que el solicitante cumple los requisitos, se resuelve...» es una fórmula habitual.","Escribe una oración que use «considerando que» para introducir la motivación de una decisión inventada.","text",null],
+["Fórmula de cierre «resuelve» o «decide»","La parte final de una sentencia o resolución suele usar «resuelve» o «decide», seguida de la decisión en numerales.","«Resuelve: Primero. Declarar la nulidad del acto. Segundo. Ordenar...» organiza la decisión en numerales claros.","Escribe una fórmula de cierre con al menos dos numerales para una decisión inventada.","text",null],
+["Partes de un derecho de petición","Un derecho de petición suele incluir el destinatario, la identificación del solicitante, los motivos, la petición y la firma.","Un derecho de petición debe identificar claramente qué se solicita y por qué.","Enumera las partes básicas que incluirías al redactar un derecho de petición sencillo.","text",null],
+["Estructura de un poder o mandato","Un poder suele incluir la identificación del poderdante y del apoderado, el objeto del poder y la firma.","«Yo, [nombre], mayor de edad, identificado con..., confiero poder amplio y suficiente a...» es una fórmula habitual.","Describe qué información básica no puede faltar en un poder otorgado a un abogado.","text",null],
+["Adaptar el registro según el tipo de documento","El nivel de formalidad y la estructura varían según el documento; reconocer estas diferencias mejora la redacción.","Una sentencia usa un lenguaje técnico; un derecho de petición ciudadano puede ser más sencillo y directo.","Compara cómo cambiaría el lenguaje si escribieras sobre el mismo tema en una sentencia y en una carta ciudadana sencilla.","text",null]
+]},
+{name:"Técnica normativa", sub:"Redacción de artículos, parágrafos y sanciones", items:[
+["Redactar un artículo con estructura clara","Un artículo normativo debe expresar una sola disposición central, evitando mezclar varias reglas distintas.","Un artículo que regula solo el plazo para un recurso no debería mezclar otra regla sobre requisitos de fondo.","Redacta un artículo breve que regule una sola disposición clara, como un plazo o un requisito.","text",null],
+["Usar correctamente los parágrafos","Un parágrafo añade una excepción, aclaración o precisión a la regla general, sin alterar la estructura principal.","«Parágrafo. Lo dispuesto en este artículo no aplicará en casos de fuerza mayor» añade una excepción clara.","Redacta un parágrafo breve que añada una excepción a una regla general inventada.","text",null],
+["Numerar correctamente los literales","Los literales (a, b, c) organizan los distintos elementos o requisitos dentro de un mismo artículo.","«Son requisitos: a) mayoría de edad; b) capacidad legal; c) consentimiento informado» organiza los requisitos con claridad.","Redacta un artículo breve con al menos tres literales que enumeren requisitos de un procedimiento inventado.","text",null],
+["Evitar ambigüedad en las definiciones normativas","Cuando una norma define un término, la definición debe ser precisa y sin espacio a interpretaciones contradictorias.","Definir «menor de edad» como «toda persona que no ha cumplido dieciocho años» es preciso y sin ambigüedad.","Redacta una definición precisa para un término jurídico sencillo, evitando ambigüedades.","text",null],
+["Normas imperativas y dispositivas","Una norma imperativa impone una obligación sin acuerdo en contrario; una dispositiva puede modificarse por acuerdo entre las partes.","«El matrimonio se disuelve por muerte de uno de los cónyuges» es imperativa; una cláusula que las partes pueden pactar distinto es dispositiva.","«Las partes podrán acordar un plazo distinto al establecido en este artículo» ¿es imperativa o dispositiva?","input",["dispositiva"]],
+["Redactar sanciones con precisión","Al establecer una sanción, debe precisarse claramente la conducta sancionada y la consecuencia exacta.","«Quien incumpla el plazo será sancionado con una multa equivalente a dos salarios mínimos» precisa conducta y sanción.","Redacta una sanción breve que precise claramente la conducta sancionada y la consecuencia exacta.","text",null],
+["Evitar retroactividad no justificada","Como regla general, las normas rigen hacia el futuro; los efectos retroactivos requieren justificación expresa.","Una norma que modifica un procedimiento suele aplicarse «a partir de su promulgación», sin afectar procesos ya iniciados.","Explica por qué, en general, no es apropiado que una norma tenga efectos retroactivos sin justificación expresa.","text",null],
+["Usar correctamente la remisión normativa","Cuando un artículo remite a otro, debe hacerse con precisión para evitar remisiones circulares o confusas.","«Para efectos de este artículo, se aplicará lo dispuesto en el artículo 20» remite claramente sin ambigüedad.","Redacta una oración que remita correctamente a otro artículo dentro de la misma norma inventada.","text",null],
+["Vigencia y derogatoria de una norma","La vigencia establece desde cuándo aplica una norma; la derogatoria establece qué normas anteriores deja sin efecto.","«Esta ley entra en vigencia a partir de su publicación y deroga todas las disposiciones que le sean contrarias.»","Redacta una cláusula breve que establezca la vigencia y la derogatoria de una norma inventada.","text",null],
+["Revisar la coherencia interna de un texto normativo","En un texto con varios artículos, conviene revisar que no existan contradicciones entre distintas disposiciones.","Si un artículo establece un plazo de 10 días y otro posterior establece 15 para el mismo trámite, hay una contradicción.","Describe cómo revisarías la coherencia interna de un documento normativo con varios artículos.","text",null]
+]},
+{name:"Citación de fuentes jurídicas", sub:"Leyes, decretos y jurisprudencia colombiana", items:[
+["Citar correctamente una ley colombiana","Al citar una ley, se incluye el número, el año y, si es relevante, el nombre o el tema que regula.","«Ley 1437 de 2011 (Código de Procedimiento Administrativo y de lo Contencioso Administrativo)» es una cita completa.","Escribe la cita completa de una ley colombiana, incluyendo número, año y tema.","text",null],
+["Citar correctamente un decreto","Al citar un decreto, se incluye el número, el año y, si es pertinente, la entidad que lo expidió.","«Decreto 1072 de 2015, expedido por el Ministerio del Trabajo» es una cita clara y completa.","Escribe la cita completa de un decreto, incluyendo número, año y entidad.","text",null],
+["Citar sentencias de la Corte Constitucional","Las sentencias de la Corte Constitucional se citan con su tipo (C, T, SU) seguido del número y el año.","«Sentencia C-355 de 2006» o «Sentencia T-025 de 2004» son formas correctas de citar.","¿Qué letra identifica a las sentencias de tutela de la Corte Constitucional: C o T?","input",["t"]],
+["Diferenciar sentencias C, T y SU","Las «C» corresponden a control de constitucionalidad, las «T» a tutelas, y las «SU» a unificación de jurisprudencia.","Una sentencia que revisa si una ley es constitucional se identifica como «C-»; una tutela específica como «T-».","Una sentencia que revisa si una ley completa es constitucional, ¿se identifica con la letra C o T?","input",["c"]],
+["Citar jurisprudencia del Consejo de Estado","Las sentencias del Consejo de Estado se citan incluyendo la sala, la fecha y, cuando es posible, el radicado.","«Consejo de Estado, Sección Tercera, sentencia del 10 de mayo de 2018, radicado...» es una forma completa.","Describe qué elementos incluirías al citar correctamente una sentencia del Consejo de Estado.","text",null],
+["Citar jurisprudencia de la Corte Suprema","Las sentencias de la Corte Suprema se citan incluyendo la sala (civil, laboral, penal), la fecha y el radicado.","«Corte Suprema de Justicia, Sala de Casación Civil, sentencia del 15 de agosto de 2020» es una cita clara.","Describe qué elementos incluirías al citar correctamente una sentencia de la Corte Suprema de Justicia.","text",null],
+["Citar la Constitución Política de Colombia","Al citar la Constitución, se incluye el artículo específico y, si es relevante, el nombre completo.","«Artículo 86 de la Constitución Política de Colombia» identifica claramente la norma citada.","Escribe la cita completa de un artículo de la Constitución Política de Colombia.","text",null],
+["Usar «ibíd.» y «cfr.» en las citas","«Ibíd.» remite a la misma fuente citada inmediatamente antes; «cfr.» invita a comparar con otra fuente relacionada.","Si se cita dos veces la misma sentencia, la segunda vez puede escribirse «ibíd.»; para otra fuente se usa «cfr.».","¿Qué abreviatura usarías para remitir a la misma fuente citada inmediatamente antes?","input",["ibíd.","ibid."]],
+["Diferenciar doctrina y jurisprudencia","La doctrina son las opiniones de los juristas académicos; la jurisprudencia son las decisiones judiciales.","Un libro de un profesor de derecho constitucional es doctrina; una sentencia de la Corte Constitucional es jurisprudencia.","Un artículo académico escrito por un profesor de derecho, ¿es doctrina o jurisprudencia?","input",["doctrina"]],
+["Elaborar una bibliografía jurídica básica","Una bibliografía jurídica organiza las fuentes consultadas siguiendo un formato consistente y completo.","Una bibliografía puede separar las fuentes en categorías: normas, jurisprudencia y doctrina.","Elabora una bibliografía breve con al menos una norma, una sentencia y una fuente doctrinal.","text",null]
+]},
+{name:"Argumentación jurídica", sub:"Premisas, silogismos y falacias", items:[
+["Premisas y conclusión en un argumento","Un argumento jurídico se compone de premisas (normas y hechos) que llevan a una conclusión.","«La norma exige requisito X; el caso cumple X; por lo tanto, procede la acción» muestra premisas y conclusión.","Identifica las premisas y la conclusión: «La ley exige notificación previa; en este caso no hubo notificación; por lo tanto, el acto es nulo.»","text",null],
+["Usar el silogismo jurídico básico","El silogismo jurídico aplica una premisa normativa general a un caso particular para llegar a una conclusión.","Premisa normativa: «todo contrato debe cumplirse de buena fe»; premisa de hecho: «el demandado actuó de mala fe»; conclusión: «incumplió el contrato».","Construye un silogismo jurídico breve (premisa normativa, premisa de hecho, conclusión) sobre un caso inventado.","text",null],
+["Reconocer argumentos de autoridad","Un argumento de autoridad se apoya en una fuente reconocida (norma, sentencia, autor) para reforzar una posición.","Citar una sentencia de la Corte Constitucional para respaldar una interpretación es un argumento de autoridad.","Escribe un argumento de autoridad breve, citando una fuente para respaldar una afirmación jurídica.","text",null],
+["Reconocer argumentos analógicos","Un argumento analógico aplica la solución de un caso similar ya resuelto a un caso nuevo que comparte características relevantes.","Un precedente sobre un contrato de arrendamiento puede aplicarse por analogía a un caso nuevo parecido.","Describe un caso hipotético donde aplicarías, por analogía, la solución de un caso anterior similar.","text",null],
+["Argumentos a favor y en contra","Presentar argumentos a favor y en contra de una postura fortalece un análisis equilibrado y persuasivo.","Al analizar una reforma legal, se pueden presentar los argumentos de quienes la apoyan y los de quienes se oponen.","Elige un tema jurídico de actualidad y escribe un argumento a favor y uno en contra sobre ese tema.","text",null],
+["Detectar falacias en la argumentación jurídica","Falacias como el ataque personal o la generalización apresurada debilitan la validez de un argumento jurídico.","Descalificar un argumento por «venir de un abogado joven sin experiencia» es una falacia ad hominem.","Inventa un ejemplo de falacia que podría aparecer en un debate jurídico, y explica por qué es una falacia.","text",null],
+["Formular una conclusión jurídica fundamentada","Una conclusión fundamentada se apoya en las premisas presentadas previamente, sin introducir elementos nuevos sin justificación.","La conclusión debe derivarse claramente de la norma y los hechos expuestos, no de una opinión aislada.","Escribe una conclusión jurídica breve que se derive claramente de dos premisas que tú mismo propongas.","text",null],
+["Anticipar contraargumentos","Un buen argumento jurídico anticipa las posibles objeciones de la parte contraria y las responde en el mismo escrito.","«Podría objetarse que..., sin embargo, esta objeción no considera que...» anticipa y responde una objeción.","Escribe un argumento jurídico breve que anticipe y responda a un posible contraargumento.","text",null],
+["Evaluar la fuerza de un argumento jurídico","Evaluar un argumento implica revisar si sus premisas son ciertas y si la conclusión se deriva lógicamente de ellas.","Un argumento puede sonar convincente por su tono, pero si sus premisas son incorrectas, pierde fuerza jurídica real.","Evalúa un argumento jurídico señalando si sus premisas parecen sólidas y si la conclusión se deriva lógicamente.","text",null],
+["Redactar una tesis jurídica clara al inicio","Presentar la tesis central desde el inicio de un escrito orienta al lector sobre qué se va a argumentar.","«El presente escrito sostiene que la norma X vulnera el derecho Y por las siguientes razones» presenta una tesis clara.","Redacta una tesis jurídica clara (en una sola oración) sobre un tema que te interese.","text",null]
+]},
+{name:"Revisión y corrección de estilo", sub:"Depuración final del texto jurídico", items:[
+["Revisar la extensión y variedad de las oraciones","Alternar oraciones de distinta extensión evita la monotonía y facilita mantener la atención del lector.","Un párrafo compuesto solo de oraciones larguísimas resulta agotador; combinar extensiones mejora el ritmo.","Revisa un párrafo que hayas escrito y verifica si todas sus oraciones tienen una extensión similar; si es así, ajusta la variedad.","text",null],
+["Verificar la coherencia de los tiempos verbales","En un mismo documento, conviene mantener consistencia en el uso de los tiempos verbales, salvo justificación.","Narrar los hechos siempre en pasado, y reservar el presente para las normas vigentes, evita confusiones temporales.","Revisa un párrafo y verifica si los tiempos verbales usados son coherentes a lo largo del texto.","text",null],
+["Revisar la consistencia en el uso de mayúsculas","Un documento jurídico debe mantener el mismo criterio de mayúsculas en todo el texto, sin variaciones arbitrarias.","Si se escribe «Juzgado Primero Civil» con mayúsculas la primera vez, debe mantenerse igual en el resto del documento.","Revisa un texto breve y verifica si el uso de mayúsculas en nombres de entidades es consistente en todo el documento.","text",null],
+["Revisar la puntuación de números y cifras","Conviene revisar si se sigue una convención consistente para escribir números según el contexto.","«Dentro de los diez (10) días siguientes» combina letras y cifras, una convención común en textos jurídicos.","Escribe una oración con un plazo o cantidad, usando la convención de número en letras seguido de la cifra entre paréntesis.","text",null],
+["Corregir errores de concordancia de género y número","Revisar que adjetivos, artículos y participios concuerden en género y número con el sustantivo evita errores frecuentes.","«Las pruebas presentadas fueron aceptadas» mantiene correctamente el género y número en todo el enunciado.","Corrige el error: «Los pruebas presentadas fue aceptado.» → Las pruebas presentadas ___ aceptadas.","input",["fueron"]],
+["Revisar la claridad de títulos y encabezados","Los títulos de un documento jurídico deben anticipar con claridad el contenido de la sección que introducen.","«III. Fundamentos de derecho» anticipa claramente que la sección tratará las normas aplicables al caso.","Escribe un título breve y claro para una sección que trate sobre los hechos de un caso jurídico inventado.","text",null],
+["Revisar la fluidez leyendo en voz alta","Leer un texto en voz alta ayuda a detectar oraciones demasiado largas o construcciones poco naturales.","Al leer en voz alta un párrafo, una oración que se siente «sin aire» suele necesitar dividirse en dos.","Lee en voz alta un párrafo que hayas escrito y anota si alguna oración te resultó difícil de leer de un solo aliento.","text",null],
+["Verificar que cada párrafo cumpla una función clara","Revisar si cada párrafo cumple una función identificable ayuda a detectar párrafos desordenados o innecesarios.","Un párrafo que mezcla hechos, normas y argumentación sin orden puede dividirse en varios, cada uno con función clara.","Revisa un escrito breve y anota qué función cumple cada uno de sus párrafos.","text",null],
+["Solicitar una revisión externa antes de la versión final","Pedir que otra persona revise un escrito permite detectar errores o ambigüedades que el propio autor no siempre nota.","Un compañero puede notar que una oración resulta ambigua para alguien que no conoce todos los detalles del caso.","Describe a quién le pedirías revisar un escrito jurídico importante antes de presentarlo, y qué aspectos le pedirías revisar.","text",null],
+["Elaborar una lista de cotejo personal de estilo","Llevar una lista de los errores de estilo que se cometen con frecuencia ayuda a revisarlos de forma sistemática.","Alguien puede notar que comete dequeísmo con frecuencia y añadirlo a su lista de revisión antes de entregar un escrito.","Después de practicar con esta app, elabora tu propia lista con al menos tres errores de estilo que quieras revisar siempre.","text",null]
+]}
+];
+
+// ---- normalización y comprobación ----
+function stripAccents(s){
+  return s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+          .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+}
+function normalize(s){
+  if(s===null || s===undefined) return "";
+  s = s.toString().toLowerCase().trim();
+  s = stripAccents(s);
+  s = s.replace(/[¿¡!?,;]+$/g,"");
+  s = s.replace(/^[¿¡]+/g,"");
+  s = s.replace(/\s+/g," ");
+  return s;
+}
+function isCorrect(userText, accepted){
+  const u = normalize(userText);
+  if(u==="") return false;
+  return accepted.some(a => normalize(a)===u);
+}
+
+// ---- estado y almacenamiento ----
+let currentCat = null;
+let currentIdx = 0;
+let progress = {};
+
+function techKey(c,i){ return c+"-"+i; }
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('progreso-cuaderno-juridico', false);
+    if(res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ progress = {}; }
+}
+async function saveProgressStore(){
+  try{ await window.storage.set('progreso-cuaderno-juridico', JSON.stringify(progress), false); }catch(e){}
+}
+async function loadAnswer(c,i){
+  try{
+    const res = await window.storage.get('respuesta-juridico-'+techKey(c,i), false);
+    return res && res.value ? res.value : "";
+  }catch(e){ return ""; }
+}
+async function saveAnswerStore(c,i,text){
+  try{ await window.storage.set('respuesta-juridico-'+techKey(c,i), text, false); }catch(e){}
+}
+
+function renderMenu(){
+  const ul = document.getElementById('catList');
+  ul.innerHTML = "";
+  CATEGORIES.forEach((cat, ci)=>{
+    const done = cat.items.filter((_,ii)=>progress[techKey(ci,ii)]).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item';
+    li.innerHTML = `
+      <button class="cat-btn" data-cat="${ci}">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-text">
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </span>
+        <span class="cat-progress">${done}/10</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDeck(parseInt(btn.dataset.cat)));
+  });
+  renderGlobalProgress();
+}
+
+function renderGlobalProgress(){
+  const total = 100;
+  const done = Object.keys(progress).filter(k=>progress[k]).length;
+  document.getElementById('globalFill').style.width = (done/total*100)+"%";
+  document.getElementById('globalLabel').textContent = done+"/100 practicadas";
+}
+
+function openDeck(ci){
+  currentCat = ci;
+  currentIdx = 0;
+  document.getElementById('menuView').classList.add('hidden');
+  document.getElementById('deckView').classList.remove('hidden');
+  document.getElementById('deckTitle').textContent = CATEGORIES[ci].name;
+  renderCard();
+  window.scrollTo(0,0);
+}
+function closeDeck(){
+  document.getElementById('deckView').classList.add('hidden');
+  document.getElementById('menuView').classList.remove('hidden');
+  renderMenu();
+  window.scrollTo(0,0);
+}
+function renderDots(){
+  const wrap = document.getElementById('dots');
+  wrap.innerHTML = "";
+  CATEGORIES[currentCat].items.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===currentIdx? ' active':'') + (progress[techKey(currentCat,i)] && i!==currentIdx? ' done':'');
+    wrap.appendChild(d);
+  });
+}
+
+async function renderCard(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const [title, concept, example, exercise, type, answers] = item;
+  const globalNum = CATEGORIES.slice(0,currentCat).reduce((a,c)=>a+c.items.length,0) + currentIdx + 1;
+
+  document.getElementById('cardNum').textContent = "Técnica " + globalNum + " de 100";
+  document.getElementById('catName').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardConcept').textContent = concept;
+  document.getElementById('cardExample').textContent = example;
+  document.getElementById('cardExercise').textContent = exercise;
+
+  const feedback = document.getElementById('feedback');
+  feedback.className = 'feedback';
+  feedback.textContent = '';
+  const solBox = document.getElementById('solutionBox');
+  solBox.classList.remove('show');
+  document.getElementById('savedTag').classList.remove('show');
+
+  if(type==='input'){
+    document.getElementById('inputExercise').classList.remove('hidden');
+    document.getElementById('textExercise').classList.add('hidden');
+    document.getElementById('cardInput').value = "";
+    solBox.textContent = "Solución: " + answers[0];
+  } else {
+    document.getElementById('inputExercise').classList.add('hidden');
+    document.getElementById('textExercise').classList.remove('hidden');
+    const savedText = await loadAnswer(currentCat, currentIdx);
+    document.getElementById('cardAnswer').value = savedText;
+  }
+
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+
+  document.getElementById('prevBtn').disabled = currentIdx===0;
+  document.getElementById('nextBtn').disabled = currentIdx===CATEGORIES[currentCat].items.length-1;
+  renderDots();
+}
+
+async function markDone(){
+  progress[techKey(currentCat,currentIdx)] = true;
+  await saveProgressStore();
+  document.getElementById('doneDot').classList.add('on');
+  document.getElementById('doneLabel').textContent = 'practicada';
+  renderDots();
+  renderGlobalProgress();
+}
+
+function handleCheck(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const answers = item[5];
+  const val = document.getElementById('cardInput').value;
+  const feedback = document.getElementById('feedback');
+  if(isCorrect(val, answers)){
+    feedback.className = 'feedback ok';
+    feedback.textContent = '¡Correcto! Bien resuelto.';
+    markDone();
+  } else {
+    feedback.className = 'feedback bad';
+    feedback.textContent = 'Aún no. Revisa el ejemplo e inténtalo de nuevo.';
+  }
+}
+function handleReveal(){
+  document.getElementById('solutionBox').classList.toggle('show');
+}
+async function handleSaveText(){
+  const text = document.getElementById('cardAnswer').value;
+  await saveAnswerStore(currentCat, currentIdx, text);
+  if(text.trim().length>0){ await markDone(); }
+  const tag = document.getElementById('savedTag');
+  tag.classList.add('show');
+  setTimeout(()=>tag.classList.remove('show'), 1600);
+}
+
+document.getElementById('backBtn').addEventListener('click', closeDeck);
+document.getElementById('checkBtn').addEventListener('click', handleCheck);
+document.getElementById('revealBtn').addEventListener('click', handleReveal);
+document.getElementById('saveBtn').addEventListener('click', handleSaveText);
+document.getElementById('cardInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') handleCheck(); });
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(currentIdx>0){ currentIdx--; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(currentIdx<CATEGORIES[currentCat].items.length-1){ currentIdx++; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(confirm('¿Borrar todo tu progreso y tus respuestas guardadas?')){
+    try{
+      const list = await window.storage.list('respuesta-juridico-', false);
+      if(list && list.keys){
+        for(const k of list.keys){ await window.storage.delete(k, false); }
+      }
+    }catch(e){}
+    progress = {};
+    await saveProgressStore();
+    renderMenu();
+  }
+});
+
+(async function init(){
+  await loadProgress();
+  renderMenu();
+})();
+</script>
+</body>
+</html>

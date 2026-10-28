@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de técnicas — el ensayo breve</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap');
+
+:root{
+  --paper:#EDE9DD;
+  --paper-2:#E4DFCF;
+  --ink:#22283B;
+  --ink-soft:#4A5068;
+  --redpen:#8C3230;
+  --line:#C7BFA4;
+  --card:#F6F3E9;
+  --graphite:#726C58;
+  --radius:3px;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+body{
+  background:var(--paper);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px);
+  background-size: 100% 34px;
+  color:var(--ink);
+  font-family:'Lora', Georgia, serif;
+  min-height:100vh;
+}
+
+.app{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  min-height:100vh;
+}
+
+/* ---------- sidebar ---------- */
+.sidebar{
+  background:var(--paper-2);
+  border-right:1px solid var(--line);
+  padding:28px 0 20px;
+  display:flex;
+  flex-direction:column;
+}
+.brand{
+  padding:0 22px 20px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:6px;
+}
+.brand h1{
+  font-size:1.05rem;
+  font-weight:600;
+  margin:0 0 4px;
+  line-height:1.25;
+}
+.brand p{
+  font-family:'Special Elite', monospace;
+  font-size:0.72rem;
+  color:var(--graphite);
+  margin:0;
+  letter-spacing:0.02em;
+}
+
+.progress-wrap{
+  padding:16px 22px 18px;
+  border-bottom:1px solid var(--line);
+}
+.progress-label{
+  font-family:'Special Elite', monospace;
+  font-size:0.68rem;
+  color:var(--graphite);
+  margin-bottom:6px;
+}
+.progress-bar{
+  height:6px;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.progress-fill{
+  height:100%;
+  background:var(--redpen);
+  width:0%;
+  transition:width .4s ease;
+}
+
+.cat-list{
+  list-style:none;
+  margin:8px 0 0;
+  padding:0;
+  flex:1;
+}
+.cat-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:8px;
+  padding:11px 22px;
+  cursor:pointer;
+  font-size:0.92rem;
+  color:var(--ink-soft);
+  border-left:3px solid transparent;
+}
+.cat-item:hover{ color:var(--ink); }
+.cat-item.active{
+  color:var(--ink);
+  border-left-color:var(--redpen);
+  background:rgba(140,50,48,0.06);
+  font-weight:600;
+}
+.cat-count{
+  font-family:'Special Elite', monospace;
+  font-size:0.68rem;
+  color:var(--graphite);
+}
+
+.sidebar-foot{
+  padding:14px 22px 0;
+  font-family:'Special Elite', monospace;
+  font-size:0.68rem;
+  color:var(--graphite);
+}
+
+/* ---------- main ---------- */
+main{
+  padding:34px 40px 60px;
+  max-width:760px;
+}
+.top-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:26px;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.top-row h2{
+  margin:0;
+  font-size:1.4rem;
+  font-weight:600;
+}
+.top-row .counter{
+  font-family:'Special Elite', monospace;
+  font-size:0.78rem;
+  color:var(--graphite);
+}
+
+/* flashcard */
+.card-stage{
+  perspective:1600px;
+  margin-bottom:18px;
+}
+.card{
+  position:relative;
+  width:100%;
+  min-height:230px;
+  transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.4,.2,.2,1);
+  cursor:pointer;
+}
+.card.flipped{ transform:rotateY(180deg); }
+.face{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:30px 34px;
+  box-shadow: 3px 3px 0 rgba(34,40,59,0.06);
+  display:flex;
+  flex-direction:column;
+}
+.face.back{ transform:rotateY(180deg); }
+
+.face-num{
+  font-family:'Special Elite', monospace;
+  color:var(--redpen);
+  font-size:0.85rem;
+  margin-bottom:14px;
+}
+.face-title{
+  font-size:1.55rem;
+  font-weight:600;
+  line-height:1.25;
+  margin:0 0 auto;
+}
+.face-hint{
+  font-family:'Special Elite', monospace;
+  font-size:0.68rem;
+  color:var(--graphite);
+  align-self:flex-end;
+}
+.face.back .face-title{
+  font-size:1.05rem;
+  font-weight:500;
+  font-style:italic;
+  margin-bottom:14px;
+}
+.face-desc{
+  font-size:1.02rem;
+  line-height:1.55;
+  color:var(--ink);
+  margin:0;
+}
+.done-mark{
+  position:absolute;
+  top:18px; right:22px;
+  font-family:'Special Elite', monospace;
+  color:var(--redpen);
+  font-size:0.75rem;
+  border:1px solid var(--redpen);
+  padding:2px 7px;
+  border-radius:var(--radius);
+  transform:rotate(-6deg);
+  opacity:0;
+  transition:opacity .3s;
+}
+.done-mark.show{ opacity:0.85; }
+
+.nav-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:34px;
+}
+button{
+  font-family:'Lora', serif;
+  font-size:0.85rem;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  padding:8px 14px;
+  border-radius:var(--radius);
+  cursor:pointer;
+}
+button:hover{ border-color:var(--ink-soft); color:var(--ink); }
+button.primary{
+  border-color:var(--redpen);
+  color:var(--redpen);
+}
+button.primary:hover{ background:rgba(140,50,48,0.07); }
+.nav-row .spacer{ flex:1; }
+.nav-row .shuffle{
+  font-family:'Special Elite', monospace;
+  font-size:0.72rem;
+}
+
+/* writing pad */
+.pad{
+  border-top:1px solid var(--line);
+  padding-top:24px;
+}
+.pad-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:10px;
+}
+.pad-head h3{
+  margin:0;
+  font-size:0.98rem;
+  font-weight:600;
+}
+.pad-status{
+  font-family:'Special Elite', monospace;
+  font-size:0.68rem;
+  color:var(--graphite);
+  transition:color .3s;
+}
+.pad-status.saved{ color:var(--redpen); }
+
+textarea{
+  width:100%;
+  min-height:150px;
+  resize:vertical;
+  border:1px solid var(--line);
+  background:var(--card);
+  background-image:linear-gradient(var(--line) 1px, transparent 1px);
+  background-size:100% 30px;
+  padding:9px 16px 0;
+  line-height:30px;
+  font-family:'Lora', serif;
+  font-size:1rem;
+  color:var(--ink);
+  border-radius:var(--radius);
+  outline:none;
+}
+textarea:focus{ border-color:var(--ink-soft); }
+.pad-foot{
+  font-family:'Special Elite', monospace;
+  font-size:0.66rem;
+  color:var(--graphite);
+  margin-top:8px;
+}
+
+@media (max-width:760px){
+  .app{ grid-template-columns:1fr; }
+  .sidebar{
+    border-right:none;
+    border-bottom:1px solid var(--line);
+    padding:18px 0 10px;
+  }
+  .cat-list{
+    display:flex;
+    overflow-x:auto;
+    gap:4px;
+    padding:0 14px;
+  }
+  .cat-item{
+    border-left:none;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+    padding:9px 12px;
+  }
+  .cat-item.active{ border-bottom-color:var(--redpen); background:none; }
+  .progress-wrap, .sidebar-foot, .brand{ padding-left:14px; padding-right:14px; }
+  main{ padding:24px 18px 50px; }
+  .face{ padding:22px 20px; }
+  .face-title{ font-size:1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <h1>Cuaderno de técnicas</h1>
+      <p>100 herramientas del ensayo</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label" id="progress-label">0 de 100 practicadas</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <ul class="cat-list" id="cat-list"></ul>
+    <div class="sidebar-foot">tus notas se guardan solas</div>
+  </aside>
+
+  <main>
+    <div class="top-row">
+      <h2 id="cat-title">apertura</h2>
+      <div class="counter" id="cat-counter">1 / 15</div>
+    </div>
+
+    <div class="card-stage">
+      <div class="card" id="card">
+        <div class="face front">
+          <div class="face-num" id="face-num">01</div>
+          <div class="face-title" id="face-title">—</div>
+          <div class="face-hint">toca para ver la explicación</div>
+        </div>
+        <div class="face back">
+          <div class="face-title" id="face-title-back">—</div>
+          <p class="face-desc" id="face-desc">—</p>
+        </div>
+        <div class="done-mark" id="done-mark">practicada</div>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button id="prev">← anterior</button>
+      <button id="next">siguiente →</button>
+      <div class="spacer"></div>
+      <button class="shuffle" id="shuffle">barajar categoría</button>
+    </div>
+
+    <div class="pad">
+      <div class="pad-head">
+        <h3>practica esta técnica</h3>
+        <span class="pad-status" id="pad-status">sin guardar</span>
+      </div>
+      <textarea id="pad" placeholder="Escribe aquí dos o tres frases aplicando la técnica de esta ficha, sobre cualquier tema que tengas en mente..."></textarea>
+      <div class="pad-foot" id="pad-foot">0 caracteres</div>
+    </div>
+  </main>
+</div>
+
+<script>
+const DATA = [
+{id:1,cat:"apertura",name:"Anécdota breve",desc:"Arrancar con una escena mínima y concreta, casi cinematográfica, antes de decir de qué trata el texto."},
+{id:2,cat:"apertura",name:"Pregunta retórica",desc:"Abrir con una interrogación que el ensayo entero irá respondiendo poco a poco."},
+{id:3,cat:"apertura",name:"Cita ajena",desc:"Usar una idea de otro autor, parafraseada, como disparador del propio pensamiento."},
+{id:4,cat:"apertura",name:"Definición provocadora",desc:"Redefinir un término común de forma inesperada para descolocar al lector desde la primera línea."},
+{id:5,cat:"apertura",name:"Contradicción inicial",desc:"Presentar una paradoja que el desarrollo del ensayo se encargará de resolver."},
+{id:6,cat:"apertura",name:"Imagen sensorial",desc:"Comenzar con una escena visual, sonora o táctil antes de nombrar la idea abstracta."},
+{id:7,cat:"apertura",name:"Dato sorprendente",desc:"Abrir con un hecho o cifra que rompa las expectativas del lector."},
+{id:8,cat:"apertura",name:"In medias res",desc:"Entrar directamente en la acción o el conflicto, sin preámbulo explicativo."},
+{id:9,cat:"apertura",name:"Confesión personal",desc:"Revelar algo íntimo del autor como punto de partida del razonamiento."},
+{id:10,cat:"apertura",name:"Aforismo propio",desc:"Inventar una sentencia breve y memorable que funcione como puerta de entrada al tema."},
+{id:11,cat:"apertura",name:"Descripción de un objeto",desc:"Usar un objeto cotidiano como metáfora inicial de la idea que se va a desarrollar."},
+{id:12,cat:"apertura",name:"Diálogo imaginario",desc:"Abrir con una conversación ficticia o hipotética entre dos voces."},
+{id:13,cat:"apertura",name:"Negación inicial",desc:"Comenzar diciendo lo que el ensayo no es o no va a hacer, para delimitar el terreno."},
+{id:14,cat:"apertura",name:"Etimología",desc:"Rastrear el origen de una palabra clave como punto de partida del argumento."},
+{id:15,cat:"apertura",name:"Escena histórica",desc:"Situar al lector en un momento del pasado antes de traer el tema al presente."},
+
+{id:16,cat:"estructura",name:"Tesis explícita temprana",desc:"Declarar la idea central del ensayo ya en el primer párrafo."},
+{id:17,cat:"estructura",name:"Tesis diferida",desc:"Dejar que la idea central emerja recién al final, tras el recorrido del texto."},
+{id:18,cat:"estructura",name:"Estructura circular",desc:"Cerrar el texto retomando, transformada, la imagen con la que abrió."},
+{id:19,cat:"estructura",name:"Progresión en espiral",desc:"Volver una y otra vez sobre la misma idea, profundizando en cada vuelta."},
+{id:20,cat:"estructura",name:"Contraste binario",desc:"Organizar el ensayo en torno a dos polos opuestos que se van alternando."},
+{id:21,cat:"estructura",name:"Enumeración temática",desc:"Desarrollar el ensayo como una lista comentada de casos o ideas."},
+{id:22,cat:"estructura",name:"Fragmentación",desc:"Dividir el texto en bloques breves y relativamente autónomos entre sí."},
+{id:23,cat:"estructura",name:"Digresión controlada",desc:"Desviarse del tema principal y regresar a él con un sentido nuevo."},
+{id:24,cat:"estructura",name:"Analogía extendida",desc:"Sostener una misma comparación a lo largo de todo el ensayo."},
+{id:25,cat:"estructura",name:"Caso y ley (inducción)",desc:"Partir de un ejemplo particular para llegar a una idea general."},
+{id:26,cat:"estructura",name:"Estructura deductiva",desc:"Partir de una idea general y descender hacia lo particular."},
+{id:27,cat:"estructura",name:"Montaje o collage",desc:"Yuxtaponer fragmentos de pensamiento sin conectores explícitos entre ellos."},
+{id:28,cat:"estructura",name:"Hilo narrativo",desc:"Usar una pequeña historia como columna vertebral que sostiene el argumento."},
+{id:29,cat:"estructura",name:"Punto de inflexión",desc:"Marcar un giro claro de sentido hacia la mitad del texto."},
+{id:30,cat:"estructura",name:"Simetría de párrafos",desc:"Equilibrar deliberadamente la extensión entre la apertura y el cierre."},
+{id:31,cat:"estructura",name:"Acumulación gradual",desc:"Sumar ejemplos de menor a mayor intensidad a medida que avanza el texto."},
+{id:32,cat:"estructura",name:"Preguntas en cascada",desc:"Encadenar interrogantes que van profundizando cada vez más en el tema."},
+{id:33,cat:"estructura",name:"Voz que se autocorrige",desc:"Dejar que el propio texto dude de sí mismo y se rectifique en voz alta."},
+{id:34,cat:"estructura",name:"Estructura de carta",desc:"Dirigir el ensayo entero a un destinatario específico, real o imaginado."},
+{id:35,cat:"estructura",name:"Paréntesis reflexivo",desc:"Insertar una pausa meta-textual sobre el propio acto de escribir el ensayo."},
+
+{id:36,cat:"argumentacion",name:"Ejemplo concreto",desc:"Ilustrar cada idea abstracta con un caso tangible y reconocible."},
+{id:37,cat:"argumentacion",name:"Contraargumento y réplica",desc:"Anticipar la objeción más fuerte del lector y responderla dentro del texto."},
+{id:38,cat:"argumentacion",name:"Comparación histórica",desc:"Vincular el asunto presente con un precedente claro del pasado."},
+{id:39,cat:"argumentacion",name:"Reducción al absurdo",desc:"Llevar una idea a su extremo lógico para mostrar dónde falla."},
+{id:40,cat:"argumentacion",name:"Apelación a la experiencia",desc:"Usar una vivencia propia como evidencia que sostiene la tesis."},
+{id:41,cat:"argumentacion",name:"Autoridad citada",desc:"Apoyar la tesis parafraseando a una fuente reconocida en el tema."},
+{id:42,cat:"argumentacion",name:"Ironía argumentativa",desc:"Decir lo contrario de lo que se piensa para exponer mejor un vicio o error."},
+{id:43,cat:"argumentacion",name:"Hipérbole controlada",desc:"Exagerar deliberadamente un punto para hacerlo más visible."},
+{id:44,cat:"argumentacion",name:"Concesión parcial",desc:"Aceptar una parte de la posición contraria antes de refutar el resto."},
+{id:45,cat:"argumentacion",name:"Silogismo disimulado",desc:"Razonar en tres pasos lógicos sin que suene mecánico ni forzado."},
+{id:46,cat:"argumentacion",name:"Metáfora argumentativa",desc:"Usar una imagen para sostener la idea, no solo para decorarla."},
+{id:47,cat:"argumentacion",name:"Dato cuantitativo",desc:"Respaldar una afirmación con un número, proporción o medida concreta."},
+{id:48,cat:"argumentacion",name:"Comparación cultural",desc:"Contrastar cómo distintas sociedades entienden el mismo asunto."},
+{id:49,cat:"argumentacion",name:"Absurdo cotidiano",desc:"Usar un ejemplo doméstico y pequeño para validar una idea abstracta y grande."},
+{id:50,cat:"argumentacion",name:"Cadena causal",desc:"Mostrar cómo una causa produce otra, en efecto dominó, hasta la conclusión."},
+{id:51,cat:"argumentacion",name:"Definición negativa",desc:"Explicar un concepto diciendo, primero, todo lo que no es."},
+{id:52,cat:"argumentacion",name:"Universalización de lo particular",desc:"Partir de un caso propio para hablar, en realidad, de todos."},
+{id:53,cat:"argumentacion",name:"Autocrítica del argumento",desc:"El propio ensayista pone en duda, en voz alta, su tesis principal."},
+{id:54,cat:"argumentacion",name:"Absurdo lúdico",desc:"Argumentar con humor deliberado para desarmar un prejuicio sin agredir."},
+{id:55,cat:"argumentacion",name:"Evidencia sensorial",desc:"Convertir una observación física y directa en prueba de una idea."},
+
+{id:56,cat:"estilo",name:"Frase corta de impacto",desc:"Intercalar una oración muy breve entre frases más largas y elaboradas."},
+{id:57,cat:"estilo",name:"Ritmo pendular",desc:"Alternar conscientemente frases largas y cortas para marcar un compás."},
+{id:58,cat:"estilo",name:"Repetición anafórica",desc:"Comenzar varias frases seguidas con la misma palabra o expresión."},
+{id:59,cat:"estilo",name:"Paralelismo sintáctico",desc:"Repetir una misma estructura gramatical para darle cadencia al texto."},
+{id:60,cat:"estilo",name:"Personificación",desc:"Dar cualidades humanas a ideas o conceptos abstractos."},
+{id:61,cat:"estilo",name:"Mezcla de registros",desc:"Combinar lenguaje culto y coloquial dentro del mismo párrafo."},
+{id:62,cat:"estilo",name:"Neologismo puntual",desc:"Inventar una palabra nueva cuando ninguna existente expresa la idea con precisión."},
+{id:63,cat:"estilo",name:"Elipsis",desc:"Omitir lo obvio para que sea el lector quien complete el sentido."},
+{id:64,cat:"estilo",name:"Segunda persona",desc:"Dirigirse directamente al lector usando el 'tú', como si le hablara."},
+{id:65,cat:"estilo",name:"Tono confesional",desc:"Escribir como quien piensa en voz alta, sin pulir demasiado el razonamiento."},
+{id:66,cat:"estilo",name:"Ambigüedad deliberada",desc:"Dejar abierta, a propósito, una doble interpretación posible."},
+{id:67,cat:"estilo",name:"Sintaxis quebrada",desc:"Romper el orden lógico de la frase para imitar el ritmo del pensamiento."},
+{id:68,cat:"estilo",name:"Adjetivación precisa",desc:"Preferir un solo adjetivo certero antes que tres adjetivos vagos."},
+{id:69,cat:"estilo",name:"Presente histórico",desc:"Narrar un hecho pasado como si estuviera ocurriendo ahora mismo."},
+{id:70,cat:"estilo",name:"Onomatopeya conceptual",desc:"Usar el sonido de las palabras elegidas para reforzar la idea que expresan."},
+{id:71,cat:"estilo",name:"Ironía de tono",desc:"Decir algo serio con ligereza, o algo leve con una gravedad inesperada."},
+{id:72,cat:"estilo",name:"Polisíndeton",desc:"Multiplicar las conjunciones ('y... y... y...') para dar sensación de intensidad."},
+{id:73,cat:"estilo",name:"Asíndeton",desc:"Eliminar las conjunciones entre frases para dar velocidad a la lectura."},
+{id:74,cat:"estilo",name:"Cita interna",desc:"El autor retoma y vuelve a citar su propia frase, dicha antes en el texto."},
+{id:75,cat:"estilo",name:"Juego etimológico",desc:"Explotar el doble sentido o el origen escondido de una palabra clave."},
+
+{id:76,cat:"pensamiento",name:"Duda como método",desc:"Dejar que el ensayo avance dudando en voz alta, no afirmando de entrada."},
+{id:77,cat:"pensamiento",name:"Pensamiento en proceso",desc:"Mostrar cómo se llega a una idea, no solo entregar la conclusión final."},
+{id:78,cat:"pensamiento",name:"Tema desde lo mínimo",desc:"Abordar una gran idea a través de un detalle pequeño y concreto."},
+{id:79,cat:"pensamiento",name:"Multiplicidad de miradas",desc:"Observar el mismo tema desde varios ángulos sucesivos, sin quedarse en uno solo."},
+{id:80,cat:"pensamiento",name:"Digresión filosófica",desc:"Detenerse deliberadamente a pensar sobre un concepto lateral al tema central."},
+{id:81,cat:"pensamiento",name:"Confesión de límites",desc:"Admitir abiertamente lo que el autor no sabe o no logra resolver."},
+{id:82,cat:"pensamiento",name:"Provocación intelectual",desc:"Plantear a propósito una idea incómoda que desafíe al lector."},
+{id:83,cat:"pensamiento",name:"Diálogo con el lector implícito",desc:"Anticipar dentro del texto las objeciones que el lector podría hacer."},
+{id:84,cat:"pensamiento",name:"El ensayo como tanteo",desc:"Presentar el texto como un intento honesto, no como una verdad cerrada."},
+{id:85,cat:"pensamiento",name:"Ironía existencial",desc:"Señalar la distancia entre lo que se desea y lo que realmente ocurre."},
+{id:86,cat:"pensamiento",name:"Meditación sobre el tiempo",desc:"Usar la temporalidad —lo que dura, lo que pasa— como eje de la reflexión."},
+{id:87,cat:"pensamiento",name:"De lo íntimo a lo universal",desc:"Pasar de una experiencia personal a una reflexión colectiva sin previo aviso."},
+{id:88,cat:"pensamiento",name:"Fragmento tipo aforismo",desc:"Cerrar cada sección con una sentencia breve y condensada."},
+{id:89,cat:"pensamiento",name:"Revalorización de lo trivial",desc:"Tratar con seriedad genuina un tema aparentemente menor o cotidiano."},
+{id:90,cat:"pensamiento",name:"Autoironía",desc:"El autor se burla, con suavidad, de su propio razonamiento."},
+
+{id:91,cat:"cierre",name:"Cierre en espejo",desc:"Repetir, transformada, la imagen con la que había abierto el ensayo."},
+{id:92,cat:"cierre",name:"Pregunta final abierta",desc:"Terminar sin resolver del todo, invitando al lector a seguir pensando."},
+{id:93,cat:"cierre",name:"Síntesis en una frase",desc:"Condensar todo el ensayo en una sola sentencia final."},
+{id:94,cat:"cierre",name:"Giro inesperado",desc:"Cambiar el sentido del texto en sus últimas líneas."},
+{id:95,cat:"cierre",name:"Cierre irónico",desc:"Terminar con una nota de humor que resignifica todo lo dicho antes."},
+{id:96,cat:"cierre",name:"Vuelta a lo cotidiano",desc:"Bajar de la reflexión abstracta a un gesto simple y concreto."},
+{id:97,cat:"cierre",name:"Cierre epigramático",desc:"Una frase corta, casi de cita, que resume la tesis central."},
+{id:98,cat:"cierre",name:"Silencio productivo",desc:"Terminar con una imagen sin explicarla, dejando que hable por sí sola."},
+{id:99,cat:"cierre",name:"Llamado a la acción sutil",desc:"Invitar al lector, sin imponerlo, a mirar el mundo de otra manera."},
+{id:100,cat:"cierre",name:"Un nuevo comienzo",desc:"Cerrar el texto sugiriendo que el tema, en realidad, apenas empieza."},
+];
+
+const CATS = [
+  {key:"todas", label:"todas las técnicas"},
+  {key:"apertura", label:"apertura"},
+  {key:"estructura", label:"estructura"},
+  {key:"argumentacion", label:"argumentación"},
+  {key:"estilo", label:"estilo y lenguaje"},
+  {key:"pensamiento", label:"pensamiento ensayístico"},
+  {key:"cierre", label:"cierre"},
+];
+
+let currentCat = "apertura";
+let pool = [];
+let idx = 0;
+let saveTimer = null;
+let practicedIds = new Set();
+
+const catListEl = document.getElementById('cat-list');
+const catTitleEl = document.getElementById('cat-title');
+const catCounterEl = document.getElementById('cat-counter');
+const cardEl = document.getElementById('card');
+const faceNum = document.getElementById('face-num');
+const faceTitle = document.getElementById('face-title');
+const faceTitleBack = document.getElementById('face-title-back');
+const faceDesc = document.getElementById('face-desc');
+const doneMark = document.getElementById('done-mark');
+const padEl = document.getElementById('pad');
+const padStatus = document.getElementById('pad-status');
+const padFoot = document.getElementById('pad-foot');
+const progressLabel = document.getElementById('progress-label');
+const progressFill = document.getElementById('progress-fill');
+
+function buildSidebar(){
+  catListEl.innerHTML = '';
+  CATS.forEach(c=>{
+    const count = c.key === 'todas' ? DATA.length : DATA.filter(d=>d.cat===c.key).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item' + (c.key===currentCat ? ' active' : '');
+    li.innerHTML = `<span>${c.label}</span><span class="cat-count">${count}</span>`;
+    li.addEventListener('click', ()=>selectCategory(c.key));
+    catListEl.appendChild(li);
+  });
+}
+
+function selectCategory(key){
+  currentCat = key;
+  pool = key === 'todas' ? DATA.slice() : DATA.filter(d=>d.cat===key);
+  idx = 0;
+  buildSidebar();
+  catTitleEl.textContent = CATS.find(c=>c.key===key).label;
+  renderCard();
+}
+
+function shufflePool(){
+  for(let i=pool.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [pool[i],pool[j]] = [pool[j],pool[i]];
+  }
+  idx = 0;
+  renderCard();
+}
+
+async function loadEntry(id){
+  try{
+    const res = await window.storage.get('entry:'+id);
+    return res ? res.value : '';
+  }catch(e){
+    return '';
+  }
+}
+
+async function saveEntry(id, text){
+  try{
+    await window.storage.set('entry:'+id, text);
+    if(text.trim().length>0){ practicedIds.add(id); } else { practicedIds.delete(id); }
+    await window.storage.set('practiced-ids', JSON.stringify(Array.from(practicedIds)));
+    updateProgress();
+  }catch(e){
+    padStatus.textContent = 'no se pudo guardar';
+  }
+}
+
+async function loadPracticedIds(){
+  try{
+    const res = await window.storage.get('practiced-ids');
+    if(res && res.value){
+      practicedIds = new Set(JSON.parse(res.value));
+    }
+  }catch(e){
+    practicedIds = new Set();
+  }
+  updateProgress();
+}
+
+function updateProgress(){
+  const n = practicedIds.size;
+  progressLabel.textContent = `${n} de 100 practicadas`;
+  progressFill.style.width = Math.min(100, n) + '%';
+  updateDoneMark();
+}
+
+function updateDoneMark(){
+  const t = pool[idx];
+  if(t && practicedIds.has(t.id)){
+    doneMark.classList.add('show');
+  } else {
+    doneMark.classList.remove('show');
+  }
+}
+
+async function renderCard(){
+  const t = pool[idx];
+  if(!t) return;
+  cardEl.classList.remove('flipped');
+  faceNum.textContent = String(t.id).padStart(2,'0');
+  faceTitle.textContent = t.name;
+  faceTitleBack.textContent = t.name;
+  faceDesc.textContent = t.desc;
+  catCounterEl.textContent = `${idx+1} / ${pool.length}`;
+  updateDoneMark();
+
+  const savedText = await loadEntry(t.id);
+  padEl.value = savedText;
+  padFoot.textContent = savedText.length + ' caracteres';
+  padStatus.textContent = savedText.trim().length>0 ? 'guardado' : 'sin guardar';
+  padStatus.classList.toggle('saved', savedText.trim().length>0);
+}
+
+cardEl.addEventListener('click', ()=>{
+  cardEl.classList.toggle('flipped');
+});
+
+document.getElementById('prev').addEventListener('click', ()=>{
+  idx = (idx - 1 + pool.length) % pool.length;
+  renderCard();
+});
+document.getElementById('next').addEventListener('click', ()=>{
+  idx = (idx + 1) % pool.length;
+  renderCard();
+});
+document.getElementById('shuffle').addEventListener('click', shufflePool);
+
+padEl.addEventListener('input', ()=>{
+  const t = pool[idx];
+  padFoot.textContent = padEl.value.length + ' caracteres';
+  padStatus.textContent = 'escribiendo…';
+  padStatus.classList.remove('saved');
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    await saveEntry(t.id, padEl.value);
+    padStatus.textContent = padEl.value.trim().length>0 ? 'guardado' : 'sin guardar';
+    padStatus.classList.toggle('saved', padEl.value.trim().length>0);
+  }, 600);
+});
+
+(async function init(){
+  await loadPracticedIds();
+  selectCategory('apertura');
+})();
+</script>
+</body>
+</html>

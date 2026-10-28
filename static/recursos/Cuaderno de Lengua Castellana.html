@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno de Lengua Castellana · 100 técnicas (6.º a 11.º)</title>
+<style>
+  :root{
+    --bg:#efe9fb;
+    --paper:#ffffff;
+    --paper-2:#fbf8ff;
+    --ink:#1e1b31;
+    --muted:#6b6785;
+    --line:#d8d2ee;
+    --line-2:#c4bce0;
+    --accent:#7c3aed;
+    --accent-dark:#5b21b6;
+    --accent-soft:#f3e8ff;
+    --rose:#be185d;
+    --rose-soft:#fce7f3;
+    --ok:#15803d;
+    --ok-soft:#dcfce7;
+    --bad:#b91c1c;
+    --bad-soft:#fee2e2;
+    --radius:16px;
+    --shadow:0 2px 4px rgba(45,20,80,.06), 0 12px 30px rgba(45,20,80,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Georgia","Iowan Old Style","Times New Roman",serif;
+    background:
+      radial-gradient(circle at 15% 0%, #f8f3ff 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- TOP BAR ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px 20px;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .logo{
+    font-size:24px; line-height:1;
+    background:var(--accent-soft);
+    border:1px solid #dcc7fb;
+    border-radius:12px;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    flex:0 0 auto;
+  }
+  .brand h1{font-size:16.5px; margin:0; font-weight:800; letter-spacing:-.2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .brand p{margin:2px 0 0; font-size:12px; color:var(--muted); font-family:system-ui,sans-serif;}
+  .topbar-actions{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
+
+  .progress-wrap{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); font-weight:600; font-family:system-ui,sans-serif;}
+  .progress-bar{width:140px; height:8px; border-radius:99px; background:#e2dbf5; overflow:hidden;}
+  #progressFill{height:100%; width:0%; background:linear-gradient(90deg,#7c3aed,#be185d); transition:width .4s;}
+
+  .btn{
+    font-family:system-ui,sans-serif; font-size:13px; font-weight:700;
+    padding:9px 15px; border-radius:10px; cursor:pointer;
+    border:1px solid var(--line-2); background:#fff; color:var(--ink);
+    transition:.16s;
+  }
+  .btn:hover{background:#f5f0ff; border-color:#a78bfa;}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.primary:hover{background:var(--accent-dark);}
+  .btn.ghost{background:transparent;}
+  .only-mobile{display:none;}
+
+  /* ---------- LAYOUT ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:22px;
+    max-width:1400px;
+    margin:0 auto;
+    padding:22px;
+    align-items:start;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar{
+    position:sticky; top:82px;
+    max-height:calc(100vh - 106px);
+    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px;
+  }
+  #search{
+    width:100%; font-family:system-ui,sans-serif; font-size:13px;
+    padding:10px 12px; border-radius:10px;
+    border:1px solid var(--line-2); background:#faf7ff; color:var(--ink);
+    outline:none; margin-bottom:12px;
+  }
+  #search:focus{border-color:var(--accent); background:#fff;}
+
+  .cat{margin-bottom:6px;}
+  .cat-head{
+    display:flex; align-items:center; gap:9px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    padding:10px; border-radius:10px;
+    font-size:13.6px; font-weight:800; color:var(--ink);
+  }
+  .cat-head:hover{background:#f5f0ff;}
+  .cat-head .chev{margin-left:auto; font-size:11px; color:var(--muted); transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    background:var(--rose-soft); color:var(--rose);
+    padding:2px 8px; border-radius:99px;
+  }
+  .cat-bar{height:4px; border-radius:99px; background:#e8e2f7; margin:0 10px 6px; overflow:hidden;}
+  .cat-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--rose)); transition:width .4s;}
+  .cat-body{display:none; padding:2px 0 8px 6px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); padding:0 10px 8px; line-height:1.45;}
+  .tech-link{
+    display:flex; align-items:flex-start; gap:8px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    font-size:13px; line-height:1.35; color:#3d3550;
+    padding:8px 10px; border-radius:9px;
+    border-left:3px solid transparent;
+  }
+  .tech-link:hover{background:#f5f0ff;}
+  .tech-link.active{background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent-dark); font-weight:700;}
+  .tech-link .dot{
+    flex:0 0 auto; width:15px; height:15px; margin-top:2px;
+    border-radius:50%; border:1.6px solid var(--line-2);
+    display:grid; place-items:center; font-size:9px; color:transparent;
+    font-family:system-ui,sans-serif;
+  }
+  .tech-link.done .dot{background:var(--ok); border-color:var(--ok); color:#fff;}
+
+  /* ---------- PANEL ---------- */
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 30px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .panel::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--rose));
+  }
+  .tech-head{margin-bottom:18px;}
+  .badge{
+    display:inline-block; font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:.7px; text-transform:uppercase;
+    color:var(--accent-dark); background:var(--accent-soft);
+    border:1px solid #dcc7fb; padding:4px 10px; border-radius:99px;
+    margin-bottom:10px;
+  }
+  .tech-head h2{margin:0; font-size:25px; line-height:1.22; letter-spacing:-.4px; font-weight:800;}
+  .tech-pos{font-family:system-ui,sans-serif; font-size:12px; color:var(--muted); margin-top:6px; font-weight:600;}
+
+  .block-dots{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;}
+  .bdot{
+    width:12px; height:12px; border-radius:50%;
+    border:1.6px solid var(--line-2); background:#fff;
+    cursor:pointer; transition:.15s;
+  }
+  .bdot:hover{transform:scale(1.25); border-color:var(--accent);}
+  .bdot.done{background:var(--ok); border-color:var(--ok);}
+  .bdot.current{box-shadow:0 0 0 3px rgba(124,58,237,.22); border-color:var(--accent);}
+
+  /* ---------- FLASHCARD (papel rayado) ---------- */
+  .flashcard{perspective:1600px; margin:18px 0 10px; cursor:pointer;}
+  .fc-inner{
+    position:relative;
+    min-height:clamp(280px, 36vh, 340px);
+    transform-style:preserve-3d;
+    transition:transform .68s cubic-bezier(.4,.15,.2,1);
+  }
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:14px; padding:22px 26px 22px 46px;
+    display:flex; flex-direction:column; overflow:auto;
+    background-color:#fff;
+    background-image:
+      linear-gradient(transparent 27px, rgba(124,58,237,.15) 27px 28px);
+    background-size:100% 28px;
+    background-position:0 14px;
+    box-shadow:inset 22px 0 0 -21px #f9a8d4;
+  }
+  .fc-front{border:1px solid var(--line-2);}
+  .fc-back{
+    transform:rotateY(180deg);
+    border:1px solid #dcc7fb;
+    background-color:#fbf7ff;
+    box-shadow:inset 22px 0 0 -21px #a78bfa;
+  }
+  .fc-tag{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase; color:var(--muted);
+    margin-bottom:12px; display:block;
+  }
+  .fc-back .fc-tag{color:var(--accent-dark);}
+  .fc-face p{margin:0; font-size:16px; line-height:28px; color:#241e3d;}
+  .fc-back p{color:#3b2c62;}
+  .fc-hint{
+    margin-top:auto; padding-top:14px;
+    font-family:system-ui,sans-serif; font-size:11.5px; color:#a79fc5; font-weight:600;
+  }
+  .flip-btn{margin-bottom:26px;}
+
+  /* ---------- SECCIONES ---------- */
+  .sec-title{
+    display:flex; align-items:center; gap:9px;
+    font-size:15px; font-weight:800; letter-spacing:-.1px;
+    margin:0 0 12px; padding-bottom:9px;
+    border-bottom:2px solid var(--line);
+  }
+  .sec-title span{font-family:system-ui,sans-serif; font-size:12px; font-weight:600; color:var(--muted); margin-left:auto;}
+
+  .consigna{
+    font-size:15px; line-height:1.6; color:#332b50;
+    background:#faf7ff; border-left:3px solid var(--line-2);
+    padding:12px 16px; border-radius:0 10px 10px 0; margin:0 0 16px;
+  }
+
+  .opciones{display:flex; flex-direction:column; gap:9px;}
+  .opcion{
+    display:flex; gap:11px; align-items:flex-start;
+    text-align:left; font:inherit; font-size:14.5px; line-height:1.5;
+    background:#fff; border:1.5px solid var(--line-2);
+    color:var(--ink); padding:13px 15px; border-radius:12px; cursor:pointer;
+    transition:.15s;
+  }
+  .opcion:hover:not(:disabled){border-color:var(--accent); background:#faf7ff; transform:translateX(2px);}
+  .opcion:disabled{cursor:default; opacity:.9;}
+  .opcion .letra{
+    flex:0 0 auto; width:23px; height:23px; border-radius:7px;
+    background:#e8e2f7; color:var(--muted);
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:800;
+  }
+  .opcion.correcta{border-color:var(--ok); background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok); color:#fff;}
+  .opcion.incorrecta{border-color:var(--bad); background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad); color:#fff;}
+
+  .fill-texto{font-size:16px; line-height:2.4; margin:0 0 16px; color:#241e3d;}
+  .hueco{
+    font:inherit; font-size:15px;
+    border:none; border-bottom:2px dashed var(--accent);
+    background:#faf7ff; color:var(--accent-dark); font-weight:700;
+    padding:3px 8px; min-width:120px; text-align:center;
+    outline:none; border-radius:6px 6px 0 0;
+  }
+  .hueco:focus{background:#f3e8ff; border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok); color:var(--ok); background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad); color:var(--bad); background:var(--bad-soft); text-decoration:line-through;}
+
+  .order-wrap{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .order-col h4{font-family:system-ui,sans-serif; font-size:11px; font-weight:800; letter-spacing:.9px; text-transform:uppercase; color:var(--muted); margin:0 0 9px;}
+  .pool, .seq{min-height:120px; border-radius:12px; padding:9px; display:flex; flex-direction:column; gap:8px;}
+  .pool{background:#f1ecfa; border:1.5px dashed var(--line-2);}
+  .seq{background:#faf7ff; border:1.5px solid #dcc7fb;}
+  .pool:empty::after, .seq:empty::after{content:"…"; color:#c4bce0; font-size:20px; text-align:center; margin:auto;}
+  .ord-item{
+    font:inherit; font-size:13.6px; line-height:1.42; text-align:left;
+    background:#fff; border:1.5px solid var(--line-2);
+    padding:10px 12px; border-radius:10px; cursor:pointer; color:var(--ink);
+    transition:.15s; display:flex; gap:9px; align-items:flex-start;
+  }
+  .ord-item:hover{border-color:var(--accent); background:#faf7ff;}
+  .seq .ord-item{border-color:#dcc7fb;}
+  .seq .ord-item .num{
+    flex:0 0 auto; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11px; font-weight:800;
+  }
+  .ord-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .cl-item{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    background:#fff; border:1.5px solid var(--line-2);
+    border-radius:12px; padding:12px 14px; margin-bottom:9px;
+  }
+  .cl-item p{margin:0; font-size:14.2px; line-height:1.45; flex:1 1 260px;}
+  .chips{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:700;
+    padding:6px 11px; border-radius:99px; cursor:pointer;
+    border:1.5px solid var(--line-2); background:#f1ecfa; color:var(--muted);
+    transition:.14s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent-dark);}
+  .chip.sel{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .cl-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .criterios{list-style:none; padding:0; margin:0 0 14px; display:flex; flex-direction:column; gap:7px;}
+  .criterios li{display:flex; gap:10px; align-items:flex-start; font-family:system-ui,sans-serif; font-size:13px; color:#4b436a; line-height:1.5;}
+  .criterios input{margin-top:2px; accent-color:var(--accent); width:16px; height:16px; flex:0 0 auto;}
+
+  textarea{
+    width:100%; font-family:inherit; font-size:15px; line-height:27px;
+    color:#241e3d; padding:12px 16px;
+    border:1px solid var(--line-2); border-radius:12px;
+    background-color:#fff;
+    background-image:linear-gradient(transparent 26px, rgba(124,58,237,.15) 26px 27px);
+    background-size:100% 27px; background-attachment:local;
+    resize:vertical; outline:none;
+  }
+  textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(124,58,237,.13);}
+  textarea::placeholder{color:#a79fc5; font-style:italic;}
+
+  .feedback{margin-top:16px; border-radius:12px; padding:0; overflow:hidden; max-height:0; opacity:0; transition:.3s;}
+  .feedback.show{max-height:520px; opacity:1; padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft); border:1px solid #86efac; color:#14532d;}
+  .feedback.mal{background:var(--bad-soft); border:1px solid #fca5a5; color:#7f1d1d;}
+  .feedback.info{background:var(--accent-soft); border:1px solid #dcc7fb; color:#4c1d95;}
+  .feedback strong{display:block; font-family:system-ui,sans-serif; font-size:12.5px; letter-spacing:.4px; text-transform:uppercase; margin-bottom:6px;}
+  .feedback p{margin:0; font-size:14.4px; line-height:1.6;}
+
+  .ej-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+
+  .modelo{
+    display:none; margin-top:14px;
+    background:#faf7ff; border-left:3px solid var(--rose);
+    padding:13px 16px; border-radius:0 10px 10px 0;
+    font-size:14.4px; line-height:1.65; color:#5b1d3d;
+  }
+  .modelo.show{display:block; animation:fade .3s ease;}
+  .modelo strong{font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.8px; text-transform:uppercase; color:var(--rose); display:block; margin-bottom:5px;}
+  @keyframes fade{from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;}}
+
+  .cuaderno{margin-top:32px; padding-top:22px; border-top:2px solid var(--line);}
+  .cuaderno-foot{display:flex; justify-content:space-between; align-items:center; font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); margin-top:8px; font-weight:600;}
+  #notaStatus{color:var(--ok); font-weight:700; opacity:0; transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex; justify-content:space-between; gap:12px; margin-top:26px; padding-top:20px; border-top:1px solid var(--line);}
+  .nav-foot .btn{flex:1; max-width:220px; text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35; cursor:not-allowed;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr; padding:14px; gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{
+      position:fixed; top:0; left:0; bottom:0; width:300px; max-height:100vh;
+      z-index:100; border-radius:0 18px 18px 0;
+      transform:translateX(-105%); transition:transform .28s ease;
+      padding-top:18px;
+    }
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed; inset:0; background:rgba(30,15,60,.45); z-index:99; opacity:0; pointer-events:none; transition:.25s;}
+    .scrim.show{opacity:1; pointer-events:auto;}
+    .panel{padding:20px 18px 24px;}
+    .tech-head h2{font-size:21px;}
+    .order-wrap{grid-template-columns:1fr;}
+    .progress-wrap{display:none;}
+    .brand p{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">✒️</div>
+    <div>
+      <h1>Cuaderno de Lengua Castellana · 6.º a 11.º</h1>
+      <p>100 técnicas · 10 bloques · comprensión, léxico, gramática, literatura</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="btnMenu" class="btn ghost only-mobile">☰ Bloques</button>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <input id="search" type="search" placeholder="🔎 Buscar técnica…" autocomplete="off">
+    <nav id="menu"></nav>
+  </aside>
+  <main class="main">
+    <article id="panel" class="panel"></article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+
+<script>
+/* =====================================================================
+   100 TÉCNICAS EN 10 BLOQUES · LENGUA CASTELLANA (6.º A 11.º)
+   ===================================================================== */
+const CATEGORIAS = [
+
+/* ============ BLOQUE 1 · COMPRENSIÓN LITERAL ============ */
+{
+  id:"b1", nombre:"Comprensión literal", emoji:"🔎",
+  desc:"Leer lo que el texto dice explícitamente: ideas, datos, personajes, tiempo y espacio.",
+  tecnicas:[
+    {id:"l1", nombre:"Lectura global o panorámica",
+     concepto:"Primera lectura rápida del texto completo para captar su sentido general antes de analizar detalles. Se revisan títulos, primeras líneas de cada párrafo y conclusión. Es la base de toda comprensión.",
+     ejemplo:"Antes de estudiar un artículo de tres páginas lo recorres en dos minutos: ya sabes que trata de la deforestación amazónica, que tiene tres causas principales y que termina con propuestas.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es el objetivo principal de una lectura global?",
+       opciones:["Memorizar todos los datos del texto","Captar el sentido general antes de profundizar","Corregir la ortografía del texto","Traducir el texto a otro idioma"],
+       correcta:1,
+       retro:"La lectura global no busca retener detalles, sino hacerse un mapa mental del texto: tema, estructura y tono."}},
+
+    {id:"l2", nombre:"Identificar la idea principal explícita",
+     concepto:"En muchos textos la idea principal está enunciada de forma directa, generalmente en la primera o la última oración del párrafo. Reconocerla es el primer paso para comprender la estructura del texto.",
+     ejemplo:"«La lectura comprensiva exige un lector activo. Este debe preguntarse constantemente qué dice el texto, cómo lo dice y por qué lo dice.» La primera oración es la idea principal.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la idea principal del siguiente fragmento.",
+       texto:"«La poesía no está hecha de ideas, sino de palabras. Por eso, cambiar una sola palabra puede alterar todo el poema.»",
+       respuestas:[["la poesia no esta hecha de ideas sino de palabras","la poesia esta hecha de palabras","la poesia se construye con palabras"]],
+       retro:"La primera oración anuncia la tesis; la segunda la explica. La idea principal es que la poesía es, ante todo, un trabajo sobre las palabras."}},
+
+    {id:"l3", nombre:"Distinguir ideas principales y secundarias",
+     concepto:"Las ideas principales sostienen el texto; las secundarias las explican, ejemplifican o amplían. Se suele subrayar la principal con una línea y las secundarias con otra, o marcarlas con colores distintos.",
+     ejemplo:"Idea principal: «La contaminación del aire afecta la salud». Ideas secundarias: cifras de enfermedades respiratorias; ciudades más afectadas; medidas recomendadas.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado según sea idea principal o secundaria de un texto sobre el reciclaje.",
+       categorias:["Idea principal","Idea secundaria"],
+       items:[
+         {texto:"El reciclaje reduce el volumen de residuos que llega a los vertederos.", cat:0},
+         {texto:"En 2023 se reciclaron 1,2 millones de toneladas de papel en el país.", cat:1},
+         {texto:"Reciclar exige separar los residuos en origen.", cat:1},
+         {texto:"Reciclar es una estrategia clave para frenar la crisis ambiental.", cat:0}
+       ],
+       retro:"Las ideas principales son generales y sostienen la argumentación; las secundarias aportan datos o detalles concretos."}},
+
+    {id:"l4", nombre:"Localizar información específica",
+     concepto:"Buscar un dato concreto dentro del texto sin leerlo todo. Se llama técnica del barrido o scanning. Se localizan fechas, nombres, cifras o palabras clave.",
+     ejemplo:"Para saber en qué año se publicó una novela, recorres el texto buscando años con los ojos, sin detenerte en las descripciones.",
+     ejercicio:{tipo:"fill",
+       consigna:"Localiza los datos en el fragmento.",
+       texto:"«Miguel de Cervantes publicó la primera parte del Quijote en 1605 y la segunda en 1615, diez años después.» Primera parte: ___ · Segunda parte: ___",
+       respuestas:[["1605"],["1615"]],
+       retro:"Localizar no es leer: es buscar. Los ojos saltan por el texto hasta encontrar el dato que interesa."}},
+
+    {id:"l5", nombre:"Reconocer personajes y acciones",
+     concepto:"En los textos narrativos hay que identificar quiénes actúan y qué hacen. Los personajes pueden ser principales o secundarios; las acciones, físicas, mentales o verbales.",
+     ejemplo:"En un fragmento: «Ana abrió la carta temblando y no pudo contener las lágrimas.» Personaje: Ana. Acciones: abrir la carta, temblar, no contener las lágrimas.",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica personaje y acción principal.",
+       texto:"«El viejo pescador arrojó la red al mar y esperó en silencio.» Personaje principal: ___ · Acción principal: ___",
+       respuestas:[["viejo pescador","pescador","el viejo pescador","el pescador"],["arrojar la red","arrojo la red","lanzar la red","tirar la red","arrojar"]],
+       retro:"En la narración, el personaje y la acción son la unidad mínima de sentido. Sin ellos no hay relato."}},
+
+    {id:"l6", nombre:"Identificar espacio y tiempo",
+     concepto:"Todo texto narrativo se sitúa en un lugar (espacio) y en un momento (tiempo). Pueden estar indicados explícitamente o deducirse de las marcas textuales: adverbios, formas verbales, referencias culturales.",
+     ejemplo:"«Aquella mañana de verano, en un pueblo de la sierra, sonó la campana.» Espacio: pueblo de la sierra. Tiempo: una mañana de verano.",
+     ejercicio:{tipo:"fill",
+       consigna:"Indica espacio y tiempo en el fragmento.",
+       texto:"«En el invierno de 1936, en una aldea perdida de los Pirineos, la nieve cubrió todo durante semanas.» Espacio: ___ · Tiempo: ___",
+       respuestas:[["aldea de los Pirineos","los Pirineos","aldea perdida de los Pirineos","una aldea perdida de los Pirineos"],["invierno de 1936","el invierno de 1936","1936"]],
+       retro:"Las marcas espaciales y temporales organizan el relato: sin ellas, la historia flota sin ubicación."}},
+
+    {id:"l7", nombre:"Secuenciación de hechos",
+     concepto:"Ordenar cronológicamente los hechos que presenta el texto. Es especialmente útil cuando la narración no sigue un orden lineal, sino que usa saltos, retrospectivas o anticipaciones.",
+     ejemplo:"Si el texto empieza contando el regreso del protagonista y luego narra su infancia, la secuencia real es: infancia → viaje → regreso.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena cronológicamente los hechos del relato.",
+       items:[
+         "El protagonista nace en un pueblo costero.",
+         "A los veinte años emigra a la ciudad para estudiar.",
+         "Trabaja diez años en una empresa y forma una familia.",
+         "Regresa al pueblo para cuidar de sus padres ancianos."
+       ],
+       retro:"Los textos literarios no siempre respetan el orden temporal. Reconstruir la secuencia aclara las causas y consecuencias."}},
+
+    {id:"l8", nombre:"Reconocer el tema del texto",
+     concepto:"El tema es la cuestión general que aborda el texto, expresada en una frase breve (no confundir con el argumento, que es la sucesión de hechos). Se formula con un sintagma nominal: «la soledad», «la amistad», «la memoria».",
+     ejemplo:"Un cuento sobre una anciana que espera cartas que nunca llegan tiene como tema «la soledad de la vejez», no «una anciana que espera cartas» (eso sería el argumento).",
+     ejercicio:{tipo:"fill",
+       consigna:"Formula el tema en cinco palabras o menos.",
+       texto:"«La obra narra la historia de un soldado que vuelve del frente y descubre que su pueblo ya no lo reconoce.» Tema: ___",
+       respuestas:[["el desarraigo del retorno","el regreso y el desarraigo","la incomprension del retorno","el desarraigo","el retorno imposible","la vuelta al hogar"]],
+       retro:"El tema es una abstracción: se formula con un sustantivo y no incluye nombres propios ni acciones concretas."}},
+
+    {id:"l9", nombre:"Comprensión de consignas y enunciados",
+     concepto:"En la escuela y en los exámenes, comprender lo que se pide es tan importante como saber la respuesta. Hay que identificar el verbo de la tarea (analiza, explica, compara, justifica) y las condiciones.",
+     ejemplo:"«Explica las causas de la contaminación y pon dos ejemplos» pide explicar + ejemplificar. Responder solo con ejemplos sería incompleto.",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica cuántas tareas pide cada consigna.",
+       texto:"«Compara los dos textos y señala tres diferencias entre sus personajes.» Número de tareas: ___ · Verbo principal de la consigna: ___",
+       respuestas:[["2","dos"],["compara","comparar"]],
+       retro:"La consigna «compara y señala tres diferencias» pide dos acciones. La primera es comparar; la segunda, señalar."}},
+
+    {id:"l10", nombre:"Vocabulario en contexto literal",
+     concepto:"Reconocer el significado de una palabra tal como aparece en el texto, usando las palabras que la rodean como pistas. Distinto de la inferencia léxica, aquí se trata de verificar el sentido literal en contexto.",
+     ejemplo:"«El toro embistió con furia contra la barrera.» «Embistió» significa «atacó con violencia», como indican «toro», «furia» y «contra la barrera».",
+     ejercicio:{tipo:"quiz",
+       consigna:"«El río se desbordó tras las lluvias y anegó los cultivos.» ¿Qué significa «anegó»?",
+       opciones:["Regó ligeramente","Cubrió de agua, inundó","Secó por completo","Fertilizó con limo"],
+       correcta:1,
+       retro:"El contexto («se desbordó», «tras las lluvias») indica que se trata de una inundación: anegar es cubrir de agua."}}
+  ]
+},
+
+/* ============ BLOQUE 2 · COMPRENSIÓN INFERENCIAL ============ */
+{
+  id:"b2", nombre:"Comprensión inferencial", emoji:"💭",
+  desc:"Deducir lo que el texto no dice pero sugiere: causas, consecuencias, intenciones, tono.",
+  tecnicas:[
+    {id:"l11", nombre:"Inferencias sobre causas",
+     concepto:"Deducir por qué ocurre algo que el texto no explica directamente. Se apoya en indicios: palabras, acciones, contexto. Es un paso más allá de la información explícita.",
+     ejemplo:"«Entró en casa sin saludar y se encerró en su cuarto.» Se infiere que algo le ha ocurrido: no se dice qué, pero el comportamiento lo sugiere.",
+     ejercicio:{tipo:"quiz",
+       consigna:"«María miró su reloj por tercera vez y se levantó a la puerta del café.» ¿Qué se puede inferir?",
+       opciones:["Que acaba de llegar al café.","Que está esperando a alguien que tarda.","Que trabaja en el café.","Que quiere pedir la cuenta."],
+       correcta:1,
+       retro:"Mirar el reloj varias veces y levantarse a la puerta indica que espera a alguien. La repetición es un indicio clave."}},
+
+    {id:"l12", nombre:"Inferencias sobre consecuencias",
+     concepto:"Deducir qué ocurrirá después o qué efectos tendrá lo narrado. Se basa en el conocimiento del mundo y en las pistas del texto.",
+     ejemplo:"«El equipo no entrenó en toda la semana.» Se infiere que probablemente perderá el partido del sábado.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe una consecuencia probable.",
+       texto:"«El río lleva semanas sin llover y la presa apenas retiene agua.» Consecuencia probable: ___",
+       respuestas:[["restricciones de agua","sequia","corte de agua","racionamiento","problemas de abastecimiento","escasez de agua","no habra agua","sequía"]],
+       retro:"La inferencia no es certeza: es una hipótesis razonable que el texto permite y que el lector construye."}},
+
+    {id:"l13", nombre:"Inferir el significado por contexto",
+     concepto:"Deducir el significado de palabras desconocidas a partir de las pistas que las rodean. Es una de las técnicas más rentables para no interrumpir la lectura.",
+     ejemplo:"«El anciano caminaba con paso vacilante, tambaleándose a cada paso.» Vacilante ≈ inseguro, inestable.",
+     ejercicio:{tipo:"quiz",
+       consigna:"«Guardaba un arcón repleto de baratijas: anillos sin piedra, relojes parados, pulseras oxidadas.» ¿Qué significa «baratijas»?",
+       opciones:["Joyas de gran valor","Objetos de poco valor y calidad","Herramientas antiguas","Documentos antiguos"],
+       correcta:1,
+       retro:"La enumeración que sigue (anillos sin piedra, relojes parados, pulseras oxidadas) indica que son objetos viejos y sin valor."}},
+
+    {id:"l14", nombre:"Inferir intenciones de los personajes",
+     concepto:"Deducir qué pretende un personaje con sus palabras o acciones, aunque el narrador no lo diga. Se apoya en el comportamiento, el lenguaje no verbal y el contexto.",
+     ejemplo:"«Le sonrió amablemente mientras cerraba la puerta con llave.» La sonrisa puede ser fingida: el gesto de cerrar con llave sugiere intención de retener.",
+     ejercicio:{tipo:"quiz",
+       consigna:"«Le ofreció el asiento junto a la ventana y le sirvió el mejor té de la casa.» ¿Qué intención se puede inferir?",
+       opciones:["Indiferencia hacia el visitante.","Deseo de agradar o de causar buena impresión.","Miedo al visitante.","Costumbre sin significado."],
+       correcta:1,
+       retro:"Los detalles (el mejor asiento, el mejor té) revelan una intención: agradar. Los gestos son pistas de intenciones."}},
+
+    {id:"l15", nombre:"Inferir el tema implícito",
+     concepto:"En textos literarios o argumentativos el tema no siempre está enunciado. Hay que deducirlo del conjunto: personajes, conflictos, imágenes, tono.",
+     ejemplo:"Un poema que habla de un árbol que resiste tormentas puede tener como tema la resiliencia o la soledad, aunque nunca se nombre esa palabra.",
+     ejercicio:{tipo:"fill",
+       consigna:"Formula el tema implícito del fragmento.",
+       texto:"«El reloj de la abuela se detuvo la misma tarde en que ella se fue. Nadie volvió a darle cuerda.» Tema: ___",
+       respuestas:[["la perdida","la muerte y el duelo","el duelo","la memoria","el paso del tiempo","la ausencia","la muerte","el recuerdo"]],
+       retro:"El reloj detenido es una imagen simbólica. El tema va más allá de lo literal: la pérdida, el duelo, la memoria."}},
+
+    {id:"l16", nombre:"Inferir relaciones lógicas",
+     concepto:"Deducir la relación entre dos ideas aunque el conector esté elidido o implícito: causa, contraste, consecuencia, condición. Es clave para seguir el hilo argumentativo.",
+     ejemplo:"«Estudió toda la noche. Aprobó con nota alta.» Entre las dos oraciones hay una relación implícita de causa-efecto.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica la relación lógica entre las dos oraciones.",
+       categorias:["Causa","Contraste","Consecuencia"],
+       items:[
+         {texto:"«Llovía sin parar. El río creció.»", cat:2},
+         {texto:"«No estudió nada. Sin embargo, aprobó.»", cat:1},
+         {texto:"«Llegó tarde porque perdió el autobús.»", cat:0},
+         {texto:"«Le dolía la cabeza. Por eso se acostó temprano.»", cat:2},
+         {texto:"«Aunque estaba cansado, siguió trabajando.»", cat:1}
+       ],
+       retro:"Causa explica el origen; consecuencia es el efecto; contraste opone dos ideas. Identificar la relación es comprender el razonamiento."}},
+
+    {id:"l17", nombre:"Completar información elidida",
+     concepto:"En los textos hay información que el autor omite porque se sobreentiende. El lector competente la repone sin esfuerzo. La elipsis puede ser gramatical o de contenido.",
+     ejemplo:"«Ana fue al mercado. Compró tomates y cebollas.» Se sobreentiende que fue Ana quien compró, aunque el sujeto no se repita.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe el sujeto elidido.",
+       texto:"«El niño abrió el libro. Leyó toda la tarde. Después, lo cerró con cuidado.» Los tres verbos tienen el mismo sujeto: ___",
+       respuestas:[["el niño","niño"]],
+       retro:"El sujeto se omite en la segunda y tercera oración porque se sobreentiende. La elipsis evita repeticiones innecesarias."}},
+
+    {id:"l18", nombre:"Detectar presuposiciones",
+     concepto:"Una presuposición es una información que el hablante da por sabida sin enunciarla. Se puede detectar en ciertos verbos, adverbios o construcciones: «dejó de fumar» presupone que fumaba.",
+     ejemplo:"«Mi hermano también aprobó el examen» presupone que otra persona aprobó además de él. «Lamento que hayas llegado tarde» presupone que llegaste tarde.",
+     ejercicio:{tipo:"quiz",
+       consigna:"«¿Ya has dejado de morderte las uñas?» ¿Qué presupone esta pregunta?",
+       opciones:["Que la persona nunca se ha mordido las uñas.","Que la persona se mordía las uñas.","Que la persona acaba de empezar a morderse las uñas.","Nada, es una pregunta neutra."],
+       correcta:1,
+       retro:"El verbo «dejar de» presupone que antes se hacía la acción. Es una de las marcas típicas de la presuposición."}},
+
+    {id:"l19", nombre:"Inferir el tono y la actitud",
+     concepto:"El tono es la actitud del autor hacia lo que dice o hacia el lector: irónico, solemne, burlón, melancólico, neutro. Se detecta en el léxico, la puntuación y las imágenes.",
+     ejemplo:"«Menuda hazaña: llegar tarde otra vez.» La palabra «hazaña» está usada con ironía: el tono no es admirativo, sino burlón.",
+     ejercicio:{tipo:"quiz",
+       consigna:"«Excelente idea: tirar el dinero en cosas que no necesitas.» ¿Qué tono predomina?",
+       opciones:["Admirativo sincero","Irónico","Melancólico","Neutro"],
+       correcta:1,
+       retro:"El elogio aparente («excelente idea») más el contenido negativo («tirar el dinero») producen ironía."}},
+
+    {id:"l20", nombre:"Elaborar hipótesis de lectura",
+     concepto:"Antes y durante la lectura, formular hipótesis sobre lo que vendrá. Se verifican o reformulan a medida que se avanza. Es un motor de la comprensión activa.",
+     ejemplo:"Con el título «El último tren», hipotetizas: alguien tiene que tomar una decisión urgente, probablemente con un trasfondo emotivo. Sigues leyendo para verificar.",
+     ejercicio:{tipo:"open",
+       consigna:"Formula dos hipótesis sobre lo que tratará un texto titulado «La casa vacía».",
+       criterios:[
+         "Formulé dos hipótesis distintas y razonadas.",
+         "Relacioné cada hipótesis con el título.",
+         "Marqué una expectativa sobre el género o el tono."
+       ],
+       modelo:"1) Probablemente sea un texto narrativo sobre la pérdida o la ausencia: una casa que fue hogar y ahora está sin nadie. 2) Podría ser un texto argumentativo sobre el abandono de los pueblos rurales, usando «casa vacía» como símbolo."}}
+  ]
+},
+
+/* ============ BLOQUE 3 · COMPRENSIÓN CRÍTICA ============ */
+{
+  id:"b3", nombre:"Comprensión crítica y valorativa", emoji:"⚖️",
+  desc:"Evaluar el texto: intención, sesgos, argumentos, ideología y toma de postura.",
+  tecnicas:[
+    {id:"l21", nombre:"Distinguir hechos de opiniones",
+     concepto:"Un hecho es verificable; una opinión expresa valoración o creencia. Confundirlos es la base de la desinformación. Los adjetivos valorativos y los verbos de opinión suelen delatar opiniones.",
+     ejemplo:"Hecho: «La novela se publicó en 1967.» Opinión: «Es la mejor novela del siglo XX.»",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado.",
+       categorias:["Hecho","Opinión"],
+       items:[
+         {texto:"«El Quijote se publicó en 1605.»", cat:0},
+         {texto:"«Cervantes es el mejor escritor de la lengua española.»", cat:1},
+         {texto:"«La novela tiene 52 capítulos en su primera parte.»", cat:0},
+         {texto:"«Es una obra aburrida y demasiado larga.»", cat:1},
+         {texto:"«El autor nació en Alcalá de Henares.»", cat:0}
+       ],
+       retro:"Los hechos se pueden comprobar; las opiniones dependen de valores. Los adjetivos («mejor», «aburrida») son la pista más clara."}},
+
+    {id:"l22", nombre:"Reconocer la intención comunicativa",
+     concepto:"Todo texto persigue algo: informar, persuadir, entretener, advertir, criticar. Se reconoce por el léxico, la estructura y el tono.",
+     ejemplo:"«Nadie en su sano juicio puede seguir defendiendo esta medida absurda.» La intención es persuasiva, no informativa: el léxico es valorativo.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la intención predominante de un texto que empieza así: «Debemos actuar ahora, antes de que sea tarde»?",
+       opciones:["Informar objetivamente","Entretener","Persuadir a la acción","Describir un paisaje"],
+       correcta:2,
+       retro:"El uso del imperativo («debemos») y la apelación a la urgencia son marcas clásicas de la intención persuasiva."}},
+
+    {id:"l23", nombre:"Detectar falacias argumentativas",
+     concepto:"Una falacia es un razonamiento que parece válido pero no lo es. Reconocerlas permite no dejarse convencer por argumentos defectuosos.",
+     ejemplo:"Ad hominem: atacar a la persona en lugar del argumento. Generalización: concluir de un caso aislado. Falso dilema: presentar dos opciones cuando hay más.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado según el tipo de falacia.",
+       categorias:["Ad hominem","Generalización apresurada","Falso dilema"],
+       items:[
+         {texto:"«No le hagas caso: es un ignorante.»", cat:0},
+         {texto:"«Todos los jóvenes son irresponsables, lo vi en las noticias.»", cat:1},
+         {texto:"«O estás conmigo o estás contra mí.»", cat:2},
+         {texto:"«Su propuesta es mala porque él nunca ha estudiado.»", cat:0},
+         {texto:"«Como un político mintió, todos los políticos mienten.»", cat:1}
+       ],
+       retro:"Detectar falacias es la vacuna contra la manipulación: se ataca a la persona, se generaliza desde pocos casos o se reducen las opciones."}},
+
+    {id:"l24", nombre:"Identificar el sesgo del autor",
+     concepto:"Un sesgo es una inclinación sistemática que distorsiona la información. Se manifiesta en lo que se destaca, lo que se omite y las palabras que se eligen. Ninguna fuente es completamente neutral.",
+     ejemplo:"Si un texto sobre inmigración solo menciona delitos y nunca aportes culturales o económicos, hay un sesgo de selección.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas preguntas ayuda MÁS a detectar sesgos?",
+       opciones:["¿El texto es largo o corto?","¿Qué se destaca, qué se omite y a quién se cita?","¿Cuántos párrafos tiene?","¿El vocabulario es difícil?"],
+       correcta:1,
+       retro:"Para detectar sesgos hay que preguntar por las ausencias y por las voces: qué no se dice, a quién no se cita, qué se presenta como natural."}},
+
+    {id:"l25", nombre:"Evaluar la solidez de los argumentos",
+     concepto:"Un argumento es sólido si sus premisas son verdaderas y la conclusión se sigue de ellas. Hay que distinguir argumentos de autoridad, de datos, de ejemplos y de analogías, y ver cuáles son más fuertes.",
+     ejemplo:"«Según el INE, el paro bajó un 3 %» es un argumento de datos (fuerte). «Lo dijo mi vecino» es un argumento de autoridad débil.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tipo de argumento.",
+       categorias:["Datos","Autoridad","Ejemplo","Analogía"],
+       items:[
+         {texto:"«El 78 % de los encuestados apoya la medida.»", cat:0},
+         {texto:"«Según la OMS, el sedentarismo es un riesgo sanitario.»", cat:1},
+         {texto:"«Mi abuelo fumó toda su vida y vivió 90 años.»", cat:2},
+         {texto:"«Prohibir los móviles en clase es como prohibir los libros.»", cat:3}
+       ],
+       retro:"Los datos y las autoridades reconocidas son más sólidos que los ejemplos aislados o las analogías, que a menudo son falaces."}},
+
+    {id:"l26", nombre:"Reconocer estereotipos y prejuicios",
+     concepto:"Un estereotipo es una imagen rígida y generalizadora de un grupo. Un prejuicio es un juicio previo sin fundamento. Se detectan en generalizaciones, adjetivos y roles fijos.",
+     ejemplo:"Decir que «las mujeres son más sensibles» o que «los jóvenes no leen» son estereotipos: generalizan sin matices y sin evidencia.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estos enunciados contiene un estereotipo?",
+       opciones:["«Algunos adolescentes leen más de diez libros al año.»","«Todos los adolescentes prefieren las pantallas a los libros.»","«La lectura en pantalla ha crecido en los últimos años.»","«Existen clubes de lectura para jóvenes.»"],
+       correcta:1,
+       retro:"El uso de «todos» convierte una observación en estereotipo. Los enunciados con «algunos» o «muchos» son más prudentes y verificables."}},
+
+    {id:"l27", nombre:"Analizar la ideología subyacente",
+     concepto:"Todo texto refleja una visión del mundo: valores, creencias, intereses. Analizarla es preguntarse qué se da por supuesto, qué se defiende y qué visión de la sociedad se transmite.",
+     ejemplo:"Un texto que presenta el éxito como fruto exclusivo del esfuerzo individual transmite una ideología meritocrática. Otro que subraya los factores estructurales, una visión más social.",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe un breve análisis de la ideología que podría haber detrás de esta frase: «El que quiere, puede».",
+       criterios:[
+         "Identifiqué los valores o creencias que presupone la frase.",
+         "Expliqué qué visión de la sociedad transmite.",
+         "Reconocí algún posible límite o crítica a esa visión."
+       ],
+       modelo:"La frase presupone que el éxito depende solo del esfuerzo individual, ignorando factores como el acceso a la educación, la salud o la situación económica. Transmite una ideología meritocrática que responsabiliza al individuo de su situación y tiende a culpabilizar a quien no logra «querer lo suficiente». Un análisis crítico señalaría que el esfuerzo es necesario pero no suficiente: las condiciones sociales también determinan las oportunidades."}},
+
+    {id:"l28", nombre:"Comparar fuentes y perspectivas",
+     concepto:"Contrastar dos o más textos sobre el mismo tema permite detectar coincidencias, divergencias, intereses y silencios. Es la técnica central de la lectura crítica.",
+     ejemplo:"Comparar cómo dos periódicos de líneas distintas titulan la misma noticia revela qué se destaca, qué se omite y qué adjetivos se eligen.",
+     ejercicio:{tipo:"open",
+       consigna:"Elige un tema de actualidad y describe cómo lo compararías en dos fuentes distintas.",
+       criterios:[
+         "Elegí un tema concreto y dos fuentes identificables.",
+         "Definí al menos tres criterios de comparación.",
+         "Explicitó qué diferencias esperaría encontrar y cómo las interpretaría."
+       ],
+       modelo:"Tema: una reforma educativa. Fuente A: un diario generalista. Fuente B: el comunicado oficial del ministerio. Compararía: 1) titulares y adjetivos; 2) datos numéricos citados; 3) voces expertas convocadas; 4) aspectos omitidos. Si el comunicado oficial no menciona las críticas y el diario las destaca, sabré que cada uno enfoca el tema desde intereses distintos."}},
+
+    {id:"l29", nombre:"Valorar la credibilidad de las fuentes",
+     concepto:"No todas las fuentes merecen la misma confianza. Hay que revisar autoría, respaldo institucional, fecha, referencias y rigor. Una fuente creíble cita, contextualiza y reconoce límites.",
+     ejemplo:"Un artículo firmado por un especialista, con bibliografía y publicado en una revista académica, es más creíble que una publicación anónima sin referencias en redes sociales.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada característica según indique mayor o menor credibilidad.",
+       categorias:["Mayor credibilidad","Menor credibilidad"],
+       items:[
+         {texto:"Firma un especialista con afiliación institucional.", cat:0},
+         {texto:"No tiene autor ni fecha de publicación.", cat:1},
+         {texto:"Cita fuentes y ofrece bibliografía.", cat:0},
+         {texto:"Usa un lenguaje sensacionalista y muchas mayúsculas.", cat:1},
+         {texto:"Publicada en una revista académica con revisión por pares.", cat:0}
+       ],
+       retro:"La credibilidad se construye con transparencia: autor identificable, fuentes citadas, tono mesurado y contexto."}},
+
+    {id:"l30", nombre:"Toma de postura argumentada",
+     concepto:"Después de comprender y evaluar un texto, el lector crítico formula su propia posición con razones. No basta con estar de acuerdo o en desacuerdo: hay que argumentar.",
+     ejemplo:"Tras leer un artículo contra las redes sociales, puedes concluir: «Estoy parcialmente de acuerdo: comparto la crítica a la desinformación, pero no creo que la solución sea prohibir, sino educar».",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe tu postura ante esta afirmación: «Los móviles deberían prohibirse en los institutos».",
+       criterios:[
+         "Expuse una postura clara.",
+         "Aporté al menos dos razones que la sostienen.",
+         "Consideré un contraargumento o matiz.",
+         "Cerré con una conclusión coherente."
+       ],
+       modelo:"Creo que prohibir los móviles en los institutos es una medida simplista, aunque comprensible. Por un lado, es cierto que interrumpen la atención y favorecen el acoso digital; por otro, los móviles son herramientas de aprendizaje y su prohibición total no enseña a usarlos con criterio. Una política educativa razonable debería regular su uso por franjas y formar en competencia digital. En conclusión, no prohibiría, sino que educaría en el uso responsable."}}
+  ]
+},
+
+/* ============ BLOQUE 4 · LÉXICO Y VOCABULARIO ============ */
+{
+  id:"b4", nombre:"Léxico y vocabulario", emoji:"📚",
+  desc:"Ampliar y organizar el vocabulario: sinónimos, familias, campos semánticos, prefijos, refranes.",
+  tecnicas:[
+    {id:"l31", nombre:"Sinónimos y antónimos",
+     concepto:"Los sinónimos comparten significado (aunque con matices); los antónimos expresan significados opuestos. Manejar ambos amplía la precisión y evita repeticiones.",
+     ejemplo:"Sinónimos de «efímero»: fugaz, pasajero, breve. Antónimos: duradero, permanente, eterno.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe un sinónimo y un antónimo.",
+       texto:"Palabra: «generoso». Sinónimo: ___ · Antónimo: ___",
+       respuestas:[["dadivoso","esplendido","abnegado","altruista","liberal","desprendido","magnanimo"],["egoista","avaro","tacaño","mezquino","codicioso","avaricioso"]],
+       retro:"Sinónimos y antónimos no son intercambiables en todos los contextos: comparten el significado central, pero matizan."}},
+
+    {id:"l32", nombre:"Familias léxicas",
+     concepto:"Una familia léxica agrupa palabras que comparten la misma raíz o lexema: pan, panadería, panadero, empanar, panecillo. Reconocerlas ayuda a deducir significados y a mejorar la ortografía.",
+     ejemplo:"Familia de «mar»: marea, marino, marítimo, ultramar, marejada. Todas comparten el lexema mar-.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe tres palabras de la familia léxica de «tierra».",
+       texto:"Tierra: ___, ___, ___ (pueden ser sustantivos, adjetivos o verbos derivados)",
+       respuestas:[["terreno","terrestre","enterrar","aterrizar","terremoto","terraza","terral","terruño","terrenal","terrícola"],["terrestre","terreno","enterrar","aterrizar","terremoto","terraza","terral","terruño","terrenal","terrícola","tercero"],["terrestre","terreno","enterrar","aterrizar","terremoto","terraza","terral","terruño","terrenal","terrícola","tercero"]],
+       retro:"Las familias léxicas comparten raíz, aunque la ortografía a veces varíe (tierra → terreno)."}},
+
+    {id:"l33", nombre:"Campos semánticos",
+     concepto:"Un campo semántico agrupa palabras que comparten un significado común aunque tengan raíces distintas. Se organizan por temas: mobiliario, colores, emociones, deportes.",
+     ejemplo:"Campo semántico de la navegación: proa, popa, babor, estribor, timón, vela, ancla, puerto.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra según su campo semántico.",
+       categorias:["Navegación","Meteorología","Música"],
+       items:[
+         {texto:"proa", cat:0},
+         {texto:"vendaval", cat:1},
+         {texto:"partitura", cat:2},
+         {texto:"estribor", cat:0},
+         {texto:"llovizna", cat:1},
+         {texto:"compás", cat:2}
+       ],
+       retro:"Los campos semánticos se forman por significado, no por raíz. Reconocerlos anticipa el léxico de un texto temático."}},
+
+    {id:"l34", nombre:"Prefijos y sufijos",
+     concepto:"Los prefijos se anteponen a la raíz (re-, des-, in-, pre-) y los sufijos se posponen (-ción, -dad, -oso, -ito). Conocerlos permite deducir el significado de palabras desconocidas.",
+     ejemplo:"«Rehacer» = volver a hacer. «Inútil» = no útil. «Bondad» = cualidad de bueno. «Librito» = libro pequeño.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe el significado de cada afijo.",
+       texto:"El prefijo «des-» de «deshacer» significa ___ · El sufijo «-dad» de «felicidad» indica ___ · El sufijo «-ito» de «casita» aporta valor ___",
+       respuestas:[["negacion","contrario","inversion","lo contrario","privacion","quitar"],["cualidad","cualidades","abstraccion","estado","cualidad abstracta"],["diminutivo","pequeño","afectivo","de tamaño pequeño","cariñoso"]],
+       retro:"Conocer unos cuantos prefijos y sufijos multiplica la capacidad de deducir significados sin diccionario."}},
+
+    {id:"l35", nombre:"Palabras homónimas",
+     concepto:"Las homónimas se pronuncian o escriben igual pero tienen significados distintos. Homógrafas: misma escritura (banco, vino). Homófonas: mismo sonido, distinta escritura (hola/ola, haya/halla).",
+     ejemplo:"«Banco» puede ser asiento o entidad financiera. «Haya» es un árbol o el verbo haber; «halla» es del verbo hallar.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada pareja como homógrafa u homófona.",
+       categorias:["Homógrafa","Homófona"],
+       items:[
+         {texto:"banco (asiento) / banco (entidad)", cat:0},
+         {texto:"hola / ola", cat:1},
+         {texto:"vino (bebida) / vino (verbo venir)", cat:0},
+         {texto:"haya / halla", cat:1},
+         {texto:"vela (de barco) / vela (de cera)", cat:0}
+       ],
+       retro:"Homógrafas: se escriben igual y significan cosas distintas. Homófonas: suenan igual pero se escriben distinto."}},
+
+    {id:"l36", nombre:"Palabras parónimas",
+     concepto:"Las parónimas se parecen mucho en forma o sonido pero significan cosas distintas. Confundirlas produce errores frecuentes.",
+     ejemplo:"«Actitud» (disposición) y «aptitud» (capacidad). «Afecto» (cariño) y «efecto» (resultado). «Compresión» (apretar) y «comprensión» (entender).",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la palabra correcta en cada caso.",
+       texto:"Tiene buena ___ para las matemáticas (aptitud / actitud). · Mostró una ___ positiva ante el reto (actitud / aptitud). · El médico notó una ___ en la vena (compresión / comprensión).",
+       respuestas:[["aptitud"],["actitud"],["compresion","compresión"]],
+       retro:"Aptitud es capacidad; actitud es disposición. Compresión es apretar; comprensión es entender."}},
+
+    {id:"l37", nombre:"Frases hechas, refranes y modismos",
+     concepto:"Son expresiones cuyo significado no se deduce de las palabras que las componen. Forman parte del acervo cultural de la lengua y enriquecen el texto.",
+     ejemplo:"«Estirar la pata» = morir. «A ojo de buen cubero» = calcular aproximadamente. «Más vale tarde que nunca» = refrán que pondera la acción sobre la puntualidad.",
+     ejercicio:{tipo:"fill",
+       consigna:"Explica el significado de estas expresiones.",
+       texto:"«Ponerse las botas» significa ___ · «No tener pelos en la lengua» significa ___ · «Estar en las nubes» significa ___",
+       respuestas:[["comer mucho","disfrutar mucho","hartarse","comer hasta saciarse","disfrutar"],["hablar con franqueza","decir todo lo que se piensa","ser sincero","hablar claro","decir la verdad sin rodeos"],["estar distraido","estar distraído","no atender","soñar despierto","estar despistado"]],
+       retro:"Las frases hechas se aprenden como bloques: su significado global no se deduce de sus partes."}},
+
+    {id:"l38", nombre:"Neologismos, extranjerismos y arcaísmos",
+     concepto:"Los neologismos son palabras nuevas; los extranjerismos, palabras tomadas de otras lenguas; los arcaísmos, palabras antiguas en desuso. Reconocerlos ayuda a entender la evolución del léxico.",
+     ejemplo:"Neologismo: «ciberacoso». Extranjerismo: «chat», «software» (aunque existen alternativas: «charla», «programa»). Arcaísmo: «maguer» (aunque), «yantar» (comer).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra.",
+       categorias:["Neologismo","Extranjerismo","Arcaísmo"],
+       items:[
+         {texto:"postureo", cat:0},
+         {texto:"selfi", cat:1},
+         {texto:"yantar", cat:2},
+         {texto:"ciberdelincuente", cat:0},
+         {texto:"marketing", cat:1},
+         {texto:"agora (en el sentido clásico)", cat:2}
+       ],
+       retro:"Los neologismos nacen para nombrar realidades nuevas; los extranjerismos se toman de otras lenguas; los arcaísmos quedan como reliquias del pasado."}},
+
+    {id:"l39", nombre:"Léxico denotativo y connotativo",
+     concepto:"El significado denotativo es el literal, el que aparece en el diccionario. El connotativo añade valores afectivos, culturales o simbólicos según el contexto.",
+     ejemplo:"«Zorro» denota un animal; connota astucia. «Tiburón» denota un pez; connota persona despiadada en los negocios.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica el uso de la palabra «serpiente».",
+       categorias:["Denotativo","Connotativo"],
+       items:[
+         {texto:"«La serpiente se deslizó entre las rocas.»", cat:0},
+         {texto:"«Ese político es una serpiente.»", cat:1},
+         {texto:"«Estudia las serpientes venenosas de la región.»", cat:0},
+         {texto:"«Cuidado con él: es una víbora.»", cat:1}
+       ],
+       retro:"La denotación es literal y compartida; la connotación añade valores según el contexto cultural."}},
+
+    {id:"l40", nombre:"Cuaderno de vocabulario",
+     concepto:"Registro sistemático de palabras nuevas: la palabra, el contexto donde apareció, el significado inferido, el significado real y una frase propia. Escribir una frase propia fija el aprendizaje.",
+     ejemplo:"Palabra: «soto». Contexto: «el sendero se internaba en un soto de álamos». Significado: terreno poblado de árboles y matas. Frase propia: «Merendamos en un soto junto al río».",
+     ejercicio:{tipo:"open",
+       consigna:"Elige una palabra que hayas aprendido hoy y construye su entrada de cuaderno de vocabulario.",
+       criterios:[
+         "Anoté la palabra y el contexto donde la encontré.",
+         "Escribí el significado con mis propias palabras.",
+         "Redacté una frase nueva de uso propio."
+       ],
+       modelo:"Palabra: «herrumbroso». Contexto: «guardaba un arcón herrumbroso». Significado: cubierto de herrumbre, oxidado. Frase propia: «El portón herrumbroso chirriaba cada vez que alguien entraba al patio.»"}}
+  ]
+},
+
+/* ============ BLOQUE 5 · GRAMÁTICA Y MORFOSINTAXIS ============ */
+{
+  id:"b5", nombre:"Gramática y morfosintaxis", emoji:"🧩",
+  desc:"Categorías gramaticales, oración simple y compuesta, conectores.",
+  tecnicas:[
+    {id:"l41", nombre:"Sustantivos y adjetivos",
+     concepto:"El sustantivo nombra personas, cosas, ideas; tiene género y número. El adjetivo expresa cualidades del sustantivo y concuerda con él en género y número. La concordancia es obligatoria.",
+     ejemplo:"«La casa blanca» → sustantivo femenino singular + adjetivo femenino singular. «Los ríos caudalosos» → masculino plural.",
+     ejercicio:{tipo:"fill",
+       consigna:"Haz concordar el adjetivo.",
+       texto:"«Las ideas ___ (claro) de su discurso» → ___ · «Un camino ___ (largo)» → ___",
+       respuestas:[["claras"],["largo"]],
+       retro:"El adjetivo concuerda siempre con el sustantivo en género y número. Es una de las reglas más firmes del español."}},
+
+    {id:"l42", nombre:"Verbos: tiempo, modo y aspecto",
+     concepto:"El verbo expresa acción, estado o proceso. Se conjuga en tiempo (presente, pasado, futuro), modo (indicativo, subjuntivo, imperativo) y aspecto (perfecto/imperfecto). Reconocerlo permite entender la perspectiva del hablante.",
+     ejemplo:"«Ayer estudié» (pasado, indicativo, perfecto). «Ojalá estudie» (presente, subjuntivo, expresa deseo). «Estudiaba cada tarde» (imperfecto, acción habitual).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada forma verbal según el modo.",
+       categorias:["Indicativo","Subjuntivo","Imperativo"],
+       items:[
+         {texto:"«Cantó en el coro.»", cat:0},
+         {texto:"«Ojalá vengas pronto.»", cat:1},
+         {texto:"«Ven aquí ahora mismo.»", cat:2},
+         {texto:"«Mañana iré al cine.»", cat:0},
+         {texto:"«Quiero que estudies más.»", cat:1}
+       ],
+       retro:"Indicativo: hechos reales. Subjuntivo: deseos, dudas, hipótesis. Imperativo: órdenes o ruegos."}},
+
+    {id:"l43", nombre:"Pronombres y su función",
+     concepto:"Los pronombres sustituyen al sustantivo. Personales (yo, tú, él, nos, os, les...), demostrativos (este, ese, aquel), posesivos (mío, tuyo), relativos (que, quien, cual). Evitan repeticiones y cohesionan el texto.",
+     ejemplo:"«Ana llegó tarde. Ella siempre llega tarde.» «Ella» sustituye a «Ana» y evita repetir su nombre.",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye el sintagma por el pronombre adecuado.",
+       texto:"«Entregué el libro a Marta» → «___ entregué el libro» (pronombre de CI) · «Compré las flores» → «___ compré» (pronombre de CD)",
+       respuestas:[["le"],["las"]],
+       retro:"Los pronombres átonos de complemento directo son lo, la, los, las; los de indirecto son le, les. La sustitución pronominal evita repeticiones."}},
+
+    {id:"l44", nombre:"Determinantes y artículos",
+     concepto:"Los determinantes precisan al sustantivo: artículos (el, la, los, las), demostrativos (este, ese), posesivos (mi, tu, su), numerales, indefinidos (algún, varios, mucho). Siempre preceden al sustantivo y concuerdan con él.",
+     ejemplo:"«Aquellos tres libros míos» → demostrativo + numeral + sustantivo + posesivo. Todos concuerdan en género y número.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada determinante.",
+       categorias:["Artículo","Demostrativo","Posesivo","Indefinido"],
+       items:[
+         {texto:"el", cat:0},
+         {texto:"este", cat:1},
+         {texto:"mi", cat:2},
+         {texto:"algunos", cat:3},
+         {texto:"las", cat:0},
+         {texto:"aquel", cat:1},
+         {texto:"varios", cat:3}
+       ],
+       retro:"Cada tipo de determinante aporta un matiz distinto al sustantivo: presentación, cercanía, posesión o cantidad imprecisa."}},
+
+    {id:"l45", nombre:"Estructura de la oración simple",
+     concepto:"La oración simple tiene un sujeto (de quien se dice algo) y un predicado (lo que se dice). El núcleo del sujeto es un sustantivo o pronombre; el núcleo del predicado, un verbo. Puede haber sujeto elidido u oraciones impersonales.",
+     ejemplo:"«Los niños juegan en el parque.» Sujeto: los niños. Predicado: juegan en el parque. En «Llueve mucho», el sujeto es inexistente (impersonal).",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa sujeto y predicado.",
+       texto:"«La profesora explicó la lección con claridad.» Sujeto: ___ · Predicado: ___",
+       respuestas:[["la profesora"],["explico la leccion con claridad","explicó la lección con claridad"]],
+       retro:"Para reconocer el sujeto se pregunta «¿quién?» al verbo. Si no hay respuesta, la oración es impersonal."}},
+
+    {id:"l46", nombre:"Complementos del verbo",
+     concepto:"El predicado puede llevar complemento directo (CD), indirecto (CI), circunstancial (CC), atributo (con verbos copulativos) y complemento agente (en pasivas). Identificarlos revela la estructura de la oración.",
+     ejemplo:"«Pedro entregó el informe al jefe ayer.» CD: el informe. CI: al jefe. CC de tiempo: ayer.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada sintagma subrayado de la oración «Ana compró flores a su madre en el mercado el sábado».",
+       categorias:["CD","CI","CC"],
+       items:[
+         {texto:"flores", cat:0},
+         {texto:"a su madre", cat:1},
+         {texto:"en el mercado", cat:2},
+         {texto:"el sábado", cat:2}
+       ],
+       retro:"El CD se sustituye por lo/la/los/las; el CI por le/les; el CC responde a cuándo, dónde, cómo, cuánto."}},
+
+    {id:"l47", nombre:"Oraciones compuestas: coordinación",
+     concepto:"Dos o más oraciones se unen por coordinación cuando son independientes sintácticamente. Tipos: copulativas (y, e), adversativas (pero, sino), disyuntivas (o, u), distributivas (ya…ya), explicativas (es decir).",
+     ejemplo:"«Estudió mucho, pero no aprobó» (adversativa). «¿Vienes o te quedas?» (disyuntiva).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración coordinada.",
+       categorias:["Copulativa","Adversativa","Disyuntiva"],
+       items:[
+         {texto:"«Cantó y bailó toda la noche.»", cat:0},
+         {texto:"«Quería ir, pero no pudo.»", cat:1},
+         {texto:"«O estudias o trabajas.»", cat:2},
+         {texto:"«Ni come ni deja comer.»", cat:0},
+         {texto:"«No es tonto, sino distraído.»", cat:1}
+       ],
+       retro:"Copulativas suman; adversativas oponen; disyuntivas presentan alternativas. Reconocerlas ayuda a seguir el razonamiento."}},
+
+    {id:"l48", nombre:"Oraciones subordinadas",
+     concepto:"Una oración subordinada depende sintácticamente de otra. Pueden ser sustantivas (funcionan como sustantivo), adjetivas o de relativo (modifican a un sustantivo) y adverbiales (expresan tiempo, causa, condición, consecuencia...).",
+     ejemplo:"«Quiero que vengas» (sustantiva de CD). «El libro que me prestaste es fascinante» (adjetiva o de relativo). «Cuando llegues, avísame» (adverbial temporal).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada subordinada.",
+       categorias:["Sustantiva","Adjetiva","Adverbial"],
+       items:[
+         {texto:"«Dime si vendrás mañana.»", cat:0},
+         {texto:"«La casa que compramos es pequeña.»", cat:1},
+         {texto:"«Si estudias, aprobarás.»", cat:2},
+         {texto:"«Espero que estés bien.»", cat:0},
+         {texto:"«El chico cuyo padre es médico llegó tarde.»", cat:1}
+       ],
+       retro:"Sustantiva: se puede sustituir por «eso». Adjetiva: se puede sustituir por un adjetivo. Adverbial: responde a cuándo, dónde, cómo, por qué, para qué."}},
+
+    {id:"l49", nombre:"Conectores y marcadores discursivos",
+     concepto:"Los conectores y marcadores organizan el discurso y señalan la relación entre ideas: adición, contraste, causa, consecuencia, orden, reformulación. Son las señales de tráfico del texto.",
+     ejemplo:"«En primer lugar... además... sin embargo... por lo tanto... en conclusión...» articula un texto argumentativo.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su función.",
+       categorias:["Adición","Contraste","Consecuencia","Reformulación"],
+       items:[
+         {texto:"además", cat:0},
+         {texto:"sin embargo", cat:1},
+         {texto:"por lo tanto", cat:2},
+         {texto:"es decir", cat:3},
+         {texto:"asimismo", cat:0},
+         {texto:"no obstante", cat:1},
+         {texto:"en consecuencia", cat:2},
+         {texto:"en otras palabras", cat:3}
+       ],
+       retro:"Los conectores no son adornos: sin ellos, el lector no sabe cómo se relacionan las ideas del texto."}},
+
+    {id:"l50", nombre:"Concordancia y coherencia gramatical",
+     concepto:"La concordancia es la correspondencia obligatoria en género y número entre sustantivo y adjetivo, y en número y persona entre sujeto y verbo. Su ruptura produce agramaticalidad.",
+     ejemplo:"Correcto: «Los alumnos estudian». Incorrecto: «Los alumnos estudia» (sujeto plural y verbo singular). Correcto: «Un grupo de niños juega» (sujeto en singular: el núcleo es «grupo»).",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas oraciones presenta un error de concordancia?",
+       opciones:["«Los profesores llegaron temprano.»","«Un grupo de alumnos llegó tarde.»","«Los alumnos y el profesor llegaron juntos.»","«Los alumnos llegó tarde a clase.»"],
+       correcta:3,
+       retro:"El sujeto «los alumnos» es plural, así que el verbo debe ser «llegaron», no «llegó»."}}
+  ]
+},
+
+/* ============ BLOQUE 6 · ORTOGRAFÍA Y PUNTUACIÓN ============ */
+{
+  id:"b6", nombre:"Ortografía y puntuación", emoji:"✏️",
+  desc:"Signos de puntuación, acentuación, mayúsculas, homófonas y abreviaturas.",
+  tecnicas:[
+    {id:"l51", nombre:"Uso de la coma",
+     concepto:"La coma indica pausas breves y separa elementos. Usos: enumeraciones, vocativos, aclaraciones, oraciones coordinadas, tras ciertos conectores. No debe usarse para separar sujeto y verbo.",
+     ejemplo:"«Compré pan, leche, huevos y queso» (enumeración). «María, ven aquí» (vocativo). «Llegó tarde, sin embargo, la dejaron entrar» (conector).",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas oraciones usa incorrectamente la coma?",
+       opciones:["«Vinieron Ana, Luis y Marta.»","«Juan, cierra la puerta.»","«Los alumnos, estudiaron mucho.»","«Si vienes, avísame.»"],
+       correcta:2,
+       retro:"Nunca debe separarse el sujeto del verbo con coma. En «Los alumnos, estudiaron mucho», la coma es incorrecta."}},
+
+    {id:"l52", nombre:"Punto, punto y coma y dos puntos",
+     concepto:"El punto cierra una oración o un párrafo. El punto y coma separa ideas relacionadas de cierta extensión. Los dos puntos anuncian enumeración, cita o conclusión.",
+     ejemplo:"«Estudió mucho; sin embargo, no aprobó» (punto y coma). «Trajo tres cosas: pan, vino y queso» (dos puntos).",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca el signo adecuado (punto, punto y coma o dos puntos).",
+       texto:"«Trajo lo necesario ___ pan, agua y mantas» · «Terminó el trabajo ___ luego se fue a casa» · «No estudió ___ por eso reprobó»",
+       respuestas:[["dos puntos",":"],["punto","."],["punto y coma",";"]],
+       retro:"Dos puntos anuncian; punto y coma relaciona; punto cierra. Cada signo tiene una función propia."}},
+
+    {id:"l53", nombre:"Comillas y guiones en diálogos",
+     concepto:"Las comillas (« », “ ”, ' ') enmarcan citas, palabras extranjeras o usos irónicos. Los guiones (—) introducen diálogos en narraciones. Se diferencian de las rayas (—) y de los guiones cortos (-).",
+     ejemplo:"«Dijo: “No vendré mañana”». En narrativa: «—No vendré mañana —respondió Ana—. Tengo trabajo.»",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la función principal de las comillas?",
+       opciones:["Separar ideas de un párrafo","Enmarcar citas textuales, palabras extranjeras o usos especiales","Indicar una pausa larga","Unir palabras compuestas"],
+       correcta:1,
+       retro:"Las comillas enmarcan lo que otro dijo o lo que se usa con valor especial. También se usan para títulos dentro de un texto o para ironía."}},
+
+    {id:"l54", nombre:"Paréntesis y corchetes",
+     concepto:"Los paréntesis ( ) introducen información aclaratoria o incidental. Los corchetes [ ] se usan para añadir aclaraciones dentro de una cita o para encerrar un paréntesis dentro de otro.",
+     ejemplo:"«Cervantes (autor del Quijote) nació en Alcalá.» «El autor afirma: “La lectura [comprensiva] exige tiempo”.»",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuándo se usan los corchetes en lugar de los paréntesis?",
+       opciones:["Siempre indistintamente.","Cuando hay que añadir una aclaración dentro de una cita textual o un paréntesis dentro de otro.","Solo en matemáticas.","Para indicar interrogación."],
+       correcta:1,
+       retro:"Los corchetes son más específicos: intervienen cuando se cita o cuando hay que anidar un paréntesis dentro de otro."}},
+
+    {id:"l55", nombre:"Acentuación: reglas generales",
+     concepto:"Las palabras se clasifican según su sílaba tónica en agudas, graves (o llanas), esdrújulas y sobresdrújulas. Las agudas llevan tilde si terminan en -n, -s o vocal; las graves, si NO terminan en -n, -s o vocal; las esdrújulas y sobresdrújulas siempre.",
+     ejemplo:"«Canción» (aguda, termina en -n → tilde). «Árbol» (grave, termina en -l → tilde). «Médico» (esdrújula → siempre tilde).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra según su acento.",
+       categorias:["Aguda","Grave","Esdrújula"],
+       items:[
+         {texto:"camión", cat:0},
+         {texto:"árbol", cat:1},
+         {texto:"médico", cat:2},
+         {texto:"papel (sin tilde)", cat:0},
+         {texto:"lápiz", cat:1},
+         {texto:"pájaro", cat:2}
+       ],
+       retro:"Agudas: última sílaba. Graves: penúltima. Esdrújulas: antepenúltima. Las reglas dependen de la terminación de la palabra."}},
+
+    {id:"l56", nombre:"Acentuación diacrítica",
+     concepto:"La tilde diacrítica distingue palabras iguales que cumplen funciones distintas: el/él, tu/tú, mi/mí, te/té, mas/más, si/sí, de/dé, se/sé.",
+     ejemplo:"«El libro» (artículo) / «Él lee» (pronombre). «Tu casa» (posesivo) / «Tú lees» (pronombre). «Mas» (=pero) / «Más» (=cantidad).",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la forma correcta.",
+       texto:"___ dijo que vendría (él/el). · ___ casa es grande (tu/tú). · Quiero ___ café (te/té).",
+       respuestas:[["el","él"],["tu","tú"],["te","té"]],
+       retro:"La tilde diacrítica distingue funciones. Sin ella, el lector tendría que deducir del contexto, con riesgo de ambigüedad."}},
+
+    {id:"l57", nombre:"Palabras juntas o separadas",
+     concepto:"Algunas secuencias se escriben juntas (aunque, porque, conque, sino, asimismo) y otras separadas (aun que no es correcto, por que / porque / porqué / por qué). Reconocer la diferencia evita errores frecuentes.",
+     ejemplo:"«Porque» (causa: «No vino porque llovía»). «Por qué» (interrogativo: «¿Por qué no vino?»). «Porqué» (sustantivo: «No sé el porqué»). «Por que» (relativo: «La razón por que vino»).",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la forma correcta.",
+       texto:"No vino ___ llovía (porque / por qué). · ¿___ no me avisaste? (Por qué / Porque). · No entiendo el ___ de su enfado (porqué / por qué).",
+       respuestas:[["porque"],["por que","por qué"],["porque","porqué"]],
+       retro:"Porque (conjunción causal), por qué (interrogativo), porqué (sustantivo), por que (relativo). Cada forma tiene su función."}},
+
+    {id:"l58", nombre:"Homófonas: b/v, ll/y, c/s/z",
+     concepto:"Existen palabras que suenan igual pero se escriben con letras distintas: haber/a ver, tubo/tuvo, halla/haya/aya, cayó/calló, casa/caza. Conocer la diferencia evita errores graves.",
+     ejemplo:"«Haber» (verbo auxiliar) / «A ver» (mirar). «Tubo» (cilindro) / «Tuvo» (verbo tener). «Casa» (vivienda) / «Caza» (persecución de animales).",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la forma correcta.",
+       texto:"Voy ___ qué pasa (a ver / haber). · ___ un problema (Hubo / Ubo). · Se ___ al suelo (calló / cayó). · Iremos de ___ (caza / casa).",
+       respuestas:[["a ver"],["hubo"],["cayo","cayó"],["caza"]],
+       retro:"Estas parejas se distinguen por significado, no por sonido. La lectura atenta del contexto es la clave."}},
+
+    {id:"l59", nombre:"Mayúsculas y minúsculas",
+     concepto:"Se escriben con mayúscula: inicio de texto y de oración, nombres propios, títulos de obras (con criterios), siglas, tras dos puntos en ciertos casos. Los días, meses y estaciones van con minúscula.",
+     ejemplo:"«El lunes de enero fuimos al Prado.» «Cervantes escribió el Quijote.» «La ONU se fundó en 1945.»",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas palabras debe escribirse con minúscula?",
+       opciones:["Nombres de personas.","Días de la semana y meses del año.","Nombres de países.","Siglas de organismos."],
+       correcta:1,
+       retro:"En español los días de la semana, los meses y las estaciones se escriben con minúscula. Es una diferencia con el inglés."}},
+
+    {id:"l60", nombre:"Abreviaturas, siglas y acrónimos",
+     concepto:"Las abreviaturas se cierran con punto (pág., Sr.). Las siglas se escriben sin puntos ni espacios y en mayúsculas (ONU, ADN). Los acrónimos, cuando se lexicalizan, pueden escribirse como palabras (ovni, sida).",
+     ejemplo:"«pág. 23» (abreviatura). «La ONU» (sigla). «El sida» (acrónimo lexicalizado). «El ovni» (acrónimo lexicalizado).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada forma.",
+       categorias:["Abreviatura","Sigla","Acrónimo"],
+       items:[
+         {texto:"pág.", cat:0},
+         {texto:"ONU", cat:1},
+         {texto:"ovni", cat:2},
+         {texto:"etc.", cat:0},
+         {texto:"ADN", cat:1},
+         {texto:"sida", cat:2}
+       ],
+       retro:"Abreviatura: con punto y minúsculas. Sigla: mayúsculas sin puntos. Acrónimo: lexicalizado como palabra común."}}
+  ]
+},
+
+/* ============ BLOQUE 7 · PRODUCCIÓN TEXTUAL ============ */
+{
+  id:"b7", nombre:"Producción textual y redacción", emoji:"📝",
+  desc:"Planificar, redactar y revisar textos: párrafos, cohesión, coherencia, adecuación.",
+  tecnicas:[
+    {id:"l61", nombre:"Planificación del texto",
+     concepto:"Antes de escribir, hay que decidir el tema, el propósito, el destinatario y la estructura. La planificación evita la escritura errática y los textos desorganizados.",
+     ejemplo:"Para un ensayo: lluvia de ideas, selección, esquema (introducción, tres argumentos, conclusión) y asignación de extensión.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos para planificar un texto.",
+       items:[
+         "Definir el tema y el propósito del texto.",
+         "Identificar el destinatario y el registro adecuado.",
+         "Generar ideas mediante lluvia de ideas.",
+         "Seleccionar y ordenar las ideas en un esquema.",
+         "Asignar una extensión aproximada a cada parte."
+       ],
+       retro:"Planificar es decidir antes de escribir. Sin este paso, la redacción se vuelve un ejercicio de corrección permanente."}},
+
+    {id:"l62", nombre:"Redactar la tesis o idea principal",
+     concepto:"En textos argumentativos la tesis es la afirmación central que se va a defender. Debe ser clara, discutible y sostenible con argumentos. Suele aparecer en la introducción.",
+     ejemplo:"Tesis: «La lectura digital no sustituye a la lectura en papel porque requiere procesos cognitivos distintos.»",
+     ejercicio:{tipo:"fill",
+       consigna:"Redacta una tesis clara para un texto sobre las redes sociales.",
+       texto:"Posible tesis: las redes sociales ___, porque ___.",
+       respuestas:[["no son neutras","no son inocentes","no son solo herramientas de comunicacion","tienen efectos ambivalentes","pueden ser beneficiosas y perjudiciales","transforman la forma de relacionarnos","no son ni buenas ni malas en si mismas"]],
+       retro:"Una buena tesis es discutible, concreta y da pie a argumentos. Evita formulaciones vagas como «las redes sociales son importantes»."}},
+
+    {id:"l63", nombre:"El párrafo: estructura y unidad",
+     concepto:"El párrafo es la unidad mínima de composición escrita. Suele tener una idea principal y varias secundarias. Debe haber unidad temática y coherencia interna entre sus oraciones.",
+     ejemplo:"Un párrafo sobre «los beneficios del ejercicio» no debería mezclar, sin transición, datos sobre nutrición. Cada párrafo trata una idea.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué hace que un párrafo sea unitario?",
+       opciones:["Que tenga al menos diez líneas.","Que todas sus oraciones desarrollen una misma idea principal.","Que empiece siempre con una cita.","Que tenga una sola oración."],
+       correcta:1,
+       retro:"La unidad del párrafo es temática: todas las oraciones giran en torno a una misma idea."}},
+
+    {id:"l64", nombre:"Cohesión mediante conectores",
+     concepto:"La cohesión es el conjunto de mecanismos que enlazan las partes del texto: conectores, pronombres, sinónimos, elipsis. Sin cohesión, el texto se fragmenta y pierde fluidez.",
+     ejemplo:"«Quería ir al cine. Sin embargo, no tenía dinero. Por eso, se quedó en casa.» Los conectores articulan las ideas.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con el conector adecuado.",
+       texto:"Estudió mucho. ___, no aprobó. · Llegó tarde; ___, se disculpó. · No tengo dinero; ___, no puedo ir.",
+       respuestas:[["sin embargo","no obstante","aunque","pero"],["ademas","asimismo","por eso","entonces","luego"],["por lo tanto","por eso","en consecuencia","asi que","así que"]],
+       retro:"Los conectores no son adornos: revelan la relación lógica y evitan que el lector tenga que adivinarla."}},
+
+    {id:"l65", nombre:"Coherencia global del texto",
+     concepto:"La coherencia es la unidad de sentido del texto: todas sus partes contribuyen al mismo propósito, sin contradicciones y con una progresión temática adecuada.",
+     ejemplo:"Un texto sobre «la contaminación del agua» que dedica tres párrafos a la contaminación del aire carece de coherencia global.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estos problemas afecta a la COHERENCIA global, no a la cohesión?",
+       opciones:["Falta un conector entre dos oraciones.","Un párrafo se contradice con el anterior.","Hay una falta de ortografía.","Una oración es demasiado larga."],
+       correcta:1,
+       retro:"La cohesión se ocupa de los enlaces; la coherencia, del sentido global. Una contradicción es un fallo de coherencia."}},
+
+    {id:"l66", nombre:"Adecuación al destinatario y registro",
+     concepto:"Un texto debe adaptarse a su destinatario, al contexto y al registro: formal o informal, técnico o divulgativo. Un mismo contenido cambia según a quién va dirigido.",
+     ejemplo:"Un texto científico sobre el cambio climático no se redacta igual que un folleto para niños de primaria ni que un tuit.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión según el registro.",
+       categorias:["Formal","Informal"],
+       items:[
+         {texto:"«Le agradezco su pronta respuesta.»", cat:0},
+         {texto:"«Oye, ¿me pasas el dato?»", cat:1},
+         {texto:"«Estimado profesor: me dirijo a usted...»", cat:0},
+         {texto:"«¡Qué fuerte, tío!»", cat:1},
+         {texto:"«Adjunto encontrará el documento solicitado.»", cat:0}
+       ],
+       retro:"El registro se elige según el destinatario y la situación. Un mismo mensaje puede decirse de muchas maneras."}},
+
+    {id:"l67", nombre:"Introducción y conclusión",
+     concepto:"La introducción presenta el tema y anticipa la tesis; la conclusión cierra el texto recuperando la tesis y sintetizando los argumentos, sin introducir información nueva.",
+     ejemplo:"Introducción: «La lectura en pantalla ha crecido. ¿Es equivalente a la lectura en papel?» Conclusión: «Como se ha mostrado, los procesos cognitivos difieren; conviene, por tanto, no equipararlas sin más.»",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué NO debe hacerse en una conclusión?",
+       opciones:["Recuperar la tesis planteada.","Sintetizar los argumentos principales.","Introducir un argumento nuevo y decisivo.","Cerrar con una reflexión final."],
+       correcta:2,
+       retro:"La conclusión cierra; si se introduce un argumento nuevo, el lector siente que el texto queda abierto y sin justificar."}},
+
+    {id:"l68", nombre:"Revisión y corrección del borrador",
+     concepto:"Revisar es leer el propio texto con distancia crítica: ortografía, puntuación, coherencia, cohesión, adecuación y claridad. Se recomienda leer en voz alta y esperar un tiempo entre escritura y revisión.",
+     ejemplo:"Primera lectura: ortografía. Segunda: claridad de las oraciones. Tercera: cohesión entre párrafos. Cuarta: coherencia global.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una revisión eficaz.",
+       items:[
+         "Dejar reposar el texto un tiempo para leerlo con distancia.",
+         "Revisar la ortografía y la puntuación.",
+         "Comprobar la claridad y la longitud de las oraciones.",
+         "Verificar la cohesión entre párrafos (conectores, pronombres).",
+         "Leer el texto completo para comprobar su coherencia global."
+       ],
+       retro:"Revisar por capas es más eficaz que intentar corregirlo todo a la vez. Cada pasada se centra en un aspecto."}},
+
+    {id:"l69", nombre:"Parafrasear y resumir",
+     concepto:"Parafrasear es decir lo mismo con otras palabras, manteniendo el sentido. Resumir es reducir el texto a sus ideas esenciales. Ambos demuestran comprensión profunda.",
+     ejemplo:"Original: «La lectura comprensiva exige un lector activo.» Paráfrasis: «Para comprender un texto hay que implicarse y trabajar con él.» Resumen: «Leer de verdad requiere actividad del lector.»",
+     ejercicio:{tipo:"open",
+       consigna:"Parafrasea en dos o tres líneas: «El lenguaje no solo describe la realidad: también la construye».",
+       criterios:[
+         "Usé mis propias palabras, no copié la estructura literal.",
+         "Mantuve el sentido completo de la idea original.",
+         "El resultado se entiende sin leer el texto fuente."
+       ],
+       modelo:"El lenguaje no se limita a nombrar lo que ya existe: también crea marcos de interpretación, influye en cómo percibimos el mundo y, en ese sentido, contribuye a formar la realidad tal como la vivimos."}},
+
+    {id:"l70", nombre:"Citar y referenciar fuentes",
+     concepto:"Citar es indicar el origen de una idea o frase ajena. Se hace con comillas para la cita textual y con referencia al autor y año. Evita el plagio y da rigor al texto.",
+     ejemplo:"Cita textual: «La lectura es un proceso activo» (Solé, 1992). Paráfrasis: según Solé (1992), leer requiere implicación del lector.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la función principal de citar fuentes?",
+       opciones:["Adornar el texto con nombres famosos.","Reconocer la autoría ajena y dar rigor, evitando el plagio.","Aumentar el número de palabras.","Mostrar que se ha leído mucho."],
+       correcta:1,
+       retro:"Citar es un acto de honestidad intelectual: reconoce el trabajo ajeno y permite al lector verificar la información."}}
+  ]
+},
+
+/* ============ BLOQUE 8 · TIPOLOGÍAS TEXTUALES ============ */
+{
+  id:"b8", nombre:"Tipologías textuales y géneros", emoji:"📄",
+  desc:"Narrativo, descriptivo, expositivo, argumentativo, periodístico, publicitario y digital.",
+  tecnicas:[
+    {id:"l71", nombre:"Texto narrativo: cuento, novela, fábula",
+     concepto:"El texto narrativo cuenta hechos reales o ficticios en una secuencia temporal. Elementos: narrador, personajes, acción, espacio, tiempo. Subgéneros: cuento, novela, fábula, leyenda, mito.",
+     ejemplo:"Un cuento suele ser breve y con un solo conflicto; la novela, extensa y con tramas entrelazadas; la fábula, breve y con moraleja, a menudo con animales personificados.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada subgénero narrativo por sus rasgos.",
+       categorias:["Cuento","Novela","Fábula"],
+       items:[
+         {texto:"Breve, un solo conflicto, final generalmente sorpresivo.", cat:0},
+         {texto:"Extenso, varios personajes, tramas entrelazadas.", cat:1},
+         {texto:"Breve, con animales personificados y moraleja final.", cat:2},
+         {texto:"«El zorro y las uvas»", cat:2},
+         {texto:"«Cien años de soledad»", cat:1}
+       ],
+       retro:"El cuento concentra, la novela expande, la fábula enseña. Reconocer el subgénero orienta la lectura."}},
+
+    {id:"l72", nombre:"Texto descriptivo",
+     concepto:"Describe cómo son personas, lugares, objetos o procesos. Puede ser objetiva (técnica) o subjetiva (literaria). Usa gran cantidad de adjetivos y, a menudo, los cinco sentidos.",
+     ejemplo:"Objetiva: «La casa tiene 120 m², tres habitaciones y dos baños.» Subjetiva: «La casa olía a cedro y a tiempo detenido.»",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada descripción.",
+       categorias:["Objetiva","Subjetiva"],
+       items:[
+         {texto:"«El animal mide 1,20 m y pesa 45 kg.»", cat:0},
+         {texto:"«Sus ojos eran dos pozos de tristeza.»", cat:1},
+         {texto:"«La habitación tiene 4 m de largo por 3 de ancho.»", cat:0},
+         {texto:"«El viento acariciaba las ramas con dulzura.»", cat:1}
+       ],
+       retro:"La descripción objetiva informa; la subjetiva transmite sensaciones. Ambas usan adjetivos, pero con función distinta."}},
+
+    {id:"l73", nombre:"Texto expositivo: divulgación y académico",
+     concepto:"El texto expositivo transmite información de forma ordenada y clara. Puede ser divulgativo (para público general) o académico (para especialistas). Predominan la función referencial y los datos.",
+     ejemplo:"Un artículo de divulgación científica explica un tema complejo con lenguaje accesible. Un manual académico usa terminología técnica y referencias.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la diferencia principal entre un texto divulgativo y uno académico?",
+       opciones:["El divulgativo es más largo.","El divulgativo adapta el lenguaje al público general; el académico usa terminología especializada.","El académico no tiene autor.","El divulgativo no usa datos."],
+       correcta:1,
+       retro:"Ambos exponen, pero con destinatarios distintos. El divulgativo traduce; el académico profundiza con terminología especializada."}},
+
+    {id:"l74", nombre:"Texto argumentativo: ensayo y artículo",
+     concepto:"El texto argumentativo defiende una tesis con razones. Estructura: introducción con tesis, desarrollo con argumentos y conclusión. Subgéneros: ensayo, artículo de opinión, columna, editorial.",
+     ejemplo:"Un ensayo explora una idea con libertad; un artículo de opinión defiende una postura breve; un editorial expresa la línea del medio.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la estructura de un texto argumentativo.",
+       items:[
+         "Introducción que presenta el tema y anticipa la tesis.",
+         "Exposición de la tesis de forma clara.",
+         "Desarrollo con argumentos y ejemplos.",
+         "Refutación de posibles contraargumentos.",
+         "Conclusión que recupera la tesis y cierra el razonamiento."
+       ],
+       retro:"Tesis → argumentos → refutación → conclusión. Este es el esqueleto básico de la argumentación."}},
+
+    {id:"l75", nombre:"Texto periodístico: noticia, reportaje, entrevista",
+     concepto:"Los géneros periodísticos informan sobre hechos de actualidad. La noticia responde a qué, quién, cuándo, dónde, cómo y por qué. El reportaje profundiza; la entrevista recoge las palabras de alguien.",
+     ejemplo:"Una noticia sobre un incendio: qué (incendio), quién (afectados), cuándo (esta madrugada), dónde (sierra norte), cómo (por una chispa), por qué (sequía).",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica los elementos básicos de la noticia.",
+       texto:"«Ayer, en Sevilla, un incendio destruyó un mercado tras un cortocircuito.» Qué: ___ · Quién / qué afectado: ___ · Cuándo: ___ · Dónde: ___",
+       respuestas:[["incendio","un incendio"],["el mercado","mercado"],["ayer"],["sevilla"]],
+       retro:"Las 6 W del periodismo (qué, quién, cuándo, dónde, cómo, por qué) organizan la información en la noticia."}},
+
+    {id:"l76", nombre:"Texto publicitario y propagandístico",
+     concepto:"El texto publicitario busca persuadir para consumir; el propagandístico, para adherir a una idea. Usan eslóganes, imágenes, apelación emocional y figuras retóricas.",
+     ejemplo:"«Porque tú lo vales» (publicidad). «El cambio empieza contigo» (propaganda). Ambos apelan a la emoción, no a la razón.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada mensaje.",
+       categorias:["Publicidad","Propaganda"],
+       items:[
+         {texto:"«Nueva crema: piel radiante en 7 días.»", cat:0},
+         {texto:"«Vota por un futuro mejor.»", cat:1},
+         {texto:"«Solo hoy: 50 % de descuento.»", cat:0},
+         {texto:"«Únete a la causa por el clima.»", cat:1}
+       ],
+       retro:"La publicidad vende productos o servicios; la propaganda, ideas o causas. Ambas persuaden, pero su objeto es distinto."}},
+
+    {id:"l77", nombre:"Texto instructivo: recetas, normas, manuales",
+     concepto:"Los textos instructivos indican cómo hacer algo. Predomina el imperativo o el infinitivo, y suelen estructurarse en pasos ordenados. Ejemplos: recetas, reglamentos, manuales, prospectos.",
+     ejemplo:"«Precaliente el horno a 180 °C. Mezcle la harina con el azúcar. Hornee durante 25 minutos.»",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una receta sencilla.",
+       items:[
+         "Precalentar el horno a 180 °C.",
+         "Mezclar la harina, el azúcar y los huevos.",
+         "Verter la mezcla en un molde engrasado.",
+         "Hornear durante 25 minutos.",
+         "Dejar enfriar antes de desmoldar."
+       ],
+       retro:"En los textos instructivos el orden es esencial: alterarlo produce resultados distintos o fallidos."}},
+
+    {id:"l78", nombre:"Texto epistolar y digital",
+     concepto:"El texto epistolar tiene forma de carta o correo: encabezado, saludo, cuerpo, despedida y firma. Los formatos digitales (chat, redes) tienen rasgos propios: abreviaturas, emoticonos, informalidad.",
+     ejemplo:"Carta formal: «Estimado Sr. García: Me dirijo a usted para… Atentamente, Ana López.» Chat: «hola!! q tal? 😊».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo según corresponda al registro epistolar o al digital.",
+       categorias:["Epistolar formal","Digital informal"],
+       items:[
+         {texto:"«Estimado Sr. Director:»", cat:0},
+         {texto:"Uso de emojis y abreviaturas.", cat:1},
+         {texto:"«Atentamente,»", cat:0},
+         {texto:"Mensajes breves, sin saludo.", cat:1}
+       ],
+       retro:"Cada formato tiene sus convenciones. Reconocerlas permite elegir el registro adecuado al contexto."}},
+
+    {id:"l79", nombre:"Texto dramático y guion",
+     concepto:"El texto dramático está escrito para ser representado. Se compone de diálogos y acotaciones (indicaciones escénicas). Los personajes hablan directamente, sin narrador.",
+     ejemplo:"«ANA.— (Entrando agitada.) ¡No puedo más! LUIS.— Cálmate, respira.» El texto entre paréntesis es acotación.",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica las partes del fragmento dramático.",
+       texto:"«MARTA.— (Mirando por la ventana.) ¿Ya llegó?» Diálogo: ___ · Acotación: ___",
+       respuestas:[["¿ya llego","ya llego","¿ya llegó?"],["mirando por la ventana","mirando por la ventana."]],
+       retro:"El diálogo es lo que dicen los personajes; la acotación indica cómo, dónde y con qué gestos."}},
+
+    {id:"l80", nombre:"Texto poético y lírico",
+     concepto:"El texto poético expresa emociones, sensaciones o reflexiones mediante recursos rítmicos, imágenes y figuras. Se organiza en versos y estrofas. La lírica es la expresión de la subjetividad.",
+     ejemplo:"«Verde que te quiero verde. / Verde viento. Verdes ramas.» (García Lorca). El ritmo y la repetición crean musicalidad.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué distingue al texto poético de otros géneros?",
+       opciones:["Que siempre es breve.","El trabajo sobre el ritmo, las imágenes y la forma del lenguaje.","Que no tiene autor.","Que solo habla de amor."],
+       correcta:1,
+       retro:"En poesía, la forma no es un envoltorio: es parte del significado. El ritmo, la rima y las imágenes construyen sentido."}}
+  ]
+},
+
+/* ============ BLOQUE 9 · LITERATURA Y RETÓRICA ============ */
+{
+  id:"b9", nombre:"Literatura y figuras retóricas", emoji:"🎭",
+  desc:"Géneros literarios, figuras, métrica, narrador, personajes y análisis.",
+  tecnicas:[
+    {id:"l81", nombre:"Géneros literarios: épica, lírica, dramática",
+     concepto:"La épica narra hechos (novela, cuento, epopeya). La lírica expresa sentimientos. La dramática está escrita para ser representada (tragedia, comedia, drama). Cada género tiene sus recursos característicos.",
+     ejemplo:"«El Quijote» (épica). «Rimas» de Bécquer (lírica). «La vida es sueño» (dramática).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada obra o fragmento.",
+       categorias:["Épica","Lírica","Dramática"],
+       items:[
+         {texto:"«Cien años de soledad»", cat:0},
+         {texto:"«Volverán las oscuras golondrinas…»", cat:1},
+         {texto:"«La casa de Bernarda Alba»", cat:2},
+         {texto:"«El Lazarillo de Tormes»", cat:0},
+         {texto:"«La vida es sueño»", cat:2}
+       ],
+       retro:"Los tres grandes géneros responden a tres formas básicas de expresión: contar, expresar, representar."}},
+
+    {id:"l82", nombre:"Figuras de dicción",
+     concepto:"Afectan a la forma de las palabras. Aliteración: repetición de sonidos. Paranomasia: palabras de sonido parecido. Calambur: reagrupación de sílabas. Retruécano: inversión de términos.",
+     ejemplo:"«El ruido con que rueda la ronca tempestad» (aliteración). «Vendado que me has vendido» (paranomasia).",
+     ejercicio:{tipo:"fill",
+       consigna:"Identifica la figura.",
+       texto:"«Tres tristes tigres tragaban trigo en un trigal» → ___ · «Con el ala aleve del leve abanico» → ___",
+       respuestas:[["aliteracion","aliteración"],["aliteracion","aliteración"]],
+       retro:"Ambos ejemplos son aliteraciones: repiten sonidos para crear efecto sonoro. La aliteración es la figura de dicción más frecuente en poesía."}},
+
+    {id:"l83", nombre:"Figuras de pensamiento",
+     concepto:"Afectan al significado. Metáfora: identificación de dos realidades. Metonimia: designar algo por otra cosa relacionada. Sinécdoque: parte por el todo. Personificación: atribuir rasgos humanos a lo inanimado.",
+     ejemplo:"«Tus ojos son dos luceros» (metáfora). «Tomaré una copa» (metonimia). «El viento susurra» (personificación).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada figura.",
+       categorias:["Metáfora","Metonimia","Personificación","Sinécdoque"],
+       items:[
+         {texto:"«Sus cabellos son hilos de oro.»", cat:0},
+         {texto:"«Bebió dos copas.»", cat:1},
+         {texto:"«La luna sonríe entre las nubes.»", cat:2},
+         {texto:"«Tiene veinte primaveras.»", cat:3}
+       ],
+       retro:"La metáfora identifica; la metonimia sustituye por relación; la personificación humaniza; la sinécdoque sustituye parte por todo o todo por parte."}},
+
+    {id:"l84", nombre:"Figuras de repetición",
+     concepto:"Repiten elementos para crear ritmo o insistencia. Anáfora: repetir al inicio. Paralelismo: repetir estructuras. Polisíndeton: repetir conjunciones. Epífora: repetir al final.",
+     ejemplo:"«Verde viento. Verdes ramas» (anáfora). «Ni comer, ni dormir, ni vivir» (polisíndeton). «Y todo por ti, todo por ti» (epífora).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada figura de repetición.",
+       categorias:["Anáfora","Paralelismo","Polisíndeton"],
+       items:[
+         {texto:"«Aquí se llora, aquí se sufre, aquí se calla.»", cat:0},
+         {texto:"«Tu corazón es de piedra, tu mirada es de hielo.»", cat:1},
+         {texto:"«Y corre y vuela y salta sin parar.»", cat:2},
+         {texto:"«Yo lo pensé, yo lo decidí, yo lo hice.»", cat:0}
+       ],
+       retro:"La repetición en literatura nunca es redundante: crea ritmo, subraya ideas y produce efectos emocionales."}},
+
+    {id:"l85", nombre:"Hipérbole, ironía y paradoja",
+     concepto:"La hipérbole exagera. La ironía dice lo contrario de lo que quiere dar a entender. La paradoja une ideas contrarias y aparentemente incompatibles.",
+     ejemplo:"«Te lo dije un millón de veces» (hipérbole). «¡Qué puntualidad la tuya!» (ironía, si llegó tarde). «Vivo sin vivir en mí» (paradoja, Santa Teresa).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada figura.",
+       categorias:["Hipérbole","Ironía","Paradoja"],
+       items:[
+         {texto:"«Lloré ríos de lágrimas.»", cat:0},
+         {texto:"«Eres un genio», dicho a quien acaba de fallar.", cat:1},
+         {texto:"«El silencio más ruidoso.»", cat:2},
+         {texto:"«Este libro pesa una tonelada.»", cat:0}
+       ],
+       retro:"La hipérbole exagera, la ironía invierte el sentido, la paradoja une contrarios. Todas generan tensión en el lenguaje."}},
+
+    {id:"l86", nombre:"Métrica y rima",
+     concepto:"La métrica mide los versos según su número de sílabas (arte menor: hasta 8; arte mayor: 9 o más). La rima puede ser consonante (todos los sonidos coinciden) o asonante (solo las vocales).",
+     ejemplo:"«Vol-ve-rán las os-cu-ras go-lon-dri-nas» = 11 sílabas (endecasílabo). Rima consonante: «amor» y «dolor». Rima asonante: «amor» y «corazón».",
+     ejercicio:{tipo:"fill",
+       consigna:"Mide e identifica la rima.",
+       texto:"«Verde que te quiero verde, / verde viento, verdes ramas.» Versos: ___ y ___ sílabas. Rima: ___",
+       respuestas:[["8","siete","7","ocho"],["8","siete","7","ocho"],["asonante","consonante"]],
+       retro:"El romance usa versos octosílabos con rima asonante en los pares. Medir y detectar la rima revela la forma del poema."}},
+
+    {id:"l87", nombre:"Estrofas y estructuras poéticas",
+     concepto:"Agrupaciones de versos con un patrón fijo: pareado (2), terceto (3), cuarteto (4, rima consonante), redondilla (4, rima consonante abba), romance (versos octosílabos con rima asonante en pares).",
+     ejemplo:"Un soneto consta de catorce versos endecasílabos distribuidos en dos cuartetos y dos tercetos.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa según corresponda.",
+       texto:"Un pareado tiene ___ versos. · Un soneto tiene ___ versos. · Un romance es una serie de versos ___ con rima ___.",
+       respuestas:[["2","dos"],["14","catorce"],["octosilabos","octosílabos","octosilabos"],["asonante"]],
+       retro:"Las formas poéticas son estructuras fijas: reconocerlas orienta la lectura y la interpretación."}},
+
+    {id:"l88", nombre:"Narrador y punto de vista",
+     concepto:"El narrador es la voz que cuenta la historia. Puede ser interno (personaje) o externo (observador); omnisciente (todo lo sabe) o limitado. La persona gramatical varía: 1.ª, 2.ª o 3.ª.",
+     ejemplo:"1.ª persona: «Yo caminaba sin rumbo.» 3.ª omnisciente: «Ana no sabía que aquella decisión cambiaría su vida.»",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada narrador.",
+       categorias:["1.ª persona","3.ª omnisciente","3.ª limitada"],
+       items:[
+         {texto:"«Caminé toda la noche sin encontrar el camino.»", cat:0},
+         {texto:"«Juan ignoraba que a esa hora su hermano ya había llegado.»", cat:1},
+         {texto:"«Observé sus manos, sin saber qué pensaba.»", cat:2},
+         {texto:"«No podía dormir; recordaba una y otra vez las palabras de su padre.»", cat:0}
+       ],
+       retro:"El narrador no es el autor. Es una voz construida que determina qué sabemos y cómo lo sabemos."}},
+
+    {id:"l89", nombre:"Personajes: caracterización y evolución",
+     concepto:"Los personajes pueden ser planos (una sola dimensión, sin cambios) o redondos (complejos y con evolución). Su caracterización puede ser directa (el narrador los describe) o indirecta (por sus acciones, palabras o pensamientos).",
+     ejemplo:"Don Quijote es un personaje redondo: evoluciona a lo largo de la novela. Un personaje secundario de un cuento puede ser plano.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica el tipo de caracterización.",
+       categorias:["Directa","Indirecta"],
+       items:[
+         {texto:"«Era un hombre alto, seco y de pocas palabras.»", cat:0},
+         {texto:"«Nunca levantaba la voz; cuando hablaba, todos callaban.»", cat:1},
+         {texto:"«Tenía el cabello negro y los ojos pequeños.»", cat:0},
+         {texto:"«Al entrar, dejó el abrigo sin saludar y encendió un cigarro.»", cat:1}
+       ],
+       retro:"La caracterización directa la enuncia el narrador; la indirecta se deduce de las acciones y palabras del personaje."}},
+
+    {id:"l90", nombre:"Análisis de un fragmento literario",
+     concepto:"Consiste en descomponer el fragmento atendiendo a varios niveles: tema, argumento, narrador, personajes, espacio, tiempo, figuras, tono y estilo. Es una habilidad propia de los cursos superiores.",
+     ejemplo:"Analizar un fragmento de novela: primero se sitúa, luego se identifica el narrador, se describen personajes y recursos, y finalmente se interpreta.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos del análisis de un fragmento literario.",
+       items:[
+         "Leer el fragmento completo y situarlo en su obra.",
+         "Identificar tema, argumento y voz narrativa.",
+         "Analizar personajes, espacio y tiempo.",
+         "Detectar figuras retóricas y rasgos de estilo.",
+         "Interpretar el sentido global del fragmento y su tono."
+       ],
+       retro:"El análisis va de lo general a lo particular y termina en la interpretación: qué dice, cómo lo dice y qué sentido tiene."}}
+  ]
+},
+
+/* ============ BLOQUE 10 · ORALIDAD, MEDIOS Y TIC ============ */
+{
+  id:"b10", nombre:"Oralidad, medios y TIC", emoji:"🎤",
+  desc:"Escucha activa, exposición oral, análisis audiovisual, alfabetización mediática y ciudadanía digital.",
+  tecnicas:[
+    {id:"l91", nombre:"Escucha activa",
+     concepto:"Escuchar activamente es comprender e interpretar lo que dice el otro, sin interrumpir, atendiendo al contenido y a la intención. Incluye parafrasear, preguntar y resumir.",
+     ejemplo:"Después de una exposición, resumes: «Entonces, según tú, lo esencial es X y Y, ¿es correcto?» Eso es escucha activa.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas conductas corresponde a la escucha activa?",
+       opciones:["Interrumpir para dar la propia opinión.","Parafrasear lo que el otro dijo para verificar la comprensión.","Mirar el móvil mientras habla.","Preparar la respuesta mientras el otro habla."],
+       correcta:1,
+       retro:"La escucha activa implica verificar la comprensión, no solo oír. Parafrasear y preguntar son sus herramientas principales."}},
+
+    {id:"l92", nombre:"Exposición oral con apoyo visual",
+     concepto:"Una exposición oral organiza información para ser comunicada en voz alta. Debe tener introducción, desarrollo y conclusión, con apoyo visual sobrio y sin leer el texto literalmente.",
+     ejemplo:"Una exposición de cinco minutos: apertura con una pregunta al público, tres puntos clave y cierre con síntesis.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una buena exposición oral.",
+       items:[
+         "Preparar el contenido y estructurarlo en tres partes.",
+         "Diseñar un apoyo visual sobrio (poco texto, imágenes claras).",
+         "Ensartar la exposición en voz alta con cronómetro.",
+         "Presentar al inicio con una pregunta o dato llamativo.",
+         "Cerrar con una síntesis y agradecer la atención."
+       ],
+       retro:"La buena exposición no se lee: se dice. El apoyo visual apoya, no sustituye al orador."}},
+
+    {id:"l93", nombre:"Debate y argumentación oral",
+     concepto:"El debate es una discusión reglada donde cada parte defiende una postura con argumentos. Requiere escucha activa, respeto de turnos y refutación razonada.",
+     ejemplo:"En un debate sobre el uso del móvil en clase, cada parte dispone de dos minutos y luego hay réplica. El objetivo no es ganar, sino argumentar mejor.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada intervención en un debate.",
+       categorias:["Argumento","Refutación","Moderación"],
+       items:[
+         {texto:"«Según el informe PISA, los países con más pantallas en el aula no mejoran sus resultados.»", cat:0},
+         {texto:"«Lo que dice mi compañero ignora el uso pedagógico de las aplicaciones.»", cat:1},
+         {texto:"«Tiene usted un minuto para cerrar su intervención.»", cat:2},
+         {texto:"«Los datos muestran que el 60 % del alumnado reconoce distraerse.»", cat:0}
+       ],
+       retro:"En un debate sano cada parte argumenta y refuta, y hay moderación. La descalificación personal no es argumentar."}},
+
+    {id:"l94", nombre:"Entrevista y diálogo",
+     concepto:"La entrevista es un diálogo planificado con un propósito: obtener información, conocer una opinión o presentar a alguien. Requiere preparar preguntas, escuchar y repreguntar.",
+     ejemplo:"Entrevista a un escritor: preguntas abiertas sobre su proceso creativo, sus referencias, su público.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué tipo de pregunta resulta más útil en una entrevista?",
+       opciones:["«¿Sí o no?»","«¿Cómo fue el proceso de escritura de su última novela?»","«¿Le gusta escribir?»","«¿Está de acuerdo?»"],
+       correcta:1,
+       retro:"Las preguntas abiertas (cómo, por qué, qué, cuáles) permiten respuestas ricas. Las cerradas se reservan para confirmar datos."}},
+
+    {id:"l95", nombre:"Lectura en voz alta expresiva",
+     concepto:"Leer en voz alta no es solo descifrar: hay que dar entonación, respetar las pausas, adecuar el ritmo y transmitir el sentido del texto. Es una habilidad comunicativa completa.",
+     ejemplo:"En una lectura dramática, se cambia el tono según el personaje y el momento. En una lectura informativa, se mantiene un tono neutro.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué es más importante en la lectura expresiva?",
+       opciones:["Leer lo más rápido posible.","Respetar pausas, entonación y sentido del texto.","No cometer ningún error de pronunciación.","Elevar siempre la voz."],
+       correcta:1,
+       retro:"La expresividad se logra respetando pausas, modulando la voz y comprendiendo lo que se lee. La velocidad no es lo esencial."}},
+
+    {id:"l96", nombre:"Análisis de mensajes audiovisuales",
+     concepto:"Los mensajes audiovisuales (películas, series, anuncios, videoclips) construyen significado combinando imagen, sonido, montaje y palabra. Analizarlos críticamente permite no consumirlos pasivamente.",
+     ejemplo:"Un anuncio de coches: la música épica, los planos amplios y el color saturado construyen una sensación de libertad y potencia.",
+     ejercicio:{tipo:"open",
+       consigna:"Analiza brevemente un anuncio que recuerdes: ¿qué sensación transmite y con qué recursos lo logra?",
+       criterios:[
+         "Describí el anuncio y su producto.",
+         "Identifiqué al menos dos recursos audiovisuales (música, color, planos, personajes).",
+         "Expliqué qué sensación o valor pretende asociar al producto."
+       ],
+       modelo:"Recuerdo un anuncio de perfumes con música suave de piano, colores dorados, planos lentos y una actriz que camina sola por una ciudad al amanecer. La sensación es de elegancia, libertad y exclusividad. Los recursos utilizados (luz cálida, ritmo lento, ausencia de texto) asocian el perfume a un estilo de vida aspiracional."}},
+
+    {id:"l97", nombre:"Alfabetización mediática y fake news",
+     concepto:"La alfabetización mediática es la capacidad de acceder, analizar, evaluar y crear mensajes en distintos soportes. Para detectar bulos hay que verificar la fuente, el titular, las imágenes y el contexto.",
+     ejemplo:"Una noticia falsa suele tener: titular llamativo, fuente anónima, imágenes descontextualizadas y petición de compartir urgentemente.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo según indique señal de bulo o de información fiable.",
+       categorias:["Señal de bulo","Indicio de fiabilidad"],
+       items:[
+         {texto:"Titular en mayúsculas y con signos de exclamación.", cat:0},
+         {texto:"Autor identificado con afiliación institucional.", cat:1},
+         {texto:"Imagen sin fecha ni procedencia.", cat:0},
+         {texto:"Referencias a fuentes verificables.", cat:1},
+         {texto:"Llamada urgente a compartir antes de que sea borrado.", cat:0}
+       ],
+       retro:"Los bulos explotan la emoción y la urgencia. La información fiable da datos, contexto y fuentes verificables."}},
+
+    {id:"l98", nombre:"Comunicación digital y netiqueta",
+     concepto:"En los entornos digitales existen normas de convivencia (netiqueta): respeto, no gritar (mayúsculas), cuidado con la ironía escrita, revisar antes de enviar, respetar la privacidad.",
+     ejemplo:"Escribir todo en mayúsculas se interpreta como grito. Usar «por favor» y «gracias» mejora la comunicación en correos y chats.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conducta digital.",
+       categorias:["Correcta","Incorrecta"],
+       items:[
+         {texto:"Revisar el mensaje antes de enviarlo.", cat:0},
+         {texto:"Escribir todo el mensaje en mayúsculas.", cat:1},
+         {texto:"Responder con calma, sin insultos.", cat:0},
+         {texto:"Reenviar fotos de otros sin su permiso.", cat:1},
+         {texto:"Citar la fuente al compartir información.", cat:0}
+       ],
+       retro:"La netiqueta aplica al ámbito digital las mismas normas de respeto y cuidado que rigen la comunicación cara a cara."}},
+
+    {id:"l99", nombre:"Búsqueda y evaluación de información en internet",
+     concepto:"Buscar información no es solo teclear en un buscador: hay que formular bien las consultas, elegir fuentes fiables y contrastar. Se recomienda usar operadores de búsqueda, revisar dominio, autoría y fecha.",
+     ejemplo:"Buscar «cambio climático informe 2024 site:nasa.gov» acota la búsqueda a una fuente institucional.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos de una búsqueda rigurosa.",
+       items:[
+         "Formular con claridad qué información se busca.",
+         "Elegir las palabras clave y operadores adecuados.",
+         "Filtrar los resultados por dominio, autoría y fecha.",
+         "Comparar varias fuentes para verificar la información.",
+         "Citar las fuentes utilizadas en el trabajo final."
+       ],
+       retro:"Buscar bien es un proceso: formular, filtrar, contrastar y citar. Saltarse el contraste es la vía directa a la desinformación."}},
+
+    {id:"l100", nombre:"Ciudadanía digital y ética en la red",
+     concepto:"Ser ciudadano digital implica actuar con responsabilidad: respetar la privacidad propia y ajena, no difundir bulos, cuidar la huella digital y usar la red para el bien común. La ética digital es parte de la formación lingüística y cívica.",
+     ejemplo:"Antes de compartir algo, preguntarse: ¿es verdad?, ¿es útil?, ¿es respetuoso?, ¿es necesario? Las cuatro preguntas del filtro ético.",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe tres compromisos personales como ciudadano digital responsable.",
+       criterios:[
+         "Escribí tres compromisos concretos y realistas.",
+         "Al menos uno se refiere a verificar la información antes de compartirla.",
+         "Al menos uno se refiere al respeto hacia otras personas en la red."
+       ],
+       modelo:"1) Verificaré cualquier noticia en al menos dos fuentes antes de compartirla. 2) No publicaré fotos de otras personas sin su permiso, tampoco en grupos privados. 3) Antes de responder a un mensaje que me enfade, esperaré unos minutos y revisaré el tono para no herir a nadie. 4) Cuidaré lo que publico sobre mí mismo, pensando en mi huella digital futura."}}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO Y UTILIDADES
+   ===================================================================== */
+const STORAGE_KEY = "cuaderno_lengua_100_v1";
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ progreso = {}; }
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+
+let actualId = TECNICAS_FLAT[0].id;
+let notaTimer = null;
+
+function guardar(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progreso)); } catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){
+  const r = a.slice();
+  for(let i=r.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; }
+  return r;
+}
+function el(tag, cls, txt){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(txt !== undefined) e.textContent = txt;
+  return e;
+}
+function boton(txt, cls){
+  const b = document.createElement("button");
+  b.className = "btn " + (cls||"primary");
+  b.textContent = txt;
+  return b;
+}
+
+/* =====================================================================
+   MENÚ
+   ===================================================================== */
+function renderMenu(filtro){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(filtro||"");
+
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    div.dataset.cat = cat.id;
+
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>' + cat.emoji + '</span><span>' + cat.nombre + '</span>' +
+                     '<span class="cat-count">' + hechas + "/" + cat.tecnicas.length + '</span>' +
+                     '<span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+
+    const bar = el("div","cat-bar");
+    const barFill = document.createElement("i");
+    barFill.style.width = (hechas/cat.tecnicas.length*100) + "%";
+    bar.appendChild(barFill);
+    div.appendChild(bar);
+
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>' + t.nombre + '</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  return t ? t.catId : null;
+}
+
+/* =====================================================================
+   PANEL
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panel");
+  panel.innerHTML = "";
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bloqueIdx = CATEGORIAS.findIndex(c => c.id === t.catId) + 1;
+  head.appendChild(el("div","tech-pos", "Técnica " + (idx+1) + " de " + TECNICAS_FLAT.length +
+                     " · Bloque " + bloqueIdx + "/10"));
+
+  const block = CATEGORIAS.find(c => c.id === t.catId);
+  const dots = el("div","block-dots");
+  dots.title = "Puntos de avance del bloque";
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot" + (getProg(bt.id).ok ? " done":"") + (bt.id === t.id ? " current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  head.appendChild(dots);
+  panel.appendChild(head);
+
+  /* flashcard */
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","💡 Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Toca la tarjeta para ver el ejemplo ↻"));
+
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","🔎 Ejemplo práctico"));
+  back.appendChild(el("p", null, t.ejemplo));
+  back.appendChild(el("span","fc-hint","↻ Toca de nuevo para volver al concepto"));
+
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+
+  const flipBtn = boton("↻ Voltear tarjeta", "ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  /* ejercicio */
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "✍️ Ejercicio interactivo <span>comprueba tu comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+
+  const body = el("div");
+  sec.appendChild(body);
+  const fb = el("div","feedback");
+  sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  /* cuaderno */
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "📓 Mi cuaderno <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+
+  const ta = document.createElement("textarea");
+  ta.rows = 5;
+  ta.placeholder = "Escribe aquí tus notas, dudas, ejemplos propios o el resultado del ejercicio…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  /* navegación */
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  /* eventos */
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n === 1 ? " palabra" : " palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardar();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu(document.getElementById("search").value);
+  actualizarProgreso();
+}
+
+/* =====================================================================
+   EJERCICIOS
+   ===================================================================== */
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo === "quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo === "fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo === "order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo === "classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo === "open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback " + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const letras = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">' + letras[i] + '</span><span>' + op + '</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c, j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok ? "ok" : "mal", ok ? "✓ ¡Correcto!" : "✗ Revisa tu respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length - 1){
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.className = "hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key === "Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i => !i.value.trim())){
+      mostrarFeedback(fb,"info","Completa todos los huecos","Escribe una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i] || []).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok ? "ok" : "mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos === total;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Perfecto! " + aciertos + "/" + total : "✗ " + aciertos + " de " + total + " correctas",
+      ej.retro + (perfecto ? "" : " · Alguna respuesta válida: " + ej.respuestas.map((r,i) => (i+1) + ") " + r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i) => ({txt, i})));
+  const seq = [];
+
+  const wrap = el("div","order-wrap");
+  const colA = el("div","order-col");
+  colA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool");
+  colA.appendChild(poolEl);
+  const colB = el("div","order-col");
+  colB.appendChild(el("h4", null, "Tu secuencia"));
+  const seqEl = el("div","seq");
+  colB.appendChild(seqEl);
+  wrap.appendChild(colA); wrap.appendChild(colB);
+  cont.appendChild(wrap);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML = ""; seqEl.innerHTML = "";
+    pool.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item"; b.textContent = o.txt;
+      b.onclick = () => { if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item";
+      b.innerHTML = '<span class="num">' + (k+1) + '</span><span>' + o.txt + '</span>';
+      b.onclick = () => { if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length !== correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pasa todos los elementos a «Tu secuencia».");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo, k) => {
+      const ok = seq[k].i === k;
+      nodo.classList.add(ok ? "ok" : "mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos === correcto.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Secuencia correcta!" : "✗ " + aciertos + " de " + correcto.length + " en su lugar",
+      perfecto ? ej.retro : "Empieza por: «" + correcto[0].slice(0,70) + "…». " + ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderClassify(ej, cont, fb, techId){
+  const seleccion = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it, i) => {
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat, ci) => {
+      const c = document.createElement("button");
+      c.className = "chip"; c.textContent = cat;
+      c.onclick = () => {
+        if(row.dataset.locked) return;
+        seleccion[i] = ci;
+        Array.from(chips.children).forEach((x,xi) => x.classList.toggle("sel", xi === ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seleccion.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigna una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila, i) => {
+      fila.dataset.locked = "1";
+      const ok = seleccion[i] === ej.items[i].cat;
+      fila.classList.add(ok ? "ok" : "mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c => c.disabled = true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-family:system-ui,sans-serif;font-size:12px;color:#b91c1c;font-weight:700;";
+        nota.textContent = "→ Correcto: " + ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos === ej.items.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Clasificación perfecta!" : "✗ " + aciertos + " de " + ej.items.length + " correctas",
+      ej.retro || "");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 5; ta.placeholder = "Redacta aquí tu respuesta…";
+  cont.appendChild(ta);
+
+  const ul = el("ul","criterios"); ul.style.marginTop = "14px";
+  ej.criterios.forEach((c, i) => {
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.id = "crit_" + techId + "_" + i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+
+  const mod = el("div","modelo");
+  mod.innerHTML = "<strong>Respuesta modelo orientativa</strong>" + ej.modelo;
+  cont.appendChild(mod);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escribe primero tu respuesta","Redacta al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados === total ? "ok" : "info",
+      marcados === total ? "✓ Autoevaluación completa" : "Autoevaluación: " + marcados + "/" + total,
+      "Compara tu texto con el modelo: ¿qué ideas coinciden? ¿qué te falta? ¿qué aportas tú?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+
+/* =====================================================================
+   PROGRESO
+   ===================================================================== */
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardar();
+    actualizarProgreso();
+    renderMenu(document.getElementById("search").value);
+    const block = CATEGORIAS.find(c => c.tecnicas.some(t => t.id === id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i) => {
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas + " / " + total;
+  document.getElementById("progressFill").style.width = (hechas/total*100) + "%";
+}
+
+/* =====================================================================
+   SIDEBAR / BÚSQUEDA / RESET
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("search").addEventListener("input", e => {
+  renderMenu(e.target.value);
+  if(e.target.value.trim()){
+    document.querySelectorAll(".cat").forEach(c => c.classList.add("open"));
+  }
+});
+
+document.getElementById("btnReset").onclick = () => {
+  if(confirm("¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer.")){
+    progreso = {}; guardar();
+    abrirTecnica(TECNICAS_FLAT[0].id);
+  }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+renderMenu("");
+abrirTecnica(actualId);
+actualizarProgreso();
+</script>
+</body>
+</html>

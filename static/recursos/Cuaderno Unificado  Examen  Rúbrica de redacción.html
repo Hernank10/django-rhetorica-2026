@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<title>Cuaderno Unificado · + Examen + Rúbrica de redacción</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --ok-soft:#e0efe2; --bad:#8b1e1e; --bad-soft:#f8e0e0;
+    --warn:#a67c52; --warn-soft:#f0e4d3;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+    --transition:.22s cubic-bezier(.4,.15,.2,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:"Public Sans",system-ui,sans-serif;background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),#e8e6e0;color:var(--ink);-webkit-font-smoothing:antialiased;font-size:.95rem;min-height:100vh;}
+
+  /* TOPBAR */
+  .topbar{position:sticky;top:0;z-index:1030;display:flex;align-items:center;justify-content:space-between;gap:.9rem;padding:.55rem 1rem;background:linear-gradient(180deg,#fdfaf3,#f7f2e8);border-bottom:3px double var(--navy);box-shadow:0 1px 0 var(--bronze-line) inset;flex-wrap:wrap;}
+  .brand{display:flex;align-items:center;gap:.75rem;min-width:0;}
+  .seal{width:42px;height:42px;flex:0 0 auto;border-radius:50%;padding:3px;border:1.5px dashed var(--bronze);display:grid;place-items:center;}
+  .seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:10px;position:relative;}
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:4px;color:var(--bronze);}
+  .seal-inner::before{top:4px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:4px;left:50%;transform:translateX(-50%);}
+  .brand h1{font-family:"PT Serif",Georgia,serif;font-size:.8rem;margin:0;font-weight:700;color:var(--navy);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .brand small{font-size:.55rem;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;font-weight:700;}
+
+  .modo-tabs{display:flex;border:1px solid var(--navy);background:var(--paper);flex-wrap:wrap;}
+  .modo-tab{font-size:.62rem;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:.4rem .65rem;cursor:pointer;border:none;background:transparent;color:var(--navy);border-right:1px solid var(--navy);transition:var(--transition);font-family:inherit;}
+  .modo-tab:last-child{border-right:none;}
+  .modo-tab:hover{background:var(--navy-soft);}
+  .modo-tab.active{background:var(--navy);color:var(--paper);}
+  .modo-tab.exam.active{background:var(--bronze);border-right-color:var(--bronze);}
+  .modo-tab.rubrica.active{background:var(--ok);border-right-color:var(--ok);}
+
+  .btn-sm-custom{font-size:.62rem;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:.36rem .65rem;border:1px solid var(--navy);background:var(--paper);color:var(--navy);cursor:pointer;border-radius:3px;transition:var(--transition);font-family:inherit;}
+  .btn-sm-custom:hover{background:var(--navy-soft);}
+  .btn-sm-custom.primary{background:var(--navy);color:var(--paper);}
+  .btn-sm-custom.primary:hover{background:var(--navy-dark);}
+  .btn-sm-custom.outline{border-color:var(--bronze);color:var(--bronze-dark);}
+  .btn-sm-custom.outline:hover{background:var(--bronze-soft);}
+  .btn-sm-custom.danger{border-color:var(--bad);color:var(--bad);}
+  .btn-sm-custom.danger:hover{background:var(--bad-soft);}
+  .btn-sm-custom.ok{border-color:var(--ok);color:var(--ok);}
+  .btn-sm-custom.ok:hover{background:var(--ok-soft);}
+
+  .status-pill{display:inline-flex;align-items:center;gap:.3rem;font-size:.54rem;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:.24rem .45rem;border-radius:99px;border:1px solid;background:var(--paper);}
+  .status-pill.online{border-color:var(--ok);color:var(--ok);}
+  .status-pill.offline{border-color:var(--bad);color:var(--bad);}
+  .status-pill .dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+  .lang-pill{display:inline-flex;align-items:center;gap:.3rem;font-size:.54rem;font-weight:800;letter-spacing:.3px;text-transform:uppercase;padding:.24rem .45rem;border-radius:3px;border:1px solid var(--bronze-line);background:var(--bronze-soft);color:var(--bronze-dark);cursor:pointer;transition:var(--transition);}
+  .lang-pill:hover{background:var(--bronze);color:var(--paper);}
+
+  /* LAYOUT */
+  .layout{display:grid;grid-template-columns:270px 1fr;gap:1.1rem;padding:1.1rem;max-width:1450px;margin:0 auto;align-items:start;}
+  @media (max-width:900px){.layout{grid-template-columns:1fr;padding:.7rem;gap:.7rem;}}
+
+  /* SIDEBAR */
+  .sidebar{position:sticky;top:74px;max-height:calc(100vh - 92px);overflow-y:auto;background:var(--paper);border:1px solid var(--navy);padding:4px;box-shadow:var(--shadow);border-radius:4px;}
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:.7rem;border-radius:3px;}
+  .side-label{font-size:.55rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--bronze-dark);padding-bottom:.35rem;margin-bottom:.55rem;border-bottom:1px solid var(--bronze-line);display:flex;justify-content:space-between;align-items:center;}
+  .side-search{width:100%;font-size:.78rem;padding:.36rem .5rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);margin-bottom:.6rem;border-radius:3px;outline:none;}
+  .side-search:focus{border-color:var(--navy);}
+  .cat-block{margin-bottom:.25rem;}
+  .cat-toggle{display:flex;align-items:center;gap:.4rem;width:100%;text-align:left;background:none;border:none;padding:.42rem .48rem;font-size:.62rem;font-weight:800;letter-spacing:.3px;text-transform:uppercase;color:var(--navy);border-left:3px solid transparent;font-family:inherit;transition:var(--transition);cursor:pointer;}
+  .cat-toggle:hover{background:var(--navy-soft);border-left-color:var(--bronze);}
+  .cat-toggle[aria-expanded="true"] .chev{transform:rotate(90deg);}
+  .chev{margin-left:auto;font-size:.5rem;color:var(--bronze);transition:transform var(--transition);}
+  .cat-count{font-family:"PT Serif",Georgia,serif;font-size:.58rem;font-weight:700;background:var(--bronze-soft);color:var(--bronze-dark);padding:.08rem .3rem;border:1px solid var(--bronze-line);}
+  .cat-prog{height:3px;background:var(--paper-2);margin:0 .48rem .3rem;border:1px solid var(--line);}
+  .cat-prog > div{height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width var(--transition);}
+  .tech-btn{display:flex;align-items:flex-start;gap:.35rem;width:100%;text-align:left;background:none;border:none;padding:.3rem .48rem;font-size:.68rem;line-height:1.32;color:var(--ink);border-left:3px solid transparent;font-family:inherit;transition:var(--transition);cursor:pointer;border-radius:0 3px 3px 0;}
+  .tech-btn:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .tech-btn.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .tech-btn .done-mark{flex:0 0 auto;width:11px;height:11px;margin-top:.15rem;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;font-size:.45rem;color:transparent;}
+  .tech-btn.done .done-mark{background:var(--ok);border-color:var(--ok);color:#fff;}
+
+  /* PANEL */
+  .panel{background:var(--paper);border:1px solid var(--navy);padding:5px;box-shadow:var(--shadow);border-radius:4px;position:relative;}
+  .panel-inner{border:1px solid var(--bronze-line);padding:1.5rem 1.7rem;border-radius:3px;background:radial-gradient(circle at 100% 0%, var(--bronze-soft) 0%, transparent 45%), var(--paper);position:relative;}
+  @media (max-width:640px){.panel-inner{padding:.95rem;}}
+  .panel-seal{position:absolute;top:12px;right:16px;width:52px;height:52px;border-radius:50%;border:1.5px dashed var(--bronze);padding:3px;opacity:.7;}
+  .panel-seal-inner{width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);display:grid;place-items:center;color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:6.5px;text-align:center;line-height:1.1;}
+
+  /* TÉCNICAS */
+  .tech-header{padding-right:65px;margin-bottom:.85rem;}
+  .tech-badge{display:inline-block;font-size:.54rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--bronze-dark);background:var(--bronze-soft);border:1px solid var(--bronze-line);padding:.12rem .4rem;margin-bottom:.4rem;}
+  .tech-title{font-family:"PT Serif",Georgia,serif;font-size:clamp(.98rem,2.4vw,1.35rem);font-weight:700;color:var(--navy);line-height:1.2;margin:0;}
+  .tech-sub{font-size:.6rem;color:var(--muted);margin-top:.22rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;}
+  .rule-double{height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);margin:.65rem 0 .95rem;}
+
+  .flashcard{perspective:1600px;margin:0 0 .85rem;cursor:pointer;border:1px solid var(--navy);padding:4px;background:var(--paper);box-shadow:var(--shadow);border-radius:3px;}
+  .flashcard-inner{position:relative;min-height:clamp(190px,28vh,240px);transform-style:preserve-3d;transition:transform .68s cubic-bezier(.4,.15,.2,1);border:1px solid var(--bronze-line);}
+  .flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+  .flashcard-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:.85rem 1rem;display:flex;flex-direction:column;overflow:auto;background:var(--paper);background-image:linear-gradient(transparent 27px, rgba(20,33,61,.06) 27px 28px);background-size:100% 28px;background-position:0 14px;}
+  .flashcard-back{transform:rotateY(180deg);background:var(--bronze-soft);}
+  .flashcard-tag{font-size:.55rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.4rem;padding-bottom:.28rem;border-bottom:1px solid var(--bronze-line);display:block;}
+  .flashcard-face p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.86rem;line-height:1.7;color:var(--ink);}
+  .flashcard-back p{font-style:italic;color:var(--navy-dark);}
+  .flashcard-hint{margin-top:auto;padding-top:.5rem;font-size:.55rem;color:var(--muted);font-weight:600;letter-spacing:.4px;text-transform:uppercase;}
+
+  .sec-title{display:flex;align-items:center;gap:.4rem;font-family:"PT Serif",Georgia,serif;font-size:.9rem;font-weight:700;color:var(--navy);margin:1.2rem 0 .5rem;padding-bottom:.32rem;border-bottom:1px solid var(--navy);position:relative;}
+  .sec-title::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--bronze-line);}
+  .sec-title small{font-size:.55rem;color:var(--muted);margin-left:auto;letter-spacing:.4px;text-transform:uppercase;}
+
+  .consigna{font-family:"PT Serif",Georgia,serif;font-size:.86rem;line-height:1.55;background:var(--paper-2);border-left:3px solid var(--bronze);padding:.55rem .8rem;margin:0 0 .8rem;border-radius:0 3px 3px 0;}
+
+  .opciones{display:flex;flex-direction:column;gap:.32rem;}
+  .opcion-btn{display:flex;gap:.5rem;align-items:flex-start;width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:.55rem .7rem;cursor:pointer;transition:var(--transition);font-family:inherit;font-size:.78rem;line-height:1.45;border-radius:3px;}
+  .opcion-btn:hover:not(:disabled){border-color:var(--navy);background:var(--navy-soft);}
+  .opcion-btn:disabled{cursor:default;opacity:.9;}
+  .opcion-letra{flex:0 0 auto;width:20px;height:20px;background:var(--paper-2);color:var(--muted);border:1px solid var(--line);display:grid;place-items:center;font-family:"PT Serif",Georgia,serif;font-size:.65rem;font-weight:700;}
+  .opcion-btn.correcta{border-color:var(--ok);background:var(--ok-soft);}
+  .opcion-btn.correcta .opcion-letra{background:var(--ok);color:#fff;border-color:var(--ok);}
+  .opcion-btn.incorrecta{border-color:var(--bad);background:var(--bad-soft);}
+  .opcion-btn.incorrecta .opcion-letra{background:var(--bad);color:#fff;border-color:var(--bad);}
+
+  textarea.area-redaccion{width:100%;font-family:"JetBrains Mono",monospace;font-size:.8rem;line-height:1.5;color:var(--ink);padding:.6rem .8rem;border:1px solid var(--bronze-line);background:var(--paper);border-radius:3px;resize:vertical;outline:none;transition:var(--transition);}
+  textarea.area-redaccion:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-soft);}
+
+  .fb-box{margin-top:.85rem;padding:0;overflow:hidden;max-height:0;opacity:0;transition:var(--transition);border-left:3px solid transparent;border-radius:0 3px 3px 0;}
+  .fb-box.show{max-height:800px;opacity:1;padding:.7rem .9rem;}
+  .fb-box.fb-ok{background:var(--ok-soft);border-left-color:var(--ok);color:var(--ok);}
+  .fb-box.fb-mal{background:var(--bad-soft);border-left-color:var(--bad);color:var(--bad);}
+  .fb-box.fb-info{background:var(--bronze-soft);border-left-color:var(--bronze);color:var(--bronze-dark);}
+  .fb-box strong{display:block;font-size:.58rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:.22rem;}
+  .fb-box p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.82rem;line-height:1.55;}
+
+  .cuaderno-block{margin-top:1.4rem;padding-top:.95rem;border-top:1px solid var(--navy);position:relative;}
+  .cuaderno-block::before{content:"";position:absolute;left:0;right:0;top:2px;height:1px;background:var(--bronze-line);}
+  .cuaderno-foot{display:flex;justify-content:space-between;align-items:center;font-size:.58rem;color:var(--muted);margin-top:.32rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  #notaStatus{color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+  .nav-foot{display:flex;justify-content:space-between;gap:.5rem;margin-top:1.1rem;padding-top:.85rem;border-top:1px solid var(--bronze-line);}
+
+  .block-dots{display:flex;gap:.25rem;flex-wrap:wrap;margin-top:.4rem;}
+  .block-dot{width:9px;height:9px;border:1px solid var(--line);background:var(--paper);cursor:pointer;transition:var(--transition);}
+  .block-dot.done{background:var(--ok);border-color:var(--ok);}
+  .block-dot.current{background:var(--bronze);border-color:var(--bronze-dark);}
+
+  /* DASHBOARD */
+  .dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:.85rem;margin-bottom:1.3rem;}
+  .kpi{border:1px solid var(--bronze-line);padding:.85rem;border-radius:4px;background:var(--paper);border-left:4px solid var(--navy);position:relative;overflow:hidden;}
+  .kpi.exam{border-left-color:var(--bronze);}
+  .kpi .lbl{font-size:.54rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.22rem;}
+  .kpi .val{font-family:"PT Serif",Georgia,serif;font-size:1.8rem;font-weight:700;color:var(--navy);line-height:1;}
+  .kpi .sub{font-size:.64rem;color:var(--muted);margin-top:.28rem;}
+  .kpi .spark{position:absolute;right:6px;bottom:6px;opacity:.6;}
+
+  .chart-card{border:1px solid var(--navy);padding:4px;border-radius:4px;background:var(--paper);box-shadow:var(--shadow);margin-bottom:1rem;}
+  .chart-inner{border:1px solid var(--bronze-line);padding:1rem;border-radius:3px;background:var(--paper);}
+  .chart-inner h3{font-family:"PT Serif",Georgia,serif;font-size:.95rem;color:var(--navy);margin:0 0 .15rem;font-weight:700;}
+  .chart-inner .sub{font-size:.62rem;color:var(--muted);margin:0 0 .85rem;letter-spacing:.4px;text-transform:uppercase;font-weight:600;}
+  .bar-chart{display:flex;flex-direction:column;gap:.55rem;}
+  .bar-row{display:grid;grid-template-columns:200px 1fr 55px;gap:.55rem;align-items:center;}
+  @media (max-width:640px){.bar-row{grid-template-columns:1fr;gap:.22rem;}}
+  .bar-row .nombre{font-size:.72rem;font-weight:700;color:var(--navy);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .bar-row .nombre small{display:block;font-weight:500;color:var(--muted);font-size:.58rem;}
+  .bar-track{height:20px;background:var(--paper-2);border:1px solid var(--line);border-radius:3px;overflow:hidden;position:relative;}
+  .bar-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));width:0;transition:width .8s cubic-bezier(.4,.15,.2,1);display:flex;align-items:center;justify-content:flex-end;padding-right:.4rem;color:var(--paper);font-size:.58rem;font-weight:700;}
+  .bar-fill.exam{background:linear-gradient(90deg,var(--bronze),var(--bronze-dark));}
+  .bar-row .pct{font-family:"PT Serif",Georgia,serif;font-size:.8rem;font-weight:700;color:var(--navy);text-align:right;}
+
+  .donut-wrap{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .donut-info{display:flex;flex-direction:column;gap:.4rem;font-size:.74rem;}
+  .donut-info div{display:flex;align-items:center;gap:.4rem;}
+  .donut-info .dot{width:10px;height:10px;border-radius:3px;}
+  .donut-info .lbl{flex:1;color:var(--ink);}
+  .donut-info .val{font-weight:700;color:var(--navy);font-family:"PT Serif",Georgia,serif;}
+
+  /* EXAMEN */
+  .exam-bar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.75rem .95rem;background:linear-gradient(90deg,var(--bronze-soft),var(--paper));border:1px solid var(--bronze-line);border-radius:4px;margin-bottom:1.1rem;flex-wrap:wrap;}
+  .exam-stat{display:flex;flex-direction:column;gap:.12rem;}
+  .exam-stat .lbl{font-size:.54rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--bronze-dark);}
+  .exam-stat .val{font-family:"PT Serif",Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--navy);}
+  .exam-progress{flex:1 1 100%;height:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:99px;overflow:hidden;margin-top:.4rem;}
+  .exam-progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--bronze),var(--navy));transition:width .35s;}
+
+  .exam-q{border:1px solid var(--navy);padding:4px;background:var(--paper);border-radius:3px;box-shadow:var(--shadow);margin-bottom:1rem;}
+  .exam-q-inner{border:1px solid var(--bronze-line);padding:1.1rem;border-radius:3px;}
+  .exam-q .q-meta{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.55rem;}
+  .exam-q .q-tag{font-size:.55rem;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:.15rem .45rem;border-radius:2px;}
+  .exam-q .q-tag.html{background:var(--navy-soft);color:var(--navy-dark);}
+  .exam-q .q-tag.gram{background:var(--bronze-soft);color:var(--bronze-dark);}
+  .exam-q .q-tag.red{background:var(--ok-soft);color:var(--ok);}
+  .exam-q .q-num{font-family:"PT Serif",Georgia,serif;font-size:.78rem;font-weight:700;color:var(--muted);margin-left:auto;}
+  .exam-q .q-text{font-family:"PT Serif",Georgia,serif;font-size:.98rem;line-height:1.55;color:var(--ink);margin:0 0 .75rem;font-weight:600;}
+
+  .exam-nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:space-between;margin-top:1rem;}
+  .exam-nav .btns{display:flex;gap:.4rem;flex-wrap:wrap;}
+
+  .result-card{border:2px solid var(--navy);padding:5px;background:var(--paper);border-radius:5px;box-shadow:var(--shadow);}
+  .result-card .inner{border:1px solid var(--bronze-line);padding:1.5rem;border-radius:3px;text-align:center;}
+  .result-big{font-family:"PT Serif",Georgia,serif;font-size:3rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:.3rem;}
+  .result-range{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:.25rem .65rem;border-radius:99px;margin-bottom:.9rem;}
+  .result-range.excelente{background:var(--ok-soft);color:var(--ok);}
+  .result-range.bueno{background:var(--navy-soft);color:var(--navy-dark);}
+  .result-range.aceptable{background:var(--bronze-soft);color:var(--bronze-dark);}
+  .result-range.bajo{background:var(--bad-soft);color:var(--bad);}
+
+  .result-break{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.7rem;margin-top:1rem;}
+  .result-break .item{background:var(--paper-2);border-radius:3px;padding:.65rem;text-align:left;border-left:3px solid var(--bronze);}
+  .result-break .item strong{display:block;font-size:.58rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--bronze-dark);}
+  .result-break .item span{font-family:"PT Serif",Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--navy);}
+
+  .history-row{display:grid;grid-template-columns:60px 1fr 70px 70px;gap:.5rem;align-items:center;padding:.5rem .7rem;background:var(--paper);border:1px solid var(--line);border-radius:3px;margin-bottom:.35rem;font-size:.74rem;}
+  .history-row .fecha{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--muted);}
+  .history-row .tipo{font-weight:700;color:var(--navy);}
+  .history-row .ptje{font-family:"PT Serif",Georgia,serif;font-size:.9rem;font-weight:700;color:var(--navy);text-align:right;}
+  .history-row .pct{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:700;color:var(--bronze-dark);text-align:right;}
+
+  /* RÚBRICA */
+  .rubrica-grid{display:grid;grid-template-columns:1fr 100px 1fr;gap:.55rem;align-items:center;padding:.65rem;border:1px solid var(--line);border-radius:3px;margin-bottom:.45rem;background:var(--paper);}
+  .rubrica-grid .crit{font-size:.85rem;font-weight:700;color:var(--navy);}
+  .rubrica-grid .crit small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;margin-top:.15rem;line-height:1.4;}
+  .rubrica-grid .peso{display:flex;align-items:center;gap:.3rem;}
+  .rubrica-grid .peso input{width:60px;font-size:.82rem;padding:.3rem .4rem;border:1px solid var(--line);border-radius:3px;text-align:center;font-family:inherit;}
+  .rubrica-grid .valores{display:flex;gap:.2rem;justify-content:flex-end;}
+  .rubrica-grid .val-btn{width:30px;height:30px;border:1px solid var(--line);background:var(--paper);cursor:pointer;border-radius:3px;font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:.82rem;color:var(--muted);transition:var(--transition);}
+  .rubrica-grid .val-btn:hover{border-color:var(--navy);color:var(--navy);}
+  .rubrica-grid .val-btn.sel{background:var(--navy);border-color:var(--navy);color:var(--paper);}
+  .rubrica-grid.excelente .val-btn.sel{background:var(--ok);border-color:var(--ok);}
+  .rubrica-grid.bueno .val-btn.sel{background:var(--blue);border-color:var(--blue);}
+  .rubrica-grid.aceptable .val-btn.sel{background:var(--bronze);border-color:var(--bronze);}
+  .rubrica-grid.bajo .val-btn.sel{background:var(--bad);border-color:var(--bad);}
+
+  .rubrica-resumen{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:1rem;}
+  .rubrica-resumen .bloque{background:var(--paper-2);padding:.75rem;border-radius:3px;border-left:3px solid var(--bronze);}
+  .rubrica-resumen .bloque strong{display:block;font-size:.56rem;font-weight:800;letter-spacing:.7px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.3rem;}
+  .rubrica-resumen .bloque .num{font-family:"PT Serif",Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--navy);line-height:1;}
+
+  /* TALLER */
+  .tool-card{background:var(--paper);border:1px solid var(--navy);padding:4px;border-radius:3px;box-shadow:var(--shadow);margin-bottom:.85rem;}
+  .tool-inner{border:1px solid var(--bronze-line);padding:.9rem;border-radius:3px;background:var(--paper);}
+  .tool-inner h4{font-family:"PT Serif",Georgia,serif;font-size:.92rem;color:var(--navy);margin:0 0 .32rem;font-weight:700;}
+  .tool-inner > p{font-size:.74rem;color:var(--muted);margin:0 0 .7rem;}
+  .input-sm,.select-sm{font-size:.8rem;width:100%;padding:.36rem .5rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px;outline:none;transition:var(--transition);}
+  .input-sm:focus,.select-sm:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+  .resultado-caja{background:var(--paper-2);border:1px solid var(--bronze-line);padding:.7rem;border-radius:3px;font-family:"JetBrains Mono",monospace;font-size:.72rem;line-height:1.55;color:var(--ink);white-space:pre-wrap;max-height:420px;overflow-y:auto;margin-top:.6rem;}
+
+  .plantilla-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.65rem;margin:.85rem 0;}
+  .plantilla-item{border:1px solid var(--bronze-line);border-radius:4px;padding:.65rem;background:var(--paper);border-top:3px solid var(--navy);cursor:pointer;transition:var(--transition);}
+  .plantilla-item:hover{background:var(--bronze-soft);transform:translateY(-2px);}
+  .plantilla-item.active{border-top-color:var(--bronze);background:var(--bronze-soft);}
+  .plantilla-item h5{margin:0 0 .22rem;font-family:"PT Serif",Georgia,serif;font-size:.84rem;color:var(--navy);}
+  .plantilla-item p{margin:0;font-size:.66rem;color:var(--muted);line-height:1.4;}
+  .guia-pasos{display:grid;gap:.4rem;margin:.65rem 0;}
+  .guia-paso{background:var(--paper-2);border-left:3px solid var(--bronze);padding:.45rem .7rem;border-radius:0 3px 3px 0;font-family:"PT Serif",Georgia,serif;font-size:.8rem;line-height:1.5;}
+  .guia-paso strong{color:var(--navy);}
+  .ejemplo-4{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-top:.85rem;}
+  @media (max-width:700px){.ejemplo-4{grid-template-columns:1fr;}}
+  .ejemplo-card{border:1px solid var(--bronze-line);border-radius:4px;padding:.8rem;background:var(--paper);}
+  .ejemplo-card h5{font-family:"PT Serif",Georgia,serif;font-size:.82rem;color:var(--navy);margin:0 0 .28rem;display:flex;gap:.32rem;align-items:baseline;}
+  .ejemplo-card h5 span.tag{font-family:"Public Sans",sans-serif;font-size:.54rem;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:.08rem .32rem;background:var(--navy-soft);color:var(--navy-dark);border-radius:2px;}
+  .ejemplo-card p{margin:0 0 .4rem;font-family:"PT Serif",Georgia,serif;font-size:.8rem;line-height:1.55;color:var(--ink);}
+  .ejemplo-card p.en{color:var(--muted);font-style:italic;}
+
+  /* CERTIFICADO */
+  .certificado{text-align:center;padding:1.3rem .85rem 2rem;position:relative;}
+  .certificado::before,.certificado::after{content:"";position:absolute;left:0;right:0;height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);}
+  .certificado::before{top:0;} .certificado::after{bottom:0;}
+  .cert-sello{width:95px;height:95px;margin:0 auto 1rem;border-radius:50%;padding:4px;border:2px dashed var(--bronze);display:grid;place-items:center;position:relative;}
+  .cert-sello-inner{width:100%;height:100%;border-radius:50%;border:2px solid var(--navy);display:grid;place-items:center;background:radial-gradient(circle, var(--paper) 55%, var(--bronze-soft) 100%);color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;text-align:center;line-height:1.2;}
+  .cert-sello-inner .anio{font-size:1.7rem;display:block;line-height:1;}
+  .cert-sello-inner .lbl{font-size:.5rem;letter-spacing:2px;text-transform:uppercase;color:var(--bronze-dark);font-weight:800;}
+  .cert-eyebrow{font-size:.6rem;font-weight:800;letter-spacing:1.9px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.42rem;}
+  .cert-titulo{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.05rem,2.9vw,1.65rem);color:var(--navy);line-height:1.15;margin:0 0 .75rem;font-weight:700;}
+  .cert-linea{width:60%;margin:.85rem auto;height:1px;background:var(--bronze-line);position:relative;}
+  .cert-linea::before{content:"◆";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);padding:0 .42rem;color:var(--bronze);font-size:.62rem;}
+  .cert-otorgado{font-family:"PT Serif",Georgia,serif;font-style:italic;font-size:.82rem;color:var(--muted);margin:.75rem 0 .32rem;}
+  .cert-nombre{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.05rem,3vw,1.65rem);font-weight:700;color:var(--navy);line-height:1.15;padding:.28rem .6rem;border-bottom:1px dashed var(--bronze);display:inline-block;min-width:60%;outline:none;transition:var(--transition);}
+  .cert-nombre:hover,.cert-nombre:focus{background:var(--bronze-soft);}
+  .cert-desc{font-family:"PT Serif",Georgia,serif;font-size:.82rem;line-height:1.65;color:var(--ink);max-width:620px;margin:.85rem auto 0;}
+  .cert-firmas{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;max-width:490px;margin:1.5rem auto 0;}
+  .cert-firma{border-top:1px solid var(--navy);padding-top:.42rem;text-align:center;}
+  .cert-firma strong{display:block;font-family:"PT Serif",Georgia,serif;font-size:.8rem;color:var(--navy);outline:none;padding:.08rem .25rem;min-width:60%;}
+  .cert-firma small{font-size:.54rem;color:var(--muted);letter-spacing:.7px;text-transform:uppercase;font-weight:700;}
+  .cert-meta{display:flex;justify-content:space-between;gap:.8rem;margin-top:1.3rem;font-size:.58rem;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;font-weight:700;padding-top:.75rem;border-top:1px solid var(--bronze-line);}
+  .cert-meta span{outline:none;}
+
+  .doc-bloque{margin-top:1.9rem;page-break-before:always;}
+  .doc-bloque:first-of-type{page-break-before:avoid;}
+  .doc-bloque-header{padding:.75rem .9rem;background:var(--navy-soft);border-left:4px solid var(--navy);border-radius:3px;margin-bottom:.95rem;}
+  .doc-bloque-header h2{font-family:"PT Serif",Georgia,serif;font-size:1rem;color:var(--navy);margin:0 0 .18rem;display:flex;gap:.42rem;align-items:baseline;flex-wrap:wrap;}
+  .doc-bloque-header .rango{font-family:"JetBrains Mono",monospace;font-size:.6rem;font-weight:700;color:var(--bronze-dark);background:var(--bronze-soft);padding:.1rem .35rem;border:1px solid var(--bronze-line);}
+  .doc-bloque-header p{font-size:.7rem;color:var(--muted);margin:0;line-height:1.45;}
+  .doc-tecnica{display:grid;grid-template-columns:50px 1fr;gap:.75rem;padding:.8rem 0;border-bottom:1px solid var(--line);page-break-inside:avoid;}
+  .doc-tecnica .num{font-family:"PT Serif",Georgia,serif;font-size:1.35rem;font-weight:700;color:var(--bronze);line-height:1;text-align:right;padding-top:.15rem;}
+  .doc-tecnica .body h3{font-family:"PT Serif",Georgia,serif;font-size:.88rem;font-weight:700;color:var(--navy);margin:0 0 .25rem;line-height:1.3;}
+  .doc-tecnica .body p{font-size:.78rem;line-height:1.55;color:var(--ink);margin:0 0 .38rem;}
+  .doc-tecnica .ej{font-family:"JetBrains Mono",monospace;font-size:.66rem;line-height:1.5;background:var(--paper-2);border-left:3px solid var(--bronze);padding:.38rem .6rem;border-radius:0 3px 3px 0;color:var(--navy-dark);overflow-x:auto;white-space:pre-wrap;}
+
+  /* PWA + TOAST */
+  .pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(200px);background:var(--paper);border:1px solid var(--navy);box-shadow:var(--shadow);padding:.7rem .9rem;border-radius:6px;display:flex;align-items:center;gap:.75rem;max-width:500px;width:calc(100% - 2rem);z-index:2100;transition:transform .35s cubic-bezier(.4,.15,.2,1);}
+  .pwa-banner.show{transform:translateX(-50%) translateY(0);}
+  .pwa-banner .icon{width:40px;height:40px;border-radius:8px;background:var(--navy-soft);display:grid;place-items:center;font-size:1.2rem;flex:0 0 auto;}
+  .pwa-banner .text{flex:1;min-width:0;}
+  .pwa-banner .text strong{display:block;font-family:"PT Serif",Georgia,serif;color:var(--navy);font-size:.84rem;}
+  .pwa-banner .text small{font-size:.64rem;color:var(--muted);display:block;margin-top:.12rem;}
+  .pwa-banner .btns{display:flex;gap:.35rem;flex:0 0 auto;}
+  .app-toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--navy);color:var(--paper);padding:.55rem 1rem;font-size:.66rem;font-weight:700;letter-spacing:.4px;text-transform:uppercase;border:1px solid var(--bronze-line);box-shadow:var(--shadow);opacity:0;transition:var(--transition);z-index:2200;border-radius:3px;}
+  .app-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  @media print{
+    @page{size:A4;margin:2cm;}
+    body{background:#fff !important;}
+    .topbar,.sidebar,.app-toast,.no-print,.pwa-banner{display:none !important;}
+    .layout{display:block;padding:0;gap:0;max-width:none;margin:0;}
+    .panel{border:none;box-shadow:none;padding:0;background:#fff;}
+    .panel-inner{border:none;padding:0;background:#fff;}
+    .panel-seal{display:none;}
+    .doc-bloque{page-break-before:always;margin-top:0;}
+    .doc-bloque:first-of-type{page-break-before:avoid;}
+    .doc-tecnica{page-break-inside:avoid;}
+    .certificado{min-height:calc(297mm - 4cm);display:flex;flex-direction:column;justify-content:center;}
+  }
+  @media (max-width:900px){
+    .sidebar{position:fixed;top:0;left:0;bottom:0;width:280px;max-height:100vh;z-index:1050;padding:4px;transform:translateX(-105%);transition:transform .28s ease;overflow-y:auto;border-radius:0 6px 6px 0;}
+    .sidebar.open{transform:none;}
+    .only-mobile{display:inline-block !important;}
+  }
+  .only-mobile{display:none;}
+  .d-flex{display:flex;}.gap-2{gap:.45rem;}.gap-3{gap:.6rem;}.mt-2{margin-top:.4rem;}.mt-3{margin-top:.7rem;}.mb-2{margin-bottom:.4rem;}.mb-3{margin-bottom:.7rem;}
+</style>
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <div class="seal" aria-hidden="true"><div class="seal-inner">200+</div></div>
+    <div>
+      <h1>Cuaderno Unificado · HTML · Gramática · Redacción · Examen · Rúbrica</h1>
+      <small>200 técnicas · Python + Django · ES/EN · PWA</small>
+    </div>
+  </div>
+
+  <nav class="modo-tabs" role="tablist" aria-label="Modo de la aplicación">
+    <button class="modo-tab active" data-modo="dashboard" role="tab">📊 Dashboard</button>
+    <button class="modo-tab" data-modo="cuaderno" role="tab">📖 100 HTML</button>
+    <button class="modo-tab" data-modo="gramatica" role="tab">📚 100 Gramática</button>
+    <button class="modo-tab" data-modo="redaccion" role="tab">✍️ Redacción</button>
+    <button class="modo-tab exam" data-modo="examen" role="tab">🎯 Modo examen</button>
+    <button class="modo-tab rubrica" data-modo="rubrica" role="tab">📋 Rúbrica</button>
+    <button class="modo-tab" data-modo="taller" role="tab">🛠 Taller</button>
+    <button class="modo-tab" data-modo="certificado" role="tab">🎓 Certificado</button>
+  </nav>
+
+  <div class="d-flex gap-2" style="align-items:center;flex-wrap:wrap;">
+    <span class="status-pill online" id="statusPill" title="Estado de conexión">
+      <span class="dot"></span><span id="statusText">En línea</span>
+    </span>
+    <span class="lang-pill" id="langPill" title="Cambiar idioma">
+      🌐 <span id="langLabel">ES / EN</span>
+    </span>
+    <button class="btn-sm-custom primary" id="btnPrint" aria-label="PDF">🖨 PDF</button>
+    <button class="btn-sm-custom outline" id="btnWord" aria-label="Word">📄 Word</button>
+    <button class="btn-sm-custom danger" id="btnReset" aria-label="Reiniciar">↺</button>
+    <button class="btn-sm-custom only-mobile" id="btnMenu" aria-label="Menú">☰</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar no-print" id="sidebar" aria-label="Navegación">
+    <div class="sidebar-inner">
+      <div class="side-label">
+        <span id="sidebarTitle">Secciones</span>
+        <span class="cat-count" id="sidebarCount">200</span>
+      </div>
+      <input type="search" class="side-search" id="searchTecnica" placeholder="🔎 Buscar técnica…" style="display:none;">
+      <nav id="menuDashboard" aria-label="Dashboard"></nav>
+      <nav id="menuCuaderno" aria-label="Bloques HTML" style="display:none;"></nav>
+      <nav id="menuGramatica" aria-label="Bloques de gramática" style="display:none;"></nav>
+      <nav id="menuRedaccion" aria-label="Tipos de párrafo" style="display:none;"></nav>
+      <nav id="menuExamen" aria-label="Examen" style="display:none;"></nav>
+      <nav id="menuRubrica" aria-label="Rúbrica" style="display:none;"></nav>
+      <nav id="menuTaller" aria-label="Herramientas" style="display:none;"></nav>
+      <nav id="menuCertificado" aria-label="Documento" style="display:none;"></nav>
+    </div>
+  </aside>
+
+  <main class="panel" id="panelPrincipal" tabindex="-1">
+    <div class="panel-inner" id="panelInner" role="region" aria-live="polite"></div>
+  </main>
+</div>
+
+<div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATOS · 100 HTML + 100 Gramática + 4 párrafos + banco redacción
+   (versión reducida pero completa para el ejemplo; se mantienen 200 técnicas)
+   ===================================================================== */
+const BLOQUES_HTML = [
+  {id:"h1", emoji:"🧱", nombre:"HTML semántico", nombreEN:"Semantic HTML", rango:"1–20", desc:"Etiquetas, accesibilidad, formularios.", descEN:"Tags, accessibility, forms.", tecnicas:[
+    {n:1,t:"Etiquetas semánticas",tEN:"Semantic tags",c:"<header>, <main>, <nav>, <footer> dan significado estructural.",cEN:"<header>, <main>, <nav>, <footer> give structural meaning.",e:"<header>…</header>"},
+    {n:2,t:"<details>/<summary>",tEN:"<details>/<summary>",c:"Módulos colapsables sin JS.",cEN:"Collapsible modules without JS.",e:"<details><summary>U1</summary></details>"},
+    {n:3,t:"Formularios accesibles",tEN:"Accessible forms",c:"<label for> vinculado al id.",cEN:"<label for> linked to id.",e:"<label for='n'>N</label><input id='n'>"},
+    {n:4,t:"ARIA para lectores",tEN:"ARIA for screen readers",c:"aria-label, aria-live, aria-expanded.",cEN:"aria-label, aria-live, aria-expanded.",e:"<button aria-label='Cerrar'>×</button>"},
+    {n:5,t:"<template>",tEN:"<template>",c:"HTML inerte clonable con JS.",cEN:"Inert HTML clonable with JS.",e:"tpl.content.cloneNode(true)"},
+    {n:6,t:"<progress>/<meter>",tEN:"<progress>/<meter>",c:"Progreso y medida en rango.",cEN:"Progress and ranged measure.",e:"<progress value='70' max='100'>"},
+    {n:7,t:"<dialog> nativo",tEN:"Native <dialog>",c:"Modal sin librerías.",cEN:"Modal without libraries.",e:"d.showModal()"},
+    {n:8,t:"Meta viewport",tEN:"Viewport meta",c:"width=device-width, initial-scale=1.",cEN:"width=device-width, initial-scale=1.",e:"<meta name='viewport' content='…'>"},
+    {n:9,t:"Validación HTML5",tEN:"HTML5 validation",c:"required, pattern, minlength.",cEN:"required, pattern, minlength.",e:"<input required minlength='3'>"},
+    {n:10,t:"data-* para JS",tEN:"data-* for JS",c:"Leídos con dataset.",cEN:"Read with dataset.",e:"btn.dataset.id"},
+    {n:11,t:"Tablas responsivas",tEN:"Responsive tables",c:"table-responsive.",cEN:"table-responsive.",e:"<div class='table-responsive'>"},
+    {n:12,t:"Enlaces #id",tEN:"Internal links",c:"Navegación interna.",cEN:"Internal navigation.",e:"<a href='#x'>Ir</a>"},
+    {n:13,t:"<dl>/<dt>/<dd>",tEN:"<dl>/<dt>/<dd>",c:"Listas descriptivas.",cEN:"Description lists.",e:"<dl><dt>T</dt><dd>D</dd></dl>"},
+    {n:14,t:"<figure>/<figcaption>",tEN:"<figure>/<figcaption>",c:"Imagen con su pie.",cEN:"Image with caption.",e:"<figure><img><figcaption>F1</figcaption></figure>"},
+    {n:15,t:"<datalist>",tEN:"<datalist>",c:"Sugerencias.",cEN:"Suggestions.",e:"<input list='l'>"},
+    {n:16,t:"<mark>",tEN:"<mark>",c:"Resalta texto.",cEN:"Highlights text.",e:"<mark>clave</mark>"},
+    {n:17,t:"<blockquote>",tEN:"<blockquote>",c:"Citas extensas.",cEN:"Long quotes.",e:"<blockquote cite='…'>…</blockquote>"},
+    {n:18,t:"<code>/<pre>",tEN:"<code>/<pre>",c:"Fragmentos de código.",cEN:"Code snippets.",e:"<pre><code>def f():</code></pre>"},
+    {n:19,t:"<time>",tEN:"<time>",c:"Fecha legible por máquina.",cEN:"Machine-readable date.",e:"<time datetime='2025-01-01'>"},
+    {n:20,t:"<aside>",tEN:"<aside>",c:"Información complementaria.",cEN:"Complementary info.",e:"<aside>Nota</aside>"}
+  ]},
+  {id:"h2", emoji:"🎨", nombre:"CSS moderno", nombreEN:"Modern CSS", rango:"21–40", desc:"Variables, grid, tipografía fluida.", descEN:"Variables, grid, fluid typography.", tecnicas:[
+    {n:21,t:"Custom properties",tEN:"Custom properties",c:"--var en :root.",cEN:"--var in :root.",e:":root{--navy:#14213d;}"},
+    {n:22,t:"clamp()",tEN:"clamp()",c:"Tipografía fluida.",cEN:"Fluid typography.",e:"clamp(1rem, 2.5vw, 1.8rem)"},
+    {n:23,t:"CSS Grid",tEN:"CSS Grid",c:"Layouts fila/columna.",cEN:"Row/column layouts.",e:"grid-template-columns: repeat(3,1fr)"},
+    {n:24,t:"gap",tEN:"gap",c:"Separa sin márgenes.",cEN:"Separates without margins.",e:"gap:1rem"},
+    {n:25,t:"prefers-color-scheme",tEN:"prefers-color-scheme",c:"Detecta preferencia.",cEN:"Detects preference.",e:"@media (prefers-color-scheme: dark)"},
+    {n:26,t:"aspect-ratio",tEN:"aspect-ratio",c:"Fija proporción.",cEN:"Fixes ratio.",e:"aspect-ratio: 16/9"},
+    {n:27,t:"@keyframes",tEN:"@keyframes",c:"Animaciones.",cEN:"Animations.",e:"@keyframes fadeIn{to{opacity:1;}}"},
+    {n:28,t:"transition",tEN:"transition",c:"Suaviza cambios.",cEN:"Smooths changes.",e:"transition: all .2s"},
+    {n:29,t:"scroll-behavior",tEN:"scroll-behavior",c:"Scroll suave.",cEN:"Smooth scroll.",e:"html{scroll-behavior:smooth;}"},
+    {n:30,t:"backdrop-filter",tEN:"backdrop-filter",c:"Vidrio esmerilado.",cEN:"Frosted glass.",e:"backdrop-filter: blur(8px)"},
+    {n:31,t:":focus-visible",tEN:":focus-visible",c:"Foco por teclado.",cEN:"Keyboard focus.",e:".btn:focus-visible{outline:2px;}"},
+    {n:32,t:":nth-child()",tEN:":nth-child()",c:"Estilos alternos.",cEN:"Alternating styles.",e:"li:nth-child(odd)"},
+    {n:33,t:"Variables tipográficas",tEN:"Typography variables",c:"Familias coherentes.",cEN:"Consistent families.",e:"--font-body:'Public Sans'"},
+    {n:34,t:"object-fit",tEN:"object-fit",c:"Recorta sin deformar.",cEN:"Crops without distortion.",e:"object-fit: cover"},
+    {n:35,t:"box-shadow",tEN:"box-shadow",c:"Profundidad.",cEN:"Depth.",e:"box-shadow: 0 8px 22px rgba(0,0,0,.1)"},
+    {n:36,t:"scroll snap",tEN:"scroll snap",c:"Carruseles.",cEN:"Carousels.",e:"scroll-snap-type: x mandatory"},
+    {n:37,t:"background-clip:text",tEN:"background-clip:text",c:"Texto degradado.",cEN:"Gradient text.",e:"-webkit-background-clip: text"},
+    {n:38,t:"line-clamp",tEN:"line-clamp",c:"Recorta a N líneas.",cEN:"Trims to N lines.",e:"-webkit-line-clamp: 3"},
+    {n:39,t:"grid-template-areas",tEN:"grid-template-areas",c:"Mapa de áreas.",cEN:"Area map.",e:"'head head' 'side main'"},
+    {n:40,t:"Media queries",tEN:"Media queries",c:"Tres breakpoints.",cEN:"Three breakpoints.",e:"@media (min-width:768px)"}
+  ]},
+  {id:"h3", emoji:"⚡", nombre:"JavaScript moderno", nombreEN:"Modern JavaScript", rango:"41–60", desc:"DOM, fetch, async, observers.", descEN:"DOM, fetch, async, observers.", tecnicas:[
+    {n:41,t:"querySelector",tEN:"querySelector",c:"Selección CSS.",cEN:"CSS selection.",e:"document.querySelector('.btn')"},
+    {n:42,t:"Event delegation",tEN:"Event delegation",c:"Un listener dinámico.",cEN:"One dynamic listener.",e:"e.target.closest('button')"},
+    {n:43,t:"Template literals",tEN:"Template literals",c:"Backticks y ${}.",cEN:"Backticks and ${}.",e:"`<div>${t}</div>`"},
+    {n:44,t:"Array.map()",tEN:"Array.map()",c:"Transforma arrays.",cEN:"Transforms arrays.",e:"arr.map(x=>x*2)"},
+    {n:45,t:"Array.filter()",tEN:"Array.filter()",c:"Filtra por condición.",cEN:"Filters by condition.",e:"arr.filter(x=>x>0)"},
+    {n:46,t:"Array.reduce()",tEN:"Array.reduce()",c:"Reduce a un valor.",cEN:"Reduces to one value.",e:"arr.reduce((a,b)=>a+b,0)"},
+    {n:47,t:"Destructuring",tEN:"Destructuring",c:"Extrae campos.",cEN:"Extracts fields.",e:"const {a,b}=obj"},
+    {n:48,t:"Arrow functions",tEN:"Arrow functions",c:"Sintaxis corta.",cEN:"Short syntax.",e:"()=>{}"},
+    {n:49,t:"fetch()",tEN:"fetch()",c:"Peticiones HTTP.",cEN:"HTTP requests.",e:"await fetch(url)"},
+    {n:50,t:"async/await",tEN:"async/await",c:"Asincronía legible.",cEN:"Readable async.",e:"async function f(){await x;}"},
+    {n:51,t:"localStorage",tEN:"localStorage",c:"Persistencia.",cEN:"Persistence.",e:"localStorage.setItem('k','v')"},
+    {n:52,t:"try/catch",tEN:"try/catch",c:"Captura errores.",cEN:"Catches errors.",e:"try{}catch(e){}"},
+    {n:53,t:"Custom Events",tEN:"Custom Events",c:"Comunicación.",cEN:"Communication.",e:"new CustomEvent('x')"},
+    {n:54,t:"IntersectionObserver",tEN:"IntersectionObserver",c:"Detecta visibilidad.",cEN:"Detects visibility.",e:"new IntersectionObserver(cb)"},
+    {n:55,t:"MutationObserver",tEN:"MutationObserver",c:"Vigila DOM.",cEN:"Watches DOM.",e:"observe(p,{childList:true})"},
+    {n:56,t:"Debounce",tEN:"Debounce",c:"Retrasa ejecución.",cEN:"Delays execution.",e:"setTimeout(f,250)"},
+    {n:57,t:"Clases JS",tEN:"JS classes",c:"Modela entidades.",cEN:"Models entities.",e:"class A{constructor(){}}"},
+    {n:58,t:"Set y Map",tEN:"Set and Map",c:"Únicos y pares.",cEN:"Unique and pairs.",e:"new Set([1,2,2])"},
+    {n:59,t:"FormData",tEN:"FormData",c:"Recoge campos.",cEN:"Collects fields.",e:"new FormData(f)"},
+    {n:60,t:"Web Speech API",tEN:"Web Speech API",c:"Voz.",cEN:"Voice.",e:"new SpeechSynthesisUtterance('Hola')"}
+  ]},
+  {id:"h4", emoji:"🐍", nombre:"Python + Django full-stack", nombreEN:"Python + Django full-stack", rango:"61–80", desc:"Backend, seguridad, despliegue.", descEN:"Backend, security, deployment.", tecnicas:[
+    {n:61,t:"Python condicionales",tEN:"Python conditionals",c:"Rutas adaptativas.",cEN:"Adaptive paths.",e:"if n>=4.5: r='avanzada'"},
+    {n:62,t:"Python bucles",tEN:"Python loops",c:"Genera lotes.",cEN:"Generates batches.",e:"for i in range(20):"},
+    {n:63,t:"Python funciones",tEN:"Python functions",c:"Calificación reutilizable.",cEN:"Reusable grading.",e:"def cal(r,c): return r==c"},
+    {n:64,t:"Python try/except",tEN:"Python try/except",c:"Valida entradas.",cEN:"Validates inputs.",e:"try: n=float(s)"},
+    {n:65,t:"Python listas/dicts",tEN:"Python lists/dicts",c:"Bancos de preguntas.",cEN:"Question banks.",e:"banco=[{...}]"},
+    {n:66,t:"Python regex",tEN:"Python regex",c:"Errores ortográficos.",cEN:"Spelling errors.",e:"re.sub(r'pat', 'ok', t)"},
+    {n:67,t:"Python POO",tEN:"Python OOP",c:"Modela dominio.",cEN:"Models domain.",e:"class E:\n def __init__(s,n): s.n=n"},
+    {n:68,t:"Python decoradores",tEN:"Python decorators",c:"Permisos.",cEN:"Permissions.",e:"@solo_profesor"},
+    {n:69,t:"Python generadores",tEN:"Python generators",c:"Procesos masivos.",cEN:"Massive processing.",e:"yield x"},
+    {n:70,t:"Python NLP spaCy",tEN:"Python NLP spaCy",c:"Análisis morfosintáctico.",cEN:"Morphosyntactic analysis.",e:"nlp=spacy.load('es_core_news_sm')"},
+    {n:71,t:"Django modelos",tEN:"Django models",c:"Curso, Tarea, Nota.",cEN:"Course, Task, Grade.",e:"class Curso(models.Model):"},
+    {n:72,t:"Django migraciones",tEN:"Django migrations",c:"Versiona BD.",cEN:"Versions DB.",e:"python manage.py migrate"},
+    {n:73,t:"Django auth",tEN:"Django auth",c:"Login y registro.",cEN:"Login and signup.",e:"login(request,user)"},
+    {n:74,t:"Django roles",tEN:"Django roles",c:"Grupos y permisos.",cEN:"Groups and permissions.",e:"user.groups.filter(name='Profesor')"},
+    {n:75,t:"Django CBV",tEN:"Django CBV",c:"Vistas por clase.",cEN:"Class-based views.",e:"class L(ListView):"},
+    {n:76,t:"Django templates",tEN:"Django templates",c:"Herencia extends/block.",cEN:"extends/block inheritance.",e:"{% extends 'base.html' %}"},
+    {n:77,t:"Django forms",tEN:"Django forms",c:"ModelForm.",cEN:"ModelForm.",e:"class F(forms.ModelForm):"},
+    {n:78,t:"Django FileField",tEN:"Django FileField",c:"Sube archivos.",cEN:"Upload files.",e:"models.FileField(upload_to='x/')"},
+    {n:79,t:"Django REST",tEN:"Django REST",c:"API.",cEN:"API.",e:"class S(serializers.ModelSerializer):"},
+    {n:80,t:"Seguridad y despliegue",tEN:"Security and deployment",c:"CSRF, HTTPS, Gunicorn.",cEN:"CSRF, HTTPS, Gunicorn.",e:"SECURE_SSL_REDIRECT=True"}
+  ]},
+  {id:"h5", emoji:"🎓", nombre:"Pedagogía digital y LMS", nombreEN:"Digital pedagogy & LMS", rango:"81–100", desc:"Corrector, rúbricas, biblioteca, gamificación.", descEN:"Proofreading, rubrics, library, gamification.", tecnicas:[
+    {n:81,t:"Corrector ortográfico",tEN:"Spelling checker",c:"Detecta errores.",cEN:"Detects errors.",e:"marcar(p)"},
+    {n:82,t:"Analizador coherencia",tEN:"Coherence analyzer",c:"Cuenta conectores.",cEN:"Counts connectors.",e:"sum(p in conectores)"},
+    {n:83,t:"Banco dinámico",tEN:"Dynamic bank",c:"Aleatorio.",cEN:"Random.",e:"random.choice([...])"},
+    {n:84,t:"Retroalimentación",tEN:"Feedback",c:"Mensaje por error.",cEN:"Message per error.",e:"msj['tilde']='…'"},
+    {n:85,t:"Detector plagio",tEN:"Plagiarism",c:"Similitud.",cEN:"Similarity.",e:"SequenceMatcher(a,b).ratio()"},
+    {n:86,t:"Rúbricas digitales",tEN:"Digital rubrics",c:"Pesos ponderados.",cEN:"Weighted.",e:"sum(v*p/100)"},
+    {n:87,t:"Comprensión lectora",tEN:"Reading comprehension",c:"Niveles literal/inferencial/crítico.",cEN:"Literal/inferential/critical.",e:"['literal','inferencial','crítico']"},
+    {n:88,t:"Cuestionarios vocab.",tEN:"Vocab quizzes",c:"Sinónimos/antónimos.",cEN:"Synonyms/antonyms.",e:"Sinónimo de…"},
+    {n:89,t:"Progreso ortográfico",tEN:"Spelling progress",c:"Errores por tipo.",cEN:"Errors by type.",e:"class Error(models.Model):"},
+    {n:90,t:"Análisis morfosintáctico",tEN:"Morphosyntactic analysis",c:"Feedback por token.",cEN:"Token feedback.",e:"token.pos_"},
+    {n:91,t:"Autoevaluación",tEN:"Self-assessment",c:"Antes de nota.",cEN:"Before grading.",e:"class Autoeval(models.Model):"},
+    {n:92,t:"Biblioteca digital",tEN:"Digital library",c:"Lecturas por nivel.",cEN:"Readings by level.",e:"class Lectura(models.Model):"},
+    {n:93,t:"Foro moderado",tEN:"Moderated forum",c:"Comentarios.",cEN:"Comments.",e:"if p in prohibidas:"},
+    {n:94,t:"Editor colaborativo",tEN:"Collaborative editor",c:"Cambios por autor.",cEN:"Changes by author.",e:"class Cambio(models.Model):"},
+    {n:95,t:"Etiquetas de errores",tEN:"Error tags",c:"Taxonomía.",cEN:"Taxonomy.",e:"['tilde','concordancia']"},
+    {n:96,t:"Informes por grupo",tEN:"Group reports",c:"Agrega errores.",cEN:"Aggregates errors.",e:"annotate(n=Count('id'))"},
+    {n:97,t:"Dictados automáticos",tEN:"Auto dictations",c:"Audio + diff.",cEN:"Audio + diff.",e:"ndiff(orig,escrito)"},
+    {n:98,t:"Línea de tiempo",tEN:"Writing timeline",c:"Evolución.",cEN:"Evolution.",e:"order_by('fecha')"},
+    {n:99,t:"Comparador versiones",tEN:"Version comparator",c:"Diff.",cEN:"Diff.",e:"unified_diff(v1,v2)"},
+    {n:100,t:"Insignias y logros",tEN:"Badges and achievements",c:"Motivación.",cEN:"Motivation.",e:"if completas==total: badge()"}
+  ]}
+];
+
+const BLOQUES_GRAM = [
+  {id:"g1", emoji:"📚", nombre:"Categorías gramaticales", nombreEN:"Grammatical categories", rango:"1–20", desc:"Sustantivo, adjetivo, verbo, adverbio, pronombre.", descEN:"Noun, adjective, verb, adverb, pronoun.", tecnicas:[
+    {n:1,t:"Categorías gramaticales",tEN:"Grammatical categories",c:"Clasificación de palabras.",cEN:"Word classification.",e:"El (art.) niño (sust.) corre (v.)"},
+    {n:2,t:"Sustantivo género y número",tEN:"Noun gender and number",c:"Masculino/femenino, singular/plural.",cEN:"Masculine/feminine, singular/plural.",e:"Casa / Casas"},
+    {n:3,t:"Adjetivo grados",tEN:"Adjective degrees",c:"Positivo, comparativo, superlativo.",cEN:"Positive, comparative, superlative.",e:"alto / más alto / altísimo"},
+    {n:4,t:"Verbo raíz y desinencia",tEN:"Verb root and ending",c:"Cant- + -o.",cEN:"Sing- + -s.",e:"Cant-o"},
+    {n:5,t:"Adverbio",tEN:"Adverb",c:"Modifica verbo, adjetivo, adverbio.",cEN:"Modifies verb, adjective, adverb.",e:"Corre rápidamente"},
+    {n:6,t:"Preposición",tEN:"Preposition",c:"Une palabras.",cEN:"Joins words.",e:"Casa de madera"},
+    {n:7,t:"Conjunción",tEN:"Conjunction",c:"Une oraciones.",cEN:"Joins sentences.",e:"Estudia y trabaja"},
+    {n:8,t:"Interjección",tEN:"Interjection",c:"Emoción.",cEN:"Emotion.",e:"¡Ay!"},
+    {n:9,t:"Locuciones",tEN:"Phrases",c:"Grupos con función unitaria.",cEN:"Groups with unified function.",e:"De repente"},
+    {n:10,t:"Categoría y función",tEN:"Category and function",c:"Categoría fija, función contextual.",cEN:"Fixed category, contextual function.",e:"El verde (sujeto)"},
+    {n:11,t:"Sustantivos comunes/propios",tEN:"Common/proper nouns",c:"Ciudad / Bogotá.",cEN:"City / Bogotá.",e:"Bogotá"},
+    {n:12,t:"Abstractos/concretos",tEN:"Abstract/concrete",c:"Mesa / bondad.",cEN:"Table / kindness.",e:"Libertad"},
+    {n:13,t:"Adjetivo calificativo",tEN:"Qualifying adjective",c:"Cualidad del sustantivo.",cEN:"Noun quality.",e:"Casa blanca"},
+    {n:14,t:"Adjetivo determinativo",tEN:"Determinative adjective",c:"Demostrativo, posesivo, numeral.",cEN:"Demonstrative, possessive, numeral.",e:"Este libro"},
+    {n:15,t:"Apócope",tEN:"Apocope",c:"bueno→buen.",cEN:"good→(short form).",e:"Un buen hombre"},
+    {n:16,t:"Sustantivación",tEN:"Substantivation",c:"Adjetivo como sustantivo.",cEN:"Adjective as noun.",e:"Los jóvenes"},
+    {n:17,t:"El artículo",tEN:"The article",c:"Determinado/indeterminado.",cEN:"Definite/indefinite.",e:"El libro / un libro"},
+    {n:18,t:"Pronombres tónicos",tEN:"Stressed pronouns",c:"Yo, tú, él…",cEN:"I, you, he…",e:"A mí me gusta"},
+    {n:19,t:"Pronombres átonos",tEN:"Unstressed pronouns",c:"me, te, lo, le…",cEN:"me, you, him, her…",e:"Le dije"},
+    {n:20,t:"Leísmo/laísmo/loísmo",tEN:"Leísmo/laísmo/loísmo",c:"Uso incorrecto de pronombres.",cEN:"Incorrect pronoun use.",e:"Le dije a María (correcto)"}
+  ]},
+  {id:"g2", emoji:"⚙", nombre:"Verbo y formas verbales", nombreEN:"Verb and verbal forms", rango:"21–40", desc:"Tiempos, modos, aspecto, perífrasis.", descEN:"Tenses, moods, aspect, periphrases.", tecnicas:[
+    {n:21,t:"Persona y número",tEN:"Person and number",c:"1.ª, 2.ª, 3.ª.",cEN:"1st, 2nd, 3rd.",e:"canto/cantas/canta"},
+    {n:22,t:"Presente indicativo",tEN:"Present indicative",c:"Actual, habitual, general.",cEN:"Current, habitual, general.",e:"Estudio"},
+    {n:23,t:"Pretérito perfecto simple",tEN:"Simple past",c:"Acción terminada.",cEN:"Completed action.",e:"Estudié ayer"},
+    {n:24,t:"Pretérito imperfecto",tEN:"Imperfect",c:"Hábito o desarrollo.",cEN:"Habit or ongoing.",e:"Jugaba de niño"},
+    {n:25,t:"Pretérito perfecto compuesto",tEN:"Present perfect",c:"He estudiado.",cEN:"I have studied.",e:"He estudiado"},
+    {n:26,t:"Futuro simple",tEN:"Simple future",c:"Acción futura.",cEN:"Future action.",e:"Estudiaré"},
+    {n:27,t:"Condicional",tEN:"Conditional",c:"Hipótesis o cortesía.",cEN:"Hypothesis or courtesy.",e:"Estudiaría"},
+    {n:28,t:"Subjuntivo presente",tEN:"Present subjunctive",c:"Deseo, duda.",cEN:"Desire, doubt.",e:"Que estudies"},
+    {n:29,t:"Formas no personales",tEN:"Non-personal forms",c:"Infinitivo, gerundio, participio.",cEN:"Infinitive, gerund, participle.",e:"Cantar/cantando/cantado"},
+    {n:30,t:"Perífrasis verbales",tEN:"Verbal periphrases",c:"Ir a + inf., estar + ger.",cEN:"Going to + inf., be + ger.",e:"Voy a estudiar"},
+    {n:31,t:"Regulares/irregulares",tEN:"Regular/irregular",c:"Mantiene o altera raíz.",cEN:"Keeps or alters root.",e:"Amar→amé / ir→fui"},
+    {n:32,t:"Voz activa/pasiva",tEN:"Active/passive",c:"Sujeto realiza o recibe.",cEN:"Subject performs or receives.",e:"La sentencia fue dictada"},
+    {n:33,t:"Verbos copulativos",tEN:"Copulative verbs",c:"Ser, estar, parecer.",cEN:"Be, seem.",e:"Está cansado"},
+    {n:34,t:"Transitivos/intransitivos",tEN:"Transitive/intransitive",c:"Con o sin CD.",cEN:"With or without DO.",e:"Compré el libro / Nací aquí"},
+    {n:35,t:"Reflexivos y pronominales",tEN:"Reflexive and pronominal",c:"Pronombre reflexivo.",cEN:"Reflexive pronoun.",e:"Me arrepiento"},
+    {n:36,t:"Correlación temporal",tEN:"Tense correlation",c:"Tiempo subordinada según principal.",cEN:"Subordinate tense by main clause.",e:"Espero que vengas"},
+    {n:37,t:"El imperativo",tEN:"The imperative",c:"Mandato o ruego.",cEN:"Command or request.",e:"Ven aquí"},
+    {n:38,t:"Verbos de régimen",tEN:"Prepositional verbs",c:"Depender de, confiar en.",cEN:"Depend on, trust in.",e:"Depende de ti"},
+    {n:39,t:"Estilo directo/indirecto",tEN:"Direct/indirect speech",c:"Reproduce o integra.",cEN:"Reproduces or integrates.",e:"Dijo que vendría"},
+    {n:40,t:"Verbos de cambio",tEN:"Verbs of change",c:"Ser, estar, ponerse.",cEN:"Be, become, get.",e:"Se puso rojo"}
+  ]},
+  {id:"g3", emoji:"🧩", nombre:"Oración simple", nombreEN:"Simple sentence", rango:"41–60", desc:"Sujeto, predicado, complementos, tipos.", descEN:"Subject, predicate, complements, types.", tecnicas:[
+    {n:41,t:"Sujeto y predicado",tEN:"Subject and predicate",c:"Estructura básica.",cEN:"Basic structure.",e:"El niño juega"},
+    {n:42,t:"Núcleo del sujeto",tEN:"Subject head",c:"Sustantivo o pronombre.",cEN:"Noun or pronoun.",e:"El estudiante"},
+    {n:43,t:"Núcleo del predicado",tEN:"Predicate head",c:"Verbo.",cEN:"Verb.",e:"Explica"},
+    {n:44,t:"Complemento directo",tEN:"Direct object",c:"Se sustituye por lo/la.",cEN:"Replaced by it/him/her.",e:"Compré el libro → Lo compré"},
+    {n:45,t:"Complemento indirecto",tEN:"Indirect object",c:"Se sustituye por le/les.",cEN:"Replaced by to him/her.",e:"Le di el libro"},
+    {n:46,t:"Complemento circunstancial",tEN:"Adverbial",c:"Tiempo, lugar, modo.",cEN:"Time, place, manner.",e:"Estudia en la biblioteca"},
+    {n:47,t:"Atributo",tEN:"Attribute",c:"Con verbo copulativo.",cEN:"With copulative verb.",e:"Está cansado"},
+    {n:48,t:"Predicativo",tEN:"Predicative",c:"Modifica verbo y sujeto/CD.",cEN:"Modifies verb and subject/DO.",e:"Llegó cansado"},
+    {n:49,t:"Complemento de régimen",tEN:"Regime complement",c:"Preposición exigida.",cEN:"Required preposition.",e:"Depende de ti"},
+    {n:50,t:"Impersonales",tEN:"Impersonal",c:"Sin sujeto.",cEN:"Without subject.",e:"Llueve mucho"},
+    {n:51,t:"Según actitud",tEN:"By attitude",c:"Enunciativa, interrogativa…",cEN:"Declarative, interrogative…",e:"¿Viene hoy?"},
+    {n:52,t:"Transitivas/intransitivas",tEN:"Transitive/intransitive",c:"Con o sin CD.",cEN:"With or without DO.",e:"Compré pan / Nací aquí"},
+    {n:53,t:"Copulativas/predicativas",tEN:"Copulative/predicative",c:"Con o sin atributo.",cEN:"With or without attribute.",e:"Es médico / Corre rápido"},
+    {n:54,t:"Reflexivas/recíprocas",tEN:"Reflexive/reciprocal",c:"Sujeto y objeto coinciden.",cEN:"Subject and object coincide.",e:"Se peina / Se saludan"},
+    {n:55,t:"Pasivas reflejas",tEN:"Reflexive passives",c:"Se venden casas.",cEN:"Houses for sale.",e:"Se venden casas"},
+    {n:56,t:"Sujeto elidido",tEN:"Omitted subject",c:"Desinencia lo indica.",cEN:"Ending indicates it.",e:"Estudio (yo)"},
+    {n:57,t:"Concordancia sujeto-verbo",tEN:"Subject-verb agreement",c:"Persona y número.",cEN:"Person and number.",e:"Los niños juegan"},
+    {n:58,t:"Concordancia con colectivos",tEN:"Collective agreement",c:"Singular o plural de sentido.",cEN:"Singular or plural by meaning.",e:"El grupo llegó / llegaron"},
+    {n:59,t:"Orden SVO",tEN:"SVO order",c:"Sujeto + Verbo + Objeto.",cEN:"Subject + Verb + Object.",e:"El niño come"},
+    {n:60,t:"Simples y compuestas",tEN:"Simple and compound",c:"Uno o varios verbos.",cEN:"One or more verbs.",e:"Llegó y salió"}
+  ]},
+  {id:"g4", emoji:"🔗", nombre:"Oración compuesta, ortografía y estilo", nombreEN:"Compound sentence, spelling & style", rango:"61–80", desc:"Coordinación, subordinación, puntuación, vicios.", descEN:"Coordination, subordination, punctuation, vices.", tecnicas:[
+    {n:61,t:"Copulativa",tEN:"Copulative",c:"y, e.",cEN:"and.",e:"Cantó y bailó"},
+    {n:62,t:"Adversativa",tEN:"Adversative",c:"pero, sino.",cEN:"but.",e:"Estudió pero no aprobó"},
+    {n:63,t:"Disyuntiva",tEN:"Disjunctive",c:"o, u.",cEN:"or.",e:"¿Vienes o te quedas?"},
+    {n:64,t:"Subordinadas sustantivas",tEN:"Substantive subordinates",c:"Sujeto, CD.",cEN:"Subject, DO.",e:"Quiero que vengas"},
+    {n:65,t:"Subordinadas adjetivas",tEN:"Adjectival subordinates",c:"Modifican sustantivo.",cEN:"Modify a noun.",e:"El libro que leí"},
+    {n:66,t:"Subordinadas adverbiales",tEN:"Adverbial subordinates",c:"Tiempo, causa, condición.",cEN:"Time, cause, condition.",e:"Cuando llegues, avísame"},
+    {n:67,t:"Yuxtaposición",tEN:"Juxtaposition",c:"Sin conjunción.",cEN:"Without conjunction.",e:"Llegó, vio, venció"},
+    {n:68,t:"Conectores lógicos",tEN:"Logical connectors",c:"Adición, contraste, causa.",cEN:"Addition, contrast, cause.",e:"Además…"},
+    {n:69,t:"La coma",tEN:"Comma",c:"Enumeraciones, vocativos.",cEN:"Lists, vocatives.",e:"Pan, leche y queso"},
+    {n:70,t:"Punto y coma",tEN:"Semicolon",c:"Oraciones relacionadas.",cEN:"Related sentences.",e:"Llegó tarde; sin embargo…"},
+    {n:71,t:"Dos puntos",tEN:"Colon",c:"Enumeración o cita.",cEN:"List or quote.",e:"Trajo: pan, vino"},
+    {n:72,t:"Comillas",tEN:"Quotation marks",c:"Citas textuales.",cEN:"Textual quotes.",e:"Dijo: «Vengo»"},
+    {n:73,t:"Paréntesis/corchetes",tEN:"Parentheses/brackets",c:"Información complementaria.",cEN:"Complementary info.",e:"Cervantes (autor)"},
+    {n:74,t:"Guiones y rayas",tEN:"Hyphens and dashes",c:"Unión o diálogo.",cEN:"Union or dialogue.",e:"Teórico-práctico"},
+    {n:75,t:"Pleonasmo",tEN:"Pleonasm",c:"Repetición innecesaria.",cEN:"Unnecessary repetition.",e:"Subir arriba"},
+    {n:76,t:"Anfibología",tEN:"Ambiguity",c:"Doble interpretación.",cEN:"Double interpretation.",e:"Vi a Juan con prismáticos"},
+    {n:77,t:"Cosismo y muletillas",tEN:"Word poverty",c:"Palabras vacías.",cEN:"Empty words.",e:"Cosa importante"},
+    {n:78,t:"Dequeísmo/queísmo",tEN:"Dequeísmo/queísmo",c:"de que incorrecto / que sin de.",cEN:"Wrong de que / que without de.",e:"Pienso que vendrá"},
+    {n:79,t:"Cacofonía/barbarismo",tEN:"Cacophony/barbarism",c:"Sonidos desagradables.",cEN:"Unpleasant sounds.",e:"Haiga → haya"},
+    {n:80,t:"Estilo claro",tEN:"Clear style",c:"Frases cortas, sin rodeos.",cEN:"Short sentences, no detours.",e:"El informe debe ser breve"}
+  ]},
+  {id:"g5", emoji:"🏛", nombre:"Análisis y argumentación", nombreEN:"Analysis & argumentation", rango:"81–100", desc:"Análisis morfológico, sintáctico, semántico y argumentación.", descEN:"Morphological, syntactic, semantic analysis and argumentation.", tecnicas:[
+    {n:81,t:"Análisis morfológico",tEN:"Morphological analysis",c:"Clasifica cada palabra.",cEN:"Classifies each word.",e:"El: artículo; gato: sustantivo"},
+    {n:82,t:"Análisis sintáctico",tEN:"Syntactic analysis",c:"Funciones en la oración.",cEN:"Sentence functions.",e:"Sujeto: el niño"},
+    {n:83,t:"Análisis semántico",tEN:"Semantic analysis",c:"Denotación, connotación.",cEN:"Denotation, connotation.",e:"Zorro connota astucia"},
+    {n:84,t:"Análisis pragmático",tEN:"Pragmatic analysis",c:"Uso en contexto.",cEN:"Use in context.",e:"¿Puedes cerrar la ventana?"},
+    {n:85,t:"Análisis del discurso",tEN:"Discourse analysis",c:"Cohesión y coherencia.",cEN:"Cohesion and coherence.",e:"Conectores organizan"},
+    {n:86,t:"Figuras de dicción",tEN:"Figures of diction",c:"Aliteración, paranomasia.",cEN:"Alliteration, paronomasia.",e:"Tres tristes tigres"},
+    {n:87,t:"Figuras de pensamiento",tEN:"Figures of thought",c:"Metáfora, metonimia.",cEN:"Metaphor, metonymy.",e:"Tus ojos son luceros"},
+    {n:88,t:"Figuras de repetición",tEN:"Figures of repetition",c:"Anáfora, paralelismo.",cEN:"Anaphora, parallelism.",e:"Verde viento, verdes ramas"},
+    {n:89,t:"La argumentación",tEN:"Argumentation",c:"Tesis, argumentos, refutación.",cEN:"Thesis, arguments, rebuttal.",e:"Sostengo que X porque A"},
+    {n:90,t:"Tipos de argumentos",tEN:"Types of arguments",c:"Autoridad, datos, ejemplos.",cEN:"Authority, data, examples.",e:"Según la OMS…"},
+    {n:91,t:"Falacias",tEN:"Fallacies",c:"Ad hominem, falso dilema.",cEN:"Ad hominem, false dilemma.",e:"No le creas, es ignorante"},
+    {n:92,t:"Argumentación y evidencia",tEN:"Argumentation and evidence",c:"Evidencia verificable.",cEN:"Verifiable evidence.",e:"Según PISA 2022…"},
+    {n:93,t:"Coherencia textual",tEN:"Textual coherence",c:"Unidad de sentido.",cEN:"Unity of meaning.",e:"Sin contradicciones"},
+    {n:94,t:"Cohesión textual",tEN:"Textual cohesion",c:"Conectores y pronombres.",cEN:"Connectors and pronouns.",e:"Sin embargo…"},
+    {n:95,t:"Adecuación textual",tEN:"Textual adequacy",c:"Adaptación al destinatario.",cEN:"Adaptation to addressee.",e:"No es igual un folleto y un artículo"},
+    {n:96,t:"Registro formal/informal",tEN:"Formal/informal register",c:"Formal vs coloquial.",cEN:"Formal vs colloquial.",e:"Le agradezco / Oye, ¿me pasas…?"},
+    {n:97,t:"Vicios del lenguaje",tEN:"Language vices",c:"Pleonasmo, cacofonía…",cEN:"Pleonasm, cacophony…",e:"El área del área"},
+    {n:98,t:"Comentario de texto",tEN:"Text commentary",c:"Localización, contenido, análisis.",cEN:"Location, content, analysis.",e:"Comentar un fragmento"},
+    {n:99,t:"Resumen y paráfrasis",tEN:"Summary and paraphrase",c:"Reducir o reformular.",cEN:"Reduce or reformulate.",e:"En otras palabras…"},
+    {n:100,t:"Escritura como práctica",tEN:"Writing as practice",c:"Leer, escribir, revisar.",cEN:"Read, write, revise.",e:"Escribir a diario mejora"}
+  ]}
+];
+
+const TIPOS_PARRAFO = [
+  {id:"p1", emoji:"📖", nombre:"Párrafo narrativo", nombreEN:"Narrative paragraph",
+   desc:"Cuenta hechos en orden temporal.", descEN:"Tells events chronologically.",
+   concepto:"Relata una sucesión de acciones en el tiempo. Verbos en pretérito y conectores temporales.",
+   conceptoEN:"Tells a sequence of actions over time. Past tenses and time connectors.",
+   pasos:[{es:"Situar: quién, cuándo, dónde.",en:"Set: who, when, where."},{es:"Encadenar con verbos en pasado.",en:"Chain with past-tense verbs."},{es:"Conectores: primero, luego, finalmente.",en:"Connectors: first, then, finally."},{es:"Cerrar con consecuencia breve.",en:"Close with brief consequence."}],
+   ejemploES:"A las siete de la mañana, Ana salió de su casa con el abrigo puesto. Caminó hasta la parada del bus y esperó unos minutos. Cuando llegó la 47, subió y buscó un asiento. Al bajar, ya llovía. Entonces abrió su paraguas y corrió hasta la oficina.",
+   ejemploEN:"At seven in the morning, Ana left home with her coat on. She walked to the bus stop and waited. When bus 47 arrived, she got on. As she got off, it was raining. Then she opened her umbrella and ran to the office.",
+   ejercicio:{tipo:"classify",consigna:"¿Es propio de un párrafo narrativo?",
+     categorias:["Narrativo","No narrativo"],
+     items:[{texto:"«Ayer salí temprano.»",cat:0},{texto:"«El agua hierve a 100 °C.»",cat:1},{texto:"«Primero llegó Juan; luego, Ana.»",cat:0},{texto:"«Considero que la medida es injusta.»",cat:1},{texto:"«Entonces abrió la puerta.»",cat:0}],
+     retro:"El narrativo encadena acciones en el tiempo."}
+  },
+  {id:"p2", emoji:"🖌️", nombre:"Párrafo descriptivo", nombreEN:"Descriptive paragraph",
+   desc:"Presenta cómo son personas, lugares u objetos.", descEN:"Presents how people, places or objects look.",
+   concepto:"Pinta con palabras. Adjetivos, sustantivos concretos, verbos de estado. Puede ser objetivo o subjetivo.",
+   conceptoEN:"Paints with words. Adjectives, concrete nouns, state verbs. Objective or subjective.",
+   pasos:[{es:"Elegir el objeto.",en:"Choose the object."},{es:"Seleccionar el rasgo dominante.",en:"Select dominant trait."},{es:"Ordenar los detalles.",en:"Order details."},{es:"Usar adjetivos precisos.",en:"Use precise adjectives."}],
+   ejemploES:"La casa de mi abuela era baja y alargada, con paredes de adobe y un tejado de tejas rojas descoloridas. Al entrar, un olor a cedro y a pan recién hecho llenaba el zaguán.",
+   ejemploEN:"My grandmother's house was low and long, with adobe walls and faded red tiles. Upon entering, a smell of cedar and fresh bread filled the hallway.",
+   ejercicio:{tipo:"classify",consigna:"¿Objetivo o subjetivo?",
+     categorias:["Objetivo","Subjetivo"],
+     items:[{texto:"«La habitación mide 4 m por 3 m.»",cat:0},{texto:"«El viento acariciaba las ramas.»",cat:1},{texto:"«El animal pesa 45 kg.»",cat:0},{texto:"«Sus ojos eran dos pozos de tristeza.»",cat:1}],
+     retro:"Objetivo informa con datos; subjetivo transmite sensaciones."}
+  },
+  {id:"p3", emoji:"🔬", nombre:"Párrafo expositivo", nombreEN:"Expository paragraph",
+   desc:"Explica o informa objetivamente.", descEN:"Explains or informs objectively.",
+   concepto:"Transmite información objetiva. Verbos en presente y organizadores textuales. Sin opiniones personales.",
+   conceptoEN:"Conveys objective information. Present tense and textual organizers. No personal opinions.",
+   pasos:[{es:"Idea central en oración tópica.",en:"Central idea in topic sentence."},{es:"Definir tecnicismos.",en:"Define technical terms."},{es:"Desarrollar con datos.",en:"Develop with data."},{es:"Cerrar con síntesis.",en:"Close with synthesis."}],
+   ejemploES:"La fotosíntesis es el proceso mediante el cual las plantas convierten la energía luminosa en energía química. Ocurre en los cloroplastos, que contienen clorofila. En síntesis, sostiene la mayor parte de la vida en la Tierra.",
+   ejemploEN:"Photosynthesis is the process by which plants convert light energy into chemical energy. It occurs in chloroplasts, which contain chlorophyll. In summary, it sustains most life on Earth.",
+   ejercicio:{tipo:"classify",consigna:"¿Es expositivo?",
+     categorias:["Expositivo","No expositivo"],
+     items:[{texto:"«La célula es la unidad de la vida.»",cat:0},{texto:"«¡Qué hermosa es la naturaleza!»",cat:1},{texto:"«Existen tres tipos de rocas.»",cat:0},{texto:"«Creo que deberían prohibirlo.»",cat:1},{texto:"«El agua hierve a 100 °C.»",cat:0}],
+     retro:"El expositivo informa con datos verificables."}
+  },
+  {id:"p4", emoji:"⚖️", nombre:"Párrafo argumentativo", nombreEN:"Argumentative paragraph",
+   desc:"Defiende una tesis con razones.", descEN:"Defends a thesis with reasons.",
+   concepto:"Defiende una opinión. Estructura: tesis + argumentos + refutación + conclusión.",
+   conceptoEN:"Defends an opinion. Structure: thesis + arguments + rebuttal + conclusion.",
+   pasos:[{es:"Formular la tesis.",en:"State the thesis."},{es:"Aportar dos razones con evidencia.",en:"Give two reasons with evidence."},{es:"Responder a una objeción.",en:"Answer one objection."},{es:"Reafirmar la tesis.",en:"Reaffirm the thesis."}],
+   ejemploES:"Considero que el uso del móvil en clase debería regularse, no prohibirse. Por un lado, los móviles distraen. Sin embargo, prohibirlos no enseña a usarlos con criterio. Por lo tanto, lo razonable es regular su uso y educar en competencia digital.",
+   ejemploEN:"I believe mobile phone use in class should be regulated, not banned. On the one hand, phones distract. However, banning them doesn't teach responsible use. Therefore, the sensible approach is to regulate and teach digital skills.",
+   ejercicio:{tipo:"classify",consigna:"¿Qué función cumple cada fragmento?",
+     categorias:["Tesis","Argumento","Refutación"],
+     items:[{texto:"«Considero que debería regularse, no prohibirse.»",cat:0},{texto:"«Diversos estudios muestran que funciona.»",cat:1},{texto:"«Algunos objetan; sin embargo, educar reduce el riesgo.»",cat:2},{texto:"«Por lo tanto, es razonable regular.»",cat:0},{texto:"«En primer lugar, la evidencia demuestra…»",cat:1}],
+     retro:"El argumentativo tiene tesis, argumentos y refutación."}
+  }
+];
+
+/* Banco de preguntas extra para el examen */
+const PREGUNTAS_RED = [
+  {q:"¿Qué tipo de párrafo encadena acciones en el tiempo?",a:"Narrativo",alts:["Descriptivo","Expositivo","Argumentativo"]},
+  {q:"¿Qué tipo de párrafo predominan los adjetivos y sustantivos concretos?",a:"Descriptivo",alts:["Narrativo","Expositivo","Argumentativo"]},
+  {q:"¿Qué tipo de párrafo explica objetivamente sin opiniones?",a:"Expositivo",alts:["Narrativo","Descriptivo","Argumentativo"]},
+  {q:"¿Qué tipo de párrafo defiende una tesis con razones?",a:"Argumentativo",alts:["Narrativo","Descriptivo","Expositivo"]},
+  {q:"¿Qué conector es típico de un párrafo narrativo?",a:"Primero, luego, finalmente",alts:["Es decir","Sin embargo","Además"]},
+  {q:"¿Qué elemento es característico de un párrafo argumentativo?",a:"La tesis",alts:["La enumeración de datos","La cronología","La descripción sensorial"]},
+  {q:"¿Qué párrafo evita opiniones personales?",a:"Expositivo",alts:["Narrativo","Descriptivo subjetivo","Argumentativo"]},
+  {q:"¿En qué párrafo son frecuentes los verbos en pretérito?",a:"Narrativo",alts:["Expositivo","Descriptivo","Argumentativo"]},
+  {q:"¿Qué párrafo usa 'sin embargo' como conector predominante?",a:"Argumentativo",alts:["Narrativo","Descriptivo","Expositivo"]},
+  {q:"¿Qué párrafo pinta con los sentidos?",a:"Descriptivo",alts:["Narrativo","Expositivo","Argumentativo"]},
+  {q:"¿Qué tipo de párrafo se apoya en definiciones y datos?",a:"Expositivo",alts:["Narrativo","Descriptivo","Argumentativo"]}
+];
+
+/* =====================================================================
+   ESTADO + STORAGE
+   ===================================================================== */
+const K = {
+  prog:"unif_prog", gram:"unif_gram", campos:"unif_campos", red:"unif_red",
+  tema:"unif_tema", lang:"unif_lang",
+  examHistory:"unif_exam_history", rubrica:"unif_rubrica_custom"
+};
+
+let progreso = {}, progresoGram = {}, campos = {}, redaccion = {}, examHistory = [], rubricaCustom = null;
+let lang = "es";
+try { progreso = JSON.parse(localStorage.getItem(K.prog)) || {}; } catch(e){ progreso = {}; }
+try { progresoGram = JSON.parse(localStorage.getItem(K.gram)) || {}; } catch(e){ progresoGram = {}; }
+try { campos = JSON.parse(localStorage.getItem(K.campos)) || {}; } catch(e){ campos = {}; }
+try { redaccion = JSON.parse(localStorage.getItem(K.red)) || {}; } catch(e){ redaccion = {}; }
+try { examHistory = JSON.parse(localStorage.getItem(K.examHistory)) || []; } catch(e){ examHistory = []; }
+try { rubricaCustom = JSON.parse(localStorage.getItem(K.rubrica)) || null; } catch(e){ rubricaCustom = null; }
+try { lang = localStorage.getItem(K.lang) || "es"; } catch(e){}
+
+const HTML_FLAT = []; BLOQUES_HTML.forEach(b => b.tecnicas.forEach(t => { t.bloqueId = b.id; HTML_FLAT.push(t); }));
+const GRAM_FLAT = []; BLOQUES_GRAM.forEach(b => b.tecnicas.forEach(t => { t.bloqueId = b.id; GRAM_FLAT.push(t); }));
+
+let modo = "dashboard";
+let actualHTML = "t1", actualGram = "t1", actualParrafo = "p1", herramientaActual = "h1";
+let notaTimer = null;
+let examen = null; // estado del examen en curso
+let rubricaActiva = null; // estado de la rúbrica en curso
+
+/* =====================================================================
+   UTILIDADES
+   ===================================================================== */
+const $ = (s,c=document) => c.querySelector(s);
+const $$ = (s,c=document) => Array.from(c.querySelectorAll(s));
+function el(t,c,x){ const e=document.createElement(t); if(c) e.className=c; if(x!==undefined) e.textContent=x; return e; }
+function esc(s){ return (s||"").toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function save(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function saveProg(){ save(K.prog, progreso); }
+function saveGram(){ save(K.gram, progresoGram); }
+function saveCampos(){ save(K.campos, campos); }
+function saveRed(){ save(K.red, redaccion); }
+function saveHistory(){ save(K.examHistory, examHistory); }
+function saveRubricaCustom(){ save(K.rubrica, rubricaCustom); }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false,nota:""}; return progreso[id]; }
+function getGram(id){ if(!progresoGram[id]) progresoGram[id] = {ok:false,nota:""}; return progresoGram[id]; }
+function getRed(id){ if(!redaccion[id]) redaccion[id] = {texto:""}; return redaccion[id]; }
+function norm(s){ return (s||"").toString().trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[¿?¡!.,;:"'«»()<>/]/g,"").replace(/\s+/g," ").trim(); }
+function barajar(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
+
+/* =====================================================================
+   LBL bilingüe
+   ===================================================================== */
+const LBL = {
+  es:{dashboard:"📊 Dashboard",cuaderno:"📖 100 HTML",gramatica:"📚 100 Gramática",redaccion:"✍️ Redacción",examen:"🎯 Modo examen",rubrica:"📋 Rúbrica",taller:"🛠 Taller",certificado:"🎓 Certificado",
+    encabezado:"Cuaderno Unificado · HTML · Gramática · Redacción · Examen · Rúbrica",subencabezado:"200 técnicas · Python + Django · ES/EN · PWA",
+    progreso:"Progreso por bloque",estado:"Estado global",avance:"Avance acumulado",
+    completadas:"Completadas",bloques:"Bloques",notas:"Notas",escribeNombre:"[Escriba aquí su nombre]",docente:"[Docente]",institucion:"[Institución]",
+    ciudad:"Ciudad",fecha:"Fecha",radicado:"____",
+    certTitulo:"Certificado de Finalización<br>HTML + Gramática + Redacción",
+    certifica:"Certifica",otorgado:"Se otorga a",responsable:"Docente",emisora:"Institución",
+    certDesc:"por haber completado el programa de <strong>200 técnicas</strong> HTML+CSS+JS, gramática castellana y redacción de párrafos.",
+    índice:"Índice general",concepto:"Concepto",ejemplo:"Ejemplo",ejercicio:"Ejercicio",pasos:"Pasos clave",
+    escribirAqui:"Escriba aquí su párrafo…",ejemploES:"Ejemplo en español",ejemploEN:"Example in English"},
+  en:{dashboard:"📊 Dashboard",cuaderno:"📖 100 HTML",gramatica:"📚 100 Grammar",redaccion:"✍️ Writing",examen:"🎯 Exam mode",rubrica:"📋 Rubric",taller:"🛠 Workshop",certificado:"🎓 Certificate",
+    encabezado:"Unified Notebook · HTML · Grammar · Writing · Exam · Rubric",subencabezado:"200 techniques · Python + Django · EN/ES · PWA",
+    progreso:"Progress by block",estado:"Global status",avance:"Cumulative",
+    completadas:"Completed",bloques:"Blocks",notas:"Notes",escribeNombre:"[Type your full name]",docente:"[Teacher]",institucion:"[Institution]",
+    ciudad:"City",fecha:"Date",radicado:"____",
+    certTitulo:"Completion Certificate<br>HTML + Grammar + Writing",
+    certifica:"Certifies",otorgado:"Awarded to",responsable:"Teacher",emisora:"Institution",
+    certDesc:"for completing the <strong>200-technique</strong> program: HTML+CSS+JS, Spanish grammar and paragraph writing.",
+    índice:"Index",concepto:"Concept",ejemplo:"Example",ejercicio:"Exercise",pasos:"Key steps",
+    escribirAqui:"Write your paragraph here…",ejemploES:"Spanish example",ejemploEN:"English example"}
+};
+function t_(k){ return (LBL[lang] && LBL[lang][k]) || k; }
+
+let toastTimer = null;
+function toast(m){ const t=$("#appToast"); t.textContent=m; t.classList.add("show"); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),2200); }
+
+/* =====================================================================
+   TEMA
+   ===================================================================== */
+function aplicarTema(t){
+  document.documentElement.dataset.tema = t;
+  $("#btnTheme") && ($("#btnTheme").textContent = t==="dark"?"☀":"🌙");
+  try{ localStorage.setItem(K.tema,t);}catch(e){}
+  const D={'--paper':'#1f2740','--paper-2':'#252f4a','--ink':'#e9eef8','--navy':'#e9eef8','--navy-dark':'#f4f7fc','--navy-soft':'#2c3a5e','--bronze':'#d8b07c','--bronze-dark':'#e6c197','--bronze-soft':'#3a2f24','--bronze-line':'#5f4c37','--muted':'#9cabbf','--line':'#33406a','--line-2':'#4a5a85','--ok':'#7bd88b','--ok-soft':'#213b2a','--bad':'#f0a0a0','--bad-soft':'#3d1f1f'};
+  const L={'--paper':'#fdfaf3','--paper-2':'#f7f2e8','--ink':'#14213d','--navy':'#14213d','--navy-dark':'#0a1528','--navy-soft':'#dde5f0','--bronze':'#a67c52','--bronze-dark':'#7c5c39','--bronze-soft':'#f0e4d3','--bronze-line':'#c9a96e','--muted':'#6b6355','--line':'#d8d2c3','--line-2':'#b8af99','--ok':'#2f6b3a','--ok-soft':'#e0efe2','--bad':'#8b1e1e','--bad-soft':'#f8e0e0'};
+  const v = t==="dark"?D:L; Object.keys(v).forEach(k=>document.documentElement.style.setProperty(k,v[k]));
+  document.body.style.background = t==="dark"?"#131a2c":"";
+}
+(function(){ let t="light"; try{ t=localStorage.getItem(K.tema)||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"); }catch(e){} aplicarTema(t); })();
+
+/* =====================================================================
+   IDIOMA
+   ===================================================================== */
+function aplicarIdioma(l){
+  lang = l; try{ localStorage.setItem(K.lang,l);}catch(e){}
+  $("#langLabel").textContent = l==="es"?"ES / EN":"EN / ES";
+  $$(".modo-tab").forEach(tab => {
+    const k = tab.dataset.modo;
+    if(LBL[lang][k]) tab.textContent = LBL[lang][k];
+  });
+  const h1 = $(".brand h1"), small = $(".brand small");
+  if(h1) h1.textContent = t_("encabezado");
+  if(small) small.textContent = t_("subencabezado");
+  cambiarModo(modo);
+}
+
+/* =====================================================================
+   CAMBIO DE MODO
+   ===================================================================== */
+function cambiarModo(m){
+  modo = m;
+  $$(".modo-tab").forEach(t => { const a = t.dataset.modo === m; t.classList.toggle("active", a); });
+  ["menuDashboard","menuCuaderno","menuGramatica","menuRedaccion","menuExamen","menuRubrica","menuTaller","menuCertificado"].forEach(id => {
+    $("#"+id).style.display = "none";
+  });
+  $("#searchTecnica").style.display = (m==="cuaderno"||m==="gramatica")?"block":"none";
+  cerrarSidebar();
+
+  if(m === "dashboard"){ $("#menuDashboard").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Secciones":"Sections"; renderMenuDashboard(); abrirDashboard(); }
+  if(m === "cuaderno"){ $("#menuCuaderno").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Bloques HTML":"HTML blocks"; renderMenuCuaderno(); abrirTecnicaHTML(actualHTML); }
+  if(m === "gramatica"){ $("#menuGramatica").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Gramática":"Grammar"; renderMenuGramatica(); abrirTecnicaGram(actualGram); }
+  if(m === "redaccion"){ $("#menuRedaccion").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Tipos de párrafo":"Paragraph types"; renderMenuRedaccion(); abrirParrafo(actualParrafo); }
+  if(m === "examen"){ $("#menuExamen").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Examen":"Exam"; renderMenuExamen(); abrirExamen(); }
+  if(m === "rubrica"){ $("#menuRubrica").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Rúbrica de redacción":"Writing rubric"; renderMenuRubrica(); abrirRubrica(); }
+  if(m === "taller"){ $("#menuTaller").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Herramientas":"Tools"; renderMenuTaller(); abrirHerramienta(); }
+  if(m === "certificado"){ $("#menuCertificado").style.display="block"; $("#sidebarTitle").textContent = lang==="es"?"Documento":"Document"; renderMenuCertificado(); abrirCertificado(); }
+}
+
+/* =====================================================================
+   MENÚS
+   ===================================================================== */
+function renderMenuDashboard(){
+  const m = $("#menuDashboard"); m.innerHTML = "";
+  [
+    {id:"kpis", es:"Indicadores", en:"KPIs"},
+    {id:"prog-html", es:"Progreso HTML", en:"HTML progress"},
+    {id:"prog-gram", es:"Progreso gramática", en:"Grammar progress"},
+    {id:"estado", es:"Estado global", en:"Global status"},
+    {id:"avance", es:"Curva de avance", en:"Progress curve"},
+    {id:"historial", es:"Historial de exámenes", en:"Exam history"},
+    {id:"mejores", es:"Mejores puntajes", en:"Best scores"}
+  ].forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(lang==="es"?it.es:it.en)}</span>`;
+    b.addEventListener("click", () => { const t=document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); cerrarSidebar(); });
+    m.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "7";
+}
+function renderMenuCuaderno(){
+  const menu = $("#menuCuaderno"); menu.innerHTML = "";
+  const f = norm($("#searchTecnica").value||"");
+  BLOQUES_HTML.forEach(bloque => {
+    const tec = bloque.tecnicas.filter(t => !f || norm(t.t).includes(f) || norm(t.tEN).includes(f) || norm(bloque.nombre).includes(f));
+    if(!tec.length) return;
+    const hechas = bloque.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    const abierto = f ? true : (bloque.id === bloqueDeHTML(actualHTML));
+    const block = el("div","cat-block");
+    const tg = el("button","cat-toggle");
+    tg.setAttribute("aria-expanded", abierto?"true":"false");
+    tg.innerHTML = `<span>${bloque.emoji}</span><span>${esc(lang==="es"?bloque.nombre:bloque.nombreEN)}</span><span class="cat-count">${hechas}/${bloque.tecnicas.length}</span><span class="chev">▶</span>`;
+    const body = el("div"); body.style.display = abierto?"block":"none";
+    tg.addEventListener("click", () => { const op = tg.getAttribute("aria-expanded")==="true"; tg.setAttribute("aria-expanded",op?"false":"true"); body.style.display = op?"none":"block"; });
+    block.appendChild(tg);
+    const pr = el("div","cat-prog"); const fill = document.createElement("div");
+    fill.style.width = (hechas/bloque.tecnicas.length*100)+"%"; pr.appendChild(fill); block.appendChild(pr);
+    tec.forEach(t => {
+      const id = "t"+t.n;
+      const b = el("button","tech-btn"+(getProg(id).ok?" done":"")+(id===actualHTML?" active":""));
+      b.innerHTML = `<span class="done-mark">✓</span><span>${t.n}. ${esc(lang==="es"?t.t:t.tEN)}</span>`;
+      b.addEventListener("click", () => { abrirTecnicaHTML(id); cerrarSidebar(); });
+      body.appendChild(b);
+    });
+    block.appendChild(body); menu.appendChild(block);
+  });
+  $("#sidebarCount").textContent = HTML_FLAT.length;
+}
+function renderMenuGramatica(){
+  const menu = $("#menuGramatica"); menu.innerHTML = "";
+  const f = norm($("#searchTecnica").value||"");
+  BLOQUES_GRAM.forEach(bloque => {
+    const tec = bloque.tecnicas.filter(t => !f || norm(t.t).includes(f) || norm(bloque.nombre).includes(f));
+    if(!tec.length) return;
+    const hechas = bloque.tecnicas.filter(t => getGram("t"+t.n).ok).length;
+    const abierto = f ? true : (bloque.id === bloqueDeGram(actualGram));
+    const block = el("div","cat-block");
+    const tg = el("button","cat-toggle");
+    tg.setAttribute("aria-expanded", abierto?"true":"false");
+    tg.innerHTML = `<span>${bloque.emoji}</span><span>${esc(lang==="es"?bloque.nombre:bloque.nombreEN)}</span><span class="cat-count">${hechas}/${bloque.tecnicas.length}</span><span class="chev">▶</span>`;
+    const body = el("div"); body.style.display = abierto?"block":"none";
+    tg.addEventListener("click", () => { const op = tg.getAttribute("aria-expanded")==="true"; tg.setAttribute("aria-expanded",op?"false":"true"); body.style.display = op?"none":"block"; });
+    block.appendChild(tg);
+    const pr = el("div","cat-prog"); const fill = document.createElement("div");
+    fill.style.width = (hechas/bloque.tecnicas.length*100)+"%"; pr.appendChild(fill); block.appendChild(pr);
+    tec.forEach(t => {
+      const id = "t"+t.n;
+      const b = el("button","tech-btn"+(getGram(id).ok?" done":"")+(id===actualGram?" active":""));
+      b.innerHTML = `<span class="done-mark">✓</span><span>${t.n}. ${esc(lang==="es"?t.t:t.tEN)}</span>`;
+      b.addEventListener("click", () => { abrirTecnicaGram(id); cerrarSidebar(); });
+      body.appendChild(b);
+    });
+    block.appendChild(body); menu.appendChild(block);
+  });
+  $("#sidebarCount").textContent = GRAM_FLAT.length;
+}
+function renderMenuRedaccion(){
+  const menu = $("#menuRedaccion"); menu.innerHTML = "";
+  TIPOS_PARRAFO.forEach(p => {
+    const b = el("button","tech-btn"+(p.id===actualParrafo?" active":""));
+    b.innerHTML = `<span class="done-mark">✓</span><span>${p.emoji} ${esc(lang==="es"?p.nombre:p.nombreEN)}</span>`;
+    b.addEventListener("click", () => { actualParrafo = p.id; abrirParrafo(p.id); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = TIPOS_PARRAFO.length;
+}
+function renderMenuExamen(){
+  const menu = $("#menuExamen"); menu.innerHTML = "";
+  [
+    {id:"examen-config", es:"Configurar examen", en:"Configure exam"},
+    {id:"examen-actual", es:"Examen en curso", en:"Current exam"},
+    {id:"examen-hist", es:"Historial", en:"History"}
+  ].forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(lang==="es"?it.es:it.en)}</span>`;
+    b.addEventListener("click", () => { const t=document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = examHistory.length;
+}
+function renderMenuRubrica(){
+  const menu = $("#menuRubrica"); menu.innerHTML = "";
+  const items = [
+    {id:"rub-config", es:"Configurar rúbrica", en:"Configure rubric"},
+    {id:"rub-redaccion", es:"Rúbrica de redacción", en:"Writing rubric"},
+    {id:"rub-resumen", es:"Resumen y puntaje", en:"Summary and score"}
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(lang==="es"?it.es:it.en)}</span>`;
+    b.addEventListener("click", () => { const t=document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "3";
+}
+function renderMenuTaller(){
+  const menu = $("#menuTaller"); menu.innerHTML = "";
+  const H = [
+    {id:"h1",es:"Corrector de tildes",en:"Accent checker"},
+    {id:"h2",es:"Contador de palabras",en:"Word counter"},
+    {id:"h3",es:"Generador de oraciones",en:"Sentence generator"},
+    {id:"h5",es:"Exportar progreso",en:"Export progress"},
+    {id:"h6",es:"Modelo Django",en:"Django model"},
+    {id:"h7",es:"Esquema SQL",en:"SQL schema"},
+    {id:"h9",es:"Analizador de párrafos",en:"Paragraph analyzer"},
+    {id:"h10",es:"Analizador gramatical",en:"Grammar analyzer"}
+  ];
+  H.forEach(h => {
+    const b = el("button","tech-btn"+(h.id===herramientaActual?" active":""));
+    b.innerHTML = `<span class="done-mark">✓</span><span>${esc(lang==="es"?h.es:h.en)}</span>`;
+    b.addEventListener("click", () => { herramientaActual = h.id; renderMenuTaller(); abrirHerramienta(); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = H.length;
+}
+function renderMenuCertificado(){
+  const menu = $("#menuCertificado"); menu.innerHTML = "";
+  const items = [
+    {id:"certificado", es:"Portada", en:"Cover"},
+    {id:"indice", es:"Índice", en:"Index"}
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(lang==="es"?it.es:it.en)}</span>`;
+    b.addEventListener("click", () => { abrirCertificado(); setTimeout(() => { const t=document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); },80); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = items.length;
+}
+function bloqueDeHTML(id){ const t = HTML_FLAT.find(x=>("t"+x.n)===id); return t ? t.bloqueId : null; }
+function bloqueDeGram(id){ const t = GRAM_FLAT.find(x=>("t"+x.n)===id); return t ? t.bloqueId : null; }
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function abrirDashboard(){
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","DASH\n200+"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${lang==="es"?"Panel de progreso":"Progress panel"}</span><h2 class="tech-title">${lang==="es"?"Dashboard visual · 200 técnicas + examen":"Visual Dashboard · 200 techniques + exam"}</h2>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  const hH = HTML_FLAT.filter(t=>getProg("t"+t.n).ok).length;
+  const hG = GRAM_FLAT.filter(t=>getGram("t"+t.n).ok).length;
+  const totalTec = HTML_FLAT.length + GRAM_FLAT.length;
+  const totalHechas = hH + hG;
+  const pct = Math.round((totalHechas/totalTec)*100);
+  const redEscritas = TIPOS_PARRAFO.filter(p=>getRed(p.id).texto.trim()).length;
+  const mejorEx = examHistory.length ? Math.max(...examHistory.map(e=>e.pct)) : 0;
+  const promedioEx = examHistory.length ? Math.round(examHistory.reduce((s,e)=>s+e.pct,0)/examHistory.length) : 0;
+
+  const kpi = el("div","dash-grid"); kpi.id = "kpis";
+  kpi.innerHTML = `
+    <div class="kpi">
+      <span class="lbl">${t_("completadas")}</span>
+      <div class="val">${totalHechas}<span style="font-size:.75rem;color:var(--muted);font-weight:500;"> / ${totalTec}</span></div>
+      <div class="sub">${pct}%</div>
+      <div class="spark">${svgSpark(totalHechas,totalTec)}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">${lang==="es"?"Bloques HTML":"HTML blocks"}</span>
+      <div class="val">${BLOQUES_HTML.filter(b=>b.tecnicas.every(t=>getProg("t"+t.n).ok)).length}<span style="font-size:.75rem;color:var(--muted);font-weight:500;"> / ${BLOQUES_HTML.length}</span></div>
+      <div class="sub">${hH}/${HTML_FLAT.length}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">${lang==="es"?"Bloques gramática":"Grammar blocks"}</span>
+      <div class="val">${BLOQUES_GRAM.filter(b=>b.tecnicas.every(t=>getGram("t"+t.n).ok)).length}<span style="font-size:.75rem;color:var(--muted);font-weight:500;"> / ${BLOQUES_GRAM.length}</span></div>
+      <div class="sub">${hG}/${GRAM_FLAT.length}</div>
+    </div>
+    <div class="kpi exam">
+      <span class="lbl">${lang==="es"?"Mejor puntaje examen":"Best exam score"}</span>
+      <div class="val">${mejorEx}%</div>
+      <div class="sub">${examHistory.length} ${lang==="es"?"exámenes":"exams"} · prom ${promedioEx}%</div>
+    </div>`;
+  panel.appendChild(kpi);
+
+  // Progreso HTML
+  const c1 = el("div","chart-card"); c1.id = "prog-html";
+  c1.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Progreso HTML+CSS+JS":"HTML+CSS+JS progress"}</h3><p class="sub">${lang==="es"?"Técnicas completadas por bloque":"Completed techniques per block"}</p><div class="bar-chart" id="cbHTML"></div></div>`;
+  panel.appendChild(c1);
+  const cbh = c1.querySelector("#cbHTML");
+  BLOQUES_HTML.forEach(b => {
+    const h = b.tecnicas.filter(t=>getProg("t"+t.n).ok).length;
+    const p = Math.round((h/b.tecnicas.length)*100);
+    const r = el("div","bar-row");
+    r.innerHTML = `<div class="nombre">${b.emoji} ${esc(lang==="es"?b.nombre:b.nombreEN)}<small>${b.rango} · ${h}/${b.tecnicas.length}</small></div><div class="bar-track"><div class="bar-fill" style="width:0%">${p>15?p+'%':''}</div></div><div class="pct">${p}%</div>`;
+    cbh.appendChild(r);
+    setTimeout(()=>{ const f=r.querySelector(".bar-fill"); if(f) f.style.width=p+"%"; },60);
+  });
+
+  // Progreso gramática
+  const c2 = el("div","chart-card"); c2.id = "prog-gram";
+  c2.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Progreso de gramática castellana":"Spanish grammar progress"}</h3><p class="sub">${lang==="es"?"Técnicas completadas por bloque":"Completed techniques per block"}</p><div class="bar-chart" id="cbGram"></div></div>`;
+  panel.appendChild(c2);
+  const cbg = c2.querySelector("#cbGram");
+  BLOQUES_GRAM.forEach(b => {
+    const h = b.tecnicas.filter(t=>getGram("t"+t.n).ok).length;
+    const p = Math.round((h/b.tecnicas.length)*100);
+    const r = el("div","bar-row");
+    r.innerHTML = `<div class="nombre">${b.emoji} ${esc(lang==="es"?b.nombre:b.nombreEN)}<small>${b.rango} · ${h}/${b.tecnicas.length}</small></div><div class="bar-track"><div class="bar-fill" style="width:0%">${p>15?p+'%':''}</div></div><div class="pct">${p}%</div>`;
+    cbg.appendChild(r);
+    setTimeout(()=>{ const f=r.querySelector(".bar-fill"); if(f) f.style.width=p+"%"; },60);
+  });
+
+  // Estado global
+  const c3 = el("div","chart-card"); c3.id = "estado";
+  c3.innerHTML = `<div class="chart-inner"><h3>${t_("estado")}</h3><p class="sub">${lang==="es"?"Distribución global":"Global distribution"}</p><div class="donut-wrap">${svgDonut(totalHechas, totalTec-totalHechas)}<div class="donut-info"><div><span class="dot" style="background:var(--navy);"></span><span class="lbl">${lang==="es"?"Completadas":"Completed"}</span><span class="val">${totalHechas}</span></div><div><span class="dot" style="background:var(--bronze);"></span><span class="lbl">${lang==="es"?"Pendientes":"Pending"}</span><span class="val">${totalTec-totalHechas}</span></div></div></div></div>`;
+  panel.appendChild(c3);
+
+  // Curva
+  const c4 = el("div","chart-card"); c4.id = "avance";
+  const acum = []; let acc=0;
+  [...HTML_FLAT, ...GRAM_FLAT].forEach(t => { const ok = progreso["t"+t.n]?.ok || progresoGram["t"+t.n]?.ok; if(ok) acc++; acum.push(acc); });
+  c4.innerHTML = `<div class="chart-inner line-chart"><h3>${t_("avance")}</h3><p class="sub">${lang==="es"?"Curva acumulada":"Cumulative curve"}</p>${svgLine(acum,totalTec)}</div>`;
+  panel.appendChild(c4);
+
+  // Historial
+  const c5 = el("div","chart-card"); c5.id = "historial";
+  c5.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Historial de exámenes":"Exam history"}</h3><p class="sub">${lang==="es"?"Últimos exámenes realizados":"Last exams taken"}</p><div id="histList"></div></div>`;
+  panel.appendChild(c5);
+  const hl = c5.querySelector("#histList");
+  if(!examHistory.length){
+    hl.innerHTML = `<p style="font-size:.78rem;color:var(--muted);font-style:italic;">${lang==="es"?"Aún no has realizado exámenes. Ve a 🎯 Modo examen.":"You haven't taken any exams yet. Go to 🎯 Exam mode."}</p>`;
+  } else {
+    examHistory.slice(0,8).forEach(e => {
+      const r = el("div","history-row");
+      r.innerHTML = `<span class="fecha">${e.fecha}</span><span class="tipo">${esc(lang==="es"?e.tipoEs:e.tipoEn)}</span><span class="ptje">${e.pts}/${e.max}</span><span class="pct">${e.pct}%</span>`;
+      hl.appendChild(r);
+    });
+  }
+
+  // Mejores
+  const c6 = el("div","chart-card"); c6.id = "mejores";
+  c6.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Mejores puntajes por categoría":"Best scores by category"}</h3><p class="sub">${lang==="es"?"Tus tres mejores exámenes":"Your three best exams"}</p><div class="bar-chart" id="cbBest"></div></div>`;
+  panel.appendChild(c6);
+  const cbb = c6.querySelector("#cbBest");
+  const top = [...examHistory].sort((a,b)=>b.pct-a.pct).slice(0,3);
+  if(!top.length){
+    cbb.innerHTML = `<p style="font-size:.78rem;color:var(--muted);font-style:italic;">—</p>`;
+  } else {
+    top.forEach(e => {
+      const r = el("div","bar-row");
+      r.innerHTML = `<div class="nombre">${esc(lang==="es"?e.tipoEs:e.tipoEn)}<small>${e.fecha} · ${e.pts}/${e.max}</small></div><div class="bar-track"><div class="bar-fill exam" style="width:0%">${e.pct}%</div></div><div class="pct">${e.pct}%</div>`;
+      cbb.appendChild(r);
+      setTimeout(()=>{ const f=r.querySelector(".bar-fill"); if(f) f.style.width=e.pct+"%"; },60);
+    });
+  }
+}
+
+/* ---------- SVG ---------- */
+function svgSpark(h,t){ const p=t?h/t:0; const W=70,H=30,pts=[]; for(let i=0;i<=10;i++) pts.push(`${(i/10)*W},${(H-p*(i/10)*H).toFixed(1)}`); return `<svg width="${W}" height="${H}"><polyline points="${pts.join(" ")}" fill="none" stroke="#a67c52" stroke-width="1.5"/></svg>`; }
+function svgDonut(h,r){ const t=h+r,R=60,g=22,c=2*Math.PI*R; const p=t?h/t:0; const lh=c*p,lr=c-lh;
+  return `<svg width="160" height="160" viewBox="0 0 160 160"><circle cx="80" cy="80" r="${R}" fill="none" stroke="var(--paper-2)" stroke-width="${g}"/><circle cx="80" cy="80" r="${R}" fill="none" stroke="#a67c52" stroke-width="${g}" stroke-dasharray="${lr} ${lh}" stroke-dashoffset="${-lh}" transform="rotate(-90 80 80)"/><circle cx="80" cy="80" r="${R}" fill="none" stroke="#14213d" stroke-width="${g}" stroke-dasharray="${lh} ${lr}" transform="rotate(-90 80 80)"/><text x="80" y="76" text-anchor="middle" font-family="PT Serif" font-size="26" font-weight="700" fill="var(--navy)">${Math.round(p*100)}%</text></svg>`; }
+function svgLine(d,t){ const W=600,H=180,pad=30,au=W-pad*2,al=H-pad*2; const pts=d.map((v,i)=>[pad+(i/(d.length-1||1))*au,H-pad-(v/t)*al]); const path=pts.map((p,i)=>(i===0?"M":"L")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" "); const area=path+` L ${pts[pts.length-1][0].toFixed(1)} ${H-pad} L ${pts[0][0].toFixed(1)} ${H-pad} Z`; return `<svg viewBox="0 0 ${W} ${H}"><path d="${area}" fill="rgba(20,33,61,0.08)"/><path d="${path}" fill="none" stroke="#14213d" stroke-width="2.5"/></svg>`; }
+
+/* =====================================================================
+   CUADERNO HTML / GRAMÁTICA
+   ===================================================================== */
+function abrirTecnicaHTML(id){ const t = HTML_FLAT.find(x=>("t"+x.n)===id); if(!t){actualHTML="t1"; return abrirTecnicaHTML("t1");} actualHTML = id; abrirTecnicaGen(t, HTML_FLAT, "html"); }
+function abrirTecnicaGram(id){ const t = GRAM_FLAT.find(x=>("t"+x.n)===id); if(!t){actualGram="t1"; return abrirTecnicaGram("t1");} actualGram = id; abrirTecnicaGen(t, GRAM_FLAT, "gram"); }
+
+function abrirTecnicaGen(t, lista, kind){
+  const idx = lista.indexOf(t);
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner", kind==="html"?"HTML\nCSS\nJS":"GRAM\nCAST"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const bloques = kind === "html" ? BLOQUES_HTML : BLOQUES_GRAM;
+  const bloque = bloques.find(b => b.id === t.bloqueId);
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${esc(lang==="es"?bloque.nombre:bloque.nombreEN)}</span><h2 class="tech-title">${esc(lang==="es"?t.t:t.tEN)}</h2><div class="tech-sub">${kind==="html"?"HTML":"Gram."} ${t.n} / ${lista.length}</div>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  const dots = el("div","block-dots");
+  bloque.tecnicas.forEach(bt => {
+    const id = "t"+bt.n;
+    const d = el("button","block-dot" + ((kind==="html"?getProg(id).ok:getGram(id).ok)?" done":"") + (id===("t"+t.n)?" current":""));
+    d.addEventListener("click", () => { if(kind==="html") abrirTecnicaHTML(id); else abrirTecnicaGram(id); });
+    dots.appendChild(d);
+  });
+  panel.appendChild(dots);
+
+  // Flashcards
+  const fc = el("div","flashcard"); fc.tabIndex = 0;
+  fc.innerHTML = `<div class="flashcard-inner">
+    <div class="flashcard-face"><span class="flashcard-tag">• ${t_("concepto")}</span><p>${esc(lang==="es"?t.c:t.cEN)}</p><span class="flashcard-hint">${lang==="es"?"Voltee ↻":"Flip ↻"}</span></div>
+    <div class="flashcard-face flashcard-back"><span class="flashcard-tag">• ${t_("ejemplo")}</span><p style="font-family:'JetBrains Mono',monospace;font-style:normal;font-size:.75rem;line-height:1.55;">${esc(t.e)}</p><span class="flashcard-hint">↻</span></div></div>`;
+  fc.addEventListener("click", () => fc.classList.toggle("flipped"));
+  fc.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); fc.classList.toggle("flipped"); } });
+  panel.appendChild(fc);
+
+  const biling = el("div");
+  biling.style.cssText = "margin:.5rem 0;display:flex;flex-direction:column;gap:.4rem;";
+  biling.innerHTML = `<div><span style="font-size:.52rem;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:.08rem .3rem;border-radius:2px;background:var(--navy-soft);color:var(--navy-dark);">ES</span><p style="margin:.2rem 0 0;font-family:'PT Serif',Georgia,serif;font-size:.85rem;line-height:1.55;">${esc(t.c)}</p></div><div><span style="font-size:.52rem;font-weight:800;letter-spacing:.9px;text-transform:uppercase;padding:.08rem .3rem;border-radius:2px;background:var(--bronze-soft);color:var(--bronze-dark);">EN</span><p style="margin:.2rem 0 0;font-family:'PT Serif',Georgia,serif;font-size:.85rem;line-height:1.55;">${esc(t.cEN)}</p></div>`;
+  panel.appendChild(biling);
+
+  const fb2 = el("button","btn-sm-custom outline","↻ " + (lang==="es"?"Voltear":"Flip"));
+  fb2.addEventListener("click", () => fc.classList.toggle("flipped"));
+  panel.appendChild(fb2);
+
+  // Ejercicio
+  const sec = el("section");
+  sec.appendChild(el("h3","sec-title", `${t_("ejercicio")} <small>${lang==="es"?"compruebe su comprensión":"check your understanding"}</small>`));
+  const correcta = lang==="es"?t.c:t.cEN;
+  const distractores = lista.filter(x=>x!==t).slice(0,3).map(x=>lang==="es"?x.c:x.cEN);
+  const ops = barajar([{texto:correcta,ok:true},{texto:distractores[0]||"…",ok:false},{texto:distractores[1]||"…",ok:false},{texto:distractores[2]||"…",ok:false}]);
+  const correctaIdx = ops.findIndex(o=>o.ok);
+  const ej = {consigna: lang==="es"?"Elija la afirmación correcta.":"Choose the correct statement.", opciones:ops.map(o=>o.texto), correcta:correctaIdx, retro: correcta};
+  sec.appendChild(el("p","consigna", ej.consigna));
+  const body = el("div"); sec.appendChild(body);
+  const fbx = el("div","fb-box"); sec.appendChild(fbx);
+  panel.appendChild(sec);
+  renderQuizGen(ej, body, fbx, "t"+t.n, kind);
+
+  // Cuaderno
+  const cuad = el("section","cuaderno-block");
+  cuad.appendChild(el("h3","sec-title", `${lang==="es"?"Cuaderno":"Notebook"} <small>${lang==="es"?"se guarda automáticamente":"autosaved"}</small>`));
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows=5;
+  ta.placeholder = lang==="es"?"Escriba sus notas…":"Write your notes…";
+  const key = "t"+t.n;
+  ta.value = (kind==="html"?getProg(key).nota:getGram(key).nota) || "";
+  cuad.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span"); const status = el("span","", "✓ " + (lang==="es"?"Guardado":"Saved"));
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const upd = () => { const n = ta.value.trim()?ta.value.trim().split(/\s+/).length:0; info.textContent = n + (n===1?(lang==="es"?" palabra":" word"):(lang==="es"?" palabras":" words")); };
+  ta.addEventListener("input", () => {
+    upd(); status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      if(kind==="html") getProg(key).nota = ta.value; else getGram(key).nota = ta.value;
+      if(kind==="html") saveProg(); else saveGram();
+      status.classList.remove("show");
+    }, 500);
+  });
+  upd();
+
+  const nav = el("div","nav-foot");
+  const prev = el("button","btn-sm-custom outline","← " + (lang==="es"?"Anterior":"Previous"));
+  const next = el("button","btn-sm-custom primary",(lang==="es"?"Siguiente":"Next") + " →");
+  prev.disabled = idx===0; next.disabled = idx===lista.length-1;
+  prev.addEventListener("click", () => { if(idx>0){ const prevId = "t"+lista[idx-1].n; if(kind==="html") abrirTecnicaHTML(prevId); else abrirTecnicaGram(prevId); } });
+  next.addEventListener("click", () => { if(idx<lista.length-1){ const nextId = "t"+lista[idx+1].n; if(kind==="html") abrirTecnicaHTML(nextId); else abrirTecnicaGram(nextId); } });
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+}
+
+function renderQuizGen(ej, cont, fb, id, kind){
+  cont.innerHTML = ""; fb.className = "fb-box";
+  const wrap = el("div","opciones"); const L = ["A","B","C","D"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = el("button","opcion-btn");
+    b.innerHTML = `<span class="opcion-letra">${L[i]}</span><span>${esc(op)}</span>`;
+    b.addEventListener("click", () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c,j) => { c.disabled = true; if(j===ej.correcta) c.classList.add("correcta"); if(j===i && !ok) c.classList.add("incorrecta"); });
+      const fbTipo = ok?"ok":"mal";
+      fb.className = "fb-box fb-"+fbTipo+" show";
+      fb.innerHTML = `<strong>${ok?(lang==="es"?"✓ Correcto":"✓ Correct"):(lang==="es"?"✗ Revise":"✗ Check")}</strong><p>${esc(ej.retro)}</p>`;
+      if(ok){
+        if(kind==="html"){ getProg(id).ok = true; saveProg(); renderMenuCuaderno(); }
+        else { getGram(id).ok = true; saveGram(); renderMenuGramatica(); }
+      }
+      const re = el("button","btn-sm-custom outline","↺ " + (lang==="es"?"Intentar":"Try"));
+      re.style.marginTop = ".4rem";
+      re.addEventListener("click", () => renderQuizGen(ej, cont, fb, id, kind));
+      cont.appendChild(re);
+    });
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+
+/* =====================================================================
+   REDACCIÓN
+   ===================================================================== */
+function abrirParrafo(id){
+  actualParrafo = id;
+  const p = TIPOS_PARRAFO.find(x=>x.id===id) || TIPOS_PARRAFO[0];
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","REDAC\n4 TIPOS"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${lang==="es"?"Redacción":"Writing"}</span><h2 class="tech-title">${p.emoji} ${esc(lang==="es"?p.nombre:p.nombreEN)}</h2>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  const sel = el("div","plantilla-4");
+  TIPOS_PARRAFO.forEach(pp => {
+    const item = el("div","plantilla-item"+(pp.id===id?" active":""));
+    item.innerHTML = `<h5>${pp.emoji} ${esc(lang==="es"?pp.nombre:pp.nombreEN)}</h5><p>${esc(lang==="es"?pp.desc:pp.descEN)}</p>`;
+    item.addEventListener("click", () => abrirParrafo(pp.id));
+    sel.appendChild(item);
+  });
+  panel.appendChild(sel);
+
+  const sec1 = el("section");
+  sec1.appendChild(el("h3","sec-title", t_("concepto")));
+  const caja = el("div","consigna");
+  caja.innerHTML = `<p style="font-family:'PT Serif',Georgia,serif;">${esc(lang==="es"?p.concepto:p.conceptoEN)}</p>`;
+  sec1.appendChild(caja); panel.appendChild(sec1);
+
+  const sec2 = el("section");
+  sec2.appendChild(el("h3","sec-title", t_("pasos")));
+  const guia = el("div","guia-pasos");
+  p.pasos.forEach((paso,i) => { const d = el("div","guia-paso"); d.innerHTML = `<strong>${i+1}.</strong> ${esc(lang==="es"?paso.es:paso.en)}`; guia.appendChild(d); });
+  sec2.appendChild(guia); panel.appendChild(sec2);
+
+  const sec3 = el("section");
+  sec3.appendChild(el("h3","sec-title", t_("ejemplo")));
+  const w = el("div","ejemplo-4");
+  const ce = el("div","ejemplo-card"); ce.innerHTML = `<h5><span class="tag">ES</span></h5><p>${esc(p.ejemploES)}</p>`;
+  const cn = el("div","ejemplo-card"); cn.innerHTML = `<h5><span class="tag">EN</span></h5><p class="en">${esc(p.ejemploEN)}</p>`;
+  w.appendChild(ce); w.appendChild(cn); sec3.appendChild(w); panel.appendChild(sec3);
+
+  // Taller de escritura
+  const sec5 = el("section","cuaderno-block");
+  sec5.appendChild(el("h3","sec-title", `${lang==="es"?"Taller de redacción":"Writing workshop"} <small>${lang==="es"?"escriba su párrafo":"write your paragraph"}</small>`));
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=8;
+  ta.placeholder = t_("escribirAqui");
+  ta.value = getRed(p.id).texto || "";
+  sec5.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span"); const status = el("span","", "✓");
+  foot.appendChild(info); foot.appendChild(status);
+  sec5.appendChild(foot);
+  panel.appendChild(sec5);
+
+  const upd = () => { const n = ta.value.trim()?ta.value.trim().split(/\s+/).length:0; info.textContent = n + (n===1?(lang==="es"?" palabra":" word"):(lang==="es"?" palabras":" words")); };
+  ta.addEventListener("input", () => {
+    upd(); status.textContent = "…";
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => { getRed(p.id).texto = ta.value; saveRed(); status.textContent = "✓"; }, 500);
+  });
+  upd();
+}
+
+/* =====================================================================
+   MODO EXAMEN
+   ===================================================================== */
+function abrirExamen(){
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","EXAMEN\n200+"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${lang==="es"?"Modo examen":"Exam mode"}</span><h2 class="tech-title">${lang==="es"?"Examen mixto · HTML + Gramática + Redacción":"Mixed exam · HTML + Grammar + Writing"}</h2><div class="tech-sub">${lang==="es"?"Preguntas aleatorias de las 200 técnicas y de los 4 tipos de párrafo":"Random questions from the 200 techniques and the 4 paragraph types"}</div>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  // Configuración
+  const cfg = el("div"); cfg.id = "examen-config";
+  cfg.appendChild(el("h3","sec-title", lang==="es"?"Configurar examen":"Configure exam"));
+  const form = el("div");
+  form.style.cssText = "display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1rem;";
+  form.innerHTML = `
+    <div><label style="font-size:.6rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.25rem;">${lang==="es"?"Número de preguntas":"Number of questions"}</label><select class="input-sm" id="exNum"><option value="10">10</option><option value="15" selected>15</option><option value="20">20</option><option value="30">30</option></select></div>
+    <div><label style="font-size:.6rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.25rem;">${lang==="es"?"Tiempo límite":"Time limit"}</label><select class="input-sm" id="exTime"><option value="0">${lang==="es"?"Sin límite":"No limit"}</option><option value="5">5 min</option><option value="10" selected>10 min</option><option value="15">15 min</option></select></div>
+    <div style="grid-column:1/-1;"><label style="font-size:.6rem;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.25rem;">${lang==="es"?"Tipo de preguntas":"Question types"}</label>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+        <label style="font-size:.78rem;"><input type="checkbox" id="exHTML" checked> HTML+CSS+JS</label>
+        <label style="font-size:.78rem;"><input type="checkbox" id="exGram" checked> ${lang==="es"?"Gramática":"Grammar"}</label>
+        <label style="font-size:.78rem;"><input type="checkbox" id="exRed" checked> ${lang==="es"?"Redacción":"Writing"}</label>
+      </div>
+    </div>`;
+  cfg.appendChild(form);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const bStart = el("button","btn-sm-custom primary","🎯 " + (lang==="es"?"Comenzar examen":"Start exam"));
+  acc.appendChild(bStart);
+  cfg.appendChild(acc);
+  panel.appendChild(cfg);
+
+  // Contenedor del examen en curso
+  const q = el("div"); q.id = "examen-actual"; q.style.marginTop = "1.5rem";
+  panel.appendChild(q);
+
+  // Historial
+  const hist = el("div","chart-card"); hist.id = "examen-hist"; hist.style.marginTop = "1.5rem";
+  hist.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Historial de exámenes":"Exam history"}</h3><p class="sub">${lang==="es"?"Tus intentos anteriores":"Your previous attempts"}</p><div id="histFull"></div></div>`;
+  panel.appendChild(hist);
+  renderHistorial();
+
+  bStart.addEventListener("click", () => comenzarExamen());
+}
+
+function comenzarExamen(){
+  const n = parseInt($("#exNum").value,10);
+  const minutos = parseInt($("#exTime").value,10);
+  const useHTML = $("#exHTML").checked;
+  const useGram = $("#exGram").checked;
+  const useRed = $("#exRed").checked;
+  if(!useHTML && !useGram && !useRed){ toast(lang==="es"?"Seleccione al menos una categoría":"Select at least one category"); return; }
+
+  const pool = [];
+  if(useHTML) HTML_FLAT.forEach(t => pool.push({cat:"HTML", catEs:"HTML+CSS+JS", catEn:"HTML+CSS+JS", t}));
+  if(useGram) GRAM_FLAT.forEach(t => pool.push({cat:"Gram.", catEs:"Gramática", catEn:"Grammar", t}));
+  if(useRed) PREGUNTAS_RED.forEach((p,i) => pool.push({cat:"Red.", catEs:"Redacción", catEn:"Writing", t:{t:p.q, tEN:p.q, c:p.a, cEN:p.a, e:"", alts:p.alts}}));
+
+  const sel = barajar(pool).slice(0, Math.min(n, pool.length));
+
+  examen = {
+    preguntas: sel.map(item => ({
+      cat: item.cat, catEs: item.catEs, catEn: item.catEn,
+      pregunta: item.t.t, preguntaEN: item.t.tEN,
+      correcta: item.t.c, correctaEN: item.t.cEN,
+      alts: item.t.alts || null
+    })),
+    actual: 0,
+    respuestas: new Array(sel.length).fill(null),
+    correctas: 0,
+    total: sel.length,
+    minutos, segundos: minutos*60,
+    timerId: null,
+    inicio: Date.now()
+  };
+  // Armar opciones por pregunta
+  examen.preguntas.forEach((p,i) => {
+    let distractorPool;
+    if(p.alts){
+      distractorPool = p.alts;
+    } else {
+      distractorPool = pool.filter(x => x.t.c !== p.correcta && x.t.c !== p.correctaEN).slice(0,3).map(x => x.t.c);
+    }
+    const todas = [p.correcta, ...distractorPool].slice(0,4);
+    p.opciones = barajar(todas);
+    p.correctaIdx = p.opciones.indexOf(p.correcta);
+  });
+
+  if(minutos > 0){
+    examen.timerId = setInterval(() => {
+      examen.segundos--;
+      const tEl = $("#exTimer");
+      if(tEl){
+        const m = Math.floor(examen.segundos/60);
+        const s = examen.segundos % 60;
+        tEl.textContent = `${m}:${s.toString().padStart(2,"0")}`;
+      }
+      if(examen.segundos <= 0){ clearInterval(examen.timerId); finalizarExamen(true); }
+    }, 1000);
+  }
+
+  renderExamen();
+}
+
+function renderExamen(){
+  const box = $("#examen-actual"); if(!box) return;
+  box.innerHTML = "";
+  if(!examen) return;
+
+  const total = examen.total, actual = examen.actual;
+  const p = examen.preguntas[actual];
+  const progreso = ((actual)/total)*100;
+
+  const bar = el("div","exam-bar");
+  bar.innerHTML = `
+    <div class="exam-stat"><span class="lbl">${lang==="es"?"Pregunta":"Question"}</span><span class="val">${actual+1}/${total}</span></div>
+    <div class="exam-stat"><span class="lbl">${lang==="es"?"Correctas":"Correct"}</span><span class="val">${examen.correctas}</span></div>
+    <div class="exam-stat"><span class="lbl">${lang==="es"?"Tiempo":"Time"}</span><span class="val" id="exTimer">${examen.minutos===0?"∞":Math.floor(examen.segundos/60)+":"+(examen.segundos%60).toString().padStart(2,"0")}</span></div>
+    <div class="exam-progress"><div style="width:${progreso}%"></div></div>`;
+  box.appendChild(bar);
+
+  const qc = el("div","exam-q");
+  const qi = el("div","exam-q-inner");
+  qi.innerHTML = `
+    <div class="q-meta">
+      <span class="q-tag ${p.cat==="HTML"?"html":(p.cat==="Gram."?"gram":"red")}">${lang==="es"?p.catEs:p.catEn}</span>
+      <span class="q-num">${lang==="es"?"Pregunta":"Question"} ${actual+1}/${total}</span>
+    </div>
+    <p class="q-text">${esc(lang==="es"?p.pregunta:p.preguntaEN)}</p>`;
+  qc.appendChild(qi);
+  box.appendChild(qc);
+
+  const ops = el("div","opciones");
+  const letras = ["A","B","C","D"];
+  p.opciones.forEach((op, i) => {
+    const b = el("button","opcion-btn");
+    b.innerHTML = `<span class="opcion-letra">${letras[i]}</span><span>${esc(op)}</span>`;
+    if(examen.respuestas[actual] !== null){
+      b.disabled = true;
+      if(i === p.correctaIdx) b.classList.add("correcta");
+      if(examen.respuestas[actual] === i && i !== p.correctaIdx) b.classList.add("incorrecta");
+    }
+    b.addEventListener("click", () => responderExamen(i));
+    ops.appendChild(b);
+  });
+  box.appendChild(ops);
+
+  const nav = el("div","exam-nav");
+  const bPrev = el("button","btn-sm-custom outline","← " + (lang==="es"?"Anterior":"Previous"));
+  const bNext = el("button","btn-sm-custom primary",(lang==="es"?"Siguiente":"Next") + " →");
+  const bEnd = el("button","btn-sm-custom danger", lang==="es"?"Finalizar":"Finish");
+  bPrev.disabled = actual===0;
+  bNext.disabled = actual===total-1;
+  bPrev.addEventListener("click", () => { if(actual>0){ examen.actual--; renderExamen(); } });
+  bNext.addEventListener("click", () => { if(actual<total-1){ examen.actual++; renderExamen(); } });
+  bEnd.addEventListener("click", () => { if(confirm(lang==="es"?"¿Finalizar examen?":"Finish exam?")) finalizarExamen(false); });
+
+  const btn = el("div","btns");
+  btn.appendChild(bPrev); btn.appendChild(bNext);
+  nav.appendChild(btn); nav.appendChild(bEnd);
+  box.appendChild(nav);
+}
+
+function responderExamen(i){
+  if(!examen) return;
+  if(examen.respuestas[examen.actual] !== null) return;
+  const p = examen.preguntas[examen.actual];
+  examen.respuestas[examen.actual] = i;
+  if(i === p.correctaIdx) examen.correctas++;
+  renderExamen();
+  // Auto-avanzar
+  setTimeout(() => {
+    if(examen && examen.actual < examen.total - 1){
+      examen.actual++;
+      renderExamen();
+    } else if(examen){
+      finalizarExamen(false);
+    }
+  }, 900);
+}
+
+function finalizarExamen(porTiempo){
+  if(!examen) return;
+  if(examen.timerId) clearInterval(examen.timerId);
+  const total = examen.total;
+  const correctas = examen.correctas;
+  const pct = Math.round((correctas/total)*100);
+  const segsTotales = Math.round((Date.now() - examen.inicio)/1000);
+  const mm = Math.floor(segsTotales/60), ss = segsTotales % 60;
+
+  const range = pct>=90?"excelente":pct>=75?"bueno":pct>=60?"aceptable":"bajo";
+  const rangeEs = {excelente:"Excelente",bueno:"Bueno",aceptable:"Aceptable",bajo:"A mejorar"}[range];
+  const rangeEn = {excelente:"Excellent",bueno:"Good",aceptable:"Acceptable",bajo:"Needs work"}[range];
+
+  const box = $("#examen-actual"); box.innerHTML = "";
+
+  const rc = el("div","result-card");
+  const ri = el("div","inner");
+  ri.innerHTML = `
+    <span class="result-range ${range}">${lang==="es"?rangeEs:rangeEn}</span>
+    <div class="result-big">${pct}%</div>
+    <p style="font-family:'PT Serif',Georgia,serif;font-size:.95rem;margin:.4rem 0 0;">${lang==="es"?"Aciertos":"Correct"}: <strong>${correctas}</strong> / ${total}</p>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:.35rem;">${porTiempo?(lang==="es"?"⏰ Tiempo agotado":"⏰ Time up"):(lang==="es"?"Tiempo empleado":"Time used")+": "+mm+":"+ss.toString().padStart(2,"0")}</p>`;
+  rc.appendChild(ri);
+  box.appendChild(rc);
+
+  // Desglose
+  const bk = el("div","result-break");
+  const porCat = {};
+  examen.preguntas.forEach((p,i) => {
+    const cat = p.cat;
+    if(!porCat[cat]) porCat[cat] = {ok:0, total:0};
+    porCat[cat].total++;
+    if(examen.respuestas[i] === p.correctaIdx) porCat[cat].ok++;
+  });
+  Object.keys(porCat).forEach(cat => {
+    const c = porCat[cat];
+    const item = el("div","item");
+    item.innerHTML = `<strong>${cat}</strong><span>${c.ok}/${c.total}</span>`;
+    bk.appendChild(item);
+  });
+  box.appendChild(bk);
+
+  // Acciones
+  const acc = el("div","d-flex gap-2 mt-3");
+  const bRep = el("button","btn-sm-custom primary", lang==="es"?"🔁 Repetir":"🔁 Retry");
+  const bNew = el("button","btn-sm-custom outline", lang==="es"?"Nuevo examen":"New exam");
+  const bExp = el("button","btn-sm-custom outline", lang==="es"?"Exportar resultado":"Export result");
+  bRep.addEventListener("click", () => comenzarExamen());
+  bNew.addEventListener("click", () => abrirExamen());
+  bExp.addEventListener("click", () => {
+    let txt = `EXAMEN · ${new Date().toLocaleString(lang==="es"?"es-CO":"en-US")}\n`;
+    txt += `Puntaje: ${correctas}/${total} (${pct}%)\nTiempo: ${mm}:${ss.toString().padStart(2,"0")}\n\n`;
+    examen.preguntas.forEach((p,i) => {
+      const r = examen.respuestas[i];
+      const ok = r === p.correctaIdx;
+      txt += `${i+1}. [${ok?"✓":"✗"}] ${p.pregunta}\n`;
+      txt += `   ${lang==="es"?"Correcta":"Correct"}: ${p.correcta}\n`;
+      if(!ok && r !== null) txt += `   ${lang==="es"?"Tu respuesta":"Your answer"}: ${p.opciones[r]}\n`;
+      txt += "\n";
+    });
+    const blob = new Blob([txt], {type:"text/plain;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url; a.download = `examen_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    toast("✓");
+  });
+  acc.appendChild(bRep); acc.appendChild(bNew); acc.appendChild(bExp);
+  box.appendChild(acc);
+
+  // Guardar en historial
+  const fecha = new Date().toLocaleDateString(lang==="es"?"es-CO":"en-US",{day:"2-digit",month:"short",year:"numeric"});
+  examHistory.unshift({fecha, pts:correctas, max:total, pct, tipoEs:"Examen mixto", tipoEn:"Mixed exam", ts:Date.now()});
+  examHistory = examHistory.slice(0,20);
+  saveHistory();
+  renderHistorial();
+  actualizarProgreso();
+  // Reset
+  examen = null;
+}
+
+function renderHistorial(){
+  const hl = $("#histFull"); if(!hl) return;
+  hl.innerHTML = "";
+  if(!examHistory.length){
+    hl.innerHTML = `<p style="font-size:.78rem;color:var(--muted);font-style:italic;">${lang==="es"?"Sin exámenes todavía.":"No exams yet."}</p>`;
+    return;
+  }
+  examHistory.forEach(e => {
+    const r = el("div","history-row");
+    r.innerHTML = `<span class="fecha">${e.fecha}</span><span class="tipo">${esc(lang==="es"?e.tipoEs:e.tipoEn)}</span><span class="ptje">${e.pts}/${e.max}</span><span class="pct">${e.pct}%</span>`;
+    hl.appendChild(r);
+  });
+}
+
+/* =====================================================================
+   RÚBRICA DE REDACCIÓN (con criterios ponderados)
+   ===================================================================== */
+const CRITERIOS_DEFAULT = [
+  {id:"cohesion", nombre:"Cohesión", nombreEN:"Cohesion", peso:25, desc:"Uso de conectores, pronombres, sinónimos y elipsis para enlazar oraciones y párrafos.", descEN:"Use of connectors, pronouns, synonyms and ellipsis to link sentences and paragraphs."},
+  {id:"coherencia", nombre:"Coherencia", nombreEN:"Coherence", peso:25, desc:"Unidad de sentido: el texto gira alrededor de una idea central sin contradicciones.", descEN:"Unity of meaning: the text revolves around a central idea without contradictions."},
+  {id:"adecuacion", nombre:"Adecuación", nombreEN:"Adequacy", peso:20, desc:"Adaptación al destinatario, al propósito y al registro (formal/informal).", descEN:"Adaptation to the addressee, purpose and register (formal/informal)."},
+  {id:"ortografia", nombre:"Ortografía y gramática", nombreEN:"Spelling and grammar", peso:20, desc:"Corrección ortográfica, concordancia, puntuación y precisión léxica.", descEN:"Correct spelling, agreement, punctuation and lexical precision."},
+  {id:"creatividad", nombre:"Creatividad y estilo", nombreEN:"Creativity and style", peso:10, desc:"Originalidad, voz propia, recursos expresivos y riqueza léxica.", descEN:"Originality, own voice, expressive resources and lexical richness."}
+];
+
+let rubricaEstado = null;
+
+function abrirRubrica(){
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","RÚBRI\nREDACC"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${lang==="es"?"Rúbrica de redacción":"Writing rubric"}</span><h2 class="tech-title">${lang==="es"?"Evaluación ponderada de párrafos":"Weighted paragraph assessment"}</h2><div class="tech-sub">${lang==="es"?"Cohesión · Coherencia · Adecuación · Ortografía · Creatividad":"Cohesion · Coherence · Adequacy · Spelling · Creativity"}</div>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  // Cargar criterios
+  if(!rubricaEstado){
+    if(rubricaCustom && Array.isArray(rubricaCustom)){
+      rubricaEstado = { criterios: JSON.parse(JSON.stringify(rubricaCustom)), texto:"" };
+    } else {
+      rubricaEstado = { criterios: JSON.parse(JSON.stringify(CRITERIOS_DEFAULT)), texto:"" };
+    }
+  }
+
+  // Zona de configuración
+  const cfg = el("section"); cfg.id="rub-config";
+  cfg.appendChild(el("h3","sec-title", lang==="es"?"Configurar criterios y pesos":"Configure criteria and weights"));
+  const infoPeso = el("p","consigna");
+  infoPeso.innerHTML = lang==="es"?"Ajuste los pesos. Deben sumar 100%. Puede restablecer los criterios por defecto o guardar su configuración.":"Adjust weights. They must add up to 100%. You can reset defaults or save your configuration.";
+  cfg.appendChild(infoPeso);
+
+  const grid = el("div"); grid.id="rubCriterios";
+  panel.appendChild(cfg); cfg.appendChild(grid);
+
+  const btnRow = el("div","d-flex gap-2 mt-3");
+  const bSave = el("button","btn-sm-custom primary", lang==="es"?"💾 Guardar rúbrica":"💾 Save rubric");
+  const bReset = el("button","btn-sm-custom outline", lang==="es"?"↺ Restablecer":"↺ Reset");
+  const bExport = el("button","btn-sm-custom outline", lang==="es"?"📄 Exportar":"📄 Export");
+  btnRow.appendChild(bSave); btnRow.appendChild(bReset); btnRow.appendChild(bExport);
+  cfg.appendChild(btnRow);
+
+  // Zona de evaluación
+  const sec = el("section"); sec.id="rub-redaccion"; sec.style.marginTop="1.8rem";
+  sec.appendChild(el("h3","sec-title", lang==="es"?"Evaluar un texto":"Assess a text"));
+  const ta = document.createElement("textarea");
+  ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = lang==="es"?"Pegue o escriba el párrafo a evaluar…":"Paste or write the paragraph to evaluate…";
+  ta.value = rubricaEstado.texto || "";
+  sec.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const bClear = el("button","btn-sm-custom outline", lang==="es"?"Limpiar":"Clear");
+  acc.appendChild(bClear);
+  sec.appendChild(acc);
+  panel.appendChild(sec);
+
+  // Zona de resumen
+  const res = el("section"); res.id="rub-resumen"; res.className="chart-card"; res.style.marginTop="1.8rem";
+  res.innerHTML = `<div class="chart-inner"><h3>${lang==="es"?"Resumen y puntaje":"Summary and score"}</h3><p class="sub">${lang==="es"?"Puntaje ponderado total":"Total weighted score"}</p><div id="rubResumenBox"></div></div>`;
+  panel.appendChild(res);
+
+  // Renderizar todo
+  function renderCriterios(){
+    grid.innerHTML = "";
+    rubricaEstado.criterios.forEach((c, i) => {
+      const row = el("div","rubrica-grid");
+      if(c.valor !== undefined){
+        const r = c.valor >= 4.5 ? "excelente" : c.valor >= 3.5 ? "bueno" : c.valor >= 2.5 ? "aceptable" : "bajo";
+        row.classList.add(r);
+      }
+      const crit = el("div","crit");
+      crit.innerHTML = `${esc(lang==="es"?c.nombre:c.nombreEN)}<small>${esc(lang==="es"?c.desc:c.descEN)}</small>`;
+      row.appendChild(crit);
+      const peso = el("div","peso");
+      const inp = document.createElement("input");
+      inp.type = "number"; inp.min = 0; inp.max = 100; inp.value = c.peso;
+      inp.addEventListener("input", () => { c.peso = parseInt(inp.value||"0",10); renderResumen(); });
+      peso.innerHTML = `<span style="font-size:.68rem;font-weight:800;color:var(--bronze-dark);">%</span>`;
+      peso.insertBefore(inp, peso.firstChild);
+      row.appendChild(peso);
+      const vals = el("div","valores");
+      [0,1,2,3,4,5].forEach(v => {
+        const b = document.createElement("button");
+        b.className = "val-btn" + (c.valor === v ? " sel":"");
+        b.textContent = v;
+        b.addEventListener("click", () => { c.valor = v; renderCriterios(); renderResumen(); });
+        vals.appendChild(b);
+      });
+      row.appendChild(vals);
+      grid.appendChild(row);
+    });
+    renderResumen();
+  }
+
+  function renderResumen(){
+    const box = $("#rubResumenBox"); if(!box) return;
+    const sumaPesos = rubricaEstado.criterios.reduce((s,c) => s + (c.peso||0), 0);
+    let sumaPonderada = 0;
+    let totalValor = 0;
+    rubricaEstado.criterios.forEach(c => {
+      const v = c.valor ?? 0;
+      sumaPonderada += v * (c.peso||0) / 100;
+      totalValor += v;
+    });
+    const notaFinal = sumaPonderada; // sobre 5
+    const pct = Math.round((notaFinal/5)*100);
+    const range = pct>=90?"excelente":pct>=75?"bueno":pct>=60?"aceptable":"bajo";
+    const rangeEs = {excelente:"Excelente",bueno:"Bueno",aceptable:"Aceptable",bajo:"A mejorar"}[range];
+    const rangeEn = {excelente:"Excellent",bueno:"Good",aceptable:"Acceptable",bajo:"Needs work"}[range];
+    const palabras = rubricaEstado.texto.trim()?rubricaEstado.texto.trim().split(/\s+/).length:0;
+
+    box.innerHTML = `
+      <div class="rubrica-resumen">
+        <div class="bloque"><strong>${lang==="es"?"Pesos sumados":"Sum of weights"}</strong><div class="num">${sumaPesos}%</div>${sumaPesos!==100?`<p style="font-size:.7rem;color:var(--bad);margin:.3rem 0 0;">${lang==="es"?"Deben sumar 100%":"Must add to 100%"}</p>`:""}</div>
+        <div class="bloque"><strong>${lang==="es"?"Nota final (0–5)":"Final grade (0–5)"}</strong><div class="num">${notaFinal.toFixed(2)}</div><p style="font-size:.7rem;color:var(--muted);margin:.3rem 0 0;">${lang==="es"?"Sobre 100":"Out of 100"}: ${pct}% · <span class="result-range ${range}" style="padding:.1rem .4rem;font-size:.55rem;">${lang==="es"?rangeEs:rangeEn}</span></p></div>
+      </div>
+      <div class="result-break" style="margin-top:1rem;">
+        ${rubricaEstado.criterios.map(c => `<div class="item"><strong>${esc(lang==="es"?c.nombre:c.nombreEN)} (${c.peso}%)</strong><span>${(c.valor ?? 0)}/5</span></div>`).join("")}
+      </div>
+      <p style="font-size:.72rem;color:var(--muted);margin-top:.85rem;">${lang==="es"?"Palabras del texto":"Text words"}: ${palabras}</p>
+    `;
+  }
+
+  function guardarCustom(){
+    rubricaCustom = JSON.parse(JSON.stringify(rubricaEstado.criterios));
+    saveRubricaCustom();
+    toast("✓ " + (lang==="es"?"Rúbrica guardada":"Rubric saved"));
+  }
+
+  ta.addEventListener("input", () => {
+    rubricaEstado.texto = ta.value;
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(renderResumen, 250);
+  });
+
+  bSave.addEventListener("click", guardarCustom);
+  bReset.addEventListener("click", () => {
+    if(confirm(lang==="es"?"¿Restablecer rúbrica por defecto?":"Reset default rubric?")){
+      rubricaEstado = { criterios: JSON.parse(JSON.stringify(CRITERIOS_DEFAULT)), texto:"" };
+      ta.value = "";
+      renderCriterios();
+    }
+  });
+  bClear.addEventListener("click", () => {
+    rubricaEstado.criterios.forEach(c => c.valor = 0);
+    rubricaEstado.texto = "";
+    ta.value = "";
+    renderCriterios();
+  });
+  bExport.addEventListener("click", () => {
+    let txt = `${lang==="es"?"RÚBRICA DE REDACCIÓN":"WRITING RUBRIC"}\n`;
+    txt += `${new Date().toLocaleString(lang==="es"?"es-CO":"en-US")}\n\n`;
+    txt += `${lang==="es"?"Texto evaluado":"Evaluated text"}:\n${rubricaEstado.texto || "—"}\n\n`;
+    txt += `${lang==="es"?"Criterios":"Criteria"}:\n`;
+    let sumaPond = 0;
+    rubricaEstado.criterios.forEach(c => {
+      const v = c.valor ?? 0;
+      sumaPond += v * (c.peso||0)/100;
+      txt += `• ${c.nombre} (${c.peso}%): ${v}/5\n`;
+    });
+    txt += `\n${lang==="es"?"NOTA FINAL":"FINAL GRADE"}: ${sumaPond.toFixed(2)}/5.0 · ${Math.round(sumaPond/5*100)}%\n`;
+    const blob = new Blob([txt], {type:"text/plain;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url; a.download = `rubrica_${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    toast("✓");
+  });
+
+  renderCriterios();
+}
+
+/* =====================================================================
+   TALLER
+   ===================================================================== */
+function abrirHerramienta(){
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","TALLER\nBILING"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const nombres = {
+    h1:{es:"Corrector de tildes",en:"Accent checker"},
+    h2:{es:"Contador de palabras",en:"Word counter"},
+    h3:{es:"Generador de oraciones",en:"Sentence generator"},
+    h5:{es:"Exportar progreso",en:"Export progress"},
+    h6:{es:"Modelo Django",en:"Django model"},
+    h7:{es:"Esquema SQL",en:"SQL schema"},
+    h9:{es:"Analizador de párrafos",en:"Paragraph analyzer"},
+    h10:{es:"Analizador gramatical",en:"Grammar analyzer"}
+  };
+  const h = nombres[herramientaActual] || {es:"Herramienta",en:"Tool"};
+
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">${lang==="es"?"Taller":"Workshop"}</span><h2 class="tech-title">${esc(lang==="es"?h.es:h.en)}</h2>`;
+  panel.appendChild(header); panel.appendChild(el("div","rule-double"));
+
+  const card = el("div","tool-card"); const inner = el("div","tool-inner");
+  card.appendChild(inner); panel.appendChild(card);
+
+  if(herramientaActual === "h1") toolCorrector(inner);
+  if(herramientaActual === "h2") toolContador(inner);
+  if(herramientaActual === "h3") toolGenerador(inner);
+  if(herramientaActual === "h5") toolExportar(inner);
+  if(herramientaActual === "h6") toolModeloDjango(inner);
+  if(herramientaActual === "h7") toolEsquemaSQL(inner);
+  if(herramientaActual === "h9") toolAnalizador(inner);
+  if(herramientaActual === "h10") toolGramatical(inner);
+}
+
+function toolCorrector(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Corrector de tildes":"Accent checker"}</h4><p>${lang==="es"?"Detecta palabras frecuentes sin tilde.":"Detects common missing accent words."}</p>`;
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=6; cont.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary", lang==="es"?"Corregir":"Proofread");
+  const cp = el("button","btn-sm-custom outline","Copiar"); acc.append(b,cp); cont.appendChild(acc);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const R = [[/\bhabia\b/gi,"había"],[/\btenia\b/gi,"tenía"],[/\bqueria\b/gi,"quería"],[/\bvenia\b/gi,"venía"],[/\bdecia\b/gi,"decía"],[/\basi\b/gi,"así"],[/\bde que estudiar\b/gi,"que estudiar"],[/\bme di cuenta que\b/gi,"me di cuenta de que"],[/\s{2,}/g," "]];
+  b.addEventListener("click", () => {
+    let t = ta.value;
+    R.forEach(([re,ok]) => { t = t.replace(re, ok); });
+    out.textContent = t; toast("✓");
+  });
+  cp.addEventListener("click", () => navigator.clipboard.writeText(out.textContent).then(()=>toast("✓")));
+}
+function toolContador(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Contador de palabras":"Word counter"}</h4>`;
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=8; cont.appendChild(ta);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const upd = () => {
+    const t = ta.value;
+    const p = (t.match(/[a-záéíóúñü]+/gi)||[]).length;
+    const c = t.length, cs = t.replace(/\s/g,"").length;
+    const o = t.split(/[.!?]+/).filter(x=>x.trim()).length;
+    out.textContent = lang==="es" ? `Palabras: ${p}\nCaracteres: ${c}\nSin espacios: ${cs}\nOraciones: ${o}` : `Words: ${p}\nChars: ${c}\nNo spaces: ${cs}\nSentences: ${o}`;
+  };
+  ta.addEventListener("input", upd); upd();
+}
+function toolGenerador(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Generador de oraciones":"Sentence generator"}</h4>`;
+  const out = el("div","resultado-caja"); out.style.fontFamily = "'PT Serif',Georgia,serif"; cont.appendChild(out);
+  const b = el("button","btn-sm-custom primary","🎲 " + (lang==="es"?"Generar":"Generate")); cont.appendChild(b);
+  const SE=["El niño","La maestra","Mi amigo","Los estudiantes"], VE=["escribe","lee","corrige","escucha"], CE=["un poema","una novela","la lección"];
+  const SEN=["The boy","The teacher","My friend","The students"], VEN=["writes","reads","corrects","listens"], CEN=["a poem","a novel","the lesson"];
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  b.addEventListener("click", () => { out.textContent = lang==="es"?`${pick(SE)} ${pick(VE)} ${pick(CE)}.`:`${pick(SEN)} ${pick(VEN)} ${pick(CEN)}.`; });
+  b.click();
+}
+function toolExportar(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Exportar progreso":"Export progress"}</h4>`;
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary","Generar"); const cp = el("button","btn-sm-custom outline","Copiar");
+  acc.append(b,cp); cont.appendChild(acc);
+  const gen = () => {
+    const hH = HTML_FLAT.filter(t=>getProg("t"+t.n).ok).length;
+    const hG = GRAM_FLAT.filter(t=>getGram("t"+t.n).ok).length;
+    let txt = `INFORME · ${new Date().toLocaleString()}\n\n`;
+    txt += `HTML: ${hH}/${HTML_FLAT.length}\nGramática: ${hG}/${GRAM_FLAT.length}\nExámenes: ${examHistory.length}\n\n`;
+    TIPOS_PARRAFO.forEach(p => {
+      const n = (getRed(p.id).texto||"").trim().split(/\s+/).filter(Boolean).length;
+      txt += `${p.nombre}: ${n} palabras\n`;
+    });
+    return txt;
+  };
+  b.addEventListener("click", () => { out.textContent = gen(); });
+  cp.addEventListener("click", () => { if(!out.textContent) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(()=>toast("✓")); });
+  b.click();
+}
+function toolModeloDjango(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Modelo Django":"Django model"}</h4>`;
+  const f = el("div","d-flex gap-2 mb-2"); f.style.flexWrap="wrap";
+  const c = document.createElement("input"); c.className="input-sm"; c.placeholder="Clase"; c.style.flex="1 1 180px";
+  const a = document.createElement("input"); a.className="input-sm"; a.placeholder="App"; a.style.flex="1 1 140px";
+  f.append(c,a); cont.appendChild(f);
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=6;
+  ta.placeholder = "titulo, CharField, max_length=200"; cont.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary","Generar"); const cp = el("button","btn-sm-custom outline","Copiar");
+  acc.append(b,cp); cont.appendChild(acc);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const gen = () => {
+    const nc = c.value.trim() || "Modelo"; const na = a.value.trim() || "app";
+    let cm = "";
+    (ta.value||"").split("\n").forEach(l => {
+      const t = l.trim(); if(!t) return;
+      const p = t.split(",").map(x=>x.trim());
+      const [n,ti,...ar] = p;
+      cm += `    ${n} = models.${ti||"CharField"}(${ar.join(", ")})\n`;
+    });
+    return `class ${nc}(models.Model):\n${cm||"    pass\n"}\n    def __str__(self):\n        return str(self.pk)\n`;
+  };
+  b.addEventListener("click", () => { out.textContent = gen(); });
+  cp.addEventListener("click", () => { if(!out.textContent) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(()=>toast("✓")); });
+}
+function toolEsquemaSQL(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Esquema SQL":"SQL schema"}</h4>`;
+  const f = el("div","d-flex gap-2 mb-2"); f.style.flexWrap="wrap";
+  const t = document.createElement("input"); t.className="input-sm"; t.placeholder="Tabla"; t.style.flex="1 1 160px";
+  const pk = document.createElement("input"); pk.className="input-sm"; pk.placeholder="PK"; pk.style.flex="1 1 200px";
+  f.append(t,pk); cont.appendChild(f);
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=6; cont.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary","Generar"); const cp = el("button","btn-sm-custom outline","Copiar");
+  acc.append(b,cp); cont.appendChild(acc);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  const gen = () => {
+    const tn = t.value.trim() || "tabla"; const p = pk.value.trim() || "id SERIAL PRIMARY KEY";
+    let cols = "  " + p;
+    (ta.value||"").split("\n").forEach(l => { if(l.trim()) cols += ",\n  " + l.trim(); });
+    return `CREATE TABLE ${tn} (\n${cols}\n);\n`;
+  };
+  b.addEventListener("click", () => { out.textContent = gen(); });
+  cp.addEventListener("click", () => { if(!out.textContent) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(()=>toast("✓")); });
+}
+function toolAnalizador(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Analizador de párrafos":"Paragraph analyzer"}</h4><p>${lang==="es"?"Detecta el tipo probable según marcadores.":"Detects probable type from markers."}</p>`;
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=6; cont.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary","Analizar");
+  acc.appendChild(b); cont.appendChild(acc);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  b.addEventListener("click", () => {
+    const t = ta.value.trim(); if(!t){ out.textContent="—"; return; }
+    const m = {
+      narrativo:(t.match(/\b(primero|luego|después|entonces|finalmente|ayer|hoy|first|then|finally)\b/gi)||[]).length,
+      descriptivo:(t.match(/\b(alto|bajo|verde|rojo|grande|pequeño|rugoso|liso|tall|small|green)\b/gi)||[]).length,
+      expositivo:(t.match(/\b(es|son|significa|consiste|proceso|por ejemplo|tipos|the|means|types)\b/gi)||[]).length,
+      argumentativo:(t.match(/\b(considero|pienso|por lo tanto|sin embargo|porque|therefore|however|because|should)\b/gi)||[]).length
+    };
+    const r = Object.entries(m).sort((a,b)=>b[1]-a[1]);
+    const gan = r[0];
+    out.textContent = `Narrativos: ${m.narrativo}\nDescriptivos: ${m.descriptivo}\nExpositivos: ${m.expositivo}\nArgumentativos: ${m.argumentativo}\n\nTipo probable: ${gan[1] > 0 ? gan[0] : "indeterminado"}`;
+  });
+}
+function toolGramatical(cont){
+  cont.innerHTML = `<h4>${lang==="es"?"Analizador gramatical":"Grammar analyzer"}</h4><p>${lang==="es"?"Cuenta categorías gramaticales del texto.":"Counts grammatical categories."}</p>`;
+  const ta = document.createElement("textarea"); ta.className="area-redaccion"; ta.rows=6; cont.appendChild(ta);
+  const acc = el("div","d-flex gap-2 mt-3");
+  const b = el("button","btn-sm-custom primary","Analizar");
+  acc.appendChild(b); cont.appendChild(acc);
+  const out = el("div","resultado-caja"); cont.appendChild(out);
+  b.addEventListener("click", () => {
+    const t = ta.value.trim(); if(!t){ out.textContent="—"; return; }
+    const pal = t.toLowerCase().match(/[a-záéíóúñü]+/gi) || [];
+    const total = pal.length;
+    const art = pal.filter(p=>["el","la","los","las","un","una","unos","unas"].includes(p)).length;
+    const cj = pal.filter(p=>["y","o","pero","porque","que","si","cuando","aunque"].includes(p)).length;
+    const pr = pal.filter(p=>["a","ante","bajo","con","contra","de","desde","en","entre","hacia","hasta","para","por","según","sin","sobre","tras"].includes(p)).length;
+    out.textContent = `Total: ${total}\nArtículos: ${art}\nConjunciones: ${cj}\nPreposiciones: ${pr}\nDensidad funcional: ${(((art+cj+pr)/total)*100).toFixed(1)}%`;
+  });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function abrirCertificado(){
+  const panel = $("#panelInner"); panel.innerHTML = "";
+  const seal = el("div","panel-seal"); const sealIn = el("div","panel-seal-inner","CERT\n200+"); sealIn.style.whiteSpace="pre-line"; seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const cert = el("section","certificado"); cert.id = "certificado";
+  cert.innerHTML = `
+    <div class="cert-sello"><div class="cert-sello-inner"><div><span class="anio">2025</span><span class="lbl">${t_("certifica")}</span></div></div></div>
+    <div class="cert-eyebrow">${lang==="es"?"República del Conocimiento · Formación Técnica":"Knowledge Republic · Technical Training"}</div>
+    <h1 class="cert-titulo">${t_("certTitulo")}</h1>
+    <div class="cert-linea"></div>
+    <p class="cert-otorgado">${t_("otorgado")}</p>
+    <span class="cert-nombre" contenteditable="true" data-campo="nombre">${t_("escribeNombre")}</span>
+    <p class="cert-desc">${t_("certDesc")}</p>
+    <div class="cert-firmas">
+      <div class="cert-firma"><strong contenteditable="true" data-campo="docente">${t_("docente")}</strong><small>${t_("responsable")}</small></div>
+      <div class="cert-firma"><strong contenteditable="true" data-campo="institucion">${t_("institucion")}</strong><small>${t_("emisora")}</small></div>
+    </div>
+    <div class="cert-meta">
+      <span contenteditable="true" data-campo="ciudad">${t_("ciudad")}</span>
+      <span contenteditable="true" data-campo="fecha">${t_("fecha")}</span>
+      <span>Radicado: <span contenteditable="true" data-campo="radicado">${t_("radicado")}</span></span>
+    </div>`;
+  panel.appendChild(cert);
+
+  const idx = el("section"); idx.id = "indice";
+  idx.style.cssText = "margin-top:2rem;padding-top:1.2rem;border-top:3px double var(--navy);";
+  idx.innerHTML = `<h2 style="font-family:'PT Serif',Georgia,serif;text-align:center;color:var(--navy);font-size:1.15rem;margin:0 0 .22rem;">${t_("índice")}</h2><div class="row g-2 mt-2" id="indiceGrid"></div>`;
+  panel.appendChild(idx);
+  const grid = idx.querySelector("#indiceGrid");
+  [...BLOQUES_HTML.map(b=>({...b,tag:"HTML"})), ...BLOQUES_GRAM.map(b=>({...b,tag:"Gram."}))].forEach(b => {
+    const c = el("div","col-md-6");
+    c.innerHTML = `<div style="border:1px solid var(--bronze-line);padding:.6rem .8rem;border-left:3px solid var(--navy);border-radius:3px;background:var(--paper);"><h3 style="font-family:'PT Serif',Georgia,serif;font-size:.82rem;color:var(--navy);margin:0;display:flex;gap:.35rem;align-items:baseline;"><span style="font-family:'JetBrains Mono',monospace;font-size:.56rem;font-weight:700;color:var(--bronze-dark);background:var(--bronze-soft);padding:.06rem .28rem;border:1px solid var(--bronze-line);">${b.rango}</span>${b.emoji} ${b.tag} · ${esc(lang==="es"?b.nombre:b.nombreEN)}</h3></div>`;
+    grid.appendChild(c);
+  });
+
+  bindCampos(cert);
+}
+function bindCampos(ctx){
+  ctx.querySelectorAll("[data-campo]").forEach(elem => {
+    const k = elem.dataset.campo;
+    if(campos[k]) elem.textContent = campos[k];
+    elem.addEventListener("input", () => { campos[k] = elem.textContent.trim(); saveCampos(); });
+  });
+}
+
+/* =====================================================================
+   PDF / WORD / RESET
+   ===================================================================== */
+$("#btnPrint").addEventListener("click", () => { if(modo !== "certificado"){ cambiarModo("certificado"); setTimeout(() => window.print(), 400); } else window.print(); });
+$("#btnWord").addEventListener("click", () => {
+  const n = campos.nombre || t_("escribeNombre");
+  const d = campos.docente || t_("docente");
+  const i = campos.institucion || t_("institucion");
+  let html = `<!DOCTYPE html><html xmlns:w="urn:schemas-microsoft-com:office:word"><head><meta charset="UTF-8"><title>Cuaderno Unificado</title><style>@page{size:A4;margin:2cm} body{font-family:Georgia,serif;color:#14213d;line-height:1.5} h1{font-size:22pt;text-align:center} h2{font-size:13pt;margin:16pt 0 6pt;border-bottom:1pt solid #14213d;padding-bottom:4pt} h3{font-size:10.5pt} p{font-size:10.5pt;margin:0 0 5pt} .cert{text-align:center;padding:40pt 20pt} .cert-nombre{font-size:22pt;font-weight:bold;border-bottom:1pt dashed #a67c52;display:inline-block;padding:0 40pt 4pt} .bloque{page-break-before:always} .tecnica{padding:6pt 0;border-bottom:1pt solid #d8d2c3}</style></head><body>
+<div class="cert"><h1>${lang==="es"?"Certificado de Finalización":"Completion Certificate"}</h1><p>${t_("otorgado")}</p><div class="cert-nombre">${esc(n)}</div><p>${t_("certDesc")}</p><div style="margin-top:40pt"><div style="display:inline-block;width:45%;text-align:center;border-top:1pt solid #14213d;padding-top:6pt;margin:0 2%"><b>${esc(d)}</b></div><div style="display:inline-block;width:45%;text-align:center;border-top:1pt solid #14213d;padding-top:6pt;margin:0 2%"><b>${esc(i)}</b></div></div></div>`;
+  [...BLOQUES_HTML, ...BLOQUES_GRAM].forEach(b => {
+    html += `<div class="bloque"><h2>${b.emoji} ${esc(lang==="es"?b.nombre:b.nombreEN)} (${b.rango})</h2>`;
+    b.tecnicas.forEach(t => {
+      const tB = lang==="es"?t.t:t.tEN;
+      const cB = lang==="es"?t.c:t.cEN;
+      html += `<div class="tecnica"><h3>${t.n}. ${esc(tB)}</h3><p>${esc(cB)}</p></div>`;
+    });
+    html += `</div>`;
+  });
+  html += `</body></html>`;
+  const blob = new Blob(['\ufeff', html], {type:"application/msword"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a"); a.href = url; a.download = "cuaderno_unificado.doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  toast("✓");
+});
+$("#btnReset").addEventListener("click", () => {
+  if(!confirm(lang==="es"?"¿Reiniciar todo? Se borrará progreso, notas, historial de exámenes y rúbrica personalizada.":"Reset everything? Progress, notes, exam history and custom rubric will be deleted.")) return;
+  progreso = {}; progresoGram = {}; campos = {}; redaccion = {}; examHistory = []; rubricaCustom = null;
+  try { [K.prog,K.gram,K.campos,K.red,K.examHistory,K.rubrica].forEach(k => localStorage.removeItem(k)); } catch(e){}
+  if(examen && examen.timerId) clearInterval(examen.timerId);
+  examen = null; rubricaEstado = null;
+  cambiarModo("dashboard");
+  toast("✓");
+});
+
+/* =====================================================================
+   SIDEBAR + EVENTOS GLOBALES
+   ===================================================================== */
+const sidebar = $("#sidebar");
+function cerrarSidebar(){ sidebar.classList.remove("open"); }
+$("#btnMenu") && $("#btnMenu").addEventListener("click", () => sidebar.classList.toggle("open"));
+document.addEventListener("click", e => {
+  if(window.innerWidth <= 900 && sidebar.classList.contains("open") && !sidebar.contains(e.target) && e.target.id !== "btnMenu") cerrarSidebar();
+});
+$("#searchTecnica").addEventListener("input", () => { if(modo==="cuaderno") renderMenuCuaderno(); if(modo==="gramatica") renderMenuGramatica(); });
+$$(".modo-tab").forEach(t => t.addEventListener("click", () => cambiarModo(t.dataset.modo)));
+
+function actualizarProgreso(){
+  const hH = HTML_FLAT.filter(t=>getProg("t"+t.n).ok).length;
+  const hG = GRAM_FLAT.filter(t=>getGram("t"+t.n).ok).length;
+  $("#sidebarCount") && ($("#sidebarCount").textContent = (HTML_FLAT.length + GRAM_FLAT.length));
+}
+
+/* Arranque */
+aplicarIdioma(lang);
+cambiarModo("dashboard");
+</script>
+</body>
+</html>

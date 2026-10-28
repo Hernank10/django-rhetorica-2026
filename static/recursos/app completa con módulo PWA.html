@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14213d">
+<meta name="description" content="Mini LMS Completo · 100 técnicas para desarrollar un LMS con Python, Django y SQL. Funciona sin conexión (PWA).">
+<link rel="manifest" href="#" id="manifestLink">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Mini LMS Completo · 100 técnicas · PWA + Dashboard</title>
+<style>
+  :root{
+    --paper:#fdfaf3; --paper-2:#f7f2e8; --ink:#14213d;
+    --navy:#14213d; --navy-dark:#0a1528; --navy-soft:#dde5f0;
+    --bronze:#a67c52; --bronze-dark:#7c5c39; --bronze-soft:#f0e4d3; --bronze-line:#c9a96e;
+    --muted:#6b6355; --line:#d8d2c3; --line-2:#b8af99;
+    --ok:#2f6b3a; --ok-soft:#e0efe2; --bad:#8b1e1e; --bad-soft:#f8e0e0;
+    --warn:#a67c52; --warn-soft:#f0e4d3;
+    --shadow:0 1px 2px rgba(20,33,61,.08), 0 8px 22px rgba(20,33,61,.10);
+    --transition:.22s cubic-bezier(.4,.15,.2,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;font-family:"Public Sans",system-ui,sans-serif;
+    background:radial-gradient(circle at 12% 0%,#f4f1ea 0%,transparent 55%),#e8e6e0;
+    color:var(--ink);-webkit-font-smoothing:antialiased;font-size:.95rem;min-height:100vh;
+  }
+
+  /* ============ TOPBAR ============ */
+  .topbar{
+    position:sticky;top:0;z-index:1030;display:flex;align-items:center;
+    justify-content:space-between;gap:1rem;padding:.6rem 1.1rem;
+    background:linear-gradient(180deg,#fdfaf3,#f7f2e8);
+    border-bottom:3px double var(--navy);
+    box-shadow:0 1px 0 var(--bronze-line) inset;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:.8rem;min-width:0;}
+  .seal{
+    width:44px;height:44px;flex:0 0 auto;border-radius:50%;padding:3px;
+    border:1.5px dashed var(--bronze);display:grid;place-items:center;
+  }
+  .seal-inner{
+    width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);
+    display:grid;place-items:center;
+    background:radial-gradient(circle,var(--paper) 60%,var(--bronze-soft) 100%);
+    color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:12px;
+    position:relative;
+  }
+  .seal-inner::before,.seal-inner::after{content:"★";position:absolute;font-size:5px;color:var(--bronze);}
+  .seal-inner::before{top:4px;left:50%;transform:translateX(-50%);}
+  .seal-inner::after{bottom:4px;left:50%;transform:translateX(-50%);}
+  .brand h1{
+    font-family:"PT Serif",Georgia,serif;font-size:.88rem;margin:0;font-weight:700;
+    color:var(--navy);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .brand small{font-size:.6rem;color:var(--muted);letter-spacing:.6px;text-transform:uppercase;font-weight:700;}
+
+  .modo-tabs{display:flex;border:1px solid var(--navy);background:var(--paper);flex-wrap:wrap;}
+  .modo-tab{
+    font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    padding:.5rem .8rem;cursor:pointer;border:none;background:transparent;color:var(--navy);
+    border-right:1px solid var(--navy);transition:var(--transition);font-family:inherit;
+  }
+  .modo-tab:last-child{border-right:none;}
+  .modo-tab:hover{background:var(--navy-soft);}
+  .modo-tab.active{background:var(--navy);color:var(--paper);}
+
+  .btn-sm-custom{
+    font-size:.68rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    padding:.42rem .8rem;border:1px solid var(--navy);background:var(--paper);color:var(--navy);
+    cursor:pointer;border-radius:3px;transition:var(--transition);font-family:inherit;
+  }
+  .btn-sm-custom:hover{background:var(--navy-soft);}
+  .btn-sm-custom.primary{background:var(--navy);color:var(--paper);}
+  .btn-sm-custom.primary:hover{background:var(--navy-dark);}
+  .btn-sm-custom.outline{border-color:var(--bronze);color:var(--bronze-dark);}
+  .btn-sm-custom.outline:hover{background:var(--bronze-soft);}
+  .btn-sm-custom.danger{border-color:var(--bad);color:var(--bad);}
+  .btn-sm-custom.danger:hover{background:var(--bad-soft);}
+  .btn-sm-custom.ok{border-color:var(--ok);color:var(--ok);}
+  .btn-sm-custom.ok:hover{background:var(--ok-soft);}
+
+  .status-pill{
+    display:inline-flex;align-items:center;gap:.35rem;font-size:.6rem;font-weight:800;
+    letter-spacing:.5px;text-transform:uppercase;padding:.3rem .6rem;border-radius:99px;
+    border:1px solid;background:var(--paper);
+  }
+  .status-pill.online{border-color:var(--ok);color:var(--ok);}
+  .status-pill.offline{border-color:var(--bad);color:var(--bad);}
+  .status-pill .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  /* ============ LAYOUT ============ */
+  .layout{display:grid;grid-template-columns:290px 1fr;gap:1.3rem;padding:1.3rem;max-width:1450px;margin:0 auto;align-items:start;}
+  @media (max-width:900px){.layout{grid-template-columns:1fr;padding:.8rem;gap:.8rem;}}
+
+  /* ============ SIDEBAR ============ */
+  .sidebar{
+    position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+    background:var(--paper);border:1px solid var(--navy);padding:4px;
+    box-shadow:var(--shadow);border-radius:4px;
+  }
+  .sidebar-inner{border:1px solid var(--bronze-line);padding:.8rem;border-radius:3px;}
+  .side-label{
+    font-size:.6rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;
+    color:var(--bronze-dark);padding-bottom:.4rem;margin-bottom:.6rem;
+    border-bottom:1px solid var(--bronze-line);display:flex;justify-content:space-between;align-items:center;
+  }
+  .side-search{
+    width:100%;font-size:.8rem;padding:.4rem .6rem;border:1px solid var(--line);
+    background:var(--paper);color:var(--ink);margin-bottom:.7rem;border-radius:3px;outline:none;
+  }
+  .side-search:focus{border-color:var(--navy);}
+
+  .cat-block{margin-bottom:.3rem;}
+  .cat-toggle{
+    display:flex;align-items:center;gap:.5rem;width:100%;text-align:left;
+    background:none;border:none;padding:.5rem .55rem;
+    font-size:.68rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+    color:var(--navy);border-left:3px solid transparent;font-family:inherit;
+    transition:var(--transition);cursor:pointer;
+  }
+  .cat-toggle:hover{background:var(--navy-soft);border-left-color:var(--bronze);}
+  .cat-toggle[aria-expanded="true"] .chev{transform:rotate(90deg);}
+  .chev{margin-left:auto;font-size:.55rem;color:var(--bronze);transition:transform var(--transition);}
+  .cat-count{
+    font-family:"PT Serif",Georgia,serif;font-size:.66rem;font-weight:700;
+    background:var(--bronze-soft);color:var(--bronze-dark);
+    padding:.1rem .4rem;border:1px solid var(--bronze-line);
+  }
+  .cat-prog{height:3px;background:var(--paper-2);margin:0 .55rem .4rem;border:1px solid var(--line);}
+  .cat-prog > div{height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));transition:width var(--transition);}
+  .tech-btn{
+    display:flex;align-items:flex-start;gap:.4rem;width:100%;text-align:left;
+    background:none;border:none;padding:.35rem .55rem;
+    font-size:.74rem;line-height:1.35;color:var(--ink);
+    border-left:3px solid transparent;font-family:inherit;transition:var(--transition);cursor:pointer;
+    border-radius:0 3px 3px 0;
+  }
+  .tech-btn:hover{background:var(--bronze-soft);border-left-color:var(--bronze);}
+  .tech-btn.active{background:var(--navy-soft);border-left-color:var(--navy);color:var(--navy-dark);font-weight:700;}
+  .tech-btn .done-mark{
+    flex:0 0 auto;width:12px;height:12px;margin-top:.15rem;
+    border:1px solid var(--line);background:var(--paper);
+    display:grid;place-items:center;font-size:.5rem;color:transparent;
+  }
+  .tech-btn.done .done-mark{background:var(--ok);border-color:var(--ok);color:#fff;}
+
+  /* ============ PANEL ============ */
+  .panel{
+    background:var(--paper);border:1px solid var(--navy);padding:6px;
+    box-shadow:var(--shadow);border-radius:4px;position:relative;
+  }
+  .panel-inner{
+    border:1px solid var(--bronze-line);padding:1.8rem 2rem;border-radius:3px;
+    background:radial-gradient(circle at 100% 0%, var(--bronze-soft) 0%, transparent 45%), var(--paper);
+    position:relative;
+  }
+  @media (max-width:640px){.panel-inner{padding:1.1rem;}}
+  .panel-seal{
+    position:absolute;top:14px;right:18px;width:60px;height:60px;
+    border-radius:50%;border:1.5px dashed var(--bronze);padding:3px;opacity:.75;
+  }
+  .panel-seal-inner{
+    width:100%;height:100%;border-radius:50%;border:1px solid var(--navy);
+    display:grid;place-items:center;color:var(--navy);
+    font-family:"PT Serif",Georgia,serif;font-weight:700;font-size:8px;
+    text-align:center;line-height:1.1;
+  }
+
+  /* ============ DASHBOARD ============ */
+  .dash-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:1.6rem;}
+  .kpi{
+    border:1px solid var(--bronze-line);padding:1rem;border-radius:4px;background:var(--paper);
+    border-left:4px solid var(--navy);position:relative;overflow:hidden;
+  }
+  .kpi .lbl{font-size:.6rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--bronze-dark);display:block;margin-bottom:.3rem;}
+  .kpi .val{font-family:"PT Serif",Georgia,serif;font-size:2rem;font-weight:700;color:var(--navy);line-height:1;}
+  .kpi .sub{font-size:.7rem;color:var(--muted);margin-top:.35rem;}
+  .kpi .spark{position:absolute;right:8px;bottom:8px;opacity:.65;}
+
+  .chart-card{
+    border:1px solid var(--navy);padding:4px;border-radius:4px;background:var(--paper);
+    box-shadow:var(--shadow);margin-bottom:1.2rem;
+  }
+  .chart-inner{
+    border:1px solid var(--bronze-line);padding:1.2rem;border-radius:3px;background:var(--paper);
+  }
+  .chart-inner h3{
+    font-family:"PT Serif",Georgia,serif;font-size:1.05rem;color:var(--navy);
+    margin:0 0 .2rem;font-weight:700;
+  }
+  .chart-inner .sub{font-size:.7rem;color:var(--muted);margin:0 0 1rem;letter-spacing:.5px;text-transform:uppercase;font-weight:600;}
+
+  .bar-chart{display:flex;flex-direction:column;gap:.7rem;}
+  .bar-row{
+    display:grid;grid-template-columns:200px 1fr 60px;gap:.7rem;align-items:center;
+  }
+  @media (max-width:640px){.bar-row{grid-template-columns:1fr;gap:.3rem;}}
+  .bar-row .nombre{
+    font-size:.78rem;font-weight:700;color:var(--navy);
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .bar-row .nombre small{display:block;font-weight:500;color:var(--muted);font-size:.65rem;}
+  .bar-track{
+    height:22px;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:3px;overflow:hidden;position:relative;
+  }
+  .bar-fill{
+    height:100%;background:linear-gradient(90deg,var(--navy),var(--bronze));
+    width:0;transition:width .8s cubic-bezier(.4,.15,.2,1);
+    display:flex;align-items:center;justify-content:flex-end;padding-right:.5rem;
+    color:var(--paper);font-size:.7rem;font-weight:700;letter-spacing:.5px;
+  }
+  .bar-row .pct{
+    font-family:"PT Serif",Georgia,serif;font-size:.9rem;font-weight:700;
+    color:var(--navy);text-align:right;
+  }
+
+  .donut-wrap{
+    display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;justify-content:center;
+  }
+  .donut-wrap svg{flex:0 0 auto;}
+  .donut-info{display:flex;flex-direction:column;gap:.5rem;font-size:.82rem;}
+  .donut-info div{display:flex;align-items:center;gap:.5rem;}
+  .donut-info .dot{width:11px;height:11px;border-radius:3px;}
+  .donut-info .lbl{flex:1;color:var(--ink);}
+  .donut-info .val{font-weight:700;color:var(--navy);font-family:"PT Serif",Georgia,serif;}
+
+  .line-chart svg{width:100%;height:auto;max-height:220px;}
+
+  /* ============ CERTIFICADO ============ */
+  .certificado{text-align:center;padding:1.5rem 1rem 2.5rem;position:relative;}
+  .certificado::before,.certificado::after{
+    content:"";position:absolute;left:0;right:0;height:3px;
+    border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);
+  }
+  .certificado::before{top:0;}
+  .certificado::after{bottom:0;}
+  .cert-sello{width:100px;height:100px;margin:0 auto 1.2rem;border-radius:50%;padding:4px;
+    border:2px dashed var(--bronze);display:grid;place-items:center;position:relative;}
+  .cert-sello-inner{
+    width:100%;height:100%;border-radius:50%;border:2px solid var(--navy);
+    display:grid;place-items:center;
+    background:radial-gradient(circle, var(--paper) 55%, var(--bronze-soft) 100%);
+    color:var(--navy);font-family:"PT Serif",Georgia,serif;font-weight:700;text-align:center;line-height:1.2;
+  }
+  .cert-sello-inner .anio{font-size:1.9rem;display:block;line-height:1;}
+  .cert-sello-inner .lbl{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--bronze-dark);font-weight:800;}
+  .cert-eyebrow{font-size:.68rem;font-weight:800;letter-spacing:2.2px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.5rem;}
+  .cert-titulo{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.2rem,3.2vw,1.9rem);color:var(--navy);line-height:1.15;margin:0 0 .9rem;font-weight:700;}
+  .cert-linea{width:60%;margin:1rem auto;height:1px;background:var(--bronze-line);position:relative;}
+  .cert-linea::before{content:"◆";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--paper);padding:0 .5rem;color:var(--bronze);font-size:.7rem;}
+  .cert-otorgado{font-family:"PT Serif",Georgia,serif;font-style:italic;font-size:.9rem;color:var(--muted);margin:.9rem 0 .4rem;}
+  .cert-nombre{
+    font-family:"PT Serif",Georgia,serif;font-size:clamp(1.2rem,3.4vw,1.9rem);
+    font-weight:700;color:var(--navy);line-height:1.15;padding:.35rem .7rem;
+    border-bottom:1px dashed var(--bronze);display:inline-block;min-width:60%;
+    outline:none;transition:var(--transition);
+  }
+  .cert-nombre:hover,.cert-nombre:focus{background:var(--bronze-soft);}
+  .cert-desc{font-family:"PT Serif",Georgia,serif;font-size:.9rem;line-height:1.7;color:var(--ink);max-width:600px;margin:1rem auto 0;}
+  .cert-firmas{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;max-width:520px;margin:1.8rem auto 0;}
+  .cert-firma{border-top:1px solid var(--navy);padding-top:.5rem;text-align:center;}
+  .cert-firma strong{display:block;font-family:"PT Serif",Georgia,serif;font-size:.85rem;color:var(--navy);outline:none;padding:.1rem .3rem;min-width:60%;}
+  .cert-firma small{font-size:.6rem;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;font-weight:700;}
+  .cert-meta{display:flex;justify-content:space-between;gap:1rem;margin-top:1.6rem;font-size:.66rem;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:700;padding-top:.9rem;border-top:1px solid var(--bronze-line);}
+  .cert-meta span{outline:none;}
+  .cert-meta span:hover,.cert-meta span:focus{background:var(--bronze-soft);}
+
+  /* ============ DOCUMENTO ============ */
+  .doc-bloque{margin-top:2.2rem;page-break-before:always;}
+  .doc-bloque:first-of-type{page-break-before:avoid;}
+  .doc-bloque-header{
+    padding:.85rem 1rem;background:var(--navy-soft);border-left:4px solid var(--navy);
+    border-radius:3px;margin-bottom:1.1rem;
+  }
+  .doc-bloque-header h2{
+    font-family:"PT Serif",Georgia,serif;font-size:1.1rem;color:var(--navy);
+    margin:0 0 .2rem;display:flex;gap:.5rem;align-items:baseline;flex-wrap:wrap;
+  }
+  .doc-bloque-header .rango{
+    font-family:"JetBrains Mono",monospace;font-size:.66rem;font-weight:700;
+    color:var(--bronze-dark);background:var(--bronze-soft);padding:.15rem .45rem;border:1px solid var(--bronze-line);
+  }
+  .doc-bloque-header p{font-size:.76rem;color:var(--muted);margin:0;line-height:1.5;}
+
+  .doc-tecnica{
+    display:grid;grid-template-columns:56px 1fr;gap:.9rem;
+    padding:.9rem 0;border-bottom:1px solid var(--line);page-break-inside:avoid;
+  }
+  .doc-tecnica:last-child{border-bottom:none;}
+  .doc-tecnica .num{
+    font-family:"PT Serif",Georgia,serif;font-size:1.5rem;font-weight:700;
+    color:var(--bronze);line-height:1;text-align:right;padding-top:.15rem;
+  }
+  .doc-tecnica .body h3{font-family:"PT Serif",Georgia,serif;font-size:.95rem;font-weight:700;color:var(--navy);margin:0 0 .3rem;line-height:1.3;}
+  .doc-tecnica .body p{font-size:.82rem;line-height:1.6;color:var(--ink);margin:0 0 .45rem;}
+  .doc-tecnica .ej{
+    font-family:"JetBrains Mono",monospace;font-size:.7rem;line-height:1.55;
+    background:var(--paper-2);border-left:3px solid var(--bronze);
+    padding:.45rem .7rem;border-radius:0 3px 3px 0;color:var(--navy-dark);
+    overflow-x:auto;white-space:pre-wrap;
+  }
+  @media (max-width:640px){
+    .doc-tecnica{grid-template-columns:36px 1fr;gap:.5rem;}
+    .doc-tecnica .num{font-size:1.1rem;}
+  }
+
+  /* ============ CUADERNO INTERACTIVO ============ */
+  .tech-header{padding-right:80px;margin-bottom:1rem;}
+  .tech-badge{
+    display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--bronze-dark);background:var(--bronze-soft);
+    border:1px solid var(--bronze-line);padding:.15rem .55rem;margin-bottom:.5rem;
+  }
+  .tech-title{font-family:"PT Serif",Georgia,serif;font-size:clamp(1.05rem,2.6vw,1.5rem);font-weight:700;color:var(--navy);line-height:1.2;margin:0;}
+  .tech-sub{font-size:.68rem;color:var(--muted);margin-top:.3rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+  .rule-double{height:3px;border-top:1px solid var(--navy);border-bottom:1px solid var(--bronze-line);margin:.8rem 0 1.1rem;}
+
+  .block-dots{display:flex;gap:.3rem;flex-wrap:wrap;margin-top:.5rem;}
+  .block-dot{
+    width:10px;height:10px;border:1px solid var(--line);background:var(--paper);
+    cursor:pointer;transition:var(--transition);
+  }
+  .block-dot:hover{transform:scale(1.25);border-color:var(--bronze);}
+  .block-dot.done{background:var(--ok);border-color:var(--ok);}
+  .block-dot.current{background:var(--bronze);border-color:var(--bronze-dark);}
+
+  .flashcard{
+    perspective:1600px;margin:0 0 1rem;cursor:pointer;
+    border:1px solid var(--navy);padding:4px;background:var(--paper);
+    box-shadow:var(--shadow);border-radius:3px;
+  }
+  .flashcard-inner{
+    position:relative;min-height:clamp(200px,30vh,260px);
+    transform-style:preserve-3d;transition:transform .68s cubic-bezier(.4,.15,.2,1);
+    border:1px solid var(--bronze-line);
+  }
+  .flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+  .flashcard-face{
+    position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    padding:1rem 1.2rem;display:flex;flex-direction:column;overflow:auto;background:var(--paper);
+    background-image:linear-gradient(transparent 27px, rgba(20,33,61,.06) 27px 28px);
+    background-size:100% 28px;background-position:0 14px;
+  }
+  .flashcard-back{transform:rotateY(180deg);background:var(--bronze-soft);}
+  .flashcard-tag{font-size:.6rem;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--bronze-dark);margin-bottom:.5rem;padding-bottom:.35rem;border-bottom:1px solid var(--bronze-line);display:block;}
+  .flashcard-face p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.9rem;line-height:1.7;color:var(--ink);}
+  .flashcard-back p{font-style:italic;color:var(--navy-dark);}
+  .flashcard-hint{margin-top:auto;padding-top:.6rem;font-size:.6rem;color:var(--muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+
+  .sec-title{display:flex;align-items:center;gap:.5rem;font-family:"PT Serif",Georgia,serif;font-size:.95rem;font-weight:700;color:var(--navy);margin:1.5rem 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--navy);position:relative;}
+  .sec-title::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:var(--bronze-line);}
+  .sec-title small{font-size:.6rem;color:var(--muted);margin-left:auto;letter-spacing:.5px;text-transform:uppercase;}
+
+  .consigna{font-family:"PT Serif",Georgia,serif;font-size:.9rem;line-height:1.55;background:var(--paper-2);border-left:3px solid var(--bronze);padding:.65rem .9rem;margin:0 0 .9rem;border-radius:0 3px 3px 0;}
+
+  .opciones{display:flex;flex-direction:column;gap:.4rem;}
+  .opcion-btn{
+    display:flex;gap:.6rem;align-items:flex-start;width:100%;text-align:left;
+    background:var(--paper);border:1px solid var(--line);
+    color:var(--ink);padding:.65rem .8rem;cursor:pointer;transition:var(--transition);
+    font-family:inherit;font-size:.84rem;line-height:1.45;border-radius:3px;
+  }
+  .opcion-btn:hover:not(:disabled){border-color:var(--navy);background:var(--navy-soft);}
+  .opcion-btn:disabled{cursor:default;opacity:.9;}
+  .opcion-letra{
+    flex:0 0 auto;width:22px;height:22px;background:var(--paper-2);color:var(--muted);
+    border:1px solid var(--line);display:grid;place-items:center;
+    font-family:"PT Serif",Georgia,serif;font-size:.7rem;font-weight:700;
+  }
+  .opcion-btn.correcta{border-color:var(--ok);background:var(--ok-soft);}
+  .opcion-btn.correcta .opcion-letra{background:var(--ok);color:#fff;border-color:var(--ok);}
+  .opcion-btn.incorrecta{border-color:var(--bad);background:var(--bad-soft);}
+  .opcion-btn.incorrecta .opcion-letra{background:var(--bad);color:#fff;border-color:var(--bad);}
+
+  textarea.area-redaccion{
+    width:100%;font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.5;
+    color:var(--ink);padding:.7rem .9rem;border:1px solid var(--bronze-line);
+    background:var(--paper);border-radius:3px;resize:vertical;outline:none;transition:var(--transition);
+  }
+  textarea.area-redaccion:focus{border-color:var(--navy);box-shadow:0 0 0 3px var(--navy-soft);}
+
+  .fb-box{margin-top:1rem;padding:0;overflow:hidden;max-height:0;opacity:0;transition:var(--transition);border-left:3px solid transparent;border-radius:0 3px 3px 0;}
+  .fb-box.show{max-height:600px;opacity:1;padding:.8rem 1rem;}
+  .fb-box.fb-ok{background:var(--ok-soft);border-left-color:var(--ok);color:var(--ok);}
+  .fb-box.fb-mal{background:var(--bad-soft);border-left-color:var(--bad);color:var(--bad);}
+  .fb-box.fb-info{background:var(--bronze-soft);border-left-color:var(--bronze);color:var(--bronze-dark);}
+  .fb-box strong{display:block;font-size:.65rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:.3rem;}
+  .fb-box p{margin:0;font-family:"PT Serif",Georgia,serif;font-size:.86rem;line-height:1.55;}
+
+  .modelo-respuesta{
+    display:none;margin-top:1rem;background:var(--paper-2);border-left:3px solid var(--navy);
+    padding:.8rem 1rem;border-radius:0 3px 3px 0;font-family:"PT Serif",Georgia,serif;
+    font-size:.86rem;line-height:1.6;color:var(--navy-dark);
+  }
+  .modelo-respuesta.show{display:block;}
+
+  .cuaderno-block{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--navy);position:relative;}
+  .cuaderno-block::before{content:"";position:absolute;left:0;right:0;top:2px;height:1px;background:var(--bronze-line);}
+  .cuaderno-foot{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--muted);margin-top:.4rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+  #notaStatus{color:var(--ok);font-weight:700;opacity:0;transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex;justify-content:space-between;gap:.6rem;margin-top:1.3rem;padding-top:1rem;border-top:1px solid var(--bronze-line);}
+
+  /* ============ TALLER ============ */
+  .tool-card{background:var(--paper);border:1px solid var(--navy);padding:4px;border-radius:3px;box-shadow:var(--shadow);margin-bottom:1rem;}
+  .tool-inner{border:1px solid var(--bronze-line);padding:1rem;border-radius:3px;background:var(--paper);}
+  .tool-inner h4{font-family:"PT Serif",Georgia,serif;font-size:1rem;color:var(--navy);margin:0 0 .4rem;font-weight:700;}
+  .tool-inner > p{font-size:.8rem;color:var(--muted);margin:0 0 .8rem;}
+  .input-sm,.select-sm{font-size:.85rem;width:100%;padding:.4rem .6rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:3px;outline:none;transition:var(--transition);}
+  .input-sm:focus,.select-sm:focus{border-color:var(--navy);box-shadow:0 0 0 2px var(--navy-soft);}
+
+  .resultado-caja{
+    background:var(--paper-2);border:1px solid var(--bronze-line);padding:.8rem;
+    border-radius:3px;font-family:"JetBrains Mono",monospace;font-size:.78rem;line-height:1.6;
+    color:var(--ink);white-space:pre-wrap;max-height:400px;overflow-y:auto;margin-top:.7rem;
+  }
+
+  /* ============ PWA BANNER ============ */
+  .pwa-banner{
+    position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(200px);
+    background:var(--paper);border:1px solid var(--navy);box-shadow:var(--shadow);
+    padding:.8rem 1rem;border-radius:6px;display:flex;align-items:center;gap:.9rem;
+    max-width:520px;width:calc(100% - 2rem);z-index:2100;
+    transition:transform .35s cubic-bezier(.4,.15,.2,1);
+  }
+  .pwa-banner.show{transform:translateX(-50%) translateY(0);}
+  .pwa-banner .icon{
+    width:44px;height:44px;border-radius:8px;background:var(--navy-soft);
+    display:grid;place-items:center;font-size:1.3rem;flex:0 0 auto;
+  }
+  .pwa-banner .text{flex:1;min-width:0;}
+  .pwa-banner .text strong{display:block;font-family:"PT Serif",Georgia,serif;color:var(--navy);font-size:.9rem;}
+  .pwa-banner .text small{font-size:.72rem;color:var(--muted);display:block;margin-top:.15rem;}
+  .pwa-banner .btns{display:flex;gap:.4rem;flex:0 0 auto;}
+
+  /* ============ TOAST ============ */
+  .app-toast{
+    position:fixed;bottom:1rem;left:50%;transform:translateX(-50%) translateY(80px);
+    background:var(--navy);color:var(--paper);padding:.6rem 1.1rem;
+    font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+    border:1px solid var(--bronze-line);box-shadow:var(--shadow);
+    opacity:0;transition:var(--transition);z-index:2200;border-radius:3px;
+  }
+  .app-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+  /* ============ PRINT ============ */
+  @media print{
+    @page{size:A4;margin:2cm;}
+    body{background:#fff !important;}
+    .topbar,.sidebar,.app-toast,.no-print,.pwa-banner{display:none !important;}
+    .layout{display:block;padding:0;gap:0;max-width:none;margin:0;}
+    .panel{border:none;box-shadow:none;padding:0;background:#fff;}
+    .panel-inner{border:none;padding:0;background:#fff;}
+    .panel-seal{display:none;}
+    .doc-bloque{page-break-before:always;margin-top:0;}
+    .doc-bloque:first-of-type{page-break-before:avoid;}
+    .doc-tecnica{page-break-inside:avoid;}
+    .certificado{min-height:calc(297mm - 4cm);display:flex;flex-direction:column;justify-content:center;}
+    .cuaderno-interactivo,.taller-completo,.dashboard-view{display:none !important;}
+  }
+
+  @media (max-width:900px){
+    .sidebar{
+      position:fixed;top:0;left:0;bottom:0;width:290px;max-height:100vh;
+      z-index:1050;padding:4px;transform:translateX(-105%);
+      transition:transform .28s ease;overflow-y:auto;border-radius:0 6px 6px 0;
+    }
+    .sidebar.open{transform:none;}
+    .only-mobile{display:inline-block !important;}
+  }
+  .only-mobile{display:none;}
+
+  /* utilidades */
+  .d-flex{display:flex;}
+  .gap-2{gap:.5rem;}
+  .gap-3{gap:.7rem;}
+  .mt-2{margin-top:.5rem;}
+  .mt-3{margin-top:.8rem;}
+  .mb-2{margin-bottom:.5rem;}
+  .mb-3{margin-bottom:.8rem;}
+  .text-muted{color:var(--muted);}
+  .fw-bold{font-weight:700;}
+  .text-center{text-align:center;}
+</style>
+</head>
+<body>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <div class="seal" aria-hidden="true"><div class="seal-inner">LMS</div></div>
+    <div>
+      <h1>Mini LMS Completo · 100 técnicas</h1>
+      <small>Dashboard · Certificado · Cuaderno · Taller · PWA</small>
+    </div>
+  </div>
+
+  <nav class="modo-tabs" role="tablist" aria-label="Modo de la aplicación">
+    <button class="modo-tab" data-modo="dashboard" role="tab">📊 Dashboard</button>
+    <button class="modo-tab active" data-modo="cuaderno" role="tab" aria-selected="true">📖 Cuaderno</button>
+    <button class="modo-tab" data-modo="taller" role="tab">🛠 Taller</button>
+    <button class="modo-tab" data-modo="certificado" role="tab">🎓 Certificado</button>
+  </nav>
+
+  <div class="d-flex gap-2" style="align-items:center;flex-wrap:wrap;">
+    <span class="status-pill online" id="statusPill" title="Estado de conexión">
+      <span class="dot"></span><span id="statusText">En línea</span>
+    </span>
+    <button class="btn-sm-custom ok" id="btnInstall" style="display:none;" aria-label="Instalar app">⬇ Instalar</button>
+    <button class="btn-sm-custom outline" id="btnTheme" aria-label="Cambiar tema" title="Modo claro/oscuro">🌙</button>
+    <button class="btn-sm-custom primary" id="btnPrint" aria-label="Guardar como PDF">🖨 PDF</button>
+    <button class="btn-sm-custom outline" id="btnWord" aria-label="Descargar Word">📄 Word</button>
+    <button class="btn-sm-custom danger" id="btnReset" aria-label="Reiniciar">↺</button>
+    <button class="btn-sm-custom only-mobile" id="btnMenu" aria-label="Abrir menú">☰</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar no-print" id="sidebar" aria-label="Navegación">
+    <div class="sidebar-inner">
+      <div class="side-label">
+        <span id="sidebarTitle">Contenido</span>
+        <span class="cat-count" id="sidebarCount">100</span>
+      </div>
+      <input type="search" class="side-search" id="searchTecnica" placeholder="🔎 Buscar técnica…" aria-label="Buscar técnica" style="display:none;">
+      <nav id="menuDashboard" aria-label="Secciones del dashboard" style="display:none;"></nav>
+      <nav id="menuCuaderno" aria-label="Bloques del cuaderno"></nav>
+      <nav id="menuTaller" aria-label="Herramientas del taller" style="display:none;"></nav>
+      <nav id="menuCertificado" aria-label="Secciones del documento" style="display:none;"></nav>
+    </div>
+  </aside>
+
+  <main class="panel" id="panelPrincipal" tabindex="-1">
+    <div class="panel-inner" id="panelInner" role="region" aria-live="polite"></div>
+  </main>
+</div>
+
+<!-- PWA Banner -->
+<div class="pwa-banner no-print" id="pwaBanner">
+  <div class="icon" aria-hidden="true">📲</div>
+  <div class="text">
+    <strong>Instala Mini LMS en tu dispositivo</strong>
+    <small>Accede sin conexión, más rápido y como app nativa.</small>
+  </div>
+  <div class="btns">
+    <button class="btn-sm-custom primary" id="pwaInstall">Instalar</button>
+    <button class="btn-sm-custom ghost" id="pwaDismiss" style="background:transparent;border-color:var(--line);color:var(--muted);">Ahora no</button>
+  </div>
+</div>
+
+<div class="app-toast" id="appToast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   DATOS · 5 BLOQUES · 100 TÉCNICAS
+   ===================================================================== */
+const BLOQUES = [
+{
+  id:"b1", emoji:"🐍", nombre:"Python · Fundamentos y lógica", rango:"1–15",
+  desc:"Del condicional al generador: la base del motor del LMS.",
+  tecnicas:[
+    {n:1, t:"if/elif/else para rutas adaptativas", c:"Deciden qué contenido mostrar según el desempeño del estudiante. Base del aprendizaje personalizado.", e:"if nota >= 4.5: ruta='avanzada'\nelif nota >= 3.0: ruta='estándar'\nelse: ruta='refuerzo'"},
+    {n:2, t:"Bucles for/while en lote", c:"Generan ejercicios, mensajes o tareas de forma masiva. El for recorre secuencias; el while repite mientras se cumpla una condición.", e:"for i in range(1, 21):\n    print(f'Ejercicio {i}')"},
+    {n:3, t:"Funciones reutilizables para calificar", c:"Encapsulan la lógica de calificación y evitan duplicar código en distintas vistas y apps.", e:"def calificar(r, c):\n    return 1.0 if r == c else 0.0"},
+    {n:4, t:"try/except para validar entradas", c:"Capturan errores en ejecución. Si un estudiante envía texto donde se espera número, el sistema no se cae.", e:"try: nota = float(input())\nexcept ValueError: print('Ingrese un número')"},
+    {n:5, t:"Listas y diccionarios para bancos", c:"Las listas ordenan secuencias; los diccionarios guardan pares clave-valor. Juntos modelan un banco de preguntas.", e:"banco = [{'pregunta':'¿Sustantivo?', 'correcta':0}]"},
+    {n:6, t:"Comprensión de listas para filtrar", c:"Forma compacta de crear listas con condición. Ideal para filtrar estudiantes por desempeño o tareas pendientes.", e:"aprobados = [e for e in est if e['nota'] >= 3.0]"},
+    {n:7, t:"Regex para errores ortográficos", c:"Las expresiones regulares detectan patrones: tildes faltantes, dobles espacios, mayúsculas mal ubicadas.", e:"import re\nre.sub(r'\\bhabia\\b', 'había', texto)"},
+    {n:8, t:"Strings para análisis gramatical", c:"Los métodos de cadena (split, strip, lower, replace) limpian y dividen el texto. Base del conteo y la tokenización.", e:"palabras = texto.lower().replace(',','').split()"},
+    {n:9, t:"Módulos y paquetes", c:"Organizan el código por dominio: usuarios, cursos, tareas, evaluaciones. Los paquetes agrupan módulos afines.", e:"lms/\n  usuarios/\n  cursos/\n  utils.py"},
+    {n:10, t:"POO: clases del dominio", c:"Las clases modelan entidades con atributos y métodos. Estudiante, Curso y Tarea son clases del dominio del LMS.", e:"class Estudiante:\n    def __init__(self, nombre):\n        self.nombre = nombre"},
+    {n:11, t:"Decoradores para permisos", c:"Envuelven funciones para añadir comportamiento: verificar rol, registrar accesos, medir tiempo.", e:"@solo_profesor\ndef editar_nota(request): ..."},
+    {n:12, t:"Generadores para textos grandes", c:"Producen valores uno a uno sin cargar todo en memoria. Ideales para miles de ensayos sin saturar el servidor.", e:"def leer(a):\n    with open(a) as f:\n        for l in f: yield l.strip()"},
+    {n:13, t:"datetime para plazos", c:"Calcula fechas de entrega, compara con la fecha actual, genera recordatorios y detecta entregas tardías.", e:"from datetime import datetime, timedelta\nplazo = datetime.now() + timedelta(days=7)"},
+    {n:14, t:"Archivos CSV/TXT para notas", c:"La librería csv importa y exporta calificaciones. Conecta el LMS con Excel o con sistemas institucionales.", e:"import csv\nwith open('n.csv','w') as f:\n    csv.writer(f).writerow(['nombre','nota'])"},
+    {n:15, t:"NLP con NLTK/spaCy", c:"Tokenizan, lematizan y analizan morfológicamente texto en español. Base del análisis gramatical automatizado.", e:"import spacy\nnlp = spacy.load('es_core_news_sm')"}
+  ]
+},
+{
+  id:"b2", emoji:"🧱", nombre:"Django · Arquitectura del LMS", rango:"16–40",
+  desc:"Modelos, vistas, plantillas, admin, API y todo el esqueleto.",
+  tecnicas:[
+    {n:16, t:"Modelos (models.py)", c:"Clases que representan tablas. Django crea el esquema a partir de ellos: Usuario, Curso, Tarea, Calificación.", e:"class Curso(models.Model):\n    nombre = models.CharField(max_length=100)\n    profesor = models.ForeignKey(User, on_delete=models.CASCADE)"},
+    {n:17, t:"Migraciones", c:"Versionan la base de datos. Cada cambio en los modelos se traduce en una migración reproducible.", e:"python manage.py makemigrations\npython manage.py migrate"},
+    {n:18, t:"Autenticación integrada", c:"Django trae auth con login, logout, registro y gestión de contraseñas.", e:"from django.contrib.auth import authenticate, login\nuser = authenticate(request, username=u, password=p)\nif user: login(request, user)"},
+    {n:19, t:"Roles y permisos personalizados", c:"Grupos y permisos definen roles: estudiante, profesor, coordinador, administrador.", e:"class EsProfesorMixin(UserPassesTestMixin):\n    def test_func(self):\n        return self.request.user.groups.filter(name='Profesor').exists()"},
+    {n:20, t:"Vistas basadas en clases (CBV)", c:"Reutilizan lógica: ListView, DetailView, CreateView, UpdateView, DeleteView.", e:"class TareaListView(ListView):\n    model = Tarea\n    template_name = 'tareas/lista.html'"},
+    {n:21, t:"Vistas basadas en funciones (FBV)", c:"Para casos simples. Reciben request y devuelven response. Se combinan con decoradores.", e:"@login_required\ndef inicio(request):\n    return render(request, 'inicio.html')"},
+    {n:22, t:"Plantillas y herencia", c:"Extends y block reutilizan la estructura. Un base.html contiene header, nav y footer.", e:"{% extends 'base.html' %}\n{% block contenido %}<h1>Cursos</h1>{% endblock %}"},
+    {n:23, t:"Formularios (forms.py)", c:"Generan HTML, validan datos y se conectan con modelos (ModelForm).", e:"class EntregaForm(forms.ModelForm):\n    class Meta:\n        model = Entrega\n        fields = ['archivo','comentario']"},
+    {n:24, t:"Validación personalizada", c:"Reglas de negocio: extensión, formato de archivo, rango de puntaje. Se define con clean_<campo>.", e:"def clean_archivo(self):\n    a = self.cleaned_data['archivo']\n    if a.size > 5_000_000: raise ValidationError('Máx 5 MB')\n    return a"},
+    {n:25, t:"Django Admin personalizado", c:"El admin es una interfaz de gestión inmediata. Se personaliza con list_display, search_fields y list_filter.", e:"@admin.register(Tarea)\nclass TareaAdmin(admin.ModelAdmin):\n    list_display = ('titulo','curso','fecha_entrega')"},
+    {n:26, t:"urls.py por app", c:"Cada app tiene su propio urls.py. Las rutas se anidan con include() en el urls.py raíz.", e:"urlpatterns = [\n    path('cursos/', include('cursos.urls')),\n]"},
+    {n:27, t:"Middleware para actividad", c:"Intercepta cada petición. Registra actividad, mide tiempos o identifica al usuario.", e:"class ActividadMiddleware:\n    def __init__(self, get_response): ...\n    def __call__(self, request): ..."},
+    {n:28, t:"FileField para entregas", c:"FileField e ImageField permiten subir archivos. Con upload_to se define la carpeta.", e:"archivo = models.FileField(upload_to='entregas/%Y/%m/')"},
+    {n:29, t:"Paginación", c:"Divide listados largos. Django trae Paginator listo para usar.", e:"class TareaListView(ListView):\n    model = Tarea\n    paginate_by = 20"},
+    {n:30, t:"Notificaciones internas", c:"Modelo Notificacion con destinatario, mensaje, leído y fecha.", e:"class Notificacion(models.Model):\n    usuario = models.ForeignKey(User, on_delete=models.CASCADE)\n    leido = models.BooleanField(default=False)"},
+    {n:31, t:"Correos automáticos", c:"send_mail() envía correos desde Django para recordatorios, resultados y recuperación de contraseña.", e:"from django.core.mail import send_mail\nsend_mail('Recordatorio', 'Vence mañana', 'lms@x.co', [alumno.email])"},
+    {n:32, t:"Internacionalización (i18n)", c:"gettext marca cadenas traducibles; LocaleMiddleware cambia el idioma según sesión o navegador.", e:"from django.utils.translation import gettext as _\nmensaje = _('Bienvenido al curso')"},
+    {n:33, t:"Comentarios y retroalimentación", c:"Modelo Comentario con autor, entrega, texto y fecha. El docente retroalimenta cada entrega.", e:"class Comentario(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    texto = models.TextField()"},
+    {n:34, t:"Control de versiones de entregas", c:"Cada subida crea una nueva versión. Se conservan todas para ver la evolución.", e:"class VersionEntrega(models.Model):\n    entrega = models.ForeignKey(Entrega, on_delete=models.CASCADE)\n    numero = models.PositiveIntegerField(default=1)"},
+    {n:35, t:"Certificados en PDF", c:"Con ReportLab o WeasyPrint se generan certificados al finalizar el curso.", e:"from reportlab.pdfgen import canvas\nc = canvas.Canvas('cert.pdf')\nc.drawString(100, 750, f'Certifica a {user.username}')"},
+    {n:36, t:"Panel de estadísticas", c:"Vistas que agregan datos por estudiante: promedio, tareas, avance, tiempo.", e:"from django.db.models import Avg\npromedio = Calificacion.objects.filter(est=u).aggregate(Avg('nota'))"},
+    {n:37, t:"Foros y mensajería", c:"Modelos Hilo y Mensaje permiten conversación entre estudiante y profesor.", e:"class Hilo(models.Model):\n    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)\n    titulo = models.CharField(max_length=200)"},
+    {n:38, t:"Calendario de actividades", c:"Vista de calendario con entregas, exámenes y eventos del curso.", e:"class Evento(models.Model):\n    titulo = models.CharField(max_length=100)\n    inicio = models.DateTimeField()"},
+    {n:39, t:"Django REST Framework (API)", c:"DRF expone el LMS como API para apps móviles. Serializers traducen modelos a JSON.", e:"class CursoSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Curso\n        fields = ['id','nombre','profesor']"},
+    {n:40, t:"Autenticación por token", c:"DRF permite TokenAuthentication. Cada usuario recibe un token que envía en el header Authorization.", e:"REST_FRAMEWORK = {\n  'DEFAULT_AUTHENTICATION_CLASSES': [\n    'rest_framework.authentication.TokenAuthentication'\n  ]\n}"}
+  ]
+},
+{
+  id:"b3", emoji:"🗄", nombre:"SQL · Gestión de datos", rango:"41–60",
+  desc:"Esquemas, consultas, triggers, backups y optimización.",
+  tecnicas:[
+    {n:41, t:"Esquemas relacionales normalizados", c:"Un esquema normalizado evita redundancia y anomalías.", e:"-- estudiantes (id, nombre)\n-- cursos (id, nombre, profesor_id)\n-- inscripciones (est_id, curso_id)"},
+    {n:42, t:"Claves primarias y foráneas", c:"La PK identifica cada fila; la FK conecta con otra tabla.", e:"CREATE TABLE notas (\n  id SERIAL PRIMARY KEY,\n  estudiante_id INT REFERENCES estudiantes(id),\n  valor NUMERIC(3,1)\n);"},
+    {n:43, t:"SELECT con WHERE", c:"WHERE filtra filas. Se combina con =, >, <, BETWEEN, LIKE, IN.", e:"SELECT nombre, nota FROM calificaciones\nWHERE nota < 3.0 AND curso_id = 5;"},
+    {n:44, t:"JOIN para combinar tablas", c:"JOIN une filas por una columna común.", e:"SELECT e.nombre, n.valor\nFROM notas n\nJOIN estudiantes e ON e.id = n.estudiante_id;"},
+    {n:45, t:"GROUP BY para promedios", c:"Agrupa filas y aplica agregaciones.", e:"SELECT curso_id, AVG(valor) AS promedio\nFROM notas\nGROUP BY curso_id;"},
+    {n:46, t:"Subconsultas para riesgo académico", c:"Identifican estudiantes con promedio bajo.", e:"SELECT nombre FROM estudiantes\nWHERE id IN (\n  SELECT estudiante_id FROM notas\n  GROUP BY estudiante_id HAVING AVG(valor) < 3.0\n);"},
+    {n:47, t:"Índices para optimizar", c:"Aceleran búsquedas en columnas muy consultadas.", e:"CREATE INDEX idx_notas_est ON notas(estudiante_id);"},
+    {n:48, t:"Vistas (VIEWS)", c:"Guardan una consulta con nombre. Simplifican reportes.", e:"CREATE VIEW promedio_por_curso AS\nSELECT curso_id, AVG(valor) FROM notas GROUP BY curso_id;"},
+    {n:49, t:"Triggers para promedios", c:"Se ejecutan automáticamente al insertar, actualizar o borrar.", e:"CREATE TRIGGER act_prom\nAFTER INSERT ON notas\nFOR EACH ROW EXECUTE FUNCTION recalcular();"},
+    {n:50, t:"Transacciones", c:"Agrupan operaciones en unidad atómica.", e:"BEGIN;\nUPDATE notas SET valor=4.5 WHERE id=10;\nCOMMIT;"},
+    {n:51, t:"Backup y restauración", c:"Backup periódico protege contra pérdida de datos.", e:"pg_dump -U postgres lms > respaldo_$(date +%F).sql"},
+    {n:52, t:"Agregaciones (COUNT, AVG, MAX, MIN)", c:"Calculan métricas sobre grupos de filas.", e:"SELECT curso_id, COUNT(*) AS n, AVG(valor), MAX(valor)\nFROM notas GROUP BY curso_id;"},
+    {n:53, t:"Normalización 3FN", c:"Cada atributo no clave debe depender solo de la PK.", e:"-- mal: estudiantes(id, nombre, curso, profesor)\n-- bien: estudiantes(id, nombre) + cursos(id, profesor)"},
+    {n:54, t:"ORM de Django sobre SQL puro", c:"El ORM traduce objetos a SQL. Más seguro y portable.", e:"Calificacion.objects.filter(estudiante=u, valor__lt=3.0)"},
+    {n:55, t:"Consultas raw SQL", c:"Cuando el ORM no alcanza, se usa raw() con parámetros.", e:"Calificacion.objects.raw(\n  'SELECT * FROM notas WHERE valor < %s', [3.0]\n)"},
+    {n:56, t:"Integridad referencial", c:"FK garantizan que no existan notas huérfanas.", e:"FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)\n  ON DELETE CASCADE"},
+    {n:57, t:"Auditoría de cambios", c:"Registra quién cambió qué y cuándo.", e:"CREATE TABLE auditoria (\n  id SERIAL PRIMARY KEY,\n  usuario TEXT, accion TEXT,\n  fecha TIMESTAMP DEFAULT NOW()\n);"},
+    {n:58, t:"Exportación a Excel/CSV", c:"Comparte resultados con coordinación o familias.", e:"COPY (SELECT * FROM notas WHERE curso_id=5)\n  TO 'notas.csv' WITH CSV HEADER;"},
+    {n:59, t:"Optimización con EXPLAIN", c:"Muestra el plan de ejecución. Detecta ineficiencias.", e:"EXPLAIN ANALYZE\nSELECT * FROM notas WHERE estudiante_id = 5;"},
+    {n:60, t:"Particionamiento de tablas grandes", c:"Se particiona por rango (año, mes). Mejora rendimiento.", e:"CREATE TABLE notas_2024 PARTITION OF notas\nFOR VALUES FROM ('2024-01-01') TO ('2025-01-01');"}
+  ]
+},
+{
+  id:"b4", emoji:"📚", nombre:"Pedagogía digital · Lengua Castellana", rango:"61–80",
+  desc:"Corrector, rúbricas, banco de ejercicios, análisis y más.",
+  tecnicas:[
+    {n:61, t:"Corrector automático de ortografía", c:"Detecta errores frecuentes (tildes, b/v, ll/y).", e:"for p in palabras:\n    if p not in diccionario: marcar(p)"},
+    {n:62, t:"Analizador de coherencia y cohesión", c:"Analiza si el texto mantiene un tema y usa conectores.", e:"conectores = {'porque','sin embargo','además'}\nn = sum(1 for p in palabras if p in conectores)"},
+    {n:63, t:"Banco dinámico de ejercicios", c:"Genera ejercicios aleatorios desde plantillas.", e:"import random\nverbo = random.choice(['hablar','comer','vivir'])"},
+    {n:64, t:"Retroalimentación automática", c:"Devuelve un comentario según el tipo de error.", e:"mensajes = {\n  'tilde': 'Revisa la tilde en «habia → había».',\n}"},
+    {n:65, t:"Detector básico de plagio", c:"Compara entregas con similitud de cadenas.", e:"from difflib import SequenceMatcher\nsim = SequenceMatcher(None, a, b).ratio()\nif sim > 0.8: marcar_posible_plagio()"},
+    {n:66, t:"Rúbricas digitales configurables", c:"Criterios con pesos y cálculo de nota final.", e:"class Criterio(models.Model):\n    rubrica = models.ForeignKey(Rubrica, on_delete=models.CASCADE)\n    peso = models.PositiveIntegerField(default=1)"},
+    {n:67, t:"Comprensión lectora con corrección", c:"Preguntas de nivel literal, inferencial y crítico.", e:"niveles = ['literal', 'inferencial', 'crítico']"},
+    {n:68, t:"Generador de cuestionarios de vocabulario", c:"Sinónimos, antónimos, definiciones, contexto.", e:"pregunta = {\n  'enunciado': f'Sinónimo de {palabra}',\n  'opciones': [sinonimo] + distractores\n}"},
+    {n:69, t:"Registro de progreso ortográfico", c:"Cada error se registra por tipo y por fecha.", e:"class ErrorOrtografico(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    tipo = models.CharField(max_length=30)"},
+    {n:70, t:"Análisis morfosintáctico interactivo", c:"El estudiante señala categorías. El sistema valida.", e:"for token in doc:\n    cat = token.pos_\n    if respuesta == cat: acertar()"},
+    {n:71, t:"Autoevaluación", c:"El estudiante evalúa su desempeño antes de la nota.", e:"class Autoevaluacion(models.Model):\n    entrega = models.OneToOneField(Entrega, on_delete=models.CASCADE)\n    nota_estimada = models.FloatField()"},
+    {n:72, t:"Biblioteca digital por niveles", c:"Catálogo de lecturas por nivel y género.", e:"class Lectura(models.Model):\n    titulo = models.CharField(max_length=200)\n    nivel = models.CharField(max_length=20)\n    genero = models.CharField(max_length=50)"},
+    {n:73, t:"Foro de debate literario moderado", c:"Comentarios sobre obras con moderación del docente.", e:"for p in palabras_prohibidas:\n    if p in comentario.lower(): alertar()"},
+    {n:74, t:"Editor colaborativo", c:"Varios estudiantes trabajan en un documento.", e:"class Cambio(models.Model):\n    documento = models.ForeignKey(Documento, on_delete=models.CASCADE)\n    autor = models.ForeignKey(User, on_delete=models.CASCADE)\n    fragmento = models.TextField()"},
+    {n:75, t:"Etiquetas de errores comunes", c:"Taxonomía: tilde, concordancia, dequeísmo, puntuación.", e:"ETIQUETAS = ['tilde','concordancia','dequeismo','puntuacion']"},
+    {n:76, t:"Informe de errores frecuentes por grupo", c:"Agrega errores por curso o grupo.", e:"top = ErrorOrtografico.objects.values('tipo').annotate(\n  n=Count('id')).order_by('-n')[:5]"},
+    {n:77, t:"Dictados con corrección automática", c:"El sistema reproduce audio; el estudiante escribe.", e:"from difflib import ndiff\ndifs = list(ndiff(orig.split(), escrito.split()))"},
+    {n:78, t:"Línea de tiempo de escritura", c:"Cada entrega se marca en una línea temporal.", e:"entregas = Entrega.objects.filter(estudiante=u).order_by('fecha')"},
+    {n:79, t:"Comparador de versiones", c:"Diff entre dos versiones del mismo trabajo.", e:"from difflib import unified_diff\nd = unified_diff(v1.splitlines(), v2.splitlines())"},
+    {n:80, t:"Panel de «palabras difíciles»", c:"Cada estudiante tiene su lista de palabras difíciles.", e:"class PalabraDificil(models.Model):\n    estudiante = models.ForeignKey(User, on_delete=models.CASCADE)\n    palabra = models.CharField(max_length=50)\n    errores = models.PositiveIntegerField(default=1)"}
+  ]
+},
+{
+  id:"b5", emoji:"🔒", nombre:"Seguridad, despliegue y mantenimiento", rango:"81–100",
+  desc:"Hash, CSRF, HTTPS, pruebas, despliegue, monitoreo y accesibilidad.",
+  tecnicas:[
+    {n:81, t:"Hash de contraseñas", c:"Nunca en texto plano. Django usa PBKDF2 con sal por usuario.", e:"from django.contrib.auth.hashers import make_password\npwd_hash = make_password('secreta')"},
+    {n:82, t:"Protección CSRF", c:"Django trae CSRF por defecto. Los formularios deben incluir {% csrf_token %}.", e:"<form method=\"post\">\n  {% csrf_token %}\n</form>"},
+    {n:83, t:"Protección contra inyección SQL", c:"ORM o consultas parametrizadas. Nunca concatenar cadenas.", e:"Calificacion.objects.filter(valor__lt=3.0)"},
+    {n:84, t:"Control de sesiones", c:"Las sesiones expiran por inactividad.", e:"SESSION_COOKIE_AGE = 60 * 60 * 2\nSESSION_EXPIRE_AT_BROWSER_CLOSE = True"},
+    {n:85, t:"HTTPS obligatorio", c:"Todo el tráfico por HTTPS con HSTS.", e:"SECURE_SSL_REDIRECT = True\nSECURE_HSTS_SECONDS = 31536000"},
+    {n:86, t:"Variables de entorno", c:"Las credenciales nunca van en el código.", e:"import os\nSECRET_KEY = os.environ['DJANGO_SECRET_KEY']"},
+    {n:87, t:"Separación de entornos", c:"Dev, pruebas y producción con settings separados.", e:"# settings/base.py, settings/dev.py, settings/prod.py"},
+    {n:88, t:"Control de versiones con Git", c:"Ramas por funcionalidad, PRs, revisión.", e:"git checkout -b feature/rubricas\ngit commit -m \"Añade rúbricas\""},
+    {n:89, t:"Documentación del código", c:"Docstrings y README explican cada módulo.", e:"def prom(notas):\n    \"\"\"Devuelve el promedio.\"\"\"\n    return sum(notas)/len(notas)"},
+    {n:90, t:"Pruebas unitarias", c:"Validan funciones aisladas.", e:"def test_prom():\n    assert prom([4,5,3]) == 4.0"},
+    {n:91, t:"Pruebas de integración", c:"Flujos completos: entregar → calificar → ver nota.", e:"def test_flujo(c, u):\n    c.force_login(u)\n    r = c.post('/tareas/1/entregar', {'a': f})\n    assert r.status_code == 302"},
+    {n:92, t:"Despliegue en servidor", c:"VPS, Heroku, Render, Railway o PythonAnywhere.", e:"git push heroku main\nheroku run python manage.py migrate"},
+    {n:93, t:"Gunicorn (WSGI)", c:"Django corre detrás de un servidor WSGI en producción.", e:"gunicorn lms.wsgi:application --bind 0.0.0.0:8000 --workers 3"},
+    {n:94, t:"Nginx como proxy inverso", c:"Sirve estáticos y pasa dinámicas a Gunicorn.", e:"server {\n  listen 80;\n  location / { proxy_pass http://127.0.0.1:8000; }\n}"},
+    {n:95, t:"Monitoreo de errores (logs)", c:"Se registran con LOGGING o se envían a Sentry.", e:"LOGGING = {\n  'handlers': {'file': {'class':'logging.FileHandler','filename':'err.log'}}\n}"},
+    {n:96, t:"Backups automatizados", c:"Cron o proveedor hace backup diario y lo rota.", e:"0 2 * * * pg_dump lms > /backups/lms_$(date +\\%F).sql"},
+    {n:97, t:"Escalabilidad", c:"Réplicas de BD, caché (Redis), CDN, workers.", e:"CACHES = {'default': {'BACKEND':'django_redis.cache.RedisCache'}}"},
+    {n:98, t:"Accesibilidad web (WCAG)", c:"Contraste, teclado, alt, labels.", e:"<img src=\"g.png\" alt=\"Gráfico de notas\">\n<label for=\"nota\">Nota</label>"},
+    {n:99, t:"Diseño responsivo", c:"Flexbox, grid y media queries.", e:"@media (max-width: 600px) {\n  .menu { flex-direction: column; }\n}"},
+    {n:100, t:"Capacitación continua", c:"Django, Python y buenas prácticas evolucionan.", e:"# docs.djangoproject.com\n# realpython.com"}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+const STORAGE_PROG = "mini_lms_pwa_prog";
+const STORAGE_CAMPOS = "mini_lms_pwa_campos";
+const STORAGE_TEMA = "mini_lms_pwa_tema";
+
+let progreso = {};
+let campos = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_PROG)) || {}; } catch(e){ progreso = {}; }
+try { campos = JSON.parse(localStorage.getItem(STORAGE_CAMPOS)) || {}; } catch(e){ campos = {}; }
+
+const TECNICAS_FLAT = [];
+BLOQUES.forEach(b => b.tecnicas.forEach(t => { t.bloqueId = b.id; t.bloqueNombre = b.nombre; TECNICAS_FLAT.push(t); }));
+
+let modo = "cuaderno";
+let actualId = "t1";
+let herramientaActual = "h1";
+let notaTimer = null;
+
+/* =====================================================================
+   UTILIDADES
+   ===================================================================== */
+const $ = (s,c=document) => c.querySelector(s);
+const $$ = (s,c=document) => Array.from(c.querySelectorAll(s));
+function el(t,c,x){ const e=document.createElement(t); if(c) e.className=c; if(x!==undefined) e.textContent=x; return e; }
+function esc(s){ return (s||"").toString().replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function guardarProg(){ try{ localStorage.setItem(STORAGE_PROG, JSON.stringify(progreso)); }catch(e){} }
+function guardarCampos(){ try{ localStorage.setItem(STORAGE_CAMPOS, JSON.stringify(campos)); }catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function norm(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"").replace(/\s+/g," ").trim();
+}
+function barajar(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; } return r; }
+function bloqueDe(id){ const t = TECNICAS_FLAT.find(x=>("t"+x.n)===id); return t ? t.bloqueId : null; }
+
+/* =====================================================================
+   TOAST
+   ===================================================================== */
+let toastTimer = null;
+function toast(msg){
+  const t = document.getElementById("appToast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2000);
+}
+
+/* =====================================================================
+   TEMA
+   ===================================================================== */
+function aplicarTema(t){
+  document.documentElement.dataset.tema = t;
+  document.getElementById("btnTheme").textContent = t === "dark" ? "☀" : "🌙";
+  try { localStorage.setItem(STORAGE_TEMA, t); } catch(e){}
+  if(t === "dark"){
+    document.documentElement.style.setProperty('--paper', '#1f2740');
+    document.documentElement.style.setProperty('--paper-2', '#252f4a');
+    document.documentElement.style.setProperty('--ink', '#e9eef8');
+    document.documentElement.style.setProperty('--navy', '#e9eef8');
+    document.documentElement.style.setProperty('--navy-dark', '#f4f7fc');
+    document.documentElement.style.setProperty('--navy-soft', '#2c3a5e');
+    document.documentElement.style.setProperty('--bronze', '#d8b07c');
+    document.documentElement.style.setProperty('--bronze-dark', '#e6c197');
+    document.documentElement.style.setProperty('--bronze-soft', '#3a2f24');
+    document.documentElement.style.setProperty('--bronze-line', '#5f4c37');
+    document.documentElement.style.setProperty('--muted', '#9cabbf');
+    document.documentElement.style.setProperty('--line', '#33406a');
+    document.documentElement.style.setProperty('--line-2', '#4a5a85');
+    document.documentElement.style.setProperty('--ok', '#7bd88b');
+    document.documentElement.style.setProperty('--ok-soft', '#213b2a');
+    document.documentElement.style.setProperty('--bad', '#f0a0a0');
+    document.documentElement.style.setProperty('--bad-soft', '#3d1f1f');
+    document.body.style.background = "#131a2c";
+  } else {
+    document.documentElement.style.setProperty('--paper', '#fdfaf3');
+    document.documentElement.style.setProperty('--paper-2', '#f7f2e8');
+    document.documentElement.style.setProperty('--ink', '#14213d');
+    document.documentElement.style.setProperty('--navy', '#14213d');
+    document.documentElement.style.setProperty('--navy-dark', '#0a1528');
+    document.documentElement.style.setProperty('--navy-soft', '#dde5f0');
+    document.documentElement.style.setProperty('--bronze', '#a67c52');
+    document.documentElement.style.setProperty('--bronze-dark', '#7c5c39');
+    document.documentElement.style.setProperty('--bronze-soft', '#f0e4d3');
+    document.documentElement.style.setProperty('--bronze-line', '#c9a96e');
+    document.documentElement.style.setProperty('--muted', '#6b6355');
+    document.documentElement.style.setProperty('--line', '#d8d2c3');
+    document.documentElement.style.setProperty('--line-2', '#b8af99');
+    document.documentElement.style.setProperty('--ok', '#2f6b3a');
+    document.documentElement.style.setProperty('--ok-soft', '#e0efe2');
+    document.documentElement.style.setProperty('--bad', '#8b1e1e');
+    document.documentElement.style.setProperty('--bad-soft', '#f8e0e0');
+    document.body.style.background = "";
+  }
+}
+function initTema(){
+  let t = "light";
+  try { t = localStorage.getItem(STORAGE_TEMA) || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); } catch(e){}
+  aplicarTema(t);
+}
+document.getElementById("btnTheme").addEventListener("click", () => {
+  aplicarTema(document.documentElement.dataset.tema === "dark" ? "light" : "dark");
+});
+
+/* =====================================================================
+   CAMBIO DE MODO
+   ===================================================================== */
+function cambiarModo(m){
+  modo = m;
+  $$(".modo-tab").forEach(t => {
+    const a = t.dataset.modo === m;
+    t.classList.toggle("active", a);
+    t.setAttribute("aria-selected", a ? "true" : "false");
+  });
+  $("#menuDashboard").style.display = m === "dashboard" ? "block" : "none";
+  $("#menuCuaderno").style.display = m === "cuaderno" ? "block" : "none";
+  $("#menuTaller").style.display = m === "taller" ? "block" : "none";
+  $("#menuCertificado").style.display = m === "certificado" ? "block" : "none";
+  $("#searchTecnica").style.display = m === "cuaderno" ? "block" : "none";
+  $("#sidebarTitle").textContent = m === "dashboard" ? "Secciones del dashboard" : m === "certificado" ? "Secciones del documento" : m === "cuaderno" ? "Bloques y técnicas" : "Herramientas";
+  cerrarSidebar();
+
+  if(m === "dashboard"){ renderMenuDashboard(); abrirDashboard(); }
+  if(m === "cuaderno"){ renderMenuCuaderno(); abrirTecnica(actualId); }
+  if(m === "taller"){ renderMenuTaller(); abrirHerramienta(); }
+  if(m === "certificado"){ renderMenuCertificado(); abrirCertificado(); }
+}
+
+/* =====================================================================
+   MENÚ DASHBOARD
+   ===================================================================== */
+function renderMenuDashboard(){
+  const menu = $("#menuDashboard");
+  menu.innerHTML = "";
+  const items = [
+    {id:"dash-kpis", label:"Indicadores generales", range:"§"},
+    {id:"dash-bloques", label:"Progreso por bloque", range:"§"},
+    {id:"dash-estado", label:"Estado global", range:"§"},
+    {id:"dash-linea", label:"Avance acumulado", range:"§"},
+    {id:"dash-porcentaje", label:"Aprovechamiento", range:"§"}
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(it.label)}</span>`;
+    b.addEventListener("click", () => {
+      const target = document.getElementById(it.id);
+      if(target) target.scrollIntoView({behavior:"smooth", block:"start"});
+      cerrarSidebar();
+    });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "5 vistas";
+}
+
+/* =====================================================================
+   MENÚ CUADERNO
+   ===================================================================== */
+function renderMenuCuaderno(){
+  const menu = $("#menuCuaderno");
+  menu.innerHTML = "";
+  const f = norm($("#searchTecnica").value || "");
+  BLOQUES.forEach(bloque => {
+    const tecnicas = bloque.tecnicas.filter(t => !f || norm(t.t).includes(f) || norm(bloque.nombre).includes(f));
+    if(!tecnicas.length) return;
+    const hechas = bloque.tecnicas.filter(t => getProg("t" + t.n).ok).length;
+    const abierto = f ? true : (bloque.id === bloqueDe(actualId));
+    const block = el("div","cat-block");
+    const toggle = el("button","cat-toggle");
+    toggle.setAttribute("aria-expanded", abierto ? "true" : "false");
+    toggle.innerHTML = `<span>${bloque.emoji}</span><span>${esc(bloque.nombre)}</span><span class="cat-count">${hechas}/${bloque.tecnicas.length}</span><span class="chev">▶</span>`;
+    const body = el("div");
+    body.style.display = abierto ? "block" : "none";
+    toggle.addEventListener("click", () => {
+      const open = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", open ? "false" : "true");
+      body.style.display = open ? "none" : "block";
+    });
+    block.appendChild(toggle);
+    const prog = el("div","cat-prog");
+    const fill = document.createElement("div");
+    fill.style.width = (hechas/bloque.tecnicas.length*100) + "%";
+    prog.appendChild(fill);
+    block.appendChild(prog);
+    tecnicas.forEach(t => {
+      const id = "t" + t.n;
+      const b = el("button","tech-btn" + (getProg(id).ok ? " done":"") + (id === actualId ? " active":""));
+      b.innerHTML = `<span class="done-mark">✓</span><span>${t.n}. ${esc(t.t)}</span>`;
+      b.addEventListener("click", () => { abrirTecnica(id); cerrarSidebar(); });
+      body.appendChild(b);
+    });
+    block.appendChild(body);
+    menu.appendChild(block);
+  });
+  $("#sidebarCount").textContent = TECNICAS_FLAT.length;
+}
+
+/* =====================================================================
+   MENÚ TALLER
+   ===================================================================== */
+const HERRAMIENTAS = [
+  {id:"h1", nombre:"Corrector de tildes", desc:"Detecta palabras frecuentes sin tilde."},
+  {id:"h2", nombre:"Contador de palabras", desc:"Palabras, caracteres, oraciones y párrafos."},
+  {id:"h3", nombre:"Generador de oraciones", desc:"Combina sujeto + verbo + complemento."},
+  {id:"h4", nombre:"Rúbrica visual", desc:"Criterios con pesos y nota ponderada."},
+  {id:"h5", nombre:"Exportar progreso", desc:"Informe .txt de técnicas completadas."},
+  {id:"h6", nombre:"Modelo Django", desc:"Genera models.py desde campos."},
+  {id:"h7", nombre:"Esquema SQL", desc:"Genera CREATE TABLE desde columnas."}
+];
+function renderMenuTaller(){
+  const menu = $("#menuTaller");
+  menu.innerHTML = "";
+  HERRAMIENTAS.forEach(h => {
+    const b = el("button","tech-btn" + (h.id===herramientaActual ? " active":""));
+    b.innerHTML = `<span class="done-mark">✓</span><span>${esc(h.nombre)}</span>`;
+    b.addEventListener("click", () => { herramientaActual = h.id; renderMenuTaller(); abrirHerramienta(); cerrarSidebar(); });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = HERRAMIENTAS.length;
+}
+
+/* =====================================================================
+   MENÚ CERTIFICADO
+   ===================================================================== */
+function renderMenuCertificado(){
+  const menu = $("#menuCertificado");
+  menu.innerHTML = "";
+  const items = [
+    {id:"certificado", label:"Portada certificada", range:"§"},
+    {id:"indice", label:"Índice general", range:"§"},
+    ...BLOQUES.map((b,i) => ({id:b.id, label:`Bloque ${i+1}. ${b.nombre}`, range:b.rango}))
+  ];
+  items.forEach(it => {
+    const b = el("button","tech-btn");
+    b.innerHTML = `<span class="done-mark">§</span><span>${esc(it.label)}</span>`;
+    b.addEventListener("click", () => {
+      if(it.id === "certificado") abrirCertificado();
+      else {
+        abrirCertificado();
+        setTimeout(() => { const t = document.getElementById(it.id); if(t) t.scrollIntoView({behavior:"smooth"}); }, 80);
+      }
+      cerrarSidebar();
+    });
+    menu.appendChild(b);
+  });
+  $("#sidebarCount").textContent = "7";
+}
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function abrirDashboard(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","LMS\nDASH");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  // Cabecera
+  const header = el("div","tech-header");
+  header.innerHTML = `
+    <span class="tech-badge">Panel de progreso</span>
+    <h2 class="tech-title">Dashboard visual · 100 técnicas</h2>
+    <div class="tech-sub">Estadísticas por bloque · actualización en vivo</div>
+  `;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  // KPIs
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).ok).length;
+  const pct = Math.round((hechas/total)*100);
+  const bloquesCompletos = BLOQUES.filter(b => b.tecnicas.every(t => getProg("t"+t.n).ok)).length;
+  const notas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).nota && getProg("t"+t.n).nota.trim()).length;
+
+  const kpiWrap = el("div","dash-grid");
+  kpiWrap.id = "dash-kpis";
+  kpiWrap.innerHTML = `
+    <div class="kpi">
+      <span class="lbl">Técnicas completadas</span>
+      <div class="val">${hechas}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${total}</span></div>
+      <div class="sub">${pct}% del programa</div>
+      <div class="spark">${svgSpark(hechas, total)}</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Bloques completos</span>
+      <div class="val">${bloquesCompletos}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${BLOQUES.length}</span></div>
+      <div class="sub">Todos los temas cerrados</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Notas propias escritas</span>
+      <div class="val">${notas}<span style="font-size:.85rem;color:var(--muted);font-weight:500;"> / ${total}</span></div>
+      <div class="sub">Apuntes del cuaderno</div>
+    </div>
+    <div class="kpi">
+      <span class="lbl">Aprovechamiento</span>
+      <div class="val">${pct === 100 ? "Excelente" : pct >= 75 ? "Muy bueno" : pct >= 50 ? "Bueno" : pct >= 25 ? "En curso" : "Inicial"}</div>
+      <div class="sub">Según progreso global</div>
+    </div>
+  `;
+  panel.appendChild(kpiWrap);
+
+  // Barras por bloque
+  const chart1 = el("div","chart-card");
+  chart1.innerHTML = `
+    <div class="chart-inner">
+      <h3>Progreso por bloque</h3>
+      <p class="sub">Técnicas completadas por bloque temático</p>
+      <div class="bar-chart" id="dash-bloques"></div>
+    </div>
+  `;
+  panel.appendChild(chart1);
+  const chartBloques = chart1.querySelector("#dash-bloques");
+  BLOQUES.forEach(b => {
+    const hechasB = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    const pctB = Math.round((hechasB/b.tecnicas.length)*100);
+    const row = el("div","bar-row");
+    row.innerHTML = `
+      <div class="nombre">${b.emoji} ${esc(b.nombre)}<small>${b.rango} · ${hechasB}/${b.tecnicas.length}</small></div>
+      <div class="bar-track"><div class="bar-fill" style="width:0%">${pctB > 15 ? pctB+'%' : ''}</div></div>
+      <div class="pct">${pctB}%</div>
+    `;
+    chartBloques.appendChild(row);
+    setTimeout(() => { const f = row.querySelector(".bar-fill"); if(f) f.style.width = pctB + "%"; }, 60);
+  });
+
+  // Estado global (donut)
+  const chart2 = el("div","chart-card");
+  chart2.id = "dash-estado";
+  const restantes = total - hechas;
+  const donut = svgDonut(hechas, restantes);
+  chart2.innerHTML = `
+    <div class="chart-inner">
+      <h3>Estado global</h3>
+      <p class="sub">Distribución de técnicas por estado</p>
+      <div class="donut-wrap">
+        ${donut.svg}
+        <div class="donut-info">
+          <div><span class="dot" style="background:var(--navy);"></span><span class="lbl">Completadas</span><span class="val">${hechas}</span></div>
+          <div><span class="dot" style="background:var(--bronze);"></span><span class="lbl">Pendientes</span><span class="val">${restantes}</span></div>
+          <div><span class="dot" style="background:var(--paper-2);border:1px solid var(--line);"></span><span class="lbl">Total</span><span class="val">${total}</span></div>
+        </div>
+      </div>
+    </div>
+  `;
+  panel.appendChild(chart2);
+
+  // Línea acumulada por técnica (curva de avance)
+  const chart3 = el("div","chart-card");
+  chart3.id = "dash-linea";
+  const acumulado = [];
+  let acc = 0;
+  TECNICAS_FLAT.forEach(t => { if(getProg("t"+t.n).ok) acc++; acumulado.push(acc); });
+  chart3.innerHTML = `
+    <div class="chart-inner line-chart">
+      <h3>Avance acumulado</h3>
+      <p class="sub">Curva de técnicas completadas a lo largo del programa</p>
+      ${svgLine(acumulado, total)}
+    </div>
+  `;
+  panel.appendChild(chart3);
+
+  // Distribución por porcentaje
+  const chart4 = el("div","chart-card");
+  chart4.id = "dash-porcentaje";
+  const porBloque = BLOQUES.map(b => {
+    const h = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+    return { nombre: b.nombre, emoji: b.emoji, pct: (h/b.tecnicas.length)*100, hechas: h, total: b.tecnicas.length };
+  });
+  chart4.innerHTML = `
+    <div class="chart-inner">
+      <h3>Aprovechamiento por bloque</h3>
+      <p class="sub">Comparación visual entre bloques (radar)</p>
+      ${svgRadar(porBloque)}
+    </div>
+  `;
+  panel.appendChild(chart4);
+}
+
+/* ---------- SVG Sparkline ---------- */
+function svgSpark(hechas, total){
+  const pct = total ? hechas/total : 0;
+  const w = 70, h = 30;
+  const puntos = [];
+  for(let i=0;i<=10;i++){
+    const x = (i/10)*w;
+    const y = h - (pct*(i/10))*h;
+    puntos.push(`${x},${y.toFixed(1)}`);
+  }
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true">
+    <polyline points="${puntos.join(" ")}" fill="none" stroke="#a67c52" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+/* ---------- SVG Donut ---------- */
+function svgDonut(hechas, restantes){
+  const total = hechas + restantes;
+  const radio = 60, grosor = 22, c = 2*Math.PI*radio;
+  const pct = total ? hechas/total : 0;
+  const largoHechas = c * pct;
+  const largoRestantes = c - largoHechas;
+  const svg = `
+    <svg width="160" height="160" viewBox="0 0 160 160" aria-label="Estado global: ${hechas} de ${total} técnicas completadas">
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="var(--paper-2)" stroke-width="${grosor}"/>
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="#a67c52" stroke-width="${grosor}"
+        stroke-dasharray="${largoRestantes} ${largoHechas}" stroke-dashoffset="${-largoHechas}"
+        transform="rotate(-90 80 80)"/>
+      <circle cx="80" cy="80" r="${radio}" fill="none" stroke="#14213d" stroke-width="${grosor}"
+        stroke-dasharray="${largoHechas} ${largoRestantes}" stroke-dashoffset="0"
+        transform="rotate(-90 80 80)"/>
+      <text x="80" y="76" text-anchor="middle" font-family="PT Serif,Georgia,serif" font-size="26" font-weight="700" fill="var(--navy)">${Math.round(pct*100)}%</text>
+      <text x="80" y="94" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="var(--muted)">COMPLETADO</text>
+    </svg>`;
+  return { svg };
+}
+
+/* ---------- SVG Línea ---------- */
+function svgLine(datos, total){
+  const w = 600, h = 180, pad = 30;
+  const anchoUtil = w - pad*2;
+  const altoUtil = h - pad*2;
+  const puntos = datos.map((v,i) => {
+    const x = pad + (i/(datos.length-1 || 1))*anchoUtil;
+    const y = h - pad - (v/total)*altoUtil;
+    return [x, y];
+  });
+  const path = puntos.map((p,i) => (i===0 ? "M" : "L") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  const area = path + ` L ${puntos[puntos.length-1][0].toFixed(1)} ${h-pad} L ${puntos[0][0].toFixed(1)} ${h-pad} Z`;
+  const grid = [0,25,50,75,100].map(p => {
+    const y = h - pad - (p/100)*altoUtil;
+    return `<line x1="${pad}" y1="${y}" x2="${w-pad}" y2="${y}" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="${pad-6}" y="${y+3}" text-anchor="end" font-family="Public Sans" font-size="9" fill="var(--muted)">${p}%</text>`;
+  }).join("");
+  return `<svg viewBox="0 0 ${w} ${h}" aria-label="Curva de avance acumulado">
+    ${grid}
+    <path d="${area}" fill="rgba(20,33,61,0.08)"/>
+    <path d="${path}" fill="none" stroke="#14213d" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    ${puntos.filter((_,i) => i%10===0 || i===puntos.length-1).map(p =>
+      `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="#a67c52"/>`
+    ).join("")}
+  </svg>`;
+}
+
+/* ---------- SVG Radar ---------- */
+function svgRadar(bloques){
+  const cx = 250, cy = 180, r = 130;
+  const n = bloques.length;
+  const angles = bloques.map((_,i) => (Math.PI*2*i)/n - Math.PI/2);
+  const ejes = angles.map(a => [cx + Math.cos(a)*r, cy + Math.sin(a)*r]);
+  const puntos = bloques.map((b,i) => {
+    const rr = r * (b.pct/100);
+    return [cx + Math.cos(angles[i])*rr, cy + Math.sin(angles[i])*rr];
+  });
+  const polygon = puntos.map(p => p[0].toFixed(1)+","+p[1].toFixed(1)).join(" ");
+  const ejesSvg = ejes.map(e => `<line x1="${cx}" y1="${cy}" x2="${e[0].toFixed(1)}" y2="${e[1].toFixed(1)}" stroke="var(--line)" stroke-width="1"/>`).join("");
+  const circulos = [0.25,0.5,0.75,1].map(p => `<circle cx="${cx}" cy="${cy}" r="${(r*p).toFixed(1)}" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>`).join("");
+  const labels = bloques.map((b,i) => {
+    const lx = cx + Math.cos(angles[i])*(r+22);
+    const ly = cy + Math.sin(angles[i])*(r+22);
+    const anchor = Math.cos(angles[i]) > 0.3 ? "start" : Math.cos(angles[i]) < -0.3 ? "end" : "middle";
+    return `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}" font-family="Public Sans" font-size="10" font-weight="700" fill="var(--navy)">${b.emoji} ${b.pct.toFixed(0)}%</text>
+            <text x="${lx.toFixed(1)}" y="${(ly+12).toFixed(1)}" text-anchor="${anchor}" font-family="Public Sans" font-size="8" fill="var(--muted)">${esc(b.nombre.slice(0,16))}</text>`;
+  }).join("");
+  const puntosSvg = puntos.map(p => `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="4" fill="#a67c52"/>`).join("");
+  return `<svg viewBox="0 0 500 360" aria-label="Comparación por bloque">
+    ${circulos}
+    ${ejesSvg}
+    <polygon points="${polygon}" fill="rgba(20,33,61,0.15)" stroke="#14213d" stroke-width="2"/>
+    ${puntosSvg}
+    ${labels}
+  </svg>`;
+}
+
+/* =====================================================================
+   PANEL · CUADERNO
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => ("t" + x.n) === id);
+  if(!t){ id = "t1"; return abrirTecnica(id); }
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","LMS\nTÉCNICA");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const header = el("div","tech-header");
+  header.innerHTML = `
+    <span class="tech-badge">${t.bloqueEmoji || ""} ${t.bloqueNombre}</span>
+    <h2 class="tech-title">${esc(t.t)}</h2>
+    <div class="tech-sub">Técnica ${t.n} de ${TECNICAS_FLAT.length} · Bloque ${BLOQUES.findIndex(b=>b.id===t.bloqueId)+1}/5</div>
+  `;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  const bloque = BLOQUES.find(b => b.id === t.bloqueId);
+  const dots = el("div","block-dots");
+  bloque.tecnicas.forEach(bt => {
+    const btId = "t" + bt.n;
+    const d = el("button","block-dot" + (getProg(btId).ok ? " done":"") + (btId === id ? " current":""));
+    d.title = bt.t;
+    d.addEventListener("click", () => abrirTecnica(btId));
+    dots.appendChild(d);
+  });
+  panel.appendChild(dots);
+
+  const fc = el("div","flashcard");
+  fc.tabIndex = 0;
+  fc.innerHTML = `
+    <div class="flashcard-inner">
+      <div class="flashcard-face">
+        <span class="flashcard-tag">• Concepto</span>
+        <p>${esc(t.c)}</p>
+        <span class="flashcard-hint">Voltee la tarjeta para ver el ejemplo ↻</span>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="flashcard-tag">• Ejemplo</span>
+        <p style="font-family:'JetBrains Mono',monospace;font-style:normal;font-size:.78rem;line-height:1.6;">${esc(t.e)}</p>
+        <span class="flashcard-hint">↻ Toque de nuevo para volver al concepto</span>
+      </div>
+    </div>
+  `;
+  fc.addEventListener("click", () => fc.classList.toggle("flipped"));
+  fc.addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" "){ e.preventDefault(); fc.classList.toggle("flipped"); } });
+  panel.appendChild(fc);
+
+  const flipBtn = el("button","btn-sm-custom outline","↻ Voltear tarjeta");
+  flipBtn.addEventListener("click", () => fc.classList.toggle("flipped"));
+  panel.appendChild(flipBtn);
+
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = 'Ejercicio interactivo <small>compruebe su comprensión</small>';
+  sec.appendChild(st);
+  const ej = generarEjercicio(t);
+  sec.appendChild(el("p","consigna", ej.consigna));
+  const body = el("div");
+  sec.appendChild(body);
+  const fb = el("div","fb-box");
+  sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  const cuad = el("section","cuaderno-block");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = 'Cuaderno técnico <small>se guarda automáticamente</small>';
+  cuad.appendChild(ct);
+  const ta = document.createElement("textarea");
+  ta.className = "area-redaccion";
+  ta.rows = 5;
+  ta.placeholder = "Escriba aquí sus notas, código propio, dudas técnicas…";
+  ta.value = getProg(id).nota || "";
+  cuad.appendChild(ta);
+  const foot = el("div","cuaderno-foot");
+  const info = el("span");
+  const status = el("span","", "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const nav = el("div","nav-foot");
+  const prev = el("button","btn-sm-custom outline","← Anterior");
+  const next = el("button","btn-sm-custom primary","Siguiente →");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.addEventListener("click", () => { if(idx>0) abrirTecnica("t" + TECNICAS_FLAT[idx-1].n); });
+  next.addEventListener("click", () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica("t" + TECNICAS_FLAT[idx+1].n); });
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const upd = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n===1 ? " palabra" : " palabras");
+  };
+  ta.addEventListener("input", () => {
+    upd();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(id).nota = ta.value;
+      guardarProg();
+      status.classList.remove("show");
+    }, 600);
+  });
+  upd();
+
+  renderEjercicio(ej, body, fb, id);
+  renderMenuCuaderno();
+  actualizarProgreso();
+}
+
+/* ---------- Ejercicio automático ---------- */
+function generarEjercicio(t){
+  const otras = TECNICAS_FLAT.filter(x => x.bloqueId !== t.bloqueId).slice(0,3).map(x => x.c);
+  const opcionesFinales = barajar([
+    {texto: t.c, ok: true},
+    {texto: otras[0] || "Contenido no relacionado con esta técnica.", ok: false},
+    {texto: otras[1] || "Una afirmación incorrecta sobre esta técnica.", ok: false},
+    {texto: "Una definición que no corresponde a la técnica descrita.", ok: false}
+  ]);
+  const correctaIdx = opcionesFinales.findIndex(o => o.ok);
+  return {
+    tipo:"quiz",
+    consigna:`Elija la afirmación que corresponde correctamente a la técnica «${t.t}».`,
+    opciones: opcionesFinales.map(o => o.texto),
+    correcta: correctaIdx,
+    retro:`${t.t}: ${t.c}`
+  };
+}
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "fb-box";
+  if(ej.tipo === "quiz") renderQuiz(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "fb-box fb-" + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const L = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = el("button","opcion-btn");
+    b.innerHTML = `<span class="opcion-letra">${L[i]}</span><span>${esc(op)}</span>`;
+    b.addEventListener("click", () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c,j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok?"ok":"mal", ok?"✓ Correcto":"✗ Revise su respuesta", ej.retro || "");
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    });
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+function agregarReintentar(cont, fn){
+  const b = el("button","btn-sm-custom outline","↺ Intentar de nuevo");
+  b.style.marginTop = ".5rem";
+  b.addEventListener("click", fn);
+  cont.appendChild(b);
+}
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true;
+    guardarProg();
+    renderMenuCuaderno();
+  }
+}
+function actualizarProgreso(){}
+
+/* =====================================================================
+   TALLER
+   ===================================================================== */
+function abrirHerramienta(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","TALLER\nLMS");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const h = HERRAMIENTAS.find(x => x.id === herramientaActual);
+  const header = el("div","tech-header");
+  header.innerHTML = `<span class="tech-badge">Taller</span><h2 class="tech-title">${esc(h.nombre)}</h2><div class="tech-sub">${esc(h.desc)}</div>`;
+  panel.appendChild(header);
+  panel.appendChild(el("div","rule-double"));
+
+  const card = el("div","tool-card");
+  const inner = el("div","tool-inner");
+  card.appendChild(inner);
+  panel.appendChild(card);
+
+  if(herramientaActual === "h1") toolCorrector(inner);
+  if(herramientaActual === "h2") toolContador(inner);
+  if(herramientaActual === "h3") toolGenerador(inner);
+  if(herramientaActual === "h4") toolRubrica(inner);
+  if(herramientaActual === "h5") toolExportar(inner);
+  if(herramientaActual === "h6") toolModeloDjango(inner);
+  if(herramientaActual === "h7") toolEsquemaSQL(inner);
+}
+function toolCorrector(cont){
+  cont.innerHTML = "<h4>Corrector de tildes y errores frecuentes</h4><p>Escriba un texto y el corrector marcará patrones con expresiones regulares.</p>";
+  const ta = document.createElement("textarea");
+  ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = "Escriba aquí su texto…";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary","Corregir");
+  const btnCopy = el("button","btn-sm-custom outline","Copiar");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja");
+  cont.appendChild(out);
+  const reglas = [
+    [/\bhabia\b/gi, "había", "tilde pretérito de haber"],
+    [/\btenia\b/gi, "tenía", "tilde pretérito de tener"],
+    [/\bqueria\b/gi, "quería", "tilde pretérito de querer"],
+    [/\bvenia\b/gi, "venía", "tilde pretérito de venir"],
+    [/\bdecia\b/gi, "decía", "tilde pretérito de decir"],
+    [/\basi\b/gi, "así", "tilde adverbio"],
+    [/\bde que estudiar\b/gi, "que estudiar", "posible dequeísmo"],
+    [/\bme di cuenta que\b/gi, "me di cuenta de que", "queísmo"],
+    [/\s{2,}/g, " ", "doble espacio"]
+  ];
+  btn.addEventListener("click", () => {
+    const orig = ta.value;
+    if(!orig.trim()){ out.textContent = "Escriba un texto para corregir."; return; }
+    let corr = orig; const h = [];
+    reglas.forEach(([re, ok, m]) => {
+      const mm = orig.match(re);
+      if(mm){ h.push(`• ${mm.length}× «${mm[0].trim()}» → «${ok}» (${m})`); corr = corr.replace(re, ok); }
+    });
+    out.textContent = "TEXTO CORREGIDO:\n\n" + corr + "\n\n---\nHALLAZGOS:\n" + (h.length ? h.join("\n") : "Sin hallazgos con las reglas básicas.");
+    toast("✓ Corrección aplicada");
+  });
+  btnCopy.addEventListener("click", () => { navigator.clipboard.writeText(out.textContent).then(() => toast("✓ Copiado")); });
+}
+function toolContador(cont){
+  cont.innerHTML = "<h4>Contador de palabras</h4><p>Estadísticas en vivo del texto.</p>";
+  const ta = document.createElement("textarea");
+  ta.className = "area-redaccion"; ta.rows = 8;
+  cont.appendChild(ta);
+  const out = el("div","resultado-caja");
+  cont.appendChild(out);
+  const upd = () => {
+    const txt = ta.value;
+    const palabras = (txt.match(/[a-záéíóúñü]+/gi) || []).length;
+    const car = txt.length;
+    const carSS = txt.replace(/\s/g,"").length;
+    const or = txt.split(/[.!?]+/).filter(x=>x.trim()).length;
+    const par = txt.split(/\n\s*\n/).filter(x=>x.trim()).length;
+    const prom = or ? (palabras/or).toFixed(1) : 0;
+    out.textContent = `Palabras: ${palabras}\nCaracteres: ${car}\nSin espacios: ${carSS}\nOraciones: ${or}\nPárrafos: ${par}\nPromedio palabras/oración: ${prom}`;
+  };
+  ta.addEventListener("input", upd); upd();
+}
+function toolGenerador(cont){
+  cont.innerHTML = "<h4>Generador de oraciones</h4><p>Cada clic genera una nueva oración para análisis sintáctico.</p>";
+  const out = el("div","resultado-caja");
+  out.style.fontFamily = "'PT Serif',Georgia,serif";
+  cont.appendChild(out);
+  const btn = el("button","btn-sm-custom primary","🎲 Generar oración");
+  cont.appendChild(btn);
+  const S = ["El niño","La maestra","Mi amigo","Los estudiantes","La abuela","El perro","Un poeta"];
+  const V = ["escribe","lee","corrige","escucha","imagina","recita","reescribe"];
+  const C = ["un poema de amor","una novela larga","la lección del día","cuentos de hadas","una carta a su familia","versos olvidados"];
+  const X = ["en la biblioteca","con mucha paciencia","todas las tardes","sin hacer ruido","junto a la ventana","bajo la lluvia"];
+  const pick = a => a[Math.floor(Math.random()*a.length)];
+  btn.addEventListener("click", () => {
+    const o = `${pick(S)} ${pick(V)} ${pick(C)} ${pick(X)}.`;
+    out.textContent = `ORACIÓN GENERADA:\n\n${o}\n\n---\nSUGERENCIA:\n• Sujeto y núcleo\n• Predicado y núcleo\n• Complemento directo\n• Complemento circunstancial`;
+  });
+  btn.click();
+}
+function toolRubrica(cont){
+  cont.innerHTML = "<h4>Rúbrica visual</h4><p>Pesos deben sumar 100. Valores 0–5.</p>";
+  const estado = { criterios: [
+    {nombre:"Tesis", peso:30, valor:0},
+    {nombre:"Argumentos", peso:40, valor:0},
+    {nombre:"Ortografía", peso:15, valor:0},
+    {nombre:"Estilo", peso:15, valor:0}
+  ]};
+  const contenedor = el("div");
+  const out = el("div","resultado-caja");
+  function render(){
+    contenedor.innerHTML = "";
+    estado.criterios.forEach((c, i) => {
+      const row = el("div","d-flex gap-2 mb-2"); row.style.flexWrap = "wrap";
+      const nom = document.createElement("input"); nom.className = "input-sm"; nom.value = c.nombre; nom.style.flex = "1 1 150px";
+      nom.addEventListener("input", () => { c.nombre = nom.value; });
+      const peso = document.createElement("input"); peso.type = "number"; peso.className = "input-sm"; peso.value = c.peso; peso.style.width = "80px";
+      peso.addEventListener("input", () => { c.peso = parseInt(peso.value||"0",10); upd(); });
+      const val = document.createElement("input"); val.type = "range"; val.min = 0; val.max = 5; val.value = c.valor; val.style.flex = "1 1 120px";
+      const valTxt = el("span", null, c.valor + "/5"); valTxt.style.cssText = "font-weight:700;font-family:'JetBrains Mono',monospace;min-width:40px;text-align:center;";
+      val.addEventListener("input", () => { c.valor = parseInt(val.value,10); valTxt.textContent = c.valor + "/5"; upd(); });
+      const del = el("button","btn-sm-custom danger","×");
+      del.addEventListener("click", () => { estado.criterios.splice(i,1); render(); });
+      row.appendChild(nom); row.appendChild(peso); row.appendChild(val); row.appendChild(valTxt); row.appendChild(del);
+      contenedor.appendChild(row);
+    });
+    upd();
+  }
+  function upd(){
+    const suma = estado.criterios.reduce((s,c) => s + (c.peso||0), 0);
+    const nota = estado.criterios.reduce((s,c) => s + (c.valor * c.peso / 100), 0);
+    out.textContent = `PESOS: ${suma}%${suma===100?' ✓':' (deben sumar 100)'}\nNOTA: ${nota.toFixed(2)} / 5.0\nSobre 10: ${(nota*2).toFixed(1)}\nSobre 100: ${(nota*20).toFixed(0)}`;
+  }
+  render();
+  cont.appendChild(contenedor);
+  const btnAdd = el("button","btn-sm-custom outline","+ Añadir criterio");
+  btnAdd.addEventListener("click", () => { estado.criterios.push({nombre:"Nuevo", peso:0, valor:0}); render(); });
+  cont.appendChild(btnAdd);
+  cont.appendChild(out);
+}
+function toolExportar(cont){
+  cont.innerHTML = "<h4>Exportar progreso</h4><p>Informe .txt con técnicas completadas.</p>";
+  const out = el("div","resultado-caja");
+  cont.appendChild(out);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btnGen = el("button","btn-sm-custom primary","📄 Generar");
+  const btnCopy = el("button","btn-sm-custom outline","Copiar");
+  const btnDown = el("button","btn-sm-custom outline","Descargar .txt");
+  acciones.appendChild(btnGen); acciones.appendChild(btnCopy); acciones.appendChild(btnDown);
+  cont.appendChild(acciones);
+  const generar = () => {
+    const total = TECNICAS_FLAT.length;
+    const hechas = TECNICAS_FLAT.filter(t => getProg("t"+t.n).ok).length;
+    let txt = "INFORME DE PROGRESO · MINI LMS PWA\n";
+    txt += "Fecha: " + new Intl.DateTimeFormat('es-CO', { dateStyle:'long', timeStyle:'short' }).format(new Date()) + "\n\n";
+    txt += `RESUMEN\nCompletadas: ${hechas} de ${total} (${((hechas/total)*100).toFixed(1)}%)\n\n`;
+    BLOQUES.forEach(b => {
+      const h = b.tecnicas.filter(t => getProg("t"+t.n).ok).length;
+      txt += `BLOQUE ${b.emoji} ${b.nombre} — ${h}/${b.tecnicas.length}\n`;
+      b.tecnicas.forEach(t => {
+        const p = getProg("t"+t.n);
+        txt += `  [${p.ok ? "✓" : " "}] ${t.n}. ${t.t}`;
+        if(p.nota && p.nota.trim()) txt += ` — "${p.nota.trim().slice(0,60)}${p.nota.trim().length>60?"…":""}"`;
+        txt += "\n";
+      });
+      txt += "\n";
+    });
+    return txt;
+  };
+  btnGen.addEventListener("click", () => { out.textContent = generar(); toast("✓ Generado"); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = generar(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ Copiado")); });
+  btnDown.addEventListener("click", () => {
+    const txt = out.textContent.trim() ? out.textContent : generar();
+    const blob = new Blob([txt], { type:"text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a"); a.href = url;
+    a.download = "informe_lms_" + new Date().toISOString().slice(0,10) + ".txt";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast("✓ Descargado");
+  });
+  btnGen.click();
+}
+function toolModeloDjango(cont){
+  cont.innerHTML = "<h4>Generador de modelo Django</h4><p>Complete clase y campos para obtener models.py.</p>";
+  const form = el("div","d-flex gap-2 mb-2"); form.style.flexWrap = "wrap";
+  const clase = document.createElement("input"); clase.className = "input-sm"; clase.placeholder = "Nombre de la clase"; clase.style.flex = "1 1 200px";
+  const app = document.createElement("input"); app.className = "input-sm"; app.placeholder = "App"; app.style.flex = "1 1 150px";
+  form.appendChild(clase); form.appendChild(app);
+  cont.appendChild(form);
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = "Un campo por línea: nombre, TipoField, args\ntitulo, CharField, max_length=200\ncurso, ForeignKey, Curso, on_delete=CASCADE";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary","Generar");
+  const btnCopy = el("button","btn-sm-custom outline","Copiar");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja");
+  cont.appendChild(out);
+  const gen = () => {
+    const nc = clase.value.trim() || "Modelo";
+    const na = app.value.trim() || "app";
+    let campos = "";
+    (ta.value || "").split("\n").forEach(l => {
+      const tt = l.trim(); if(!tt) return;
+      const p = tt.split(",").map(x => x.trim());
+      const [nombre, tipo, ...args] = p;
+      if(!nombre) return;
+      campos += `    ${nombre} = models.${tipo||"CharField"}(${args.join(", ")})\n`;
+    });
+    return `# ${na}/models.py\nfrom django.db import models\n\nclass ${nc}(models.Model):\n${campos||"    pass\n"}\n    def __str__(self):\n        return str(self.pk)\n`;
+  };
+  btn.addEventListener("click", () => { out.textContent = gen(); toast("✓ Generado"); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ Copiado")); });
+}
+function toolEsquemaSQL(cont){
+  cont.innerHTML = "<h4>Generador de esquema SQL</h4><p>Defina tabla, PK y columnas para obtener CREATE TABLE.</p>";
+  const form = el("div","d-flex gap-2 mb-2"); form.style.flexWrap = "wrap";
+  const tabla = document.createElement("input"); tabla.className = "input-sm"; tabla.placeholder = "Tabla"; tabla.style.flex = "1 1 180px";
+  const pk = document.createElement("input"); pk.className = "input-sm"; pk.placeholder = "PK (id SERIAL PRIMARY KEY)"; pk.style.flex = "1 1 220px";
+  form.appendChild(tabla); form.appendChild(pk);
+  cont.appendChild(form);
+  const ta = document.createElement("textarea"); ta.className = "area-redaccion"; ta.rows = 6;
+  ta.placeholder = "Una columna por línea:\nestudiante_id INT REFERENCES estudiantes(id)\nvalor NUMERIC(3,1) NOT NULL";
+  cont.appendChild(ta);
+  const acciones = el("div","d-flex gap-2 mt-3");
+  const btn = el("button","btn-sm-custom primary","Generar SQL");
+  const btnCopy = el("button","btn-sm-custom outline","Copiar");
+  acciones.appendChild(btn); acciones.appendChild(btnCopy);
+  cont.appendChild(acciones);
+  const out = el("div","resultado-caja");
+  cont.appendChild(out);
+  const gen = () => {
+    const t = tabla.value.trim() || "tabla";
+    const p = pk.value.trim() || "id SERIAL PRIMARY KEY";
+    let cols = "  " + p;
+    (ta.value || "").split("\n").forEach(l => { if(l.trim()) cols += ",\n  " + l.trim(); });
+    return `CREATE TABLE ${t} (\n${cols}\n);\n`;
+  };
+  btn.addEventListener("click", () => { out.textContent = gen(); toast("✓ SQL generado"); });
+  btnCopy.addEventListener("click", () => { if(!out.textContent.trim()) out.textContent = gen(); navigator.clipboard.writeText(out.textContent).then(() => toast("✓ Copiado")); });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function abrirCertificado(){
+  const panel = $("#panelInner");
+  panel.innerHTML = "";
+
+  const seal = el("div","panel-seal");
+  const sealIn = el("div","panel-seal-inner","LMS\nDOC");
+  sealIn.style.whiteSpace = "pre-line";
+  seal.appendChild(sealIn); panel.appendChild(seal);
+
+  const cert = el("section","certificado");
+  cert.id = "certificado";
+  cert.innerHTML = `
+    <div class="cert-sello" aria-hidden="true"><div class="cert-sello-inner"><div><span class="anio">2025</span><span class="lbl">Certifica</span></div></div></div>
+    <div class="cert-eyebrow">República del Conocimiento · Formación Técnica</div>
+    <h1 class="cert-titulo">Certificado de Finalización<br>100 técnicas para desarrollar un LMS</h1>
+    <div class="cert-linea"></div>
+    <p class="cert-otorgado">Se otorga el presente certificado a</p>
+    <span class="cert-nombre" contenteditable="true" data-campo="nombre">[Escriba aquí su nombre completo]</span>
+    <p class="cert-desc">por haber completado el programa de formación técnica compuesto por <strong>100 técnicas</strong> orientadas al diseño, desarrollo y despliegue de un Sistema de Gestión de Aprendizaje (LMS) construido con <strong>Python, Django, SQL, Bootstrap y JavaScript moderno</strong>, con aplicación pedagógica a la Lengua Castellana, y con énfasis en seguridad, accesibilidad y mantenimiento.</p>
+    <div class="cert-firmas">
+      <div class="cert-firma"><strong contenteditable="true" data-campo="docente">[Nombre del docente]</strong><small>Docente responsable</small></div>
+      <div class="cert-firma"><strong contenteditable="true" data-campo="institucion">[Nombre de la institución]</strong><small>Institución emisora</small></div>
+    </div>
+    <div class="cert-meta">
+      <span contenteditable="true" data-campo="ciudad">Ciudad</span>
+      <span contenteditable="true" data-campo="fecha">Fecha de expedición</span>
+      <span>Radicado: <span contenteditable="true" data-campo="radicado">____</span></span>
+    </div>
+  `;
+  panel.appendChild(cert);
+
+  const idx = el("section");
+  idx.id = "indice";
+  idx.style.marginTop = "2.5rem";
+  idx.style.paddingTop = "1.5rem";
+  idx.style.borderTop = "3px double var(--navy)";
+  idx.innerHTML = `<h2 style="font-family:'PT Serif',Georgia,serif;text-align:center;color:var(--navy);font-size:1.3rem;margin:0 0 .3rem;">Índice general</h2>
+    <p style="text-align:center;font-size:.7rem;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:1.4rem;">100 técnicas · 5 bloques temáticos</p>
+    <div class="row g-3" id="indiceGrid"></div>`;
+  panel.appendChild(idx);
+  const grid = idx.querySelector("#indiceGrid");
+  BLOQUES.forEach(b => {
+    const c = el("div","col-md-6");
+    c.innerHTML = `
+      <div style="border:1px solid var(--bronze-line);padding:.85rem 1rem;border-left:3px solid var(--navy);border-radius:3px;background:var(--paper);">
+        <h3 style="font-family:'PT Serif',Georgia,serif;font-size:.92rem;color:var(--navy);margin:0 0 .3rem;display:flex;gap:.5rem;align-items:baseline;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--bronze-dark);background:var(--bronze-soft);padding:.1rem .35rem;border:1px solid var(--bronze-line);">${b.rango}</span>
+          ${b.emoji} ${esc(b.nombre)}
+        </h3>
+        <p style="font-size:.75rem;color:var(--muted);margin:0;line-height:1.5;">${esc(b.desc)}</p>
+      </div>`;
+    grid.appendChild(c);
+  });
+
+  const contenedor = el("div");
+  contenedor.style.marginTop = "2rem";
+  BLOQUES.forEach((b, bi) => {
+    const sec = el("section","doc-bloque");
+    sec.id = b.id;
+    sec.innerHTML = `
+      <header class="doc-bloque-header">
+        <h2>${b.emoji} Bloque ${bi+1}. ${esc(b.nombre)} <span class="rango">${b.rango}</span></h2>
+        <p>${esc(b.desc)}</p>
+      </header>
+    `;
+    b.tecnicas.forEach(t => {
+      const art = el("article","doc-tecnica");
+      art.innerHTML = `
+        <div class="num" aria-hidden="true">${t.n}</div>
+        <div class="body">
+          <h3>${esc(t.t)}</h3>
+          <p>${esc(t.c)}</p>
+          <div class="ej">${esc(t.e)}</div>
+        </div>
+      `;
+      sec.appendChild(art);
+    });
+    contenedor.appendChild(sec);
+  });
+  panel.appendChild(contenedor);
+  bindCamposEditables(cert);
+}
+
+function bindCamposEditables(ctx){
+  (ctx || document).querySelectorAll("[data-campo]").forEach(elem => {
+    const k = elem.dataset.campo;
+    if(campos[k]) elem.textContent = campos[k];
+    elem.addEventListener("input", () => {
+      campos[k] = elem.textContent.trim();
+      guardarCampos();
+      toast("✓ Guardado");
+    });
+  });
+}
+
+/* =====================================================================
+   IMPRIMIR Y WORD
+   ===================================================================== */
+$("#btnPrint").addEventListener("click", () => {
+  if(modo !== "certificado"){ cambiarModo("certificado"); setTimeout(() => window.print(), 400); }
+  else window.print();
+});
+
+function generarHtmlWord(){
+  const nombre = campos.nombre || "[Nombre]";
+  const docente = campos.docente || "[Docente]";
+  const institucion = campos.institucion || "[Institución]";
+  const ciudad = campos.ciudad || "Ciudad";
+  const fecha = campos.fecha || "Fecha";
+  const radicado = campos.radicado || "____";
+  let html = `<!DOCTYPE html><html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="UTF-8"><title>Cuaderno certificado · 100 técnicas LMS</title>
+<style>@page{size:A4;margin:2cm;} body{font-family:Georgia,serif;color:#14213d;line-height:1.5;} h1{font-family:Georgia,serif;font-size:22pt;color:#14213d;text-align:center;} h2{font-family:Georgia,serif;font-size:14pt;color:#14213d;margin:20pt 0 8pt;border-bottom:1pt solid #14213d;padding-bottom:4pt;} h3{font-family:Georgia,serif;font-size:11pt;color:#14213d;} p{font-family:Georgia,serif;font-size:10.5pt;margin:0 0 6pt;} .cert{text-align:center;padding:40pt 20pt;} .cert-eyebrow{font-size:9pt;letter-spacing:3pt;text-transform:uppercase;color:#7c5c39;font-weight:bold;} .cert-titulo{font-family:Georgia,serif;font-size:20pt;color:#14213d;} .cert-nombre{font-family:Georgia,serif;font-size:22pt;color:#14213d;font-weight:bold;border-bottom:1pt dashed #a67c52;display:inline-block;padding:0 40pt 4pt;} .cert-desc{font-size:11pt;line-height:1.7;} .cert-firmas{width:100%;margin-top:50pt;} .cert-firma{display:inline-block;width:45%;text-align:center;border-top:1pt solid #14213d;padding-top:6pt;margin:0 2%;} .bloque{page-break-before:always;} .tecnica{padding:8pt 0;border-bottom:1pt solid #d8d2c3;} .tecnica-num{display:inline-block;font-family:Georgia,serif;font-size:14pt;font-weight:bold;color:#a67c52;margin-right:6pt;} .tecnica-body{display:inline-block;width:88%;vertical-align:top;} .ejemplo{font-family:Consolas,monospace;font-size:9pt;background:#f7f2e8;border-left:3pt solid #a67c52;padding:6pt 10pt;white-space:pre-wrap;}</style></head><body>
+<div class="cert"><div class="cert-eyebrow">República del Conocimiento · Formación Técnica</div><h1 class="cert-titulo">Certificado de Finalización<br>100 técnicas para desarrollar un LMS</h1><p class="cert-desc">Se otorga el presente certificado a</p><div class="cert-nombre">${esc(nombre)}</div><p class="cert-desc">por haber completado el programa de formación técnica compuesto por <b>100 técnicas</b> orientadas al diseño, desarrollo y despliegue de un LMS construido con <b>Python, Django, SQL, Bootstrap y JavaScript moderno</b>.</p><div class="cert-firmas"><div class="cert-firma"><b>${esc(docente)}</b><br><small>Docente responsable</small></div><div class="cert-firma"><b>${esc(institucion)}</b><br><small>Institución emisora</small></div></div></div>
+<div style="page-break-before:always;"></div><h2>Índice general</h2>`;
+  BLOQUES.forEach(b => { html += `<div style="border-left:3pt solid #14213d;padding-left:8pt;margin-bottom:10pt;"><h3>${b.emoji} ${b.rango} — ${esc(b.nombre)}</h3><p style="font-size:10pt;color:#6b6355;margin:0;">${esc(b.desc)}</p></div>`; });
+  BLOQUES.forEach((b, bi) => {
+    html += `<div class="bloque"><h2>Bloque ${bi+1}. ${b.emoji} ${esc(b.nombre)} (${b.rango})</h2>`;
+    b.tecnicas.forEach(t => { html += `<div class="tecnica"><span class="tecnica-num">${t.n}.</span><div class="tecnica-body"><h3>${esc(t.t)}</h3><p>${esc(t.c)}</p><div class="ejemplo">${esc(t.e)}</div></div></div>`; });
+    html += `</div>`;
+  });
+  html += `</body></html>`;
+  return html;
+}
+$("#btnWord").addEventListener("click", () => {
+  const blob = new Blob(['\ufeff', generarHtmlWord()], { type:"application/msword" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "cuaderno_certificado_LMS.doc";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("✓ Word descargado");
+});
+
+/* =====================================================================
+   RESET
+   ===================================================================== */
+$("#btnReset").addEventListener("click", () => {
+  if(!confirm("¿Reiniciar todo? Se borran progreso y campos del certificado.")) return;
+  progreso = {}; campos = {};
+  try { localStorage.removeItem(STORAGE_PROG); localStorage.removeItem(STORAGE_CAMPOS); } catch(e){}
+  if(modo === "cuaderno") abrirTecnica("t1");
+  else if(modo === "certificado") abrirCertificado();
+  else if(modo === "dashboard") abrirDashboard();
+  else abrirHerramienta();
+  toast("✓ Reiniciado");
+});
+
+/* =====================================================================
+   SIDEBAR MÓVIL + SEARCH
+   ===================================================================== */
+const sidebar = $("#sidebar");
+function cerrarSidebar(){ sidebar.classList.remove("open"); }
+$("#btnMenu").addEventListener("click", () => sidebar.classList.toggle("open"));
+document.addEventListener("click", e => {
+  if(window.innerWidth <= 900 && sidebar.classList.contains("open") &&
+     !sidebar.contains(e.target) && e.target.id !== "btnMenu"){
+    cerrarSidebar();
+  }
+});
+$("#searchTecnica").addEventListener("input", () => renderMenuCuaderno());
+
+/* =====================================================================
+   TABS DE MODO
+   ===================================================================== */
+$$(".modo-tab").forEach(t => {
+  t.addEventListener("click", () => cambiarModo(t.dataset.modo));
+});
+
+/* =====================================================================
+   PWA · SERVICE WORKER + MANIFEST + INSTALACIÓN
+   ===================================================================== */
+const PWA_INSTALLED_KEY = "mini_lms_pwa_installed";
+const PWA_DISMISSED_KEY = "mini_lms_pwa_dismissed";
+
+function buildManifest(){
+  const manifest = {
+    name: "Mini LMS Completo · 100 técnicas",
+    short_name: "Mini LMS",
+    description: "100 técnicas para desarrollar un LMS con Python, Django y SQL. Funciona sin conexión.",
+    start_url: ".",
+    scope: ".",
+    display: "standalone",
+    orientation: "portrait-primary",
+    background_color: "#fdfaf3",
+    theme_color: "#14213d",
+    lang: "es-CO",
+    icons: [
+      { src: svgDataURI("192"), sizes: "192x192", type: "image/svg+xml", purpose: "any maskable" },
+      { src: svgDataURI("512"), sizes: "512x512", type: "image/svg+xml", purpose: "any maskable" }
+    ]
+  };
+  const blob = new Blob([JSON.stringify(manifest)], { type:"application/manifest+json" });
+  return URL.createObjectURL(blob);
+}
+function svgDataURI(size){
+  const s = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#14213d"/><stop offset="100%" stop-color="#a67c52"/>
+    </linearGradient></defs>
+    <rect width="512" height="512" rx="80" fill="url(#g)"/>
+    <text x="256" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="200" font-weight="700" fill="#fdfaf3">LMS</text>
+    <circle cx="440" cy="80" r="34" fill="#fdfaf3" opacity="0.95"/>
+    <text x="440" y="94" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#14213d">100</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(s);
+}
+// Asignar manifest dinámico
+document.getElementById("manifestLink").href = buildManifest();
+
+// Registrar service worker (blob)
+async function registrarSW(){
+  if(!("serviceWorker" in navigator)) return;
+  try {
+    // El SW se genera como Blob para funcionar en un solo archivo
+    const swCode = `
+      const CACHE = 'mini-lms-pwa-v1';
+      const CORE = [
+        './',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
+        'https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap'
+      ];
+      self.addEventListener('install', e => {
+        e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE).catch(()=>{})).then(()=>self.skipWaiting()));
+      });
+      self.addEventListener('activate', e => {
+        e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(()=>self.clients.claim()));
+      });
+      self.addEventListener('fetch', e => {
+        const url = new URL(e.request.url);
+        if(e.request.method !== 'GET') return;
+        e.respondWith(
+          caches.match(e.request).then(cached => cached || fetch(e.request).then(res => {
+            const copy = res.clone();
+            caches.open(CACHE).then(c => c.put(e.request, copy)).catch(()=>{});
+            return res;
+          }).catch(() => caches.match('./')))
+        );
+      });
+    `;
+    const blob = new Blob([swCode], { type:"application/javascript" });
+    const swURL = URL.createObjectURL(blob);
+    const reg = await navigator.serviceWorker.register(swURL, { scope:"./" });
+    console.log("SW registrado", reg.scope);
+    toast("✓ App lista sin conexión");
+  } catch(e){
+    console.warn("SW no disponible:", e);
+  }
+}
+
+// Estado online/offline
+function actualizarEstadoConexion(){
+  const pill = $("#statusPill");
+  const txt = $("#statusText");
+  if(navigator.onLine){
+    pill.classList.remove("offline"); pill.classList.add("online");
+    txt.textContent = "En línea";
+  } else {
+    pill.classList.remove("online"); pill.classList.add("offline");
+    txt.textContent = "Sin conexión";
+  }
+}
+window.addEventListener("online", actualizarEstadoConexion);
+window.addEventListener("offline", actualizarEstadoConexion);
+actualizarEstadoConexion();
+
+// Instalación PWA
+let deferredPrompt = null;
+const pwaBanner = $("#pwaBanner");
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  if(!localStorage.getItem(PWA_INSTALLED_KEY) && !localStorage.getItem(PWA_DISMISSED_KEY)){
+    pwaBanner.classList.add("show");
+    $("#btnInstall").style.display = "inline-block";
+  }
+});
+$("#pwaInstall").addEventListener("click", async () => {
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if(outcome === "accepted"){
+    localStorage.setItem(PWA_INSTALLED_KEY, "1");
+    toast("✓ App instalada");
+  }
+  deferredPrompt = null;
+  pwaBanner.classList.remove("show");
+});
+$("#pwaDismiss").addEventListener("click", () => {
+  localStorage.setItem(PWA_DISMISSED_KEY, "1");
+  pwaBanner.classList.remove("show");
+});
+$("#btnInstall").addEventListener("click", () => {
+  if(deferredPrompt){ $("#pwaInstall").click(); }
+  else toast("Use el menú del navegador → Instalar app");
+});
+window.addEventListener("appinstalled", () => {
+  localStorage.setItem(PWA_INSTALLED_KEY, "1");
+  pwaBanner.classList.remove("show");
+  toast("✓ App instalada");
+});
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+initTema();
+cambiarModo("dashboard");
+registrarSW();
+</script>
+</body>
+</html>

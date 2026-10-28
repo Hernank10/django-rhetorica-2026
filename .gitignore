@@ -127,3 +127,15 @@ scripts/stop_seaweed.ps1
 scripts/dl_weed.py
 scripts/add_s3_settings.py
 scripts/fix_conftest.py
+
+# Recursos para producción (Render/WhiteNoise)
+!static/recursos/
+
+# Backups y temporales locales
+*.bak
+*.bak2
+*.pre-flash
+*.precheck
+fixtures/_patched.json
+verify_*.log
+precheck_*.log

@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno de Redacción Pedagógica · Escuelas Normales y Licenciaturas</title>
+<style>
+  :root{
+    --bg:#eee6e9;
+    --paper:#fffdfa;
+    --paper-2:#f9f4f2;
+    --ink:#2b1220;
+    --muted:#7a5c6a;
+    --line:#ddd0d6;
+    --line-2:#c8b4be;
+    --accent:#5b21b6;
+    --accent-dark:#4c1d95;
+    --accent-soft:#ede9fe;
+    --gold:#ca8a04;
+    --gold-dark:#854d0e;
+    --gold-soft:#fef9c3;
+    --ok:#15803d;
+    --ok-soft:#dcfce7;
+    --bad:#b91c1c;
+    --bad-soft:#fee2e2;
+    --radius:16px;
+    --shadow:0 2px 4px rgba(60,20,50,.06), 0 12px 30px rgba(60,20,50,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    background:
+      radial-gradient(circle at 15% 0%, #f6eef2 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px 20px;
+    background:rgba(255,253,250,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .logo{
+    font-size:22px; line-height:1; font-weight:800;
+    background:var(--accent-soft);
+    border:1px solid #c4b5fd;
+    border-radius:12px;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    color:var(--accent-dark);
+    flex:0 0 auto;
+  }
+  .brand h1{font-size:15.5px; margin:0; font-weight:800; letter-spacing:-.2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:system-ui,sans-serif;}
+  .brand p{margin:2px 0 0; font-size:12px; color:var(--muted); font-family:system-ui,sans-serif;}
+  .topbar-actions{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
+
+  .progress-wrap{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); font-weight:600; font-family:system-ui,sans-serif;}
+  .progress-bar{width:140px; height:8px; border-radius:99px; background:#e3d4db; overflow:hidden;}
+  #progressFill{height:100%; width:0%; background:linear-gradient(90deg,#5b21b6,#ca8a04); transition:width .4s;}
+
+  .btn{
+    font-family:system-ui,sans-serif; font-size:13px; font-weight:700;
+    padding:9px 15px; border-radius:10px; cursor:pointer;
+    border:1px solid var(--line-2); background:#fff; color:var(--ink);
+    transition:.16s;
+  }
+  .btn:hover{background:#f6ecef; border-color:#a88ba0;}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.primary:hover{background:var(--accent-dark);}
+  .btn.ghost{background:transparent;}
+  .only-mobile{display:none;}
+
+  .layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:22px;
+    max-width:1400px;
+    margin:0 auto;
+    padding:22px;
+    align-items:start;
+  }
+
+  .sidebar{
+    position:sticky; top:82px;
+    max-height:calc(100vh - 106px);
+    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px;
+  }
+  #search{
+    width:100%; font-family:system-ui,sans-serif; font-size:13px;
+    padding:10px 12px; border-radius:10px;
+    border:1px solid var(--line-2); background:#f9f4f2; color:var(--ink);
+    outline:none; margin-bottom:12px;
+  }
+  #search:focus{border-color:var(--accent); background:#fff;}
+
+  .cat{margin-bottom:6px;}
+  .cat-head{
+    display:flex; align-items:center; gap:9px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    padding:10px; border-radius:10px;
+    font-size:13.4px; font-weight:800; color:var(--ink);
+    font-family:system-ui,sans-serif;
+  }
+  .cat-head:hover{background:#f6ecef;}
+  .cat-head .chev{margin-left:auto; font-size:11px; color:var(--muted); transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    background:var(--gold-soft); color:var(--gold-dark);
+    padding:2px 8px; border-radius:99px;
+  }
+  .cat-bar{height:4px; border-radius:99px; background:#ebdde2; margin:0 10px 6px; overflow:hidden;}
+  .cat-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--gold)); transition:width .4s;}
+  .cat-body{display:none; padding:2px 0 8px 6px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); padding:0 10px 8px; line-height:1.45;}
+  .tech-link{
+    display:flex; align-items:flex-start; gap:8px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    font-size:12.8px; line-height:1.35; color:#4a2838;
+    padding:8px 10px; border-radius:9px;
+    border-left:3px solid transparent;
+    font-family:system-ui,sans-serif;
+  }
+  .tech-link:hover{background:#f6ecef;}
+  .tech-link.active{background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent-dark); font-weight:700;}
+  .tech-link .dot{
+    flex:0 0 auto; width:15px; height:15px; margin-top:2px;
+    border-radius:50%; border:1.6px solid var(--line-2);
+    display:grid; place-items:center; font-size:9px; color:transparent;
+  }
+  .tech-link.done .dot{background:var(--ok); border-color:var(--ok); color:#fff;}
+
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 30px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .panel::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--gold));
+  }
+  .tech-head{margin-bottom:18px;}
+  .badge{
+    display:inline-block; font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:.7px; text-transform:uppercase;
+    color:var(--accent-dark); background:var(--accent-soft);
+    border:1px solid #c4b5fd; padding:4px 10px; border-radius:99px;
+    margin-bottom:10px;
+  }
+  .tech-head h2{margin:0; font-size:24px; line-height:1.22; letter-spacing:-.4px; font-weight:800;}
+  .tech-pos{font-family:system-ui,sans-serif; font-size:12px; color:var(--muted); margin-top:6px; font-weight:600;}
+
+  .block-dots{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;}
+  .bdot{
+    width:12px; height:12px; border-radius:50%;
+    border:1.6px solid var(--line-2); background:#fff;
+    cursor:pointer; transition:.15s;
+  }
+  .bdot:hover{transform:scale(1.25); border-color:var(--accent);}
+  .bdot.done{background:var(--ok); border-color:var(--ok);}
+  .bdot.current{box-shadow:0 0 0 3px rgba(91,33,182,.22); border-color:var(--accent);}
+
+  /* flashcard · papel con retícula punteada (cuaderno de docente) */
+  .flashcard{perspective:1600px; margin:18px 0 10px; cursor:pointer;}
+  .fc-inner{
+    position:relative;
+    min-height:clamp(280px, 36vh, 340px);
+    transform-style:preserve-3d;
+    transition:transform .68s cubic-bezier(.4,.15,.2,1);
+  }
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:14px; padding:22px 26px 22px 46px;
+    display:flex; flex-direction:column; overflow:auto;
+    background-color:#fffdf5;
+    background-image:radial-gradient(rgba(91,33,182,.22) 1.1px, transparent 1.2px);
+    background-size:22px 22px;
+    background-position:11px 11px;
+    box-shadow:inset 22px 0 0 -21px #d9a72e;
+  }
+  .fc-front{border:1px solid var(--line-2);}
+  .fc-back{
+    transform:rotateY(180deg);
+    border:1px solid #c4b5fd;
+    background-color:#f7f2ff;
+    box-shadow:inset 22px 0 0 -21px #8b5cf6;
+  }
+  .fc-tag{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase; color:var(--muted);
+    margin-bottom:12px; display:block;
+  }
+  .fc-back .fc-tag{color:var(--accent-dark);}
+  .fc-face p{margin:0; font-size:15.5px; line-height:25px; color:#2b1220; background:rgba(255,253,245,.92); padding:8px 12px; border-radius:8px;}
+  .fc-back p{color:#4c1d95; background:rgba(247,242,255,.94);}
+  .fc-hint{
+    margin-top:auto; padding-top:14px;
+    font-family:system-ui,sans-serif; font-size:11.5px; color:#a18ba0; font-weight:600;
+  }
+  .flip-btn{margin-bottom:26px;}
+
+  .sec-title{
+    display:flex; align-items:center; gap:9px;
+    font-size:15px; font-weight:800; letter-spacing:-.1px;
+    margin:0 0 12px; padding-bottom:9px;
+    border-bottom:2px solid var(--line);
+    font-family:system-ui,sans-serif;
+  }
+  .sec-title span{font-size:12px; font-weight:600; color:var(--muted); margin-left:auto;}
+
+  .consigna{
+    font-size:15px; line-height:1.6; color:#4a2838;
+    background:#f9f4f2; border-left:3px solid var(--line-2);
+    padding:12px 16px; border-radius:0 10px 10px 0; margin:0 0 16px;
+  }
+
+  .opciones{display:flex; flex-direction:column; gap:9px;}
+  .opcion{
+    display:flex; gap:11px; align-items:flex-start;
+    text-align:left; font:inherit; font-size:14.5px; line-height:1.5;
+    background:#fff; border:1.5px solid var(--line-2);
+    color:var(--ink); padding:13px 15px; border-radius:12px; cursor:pointer;
+    transition:.15s;
+  }
+  .opcion:hover:not(:disabled){border-color:var(--accent); background:#f7f2ff; transform:translateX(2px);}
+  .opcion:disabled{cursor:default; opacity:.9;}
+  .opcion .letra{
+    flex:0 0 auto; width:23px; height:23px; border-radius:7px;
+    background:#ebdde2; color:var(--muted);
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:800;
+  }
+  .opcion.correcta{border-color:var(--ok); background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok); color:#fff;}
+  .opcion.incorrecta{border-color:var(--bad); background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad); color:#fff;}
+
+  .fill-texto{font-size:16px; line-height:2.4; margin:0 0 16px; color:#2b1220;}
+  .hueco{
+    font:inherit; font-size:15px;
+    border:none; border-bottom:2px dashed var(--gold);
+    background:#fdf9e9; color:var(--gold-dark); font-weight:700;
+    padding:3px 8px; min-width:130px; text-align:center;
+    outline:none; border-radius:6px 6px 0 0;
+  }
+  .hueco:focus{background:#fef9c3; border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok); color:var(--ok); background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad); color:var(--bad); background:var(--bad-soft); text-decoration:line-through;}
+
+  .order-wrap{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .order-col h4{font-family:system-ui,sans-serif; font-size:11px; font-weight:800; letter-spacing:.9px; text-transform:uppercase; color:var(--muted); margin:0 0 9px;}
+  .pool, .seq{min-height:120px; border-radius:12px; padding:9px; display:flex; flex-direction:column; gap:8px;}
+  .pool{background:#f2e9ec; border:1.5px dashed var(--line-2);}
+  .seq{background:#f7f2ff; border:1.5px solid #c4b5fd;}
+  .pool:empty::after, .seq:empty::after{content:"…"; color:#c8b4be; font-size:20px; text-align:center; margin:auto;}
+  .ord-item{
+    font:inherit; font-size:13.6px; line-height:1.42; text-align:left;
+    background:#fff; border:1.5px solid var(--line-2);
+    padding:10px 12px; border-radius:10px; cursor:pointer; color:var(--ink);
+    transition:.15s; display:flex; gap:9px; align-items:flex-start;
+  }
+  .ord-item:hover{border-color:var(--accent); background:#f7f2ff;}
+  .seq .ord-item{border-color:#c4b5fd;}
+  .seq .ord-item .num{
+    flex:0 0 auto; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11px; font-weight:800;
+  }
+  .ord-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .cl-item{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    background:#fff; border:1.5px solid var(--line-2);
+    border-radius:12px; padding:12px 14px; margin-bottom:9px;
+  }
+  .cl-item p{margin:0; font-size:14.2px; line-height:1.45; flex:1 1 260px;}
+  .chips{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:700;
+    padding:6px 11px; border-radius:99px; cursor:pointer;
+    border:1.5px solid var(--line-2); background:#f2e9ec; color:var(--muted);
+    transition:.14s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent-dark);}
+  .chip.sel{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .cl-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .criterios{list-style:none; padding:0; margin:0 0 14px; display:flex; flex-direction:column; gap:7px;}
+  .criterios li{display:flex; gap:10px; align-items:flex-start; font-family:system-ui,sans-serif; font-size:13px; color:#5a3a4a; line-height:1.5;}
+  .criterios input{margin-top:2px; accent-color:var(--accent); width:16px; height:16px; flex:0 0 auto;}
+
+  textarea{
+    width:100%; font-family:inherit; font-size:15px; line-height:25px;
+    color:#2b1220; padding:12px 16px;
+    border:1px solid var(--line-2); border-radius:12px;
+    background-color:#fffdf5;
+    background-image:radial-gradient(rgba(91,33,182,.14) 1px, transparent 1.1px);
+    background-size:22px 22px;
+    background-position:11px 11px;
+    resize:vertical; outline:none;
+  }
+  textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(91,33,182,.12);}
+  textarea::placeholder{color:#a18ba0; font-style:italic;}
+
+  .feedback{margin-top:16px; border-radius:12px; padding:0; overflow:hidden; max-height:0; opacity:0; transition:.3s;}
+  .feedback.show{max-height:600px; opacity:1; padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft); border:1px solid #86efac; color:#14532d;}
+  .feedback.mal{background:var(--bad-soft); border:1px solid #fca5a5; color:#7f1d1d;}
+  .feedback.info{background:var(--gold-soft); border:1px solid #fde047; color:#713f12;}
+  .feedback strong{display:block; font-family:system-ui,sans-serif; font-size:12.5px; letter-spacing:.4px; text-transform:uppercase; margin-bottom:6px;}
+  .feedback p{margin:0; font-size:14.4px; line-height:1.6;}
+
+  .ej-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+
+  .modelo{
+    display:none; margin-top:14px;
+    background:#f9f4f2; border-left:3px solid var(--gold);
+    padding:13px 16px; border-radius:0 10px 10px 0;
+    font-size:14.4px; line-height:1.65; color:#713f12;
+  }
+  .modelo.show{display:block; animation:fade .3s ease;}
+  .modelo strong{font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.8px; text-transform:uppercase; color:var(--gold-dark); display:block; margin-bottom:5px;}
+  @keyframes fade{from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;}}
+
+  .cuaderno{margin-top:32px; padding-top:22px; border-top:2px solid var(--line);}
+  .cuaderno-foot{display:flex; justify-content:space-between; align-items:center; font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); margin-top:8px; font-weight:600;}
+  #notaStatus{color:var(--ok); font-weight:700; opacity:0; transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex; justify-content:space-between; gap:12px; margin-top:26px; padding-top:20px; border-top:1px solid var(--line);}
+  .nav-foot .btn{flex:1; max-width:220px; text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35; cursor:not-allowed;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr; padding:14px; gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{
+      position:fixed; top:0; left:0; bottom:0; width:300px; max-height:100vh;
+      z-index:100; border-radius:0 18px 18px 0;
+      transform:translateX(-105%); transition:transform .28s ease;
+      padding-top:18px;
+    }
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed; inset:0; background:rgba(60,20,50,.45); z-index:99; opacity:0; pointer-events:none; transition:.25s;}
+    .scrim.show{opacity:1; pointer-events:auto;}
+    .panel{padding:20px 18px 24px;}
+    .tech-head h2{font-size:20px;}
+    .order-wrap{grid-template-columns:1fr;}
+    .progress-wrap{display:none;}
+    .brand p{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">✏️</div>
+    <div>
+      <h1>Cuaderno de Redacción Pedagógica · Escuelas Normales y Licenciaturas</h1>
+      <p>100 técnicas · 10 bloques · sintaxis, puntuación, ortografía y estilo universitario</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="btnMenu" class="btn ghost only-mobile">☰ Bloques</button>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <input id="search" type="search" placeholder="🔎 Buscar técnica…" autocomplete="off">
+    <nav id="menu"></nav>
+  </aside>
+  <main class="main">
+    <article id="panel" class="panel"></article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+
+<script>
+/* =====================================================================
+   100 TÉCNICAS · REDACCIÓN PEDAGÓGICA · 10 BLOQUES
+   Escuelas Normales Superiores y Licenciaturas en Educación · Colombia
+   ===================================================================== */
+const CATEGORIAS = [
+
+/* ============ BLOQUE 1 · FUNDAMENTOS DE LA ESCRITURA PEDAGÓGICA ============ */
+{
+  id:"b1", nombre:"Fundamentos de la escritura pedagógica", emoji:"📚",
+  desc:"Claridad, adecuación al destinatario, registro y función educativa del texto.",
+  tecnicas:[
+    {id:"p1", nombre:"Claridad y adecuación al destinatario",
+     concepto:"El docente escribe para públicos muy diversos: estudiantes, familias, colegas, directivos. La claridad exige adaptar el registro, el léxico y el tono a quien va dirigido el texto. No se escribe igual una planeación de clase que una circular para padres.",
+     ejemplo:"Al escribir a las familias: «El próximo viernes los estudiantes deben traer los materiales del proyecto» es más adecuado que «Los discentes deberán aportar los insumos requeridos para el desarrollo de la actividad pedagógica».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué significa «adecuación al destinatario» en la escritura pedagógica?",
+       opciones:["Usar siempre el mismo lenguaje sin importar quién lee","Adaptar el registro, el léxico y el tono a quien va dirigido el texto","Escribir solo para los directivos","Utilizar tecnicismos para demostrar erudición"],
+       correcta:1,
+       retro:"La adecuación es un principio central: el mismo contenido cambia según el destinatario. Un texto pedagógico se juzga por cómo llega a quien lo lee."}},
+
+    {id:"p2", nombre:"Función educativa de la escritura",
+     concepto:"El texto del docente no solo informa: forma, orienta, evalúa y acompaña procesos. La escritura pedagógica tiene una función educativa explícita: debe contribuir al aprendizaje de quien la lee.",
+     ejemplo:"Una retroalimentación escrita no solo señala errores: también propone caminos, motiva y reconoce avances. «Observo que ya usas conectores; ahora podrías trabajar la puntuación de diálogos».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué distingue a la escritura pedagógica de otros tipos de escritura?",
+       opciones:["Su extensión","Su función educativa explícita: forma, orienta y acompaña aprendizajes","Su vocabulario técnico","Que se escribe en el aula"],
+       correcta:1,
+       retro:"La escritura pedagógica tiene una intención formativa. No es solo informar: es contribuir al aprendizaje de quien lee."}},
+
+    {id:"p3", nombre:"Registro pedagógico formal",
+     concepto:"El registro pedagógico es formal, respetuoso y claro. Evita coloquialismos, diminutivos innecesarios y expresiones que puedan resultar ambiguas o descalificadoras hacia estudiantes y familias.",
+     ejemplo:"No se escribe «los chicos son un desastre»; se escribe «el grupo presenta dificultades de atención sostenida que requieren estrategias específicas».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión como registro pedagógico o coloquial.",
+       categorias:["Pedagógico","Coloquial"],
+       items:[
+         {texto:"«El grupo requiere estrategias de atención sostenida.»", cat:0},
+         {texto:"«Los chicos son un desastre.»", cat:1},
+         {texto:"«Se observa una mejora en la comprensión lectora.»", cat:0},
+         {texto:"«Le fue súper mal en el examen.»", cat:1},
+         {texto:"«El estudiante presenta dificultades específicas.»", cat:0}
+       ],
+       retro:"El registro pedagógico es formal y respetuoso. Los coloquialismos restan seriedad y pueden herir a quien lee."}},
+
+    {id:"p4", nombre:"Impersonalidad y voz profesional",
+     concepto:"En documentos institucionales (actas, informes, circulares) se prefiere la impersonalidad: pasiva refleja o primera persona del plural. En textos personales (diario pedagógico, reflexión), la primera persona es válida y necesaria.",
+     ejemplo:"Acta: «Se acordó ajustar el cronograma». Diario pedagógico: «Hoy comprendí que mis estudiantes aprenden mejor cuando trabajan en equipo».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado según el tipo de texto al que corresponde.",
+       categorias:["Documento institucional (impersonal)","Diario pedagógico (primera persona)"],
+       items:[
+         {texto:"«Se acordó ajustar el cronograma.»", cat:0},
+         {texto:"«Hoy me di cuenta de que mi pregunta fue demasiado cerrada.»", cat:1},
+         {texto:"«Se aprueba el plan de mejoramiento.»", cat:0},
+         {texto:"«Siento que la clase de hoy funcionó mejor que la anterior.»", cat:1},
+         {texto:"«Se informa a las familias del cambio de fecha.»", cat:0}
+       ],
+       retro:"El género define la voz. Los documentos institucionales son impersonales; los textos reflexivos admiten y requieren la primera persona."}},
+
+    {id:"p5", nombre:"Objetividad y valoración justa",
+     concepto:"El docente describe hechos y evidencias antes de valorar. La valoración debe apoyarse en datos, no en impresiones. Esto es especialmente importante en informes de estudiantes y en observaciones de clase.",
+     ejemplo:"Objetivo: «El estudiante participó 4 veces durante la clase y entregó 3 de 4 tareas». Valorativo sin evidencia: «El estudiante es muy desinteresado».",
+     ejercicio:{tipo:"fill",
+       consigna:"Convierte la valoración en un enunciado con evidencia.",
+       texto:"«El estudiante es irresponsable» → «El estudiante entregó ___ de las últimas 4 tareas asignadas».",
+       respuestas:[["1","una","2","dos","3","tres"]],
+       retro:"La valoración justa se apoya en evidencias observables. Describir antes de juzgar es un principio ético y pedagógico."}},
+
+    {id:"p6", nombre:"Concisión al servicio del lector",
+     concepto:"Un texto pedagógico conciso es más fácil de leer y de aplicar. Se eliminan rodeos, fórmulas vacías y frases que no aportan información. La concisión respeta el tiempo del lector.",
+     ejemplo:"Extenso: «Con el objetivo de poder llevar a cabo la implementación de las actividades previstas». Conciso: «Para realizar las actividades previstas».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reduce el enunciado sin perder información.",
+       texto:"«Con el fin de poder llevar a cabo la realización de las actividades programadas» → «Para ___ las actividades programadas».",
+       respuestas:[["realizar","hacer","ejecutar","desarrollar","aplicar"]],
+       retro:"La concisión respeta el tiempo del lector. En documentos pedagógicos, decir más con menos palabras es una forma de cuidado."}},
+
+    {id:"p7", nombre:"Coherencia entre propósito y forma",
+     concepto:"Cada tipo de texto pedagógico cumple un propósito: informar, orientar, evaluar, reflexionar, comunicar. La forma (extensión, estructura, tono) debe corresponder a ese propósito.",
+     ejemplo:"Una circular debe ser breve y directa (informar). Una planeación de clase requiere detalle (orientar). Un diario pedagógico requiere reflexión (pensar la práctica).",
+     ejercicio:{tipo:"classify",
+       consigna:"Relaciona cada tipo de texto con su propósito principal.",
+       categorias:["Informar","Orientar","Reflexionar"],
+       items:[
+         {texto:"Circular a las familias.", cat:0},
+         {texto:"Planeación de clase.", cat:1},
+         {texto:"Diario pedagógico.", cat:2},
+         {texto:"Observador del estudiante.", cat:0},
+         {texto:"Informe de práctica.", cat:2}
+       ],
+       retro:"Cada género tiene su propósito. Reconocerlo orienta las decisiones de forma, extensión y tono."}},
+
+    {id:"p8", nombre:"Estructura externa de los textos pedagógicos",
+     concepto:"La mayoría de documentos pedagógicos tienen una estructura prefijada: encabezado, identificación, cuerpo, conclusiones y firma. Reconocerla facilita la escritura y el cumplimiento de normas institucionales.",
+     ejemplo:"Un informe de práctica docente incluye: portada, introducción, contextualización, descripción de la práctica, análisis reflexivo, conclusiones y anexos.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un informe de práctica.",
+       items:[
+         "Portada e identificación del practicante.",
+         "Introducción y contextualización.",
+         "Descripción de la práctica.",
+         "Análisis reflexivo.",
+         "Conclusiones y anexos."
+       ],
+       retro:"La estructura externa es previsible. Reconocerla permite cumplir con las normas institucionales y facilitar la lectura."}},
+
+    {id:"p9", nombre:"Corrección lingüística como ética docente",
+     concepto:"La corrección lingüística no es un lujo: es parte de la responsabilidad profesional. Un docente que escribe con errores transmite un modelo de lengua. La escritura del maestro enseña tanto como lo que dice.",
+     ejemplo:"Un docente que escribe «haber si vienes» en lugar de «a ver si vienes» transmite un error ortográfico que los estudiantes pueden repetir.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Por qué la corrección lingüística es una responsabilidad del docente?",
+       opciones:["Porque lo exige el manual de funciones","Porque el docente es modelo de lengua escrita para sus estudiantes","Porque las universidades lo exigen","Porque mejora el sueldo"],
+       correcta:1,
+       retro:"El docente enseña lengua con su propio uso. Escribir con corrección es una forma de respeto hacia los estudiantes y hacia la profesión."}},
+
+    {id:"p10", nombre:"Escritura como herramienta de pensamiento",
+     concepto:"Escribir no es solo comunicar: es pensar. La escritura pedagógica ayuda al docente a organizar su práctica, a reflexionar sobre ella, a planear y a sistematizar. Escribir es una forma de aprender a enseñar.",
+     ejemplo:"Un docente que escribe su diario pedagógico descubre patrones que no había notado en su práctica. La escritura hace visible el pensamiento profesional.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura ayudarte a pensar mejor tu práctica docente? Escribe 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una forma en que la escritura ayuda a pensar.",
+         "Relacioné la escritura con la práctica docente concreta.",
+         "Mencioné algún tipo de texto pedagógico (diario, planeación, informe)."
+       ],
+       modelo:"Escribir mi diario pedagógico me ayuda a ver lo que no noto durante la clase. Al redactar por la tarde, descubro patrones: por ejemplo, que mis preguntas son casi siempre cerradas o que un grupo pierde la atención siempre a la misma hora. La escritura fija lo fugaz y convierte la experiencia en pensamiento. Sin escribir, la práctica se me escapa entre las clases."}}
+  ]
+},
+
+/* ============ BLOQUE 2 · SINTAXIS PEDAGÓGICA ============ */
+{
+  id:"b2", nombre:"Sintaxis y oración", emoji:"🧱",
+  desc:"Orden lógico, longitud, voz, subordinación, coordinación y concordancia.",
+  tecnicas:[
+    {id:"p11", nombre:"Orden lógico: SVO",
+     concepto:"En español se prefiere el orden Sujeto + Verbo + Objeto. Alterarlo (hipérbaton) dificulta la lectura. En textos pedagógicos que deben ser comprendidos por estudiantes y familias, el orden natural es esencial.",
+     ejemplo:"Orden lógico: «El docente explicó la actividad». Orden alterado: «La actividad, el docente, explicó».",
+     ejercicio:{tipo:"fill",
+       consigna:"Ordena la oración según el orden lógico.",
+       texto:"Palabras: «los estudiantes / la maestra / felicitó» → «La maestra ___ a los estudiantes».",
+       respuestas:[["felicito","felicitó"]],
+       retro:"El orden SVO es la base de la claridad. En textos pedagógicos, la claridad supera a la elegancia estilística."}},
+
+    {id:"p12", nombre:"Oraciones cortas y legibles",
+     concepto:"Las oraciones pedagógicas deben ser cortas: 15-20 palabras máximo. Las oraciones largas dificultan la lectura, especialmente para estudiantes y familias. Si una oración es larga, se divide.",
+     ejemplo:"En vez de una oración de 50 palabras explicando los criterios de evaluación, se divide en tres: «Se evaluará la participación. Se tendrá en cuenta la entrega puntual. Se valorará la calidad del trabajo».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la longitud recomendada de una oración pedagógica?",
+       opciones:["Hasta 40 palabras","Entre 15 y 20 palabras","Al menos 30 palabras","No hay límite"],
+       correcta:1,
+       retro:"Las oraciones cortas (15-20 palabras) son más fáciles de leer y de comprender, especialmente para estudiantes y familias."}},
+
+    {id:"p13", nombre:"Voz activa vs. voz pasiva",
+     concepto:"La voz activa es más directa y clara. La voz pasiva oculta al agente y puede generar ambigüedad. En textos pedagógicos se prefiere la voz activa, salvo cuando se busca impersonalidad institucional.",
+     ejemplo:"Pasiva: «La actividad fue explicada por el docente». Activa: «El docente explicó la actividad».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración según la voz.",
+       categorias:["Voz activa","Voz pasiva"],
+       items:[
+         {texto:"«La maestra organizó el trabajo en grupos.»", cat:0},
+         {texto:"«El trabajo fue organizado por la maestra.»", cat:1},
+         {texto:"«Los estudiantes entregaron el proyecto.»", cat:0},
+         {texto:"«El proyecto fue entregado por los estudiantes.»", cat:1},
+         {texto:"«El rector convocó a reunión.»", cat:0}
+       ],
+       retro:"La voz activa es más clara. La pasiva se reserva para documentos institucionales donde se prioriza la impersonalidad."}},
+
+    {id:"p14", nombre:"Gerundios: evitar el abuso",
+     concepto:"El gerundio excesivo (especialmente el de posterioridad) dificulta la lectura. En textos pedagógicos se prefiere el verbo conjugado o la oración de relativo. «Escribiendo, pensando, observando» son formas válidas, pero no para encadenar acciones.",
+     ejemplo:"Incorrecto: «Los estudiantes leyeron el texto, comprendiendo la idea principal». Correcto: «Los estudiantes leyeron el texto y comprendieron la idea principal».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye el gerundio por un verbo conjugado.",
+       texto:"«Se organizó la salida, coordinando con las familias» → «Se organizó la salida y se ___ con las familias».",
+       respuestas:[["coordino","coordinó"]],
+       retro:"El gerundio de posterioridad es incorrecto. Se sustituye por un verbo conjugado o por una oración de relativo."}},
+
+    {id:"p15", nombre:"Subordinación mínima",
+     concepto:"En textos pedagógicos se recomienda limitar la subordinación. Encadenar muchas oraciones subordinadas produce frases interminables y ambiguas. Se prefiere dividir en oraciones simples.",
+     ejemplo:"Excesivo: «El estudiante que había faltado a la clase que se realizó el martes que pasó me entregó el trabajo que le había pedido». Adecuado: «El estudiante faltó el martes. Me entregó el trabajo que le había pedido».",
+     ejercicio:{tipo:"fill",
+       consigna:"Divide la oración en dos más cortas.",
+       texto:"«El estudiante que había estado enfermo me entregó el trabajo que le había pedido» → «El estudiante había estado enfermo. Me ___ el trabajo».",
+       respuestas:[["entrego","entregó"]],
+       retro:"La subordinación excesiva es una de las causas más frecuentes de oscuridad. Dividir en oraciones simples mejora la claridad."}},
+
+    {id:"p16", nombre:"Coordinación en enumeraciones pedagógicas",
+     concepto:"La coordinación une elementos paralelos: objetivos, criterios, pasos. En textos pedagógicos es frecuente al enumerar actividades, criterios de evaluación o desempeños.",
+     ejemplo:"«Se evaluará: (1) la participación en clase; (2) la entrega de tareas; (3) el trabajo en equipo; (4) la evaluación final».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su tipo de coordinación.",
+       categorias:["Copulativa","Adversativa","Disyuntiva"],
+       items:[
+         {texto:"y", cat:0},
+         {texto:"pero", cat:1},
+         {texto:"o", cat:2},
+         {texto:"e", cat:0},
+         {texto:"sino", cat:1}
+       ],
+       retro:"La coordinación copulativa suma; la adversativa opone; la disyuntiva presenta alternativas."}},
+
+    {id:"p17", nombre:"Concordancia gramatical",
+     concepto:"La concordancia exige que sujeto y verbo coincidan en número y persona, y que sustantivo y adjetivo coincidan en género y número. Su ruptura produce agramaticalidad. Es un error frecuente en informes extensos.",
+     ejemplo:"Incorrecto: «Los estudiantes presentó el trabajo». Correcto: «Los estudiantes presentaron el trabajo».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la concordancia.",
+       texto:"«Los docentes y los estudiantes participó en la jornada» → «Los docentes y los estudiantes ___ en la jornada».",
+       respuestas:[["participaron","participo","participó"]],
+       retro:"El sujeto compuesto exige verbo en plural. La concordancia es obligatoria en todo el texto."}},
+
+    {id:"p18", nombre:"Evitar hipérbaton",
+     concepto:"El hipérbaton es la alteración del orden natural de la oración. En poesía es un recurso; en textos pedagógicos, un obstáculo. Se debe mantener el orden lógico para facilitar la lectura.",
+     ejemplo:"Hipérbaton: «A los estudiantes, la maestra, la actividad, explicó». Orden natural: «La maestra explicó la actividad a los estudiantes».",
+     ejercicio:{tipo:"fill",
+       consigna:"Ordena la oración según el orden natural.",
+       texto:"Palabras: «la maestra / el proyecto / evaluó» → «La maestra ___ el proyecto».",
+       respuestas:[["evaluo","evaluó"]],
+       retro:"El hipérbaton innecesario oscurece el mensaje. En textos pedagógicos se mantiene el orden lógico."}},
+
+    {id:"p19", nombre:"Párrafos: una idea por párrafo",
+     concepto:"Cada párrafo desarrolla una idea principal. Mezclar ideas genera confusión. La extensión recomendada es de 60-120 palabras. En planeaciones, cada sección (objetivos, actividades, evaluación) es un párrafo.",
+     ejemplo:"Un párrafo para los objetivos, otro para las actividades, otro para la evaluación. Cada uno con su idea central.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuántas ideas principales debe desarrollar cada párrafo pedagógico?",
+       opciones:["Todas las relacionadas con el tema","Una sola idea principal","Al menos tres","No importa cuántas"],
+       correcta:1,
+       retro:"Un párrafo = una idea. Si aparece otra idea, se abre un nuevo párrafo. Es la base de la organización pedagógica."}},
+
+    {id:"p20", nombre:"Referencias anafóricas",
+     concepto:"Los pronombres (él, este, aquel, que) remiten a un antecedente. En textos pedagógicos debe quedar claro a qué se refieren. Si hay duda, se repite el sustantivo o se usa la denominación completa.",
+     ejemplo:"Ambiguo: «El docente habló con el estudiante sobre su trabajo». ¿«Su» = docente o estudiante? Claro: «El docente habló con el estudiante sobre el trabajo del estudiante».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina la ambigüedad repitiendo el sustantivo.",
+       texto:"«La maestra le dijo a la madre que su hijo había mejorado» → «La maestra le dijo a la madre que el hijo de la ___ había mejorado».",
+       respuestas:[["madre"]],
+       retro:"Repetir el sustantivo elimina la ambigüedad. En textos pedagógicos, la claridad es primordial."}}
+  ]
+},
+
+/* ============ BLOQUE 3 · PUNTUACIÓN ============ */
+{
+  id:"b3", nombre:"Puntuación en textos pedagógicos", emoji:"✒️",
+  desc:"Coma, punto y coma, dos puntos, comillas, guiones y paréntesis.",
+  tecnicas:[
+    {id:"p21", nombre:"La coma en enumeraciones",
+     concepto:"La coma separa elementos de una enumeración. En textos pedagógicos es frecuente al listar objetivos, actividades, criterios o recursos. El último elemento se une con «y» u «o».",
+     ejemplo:"«Se utilizarán cartulinas, marcadores, tijeras y pegamento». La coma separa los materiales; la «y» cierra la enumeración.",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca las comas donde correspondan.",
+       texto:"«Los estudiantes leerán escribirán y expondrán» → «Los estudiantes leerán___ escribirán___ y expondrán».",
+       respuestas:[[","],[","]],
+       retro:"Los elementos de una enumeración se separan con coma. El último se une con «y» sin coma previa."}},
+
+    {id:"p22", nombre:"Coma vocativa",
+     concepto:"El vocativo es la palabra o frase con la que nos dirigimos al interlocutor. Siempre se separa con coma. En textos pedagógicos es frecuente: «Estimados estudiantes», «Apreciadas familias».",
+     ejemplo:"«Estudiantes, recuerden traer los materiales». «Apreciadas familias, la reunión será el viernes».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca la coma del vocativo.",
+       texto:"«Apreciadas familias___ la reunión será el viernes».",
+       respuestas:[[","]],
+       retro:"El vocativo siempre se separa con coma. Es un error frecuente en circulares y comunicados escolares."}},
+
+    {id:"p23", nombre:"Punto y coma en enumeraciones complejas",
+     concepto:"Cuando los elementos de una enumeración son extensos o tienen puntuación interna, se separan con punto y coma. Es frecuente en criterios de evaluación y en descriptores de desempeño.",
+     ejemplo:"«Se evaluará: la participación activa en clase; la entrega puntual de tareas; el trabajo colaborativo; la evaluación escrita final».",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa los criterios con punto y coma.",
+       texto:"«Se evaluará la participación___ la entrega de tareas___ el trabajo en equipo».",
+       respuestas:[[";"],[";"]],
+       retro:"En enumeraciones extensas o con puntuación interna, se usa punto y coma. Facilita la lectura."}},
+
+    {id:"p24", nombre:"Dos puntos: anunciar listas y citas",
+     concepto:"Los dos puntos anuncian una enumeración, una aclaración, una cita textual o una conclusión. En textos pedagógicos son frecuentes al presentar objetivos, criterios o actividades.",
+     ejemplo:"«Los objetivos son los siguientes: comprender el texto; identificar ideas principales; elaborar un resumen».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca dos puntos donde correspondan.",
+       texto:"«Los objetivos son los siguientes___ comprender; analizar; aplicar».",
+       respuestas:[[""],[""]],
+       retro:"Los dos puntos anuncian una enumeración o cita. Se escriben sin espacio antes y con espacio después."}},
+
+    {id:"p25", nombre:"Punto y aparte",
+     concepto:"El punto y aparte cierra un párrafo. En textos pedagógicos, cada párrafo desarrolla una idea. El punto y aparte facilita la lectura y la localización de información.",
+     ejemplo:"Un párrafo para la introducción, otro para la descripción de la práctica, otro para el análisis. Cada uno termina en punto y aparte.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuándo se usa el punto y aparte en un texto pedagógico?",
+       opciones:["Cuando se termina una oración","Cuando se termina un párrafo","Cuando se cita un autor","Cuando se enumeran objetivos"],
+       correcta:1,
+       retro:"El punto y aparte cierra el párrafo. Después se inicia uno nuevo con sangría o espacio adicional."}},
+
+    {id:"p26", nombre:"Paréntesis para aclaraciones",
+     concepto:"Los paréntesis encierran información complementaria: siglas, aclaraciones, ejemplos breves. En textos pedagógicos se usan para agregar precisiones sin interrumpir el argumento.",
+     ejemplo:"«Los estudiantes de grado sexto (11-12 años) participaron en la jornada». «Se aplicó el DBA (Derechos Básicos de Aprendizaje)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca paréntesis donde correspondan.",
+       texto:"«Los estudiantes de grado sexto ___11-12 años___ participaron en la jornada».",
+       respuestas:[["("],[" )",""]],
+       retro:"Los paréntesis encierran información aclaratoria. No se deja espacio antes del de apertura ni después del de cierre."}},
+
+    {id:"p27", nombre:"Comillas",
+     concepto:"Las comillas encierran citas textuales, títulos de artículos o capítulos, términos específicos y usos irónicos. En textos pedagógicos son frecuentes al citar autores o al destacar términos.",
+     ejemplo:"«Según Freire (1970), “la educación no cambia el mundo, cambia a las personas que van a cambiar el mundo”». «Se trabajará el “aprendizaje significativo” de Ausubel».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca comillas donde correspondan.",
+       texto:"«El enfoque de ___aprendizaje significativo___ orienta la propuesta».",
+       respuestas:[["«","\""],[ "»","\""]],
+       retro:"Las comillas encierran citas, términos específicos o títulos. Pueden ser latinas (« ») o inglesas (“ ”), según la norma."}},
+
+    {id:"p28", nombre:"Guiones y rayas",
+     concepto:"El guion (-) une palabras compuestas. La raya (—) introduce diálogos o aclaraciones. En textos pedagógicos, el guion aparece en términos como «enseñanza-aprendizaje», y la raya en transcripciones de clases o entrevistas.",
+     ejemplo:"«El proceso de enseñanza-aprendizaje» (guion). «El estudiante —dijo la maestra— mejoró notablemente» (raya).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada uso del signo.",
+       categorias:["Guion (-)","Raya (—)"],
+       items:[
+         {texto:"«enseñanza-aprendizaje»", cat:0},
+         {texto:"«teórico-práctico»", cat:0},
+         {texto:"«El estudiante —dijo la maestra— mejoró»", cat:1},
+         {texto:"«El niño —comentó el padre— está feliz»", cat:1},
+         {texto:"«educativo-cultural»", cat:0}
+       ],
+       retro:"El guion une; la raya aísla. Cada uno tiene usos específicos. En textos pedagógicos, el guion es frecuente en términos compuestos."}},
+
+    {id:"p29", nombre:"Punto y seguido",
+     concepto:"El punto y seguido separa oraciones dentro de un mismo párrafo. Cada oración debe tener sentido completo. Su uso correcto es fundamental para la claridad.",
+     ejemplo:"«Los estudiantes leyeron el texto. Luego respondieron las preguntas. Finalmente compartieron sus respuestas».",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa las oraciones con punto y seguido.",
+       texto:"«Los estudiantes leyeron el texto___ Luego respondieron las preguntas».",
+       respuestas:[["."]],
+       retro:"El punto y seguido separa oraciones. Después se escribe mayúscula."}},
+
+    {id:"p30", nombre:"Signos de interrogación en consignas",
+     concepto:"Los signos de interrogación enmarcan preguntas. En textos pedagógicos son frecuentes en consignas, cuestionarios, evaluaciones y reflexiones. En español se abren (¿) y se cierran (?).",
+     ejemplo:"«¿Cuál es la idea principal del texto?» «¿Cómo se relaciona con tu experiencia?». También en reflexiones: «¿Qué aprendí hoy como docente?».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca los signos de interrogación.",
+       texto:"«___Cuál es la idea principal del texto___»",
+       respuestas:[["¿"],["?"]],
+       retro:"En español los signos de interrogación son dobles: se abren (¿) y se cierran (?). Es una diferencia frente al inglés."}}
+  ]
+},
+
+/* ============ BLOQUE 4 · ORTOGRAFÍA Y NORMATIVA ============ */
+{
+  id:"b4", nombre:"Ortografía y normativa pedagógica", emoji:"📝",
+  desc:"Tildes, mayúsculas, siglas, abreviaturas, fechas y latinismos.",
+  tecnicas:[
+    {id:"p31", nombre:"Tildes en términos pedagógicos",
+     concepto:"Los términos pedagógicos también llevan tildes según las reglas generales: evaluación, didáctica, metodología, pedagógico, currículo, prácticas. Errores frecuentes: «evaluacion», «curriculo», «practicas».",
+     ejemplo:"«Evaluación», «currículo», «pedagógico», «didáctica», «metodología», «práctica», «diagnóstico». Todas llevan tilde según su tipo.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra según su tipo de acentuación.",
+       categorias:["Aguda","Grave","Esdrújula"],
+       items:[
+         {texto:"evaluación", cat:0},
+         {texto:"currículo", cat:2},
+         {texto:"práctica", cat:2},
+         {texto:"pedagógico", cat:2},
+         {texto:"didáctica", cat:2},
+         {texto:"metodología", cat:0}
+       ],
+       retro:"Los términos pedagógicos siguen las reglas generales. Esdrújulas siempre llevan tilde; agudas terminadas en vocal, -n o -s también."}},
+
+    {id:"p32", nombre:"Tilde diacrítica",
+     concepto:"La tilde diacrítica distingue palabras iguales con funciones distintas: él/el, tú/tu, mí/mi, sí/si, más/mas, dé/de, sé/se, té/te. Es un error muy frecuente en textos pedagógicos.",
+     ejemplo:"«Él es docente» / «El docente llegó». «Tu grupo» / «Tú diriges el grupo». «Sí, es correcto» / «Si vienes, avísame».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la forma correcta.",
+       texto:"___ grupo mejoró (tu/tú). · ___ dirige la clase (él/el). · Quiero ___ de café (té/te).",
+       respuestas:[["tu","tú"],["el","él"],["te","té"]],
+       retro:"La tilde diacrítica distingue funciones. Sin ella, el lector tendría que deducir del contexto, con riesgo de ambigüedad."}},
+
+    {id:"p33", nombre:"Mayúsculas en instituciones y cargos",
+     concepto:"Los nombres oficiales de instituciones llevan mayúscula (Universidad Pedagógica Nacional, Ministerio de Educación Nacional). Los cargos genéricos van en minúscula (rector, docente, coordinador), salvo en vocativo.",
+     ejemplo:"«La Universidad de Antioquia firmó un convenio con el Ministerio de Educación Nacional». «El rector se reunió con los docentes».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica el uso de mayúsculas.",
+       categorias:["Correcto","Incorrecto"],
+       items:[
+         {texto:"«El Rector convocó a reunión»", cat:1},
+         {texto:"«El rector convocó a reunión»", cat:0},
+         {texto:"«El Ministerio de Educación Nacional emitió lineamientos»", cat:0},
+         {texto:"«El Docente del grado sexto llegó»", cat:1},
+         {texto:"«La Universidad Pedagógica Nacional cumple 70 años»", cat:0}
+       ],
+       retro:"Los nombres oficiales de instituciones llevan mayúscula. Los cargos genéricos van en minúscula, salvo en vocativo directo."}},
+
+    {id:"p34", nombre:"Fechas y horas",
+     concepto:"Las fechas se escriben con números arábigos y mes en minúscula: 15 de julio de 2024. Las horas con dos puntos: 14:30 h. Es la norma de la RAE y del estilo académico.",
+     ejemplo:"«Cali, 15 de julio de 2024, 14:30 h». No se escribe «15 de Julio de 2024» ni «2:30 pm» en textos formales.",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la fecha y la hora.",
+       texto:"«Bogotá, 15 de Julio de 2024, 2:30 pm» → «Bogotá, 15 de ___ de 2024, ___ h».",
+       respuestas:[["julio"],["14:30"]],
+       retro:"El mes va en minúscula. La hora se expresa en formato de 24 horas con dos puntos: 14:30 h."}},
+
+    {id:"p35", nombre:"Siglas educativas",
+     concepto:"En pedagogía abundan las siglas: PEI (Proyecto Educativo Institucional), DBA (Derechos Básicos de Aprendizaje), ICFES, MEN (Ministerio de Educación Nacional), PTA (Programa Todos a Aprender). Se escriben sin puntos y en mayúsculas.",
+     ejemplo:"«El PEI de la institución se articula con los DBA». «El MEN publicó los lineamientos para 2024». Se define la sigla la primera vez.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el significado de las siglas.",
+       texto:"PEI = Proyecto ___ Institucional · DBA = Derechos ___ de Aprendizaje · MEN = Ministerio de ___ Nacional.",
+       respuestas:[["Educativo"],["Basicos","Básicos"],["Educacion","Educación"]],
+       retro:"Las siglas se definen la primera vez que aparecen. Después se usan solas en el resto del documento."}},
+
+    {id:"p36", nombre:"Abreviaturas pedagógicas",
+     concepto:"Las abreviaturas se cierran con punto: págs. (páginas), cap. (capítulo), ed. (edición), n.º (número), etc. (etcétera), a. C. (antes de Cristo). En textos pedagógicos se usan con moderación.",
+     ejemplo:"«Ver el cap. 3, págs. 45-60». «La ed. 2024 actualizó los lineamientos». «Se realizaron las actividades (lectura, escritura, etc.)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la abreviatura correcta.",
+       texto:"«Ver el ___ 3» (capítulo) · «págs. 45-60» (páginas, abreviatura) · «Los materiales (papel, tijeras, ___)» (etcétera)",
+       respuestas:[["cap","cap."],["pag","pág","pags","págs","pág."],["etc","etc."]],
+       retro:"Las abreviaturas llevan punto. Se usan con moderación y con coherencia en el documento."}},
+
+    {id:"p37", nombre:"Latinismos académicos",
+     concepto:"En textos pedagógicos y académicos se usan algunos latinismos: in situ, a priori, a posteriori, per cápita, de facto, ad hoc, curriculum vitae, modus operandi. Se escriben en cursiva y sin acentos.",
+     ejemplo:"«La observación se realizó in situ». «A priori, la hipótesis es plausible». «El comité ad hoc revisó el informe».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada latinismo según su significado.",
+       categorias:["En el lugar","Antes de","Después de","Para este caso"],
+       items:[
+         {texto:"in situ", cat:0},
+         {texto:"a priori", cat:1},
+         {texto:"a posteriori", cat:2},
+         {texto:"ad hoc", cat:3},
+         {texto:"de facto", cat:0}
+       ],
+       retro:"Los latinismos son frecuentes en lenguaje académico. Se escriben en cursiva y sin acentos."}},
+
+    {id:"p38", nombre:"Extranjerismos en educación",
+     concepto:"En pedagogía abundan los extranjerismos: feedback, coaching, brainstorming, blended learning, flipped classroom. Cuando existen equivalentes en español, se prefieren; si no, se usan en cursiva.",
+     ejemplo:"«Retroalimentación» en lugar de «feedback». «Aprendizaje combinado» en lugar de «blended learning». «Aula invertida» en lugar de «flipped classroom».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye el extranjerismo por su equivalente español.",
+       texto:"«El feedback del docente» → «La ___ del docente». · «Blended learning» → «Aprendizaje ___».",
+       respuestas:[["retroalimentacion","retroalimentación"],["combinado","mixto","semipresencial"]],
+       retro:"Cuando existe equivalente en español, se prefiere. Si no, se usa el término original en cursiva."}},
+
+    {id:"p39", nombre:"Escritura de números",
+     concepto:"En textos pedagógicos, los números del uno al diez pueden escribirse con letra en el cuerpo del texto; las cifras exactas y datos se escriben con número arábigo. En listas y enumeraciones se prefieren los números.",
+     ejemplo:"«Se realizaron tres actividades» (letra). «Participaron 32 estudiantes» (cifra). «Los grados 6.º, 7.º y 8.º» (números).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica el uso correcto de los números.",
+       categorias:["Correcto","Incorrecto"],
+       items:[
+         {texto:"«Se realizaron tres actividades»", cat:0},
+         {texto:"«Participaron treinta y dos estudiantes»", cat:1},
+         {texto:"«Asistieron 32 estudiantes»", cat:0},
+         {texto:"«Los grados sexto, séptimo y octavo»", cat:1},
+         {texto:"«Los grados 6.º, 7.º y 8.º»", cat:0}
+       ],
+       retro:"Los datos exactos y cifras van con número. Los números pequeños en el cuerpo del texto pueden ir con letra."}},
+
+    {id:"p40", nombre:"Cursivas y negritas",
+     concepto:"En textos pedagógicos, la cursiva se usa para latinismos, extranjerismos y títulos de obras completas. La negrita, para títulos de sección y palabras clave. Se evita el abuso de mayúsculas sostenidas y negritas.",
+     ejemplo:"«El currículum (cursiva) de la institución...». Títulos en negrita. No se escribe todo un párrafo en mayúsculas.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuándo se usa la cursiva en textos pedagógicos?",
+       opciones:["Para enfatizar cualquier palabra","Para latinismos, extranjerismos y títulos de obras completas","Para títulos de sección","Para todo el texto"],
+       correcta:1,
+       retro:"La cursiva se usa con moderación: latinismos, extranjerismos y títulos de obras. El abuso de formatos resta profesionalismo."}}
+  ]
+},
+
+/* ============ BLOQUE 5 · LÉXICO PEDAGÓGICO ============ */
+{
+  id:"b5", nombre:"Léxico pedagógico", emoji:"📖",
+  desc:"Terminología educativa, tecnicismos, jerga y precisión léxica.",
+  tecnicas:[
+    {id:"p41", nombre:"Tecnicismos pedagógicos necesarios",
+     concepto:"La pedagogía tiene terminología propia: didáctica, currículo, evaluación formativa, aprendizaje significativo, competencias, DBA, transversalidad. Son necesarios para la comunicación profesional, pero se definen cuando el público no es especialista.",
+     ejemplo:"«La evaluación formativa (aquella que se realiza durante el proceso para mejorar el aprendizaje) se aplicó en tres momentos».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término como tecnicismo pedagógico o lenguaje común.",
+       categorias:["Tecnicismo pedagógico","Lenguaje común"],
+       items:[
+         {texto:"didáctica", cat:0},
+         {texto:"mesa", cat:1},
+         {texto:"currículo", cat:0},
+         {texto:"evaluación formativa", cat:0},
+         {texto:"ventana", cat:1}
+       ],
+       retro:"Los tecnicismos pedagógicos son necesarios para la comunicación profesional. Cuando el público no es especialista, se definen."}},
+
+    {id:"p42", nombre:"Falso lenguaje pedagógico",
+     concepto:"No todo lo que suena pedagógico es correcto. Expresiones como «el alumno», «dar clase», «dictar» (en lugar de «enseñar»), «a nivel de» son criticadas por su carga semántica o por su imprecisión.",
+     ejemplo:"Se prefiere «estudiante» a «alumno» (alumno = sin luz). Se prefiere «enseñar» o «acompañar el aprendizaje» a «dictar clase». Se prefiere «en el ámbito de» a «a nivel de».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión según la preferencia actual.",
+       categorias:["Preferida","Desaconsejada"],
+       items:[
+         {texto:"«estudiante»", cat:0},
+         {texto:"«alumno» (sin luz)", cat:1},
+         {texto:"«enseñar»", cat:0},
+         {texto:"«dictar clase»", cat:1},
+         {texto:"«acompañar el aprendizaje»", cat:0}
+       ],
+       retro:"El lenguaje pedagógico también es ético. Las palabras construyen vínculos: «estudiante» reconoce al sujeto; «alumno» lo reduce a su falta."}},
+
+    {id:"p43", nombre:"Precisión en la terminología",
+     concepto:"En pedagogía, los términos tienen matices: «evaluar», «calificar», «medir», «valorar» no son sinónimos. «Objetivo», «competencia», «desempeño», «resultado de aprendizaje» tienen significados distintos.",
+     ejemplo:"«Evaluar» es el proceso completo; «calificar» es asignar una nota; «valorar» añade juicio formativo; «medir» implica cuantificar. No son intercambiables.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada verbo según su significado pedagógico.",
+       categorias:["Asignar nota","Proceso completo","Cuantificar"],
+       items:[
+         {texto:"calificar", cat:0},
+         {texto:"evaluar", cat:1},
+         {texto:"medir", cat:2},
+         {texto:"poner una nota", cat:0},
+         {texto:"aplicar un instrumento", cat:1}
+       ],
+       retro:"Evaluar, calificar, medir y valorar son procesos distintos. La precisión terminológica es esencial en documentos pedagógicos."}},
+
+    {id:"p44", nombre:"Lenguaje inclusivo y respetuoso",
+     concepto:"El lenguaje pedagógico evita expresiones discriminatorias, estereotipadas o que estigmaticen a los estudiantes. Se prefieren fórmulas respetuosas y que reconozcan la diversidad.",
+     ejemplo:"En lugar de «alumnos problemáticos», se escribe «estudiantes que requieren apoyo específico». En lugar de «los padres», se puede escribir «las familias».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye por una expresión respetuosa.",
+       texto:"«Alumnos problemáticos» → «Estudiantes que requieren ___ específico».",
+       respuestas:[["apoyo"]],
+       retro:"El lenguaje construye realidades. Un lenguaje respetuoso reconoce al estudiante como sujeto y evita estigmatizarlo."}},
+
+    {id:"p45", nombre:"Neologismos pedagógicos",
+     concepto:"La pedagogía produce neologismos constantemente: gamificación, aula invertida, aprendizaje ubicuo, microaprendizaje, pensamiento computacional. Algunos se adaptan al español; otros se mantienen en inglés.",
+     ejemplo:"«Gamificación» está adaptado al español; «flipped classroom» se usa en inglés o se traduce como «aula invertida». «Microaprendizaje» es adaptado.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada neologismo como adaptado al español o mantenido en inglés.",
+       categorias:["Adaptado al español","Mantenido en inglés"],
+       items:[
+         {texto:"gamificación", cat:0},
+         {texto:"flipped classroom", cat:1},
+         {texto:"microaprendizaje", cat:0},
+         {texto:"blended learning", cat:1},
+         {texto:"aula invertida", cat:0}
+       ],
+       retro:"Cuando existe equivalente español, se prefiere. Si no, se mantiene el término original en cursiva."}},
+
+    {id:"p46", nombre:"Siglas y su significado",
+     concepto:"Las siglas educativas (PEI, DBA, MEN, ICFES, PTA, SIEE) se definen la primera vez y después se usan solas. Es fundamental conocer su significado para usarlas correctamente.",
+     ejemplo:"«El SIEE (Sistema Institucional de Evaluación de los Estudiantes) se articula con el PEI».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el significado de las siglas.",
+       texto:"SIEE = Sistema Institucional de ___ de los Estudiantes. ICFES = Instituto Colombiano para la ___ de la Educación Superior.",
+       respuestas:[["Evaluacion","Evaluación"],["Evaluacion","Evaluación"]],
+       retro:"Conocer el significado de las siglas es esencial para usarlas correctamente. Se definen la primera vez que aparecen."}},
+
+    {id:"p47", nombre:"Léxico del currículo colombiano",
+     concepto:"El currículo colombiano usa terminología específica: lineamientos curriculares, estándares básicos de competencias, DBA (Derechos Básicos de Aprendizaje), mallas curriculares, planes de área, ejes temáticos.",
+     ejemplo:"«Los lineamientos curriculares de lenguaje orientan la planeación. Los DBA precisan los aprendizajes año a año».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el término curricular.",
+       texto:"El PEI se concreta en el plan de ___ y en las mallas ___ por grado.",
+       respuestas:[["area","área","areas","áreas"],["curriculares"]],
+       retro:"Cada término curricular tiene un significado preciso en el sistema educativo colombiano."}},
+
+    {id:"p48", nombre:"Léxico de la evaluación",
+     concepto:"La evaluación tiene su propio léxico: evaluación diagnóstica, formativa, sumativa; autoevaluación, coevaluación, heteroevaluación; criterios, descriptores, rúbricas, escalas.",
+     ejemplo:"«La evaluación diagnóstica se aplicó al inicio. La formativa, durante el proceso. La sumativa, al final».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada tipo de evaluación según su momento.",
+       categorias:["Inicio","Durante","Final"],
+       items:[
+         {texto:"diagnóstica", cat:0},
+         {texto:"formativa", cat:1},
+         {texto:"sumativa", cat:2},
+         {texto:"inicial", cat:0},
+         {texto:"de proceso", cat:1}
+       ],
+       retro:"Diagnóstica al inicio, formativa durante, sumativa al final. Cada tipo cumple una función específica."}},
+
+    {id:"p49", nombre:"Léxico de la didáctica",
+     concepto:"La didáctica usa términos como: secuencia didáctica, unidad didáctica, aprendizaje basado en problemas (ABP), aprendizaje por proyectos, trabajo colaborativo, transversalidad, mediación pedagógica.",
+     ejemplo:"«Se diseñó una secuencia didáctica de tres sesiones con trabajo colaborativo y evaluación formativa».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa los términos didácticos.",
+       texto:"Una ___ didáctica organiza varias sesiones. El ___ es una estrategia centrada en proyectos. La ___ pedagógica es el acompañamiento del aprendizaje.",
+       respuestas:[["secuencia"],["abp","aprendizaje basado en proyectos","aprendizaje por proyectos"],["mediacion","mediación"]],
+       retro:"La didáctica tiene su propio léxico. Usarlo correctamente demuestra dominio profesional del campo."}},
+
+    {id:"p50", nombre:"Diccionario y consulta",
+     concepto:"El docente debe consultar diccionarios especializados: Diccionario de la RAE (general), diccionarios pedagógicos, documentos del MEN (lineamientos, estándares, DBA), normativa educativa vigente.",
+     ejemplo:"Antes de usar un término pedagógico, se consulta el diccionario pedagógico o los documentos oficiales del MEN para verificar su significado exacto.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la utilidad de los documentos del MEN en la redacción pedagógica?",
+       opciones:["Traducir textos literarios","Precisar el significado oficial de los términos y enfoques educativos","Escribir automáticamente","Reemplazar al docente"],
+       correcta:1,
+       retro:"Los documentos oficiales precisan la terminología y los enfoques del sistema educativo colombiano. Consultarlos es parte del rigor profesional."}}
+  ]
+},
+
+/* ============ BLOQUE 6 · ESTILO UNIVERSITARIO ============ */
+{
+  id:"b6", nombre:"Estilo universitario y académico", emoji:"🎓",
+  desc:"Registro, citas APA, paráfrasis, plagio, argumentación y coherencia.",
+  tecnicas:[
+    {id:"p51", nombre:"Registro académico",
+     concepto:"El registro académico es formal y culto. Evita coloquialismos, expresiones vagas y valoraciones sin respaldo. Se usa un vocabulario preciso y se construyen argumentos con evidencia.",
+     ejemplo:"No se escribe «los estudiantes son muy flojos»; se escribe «se observa una disminución en la entrega de tareas que requiere atención pedagógica».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión como registro académico o coloquial.",
+       categorias:["Académico","Coloquial"],
+       items:[
+         {texto:"«Se observa una disminución en la entrega.»", cat:0},
+         {texto:"«Los estudiantes son muy flojos.»", cat:1},
+         {texto:"«Los datos sugieren una tendencia.»", cat:0},
+         {texto:"«Un montón de estudiantes faltaron.»", cat:1},
+         {texto:"«Se evidencia una mejora progresiva.»", cat:0}
+       ],
+       retro:"El registro académico es formal y objetivo. Los coloquialismos restan credibilidad al texto."}},
+
+    {id:"p52", nombre:"Citas textuales cortas (APA)",
+     concepto:"Las citas textuales de menos de 40 palabras van entre comillas dentro del párrafo, con autor, año y número de página: (Autor, año, p. X). Es la norma APA, muy usada en licenciaturas.",
+     ejemplo:"«La educación no cambia el mundo, cambia a las personas que van a cambiar el mundo» (Freire, 1970, p. 45).",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita APA.",
+       texto:"«Enseñar no es transferir conocimiento» (Freire, ___, p. ___). (Freire, 2004, p. 47)",
+       respuestas:[["2004"],["47"]],
+       retro:"La cita textual siempre lleva autor, año y página. Sin estos datos, la cita está incompleta."}},
+
+    {id:"p53", nombre:"Citas textuales largas",
+     concepto:"Las citas de más de 40 palabras van en bloque sangrado, sin comillas, con autor, año y página al final. Se usa para fragmentos extensos que merecen reproducirse literalmente.",
+     ejemplo:"En un párrafo aparte, sangrado a la izquierda, se escribe: «La lectura del mundo precede siempre a la lectura de la palabra… (texto completo)» (Freire, 2004, p. 47).",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cómo se escribe una cita directa de más de 40 palabras en APA?",
+       opciones:["Entre comillas dentro del texto","En bloque sangrado, sin comillas, con autor, año y página","Sin indicar la fuente","En cursiva y sin autor"],
+       correcta:1,
+       retro:"Las citas largas se sangran en bloque y se omiten las comillas. Siempre se indica autor, año y página."}},
+
+    {id:"p54", nombre:"Paráfrasis académica",
+     concepto:"Parafrasear es reformular la idea de otro con palabras propias, manteniendo el significado y citando la fuente. No es copiar cambiando algunas palabras.",
+     ejemplo:"Original: «El aprendizaje significativo se produce cuando el nuevo contenido se relaciona con los conocimientos previos del estudiante». Paráfrasis: «Según Ausubel (1983), se aprende significativamente cuando lo nuevo se conecta con lo que el estudiante ya sabe».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la paráfrasis con la cita APA.",
+       texto:"«Según Ausubel (___), el aprendizaje se vuelve significativo cuando se conecta con los ___ previos».",
+       respuestas:[["1983","año"],["conocimientos","saberes","aprendizajes"]],
+       retro:"La paráfrasis mantiene la idea ajena con palabras propias y siempre cita la fuente. Sin cita, sería plagio."}},
+
+    {id:"p55", nombre:"Referencias bibliográficas APA",
+     concepto:"En APA, las referencias se ordenan alfabéticamente y siguen un formato específico: Apellido, A. A. (Año). Título en cursiva. Editorial. Para artículos: Apellido, A. A. (Año). Título del artículo. Nombre de la Revista, volumen(número), páginas.",
+     ejemplo:"Freire, P. (1970). Pedagogía del oprimido. Siglo XXI. · Ausubel, D. (1983). Psicología educativa: un punto de vista cognoscitivo. Trillas.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los elementos de una referencia APA de libro.",
+       items:[
+         "Apellido, inicial del autor.",
+         "(Año).",
+         "Título del libro en cursiva.",
+         "Editorial."
+       ],
+       retro:"El orden APA es fijo: autor, año, título (cursiva), editorial. Es la norma más usada en licenciaturas colombianas."}},
+
+    {id:"p56", nombre:"Referencias de documentos oficiales",
+     concepto:"En Colombia, los documentos oficiales (leyes, decretos, lineamientos del MEN, DBA) tienen un formato específico de referencia. Se citan con el nombre del documento, el año y la entidad.",
+     ejemplo:"«Ministerio de Educación Nacional. (2016). Derechos Básicos de Aprendizaje: Lenguaje. MEN». «Ley 115 de 1994. Ley General de Educación».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la referencia del documento oficial.",
+       texto:"«Ministerio de Educación Nacional. (___). Derechos Básicos de Aprendizaje: Lenguaje. MEN». (año: 2016)",
+       respuestas:[["2016"]],
+       retro:"Los documentos oficiales se citan con entidad, año y título. Es parte de la formación del docente colombiano."}},
+
+    {id:"p57", nombre:"Conectores lógicos académicos",
+     concepto:"Los conectores organizan el razonamiento: adición (además, asimismo), contraste (sin embargo, no obstante), causa (porque, debido a), consecuencia (por lo tanto, en consecuencia), orden (en primer lugar, seguidamente).",
+     ejemplo:"«La evaluación formativa mejora el aprendizaje; sin embargo, exige más tiempo del docente. Por lo tanto, requiere planeación cuidadosa».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su función.",
+       categorias:["Adición","Contraste","Causa","Consecuencia"],
+       items:[
+         {texto:"además", cat:0},
+         {texto:"sin embargo", cat:1},
+         {texto:"debido a", cat:2},
+         {texto:"por lo tanto", cat:3},
+         {texto:"asimismo", cat:0},
+         {texto:"en consecuencia", cat:3}
+       ],
+       retro:"Los conectores revelan la relación lógica entre las ideas. Sin ellos, el texto académico parece una lista sin hilo."}},
+
+    {id:"p58", nombre:"Evitar el plagio",
+     concepto:"El plagio es presentar como propio el trabajo ajeno. Se evita citando siempre las fuentes, tanto en citas textuales como en paráfrasis. Es una falta grave de integridad académica.",
+     ejemplo:"Copiar un párrafo de un libro sin comillas ni cita es plagio. Parafrasear sin citar también lo es. Citar sin comillas cuando es textual también lo es.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas prácticas es plagio?",
+       opciones:["Parafrasear una idea y citar al autor","Copiar un párrafo literal sin comillas ni cita","Resumir un artículo y referenciarlo","Usar una cita textual entre comillas con su referencia"],
+       correcta:1,
+       retro:"Copiar sin citar es plagio, incluso si se cambian algunas palabras. Citar y parafrasear con referencia son prácticas correctas."}},
+
+    {id:"p59", nombre:"Argumentación académica",
+     concepto:"La argumentación académica defiende una tesis con razones y evidencia. Estructura: introducción con tesis, desarrollo con argumentos, refutación de contraargumentos y conclusión.",
+     ejemplo:"«Este ensayo defiende que la evaluación formativa mejora el aprendizaje. Primero, porque ofrece retroalimentación oportuna. Segundo, porque permite ajustar la enseñanza. Sin embargo, algunos señalan su costo en tiempo; a ello se responde que...».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la estructura de la argumentación académica.",
+       items:[
+         "Introducción con la tesis.",
+         "Argumentos con evidencia.",
+         "Refutación de contraargumentos.",
+         "Conclusión que retoma la tesis."
+       ],
+       retro:"La argumentación académica sigue la estructura: tesis → argumentos → refutación → conclusión. Cada paso es necesario."}},
+
+    {id:"p60", nombre:"Coherencia global del texto",
+     concepto:"La coherencia es la unidad de sentido del texto: todas sus partes contribuyen al mismo propósito, sin contradicciones, con progresión temática. Es un principio esencial del texto académico.",
+     ejemplo:"Un ensayo sobre evaluación formativa que dedica la mitad del texto a la evaluación sumativa sin justificación pierde coherencia global.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué problema afecta a la COHERENCIA global, no a la cohesión?",
+       opciones:["Falta un conector entre dos oraciones","Un párrafo se contradice con el anterior","Hay una falta de ortografía","Una oración es demasiado larga"],
+       correcta:1,
+       retro:"La cohesión se ocupa de los enlaces; la coherencia, del sentido global. Una contradicción es un fallo de coherencia."}}
+  ]
+},
+
+/* ============ BLOQUE 7 · GÉNEROS DE LA ESCRITURA PEDAGÓGICA ============ */
+{
+  id:"b7", nombre:"Géneros de la escritura pedagógica", emoji:"📄",
+  desc:"Planeación, diario, informe, ensayo, reseña y otros géneros del docente.",
+  tecnicas:[
+    {id:"p61", nombre:"Planeación de clase",
+     concepto:"La planeación de clase describe qué se enseñará, cómo, con qué recursos y cómo se evaluará. Incluye: objetivos, contenidos, actividades, recursos, evaluación y tiempos. Debe ser clara y ejecutable.",
+     ejemplo:"«Área: Lenguaje. Grado: 7.º. Objetivo: identificar la idea principal de un texto. Actividades: lectura guiada, trabajo en parejas, socialización. Recursos: texto impreso, marcadores. Evaluación: rúbrica de comprensión».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una planeación de clase.",
+       items:[
+         "Área, grado y objetivo de aprendizaje.",
+         "Contenidos y saberes previos.",
+         "Actividades (inicio, desarrollo, cierre).",
+         "Recursos y materiales.",
+         "Evaluación y criterios."
+       ],
+       retro:"La planeación de clase describe qué, cómo, con qué y cómo se evaluará. Debe ser clara y ejecutable por cualquier docente."}},
+
+    {id:"p62", nombre:"Diario pedagógico",
+     concepto:"El diario pedagógico es un texto reflexivo en el que el docente registra lo que ocurrió en la clase, sus reacciones, sus dudas y sus aprendizajes profesionales. Es un instrumento de formación y de investigación.",
+     ejemplo:"«15 de julio. Hoy intenté una actividad grupal que no funcionó como esperaba: los grupos se dispersaron. Creo que el problema fue que las instrucciones no eran claras. Mañana lo intentaré de nuevo con consignas escritas».",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe una entrada breve de diario pedagógico (5-6 líneas) sobre una clase que hayas observado o imaginado.",
+       criterios:[
+         "Registré lo que ocurrió en la clase.",
+         "Incluí alguna reflexión o pregunta sobre mi práctica.",
+         "Usé un tono personal y honesto, no solo descriptivo."
+       ],
+       modelo:"Hoy, en la clase de ciencias, la maestra usó un experimento con agua y colorantes. Los estudiantes estaban muy atentos, incluso los que suelen distraerse. Me sorprendió que una actividad tan simple captara la atención de todos. Creo que funcionó porque vieron algo concreto, que podían observar con sus propios ojos. Me pregunto: ¿por qué no uso más experimentos? Quizá por miedo a que salgan mal. Mañana voy a intentar uno sencillo, con materiales del aula."}},
+
+    {id:"p63", nombre:"Informe de práctica",
+     concepto:"El informe de práctica documenta la experiencia del practicante en la institución educativa: contextualización, descripción de la práctica, análisis reflexivo, conclusiones y anexos. Es un requisito en las escuelas normales y licenciaturas.",
+     ejemplo:"«Informe de práctica pedagógica. Contexto: Institución Educativa X, grado 6.º. Descripción: se acompañó al docente titular en 8 sesiones. Análisis: los estudiantes participan más cuando trabajan en grupos pequeños. Conclusión: la disposición del aula influye en la participación».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes del informe de práctica.",
+       items:[
+         "Contextualización de la institución.",
+         "Descripción de la práctica realizada.",
+         "Análisis reflexivo de la experiencia.",
+         "Conclusiones y aprendizajes.",
+         "Anexos y evidencias."
+       ],
+       retro:"El informe de práctica documenta y analiza la experiencia del practicante. Debe combinar descripción y reflexión."}},
+
+    {id:"p64", nombre:"Ensayo pedagógico",
+     concepto:"El ensayo pedagógico defiende una tesis sobre educación con argumentos, evidencia y referencias. Admite voz personal pero exige rigor académico. Es un género central en licenciaturas.",
+     ejemplo:"«¿Debe evaluarse la creatividad en la escuela? Este ensayo defiende que sí, siempre que se use una evaluación formativa. Se apoyará en las propuestas de Gardner y en experiencias documentadas…».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la estructura del ensayo pedagógico.",
+       texto:"El ensayo pedagógico tiene una ___ con tesis, un ___ con argumentos, y una ___ que retoma la tesis.",
+       respuestas:[["introduccion","introducción"],["desarrollo","cuerpo"],["conclusion","conclusión"]],
+       retro:"El ensayo pedagógico combina la argumentación académica con la reflexión profesional. Exige rigor y voz propia."}},
+
+    {id:"p65", nombre:"Reseña pedagógica",
+     concepto:"La reseña valora críticamente un libro, un artículo o una experiencia educativa. Resume, contextualiza, analiza los puntos fuertes y débiles, y lo sitúa en el campo pedagógico.",
+     ejemplo:"«El libro X ofrece una síntesis actualizada de la evaluación formativa, aunque omite las críticas desde la sociología. Su principal aporte es…».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las partes de la reseña.",
+       texto:"La reseña pedagógica resume el ___ y lo ___ en el campo. Analiza los puntos ___ y ___ y termina con una ___ razonada.",
+       respuestas:[["contenido","texto","libro","trabajo"],["contextualiza","sitúa","situa"],["fuertes","positivos","fortalezas"],["debiles","débiles","negativos","debilidades"],["valoracion","valoración","recomendacion","recomendación","opinion","opinión"]],
+       retro:"La reseña combina síntesis y valoración. No basta con resumir: hay que aportar un juicio razonado."}},
+
+    {id:"p66", nombre:"Sistematización de experiencias",
+     concepto:"La sistematización es un proceso de reflexión sobre la propia práctica educativa para producir conocimiento. Implica: describir la experiencia, analizarla, interpretarla y comunicarla. Es un género propio del docente investigador.",
+     ejemplo:"«Sistematización de una experiencia de lectura en voz alta en grado 4.º: durante 6 meses se documentó el proceso, se registraron avances y se analizaron los factores que los hicieron posibles».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las fases de la sistematización.",
+       items:[
+         "Descripción de la experiencia (qué se hizo, cuándo, cómo).",
+         "Análisis de los registros y evidencias.",
+         "Interpretación: qué significó la experiencia.",
+         "Comunicación: escritura y socialización."
+       ],
+       retro:"La sistematización produce conocimiento desde la práctica. Es un género propio del docente investigador."}},
+
+    {id:"p67", nombre:"Proyecto de aula",
+     concepto:"El proyecto de aula es una propuesta pedagógica que articula contenidos, actividades y evaluación alrededor de un tema o problema significativo. Tiene objetivos, metodología, cronograma y evaluación.",
+     ejemplo:"«Proyecto de aula: “El agua en mi barrio”. Área: Ciencias Naturales. Objetivo: comprender el ciclo del agua y su relación con la comunidad. Actividades: salida de campo, entrevistas, cartografía social, informe final».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes del proyecto de aula.",
+       items:[
+         "Título y justificación.",
+         "Objetivos y pregunta orientadora.",
+         "Actividades y cronograma.",
+         "Recursos y responsables.",
+         "Evaluación y productos finales."
+       ],
+       retro:"El proyecto de aula integra contenidos, actividades y evaluación. Debe partir de un problema significativo para los estudiantes."}},
+
+    {id:"p68", nombre:"Observador del estudiante",
+     concepto:"El observador es un registro institucional de la vida escolar del estudiante: comportamientos, logros, dificultades, observaciones y compromisos. Es un documento formal con valor institucional.",
+     ejemplo:"«15 de julio: el estudiante llegó tarde por tercera vez en el mes. Se conversó con él y con su familia. Se acordó un compromiso de puntualidad firmado por todos».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada anotación según corresponda al observador.",
+       categorias:["Anotación apropiada","Anotación inapropiada"],
+       items:[
+         {texto:"«El estudiante participó activamente en el proyecto.»", cat:0},
+         {texto:"«El estudiante es un problema.»", cat:1},
+         {texto:"«Se acordó compromiso de puntualidad con la familia.»", cat:0},
+         {texto:"«El estudiante es incapaz de aprender.»", cat:1},
+         {texto:"«El estudiante mejoró en la entrega de tareas.»", cat:0}
+       ],
+       retro:"El observador registra hechos y compromisos. No califica al estudiante como persona ni usa etiquetas estigmatizantes."}},
+
+    {id:"p69", nombre:"Acta de reunión",
+     concepto:"El acta registra lo ocurrido en una reunión: lugar, fecha, asistentes, temas tratados, decisiones y compromisos. Es un documento formal que da fe de lo acordado.",
+     ejemplo:"«Acta 05. Consejo Académico. Fecha: 15 de julio de 2024. Asistentes: rector, coordinadores, docentes. Temas: ajuste al cronograma. Decisiones: se aprueba el ajuste. Compromisos: los coordinadores informarán a los docentes».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un acta.",
+       items:[
+         "Encabezado: número, fecha y hora.",
+         "Asistentes.",
+         "Temas tratados.",
+         "Decisiones y compromisos.",
+         "Firmas."
+       ],
+       retro:"El acta registra lugar, fecha, asistentes, temas, decisiones y compromisos. Las firmas dan fe de lo acordado."}},
+
+    {id:"p70", nombre:"Ponencia y comunicación en eventos",
+     concepto:"La ponencia es un texto que se presenta oralmente en un evento académico. Combina escritura y oralidad: tiene introducción, desarrollo con argumentos y conclusión, y se apoya en diapositivas claras.",
+     ejemplo:"«Ponencia: “La evaluación formativa en aulas rurales: una experiencia”. Presenta el contexto, describe la experiencia, expone resultados y conclusiones».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una ponencia.",
+       items:[
+         "Presentación del tema y del ponente.",
+         "Contexto y problema abordado.",
+         "Desarrollo con argumentos y evidencia.",
+         "Resultados y conclusiones.",
+         "Turno de preguntas."
+       ],
+       retro:"La ponencia combina escritura y oralidad. Debe ser clara, concisa y con apoyo visual adecuado."}}
+  ]
+},
+
+/* ============ BLOQUE 8 · ESCRITURA REFLEXIVA Y METACOGNICIÓN ============ */
+{
+  id:"b8", nombre:"Escritura reflexiva y metacognición docente", emoji:"🪞",
+  desc:"Reflexión sobre la práctica, autorreflexión, portafolio y aprendizaje profesional.",
+  tecnicas:[
+    {id:"p71", nombre:"Reflexión sobre la práctica",
+     concepto:"Reflexionar sobre la práctica es pensar lo que se hizo, por qué se hizo y qué se aprendería para la próxima vez. Es un proceso central en la formación docente. Se escribe en primera persona y con honestidad.",
+     ejemplo:"«Hoy me di cuenta de que cuando doy instrucciones muy largas, los estudiantes se pierden. La próxima vez voy a escribir las consignas en el tablero y a pedir que un estudiante las repita con sus palabras».",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe una reflexión breve sobre una clase que recuerdes (como estudiante o como practicante).",
+       criterios:[
+         "Describí lo que ocurrió en la clase.",
+         "Reflexioné sobre por qué ocurrió.",
+         "Formulé una pregunta o un propósito para la próxima vez."
+       ],
+       modelo:"Recuerdo una clase de matemáticas en la que el profesor explicó la factorización durante 40 minutos seguidos, sin parar. Al final, casi nadie entendió. Reflexionando, creo que el problema fue el ritmo: no hubo pausas para procesar, ni ejemplos en los que pudiéramos participar. Me pregunto cómo habría sido si nos hubiera pedido resolver un ejercicio a la mitad de la explicación. Cuando sea docente, voy a intercalar siempre momentos de práctica."}},
+
+    {id:"p72", nombre:"Metacognición docente",
+     concepto:"La metacognición es pensar sobre el propio pensamiento. En la docencia implica preguntarse: ¿cómo enseño?, ¿cómo aprendo yo?, ¿qué estrategias uso?, ¿qué me cuesta más? Es la base del desarrollo profesional.",
+     ejemplo:"«Me he dado cuenta de que aprendo mejor cuando escribo, pero enseño casi siempre hablando. Debería incorporar la escritura como estrategia de aprendizaje en mis clases».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las preguntas metacognitivas del docente.",
+       texto:"¿Cómo ___? · ¿Cómo ___ yo? · ¿Qué ___ uso? · ¿Qué me ___ más?",
+       respuestas:[["enseno","enseño"],["aprendo"],["estrategias"],["cuesta","cuesta mas","cuesta más"]],
+       retro:"La metacognición docente es pensar la propia práctica y el propio aprendizaje. Es la base del desarrollo profesional."}},
+
+    {id:"p73", nombre:"Portafolio docente",
+     concepto:"El portafolio docente reúne evidencias del trabajo profesional: planeaciones, reflexiones, producciones de estudiantes, evaluaciones, aprendizajes. No es un archivo: es una narración del propio desarrollo.",
+     ejemplo:"Un portafolio puede mostrar: planeación del período 1, reflexión del período 1, evidencia de producciones de estudiantes, ajustes para el período 2, y así sucesivamente.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un portafolio docente.",
+       items:[
+         "Presentación y propósito del portafolio.",
+         "Evidencias del trabajo (planeaciones, producciones).",
+         "Reflexiones sobre cada evidencia.",
+         "Análisis de los aprendizajes profesionales.",
+         "Proyección: próximos pasos."
+       ],
+       retro:"El portafolio no es un archivo: es una narración del desarrollo profesional. Las reflexiones son tan importantes como las evidencias."}},
+
+    {id:"p74", nombre:"Autorreflexión honesta",
+     concepto:"La autorreflexión honesta reconoce los aciertos y las dificultades. No se trata de autoflagelarse ni de autoelogiarse: se trata de mirar con cuidado. La honestidad es lo que hace productiva la reflexión.",
+     ejemplo:"«Hoy me frustré y levanté la voz. No me gustó cómo me sentí después. Creo que el problema fue que no había planeado bien la transición entre actividades».",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe una autorreflexión honesta sobre una situación que te haya costado como estudiante o practicante.",
+       criterios:[
+         "Reconocí una dificultad concreta sin juzgarme con dureza.",
+         "Exploré las posibles causas.",
+         "Formulé un aprendizaje o un propósito."
+       ],
+       modelo:"Cuando hice mi primera exposición en clase, me puse muy nervioso y no pude mirar al público. Después me sentí mal. Creo que el problema fue que había memorizado el texto palabra por palabra, sin comprenderlo del todo. Ahora pienso que si hubiera estudiado con mis propias palabras, habría podido explicar sin depender de la memoria. Aprendí que estudiar no es memorizar: es entender."}},
+
+    {id:"p75", nombre:"Diálogo con la teoría",
+     concepto:"Escribir la práctica a la luz de la teoría es una estrategia formativa. Se contrasta lo vivido con lo que dicen los autores. Así la teoría ilumina la práctica y la práctica cuestiona la teoría.",
+     ejemplo:"«Hoy trabajé con grupos cooperativos. Revisando a Johnson y Johnson, veo que mi error fue no asignar roles. La teoría propone roles claros para que la cooperación funcione».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el diálogo teoría-práctica.",
+       texto:"«Hoy trabajé con ___. Revisando a ___ , veo que mi error fue ___.» (grupos cooperativos; Johnson y Johnson)",
+       respuestas:[["grupos cooperativos","grupos","trabajo grupal","aprendizaje cooperativo"],["johnson","Johnson","johnson y johnson"],["no asignar roles","no asignar roles claros","no definir roles","no distribuir roles"]],
+       retro:"El diálogo con la teoría convierte la práctica en conocimiento. Es una estrategia formativa propia de la licenciatura."}},
+
+    {id:"p76", nombre:"Narrativa pedagógica",
+     concepto:"La narrativa pedagógica cuenta la experiencia educativa como un relato. Combina descripción, personajes, conflicto y reflexión. Es un género que reconoce el valor del saber de la experiencia.",
+     ejemplo:"«Aquella mañana, Miguel entró al aula con un libro bajo el brazo. Nunca antes había traído uno. Se sentó en silencio y empezó a leer. Cuando le pregunté qué leía, me dijo: “Es sobre dragones”. Desde ese día, Miguel se convirtió en lector».",
+     ejercicio:{tipo:"open",
+       consigna:"Escribe una narrativa pedagógica breve (5-6 líneas) sobre un momento significativo de aprendizaje.",
+       criterios:[
+         "Conté una escena concreta con personajes y contexto.",
+         "Incluí un momento de cambio o descubrimiento.",
+         "Cerré con una reflexión sobre lo que la escena enseña."
+       ],
+       modelo:"En la primera clase, Laura se sentó al fondo y no habló. Pasaron tres semanas sin que participara. Un día, al trabajar con una historieta, levantó la mano y dijo: “Yo también dibujo”. Le pedí que mostrara su cuaderno. Estaba lleno de viñetas. Desde entonces, Laura se convirtió en la narradora del grupo. Aquel día entendí que el silencio no siempre es ausencia: a veces es una espera de la puerta adecuada."}},
+
+    {id:"p77", nombre:"Pregunta problematizadora",
+     concepto:"La pregunta problematizadora orienta la reflexión sobre la práctica: no es una pregunta de examen, es una pregunta que abre un campo de indagación. Se formula en primera persona y sobre la propia práctica.",
+     ejemplo:"«¿Por qué los estudiantes se dispersan cuando propongo tareas escritas largas?» Es una pregunta problematizadora que puede orientar toda una sistematización.",
+     ejercicio:{tipo:"fill",
+       consigna:"Reformula como pregunta problematizadora.",
+       texto:"«Mis estudiantes no participan» → «¿Por qué mis estudiantes no ___ en clase?»",
+       respuestas:[["participan"]],
+       retro:"La pregunta problematizadora abre un campo de indagación. Se formula en primera persona y sobre la propia práctica."}},
+
+    {id:"p78", nombre:"Análisis de incidentes críticos",
+     concepto:"Un incidente crítico es un episodio que sorprende, incomoda o transforma la comprensión. Analizarlo consiste en describirlo, explorar sus causas y extraer aprendizajes profesionales.",
+     ejemplo:"«Un estudiante me respondió con ironía cuando le pedí que se callara. Al principio me enfadé. Luego comprendí que mi tono había sido autoritario. Aprendí que el modo de pedir algo importa tanto como lo que se pide».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos del análisis de un incidente crítico.",
+       items:[
+         "Descripción objetiva del incidente.",
+         "Exploración de las causas y del contexto.",
+         "Análisis de mis reacciones y decisiones.",
+         "Identificación de aprendizajes profesionales.",
+         "Formulación de un propósito de cambio."
+       ],
+       retro:"El análisis de incidentes críticos convierte la sorpresa en aprendizaje. Es una herramienta poderosa de formación docente."}},
+
+    {id:"p79", nombre:"Escritura como cuidado de sí",
+     concepto:"Escribir sobre la práctica también es cuidarse: poner en palabras las dificultades ayuda a elaborarlas, a no cargarlas solas, a comprender que los problemas profesionales son compartidos.",
+     ejemplo:"Un docente que escribe su diario descubre que sus dificultades no son únicas: son parte del oficio. Esto alivia y abre caminos.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura ayudarte a cuidar de ti mismo como docente? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una manera en que la escritura cuida.",
+         "Relacioné la escritura con la vida emocional del docente.",
+         "Mencioné algún género o práctica concreta."
+       ],
+       modelo:"Escribir me ayuda a no cargar sola lo que me pasa en clase. Cuando pongo por escrito una dificultad, deja de ser un peso difuso y se vuelve algo concreto, que puedo mirar y pensar. También me permite recordar los momentos buenos, que se olvidan rápido. El diario docente es una forma de acompañarme a mí misma en el oficio."}},
+
+    {id:"p80", nombre:"Socialización de la reflexión",
+     concepto:"Compartir la reflexión con otros docentes multiplica su valor. La socialización puede ser oral (encuentros, seminarios) o escrita (publicaciones, blogs, artículos). Convierte la experiencia individual en conocimiento colectivo.",
+     ejemplo:"Un grupo de docentes se reúne cada mes a leer sus diarios pedagógicos y comentarse. La reflexión individual se vuelve diálogo profesional.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Por qué es valioso socializar la reflexión pedagógica? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos un beneficio de socializar la reflexión.",
+         "Consideré la dimensión colectiva del saber docente.",
+         "Mencioné algún formato o espacio de socialización."
+       ],
+       modelo:"Socializar la reflexión me permite contrastar lo que vivo con lo que viven otros docentes. Descubro que muchos de mis problemas son compartidos, y también que otros han encontrado caminos que yo no había pensado. Además, la escritura se vuelve más exigente cuando se comparte: uno escribe mejor cuando sabe que alguien lo va a leer. Los encuentros de docentes, los blogs y las publicaciones son espacios para que la experiencia individual se convierta en saber colectivo."}}
+  ]
+},
+
+/* ============ BLOQUE 9 · COMUNICACIÓN CON LA COMUNIDAD EDUCATIVA ============ */
+{
+  id:"b9", nombre:"Comunicación con la comunidad educativa", emoji:"🏫",
+  desc:"Circulares, cartas a familias, informes, comunicados y documentos institucionales.",
+  tecnicas:[
+    {id:"p81", nombre:"Circular escolar",
+     concepto:"La circular es un comunicado breve y directo a las familias o a la comunidad educativa. Informa sobre fechas, actividades, cambios o decisiones. Debe ser clara y sin rodeos.",
+     ejemplo:"«CIRCULAR N.º 15. Apreciadas familias: Les informamos que la reunión de entrega de informes será el viernes 19 de julio a las 3:00 p. m. Se requiere la asistencia de un acudiente por estudiante».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una circular.",
+       items:[
+         "Encabezado: número y fecha.",
+         "Saludo al destinatario.",
+         "Motivo de la circular.",
+         "Información detallada.",
+         "Despedida y firma."
+       ],
+       retro:"La circular es breve y directa. Cada parte cumple una función específica: informar de forma clara."}},
+
+    {id:"p82", nombre:"Carta a las familias",
+     concepto:"La carta a las familias es un texto más extenso que la circular. Puede informar, solicitar, agradecer o acompañar procesos. Debe tener un tono respetuoso y cordial, y un lenguaje accesible.",
+     ejemplo:"«Apreciadas familias: Me dirijo a ustedes para compartirles los avances del grupo durante este período. Hemos trabajado en la comprensión lectora y en la escritura de textos argumentativos. Los invito a acompañar a sus hijos leyendo juntos en casa…».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el encabezado de la carta.",
+       texto:"«Apreciadas ___ : Me dirijo a ustedes para ___ los avances del grupo...»",
+       respuestas:[["familias","familias:","familias:"],["compartirles","informarles","contarles"]],
+       retro:"La carta a las familias combina información y vínculo. El tono es cordial y respetuoso, y el lenguaje accesible."}},
+
+    {id:"p83", nombre:"Informe de desempeño del estudiante",
+     concepto:"El informe de desempeño describe los logros, dificultades y recomendaciones sobre un estudiante. Debe ser objetivo, con evidencias, respetuoso y orientado a la mejora.",
+     ejemplo:"«El estudiante ha mejorado en la comprensión lectora: pasó de identificar ideas explícitas a inferir información. Presenta dificultad en la producción escrita, especialmente en la organización de párrafos. Se recomienda…».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado según corresponda a un informe apropiado o inapropiado.",
+       categorias:["Apropiado","Inapropiado"],
+       items:[
+         {texto:"«Ha mejorado en la comprensión lectora.»", cat:0},
+         {texto:"«Es un estudiante mediocre.»", cat:1},
+         {texto:"«Presenta dificultad en la producción escrita.»", cat:0},
+         {texto:"«No le gusta estudiar y no quiere hacer nada.»", cat:1},
+         {texto:"«Se recomienda acompañamiento en lectura en casa.»", cat:0}
+       ],
+       retro:"El informe describe con evidencias y orienta la mejora. No califica al estudiante como persona ni usa etiquetas estigmatizantes."}},
+
+    {id:"p84", nombre:"Comunicado institucional",
+     concepto:"El comunicado institucional informa sobre decisiones, eventos o situaciones que afectan a la comunidad. Tiene un tono formal y puede dirigirse a toda la comunidad o a un grupo específico.",
+     ejemplo:"«COMUNICADO. La Institución Educativa informa a toda la comunidad que, debido a trabajos de mantenimiento, la jornada del viernes 19 de julio iniciará a las 8:00 a. m. Agradecemos su comprensión».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes del comunicado institucional.",
+       items:[
+         "Encabezado: institución y tipo de comunicado.",
+         "Motivo o asunto.",
+         "Información detallada.",
+         "Instrucciones o recomendaciones.",
+         "Despedida institucional y firma."
+       ],
+       retro:"El comunicado institucional es formal y claro. Se dirige a toda la comunidad o a un grupo específico."}},
+
+    {id:"p85", nombre:"Invitación a evento",
+     concepto:"La invitación invita a participar en un evento: reunión, jornada, celebración, izada de bandera. Informa sobre fecha, hora, lugar y propósito. Tiene un tono cordial y motivador.",
+     ejemplo:"«La Institución Educativa los invita a la Izada de Bandera del mes de julio, que se realizará el lunes 22 a las 7:00 a. m. en el patio central. El tema será “La independencia y nosotros”. Los esperamos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa los datos de la invitación.",
+       texto:"«Los invitamos al evento que se realizará el ___ 22 a las ___ a. m. en el ___ central».",
+       respuestas:[["lunes"],["7:00","7:00 a.m.","7"],["patio"]],
+       retro:"La invitación debe indicar fecha, hora, lugar y propósito. El tono es cordial y motivador."}},
+
+    {id:"p86", nombre:"Agradecimiento institucional",
+     concepto:"El agradecimiento reconoce la colaboración de una persona o institución. Puede ser breve (una nota) o más extenso (una carta). Reconoce aportes específicos.",
+     ejemplo:"«Agradecemos a la señora Marta Rodríguez por su acompañamiento en la actividad de lectura durante todo el semestre. Su presencia constante y su escucha atenta dejaron huella en nuestros estudiantes».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el agradecimiento.",
+       texto:"«Agradecemos a ___ por su ___ en la actividad de ___ durante el semestre».",
+       respuestas:[["la familia","la senora","la señora","el acudiente","los padres","las familias"],["acompanamiento","acompañamiento","colaboracion","colaboración","apoyo","participacion","participación"],["lectura","ciencias","matematicas","matemáticas","arte","deportes","convivencia"]],
+       retro:"El agradecimiento reconoce aportes específicos. La concreción le da fuerza al reconocimiento."}},
+
+    {id:"p87", nombre:"Solicitud de colaboración",
+     concepto:"La solicitud pide la colaboración de familias o instituciones para una actividad. Debe ser clara, respetuosa y específica: qué se pide, para qué, cuándo y cómo.",
+     ejemplo:"«Apreciadas familias: Solicitamos su colaboración para la actividad del viernes: cada estudiante debe traer una botella plástica limpia y una caja de cartón. El propósito es construir un modelo del ciclo del agua».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la solicitud.",
+       texto:"«Solicitamos su ___ para la actividad del ___. Cada estudiante debe traer ___».",
+       respuestas:[["colaboracion","colaboración","apoyo","participacion","participación"],["viernes","lunes","martes","miercoles","miércoles","jueves","dia","día"],["una botella","una botella plastica","una botella plástica","los materiales","el material"]],
+       retro:"La solicitud es específica: qué, para qué, cuándo y cómo. La claridad facilita la colaboración."}},
+
+    {id:"p88", nombre:"Carta de excusa o justificación",
+     concepto:"La excusa justifica una ausencia o un incumplimiento. Debe ser objetiva, indicar el motivo, la fecha y adjuntar soportes si es necesario. La firma del acudiente es obligatoria cuando el estudiante es menor.",
+     ejemplo:"«Bogotá, 15 de julio de 2024. Señores Institución Educativa: Por medio de la presente justifico la inasistencia de mi hijo Juan Pérez el día 12 de julio por motivos de salud. Adjunto incapacidad médica. Atentamente, Ana Pérez, madre».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de la excusa.",
+       items:[
+         "Lugar y fecha.",
+         "Destinatario.",
+         "Motivo de la inasistencia.",
+         "Soportes adjuntos (si aplica).",
+         "Firma del acudiente."
+       ],
+       retro:"La excusa justifica una ausencia con motivo, fecha y firma. Los soportes son necesarios cuando existen."}},
+
+    {id:"p89", nombre:"Comunicación con colegas",
+     concepto:"La comunicación entre colegas es profesional pero cercana. Puede ser correo, mensaje o nota. Se caracteriza por la claridad, el respeto y la brevedad. Se evita la informalidad excesiva en contextos institucionales.",
+     ejemplo:"«Hola, Ana: ¿Podemos reunirnos mañana a las 10 para revisar la planeación del período? Traigo los avances del área. Gracias, Luis».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el mensaje profesional entre colegas.",
+       texto:"«Hola, Ana: ¿Podemos ___ mañana a las 10 para revisar la ___ del período? Gracias, Luis».",
+       respuestas:[["reunirnos","encontrarnos","vernos"],["planeacion","planeación","programacion","programación"]],
+       retro:"La comunicación entre colegas es profesional y cercana. La claridad y la brevedad facilitan la colaboración."}},
+
+    {id:"p90", nombre:"Publicación en redes institucionales",
+     concepto:"Las redes sociales de la institución comunican logros, actividades y mensajes institucionales. El lenguaje es breve, claro, respetuoso y con imagen cuidada. Se evita el sensacionalismo.",
+     ejemplo:"«Hoy celebramos el Día del Idioma en nuestra institución con lecturas en voz alta y un concurso de ortografía. ¡Felicitaciones a los participantes! #DíaDelIdioma #NuestraInstitución».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada rasgo como propio o no de una publicación institucional.",
+       categorias:["Apropiado","Inapropiado"],
+       items:[
+         {texto:"Breve, claro y con imagen cuidada.", cat:0},
+         {texto:"Con lenguaje ofensivo o discriminatorio.", cat:1},
+         {texto:"Que reconoce logros de los estudiantes.", cat:0},
+         {texto:"Con datos personales sin permiso.", cat:1},
+         {texto:"Con lenguaje respetuoso y cercano.", cat:0}
+       ],
+       retro:"Las redes institucionales comunican con respeto. Se cuidan la imagen, el lenguaje y la privacidad de las personas."}}
+  ]
+},
+
+/* ============ BLOQUE 10 · REVISIÓN, EDICIÓN Y PUBLICACIÓN ============ */
+{
+  id:"b10", nombre:"Revisión, edición y publicación", emoji:"🔍",
+  desc:"Borradores, revisión por capas, edición, presentación y publicación.",
+  tecnicas:[
+    {id:"p91", nombre:"Borrador y versión final",
+     concepto:"Todo texto pedagógico pasa por varias versiones: borrador inicial, revisiones intermedias y versión final. Escribir es reescribir: la primera versión nunca es la definitiva.",
+     ejemplo:"Borrador 1: ideas sueltas. Borrador 2: estructura definida. Borrador 3: cohesión y citas. Versión final: revisión ortotipográfica y formato.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las versiones de un texto pedagógico.",
+       items:[
+         "Borrador inicial con las ideas básicas.",
+         "Reorganización de secciones y argumentos.",
+         "Revisión de cohesión, conectores y citas.",
+         "Corrección ortotipográfica y de estilo.",
+         "Versión final lista para entrega."
+       ],
+       retro:"Escribir es reescribir. Cada versión mejora un aspecto: estructura, contenido, estilo o formato."}},
+
+    {id:"p92", nombre:"Revisión por capas",
+     concepto:"La revisión por capas revisa el texto en varias pasadas, cada una centrada en un aspecto: ortografía, sintaxis, coherencia, precisión, formato. Es más eficaz que revisar todo a la vez.",
+     ejemplo:"Primera pasada: ortografía y puntuación. Segunda: sintaxis y concordancia. Tercera: coherencia global. Cuarta: precisión terminológica. Quinta: formato y citas.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las capas de revisión.",
+       items:[
+         "Ortografía y puntuación.",
+         "Sintaxis y concordancia.",
+         "Coherencia global y estructura.",
+         "Precisión terminológica.",
+         "Formato, citas y presentación."
+       ],
+       retro:"Revisar por capas es más eficaz. Cada pasada se centra en un aspecto distinto del texto."}},
+
+    {id:"p93", nombre:"Leer en voz alta",
+     concepto:"Leer el texto en voz alta permite detectar errores de puntuación, frases demasiado largas y problemas de fluidez. Es una técnica sencilla y eficaz de revisión, especialmente útil en textos pedagógicos.",
+     ejemplo:"Al leer en voz alta, se nota que una oración no respira: tiene demasiadas comas o demasiadas subordinadas. Se divide.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Para qué sirve leer el texto en voz alta durante la revisión?",
+       opciones:["Para memorizarlo","Para detectar errores de puntuación y problemas de fluidez","Para impresionar al lector","Para aumentar la velocidad"],
+       correcta:1,
+       retro:"La lectura en voz alta revela problemas de puntuación y fluidez que la lectura silenciosa oculta."}},
+
+    {id:"p94", nombre:"Revisión de citas y referencias",
+     concepto:"Las citas y referencias deben revisarse con cuidado: autor, año, página, formato. Un error en la cita debilita la credibilidad del texto pedagógico.",
+     ejemplo:"Verificar que la cita textual esté entre comillas, con autor, año y página. Verificar que la referencia bibliográfica esté completa y en orden alfabético.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita correctamente.",
+       texto:"«La lectura del mundo precede a la lectura de la palabra» (Freire, ___, p. ___). (Freire, 2004, p. 47)",
+       respuestas:[["2004"],["47"]],
+       retro:"La cita textual siempre lleva autor, año y página. Sin estos datos, la cita está incompleta."}},
+
+    {id:"p95", nombre:"Corrección ortotipográfica",
+     concepto:"La corrección ortotipográfica revisa ortografía, puntuación, uso de cursivas, comillas, mayúsculas y formato de cifras. Es la última fase antes de la entrega o publicación.",
+     ejemplo:"Revisar: ¿las siglas están definidas?, ¿los números llevan la unidad?, ¿los títulos van en negrita o cursiva según la norma?, ¿la numeración de páginas es correcta?",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué revisa la corrección ortotipográfica?",
+       opciones:["La validez de los datos","La ortografía, puntuación, cursivas y formato","La estructura del texto","La originalidad de las ideas"],
+       correcta:1,
+       retro:"La corrección ortotipográfica se ocupa de la forma. Deja el contenido para otras fases del proceso de escritura."}},
+
+    {id:"p96", nombre:"Formato y presentación",
+     concepto:"El formato del texto pedagógico es importante: tipo de letra legible, márgenes adecuados, interlineado, numeración de páginas. Un texto bien presentado facilita la lectura y demuestra rigor profesional.",
+     ejemplo:"Fuente Arial o Calibri, tamaño 11 o 12, interlineado 1,5, márgenes de 2,5 cm, numeración de páginas. Según normas institucionales.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es un formato adecuado para un texto pedagógico?",
+       opciones:["Fuente Comic Sans 8","Fuente Arial 11, interlineado 1,5, márgenes 2,5 cm","Fuente Times New Roman 20 con negritas","Fuente cursiva 14 sin márgenes"],
+       correcta:1,
+       retro:"El formato debe ser legible y profesional: fuente clara, tamaño 11-12, interlineado 1,5, márgenes adecuados."}},
+
+    {id:"p97", nombre:"Presentación de trabajos académicos",
+     concepto:"Los trabajos académicos en licenciaturas siguen normas específicas: portada, tabla de contenido, introducción, desarrollo, conclusiones y referencias. Se suele exigir un formato APA o institucional.",
+     ejemplo:"Un trabajo final de licenciatura suele incluir: portada (con universidad, programa, título, autor, año), tabla de contenido, introducción, capítulos, conclusiones y referencias.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de un trabajo académico.",
+       items:[
+         "Portada con datos institucionales.",
+         "Tabla de contenido.",
+         "Introducción.",
+         "Desarrollo por capítulos.",
+         "Conclusiones y referencias."
+       ],
+       retro:"El trabajo académico sigue una estructura previsible. Cumplirla demuestra rigor y respeto por las normas institucionales."}},
+
+    {id:"p98", nombre:"Revisión por pares (peer feedback)",
+     concepto:"La revisión entre compañeros es una estrategia formativa muy potente. Un compañero lee el texto con criterios claros: coherencia, cohesión, claridad, precisión, formato. Ofrece comentarios respetuosos y específicos.",
+     ejemplo:"Dos estudiantes intercambian sus ensayos y se dan feedback por escrito: tres cosas que funcionan, dos que mejorar y una sugerencia global.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la rúbrica de revisión entre pares.",
+       texto:"Al revisar el texto de un compañero valoro la ___ (¿se entiende?), la ___ (¿las ideas están conectadas?) y la ___ (¿los argumentos están bien sustentados?)",
+       respuestas:[["claridad"],["coherencia","cohesion","cohesión"],["argumentacion","argumentación","precision","precisión","solidez"]],
+       retro:"La revisión entre pares es una de las estrategias más eficaces para mejorar la escritura académica."}},
+
+    {id:"p99", nombre:"Publicación y difusión",
+     concepto:"Después de la revisión, el texto pedagógico puede publicarse o difundirse: en revistas estudiantiles, blogs, redes institucionales o eventos académicos. Compartir el trabajo multiplica su valor.",
+     ejemplo:"Un ensayo revisado puede publicarse en la revista estudiantil de la licenciatura, presentarse en un encuentro de practicantes o compartirse en el blog del programa.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena el proceso de publicación y difusión.",
+       items:[
+         "Terminar el texto y revisarlo.",
+         "Elegir el medio de publicación o difusión.",
+         "Adaptar el formato a las normas del medio.",
+         "Enviar o publicar el texto.",
+         "Socializar y recibir retroalimentación."
+       ],
+       retro:"Publicar es compartir. La escritura pedagógica se multiplica cuando circula y dialoga con otros."}},
+
+    {id:"p100", nombre:"Escritura como identidad docente",
+     concepto:"La escritura no solo comunica: construye identidad profesional. Un docente que escribe se piensa, se forma, se posiciona. La escritura es una forma de ser docente y de transformar la educación.",
+     ejemplo:"Un docente que lleva años escribiendo sobre su práctica no solo mejora: también construye un saber propio, una voz, una identidad profesional.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura contribuir a construir tu identidad como docente? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una manera en que la escritura forma la identidad.",
+         "Relacioné la escritura con la profesión docente.",
+         "Mencioné algún tipo de texto o práctica concreta."
+       ],
+       modelo:"Escribir me ayuda a construir mi identidad docente porque me obliga a definir qué creo, qué defiendo y qué quiero transformar en la educación. Cuando escribo mi diario o mis ensayos, no solo registro lo que hago: también me pregunto quién quiero ser como maestra. La escritura es una forma de tomar la palabra en la profesión, de no repetir discursos ajenos, de construir una voz propia."}}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO Y UTILIDADES
+   ===================================================================== */
+const STORAGE_KEY = "cuaderno_pedagogico_100_v1";
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ progreso = {}; }
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+
+let actualId = TECNICAS_FLAT[0].id;
+let notaTimer = null;
+
+function guardar(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progreso)); } catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){
+  const r = a.slice();
+  for(let i=r.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; }
+  return r;
+}
+function el(tag, cls, txt){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(txt !== undefined) e.textContent = txt;
+  return e;
+}
+function boton(txt, cls){
+  const b = document.createElement("button");
+  b.className = "btn " + (cls||"primary");
+  b.textContent = txt;
+  return b;
+}
+
+/* =====================================================================
+   MENÚ
+   ===================================================================== */
+function renderMenu(filtro){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(filtro||"");
+
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    div.dataset.cat = cat.id;
+
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>' + cat.emoji + '</span><span>' + cat.nombre + '</span>' +
+                     '<span class="cat-count">' + hechas + "/" + cat.tecnicas.length + '</span>' +
+                     '<span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+
+    const bar = el("div","cat-bar");
+    const barFill = document.createElement("i");
+    barFill.style.width = (hechas/cat.tecnicas.length*100) + "%";
+    bar.appendChild(barFill);
+    div.appendChild(bar);
+
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>' + t.nombre + '</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  return t ? t.catId : null;
+}
+
+/* =====================================================================
+   PANEL
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panel");
+  panel.innerHTML = "";
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bloqueIdx = CATEGORIAS.findIndex(c => c.id === t.catId) + 1;
+  head.appendChild(el("div","tech-pos", "Técnica " + (idx+1) + " de " + TECNICAS_FLAT.length +
+                     " · Bloque " + bloqueIdx + "/10"));
+
+  const block = CATEGORIAS.find(c => c.id === t.catId);
+  const dots = el("div","block-dots");
+  dots.title = "Puntos de avance del bloque";
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot" + (getProg(bt.id).ok ? " done":"") + (bt.id === t.id ? " current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  head.appendChild(dots);
+  panel.appendChild(head);
+
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","💡 Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Toca la tarjeta para ver el ejemplo pedagógico ↻"));
+
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","🔎 Ejemplo práctico"));
+  back.appendChild(el("p", null, t.ejemplo));
+  back.appendChild(el("span","fc-hint","↻ Toca de nuevo para volver al concepto"));
+
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+
+  const flipBtn = boton("↻ Voltear tarjeta", "ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "✍️ Ejercicio interactivo <span>comprueba tu comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+
+  const body = el("div");
+  sec.appendChild(body);
+  const fb = el("div","feedback");
+  sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "📓 Mi cuaderno pedagógico <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+
+  const ta = document.createElement("textarea");
+  ta.rows = 5;
+  ta.placeholder = "Escribe aquí tus notas, ejemplos, redacciones propias, reflexiones sobre tu práctica…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n === 1 ? " palabra" : " palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardar();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu(document.getElementById("search").value);
+  actualizarProgreso();
+}
+
+/* =====================================================================
+   EJERCICIOS
+   ===================================================================== */
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo === "quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo === "fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo === "order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo === "classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo === "open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback " + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const letras = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">' + letras[i] + '</span><span>' + op + '</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c, j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok ? "ok" : "mal", ok ? "✓ ¡Correcto!" : "✗ Revisa tu respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length - 1){
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.className = "hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key === "Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i => !i.value.trim())){
+      mostrarFeedback(fb,"info","Completa todos los huecos","Escribe una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i] || []).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok ? "ok" : "mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos === total;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Perfecto! " + aciertos + "/" + total : "✗ " + aciertos + " de " + total + " correctas",
+      ej.retro + (perfecto ? "" : " · Respuestas válidas: " + ej.respuestas.map((r,i) => (i+1) + ") " + r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i) => ({txt, i})));
+  const seq = [];
+
+  const wrap = el("div","order-wrap");
+  const colA = el("div","order-col");
+  colA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool");
+  colA.appendChild(poolEl);
+  const colB = el("div","order-col");
+  colB.appendChild(el("h4", null, "Tu secuencia"));
+  const seqEl = el("div","seq");
+  colB.appendChild(seqEl);
+  wrap.appendChild(colA); wrap.appendChild(colB);
+  cont.appendChild(wrap);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML = ""; seqEl.innerHTML = "";
+    pool.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item"; b.textContent = o.txt;
+      b.onclick = () => { if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item";
+      b.innerHTML = '<span class="num">' + (k+1) + '</span><span>' + o.txt + '</span>';
+      b.onclick = () => { if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length !== correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pasa todos los elementos a «Tu secuencia».");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo, k) => {
+      const ok = seq[k].i === k;
+      nodo.classList.add(ok ? "ok" : "mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos === correcto.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Secuencia correcta!" : "✗ " + aciertos + " de " + correcto.length + " en su lugar",
+      perfecto ? ej.retro : "Empieza por: «" + correcto[0].slice(0,70) + "…». " + ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderClassify(ej, cont, fb, techId){
+  const seleccion = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it, i) => {
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat, ci) => {
+      const c = document.createElement("button");
+      c.className = "chip"; c.textContent = cat;
+      c.onclick = () => {
+        if(row.dataset.locked) return;
+        seleccion[i] = ci;
+        Array.from(chips.children).forEach((x,xi) => x.classList.toggle("sel", xi === ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seleccion.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigna una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila, i) => {
+      fila.dataset.locked = "1";
+      const ok = seleccion[i] === ej.items[i].cat;
+      fila.classList.add(ok ? "ok" : "mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c => c.disabled = true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-size:12px;color:#b91c1c;font-weight:700;";
+        nota.textContent = "→ Correcto: " + ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos === ej.items.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Clasificación perfecta!" : "✗ " + aciertos + " de " + ej.items.length + " correctas",
+      ej.retro || "");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 5; ta.placeholder = "Redacta aquí tu respuesta…";
+  cont.appendChild(ta);
+
+  const ul = el("ul","criterios"); ul.style.marginTop = "14px";
+  ej.criterios.forEach((c, i) => {
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.id = "crit_" + techId + "_" + i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+
+  const mod = el("div","modelo");
+  mod.innerHTML = "<strong>Respuesta modelo orientativa</strong>" + ej.modelo;
+  cont.appendChild(mod);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escribe primero tu respuesta","Redacta al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados === total ? "ok" : "info",
+      marcados === total ? "✓ Autoevaluación completa" : "Autoevaluación: " + marcados + "/" + total,
+      "Compara tu texto con el modelo: ¿qué ideas coinciden? ¿qué te falta? ¿qué aportas tú?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+
+/* =====================================================================
+   PROGRESO
+   ===================================================================== */
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardar();
+    actualizarProgreso();
+    renderMenu(document.getElementById("search").value);
+    const block = CATEGORIAS.find(c => c.tecnicas.some(t => t.id === id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i) => {
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas + " / " + total;
+  document.getElementById("progressFill").style.width = (hechas/total*100) + "%";
+}
+
+/* =====================================================================
+   SIDEBAR / BÚSQUEDA / RESET
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("search").addEventListener("input", e => {
+  renderMenu(e.target.value);
+  if(e.target.value.trim()){
+    document.querySelectorAll(".cat").forEach(c => c.classList.add("open"));
+  }
+});
+
+document.getElementById("btnReset").onclick = () => {
+  if(confirm("¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer.")){
+    progreso = {}; guardar();
+    abrirTecnica(TECNICAS_FLAT[0].id);
+  }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+renderMenu("");
+abrirTecnica(actualId);
+actualizarProgreso();
+</script>
+</body>
+</html>

@@ -11,39 +11,35 @@ from django.shortcuts import get_object_or_404, render
 from .models import Recurso
 
 RECURSOS_BASE = Path(settings.BASE_DIR) / "ejercicios_completos-lengua-castellana"
+RECURSOS_STATIC = Path(settings.BASE_DIR) / "static" / "recursos"
 
 
 def _resolver_archivo(recurso):
-    """Devuelve la ruta absoluta del archivo, validando que esté dentro del root.
+    """Devuelve la ruta absoluta del archivo.
 
-    Soporta dos formatos de Recurso.archivo:
-    - "ejercicios_completos-lengua-castellana/foo.html" (con prefijo → BASE_DIR)
-    - "foo.html" (sin prefijo → RECURSOS_BASE)
-
-    La validacion se hace contra el root usado (permite parchear RECURSOS_BASE en tests).
+    Busca en orden:
+    1. static/recursos/ (producción — Render/WhiteNoise)
+    2. ejercicios_completos-lengua-castellana/ (local)
     """
     archivo = (recurso.archivo or "").strip()
     if not archivo:
         raise Http404("Recurso sin archivo")
 
-    if archivo.startswith("ejercicios_completos-lengua-castellana/"):
-        p = (Path(settings.BASE_DIR) / archivo).resolve()
-        base_check = Path(settings.BASE_DIR).resolve()
-    else:
-        p = (RECURSOS_BASE / archivo).resolve()
-        base_check = RECURSOS_BASE.resolve()
+    # Quitar prefijo si lo tiene
+    prefijo = "ejercicios_completos-lengua-castellana/"
+    if archivo.startswith(prefijo):
+        archivo = archivo[len(prefijo):]
 
-    try:
-        p.relative_to(base_check)
-    except ValueError:
-        raise Http404("Ruta invalida")
+    for base in (RECURSOS_STATIC, RECURSOS_BASE):
+        p = (base / archivo).resolve()
+        try:
+            p.relative_to(base.resolve())
+        except ValueError:
+            continue
+        if p.exists() and p.is_file():
+            return p
 
-    if not p.exists() or not p.is_file():
-        raise Http404("Archivo no encontrado")
-    return p
-
-
-@login_required
+    raise Http404(f"Archivo no encontrado: {archivo}")
 def lista_recursos(request):
     q = request.GET.get("q", "").strip()
     cat = request.GET.get("cat", "").strip()

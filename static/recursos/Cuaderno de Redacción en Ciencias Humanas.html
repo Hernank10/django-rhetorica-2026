@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuaderno de Redacción en Ciencias Humanas · 100 técnicas (6.º a 11.º)</title>
+<style>
+  :root{
+    --bg:#e8eef0;
+    --paper:#fdfbf6;
+    --paper-2:#f4f7f8;
+    --ink:#152528;
+    --muted:#5c6f73;
+    --line:#cfdbdd;
+    --line-2:#b4c5c8;
+    --accent:#0f766e;
+    --accent-dark:#115e59;
+    --accent-soft:#ccfbf1;
+    --brick:#9a3412;
+    --brick-dark:#7c2d12;
+    --brick-soft:#fee2d5;
+    --ok:#15803d;
+    --ok-soft:#dcfce7;
+    --bad:#b91c1c;
+    --bad-soft:#fee2e2;
+    --radius:16px;
+    --shadow:0 2px 4px rgba(15,50,55,.06), 0 12px 30px rgba(15,50,55,.10);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    background:
+      radial-gradient(circle at 15% 0%, #f3f7f8 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:12px 20px;
+    background:rgba(253,251,246,.95);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .logo{
+    font-size:22px; line-height:1; font-weight:800;
+    background:var(--accent-soft);
+    border:1px solid #7dd3c8;
+    border-radius:12px;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    color:var(--accent-dark);
+    flex:0 0 auto;
+  }
+  .brand h1{font-size:15.5px; margin:0; font-weight:800; letter-spacing:-.2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:system-ui,sans-serif;}
+  .brand p{margin:2px 0 0; font-size:12px; color:var(--muted); font-family:system-ui,sans-serif;}
+  .topbar-actions{display:flex; align-items:center; gap:12px; flex:0 0 auto;}
+
+  .progress-wrap{display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); font-weight:600; font-family:system-ui,sans-serif;}
+  .progress-bar{width:140px; height:8px; border-radius:99px; background:#d6e0e1; overflow:hidden;}
+  #progressFill{height:100%; width:0%; background:linear-gradient(90deg,#0f766e,#9a3412); transition:width .4s;}
+
+  .btn{
+    font-family:system-ui,sans-serif; font-size:13px; font-weight:700;
+    padding:9px 15px; border-radius:10px; cursor:pointer;
+    border:1px solid var(--line-2); background:#fff; color:var(--ink);
+    transition:.16s;
+  }
+  .btn:hover{background:#eef5f5; border-color:#8fa8aa;}
+  .btn:active{transform:translateY(1px);}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .btn.primary:hover{background:var(--accent-dark);}
+  .btn.ghost{background:transparent;}
+  .only-mobile{display:none;}
+
+  .layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:22px;
+    max-width:1400px;
+    margin:0 auto;
+    padding:22px;
+    align-items:start;
+  }
+
+  .sidebar{
+    position:sticky; top:82px;
+    max-height:calc(100vh - 106px);
+    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px;
+  }
+  #search{
+    width:100%; font-family:system-ui,sans-serif; font-size:13px;
+    padding:10px 12px; border-radius:10px;
+    border:1px solid var(--line-2); background:#f4f7f8; color:var(--ink);
+    outline:none; margin-bottom:12px;
+  }
+  #search:focus{border-color:var(--accent); background:#fff;}
+
+  .cat{margin-bottom:6px;}
+  .cat-head{
+    display:flex; align-items:center; gap:9px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    padding:10px; border-radius:10px;
+    font-size:13.4px; font-weight:800; color:var(--ink);
+    font-family:system-ui,sans-serif;
+  }
+  .cat-head:hover{background:#eef5f5;}
+  .cat-head .chev{margin-left:auto; font-size:11px; color:var(--muted); transition:transform .25s;}
+  .cat.open .chev{transform:rotate(90deg);}
+  .cat-count{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    background:var(--brick-soft); color:var(--brick-dark);
+    padding:2px 8px; border-radius:99px;
+  }
+  .cat-bar{height:4px; border-radius:99px; background:#dce5e6; margin:0 10px 6px; overflow:hidden;}
+  .cat-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--accent),var(--brick)); transition:width .4s;}
+  .cat-body{display:none; padding:2px 0 8px 6px;}
+  .cat.open .cat-body{display:block;}
+  .cat-desc{font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); padding:0 10px 8px; line-height:1.45;}
+  .tech-link{
+    display:flex; align-items:flex-start; gap:8px;
+    width:100%; text-align:left; cursor:pointer;
+    background:none; border:none; font:inherit;
+    font-size:12.8px; line-height:1.35; color:#2c3f42;
+    padding:8px 10px; border-radius:9px;
+    border-left:3px solid transparent;
+    font-family:system-ui,sans-serif;
+  }
+  .tech-link:hover{background:#eef5f5;}
+  .tech-link.active{background:var(--accent-soft); border-left-color:var(--accent); color:var(--accent-dark); font-weight:700;}
+  .tech-link .dot{
+    flex:0 0 auto; width:15px; height:15px; margin-top:2px;
+    border-radius:50%; border:1.6px solid var(--line-2);
+    display:grid; place-items:center; font-size:9px; color:transparent;
+  }
+  .tech-link.done .dot{background:var(--ok); border-color:var(--ok); color:#fff;}
+
+  .panel{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 30px 30px;
+    position:relative;
+    overflow:hidden;
+  }
+  .panel::before{
+    content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+    background:linear-gradient(180deg,var(--accent),var(--brick));
+  }
+  .tech-head{margin-bottom:18px;}
+  .badge{
+    display:inline-block; font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:.7px; text-transform:uppercase;
+    color:var(--accent-dark); background:var(--accent-soft);
+    border:1px solid #7dd3c8; padding:4px 10px; border-radius:99px;
+    margin-bottom:10px;
+  }
+  .tech-head h2{margin:0; font-size:24px; line-height:1.22; letter-spacing:-.4px; font-weight:800;}
+  .tech-pos{font-family:system-ui,sans-serif; font-size:12px; color:var(--muted); margin-top:6px; font-weight:600;}
+
+  .block-dots{display:flex; gap:6px; margin-top:12px; flex-wrap:wrap;}
+  .bdot{
+    width:12px; height:12px; border-radius:50%;
+    border:1.6px solid var(--line-2); background:#fff;
+    cursor:pointer; transition:.15s;
+  }
+  .bdot:hover{transform:scale(1.25); border-color:var(--accent);}
+  .bdot.done{background:var(--ok); border-color:var(--ok);}
+  .bdot.current{box-shadow:0 0 0 3px rgba(15,118,110,.22); border-color:var(--accent);}
+
+  /* flashcard · papel con líneas horizontales tenues */
+  .flashcard{perspective:1600px; margin:18px 0 10px; cursor:pointer;}
+  .fc-inner{
+    position:relative;
+    min-height:clamp(280px, 36vh, 340px);
+    transform-style:preserve-3d;
+    transition:transform .68s cubic-bezier(.4,.15,.2,1);
+  }
+  .flashcard.flipped .fc-inner{transform:rotateY(180deg);}
+  .fc-face{
+    position:absolute; inset:0;
+    backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:14px; padding:22px 26px 22px 46px;
+    display:flex; flex-direction:column; overflow:auto;
+    background-color:#fffdf8;
+    background-image:
+      linear-gradient(transparent 27px, rgba(15,118,110,.14) 27px 28px);
+    background-size:100% 28px;
+    background-position:0 14px;
+    box-shadow:inset 22px 0 0 -21px #d99a78;
+  }
+  .fc-front{border:1px solid var(--line-2);}
+  .fc-back{
+    transform:rotateY(180deg);
+    border:1px solid #7dd3c8;
+    background-color:#f3fbf9;
+    box-shadow:inset 22px 0 0 -21px #5eb0a4;
+  }
+  .fc-tag{
+    font-family:system-ui,sans-serif; font-size:10.5px; font-weight:800;
+    letter-spacing:1px; text-transform:uppercase; color:var(--muted);
+    margin-bottom:12px; display:block;
+  }
+  .fc-back .fc-tag{color:var(--accent-dark);}
+  .fc-face p{margin:0; font-size:15.5px; line-height:28px; color:#1a2d30;}
+  .fc-back p{color:#0d3a36;}
+  .fc-hint{
+    margin-top:auto; padding-top:14px;
+    font-family:system-ui,sans-serif; font-size:11.5px; color:#94a8aa; font-weight:600;
+  }
+  .flip-btn{margin-bottom:26px;}
+
+  .sec-title{
+    display:flex; align-items:center; gap:9px;
+    font-size:15px; font-weight:800; letter-spacing:-.1px;
+    margin:0 0 12px; padding-bottom:9px;
+    border-bottom:2px solid var(--line);
+    font-family:system-ui,sans-serif;
+  }
+  .sec-title span{font-size:12px; font-weight:600; color:var(--muted); margin-left:auto;}
+
+  .consigna{
+    font-size:15px; line-height:1.6; color:#2a3f42;
+    background:#f4f7f8; border-left:3px solid var(--line-2);
+    padding:12px 16px; border-radius:0 10px 10px 0; margin:0 0 16px;
+  }
+
+  .opciones{display:flex; flex-direction:column; gap:9px;}
+  .opcion{
+    display:flex; gap:11px; align-items:flex-start;
+    text-align:left; font:inherit; font-size:14.5px; line-height:1.5;
+    background:#fff; border:1.5px solid var(--line-2);
+    color:var(--ink); padding:13px 15px; border-radius:12px; cursor:pointer;
+    transition:.15s;
+  }
+  .opcion:hover:not(:disabled){border-color:var(--accent); background:#f3fbf9; transform:translateX(2px);}
+  .opcion:disabled{cursor:default; opacity:.9;}
+  .opcion .letra{
+    flex:0 0 auto; width:23px; height:23px; border-radius:7px;
+    background:#dce5e6; color:var(--muted);
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:800;
+  }
+  .opcion.correcta{border-color:var(--ok); background:var(--ok-soft);}
+  .opcion.correcta .letra{background:var(--ok); color:#fff;}
+  .opcion.incorrecta{border-color:var(--bad); background:var(--bad-soft);}
+  .opcion.incorrecta .letra{background:var(--bad); color:#fff;}
+
+  .fill-texto{font-size:16px; line-height:2.4; margin:0 0 16px; color:#1a2d30;}
+  .hueco{
+    font:inherit; font-size:15px;
+    border:none; border-bottom:2px dashed var(--brick);
+    background:#fdf1ea; color:var(--brick-dark); font-weight:700;
+    padding:3px 8px; min-width:130px; text-align:center;
+    outline:none; border-radius:6px 6px 0 0;
+  }
+  .hueco:focus{background:#fee2d5; border-bottom-style:solid;}
+  .hueco.ok{border-bottom-color:var(--ok); color:var(--ok); background:var(--ok-soft);}
+  .hueco.mal{border-bottom-color:var(--bad); color:var(--bad); background:var(--bad-soft); text-decoration:line-through;}
+
+  .order-wrap{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .order-col h4{font-family:system-ui,sans-serif; font-size:11px; font-weight:800; letter-spacing:.9px; text-transform:uppercase; color:var(--muted); margin:0 0 9px;}
+  .pool, .seq{min-height:120px; border-radius:12px; padding:9px; display:flex; flex-direction:column; gap:8px;}
+  .pool{background:#eff4f5; border:1.5px dashed var(--line-2);}
+  .seq{background:#f3fbf9; border:1.5px solid #7dd3c8;}
+  .pool:empty::after, .seq:empty::after{content:"…"; color:#b4c5c8; font-size:20px; text-align:center; margin:auto;}
+  .ord-item{
+    font:inherit; font-size:13.6px; line-height:1.42; text-align:left;
+    background:#fff; border:1.5px solid var(--line-2);
+    padding:10px 12px; border-radius:10px; cursor:pointer; color:var(--ink);
+    transition:.15s; display:flex; gap:9px; align-items:flex-start;
+  }
+  .ord-item:hover{border-color:var(--accent); background:#f3fbf9;}
+  .seq .ord-item{border-color:#7dd3c8;}
+  .seq .ord-item .num{
+    flex:0 0 auto; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); color:#fff;
+    display:grid; place-items:center;
+    font-family:system-ui,sans-serif; font-size:11px; font-weight:800;
+  }
+  .ord-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .ord-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .cl-item{
+    display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    background:#fff; border:1.5px solid var(--line-2);
+    border-radius:12px; padding:12px 14px; margin-bottom:9px;
+  }
+  .cl-item p{margin:0; font-size:14.2px; line-height:1.45; flex:1 1 260px;}
+  .chips{display:flex; gap:6px; flex-wrap:wrap;}
+  .chip{
+    font-family:system-ui,sans-serif; font-size:11.5px; font-weight:700;
+    padding:6px 11px; border-radius:99px; cursor:pointer;
+    border:1.5px solid var(--line-2); background:#eff4f5; color:var(--muted);
+    transition:.14s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent-dark);}
+  .chip.sel{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .cl-item.ok{border-color:var(--ok); background:var(--ok-soft);}
+  .cl-item.mal{border-color:var(--bad); background:var(--bad-soft);}
+
+  .criterios{list-style:none; padding:0; margin:0 0 14px; display:flex; flex-direction:column; gap:7px;}
+  .criterios li{display:flex; gap:10px; align-items:flex-start; font-family:system-ui,sans-serif; font-size:13px; color:#3d5155; line-height:1.5;}
+  .criterios input{margin-top:2px; accent-color:var(--accent); width:16px; height:16px; flex:0 0 auto;}
+
+  textarea{
+    width:100%; font-family:inherit; font-size:15px; line-height:27px;
+    color:#1a2d30; padding:12px 16px;
+    border:1px solid var(--line-2); border-radius:12px;
+    background-color:#fffdf8;
+    background-image:linear-gradient(transparent 26px, rgba(15,118,110,.14) 26px 27px);
+    background-size:100% 27px; background-attachment:local;
+    resize:vertical; outline:none;
+  }
+  textarea:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(15,118,110,.12);}
+  textarea::placeholder{color:#94a8aa; font-style:italic;}
+
+  .feedback{margin-top:16px; border-radius:12px; padding:0; overflow:hidden; max-height:0; opacity:0; transition:.3s;}
+  .feedback.show{max-height:600px; opacity:1; padding:14px 17px;}
+  .feedback.ok{background:var(--ok-soft); border:1px solid #86efac; color:#14532d;}
+  .feedback.mal{background:var(--bad-soft); border:1px solid #fca5a5; color:#7f1d1d;}
+  .feedback.info{background:var(--brick-soft); border:1px solid #fdba74; color:#7c2d12;}
+  .feedback strong{display:block; font-family:system-ui,sans-serif; font-size:12.5px; letter-spacing:.4px; text-transform:uppercase; margin-bottom:6px;}
+  .feedback p{margin:0; font-size:14.4px; line-height:1.6;}
+
+  .ej-actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+
+  .modelo{
+    display:none; margin-top:14px;
+    background:#f4f7f8; border-left:3px solid var(--brick);
+    padding:13px 16px; border-radius:0 10px 10px 0;
+    font-size:14.4px; line-height:1.65; color:#7c2d12;
+  }
+  .modelo.show{display:block; animation:fade .3s ease;}
+  .modelo strong{font-family:system-ui,sans-serif; font-size:11px; letter-spacing:.8px; text-transform:uppercase; color:var(--brick); display:block; margin-bottom:5px;}
+  @keyframes fade{from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:none;}}
+
+  .cuaderno{margin-top:32px; padding-top:22px; border-top:2px solid var(--line);}
+  .cuaderno-foot{display:flex; justify-content:space-between; align-items:center; font-family:system-ui,sans-serif; font-size:11.5px; color:var(--muted); margin-top:8px; font-weight:600;}
+  #notaStatus{color:var(--ok); font-weight:700; opacity:0; transition:opacity .3s;}
+  #notaStatus.show{opacity:1;}
+
+  .nav-foot{display:flex; justify-content:space-between; gap:12px; margin-top:26px; padding-top:20px; border-top:1px solid var(--line);}
+  .nav-foot .btn{flex:1; max-width:220px; text-align:center;}
+  .nav-foot .btn:disabled{opacity:.35; cursor:not-allowed;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr; padding:14px; gap:14px;}
+    .only-mobile{display:inline-block;}
+    .sidebar{
+      position:fixed; top:0; left:0; bottom:0; width:300px; max-height:100vh;
+      z-index:100; border-radius:0 18px 18px 0;
+      transform:translateX(-105%); transition:transform .28s ease;
+      padding-top:18px;
+    }
+    .sidebar.open{transform:none;}
+    .scrim{position:fixed; inset:0; background:rgba(15,50,55,.45); z-index:99; opacity:0; pointer-events:none; transition:.25s;}
+    .scrim.show{opacity:1; pointer-events:auto;}
+    .panel{padding:20px 18px 24px;}
+    .tech-head h2{font-size:20px;}
+    .order-wrap{grid-template-columns:1fr;}
+    .progress-wrap{display:none;}
+    .brand p{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">🏛️</div>
+    <div>
+      <h1>Cuaderno de Redacción en Ciencias Humanas · 6.º a 11.º</h1>
+      <p>100 técnicas · 10 bloques · sintaxis, puntuación, ortografía y estilo universitario</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <button id="btnMenu" class="btn ghost only-mobile">☰ Bloques</button>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <span id="progressText">0 / 100</span>
+    </div>
+    <button id="btnReset" class="btn ghost">Reiniciar</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar" class="sidebar">
+    <input id="search" type="search" placeholder="🔎 Buscar técnica…" autocomplete="off">
+    <nav id="menu"></nav>
+  </aside>
+  <main class="main">
+    <article id="panel" class="panel"></article>
+  </main>
+</div>
+<div id="scrim" class="scrim"></div>
+
+<script>
+/* =====================================================================
+   100 TÉCNICAS · REDACCIÓN EN CIENCIAS HUMANAS · 10 BLOQUES
+   ===================================================================== */
+const CATEGORIAS = [
+
+/* ============ BLOQUE 1 · FUNDAMENTOS ============ */
+{
+  id:"b1", nombre:"Fundamentos de la escritura humanística", emoji:"📖",
+  desc:"Claridad, precisión conceptual, interdisciplinariedad y función crítica.",
+  tecnicas:[
+    {id:"h1", nombre:"Claridad conceptual",
+     concepto:"La claridad en Ciencias Humanas exige definir los conceptos clave antes de usarlos. Palabras como «cultura», «poder», «identidad» o «discurso» tienen múltiples sentidos: sin precisión, el texto se vuelve ambiguo.",
+     ejemplo:"En lugar de usar «cultura» sin más, se precisa: «Entiendo cultura en el sentido de Clifford Geertz: una red de significados que los seres humanos tejen y que orienta su acción».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Por qué es esencial definir los conceptos en Ciencias Humanas?",
+       opciones:["Porque lo exige la RAE","Porque muchos conceptos tienen múltiples sentidos y sin definición el texto se vuelve ambiguo","Porque alarga el texto","Porque los profesores lo piden"],
+       correcta:1,
+       retro:"En Ciencias Humanas, los conceptos son polisémicos. Definirlos es parte del rigor: sin definición, el lector no sabe de qué se habla."}},
+
+    {id:"h2", nombre:"Precisión terminológica",
+     concepto:"Los términos de las Ciencias Humanas tienen historia y matices: «poder» no es lo mismo que «dominación» o «autoridad»; «identidad» no es «identificación»; «discurso» no es «lenguaje». Usarlos como sinónimos es un error conceptual.",
+     ejemplo:"En Foucault, «poder» no es solo represión: es una relación productiva que atraviesa el cuerpo social. No es sinónimo de «violencia» ni de «dominación» en sentido weberiano.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término según su matiz conceptual.",
+       categorias:["Poder (relación)","Dominación (imposición)","Autoridad (legitimidad)"],
+       items:[
+         {texto:"Relación productiva que atraviesa el cuerpo social (Foucault).", cat:0},
+         {texto:"Imposición estable de un orden (Weber).", cat:1},
+         {texto:"Poder legítimamente reconocido.", cat:2},
+         {texto:"Capacidad de acción sobre otros.", cat:0},
+         {texto:"Obediencia sin cuestionamiento.", cat:1}
+       ],
+       retro:"Poder, dominación y autoridad no son sinónimos. Precisar cada término es un deber del redactor en Ciencias Humanas."}},
+
+    {id:"h3", nombre:"Perspectiva interdisciplinaria",
+     concepto:"Las Ciencias Humanas cruzan saberes: historia, sociología, antropología, filosofía, lingüística, psicología, literatura. Un buen texto humanístico articula varias miradas sin diluir ninguna.",
+     ejemplo:"Un análisis de la violencia en Colombia puede combinar historia (contexto), sociología (estructuras), antropología (significados), filosofía (ética) y literatura (testimonios).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada pregunta según su disciplina principal.",
+       categorias:["Historia","Sociología","Antropología","Filosofía"],
+       items:[
+         {texto:"¿Cómo cambió el conflicto armado entre 1980 y 2000?", cat:0},
+         {texto:"¿Qué estructuras sociales sostienen la desigualdad?", cat:1},
+         {texto:"¿Qué significados tiene la tierra para una comunidad campesina?", cat:2},
+         {texto:"¿Qué fundamentos éticos orientan la justicia transicional?", cat:3},
+         {texto:"¿Cómo se narra la memoria del desplazamiento?", cat:2}
+       ],
+       retro:"Cada disciplina aporta una mirada. La riqueza de las Ciencias Humanas está en su cruce, no en su aislamiento."}},
+
+    {id:"h4", nombre:"Función crítica del texto humanístico",
+     concepto:"El texto en Ciencias Humanas no solo describe: interpreta, cuestiona y problematiza. Busca desnaturalizar lo que se presenta como evidente y mostrar los supuestos que sostienen las prácticas sociales.",
+     ejemplo:"En lugar de decir «la pobreza es un problema natural», el texto crítico pregunta: «¿Qué relaciones sociales producen y sostienen la pobreza? ¿A quién beneficia esa naturalización?».",
+     ejercicio:{tipo:"fill",
+       consigna:"Transforma la afirmación en pregunta crítica.",
+       texto:"«La violencia es natural en el ser humano» → «¿Qué ___ sociales producen y sostienen la violencia?»",
+       respuestas:[["relaciones","estructuras","condiciones","practicas","prácticas"]],
+       retro:"La mirada crítica desnaturaliza: convierte lo que parece evidente en problema. Ese es el aporte de las Ciencias Humanas."}},
+
+    {id:"h5", nombre:"Reconocer la posición del autor",
+     concepto:"El texto humanístico reconoce que todo autor habla desde algún lugar: disciplinar, ideológico, histórico, biográfico. La objetividad no es ausencia de posición, sino explicitud de la perspectiva.",
+     ejemplo:"«Escribo desde la historia social y con una simpatía explícita por las víctimas del conflicto. Esa posición orienta mis preguntas, aunque no exime del rigor documental».",
+     ejercicio:{tipo:"fill",
+       consigna:"Reconoce la posición del autor.",
+       texto:"«Escribo desde la ___, con un interés explícito por las voces subalternas. Mi posición orienta mis preguntas y exige ___ documental».",
+       respuestas:[["historia","sociologia","sociología","antropologia","antropología","filosofia","filosofía"],["rigor","cuidado","control","verificacion","verificación"]],
+       retro:"Reconocer la propia posición no invalida el texto: lo vuelve honesto. La posición explícita es parte del rigor."}},
+
+    {id:"h6", nombre:"Contextualización histórica",
+     concepto:"Los textos humanísticos sitúan sus objetos en contexto: época, lugar, condiciones sociales, tradiciones intelectuales. Sin contexto, las afirmaciones quedan flotando y pierden sentido.",
+     ejemplo:"Afirmar «la familia está en crisis» exige precisar: ¿qué modelo de familia?, ¿en qué época?, ¿según qué indicadores?, ¿en qué contexto social?",
+     ejercicio:{tipo:"fill",
+       consigna:"Contextualiza la afirmación.",
+       texto:"«La familia está en crisis» → «El modelo de familia ___ en el siglo XX en contextos urbanos presenta transformaciones desde ___».",
+       respuestas:[["nuclear","burgues","burgués","tradicional","occidental"],["1970","1960","1980","los anos sesenta","los años sesenta","la segunda mitad del siglo XX"]],
+       retro:"Contextualizar es situar: época, lugar, condiciones sociales. Sin contexto, las afirmaciones en Ciencias Humanas no son verificables."}},
+
+    {id:"h7", nombre:"Interlocución con la tradición",
+     concepto:"El texto humanístico dialoga con autores, corrientes y debates previos. No se escribe en el vacío: se escribe en una conversación que ya lleva siglos. Reconocer esa conversación es parte del oficio.",
+     ejemplo:"Un texto sobre identidad dialoga con Erikson, Hall, Butler, García Canclini. No ignora lo que se ha dicho antes: lo discute, lo amplía o lo critica.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el diálogo con la tradición.",
+       texto:"«Mi reflexión sobre la identidad dialoga con ___, ___ y ___, y se distancia de ___ en el punto ___».",
+       respuestas:[["hall","Hall","erikson","Erikson","butler","Butler","garcia canclini","García Canclini"],["hall","Hall","erikson","Erikson","butler","Butler","garcia canclini","García Canclini"],["hall","Hall","erikson","Erikson","butler","Butler","garcia canclini","García Canclini"],["hall","Hall","erikson","Erikson","butler","Butler","garcia canclini","García Canclini"],["genero","género","clase","raza","etnicidad","performidad","performatividad"]],
+       retro:"Ningún texto humanístico comienza de cero. Reconocer el diálogo con la tradición es parte del rigor."}},
+
+    {id:"h8", nombre:"Registro académico-crítico",
+     concepto:"El registro académico en Ciencias Humanas es formal, culto y riguroso, pero también puede ser personal y comprometido. No se trata de neutralidad, sino de precisión y honestidad.",
+     ejemplo:"No se escribe «la gente piensa que la historia es aburrida»; se escribe «la historia como disciplina enfrenta un desafío de legitimación frente a públicos amplios».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión como registro académico-crítico o coloquial.",
+       categorias:["Académico-crítico","Coloquial"],
+       items:[
+         {texto:"«La historia enfrenta un desafío de legitimación.»", cat:0},
+         {texto:"«La historia es aburrida, la verdad.»", cat:1},
+         {texto:"«Se observa una tensión entre memoria y discurso histórico.»", cat:0},
+         {texto:"«La gente no lee, y ya.»", cat:1},
+         {texto:"«El concepto de nación es problematizado por la crítica poscolonial.»", cat:0}
+       ],
+       retro:"El registro académico en Ciencias Humanas es riguroso pero también comprometido. La formalidad no excluye la voz propia."}},
+
+    {id:"h9", nombre:"Argumentación en Ciencias Humanas",
+     concepto:"Argumentar no es afirmar con énfasis: es ofrecer razones, evidencia, ejemplos y reconocer objeciones. El texto humanístico construye un razonamiento complejo que resiste la objeción.",
+     ejemplo:"En lugar de «la escuela reproduce la desigualdad», se argumenta: «La escuela reproduce la desigualdad porque los currículos, las prácticas evaluativas y la distribución del capital cultural favorecen a quienes ya poseen ventajas sociales (Bourdieu, 1979)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Convierte la afirmación en argumentación.",
+       texto:"«La escuela reproduce la desigualdad» → «La escuela reproduce la desigualdad porque ___, ___ y ___ favorecen a quienes ya tienen ventajas».",
+       respuestas:[["los curriculos","los currículos","el curriculo","el currículo","las practicas","las prácticas","los contenidos"],["las practicas evaluativas","las prácticas evaluativas","la evaluacion","la evaluación","los criterios"],["la distribucion del capital cultural","la distribución del capital cultural","el capital cultural","la cultura escolar"]],
+       retro:"Argumentar es dar razones. En Ciencias Humanas, la argumentación se apoya en teoría, evidencia y reconocimiento de objeciones."}},
+
+    {id:"h10", nombre:"Escritura como forma de pensamiento",
+     concepto:"En Ciencias Humanas, escribir no es solo comunicar lo pensado: es pensar. La escritura permite descubrir contradicciones, articular ideas dispersas y construir el objeto de estudio.",
+     ejemplo:"Un investigador puede empezar a escribir sin tener clara su tesis. Al escribir, la tesis emerge, se precisa, se transforma. Escribir es investigar.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura ayudarte a pensar en Ciencias Humanas? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una manera en que la escritura ayuda a pensar.",
+         "Relacioné la escritura con el trabajo intelectual en Ciencias Humanas.",
+         "Mencioné algún tipo de texto o práctica concreta."
+       ],
+       modelo:"Escribir me ayuda a descubrir lo que pienso. Cuando empiezo un ensayo, muchas veces creo tener una idea clara; al escribir, me doy cuenta de que había contradicciones o vacíos que no había visto. La escritura es como un espejo: me muestra lo que realmente sostengo. Por eso escribo primero sin corregir, para dejar salir las ideas, y después vuelvo sobre el texto para ordenarlo y precisarlo."}}
+  ]
+},
+
+/* ============ BLOQUE 2 · SINTAXIS ============ */
+{
+  id:"b2", nombre:"Sintaxis y oración", emoji:"🧱",
+  desc:"Orden, longitud, voz, subordinación, coordinación y concordancia en el texto humanístico.",
+  tecnicas:[
+    {id:"h11", nombre:"Orden lógico: SVO",
+     concepto:"El orden Sujeto + Verbo + Objeto es la base de la claridad. En Ciencias Humanas, donde los conceptos son complejos, respetar el orden natural ayuda al lector a seguir el razonamiento. Los hipérbatos solo se justifican por énfasis.",
+     ejemplo:"Orden lógico: «Weber distingue cuatro tipos de acción social». Orden alterado: «Cuatro tipos de acción social, Weber, distingue».",
+     ejercicio:{tipo:"fill",
+       consigna:"Ordena la oración según el orden lógico.",
+       texto:"Palabras: «Foucault / el poder / analizó» → «Foucault ___ el poder».",
+       respuestas:[["analizo","analizó"]],
+       retro:"El orden SVO es la base de la claridad. En textos donde los conceptos son complejos, la sintaxis clara es un deber."}},
+
+    {id:"h12", nombre:"Oraciones cortas y pensamiento complejo",
+     concepto:"Las oraciones cortas (20-25 palabras) no empobrecen el pensamiento: lo hacen más preciso. Las ideas complejas se construyen con varias oraciones cortas, no con una interminable.",
+     ejemplo:"En vez de una oración de 60 palabras sobre la posmodernidad, se divide en tres: «La posmodernidad cuestiona los grandes relatos. Lyotard lo formuló así en 1979. Su crítica alcanza a la ciencia y a la política».",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es la longitud recomendada de una oración en Ciencias Humanas?",
+       opciones:["Hasta 50 palabras","Entre 20 y 25 palabras","Al menos 40 palabras","No hay límite"],
+       correcta:1,
+       retro:"Las oraciones cortas no empobrecen: precisan. La complejidad del pensamiento se construye con varias oraciones, no con una sola larga."}},
+
+    {id:"h13", nombre:"Voz activa vs. voz pasiva",
+     concepto:"La voz activa es más clara y directa. En Ciencias Humanas, donde es importante saber quién hace qué, la voz activa permite identificar al agente: autor, sujeto histórico, institución.",
+     ejemplo:"Pasiva: «La teoría fue formulada por Bourdieu». Activa: «Bourdieu formuló la teoría de los campos».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada oración según la voz.",
+       categorias:["Voz activa","Voz pasiva"],
+       items:[
+         {texto:"«Bourdieu formuló la teoría de los campos.»", cat:0},
+         {texto:"«La teoría de los campos fue formulada por Bourdieu.»", cat:1},
+         {texto:"«Los movimientos sociales transformaron la Constitución.»", cat:0},
+         {texto:"«La Constitución fue transformada por los movimientos sociales.»", cat:1},
+         {texto:"«Freire propuso una pedagogía crítica.»", cat:0}
+       ],
+       retro:"La voz activa identifica al agente. En Ciencias Humanas, saber quién hace qué es parte del análisis."}},
+
+    {id:"h14", nombre:"Gerundios: evitar el abuso",
+     concepto:"El gerundio de posterioridad es incorrecto. En textos humanísticos se prefiere el verbo conjugado. El gerundio de simultaneidad («pensando, escribía») sí es válido.",
+     ejemplo:"Incorrecto: «El autor analizó la obra, concluyendo que era revolucionaria». Correcto: «El autor analizó la obra y concluyó que era revolucionaria».",
+     ejercicio:{tipo:"fill",
+       consigna:"Sustituye el gerundio por un verbo conjugado.",
+       texto:"«Lyotard cuestionó los grandes relatos, inaugurando una nueva época» → «Lyotard cuestionó los grandes relatos e ___ una nueva época».",
+       respuestas:[["inauguro","inauguró"]],
+       retro:"El gerundio de posterioridad es incorrecto. Se sustituye por un verbo conjugado o por una oración de relativo."}},
+
+    {id:"h15", nombre:"Subordinación en el texto argumentativo",
+     concepto:"La subordinación es necesaria para matizar y precisar, pero su abuso oscurece. Se recomienda equilibrar: oraciones simples para afirmar, subordinadas para matizar.",
+     ejemplo:"Excesivo: «El autor que analizó la obra que revolucionó el pensamiento que dominaba la época que precedió a la guerra...». Adecuado: «El autor analizó la obra. Esta revolucionó el pensamiento dominante antes de la guerra».",
+     ejercicio:{tipo:"fill",
+       consigna:"Divide la oración en dos más cortas.",
+       texto:"«El historiador que estudió el archivo que contiene documentos del conflicto publicó un libro» → «El historiador estudió el archivo del conflicto. Después ___ un libro».",
+       respuestas:[["publico","publicó"]],
+       retro:"La subordinación excesiva oscurece. Se recomienda equilibrar: oraciones simples para afirmar, subordinadas para matizar."}},
+
+    {id:"h16", nombre:"Coordinación en enumeraciones conceptuales",
+     concepto:"La coordinación une elementos paralelos: corrientes, autores, conceptos, ejemplos. En Ciencias Humanas es frecuente al presentar clasificaciones o tipologías.",
+     ejemplo:"«Weber distingue cuatro tipos de acción social: racional con arreglo a fines; racional con arreglo a valores; afectiva; y tradicional».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su tipo de coordinación.",
+       categorias:["Copulativa","Adversativa","Disyuntiva"],
+       items:[
+         {texto:"y", cat:0},
+         {texto:"pero", cat:1},
+         {texto:"o", cat:2},
+         {texto:"e", cat:0},
+         {texto:"sino", cat:1}
+       ],
+       retro:"La coordinación copulativa suma; la adversativa opone; la disyuntiva presenta alternativas."}},
+
+    {id:"h17", nombre:"Concordancia gramatical",
+     concepto:"La concordancia exige que sujeto y verbo coincidan en número y persona, y que sustantivo y adjetivo coincidan en género y número. Su ruptura produce agramaticalidad y afecta la credibilidad del texto.",
+     ejemplo:"Incorrecto: «Los autores analizó la obra». Correcto: «Los autores analizaron la obra».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la concordancia.",
+       texto:"«Los conceptos de poder y dominación fue desarrollado por Weber» → «Los conceptos de poder y dominación ___ desarrollados por Weber».",
+       respuestas:[["fueron","fue"]],
+       retro:"El sujeto compuesto exige verbo en plural. La concordancia es obligatoria en todo el texto."}},
+
+    {id:"h18", nombre:"Evitar hipérbaton",
+     concepto:"El hipérbaton altera el orden natural. En Ciencias Humanas, se evita salvo cuando se busca un efecto enfático específico. El lector debe poder seguir el razonamiento sin obstáculos sintácticos.",
+     ejemplo:"Hipérbaton: «De la modernidad, los grandes relatos, Lyotard, cuestionó». Orden natural: «Lyotard cuestionó los grandes relatos de la modernidad».",
+     ejercicio:{tipo:"fill",
+       consigna:"Ordena la oración según el orden natural.",
+       texto:"Palabras: «la identidad / Hall / problematizó» → «Hall ___ la identidad».",
+       respuestas:[["problematizo","problematizó"]],
+       retro:"El hipérbaton innecesario oscurece. En textos argumentativos, la claridad sintáctica es esencial."}},
+
+    {id:"h19", nombre:"Párrafos: una idea por párrafo",
+     concepto:"Cada párrafo desarrolla una idea principal. En Ciencias Humanas, donde los argumentos son densos, respetar esta regla es esencial. La extensión recomendada es de 80-150 palabras.",
+     ejemplo:"Un párrafo para presentar el concepto de «campo» en Bourdieu, otro para la «violencia simbólica», otro para un ejemplo etnográfico.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuántas ideas principales debe desarrollar cada párrafo?",
+       opciones:["Todas las relacionadas con el tema","Una sola idea principal","Al menos tres","No importa cuántas"],
+       correcta:1,
+       retro:"Un párrafo = una idea. Si aparece otra, se abre un nuevo párrafo. Es la base de la organización argumentativa."}},
+
+    {id:"h20", nombre:"Referencias anafóricas",
+     concepto:"Los pronombres remiten a antecedentes. En textos humanísticos, donde circulan varios autores y conceptos, la ambigüedad referencial es frecuente. Se debe repetir el sustantivo cuando hay duda.",
+     ejemplo:"Ambiguo: «Bourdieu criticó a Foucault y luego reconoció su influencia». ¿«Su» = Bourdieu o Foucault? Claro: «...y luego reconoció la influencia de Foucault».",
+     ejercicio:{tipo:"fill",
+       consigna:"Elimina la ambigüedad repitiendo el sustantivo.",
+       texto:"«Habermas discutió con Foucault sobre su noción de poder» → «Habermas discutió con Foucault sobre la noción de poder de ___».",
+       respuestas:[["foucault","Foucault"]],
+       retro:"Repetir el sustantivo elimina la ambigüedad. En textos donde circulan varios autores, la precisión referencial es esencial."}}
+  ]
+},
+
+/* ============ BLOQUE 3 · PUNTUACIÓN ============ */
+{
+  id:"b3", nombre:"Puntuación humanística", emoji:"✒️",
+  desc:"Coma, punto y coma, dos puntos, paréntesis, comillas y guiones en el texto académico.",
+  tecnicas:[
+    {id:"h21", nombre:"Coma en enumeraciones conceptuales",
+     concepto:"La coma separa elementos de una enumeración. En Ciencias Humanas es frecuente al listar corrientes, autores o dimensiones de análisis. El último elemento se une con «y» u «o».",
+     ejemplo:"«Se analizarán la dimensión histórica, la dimensión social, la dimensión cultural y la dimensión política del fenómeno».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca las comas donde correspondan.",
+       texto:"«Se estudiarán los conceptos de poder de cultura y de identidad» → «Se estudiarán los conceptos de poder___ de cultura___ y de identidad».",
+       respuestas:[[","],[","]],
+       retro:"Los elementos de una enumeración se separan con coma. El último se une con «y» sin coma previa."}},
+
+    {id:"h22", nombre:"Coma vocativa",
+     concepto:"El vocativo se separa con coma. En textos humanísticos, aparece en citas de diálogo, cartas académicas y textos que se dirigen a un interlocutor.",
+     ejemplo:"«Estimado profesor, adjunto el ensayo revisado». En diálogo: «María, dijo el sociólogo, la modernidad no es un bloque».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca la coma del vocativo.",
+       texto:"«Estimado profesor___ adjunto el ensayo revisado».",
+       respuestas:[[","]],
+       retro:"El vocativo siempre se separa con coma. Es un error frecuente en cartas y textos de presentación."}},
+
+    {id:"h23", nombre:"Punto y coma en series complejas",
+     concepto:"Cuando los elementos de una serie son extensos o tienen puntuación interna, se separan con punto y coma. Es frecuente en textos con autores, obras y años entre paréntesis.",
+     ejemplo:"«Se revisaron las obras de Bourdieu (1979), sobre la distinción; de Foucault (1975), sobre la disciplina; y de Elias (1939), sobre el proceso civilizatorio».",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa los elementos con punto y coma.",
+       texto:"«Se revisaron Bourdieu (1979)___ Foucault (1975)___ y Elias (1939)».",
+       respuestas:[[";"],[";"]],
+       retro:"En series con puntuación interna (autor, año, obra), se usa punto y coma entre elementos."}},
+
+    {id:"h24", nombre:"Dos puntos: citas y conclusiones",
+     concepto:"Los dos puntos anuncian una cita textual, una enumeración o una conclusión. En Ciencias Humanas son frecuentes antes de citas de autores y en el cierre de un razonamiento.",
+     ejemplo:"Como afirmó Geertz: «el hombre es un animal suspendido en redes de significados que él mismo ha tejido».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca dos puntos donde correspondan.",
+       texto:"«Como afirmó Geertz___ el hombre es un animal suspendido en redes de significados».",
+       respuestas:[[""],[""]],
+       retro:"Los dos puntos anuncian citas y conclusiones. Se escriben sin espacio antes y con espacio después."}},
+
+    {id:"h25", nombre:"Punto y aparte",
+     concepto:"El punto y aparte cierra un párrafo. En textos humanísticos, cada párrafo desarrolla una idea; el punto y aparte marca el paso a la siguiente. Facilita la lectura y organiza la argumentación.",
+     ejemplo:"Un párrafo para presentar la tesis, otro para el primer argumento, otro para el segundo, otro para la conclusión.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuándo se usa el punto y aparte en un texto humanístico?",
+       opciones:["Cuando se termina una oración","Cuando se termina un párrafo","Cuando se cita un autor","Cuando se enumeran obras"],
+       correcta:1,
+       retro:"El punto y aparte cierra el párrafo. Después se inicia uno nuevo con sangría o espacio adicional."}},
+
+    {id:"h26", nombre:"Paréntesis para referencias y aclaraciones",
+     concepto:"Los paréntesis encierran información complementaria: referencias bibliográficas (Autor, año), aclaraciones breves, fechas, siglas. En Ciencias Humanas son frecuentes en las citas APA.",
+     ejemplo:"«La noción de campo (Bourdieu, 1979) permite analizar las relaciones de poder en el espacio social».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca paréntesis donde correspondan.",
+       texto:"«La noción de campo ___Bourdieu, 1979___ permite analizar las relaciones de poder».",
+       respuestas:[["("],[" )",""]],
+       retro:"Los paréntesis encierran referencias y aclaraciones. En APA, la referencia va entre paréntesis tras la idea citada."}},
+
+    {id:"h27", nombre:"Comillas: citas y términos específicos",
+     concepto:"Las comillas encierran citas textuales, títulos de artículos o capítulos, términos específicos y usos irónicos. En Ciencias Humanas, distinguen el uso mencionado del uso normal de un término.",
+     ejemplo:"«El término “poder” en Foucault no equivale al de “dominación” en Weber». Cita: «“la imaginación sociológica” (Mills, 1959)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Coloca comillas donde correspondan.",
+       texto:"«El término ___poder___ en Foucault no equivale al de dominación en Weber».",
+       respuestas:[["«","\""],[ "»","\""]],
+       retro:"Las comillas distinguen el uso mencionado de un término. Son frecuentes al problematizar conceptos."}},
+
+    {id:"h28", nombre:"Guiones y rayas en diálogos y aclaraciones",
+     concepto:"El guion (-) une palabras compuestas. La raya (—) introduce diálogos o aclaraciones. En Ciencias Humanas, es frecuente en transcripciones de entrevistas y en aclaraciones del autor.",
+     ejemplo:"«El informante —un campesino de 70 años— describió la violencia como un “tiempo sin ley”». Diálogo: «—Yo no sabía nada —dijo el testigo—. Solo escuché los disparos».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada uso del signo.",
+       categorias:["Guion (-)","Raya (—)"],
+       items:[
+         {texto:"«socio-histórico»", cat:0},
+         {texto:"«teórico-metodológico»", cat:0},
+         {texto:"«El testigo —dijo— no recordaba»", cat:1},
+         {texto:"«El informante —de 70 años— describió»", cat:1},
+         {texto:"«histórico-cultural»", cat:0}
+       ],
+       retro:"El guion une; la raya aísla. En transcripciones de entrevistas, la raya marca intervenciones."}},
+
+    {id:"h29", nombre:"Punto y seguido",
+     concepto:"El punto y seguido separa oraciones dentro de un párrafo. Cada oración debe tener sentido completo. Su uso correcto es fundamental para la claridad.",
+     ejemplo:"«Weber propuso una sociología comprensiva. Su objetivo era entender el sentido de la acción social. Distinguió cuatro tipos ideales».",
+     ejercicio:{tipo:"fill",
+       consigna:"Separa las oraciones con punto y seguido.",
+       texto:"«Weber propuso una sociología comprensiva___ Su objetivo era entender el sentido de la acción social».",
+       respuestas:[["."]],
+       retro:"El punto y seguido separa oraciones. Después se escribe mayúscula."}},
+
+    {id:"h30", nombre:"Signos en citas largas y entrecomillados anidados",
+     concepto:"En Ciencias Humanas es frecuente citar textos que a su vez citan. Las comillas anidadas siguen una jerarquía: las externas son latinas (« ») o inglesas (“ ”), y las internas, simples (‘ ’).",
+     ejemplo:"«Freire afirmó: “La educación no cambia el mundo, cambia a las personas que van a cambiar el mundo”. Esta frase, hoy tan citada, resume su ‘pedagogía de la esperanza’».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita anidada.",
+       texto:"«Freire afirmó: “La educación no cambia el mundo, cambia a las personas que van a cambiar el mundo”. Esta idea resume su ___pedagogía de la esperanza___».",
+       respuestas:[["‘","'"],["’","'"]],
+       retro:"Las comillas anidadas usan jerarquía: dobles para el nivel externo, simples para el interno."}}
+  ]
+},
+
+/* ============ BLOQUE 4 · ORTOGRAFÍA Y NORMATIVA ============ */
+{
+  id:"b4", nombre:"Ortografía y normativa humanística", emoji:"📝",
+  desc:"Tildes, mayúsculas, nombres propios, fechas, siglas y latinismos.",
+  tecnicas:[
+    {id:"h31", nombre:"Tildes en términos humanísticos",
+     concepto:"Los términos de las Ciencias Humanas siguen las reglas generales de acentuación: sociología, antropología, hermenéutica, epistemología, discurso, hegemonía. Errores frecuentes: «sociologia», «antropologia», «hermeneutica».",
+     ejemplo:"«Sociología», «antropología», «hermenéutica», «epistemología», «hegemonía», «discurso» (sin tilde por ser grave terminada en vocal), «poder» (sin tilde por ser aguda terminada en consonante distinta de n o s).",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada palabra según su tipo de acentuación.",
+       categorias:["Aguda","Grave","Esdrújula"],
+       items:[
+         {texto:"sociología", cat:0},
+         {texto:"antropología", cat:0},
+         {texto:"hermenéutica", cat:2},
+         {texto:"epistemología", cat:0},
+         {texto:"discurso", cat:1},
+         {texto:"hegemonía", cat:0}
+       ],
+       retro:"Los términos humanísticos siguen las reglas generales. Esdrújulas siempre llevan tilde; agudas en vocal, -n o -s también."}},
+
+    {id:"h32", nombre:"Tilde diacrítica",
+     concepto:"La tilde diacrítica distingue palabras iguales con funciones distintas: él/el, tú/tu, mí/mi, sí/si, más/mas, dé/de, sé/se, té/te. Es un error frecuente en textos académicos.",
+     ejemplo:"«Él escribió el prólogo» / «El prólogo es de él». «Tu trabajo» / «Tú trabajas». «Sí, es cierto» / «Si estudias, apruebas».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa con la forma correcta.",
+       texto:"___ trabajo es excelente (tu/tú). · ___ analizó la obra (él/el). · Quiero ___ de café (té/te).",
+       respuestas:[["tu","tú"],["el","él"],["te","té"]],
+       retro:"La tilde diacrítica distingue funciones. En textos académicos, escribirla correctamente es parte del rigor."}},
+
+    {id:"h33", nombre:"Mayúsculas en nombres propios y corrientes",
+     concepto:"Los nombres propios de autores, obras e instituciones llevan mayúscula. Las corrientes de pensamiento, escuelas y movimientos van en minúscula: marxismo, estructuralismo, postmodernidad, ilustración (como periodo histórico).",
+     ejemplo:"«Foucault escribió “Vigilar y castigar”». «El estructuralismo surgió en Francia en los años sesenta». «La ilustración fue un movimiento europeo».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica el uso de mayúsculas/minúsculas.",
+       categorias:["Correcto","Incorrecto"],
+       items:[
+         {texto:"«El Estructuralismo surgió en Francia»", cat:1},
+         {texto:"«El estructuralismo surgió en Francia»", cat:0},
+         {texto:"«Foucault escribió Vigilar y castigar»", cat:0},
+         {texto:"«El Marxismo es una corriente crítica»", cat:1},
+         {texto:"«El marxismo es una corriente crítica»", cat:0}
+       ],
+       retro:"Las corrientes de pensamiento van en minúscula. Los nombres propios y títulos de obras, en mayúscula."}},
+
+    {id:"h34", nombre:"Fechas y siglos",
+     concepto:"Los siglos se escriben con números romanos y minúscula: siglo XX, siglo XIX. Las fechas se escriben con números arábigos y mes en minúscula: 15 de julio de 2024.",
+     ejemplo:"«El estructuralismo surgió en el siglo XX». «La Revolución francesa comenzó en 1789». «La obra se publicó el 15 de julio de 1979».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la fecha y el siglo.",
+       texto:"«En el Siglo 20 y en Julio de 1979» → «En el siglo ___ y en ___ de 1979».",
+       respuestas:[["XX","xx"],["julio"]],
+       retro:"Los siglos van en números romanos y minúscula. Los meses van en minúscula. Es la norma de la RAE."}},
+
+    {id:"h35", nombre:"Siglas humanísticas",
+     concepto:"En Ciencias Humanas abundan las siglas: ONU, UNESCO, CEPAL, OEA, DANE, ICANH, CNMH (Centro Nacional de Memoria Histórica). Se escriben sin puntos y en mayúsculas, y se definen la primera vez.",
+     ejemplo:"«El Centro Nacional de Memoria Histórica (CNMH) publicó el informe “¡Basta ya!”». «La CEPAL (Comisión Económica para América Latina) analizó la desigualdad».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el significado de las siglas.",
+       texto:"CNMH = Centro Nacional de ___ Histórica. DANE = Departamento Administrativo Nacional de ___.",
+       respuestas:[["Memoria"],["Estadistica","Estadística"]],
+       retro:"Las siglas se definen la primera vez y después se usan solas. Es parte del rigor en Ciencias Humanas."}},
+
+    {id:"h36", nombre:"Abreviaturas académicas",
+     concepto:"Las abreviaturas se cierran con punto: pág. (página), vol. (volumen), cap. (capítulo), ed. (edición), n.º (número), etc. En notas al pie, se usan con frecuencia: cf. (confrontar), vid. (véase), ibid. (en el mismo lugar).",
+     ejemplo:"«Vid. Bourdieu (1979), cap. 3, págs. 45-60». «Cf. Foucault (1975) para una crítica del mismo problema».",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la abreviatura correcta.",
+       texto:"«Ver el capítulo 3» → «Vid. cap. ___» (número: 3). · «Confrontar con Foucault» → «___ Foucault» (confrontar).",
+       respuestas:[["3"],["cf","Cf","cf."]],
+       retro:"Las abreviaturas académicas (cf., vid., ibid., pág., cap.) son frecuentes en notas al pie y referencias."}},
+
+    {id:"h37", nombre:"Latinismos en Ciencias Humanas",
+     concepto:"En Ciencias Humanas abundan los latinismos: a priori, a posteriori, in situ, ad hoc, de facto, sui generis, corpus, status quo. Se escriben en cursiva y sin acentos.",
+     ejemplo:"«La distinción es válida a priori, pero requiere verificación empírica». «El corpus documental se analizó in situ». «El status quo se mantuvo por décadas».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada latinismo según su significado.",
+       categorias:["Antes de","Después de","En el lugar","De hecho"],
+       items:[
+         {texto:"a priori", cat:0},
+         {texto:"a posteriori", cat:1},
+         {texto:"in situ", cat:2},
+         {texto:"de facto", cat:3},
+         {texto:"ad hoc", cat:2}
+       ],
+       retro:"Los latinismos se escriben en cursiva y sin acentos. Son frecuentes en el lenguaje académico humanístico."}},
+
+    {id:"h38", nombre:"Nombres propios y transliteraciones",
+     concepto:"Los nombres propios extranjeros conservan su forma original o se adaptan al español según la tradición: Foucault, Bourdieu, Geertz, Weber, Marx, Heidegger. Los nombres rusos o chinos pueden escribirse con adaptación: Tolstói, Chéjov, Mao.",
+     ejemplo:"«Foucault», «Bourdieu», «Heidegger», «Weber» conservan su forma. «Tolstói», «Dostoyevski», «Chéjov» se adaptan al español.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe la forma adaptada al español.",
+       texto:"«Tolstoy» → ___ (con tilde). · «Dostoevsky» → ___ (adaptación al español).",
+       respuestas:[["Tolstoi","Tolstói"],["Dostoievski","Dostoyevski"]],
+       retro:"Los nombres propios extranjeros pueden adaptarse al español cuando existe tradición. La coherencia es esencial."}},
+
+    {id:"h39", nombre:"Números y estadísticas",
+     concepto:"En Ciencias Humanas, las cifras exactas se escriben con números arábigos; los porcentajes con espacio antes del símbolo; las décadas con número y «s»: «los años sesenta» o «la década de 1960».",
+     ejemplo:"«El 47 % de la población fue desplazada». «En los años sesenta surgió el estructuralismo». «La investigación abarcó 320 documentos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Corrige la expresión numérica.",
+       texto:"«El 47% de la población» → «El 47 ___ de la población». · «En los años 60s» → «En los años ___».",
+       respuestas:[["%"],["sesenta","60","1960"]],
+       retro:"En español se escribe espacio antes del símbolo %: 47 %. Las décadas se escriben con letra o con número sin «s»."}},
+
+    {id:"h40", nombre:"Cursivas y comillas en títulos",
+     concepto:"Los títulos de obras completas (libros, películas, obras de arte) van en cursiva. Los títulos de artículos, capítulos o poemas van entre comillas. Es la norma de la RAE y de APA.",
+     ejemplo:"«Foucault escribió Vigilar y castigar (cursiva)». «El artículo “El poder en Foucault” apareció en la revista…». «El poema “Altazor” de Huidobro».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada título según su formato.",
+       categorias:["Cursiva (obra completa)","Comillas (obra breve)"],
+       items:[
+         {texto:"Vigilar y castigar (libro)", cat:0},
+         {texto:"“El poder en Foucault” (artículo)", cat:1},
+         {texto:"Cien años de soledad (novela)", cat:0},
+         {texto:"“Altazor” (poema)", cat:1},
+         {texto:"El capital (libro)", cat:0}
+       ],
+       retro:"Obras completas en cursiva; obras breves entre comillas. La distinción es parte del rigor académico."}}
+  ]
+},
+
+/* ============ BLOQUE 5 · LÉXICO DE LAS CIENCIAS HUMANAS ============ */
+{
+  id:"b5", nombre:"Léxico de las Ciencias Humanas", emoji:"🔍",
+  desc:"Terminología por disciplina, tecnicismos, jerga, neologismos y precisión conceptual.",
+  tecnicas:[
+    {id:"h41", nombre:"Terminología por disciplina",
+     concepto:"Cada disciplina de las Ciencias Humanas tiene su terminología: historia (fuente, archivo, anacronismo), sociología (estructura, clase, habitus), antropología (etnografía, cultura, ritual), filosofía (ontología, epistemología, ética).",
+     ejemplo:"«El habitus (Bourdieu) articula estructura social y práctica individual». «El archivo es la fuente primaria del historiador». «La etnografía implica observación participante».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término según su disciplina.",
+       categorias:["Historia","Sociología","Antropología","Filosofía"],
+       items:[
+         {texto:"archivo", cat:0},
+         {texto:"habitus", cat:1},
+         {texto:"etnografía", cat:2},
+         {texto:"ontología", cat:3},
+         {texto:"fuente primaria", cat:0},
+         {texto:"ritual", cat:2}
+       ],
+       retro:"Cada disciplina tiene su terminología precisa. Usarla correctamente es señal de rigor."}},
+
+    {id:"h42", nombre:"Tecnicismos conceptuales",
+     concepto:"Las Ciencias Humanas usan conceptos técnicos con definiciones específicas: hegemonía (Gramsci), campo (Bourdieu), dispositivo (Foucault), biopolítica, subalternidad (Spivak), interseccionalidad (Crenshaw).",
+     ejemplo:"«La hegemonía no es solo dominación: implica consenso y dirección cultural (Gramsci)». «El dispositivo es una red de relaciones que produce subjetividades (Foucault)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el concepto y su autor.",
+       texto:"La ___ es un concepto de Gramsci que designa la dirección cultural y el consenso. El ___ es un concepto de Foucault que designa una red de relaciones que producen subjetividad.",
+       respuestas:[["hegemonia","hegemonía"],["dispositivo"]],
+       retro:"Los conceptos en Ciencias Humanas tienen autores y tradiciones. Citar la fuente es parte del rigor."}},
+
+    {id:"h43", nombre:"Precisión conceptual",
+     concepto:"Los términos aparentemente sinónimos tienen matices: «poder» vs. «dominación»; «identidad» vs. «identificación»; «discurso» vs. «lenguaje»; «cultura» vs. «civilización». Confundirlos es un error conceptual.",
+     ejemplo:"En Foucault, «poder» no es sinónimo de «violencia» ni de «dominación»: es una relación productiva. En Stuart Hall, «identificación» es un proceso, no una esencia fija.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término según su matiz.",
+       categorias:["Relación productiva (Foucault)","Dirección cultural (Gramsci)","Proceso abierto (Hall)"],
+       items:[
+         {texto:"poder", cat:0},
+         {texto:"hegemonía", cat:1},
+         {texto:"identificación", cat:2},
+         {texto:"dispositivo", cat:0},
+         {texto:"consenso", cat:1}
+       ],
+       retro:"Cada término tiene un autor y un matiz específico. Precisar es parte del rigor en Ciencias Humanas."}},
+
+    {id:"h44", nombre:"Neologismos y conceptos emergentes",
+     concepto:"Las Ciencias Humanas producen conceptos nuevos: interseccionalidad, decolonialidad, necropolítica, antropoceno, posthumanismo, estudios culturales. Algunos se adaptan al español; otros se mantienen en su idioma original.",
+     ejemplo:"«Interseccionalidad» (Crenshaw) y «decolonialidad» (Mignolo, Quijano) se usan en español. «Empowerment» se traduce como «empoderamiento»; «agency» como «agencia».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada concepto como adaptado al español o mantenido en inglés.",
+       categorias:["Adaptado al español","Mantenido en inglés"],
+       items:[
+         {texto:"interseccionalidad", cat:0},
+         {texto:"empowerment", cat:1},
+         {texto:"decolonialidad", cat:0},
+         {texto:"agency", cat:1},
+         {texto:"necropolítica", cat:0}
+       ],
+       retro:"Cuando existe equivalente español, se prefiere. Si no, se mantiene el término original en cursiva."}},
+
+    {id:"h45", nombre:"Léxico del análisis del discurso",
+     concepto:"El análisis del discurso tiene su propia terminología: enunciado, formación discursiva, interdiscurso, género discursivo, polifonía, dialogismo (Bajtín), intertextualidad (Kristeva).",
+     ejemplo:"«El enunciado se inscribe en una formación discursiva». «El texto es dialógico: en él resuenan otras voces (Bajtín)». «La intertextualidad conecta el texto con otros textos (Kristeva)».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el término del análisis del discurso.",
+       texto:"Para Bajtín, el texto es ___: en él resuenan otras voces. Para Kristeva, la ___ conecta un texto con otros textos.",
+       respuestas:[["dialogico","dialógico"],["intertextualidad"]],
+       retro:"El análisis del discurso tiene su terminología propia. Conocerla y usarla correctamente es parte del oficio."}},
+
+    {id:"h46", nombre:"Léxico de la investigación cualitativa",
+     concepto:"La investigación cualitativa usa términos como: muestreo teórico, saturación, codificación, categorización, triangulación, validez, confiabilidad, reflexividad. Cada uno tiene un sentido específico.",
+     ejemplo:"«La saturación se alcanzó tras 20 entrevistas». «La triangulación combinó observación, entrevista y análisis documental». «La reflexividad implica reconocer el efecto del investigador».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el término metodológico.",
+       texto:"La ___ se alcanza cuando las nuevas entrevistas no aportan información nueva. La ___ combina varias fuentes para validar los hallazgos.",
+       respuestas:[["saturacion","saturación"],["triangulacion","triangulación"]],
+       retro:"La investigación cualitativa tiene su propio léxico. Usarlo correctamente demuestra formación metodológica."}},
+
+    {id:"h47", nombre:"Léxico de la historia",
+     concepto:"La historia usa términos específicos: fuente primaria y secundaria, archivo, paleografía, diacronía, sincronía, anacronismo, periodización, historiografía, hermenéutica documental.",
+     ejemplo:"«El anacronismo consiste en juzgar el pasado con categorías del presente». «La historiografía analiza cómo se ha escrito la historia».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada término según su significado.",
+       categorias:["Juzgar con categorías actuales","Análisis de la escritura de la historia","Estudio de documentos originales"],
+       items:[
+         {texto:"anacronismo", cat:0},
+         {texto:"historiografía", cat:1},
+         {texto:"paleografía", cat:2},
+         {texto:"fuente primaria", cat:2},
+         {texto:"periodización", cat:1}
+       ],
+       retro:"Cada término histórico tiene su sentido específico. Conocerlos es parte de la formación del historiador."}},
+
+    {id:"h48", nombre:"Léxico de la filosofía",
+     concepto:"La filosofía tiene un léxico técnico: ontología, epistemología, ética, estética, lógica, dialéctica, fenomenología, hermenéutica, aporía, subjetividad, intersubjetividad.",
+     ejemplo:"«La ontología estudia el ser; la epistemología, el conocimiento; la ética, la acción». «La hermenéutica es el arte de la interpretación».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada disciplina según su objeto de estudio.",
+       categorias:["Ser","Conocimiento","Acción","Interpretación"],
+       items:[
+         {texto:"ontología", cat:0},
+         {texto:"epistemología", cat:1},
+         {texto:"ética", cat:2},
+         {texto:"hermenéutica", cat:3},
+         {texto:"fenomenología", cat:0}
+       ],
+       retro:"Cada disciplina filosófica tiene su objeto. Usar los términos correctamente demuestra formación filosófica."}},
+
+    {id:"h49", nombre:"Léxico de la antropología",
+     concepto:"La antropología usa términos como: etnografía, etnología, cultura, ritual, parentesco, tabú, cosmovisión, observación participante, relativismo cultural, etnocentrismo, aculturación.",
+     ejemplo:"«La observación participante implica vivir con la comunidad estudiada». «El etnocentrismo consiste en juzgar otras culturas con los criterios propios».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el término antropológico.",
+       texto:"El ___ consiste en juzgar otras culturas con los criterios propios. El ___ cultural reconoce que cada cultura debe entenderse en sus propios términos.",
+       respuestas:[["etnocentrismo"],["relativismo"]],
+       retro:"La antropología tiene su propio léxico. Estos términos son centrales para comprender su mirada."}},
+
+    {id:"h50", nombre:"Diccionarios y fuentes especializadas",
+     concepto:"El redactor en Ciencias Humanas consulta diccionarios especializados: Diccionario de la RAE, diccionarios de filosofía, de sociología, de antropología, de historia. También consulta obras de referencia y manuales disciplinares.",
+     ejemplo:"Antes de usar «biopolítica», se consulta el diccionario de filosofía política o se acude a la fuente original (Foucault). La precisión es parte del rigor.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Por qué es necesario consultar diccionarios especializados en Ciencias Humanas?",
+       opciones:["Para alargar el texto","Porque los términos tienen sentidos específicos según la tradición disciplinar","Porque lo exige la universidad","Para usar palabras difíciles"],
+       correcta:1,
+       retro:"Los términos en Ciencias Humanas tienen historia y matices. Consultar diccionarios especializados es parte del rigor profesional."}}
+  ]
+},
+
+/* ============ BLOQUE 6 · ESTILO UNIVERSITARIO ============ */
+{
+  id:"b6", nombre:"Estilo universitario y académico", emoji:"🎓",
+  desc:"Registro, citas APA, paráfrasis, plagio, argumentación y coherencia.",
+  tecnicas:[
+    {id:"h51", nombre:"Registro académico",
+     concepto:"El registro académico en Ciencias Humanas es formal y culto, pero también puede ser personal y comprometido. Se evitan coloquialismos, expresiones vagas y valoraciones sin respaldo.",
+     ejemplo:"No se escribe «la sociedad está muy mal»; se escribe «se observan tensiones sociales que expresan una crisis de legitimidad de las instituciones».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión como registro académico o coloquial.",
+       categorias:["Académico","Coloquial"],
+       items:[
+         {texto:"«Se observan tensiones sociales.»", cat:0},
+         {texto:"«La sociedad está muy mal.»", cat:1},
+         {texto:"«El autor problematiza la noción de identidad.»", cat:0},
+         {texto:"«El autor dice cosas raras.»", cat:1},
+         {texto:"«Se evidencia una crisis de legitimidad.»", cat:0}
+       ],
+       retro:"El registro académico es riguroso pero puede ser también comprometido. La formalidad no excluye la voz propia."}},
+
+    {id:"h52", nombre:"Citas textuales cortas (APA)",
+     concepto:"Las citas textuales de menos de 40 palabras van entre comillas dentro del párrafo, con autor, año y página: (Autor, año, p. X). Es la norma APA, muy usada en Ciencias Humanas.",
+     ejemplo:"«El hombre es un animal suspendido en redes de significados que él mismo ha tejido» (Geertz, 1973, p. 20).",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita APA.",
+       texto:"«El hombre es un animal suspendido en redes de significados» (Geertz, ___, p. ___). (Geertz, 1973, p. 20)",
+       respuestas:[["1973"],["20"]],
+       retro:"La cita textual siempre lleva autor, año y página. Sin estos datos, la cita está incompleta."}},
+
+    {id:"h53", nombre:"Citas textuales largas",
+     concepto:"Las citas de más de 40 palabras van en bloque sangrado, sin comillas, con autor, año y página al final. Es frecuente en Ciencias Humanas cuando se cita un pasaje extenso de un autor.",
+     ejemplo:"En un párrafo aparte, sangrado a la izquierda: «El poder no es una institución, ni una estructura, ni una cierta potencia… es el nombre dado a una situación estratégica compleja en una sociedad dada» (Foucault, 1976, p. 113).",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cómo se escribe una cita directa de más de 40 palabras en APA?",
+       opciones:["Entre comillas dentro del texto","En bloque sangrado, sin comillas, con autor, año y página","Sin indicar la fuente","En cursiva y sin autor"],
+       correcta:1,
+       retro:"Las citas largas se sangran en bloque y se omiten las comillas. Siempre se indica autor, año y página."}},
+
+    {id:"h54", nombre:"Paráfrasis académica",
+     concepto:"Parafrasear es reformular la idea de otro con palabras propias, manteniendo el significado y citando la fuente. Es esencial en Ciencias Humanas, donde se dialoga continuamente con otros autores.",
+     ejemplo:"Original: «La imaginación sociológica permite comprender la relación entre biografía e historia». Paráfrasis: «Según Mills (1959), la imaginación sociológica conecta las trayectorias personales con los procesos históricos».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la paráfrasis con la cita APA.",
+       texto:"«Según ___ (___), la imaginación sociológica conecta biografía e historia».",
+       respuestas:[["mills","Mills"],["1959"]],
+       retro:"La paráfrasis mantiene la idea ajena con palabras propias y siempre cita la fuente. Sin cita, sería plagio."}},
+
+    {id:"h55", nombre:"Referencias bibliográficas APA",
+     concepto:"En APA, las referencias se ordenan alfabéticamente y siguen un formato específico. Libro: Apellido, A. A. (Año). Título en cursiva. Editorial. Artículo: Apellido, A. A. (Año). Título del artículo. Nombre de la Revista, volumen(número), páginas.",
+     ejemplo:"Bourdieu, P. (1979). La distinción: criterios y bases sociales del gusto. Taurus. · Geertz, C. (1973). La interpretación de las culturas. Gedisa.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los elementos de una referencia APA de libro.",
+       items:[
+         "Apellido, inicial del autor.",
+         "(Año).",
+         "Título del libro en cursiva.",
+         "Editorial."
+       ],
+       retro:"El orden APA es fijo: autor, año, título (cursiva), editorial. Es la norma más usada en Ciencias Humanas."}},
+
+    {id:"h56", nombre:"Referencias de capítulos y artículos",
+     concepto:"Los capítulos de libro y los artículos de revista tienen formatos específicos en APA. Capítulo: Apellido, A. A. (Año). Título del capítulo. En A. A. Editor (Ed.), Título del libro (pp. X-X). Editorial. Artículo: Apellido, A. A. (Año). Título. Revista, vol(núm), páginas. DOI.",
+     ejemplo:"Foucault, M. (1976). El dispositivo de sexualidad. En Historia de la sexualidad (pp. 101-135). Siglo XXI. · Hall, S. (1996). ¿Quién necesita identidad? Cuadernos de Sociología, 12(3), 45-68.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la referencia del capítulo.",
+       texto:"Foucault, M. (1976). El dispositivo de sexualidad. En ___ (pp. 101-135). Siglo XXI.",
+       respuestas:[["historia de la sexualidad","Historia de la sexualidad"]],
+       retro:"El capítulo incluye el título del libro donde aparece, con la abreviatura «En» y las páginas entre paréntesis."}},
+
+    {id:"h57", nombre:"Conectores lógicos académicos",
+     concepto:"Los conectores organizan el razonamiento: adición (además, asimismo), contraste (sin embargo, no obstante), causa (porque, debido a), consecuencia (por lo tanto, en consecuencia), orden (en primer lugar, seguidamente), reformulación (es decir, en otras palabras).",
+     ejemplo:"«El estructuralismo cuestionó al sujeto moderno; sin embargo, no renunció a la búsqueda de estructuras. Por lo tanto, mantuvo una ambigüedad productiva».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada conector según su función.",
+       categorias:["Adición","Contraste","Consecuencia","Reformulación"],
+       items:[
+         {texto:"además", cat:0},
+         {texto:"sin embargo", cat:1},
+         {texto:"por lo tanto", cat:2},
+         {texto:"es decir", cat:3},
+         {texto:"asimismo", cat:0},
+         {texto:"en consecuencia", cat:2},
+         {texto:"en otras palabras", cat:3}
+       ],
+       retro:"Los conectores revelan la relación lógica entre las ideas. Sin ellos, el texto académico pierde su hilo argumentativo."}},
+
+    {id:"h56b", nombre:"Evitar el plagio",
+     concepto:"El plagio es presentar como propio el trabajo ajeno. Se evita citando siempre las fuentes, tanto en citas textuales como en paráfrasis. En Ciencias Humanas es una falta grave de integridad académica.",
+     ejemplo:"Copiar un párrafo de un libro sin comillas ni cita es plagio. Parafrasear sin citar también lo es. Usar ideas de otro sin reconocerlas también.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál de estas prácticas es plagio?",
+       opciones:["Parafrasear una idea y citar al autor","Copiar un párrafo literal sin comillas ni cita","Resumir un artículo y referenciarlo","Usar una cita textual entre comillas con su referencia"],
+       correcta:1,
+       retro:"Copiar sin citar es plagio, incluso si se cambian algunas palabras. Citar y parafrasear con referencia son prácticas correctas."}},
+
+    {id:"h59", nombre:"Argumentación humanística",
+     concepto:"La argumentación en Ciencias Humanas defiende una tesis con razones, evidencia, ejemplos y referencias. Reconoce objeciones y las responde. La argumentación es compleja porque los problemas son complejos.",
+     ejemplo:"«Este ensayo defiende que la noción de identidad en Hall es procesual. Primero, porque Hall la define como identificación, no como esencia. Segundo, porque articula historia y cultura. Sin embargo, algunos objetan…».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la estructura de la argumentación humanística.",
+       items:[
+         "Introducción con la tesis.",
+         "Argumentos con evidencia y referencias.",
+         "Reconocimiento y respuesta a objeciones.",
+         "Conclusión que retoma la tesis."
+       ],
+       retro:"La argumentación humanística sigue la estructura: tesis → argumentos → refutación de objeciones → conclusión."}},
+
+    {id:"h60", nombre:"Coherencia global del texto",
+     concepto:"La coherencia es la unidad de sentido del texto: todas sus partes contribuyen al mismo propósito, sin contradicciones, con progresión temática. En Ciencias Humanas, donde los argumentos son densos, la coherencia es esencial.",
+     ejemplo:"Un ensayo sobre «identidad» que en la mitad dedica tres párrafos a «diferencia» sin articulación pierde coherencia global.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué problema afecta a la COHERENCIA global, no a la cohesión?",
+       opciones:["Falta un conector entre dos oraciones","Un párrafo se contradice con el anterior","Hay una falta de ortografía","Una oración es demasiado larga"],
+       correcta:1,
+       retro:"La cohesión se ocupa de los enlaces; la coherencia, del sentido global. Una contradicción es un fallo de coherencia."}}
+  ]
+},
+
+/* ============ BLOQUE 7 · GÉNEROS DISCURSIVOS ============ */
+{
+  id:"b7", nombre:"Géneros discursivos en Ciencias Humanas", emoji:"📄",
+  desc:"Ensayo, reseña, monografía, ponencia, informe, artículo y comentario de texto.",
+  tecnicas:[
+    {id:"h61", nombre:"Ensayo humanístico",
+     concepto:"El ensayo es un género de reflexión libre, personal y riguroso. Defiende una tesis con argumentos, referencias y estilo propio. Admite la voz personal sin renunciar al rigor académico.",
+     ejemplo:"Un ensayo sobre «la memoria y el olvido» puede articular filosofía, historia y literatura, con voz personal y referencias académicas.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la estructura del ensayo.",
+       texto:"El ensayo tiene una ___ con tesis, un ___ con argumentos, y una ___ que retoma la tesis.",
+       respuestas:[["introduccion","introducción"],["desarrollo","cuerpo"],["conclusion","conclusión"]],
+       retro:"El ensayo combina reflexión personal y rigor académico. La tesis se defiende con argumentos y referencias."}},
+
+    {id:"h62", nombre:"Reseña crítica",
+     concepto:"La reseña valora críticamente un libro, un artículo o una obra. Resume, contextualiza, analiza los puntos fuertes y débiles, y lo sitúa en el campo. No es solo un resumen: es una evaluación razonada.",
+     ejemplo:"«El libro X ofrece una síntesis actualizada del concepto de cultura, aunque omite las críticas decoloniales recientes. Su principal aporte es…».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa las partes de la reseña.",
+       texto:"La reseña resume el ___ y lo ___ en el campo. Analiza los puntos ___ y ___ y termina con una ___ razonada.",
+       respuestas:[["contenido","texto","libro","trabajo"],["contextualiza","sitúa","situa"],["fuertes","positivos","fortalezas"],["debiles","débiles","negativos","debilidades"],["valoracion","valoración","recomendacion","recomendación","opinion","opinión"]],
+       retro:"La reseña combina síntesis y valoración. No basta con resumir: hay que aportar un juicio razonado."}},
+
+    {id:"h63", nombre:"Monografía",
+     concepto:"La monografía es un trabajo extenso y riguroso sobre un tema específico. Tiene introducción, marco teórico, metodología, desarrollo, conclusiones y referencias. Es el género por excelencia del trabajo de grado.",
+     ejemplo:"Una monografía sobre «la memoria del conflicto armado en Colombia» puede incluir marco teórico, análisis documental, entrevistas y conclusiones.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una monografía.",
+       items:[
+         "Introducción y planteamiento del problema.",
+         "Marco teórico y estado del arte.",
+         "Metodología y fuentes.",
+         "Desarrollo y análisis.",
+         "Conclusiones y referencias."
+       ],
+       retro:"La monografía es un trabajo extenso y riguroso. Cada parte cumple una función específica en la construcción del conocimiento."}},
+
+    {id:"h64", nombre:"Ponencia",
+     concepto:"La ponencia es un texto que se presenta oralmente en un evento académico. Combina escritura y oralidad: tiene introducción, desarrollo con argumentos, conclusión y se apoya en diapositivas claras.",
+     ejemplo:"Una ponencia sobre «la imagen en la era digital» presenta el problema, expone la metodología, muestra resultados y propone conclusiones.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes de una ponencia.",
+       items:[
+         "Presentación del tema y del ponente.",
+         "Contexto y problema abordado.",
+         "Desarrollo con argumentos y evidencia.",
+         "Resultados y conclusiones.",
+         "Turno de preguntas."
+       ],
+       retro:"La ponencia combina escritura y oralidad. Debe ser clara, concisa y con apoyo visual adecuado."}},
+
+    {id:"h65", nombre:"Informe de investigación",
+     concepto:"El informe de investigación documenta un proceso: problema, objetivos, marco teórico, metodología, resultados, discusión y conclusiones. Es un género central en Ciencias Humanas.",
+     ejemplo:"Un informe sobre «la deserción escolar en zonas rurales» incluye contexto, metodología cualitativa, resultados y recomendaciones.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las partes del informe de investigación.",
+       items:[
+         "Problema y objetivos.",
+         "Marco teórico.",
+         "Metodología.",
+         "Resultados y discusión.",
+         "Conclusiones y recomendaciones."
+       ],
+       retro:"El informe de investigación documenta un proceso. Cada parte debe ser clara y verificable."}},
+
+    {id:"h66", nombre:"Artículo de reflexión",
+     concepto:"El artículo de reflexión presenta una interpretación o análisis teórico sobre un tema, sin pretender necesariamente presentar datos empíricos nuevos. Es frecuente en revistas de Ciencias Humanas.",
+     ejemplo:"Un artículo que analiza «la noción de biopolítica en Foucault y su recepción en América Latina» es un artículo de reflexión.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada artículo según su tipo.",
+       categorias:["Artículo de reflexión","Artículo de investigación"],
+       items:[
+         {texto:"Análisis teórico del concepto de hegemonía.", cat:0},
+         {texto:"Estudio empírico con encuestas a 200 personas.", cat:1},
+         {texto:"Relectura crítica de un autor clásico.", cat:0},
+         {texto:"Análisis de datos recogidos en campo.", cat:1},
+         {texto:"Ensayo interpretativo sobre un problema filosófico.", cat:0}
+       ],
+       retro:"El artículo de reflexión es teórico; el de investigación presenta datos empíricos. Ambos son válidos en Ciencias Humanas."}},
+
+    {id:"h67", nombre:"Comentario de texto",
+     concepto:"El comentario de texto analiza un fragmento: lo sitúa, lo explica, lo interpreta y lo valora. Es un género clásico en filosofía, literatura e historia. Exige comprensión profunda del texto.",
+     ejemplo:"Comentar un fragmento de «La genealogía de la moral» de Nietzsche: situarlo, explicar sus conceptos, interpretarlo y valorarlo.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los pasos del comentario de texto.",
+       items:[
+         "Localización del fragmento (autor, obra, contexto).",
+         "Explicación del contenido y de los conceptos clave.",
+         "Análisis de la estructura y los recursos.",
+         "Interpretación del sentido global.",
+         "Valoración crítica."
+       ],
+       retro:"El comentario de texto exige comprender, explicar, interpretar y valorar. Cada paso es necesario."}},
+
+    {id:"h68", nombre:"Entrevista y testimonio",
+     concepto:"La entrevista y el testimonio son géneros que recogen la voz de los sujetos. En Ciencias Humanas se usan en investigación cualitativa, etnografía e historia oral. Exigen transcripción, análisis y contexto.",
+     ejemplo:"Una entrevista a un líder comunitario sobre el desplazamiento forzado: se transcribe, se analiza y se contextualiza con marco teórico.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el proceso de la entrevista.",
+       texto:"Una entrevista se ___, se ___ y se ___ con marco teórico.",
+       respuestas:[["transcribe"],["analiza"],["contextualiza","sitúa","situa"]],
+       retro:"La entrevista exige transcripción, análisis e interpretación. No es solo recolección de datos: es construcción de conocimiento."}},
+
+    {id:"h69", nombre:"Texto de divulgación humanística",
+     concepto:"El texto de divulgación traduce las Ciencias Humanas a un público amplio. Usa analogías, ejemplos cotidianos y un lenguaje accesible, sin perder el rigor conceptual.",
+     ejemplo:"«¿Por qué recordamos algunas cosas y olvidamos otras? La historia y la psicología han intentado responder…». Se explica con ejemplos, no con tecnicismos.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada expresión según el tipo de texto.",
+       categorias:["Académico","Divulgativo"],
+       items:[
+         {texto:"«El habitus articula estructura y práctica (Bourdieu, 1979).»", cat:0},
+         {texto:"«Imagina que tu forma de hablar revela tu origen social.»", cat:1},
+         {texto:"«La noción de dispositivo en Foucault…»", cat:0},
+         {texto:"«Es como cuando alguien te dice algo y no puedes dejar de pensarlo.»", cat:1},
+         {texto:"«Se aplicó un muestreo teórico con saturación en 20 entrevistas.»", cat:0}
+       ],
+       retro:"La divulgación traduce sin traicionar: mantiene el rigor pero cambia el lenguaje y los ejemplos."}},
+
+    {id:"h70", nombre:"Reseña de una exposición o evento",
+     concepto:"La reseña de exposición o evento valora críticamente una experiencia cultural: qué se presentó, cómo, qué aportó, qué generó. Es un género frecuente en revistas culturales y académicas.",
+     ejemplo:"«La exposición “Memorias del conflicto” en el Museo Nacional propone un recorrido por objetos y testimonios. Su mayor acierto es… Su límite es…».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la reseña de la exposición.",
+       texto:"La exposición ___ un recorrido por ___. Su mayor acierto es ___ y su límite es ___.",
+       respuestas:[["propone","presenta","ofrece"],["objetos","testimonios","imagenes","imágenes","documentos","memorias"],["la articulacion","la articulación","el dialogo","el diálogo","la sensibilidad","la curaduria","la curaduría"],["la falta de contexto","el exceso de texto","la ausencia de voces","la saturacion","la saturación"]],
+       retro:"La reseña de exposición valora críticamente. Combina descripción, análisis y juicio razonado."}}
+  ]
+},
+
+/* ============ BLOQUE 8 · ANÁLISIS Y HERMENÉUTICA ============ */
+{
+  id:"b8", nombre:"Análisis y hermenéutica", emoji:"🔎",
+  desc:"Interpretación, análisis del discurso, hermenéutica, crítica y deconstrucción.",
+  tecnicas:[
+    {id:"h71", nombre:"Hermenéutica: arte de la interpretación",
+     concepto:"La hermenéutica es la disciplina que estudia la interpretación. En Ciencias Humanas se aplica a textos, discursos, prácticas y obras. Gadamer, Ricoeur y Heidegger son referentes fundamentales.",
+     ejemplo:"Interpretar un texto no es solo descifrar su significado literal: es comprender el horizonte histórico y cultural en el que se produjo.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué estudia la hermenéutica?",
+       opciones:["La estructura del lenguaje","La interpretación de textos, discursos y prácticas","La gramática del español","Las matemáticas"],
+       correcta:1,
+       retro:"La hermenéutica estudia la interpretación. En Ciencias Humanas se aplica a textos, discursos, prácticas y obras."}},
+
+    {id:"h72", nombre:"Círculo hermenéutico",
+     concepto:"El círculo hermenéutico es la relación entre el todo y las partes en la interpretación: comprendemos el texto por sus partes y las partes por el todo. La interpretación es un movimiento continuo entre ambos.",
+     ejemplo:"Comprender un capítulo de un libro requiere comprender el libro completo, y viceversa. La interpretación avanza en espiral.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la definición del círculo hermenéutico.",
+       texto:"El círculo hermenéutico es la relación entre el ___ y las ___ en la interpretación: comprendemos el texto por sus partes y las partes por el ___.",
+       respuestas:[["todo"],["partes"],["todo"]],
+       retro:"El círculo hermenéutico muestra que la interpretación es un movimiento continuo entre el todo y las partes."}},
+
+    {id:"h73", nombre:"Horizonte de comprensión",
+     concepto:"Cada lector y cada época tienen un horizonte de comprensión: el conjunto de supuestos, valores y saberes desde los que interpretan. Gadamer propone la «fusión de horizontes» entre el texto y el lector.",
+     ejemplo:"Leer a Marx hoy no es lo mismo que leerlo en 1850: nuestro horizonte ha cambiado. La interpretación implica poner en diálogo ambos horizontes.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el concepto de Gadamer.",
+       texto:"El ___ de comprensión es el conjunto de supuestos desde los que interpretamos. Gadamer propone la ___ de horizontes entre texto y lector.",
+       respuestas:[["horizonte"],["fusion","fusión"]],
+       retro:"La fusión de horizontes es el encuentro entre el horizonte del texto y el del lector. Es el corazón de la hermenéutica gadameriana."}},
+
+    {id:"h74", nombre:"Análisis del discurso",
+     concepto:"El análisis del discurso estudia cómo el lenguaje construye significados, identidades y relaciones de poder. Se interesa por las formaciones discursivas, los enunciados y los efectos sociales del discurso.",
+     ejemplo:"Analizar el discurso político: qué palabras se usan, qué se silencia, qué identidades se construyen, qué relaciones de poder se reproducen.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el análisis del discurso.",
+       texto:"El análisis del discurso estudia cómo el lenguaje construye significados, identidades y relaciones de ___.",
+       respuestas:[["poder"]],
+       retro:"El análisis del discurso estudia el lenguaje como práctica social. No es solo lingüística: es análisis crítico."}},
+
+    {id:"h75", nombre:"Análisis crítico del discurso (ACD)",
+     concepto:"El ACD (Fairclough, Van Dijk, Wodak) estudia cómo el discurso reproduce o resiste el poder, la ideología y la desigualdad. Combina análisis lingüístico y análisis social.",
+     ejemplo:"Un ACD de un discurso presidencial puede analizar el uso de «nosotros», «pueblo», «enemigo» y las relaciones de poder que construyen.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada pregunta según el tipo de análisis.",
+       categorias:["Análisis lingüístico","Análisis crítico del discurso"],
+       items:[
+         {texto:"¿Cuántas veces se repite «nosotros» en el discurso?", cat:0},
+         {texto:"¿Qué relaciones de poder reproduce el discurso?", cat:1},
+         {texto:"¿Qué palabras se usan con mayor frecuencia?", cat:0},
+         {texto:"¿Qué identidades se construyen y cuáles se silencian?", cat:1},
+         {texto:"¿Cómo se articula el discurso con el contexto social?", cat:1}
+       ],
+       retro:"El ACD combina análisis lingüístico y análisis social. No se queda en la forma: busca los efectos de poder del discurso."}},
+
+    {id:"h76", nombre:"Deconstrucción",
+     concepto:"La deconstrucción (Derrida) es una estrategia de lectura que muestra las contradicciones internas de un texto, los binarismos que lo sostienen y lo que queda fuera de su lógica.",
+     ejemplo:"Deconstruir un texto que opone «naturaleza» y «cultura»: mostrar que la oposición no es tan clara, que cada término contiene al otro.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el concepto de deconstrucción.",
+       texto:"La deconstrucción muestra las ___ internas de un texto y los ___ que lo sostienen. Su autor principal es ___.",
+       respuestas:[["contradicciones"],["binarismos","binarismo","oposiciones"],["derrida","Derrida"]],
+       retro:"La deconstrucción no es destrucción: es mostrar cómo un texto se sostiene en oposiciones que pueden desmontarse."}},
+
+    {id:"h77", nombre:"Análisis de fuentes históricas",
+     concepto:"El análisis de fuentes históricas implica distinguir fuentes primarias y secundarias, evaluar su credibilidad, contextualizarlas y contrastarlas. La historia se construye a partir de las fuentes.",
+     ejemplo:"Analizar un diario personal del siglo XIX: es fuente primaria, subjetiva, pero valiosa para comprender la vida cotidiana.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada fuente según su tipo.",
+       categorias:["Fuente primaria","Fuente secundaria"],
+       items:[
+         {texto:"Un diario personal del siglo XIX.", cat:0},
+         {texto:"Un libro de historia sobre el siglo XIX.", cat:1},
+         {texto:"Un acta notarial de 1850.", cat:0},
+         {texto:"Un artículo académico que analiza el siglo XIX.", cat:1},
+         {texto:"Una fotografía de la época.", cat:0}
+       ],
+       retro:"Las fuentes primarias son contemporáneas a los hechos; las secundarias los interpretan. Ambas son necesarias."}},
+
+    {id:"h78", nombre:"Interpretación de imágenes y cultura visual",
+     concepto:"Las Ciencias Humanas analizan imágenes como textos: cuadros, fotografías, publicidad, cine, redes. Se interpretan sus significados, sus contextos y sus efectos sociales.",
+     ejemplo:"Analizar una fotografía de prensa sobre el conflicto: qué muestra, qué silencia, qué emoción construye, qué relación de poder reproduce.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el análisis de la imagen.",
+       texto:"Analizar una imagen implica examinar qué ___, qué ___ y qué relaciones de ___ construye.",
+       respuestas:[["muestra"],["silencia","oculta"],["poder"]],
+       retro:"Las imágenes son textos culturales. Analizarlas es interpretar sus significados y sus efectos sociales."}},
+
+    {id:"h79", nombre:"Interpretación de prácticas culturales",
+     concepto:"Las Ciencias Humanas interpretan prácticas culturales: rituales, fiestas, comidas, vestimenta, gestos, formas de habla. Cada práctica es un texto que puede leerse.",
+     ejemplo:"Interpretar una fiesta popular: qué se celebra, quiénes participan, qué jerarquías reproduce, qué significados expresa.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la interpretación de la práctica cultural.",
+       texto:"Interpretar una fiesta popular implica preguntar qué se ___, quiénes ___ y qué ___ reproduce.",
+       respuestas:[["celebra"],["participan"],["jerarquia","jerarquía","orden","poder"]],
+       retro:"Las prácticas culturales son textos que pueden leerse. Interpretarlas es parte del trabajo de las Ciencias Humanas."}},
+
+    {id:"h80", nombre:"Reflexividad del intérprete",
+     concepto:"En Ciencias Humanas, el intérprete forma parte del proceso. La reflexividad consiste en reconocer cómo su posición, sus supuestos y su contexto afectan la interpretación.",
+     ejemplo:"Un investigador que estudia su propia comunidad debe reconocer su cercanía y cómo eso afecta su mirada.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Por qué es importante la reflexividad en la interpretación en Ciencias Humanas? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué qué es la reflexividad.",
+         "Relacioné la reflexividad con la interpretación.",
+         "Reconocí que el intérprete no es neutral."
+       ],
+       modelo:"La reflexividad es reconocer que el intérprete no es un observador neutral: llega al texto, la imagen o la práctica con sus propios supuestos, su historia y su posición social. Si no se reconoce eso, el análisis se presenta como objetivo cuando en realidad está mediado por la mirada del intérprete. Ser reflexivo no elimina la posición: la vuelve explícita, y eso hace el análisis más honesto y riguroso."}}
+  ]
+},
+
+/* ============ BLOQUE 9 · ESCRITURA CRÍTICA Y ARGUMENTATIVA ============ */
+{
+  id:"b9", nombre:"Escritura crítica y argumentativa", emoji:"⚖️",
+  desc:"Tesis, argumentos, evidencia, contraargumentos, falacias y toma de posición.",
+  tecnicas:[
+    {id:"h81", nombre:"Tesis en Ciencias Humanas",
+     concepto:"La tesis es la afirmación central que se defiende. Debe ser discutible, no obvia, y sostenible con argumentos. En Ciencias Humanas, la tesis articula conceptos y problemas complejos.",
+     ejemplo:"«La noción de identidad en Stuart Hall no es esencialista, sino procesual y articulatoria». Es discutible y puede sostenerse con la obra de Hall.",
+     ejercicio:{tipo:"fill",
+       consigna:"Escribe una tesis sobre la memoria en Colombia.",
+       texto:"«La memoria del conflicto armado en Colombia es ___ y ___ que ___».",
+       respuestas:[["heterogenea","heterogénea","plural","fragmentada","conflictiva","disputada"],["selectiva","politica","política","situada","territorial","intersubjetiva"],["se disputa","se construye","se negocia","se articula","se configura"]],
+       retro:"Una buena tesis es discutible, concreta y sostenible con argumentos. La tesis organiza todo el texto."}},
+
+    {id:"h82", nombre:"Argumentos de autoridad",
+     concepto:"Los argumentos de autoridad se apoyan en autores reconocidos. En Ciencias Humanas son frecuentes, pero deben usarse con criterio: no basta citar, hay que discutir la cita.",
+     ejemplo:"«Como señala Foucault (1976), el poder no es solo represivo. Su análisis permite comprender cómo las instituciones producen subjetividades».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el argumento de autoridad.",
+       texto:"«Como señala ___ (___), el poder no es solo ___. Su análisis permite comprender cómo las instituciones ___ subjetividades».",
+       respuestas:[["foucault","Foucault"],["1976","año","1975"],["represivo","represion","represión"],["producen","forman","configuran"]],
+       retro:"El argumento de autoridad se apoya en autores reconocidos, pero no basta citar: hay que discutir la cita."}},
+
+    {id:"h83", nombre:"Argumentos con evidencia empírica",
+     concepto:"Los argumentos con evidencia empírica se apoyan en datos, estadísticas, estudios de caso o investigaciones. Son sólidos porque son verificables. En Ciencias Humanas se combinan con los argumentos teóricos.",
+     ejemplo:"«Según el CNMH (2018), en Colombia se registraron más de 9 millones de víctimas del conflicto armado. Esta cifra evidencia la magnitud del desplazamiento forzado».",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el argumento con evidencia.",
+       texto:"«Según el ___ (___) , en Colombia se registraron más de ___ millones de víctimas del conflicto armado».",
+       respuestas:[["cnmh","CNMH","centro nacional de memoria historica","Centro Nacional de Memoria Histórica"],["2018","2013","año"],["9","ocho","nueve","8"]],
+       retro:"Los argumentos con evidencia empírica son verificables. Es fundamental citar la fuente de los datos."}},
+
+    {id:"h84", nombre:"Contraargumentos y refutación",
+     concepto:"El texto humanístico reconoce las objeciones y las responde. No basta afirmar: hay que anticipar lo que otros podrían decir y ofrecer respuestas razonadas.",
+     ejemplo:"«Alguien podría objetar que la noción de identidad procesual disuelve toda posibilidad de acción política. A ello se responde que, precisamente porque la identidad es procesual, puede ser reconstruida y politizada».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena la estructura de la refutación.",
+       items:[
+         "Enunciado del contraargumento.",
+         "Explicación de por qué es plausible.",
+         "Respuesta razonada al contraargumento.",
+         "Reafirmación de la tesis."
+       ],
+       retro:"La refutación reconoce el contraargumento, lo explica, lo responde y reafirma la tesis. Sin refutación, la argumentación es débil."}},
+
+    {id:"h85", nombre:"Falacias argumentativas",
+     concepto:"Las falacias son razonamientos defectuosos que parecen válidos: ad hominem, generalización apresurada, falso dilema, hombre de paja, apelación a la ignorancia. En Ciencias Humanas es esencial evitarlas y detectarlas.",
+     ejemplo:"Ad hominem: atacar al autor en lugar del argumento. Hombre de paja: distorsionar la posición del otro para refutarla más fácilmente.",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada falacia.",
+       categorias:["Ad hominem","Generalización","Hombre de paja","Falso dilema"],
+       items:[
+         {texto:"«No le creas, es un posmoderno.»", cat:0},
+         {texto:"«Todos los políticos son corruptos, lo vi en un caso.»", cat:1},
+         {texto:"«Su posición es que no importa la verdad, cuando en realidad dice algo más matizado.»", cat:2},
+         {texto:"«O aceptas mi posición o eres un ignorante.»", cat:3},
+         {texto:"«No me interesa lo que dice, viene de una universidad de élite.»", cat:0}
+       ],
+       retro:"Detectar falacias es esencial para una argumentación sólida. La descalificación personal no es argumentación."}},
+
+    {id:"h86", nombre:"Distinguir hecho de interpretación",
+     concepto:"En Ciencias Humanas es central distinguir hechos (verificables) de interpretaciones (construidas por el investigador). La interpretación no es caprichosa: se sostiene en evidencia y en teoría.",
+     ejemplo:"Hecho: «En 1948 fue asesinado Jorge Eliécer Gaitán». Interpretación: «Su muerte marcó un punto de inflexión en la historia política colombiana».",
+     ejercicio:{tipo:"classify",
+       consigna:"Clasifica cada enunciado como hecho o interpretación.",
+       categorias:["Hecho","Interpretación"],
+       items:[
+         {texto:"«En 1948 fue asesinado Jorge Eliécer Gaitán.»", cat:0},
+         {texto:"«Su muerte marcó un punto de inflexión en la historia colombiana.»", cat:1},
+         {texto:"«El Bogotazo ocurrió el 9 de abril de 1948.»", cat:0},
+         {texto:"«El Bogotazo expresó un malestar social profundo.»", cat:1},
+         {texto:"«El conflicto armado ha durado más de 50 años.»", cat:0}
+       ],
+       retro:"Los hechos son verificables; las interpretaciones se construyen con evidencia y teoría. Distinguirlos es un deber del analista."}},
+
+    {id:"h87", nombre:"Perspectiva y punto de vista",
+     concepto:"Todo análisis se hace desde una perspectiva: disciplinar, teórica, ideológica, metodológica. Reconocerla es esencial. La perspectiva no invalida el análisis: lo sitúa.",
+     ejemplo:"«Analizo el conflicto desde la historia social y con un interés por las voces subalternas». Esa perspectiva orienta las preguntas y la selección de fuentes.",
+     ejercicio:{tipo:"fill",
+       consigna:"Reconoce tu perspectiva.",
+       texto:"«Analizo este fenómeno desde la ___, con un interés explícito por ___».",
+       respuestas:[["historia","sociologia","sociología","antropologia","antropología","filosofia","filosofía","literatura","linguistica","lingüística"],["las voces subalternas","los sujetos","las victimas","las víctimas","la desigualdad","el poder","la cultura popular"]],
+       retro:"Reconocer la propia perspectiva es parte del rigor. La perspectiva no invalida el análisis: lo sitúa."}},
+
+    {id:"h88", nombre:"Análisis de la ideología",
+     concepto:"El análisis de la ideología estudia los sistemas de creencias que sostienen el poder. En Ciencias Humanas se analizan tanto las ideologías explícitas como las que se presentan como sentido común.",
+     ejemplo:"Analizar cómo un discurso educativo presenta la meritocracia como natural cuando en realidad es una construcción ideológica.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa el análisis de la ideología.",
+       texto:"El análisis de la ideología estudia los sistemas de ___ que se presentan como ___ pero que sostienen relaciones de ___.",
+       respuestas:[["creencias","ideas","valores"],["sentido comun","sentido común","naturales","evidentes","obvios"],["poder","dominacion","dominación","desigualdad"]],
+       retro:"La ideología no es solo un conjunto de ideas: es una forma de poder que se presenta como natural. Desnaturalizarla es tarea del analista."}},
+
+    {id:"h89", nombre:"Toma de posición argumentada",
+     concepto:"El texto humanístico no solo analiza: también toma posición. La posición debe ser razonada, reconocer sus límites y sostener sus afirmaciones con argumentos y evidencia.",
+     ejemplo:"«Sostengo que la memoria del conflicto debe ser plural y disputada, no unificada desde el Estado. Esta posición se apoya en… y reconoce como límite…».",
+     ejercicio:{tipo:"open",
+       consigna:"Toma posición sobre la siguiente afirmación: «La escuela debe enseñar solo contenidos académicos, sin abordar temas sociales o políticos».",
+       criterios:[
+         "Expuse una postura clara.",
+         "Aporté al menos dos razones.",
+         "Reconocí un contraargumento o un límite de mi posición."
+       ],
+       modelo:"Sostengo que la escuela no puede limitarse a contenidos académicos, porque la formación ciudadana y el pensamiento crítico son parte de su misión. Los estudiantes son sujetos sociales que enfrentan problemas reales, y la escuela no puede ignorarlos. Además, muchos aprendizajes académicos cobran sentido cuando se conectan con problemas del mundo. Reconozco que existe un límite: la escuela no debe adoctrinar, sino abrir preguntas. Su tarea es enseñar a pensar, no imponer posiciones."}},
+
+    {id:"h90", nombre:"Escritura crítica como ética",
+     concepto:"La escritura crítica en Ciencias Humanas tiene una dimensión ética: contribuye a la comprensión, a la justicia y al cuidado de los otros. No es un ejercicio neutral: es una práctica comprometida.",
+     ejemplo:"Escribir sobre las víctimas del conflicto armado no es solo un ejercicio académico: es una forma de reconocerlas y de contribuir a la memoria.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Qué responsabilidad ética tiene quien escribe en Ciencias Humanas? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una dimensión ética de la escritura.",
+         "Relacioné la escritura con el cuidado de los otros o con la justicia.",
+         "Reconocí que la escritura tiene efectos en el mundo."
+       ],
+       modelo:"Quien escribe en Ciencias Humanas tiene la responsabilidad de no reducir a las personas a categorías, de no hablar por ellas sin reconocerlas, de no usar su dolor como material sin cuidado. Escribir sobre violencia, pobreza o exclusión no es un ejercicio neutro: las palabras pueden reproducir el daño o contribuir a su reparación. La responsabilidad consiste en escribir con rigor, con honestidad y con cuidado por los sujetos de quienes se habla."}}
+  ]
+},
+
+/* ============ BLOQUE 10 · REVISIÓN, EDICIÓN Y PUBLICACIÓN ============ */
+{
+  id:"b10", nombre:"Revisión, edición y publicación", emoji:"🔍",
+  desc:"Borradores, revisión por capas, citas, formato, presentación y publicación.",
+  tecnicas:[
+    {id:"h91", nombre:"Borrador y versiones",
+     concepto:"Escribir es reescribir. Todo texto humanístico pasa por varias versiones: borrador inicial, reorganización, revisión de citas, ajuste de estilo, versión final. La primera versión nunca es la definitiva.",
+     ejemplo:"Borrador 1: ideas sueltas. Borrador 2: estructura definida. Borrador 3: argumentación articulada. Versión final: revisión ortotipográfica.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las versiones del texto humanístico.",
+       items:[
+         "Borrador inicial con ideas sueltas.",
+         "Reorganización de la estructura argumentativa.",
+         "Revisión de citas, referencias y cohesión.",
+         "Corrección ortotipográfica y de estilo.",
+         "Versión final lista para entrega."
+       ],
+       retro:"Escribir es reescribir. Cada versión mejora un aspecto: estructura, argumentación, estilo o formato."}},
+
+    {id:"h92", nombre:"Revisión por capas",
+     concepto:"La revisión por capas revisa el texto en varias pasadas: ortografía, sintaxis, coherencia, argumentación, citas, formato. Es más eficaz que intentar corregir todo a la vez.",
+     ejemplo:"Primera pasada: ortografía y puntuación. Segunda: sintaxis y concordancia. Tercera: coherencia y argumentación. Cuarta: citas y referencias. Quinta: formato.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena las capas de revisión.",
+       items:[
+         "Ortografía y puntuación.",
+         "Sintaxis y concordancia.",
+         "Coherencia global y argumentación.",
+         "Citas, referencias y paráfrasis.",
+         "Formato y presentación."
+       ],
+       retro:"Revisar por capas es más eficaz. Cada pasada se centra en un aspecto distinto del texto."}},
+
+    {id:"h93", nombre:"Leer en voz alta",
+     concepto:"Leer el texto en voz alta permite detectar errores de puntuación, frases demasiado largas y problemas de fluidez. Es especialmente útil en textos humanísticos, donde la sintaxis suele ser compleja.",
+     ejemplo:"Al leer en voz alta, se nota que una oración no respira: tiene demasiadas subordinadas. Se divide en dos o tres oraciones.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Para qué sirve leer el texto en voz alta durante la revisión?",
+       opciones:["Para memorizarlo","Para detectar errores de puntuación y problemas de fluidez","Para impresionar al lector","Para aumentar la velocidad"],
+       correcta:1,
+       retro:"La lectura en voz alta revela problemas de puntuación y fluidez que la lectura silenciosa oculta."}},
+
+    {id:"h94", nombre:"Revisión de citas y referencias",
+     concepto:"Las citas y referencias deben revisarse con cuidado: autor, año, página, formato, correspondencia con la lista final. Un error en las citas debilita la credibilidad del texto humanístico.",
+     ejemplo:"Verificar que cada cita en el texto tenga su referencia al final, y viceversa. Verificar que las páginas sean correctas y que el formato sea coherente.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la cita correctamente.",
+       texto:"«El hombre es un animal suspendido en redes de significados» (Geertz, ___, p. ___). (Geertz, 1973, p. 20)",
+       respuestas:[["1973"],["20"]],
+       retro:"La cita textual siempre lleva autor, año y página. La lista final debe corresponder a las citas del texto."}},
+
+    {id:"h95", nombre:"Corrección ortotipográfica",
+     concepto:"La corrección ortotipográfica revisa ortografía, puntuación, uso de cursivas, comillas, mayúsculas y formato. Es la última fase antes de la entrega o publicación.",
+     ejemplo:"Revisar: ¿las siglas están definidas?, ¿los títulos de obras van en cursiva?, ¿las comillas anidadas siguen la jerarquía?, ¿la numeración de páginas es correcta?",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Qué revisa la corrección ortotipográfica?",
+       opciones:["La validez de los argumentos","La ortografía, puntuación, cursivas y formato","La estructura del texto","La originalidad de las ideas"],
+       correcta:1,
+       retro:"La corrección ortotipográfica se ocupa de la forma. Deja el contenido para otras fases del proceso de escritura."}},
+
+    {id:"h96", nombre:"Formato y presentación",
+     concepto:"El formato del texto humanístico es importante: tipo de letra legible, márgenes adecuados, interlineado, numeración, portada. Se siguen normas institucionales o disciplinares (APA, Chicago, MLA).",
+     ejemplo:"Fuente Times New Roman 12 o Arial 11, interlineado 1,5 o doble, márgenes de 2,5 cm, numeración de páginas, portada con datos institucionales.",
+     ejercicio:{tipo:"quiz",
+       consigna:"¿Cuál es un formato adecuado para un trabajo humanístico?",
+       opciones:["Fuente Comic Sans 8","Fuente Times New Roman 12, interlineado 1,5, márgenes 2,5 cm","Fuente cursiva 14 sin márgenes","Fuente Arial 20 con negritas"],
+       correcta:1,
+       retro:"El formato debe ser legible y profesional: fuente clara, tamaño 11-12, interlineado 1,5 o doble, márgenes adecuados."}},
+
+    {id:"h97", nombre:"Portada y presentación institucional",
+     concepto:"La portada de un trabajo humanístico incluye: nombre de la universidad, facultad, programa, título del trabajo, autor, director, ciudad y año. Su formato sigue normas institucionales.",
+     ejemplo:"«Universidad Nacional de Colombia. Facultad de Ciencias Humanas. Departamento de Historia. Título: Memoria y conflicto. Autor: X. Director: Y. Bogotá, 2024».",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena los elementos de la portada.",
+       items:[
+         "Nombre de la universidad.",
+         "Facultad, departamento o programa.",
+         "Título del trabajo.",
+         "Autor y director.",
+         "Ciudad y año."
+       ],
+       retro:"La portada sigue un orden institucional. Cada elemento cumple una función identificatoria."}},
+
+    {id:"h98", nombre:"Revisión por pares (peer feedback)",
+     concepto:"La revisión entre compañeros es una estrategia formativa muy potente. Un compañero lee el texto con criterios claros: coherencia, argumentación, claridad, citas. Ofrece comentarios respetuosos y específicos.",
+     ejemplo:"Dos estudiantes intercambian sus ensayos y se dan feedback por escrito: tres cosas que funcionan, dos que mejorar y una sugerencia global.",
+     ejercicio:{tipo:"fill",
+       consigna:"Completa la rúbrica de revisión entre pares.",
+       texto:"Al revisar el texto de un compañero valoro la ___ (¿se entiende?), la ___ (¿los argumentos están bien construidos?) y las ___ (¿las fuentes están bien citadas?)",
+       respuestas:[["claridad"],["argumentacion","argumentación","coherencia","solidez"],["citas","referencias","fuentes"]],
+       retro:"La revisión entre pares es una de las estrategias más eficaces para mejorar la escritura académica."}},
+
+    {id:"h99", nombre:"Publicación y difusión",
+     concepto:"Después de la revisión, el texto puede publicarse o difundirse: revistas estudiantiles, blogs, redes académicas, eventos, congresos. Compartir el trabajo multiplica su valor.",
+     ejemplo:"Un ensayo revisado puede publicarse en la revista estudiantil de la facultad, presentarse en un coloquio o compartirse en el blog del programa.",
+     ejercicio:{tipo:"order",
+       consigna:"Ordena el proceso de publicación.",
+       items:[
+         "Terminar el texto y revisarlo.",
+         "Elegir el medio de publicación.",
+         "Adaptar el formato a las normas del medio.",
+         "Enviar o publicar el texto.",
+         "Socializar y recibir retroalimentación."
+       ],
+       retro:"Publicar es compartir. La escritura humanística se multiplica cuando circula y dialoga con otros."}},
+
+    {id:"h100", nombre:"Escritura como práctica intelectual",
+     concepto:"En Ciencias Humanas, la escritura no solo comunica: es una práctica intelectual, una forma de pensar el mundo y de intervenir en él. Escribir es investigar, interpretar y tomar posición.",
+     ejemplo:"Un investigador que lleva años escribiendo sobre memoria y conflicto no solo produce conocimiento: también construye una voz, una perspectiva y un compromiso.",
+     ejercicio:{tipo:"open",
+       consigna:"¿Cómo puede la escritura contribuir a tu formación como estudiante de Ciencias Humanas? Responde en 3-4 líneas.",
+       criterios:[
+         "Expliqué al menos una manera en que la escritura forma.",
+         "Relacioné la escritura con el trabajo intelectual en Ciencias Humanas.",
+         "Mencioné algún tipo de texto o práctica concreta."
+       ],
+       modelo:"Escribir me ayuda a pensar mejor los problemas sociales y culturales que me interesan. Cuando escribo un ensayo, no solo comunico lo que ya sé: descubro lo que pienso, encuentro contradicciones y aprendo a matizar. La escritura también me obliga a leer con más cuidado, a citar con rigor y a reconocer que mis ideas se apoyan en otros. En Ciencias Humanas, escribir es una forma de pensar el mundo y de tomar posición frente a él."}}
+  ]
+}
+];
+
+/* =====================================================================
+   ESTADO Y UTILIDADES
+   ===================================================================== */
+const STORAGE_KEY = "cuaderno_humanas_100_v1";
+let progreso = {};
+try { progreso = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch(e){ progreso = {}; }
+
+const TECNICAS_FLAT = [];
+CATEGORIAS.forEach(cat => cat.tecnicas.forEach(t => {
+  t.catId = cat.id; t.catNombre = cat.nombre; t.catEmoji = cat.emoji;
+  TECNICAS_FLAT.push(t);
+}));
+
+let actualId = TECNICAS_FLAT[0].id;
+let notaTimer = null;
+
+function guardar(){ try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progreso)); } catch(e){} }
+function getProg(id){ if(!progreso[id]) progreso[id] = {ok:false, nota:""}; return progreso[id]; }
+function normaliza(s){
+  return (s||"").toString().trim().toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[¿?¡!.,;:"'«»()]/g,"")
+    .replace(/\s+/g," ").trim();
+}
+function barajar(a){
+  const r = a.slice();
+  for(let i=r.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [r[i],r[j]]=[r[j],r[i]]; }
+  return r;
+}
+function el(tag, cls, txt){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(txt !== undefined) e.textContent = txt;
+  return e;
+}
+function boton(txt, cls){
+  const b = document.createElement("button");
+  b.className = "btn " + (cls||"primary");
+  b.textContent = txt;
+  return b;
+}
+
+/* =====================================================================
+   MENÚ
+   ===================================================================== */
+function renderMenu(filtro){
+  const menu = document.getElementById("menu");
+  menu.innerHTML = "";
+  const f = normaliza(filtro||"");
+
+  CATEGORIAS.forEach(cat => {
+    const tecnicas = cat.tecnicas.filter(t => !f || normaliza(t.nombre).includes(f) || normaliza(cat.nombre).includes(f));
+    if(!tecnicas.length) return;
+
+    const hechas = cat.tecnicas.filter(t => getProg(t.id).ok).length;
+    const div = el("div","cat" + (f ? " open" : (cat.id === catDe(actualId) ? " open" : "")));
+    div.dataset.cat = cat.id;
+
+    const head = document.createElement("button");
+    head.className = "cat-head";
+    head.innerHTML = '<span>' + cat.emoji + '</span><span>' + cat.nombre + '</span>' +
+                     '<span class="cat-count">' + hechas + "/" + cat.tecnicas.length + '</span>' +
+                     '<span class="chev">▶</span>';
+    head.onclick = () => div.classList.toggle("open");
+    div.appendChild(head);
+
+    const bar = el("div","cat-bar");
+    const barFill = document.createElement("i");
+    barFill.style.width = (hechas/cat.tecnicas.length*100) + "%";
+    bar.appendChild(barFill);
+    div.appendChild(bar);
+
+    const body = el("div","cat-body");
+    body.appendChild(el("div","cat-desc", cat.desc));
+
+    tecnicas.forEach(t => {
+      const b = document.createElement("button");
+      b.className = "tech-link" + (getProg(t.id).ok ? " done":"") + (t.id === actualId ? " active":"");
+      b.innerHTML = '<span class="dot">✓</span><span>' + t.nombre + '</span>';
+      b.onclick = () => { abrirTecnica(t.id); cerrarSidebar(); };
+      body.appendChild(b);
+    });
+    div.appendChild(body);
+    menu.appendChild(div);
+  });
+}
+function catDe(id){
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  return t ? t.catId : null;
+}
+
+/* =====================================================================
+   PANEL
+   ===================================================================== */
+function abrirTecnica(id){
+  actualId = id;
+  const t = TECNICAS_FLAT.find(x => x.id === id);
+  const idx = TECNICAS_FLAT.indexOf(t);
+  const panel = document.getElementById("panel");
+  panel.innerHTML = "";
+
+  const head = el("div","tech-head");
+  head.appendChild(el("span","badge", t.catEmoji + " " + t.catNombre));
+  head.appendChild(el("h2", null, t.nombre));
+  const bloqueIdx = CATEGORIAS.findIndex(c => c.id === t.catId) + 1;
+  head.appendChild(el("div","tech-pos", "Técnica " + (idx+1) + " de " + TECNICAS_FLAT.length +
+                     " · Bloque " + bloqueIdx + "/10"));
+
+  const block = CATEGORIAS.find(c => c.id === t.catId);
+  const dots = el("div","block-dots");
+  dots.title = "Puntos de avance del bloque";
+  block.tecnicas.forEach(bt => {
+    const d = el("span","bdot" + (getProg(bt.id).ok ? " done":"") + (bt.id === t.id ? " current":""));
+    d.onclick = () => abrirTecnica(bt.id);
+    d.title = bt.nombre;
+    dots.appendChild(d);
+  });
+  head.appendChild(dots);
+  panel.appendChild(head);
+
+  const fc = el("div","flashcard");
+  const inner = el("div","fc-inner");
+
+  const front = el("div","fc-face fc-front");
+  front.appendChild(el("span","fc-tag","💡 Concepto"));
+  front.appendChild(el("p", null, t.concepto));
+  front.appendChild(el("span","fc-hint","Toca la tarjeta para ver el ejemplo humanístico ↻"));
+
+  const back = el("div","fc-face fc-back");
+  back.appendChild(el("span","fc-tag","🔎 Ejemplo práctico"));
+  back.appendChild(el("p", null, t.ejemplo));
+  back.appendChild(el("span","fc-hint","↻ Toca de nuevo para volver al concepto"));
+
+  inner.appendChild(front); inner.appendChild(back);
+  fc.appendChild(inner);
+  fc.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(fc);
+
+  const flipBtn = boton("↻ Voltear tarjeta", "ghost flip-btn");
+  flipBtn.onclick = () => fc.classList.toggle("flipped");
+  panel.appendChild(flipBtn);
+
+  const sec = el("section");
+  const st = el("h3","sec-title");
+  st.innerHTML = "✍️ Ejercicio interactivo <span>comprueba tu comprensión</span>";
+  sec.appendChild(st);
+  sec.appendChild(el("p","consigna", t.ejercicio.consigna));
+
+  const body = el("div");
+  sec.appendChild(body);
+  const fb = el("div","feedback");
+  sec.appendChild(fb);
+  panel.appendChild(sec);
+
+  const cuad = el("section","cuaderno");
+  const ct = el("h3","sec-title");
+  ct.innerHTML = "📓 Mi cuaderno humanístico <span>se guarda automáticamente</span>";
+  cuad.appendChild(ct);
+
+  const ta = document.createElement("textarea");
+  ta.rows = 5;
+  ta.placeholder = "Escribe aquí tus notas, ejemplos, citas, reflexiones, redacciones propias…";
+  ta.value = getProg(t.id).nota || "";
+  cuad.appendChild(ta);
+
+  const foot = el("div","cuaderno-foot");
+  const info = el("span", null, "");
+  const status = el("span", null, "✓ Guardado");
+  status.id = "notaStatus";
+  foot.appendChild(info); foot.appendChild(status);
+  cuad.appendChild(foot);
+  panel.appendChild(cuad);
+
+  const nav = el("div","nav-foot");
+  const prev = boton("← Anterior","ghost");
+  const next = boton("Siguiente →","ghost");
+  prev.disabled = idx === 0;
+  next.disabled = idx === TECNICAS_FLAT.length - 1;
+  prev.onclick = () => { if(idx>0) abrirTecnica(TECNICAS_FLAT[idx-1].id); };
+  next.onclick = () => { if(idx<TECNICAS_FLAT.length-1) abrirTecnica(TECNICAS_FLAT[idx+1].id); };
+  nav.appendChild(prev); nav.appendChild(next);
+  panel.appendChild(nav);
+
+  const actualizarInfo = () => {
+    const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+    info.textContent = n + (n === 1 ? " palabra" : " palabras");
+  };
+  ta.addEventListener("input", () => {
+    actualizarInfo();
+    status.classList.add("show");
+    clearTimeout(notaTimer);
+    notaTimer = setTimeout(() => {
+      getProg(t.id).nota = ta.value;
+      guardar();
+      status.classList.remove("show");
+    }, 600);
+  });
+  actualizarInfo();
+
+  renderEjercicio(t.ejercicio, body, fb, t.id);
+  window.scrollTo({top:0, behavior:"smooth"});
+  renderMenu(document.getElementById("search").value);
+  actualizarProgreso();
+}
+
+/* =====================================================================
+   EJERCICIOS
+   ===================================================================== */
+function renderEjercicio(ej, cont, fb, techId){
+  cont.innerHTML = "";
+  fb.className = "feedback";
+  if(ej.tipo === "quiz")     renderQuiz(ej, cont, fb, techId);
+  if(ej.tipo === "fill")     renderFill(ej, cont, fb, techId);
+  if(ej.tipo === "order")    renderOrder(ej, cont, fb, techId);
+  if(ej.tipo === "classify") renderClassify(ej, cont, fb, techId);
+  if(ej.tipo === "open")     renderOpen(ej, cont, fb, techId);
+}
+function mostrarFeedback(fb, tipo, titulo, texto){
+  fb.className = "feedback " + tipo + " show";
+  fb.innerHTML = "";
+  fb.appendChild(el("strong", null, titulo));
+  fb.appendChild(el("p", null, texto));
+}
+
+function renderQuiz(ej, cont, fb, techId){
+  const wrap = el("div","opciones");
+  const letras = ["A","B","C","D","E"];
+  let respondido = false;
+  ej.opciones.forEach((op, i) => {
+    const b = document.createElement("button");
+    b.className = "opcion";
+    b.innerHTML = '<span class="letra">' + letras[i] + '</span><span>' + op + '</span>';
+    b.onclick = () => {
+      if(respondido) return;
+      respondido = true;
+      const ok = i === ej.correcta;
+      Array.from(wrap.children).forEach((c, j) => {
+        c.disabled = true;
+        if(j === ej.correcta) c.classList.add("correcta");
+        if(j === i && !ok) c.classList.add("incorrecta");
+      });
+      mostrarFeedback(fb, ok ? "ok" : "mal", ok ? "✓ ¡Correcto!" : "✗ Revisa tu respuesta", ej.retro);
+      if(ok) marcarCompletada(techId);
+      agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+    };
+    wrap.appendChild(b);
+  });
+  cont.appendChild(wrap);
+}
+
+function renderFill(ej, cont, fb, techId){
+  const partes = ej.texto.split("___");
+  const p = el("p","fill-texto");
+  const inputs = [];
+  partes.forEach((parte, i) => {
+    p.appendChild(document.createTextNode(parte));
+    if(i < partes.length - 1){
+      const inp = document.createElement("input");
+      inp.type = "text"; inp.className = "hueco"; inp.setAttribute("autocomplete","off");
+      inp.addEventListener("keydown", e => { if(e.key === "Enter") comprobar(); });
+      p.appendChild(inp); inputs.push(inp);
+    }
+  });
+  cont.appendChild(p);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function comprobar(){
+    if(resuelto) return;
+    if(inputs.some(i => !i.value.trim())){
+      mostrarFeedback(fb,"info","Completa todos los huecos","Escribe una respuesta en cada espacio antes de comprobar.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    inputs.forEach((inp, i) => {
+      const validas = (ej.respuestas[i] || []).map(normaliza);
+      const ok = validas.includes(normaliza(inp.value));
+      inp.classList.add(ok ? "ok" : "mal");
+      inp.disabled = true;
+      if(ok) aciertos++;
+    });
+    const total = inputs.length;
+    const perfecto = aciertos === total;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Perfecto! " + aciertos + "/" + total : "✗ " + aciertos + " de " + total + " correctas",
+      ej.retro + (perfecto ? "" : " · Respuestas válidas: " + ej.respuestas.map((r,i) => (i+1) + ") " + r[0]).join("  ·  ")));
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  }
+  btn.onclick = comprobar;
+}
+
+function renderOrder(ej, cont, fb, techId){
+  const correcto = ej.items.slice();
+  let pool = barajar(correcto.map((txt,i) => ({txt, i})));
+  const seq = [];
+
+  const wrap = el("div","order-wrap");
+  const colA = el("div","order-col");
+  colA.appendChild(el("h4", null, "Elementos sueltos"));
+  const poolEl = el("div","pool");
+  colA.appendChild(poolEl);
+  const colB = el("div","order-col");
+  colB.appendChild(el("h4", null, "Tu secuencia"));
+  const seqEl = el("div","seq");
+  colB.appendChild(seqEl);
+  wrap.appendChild(colA); wrap.appendChild(colB);
+  cont.appendChild(wrap);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  function pintar(){
+    poolEl.innerHTML = ""; seqEl.innerHTML = "";
+    pool.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item"; b.textContent = o.txt;
+      b.onclick = () => { if(resuelto) return; seq.push(pool.splice(k,1)[0]); pintar(); };
+      poolEl.appendChild(b);
+    });
+    seq.forEach((o, k) => {
+      const b = document.createElement("button");
+      b.className = "ord-item";
+      b.innerHTML = '<span class="num">' + (k+1) + '</span><span>' + o.txt + '</span>';
+      b.onclick = () => { if(resuelto) return; pool.push(seq.splice(k,1)[0]); pintar(); };
+      seqEl.appendChild(b);
+    });
+  }
+  pintar();
+
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seq.length !== correcto.length){
+      mostrarFeedback(fb,"info","Secuencia incompleta","Pasa todos los elementos a «Tu secuencia».");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    Array.from(seqEl.children).forEach((nodo, k) => {
+      const ok = seq[k].i === k;
+      nodo.classList.add(ok ? "ok" : "mal");
+      if(ok) aciertos++;
+    });
+    const perfecto = aciertos === correcto.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Secuencia correcta!" : "✗ " + aciertos + " de " + correcto.length + " en su lugar",
+      perfecto ? ej.retro : "Empieza por: «" + correcto[0].slice(0,70) + "…». " + ej.retro);
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderClassify(ej, cont, fb, techId){
+  const seleccion = new Array(ej.items.length).fill(null);
+  ej.items.forEach((it, i) => {
+    const row = el("div","cl-item");
+    row.appendChild(el("p", null, it.texto));
+    const chips = el("div","chips");
+    ej.categorias.forEach((cat, ci) => {
+      const c = document.createElement("button");
+      c.className = "chip"; c.textContent = cat;
+      c.onclick = () => {
+        if(row.dataset.locked) return;
+        seleccion[i] = ci;
+        Array.from(chips.children).forEach((x,xi) => x.classList.toggle("sel", xi === ci));
+      };
+      chips.appendChild(c);
+    });
+    row.appendChild(chips);
+    cont.appendChild(row);
+  });
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Comprobar","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  let resuelto = false;
+  btn.onclick = () => {
+    if(resuelto) return;
+    if(seleccion.includes(null)){
+      mostrarFeedback(fb,"info","Faltan elementos","Asigna una categoría a cada elemento.");
+      return;
+    }
+    resuelto = true;
+    let aciertos = 0;
+    cont.querySelectorAll(".cl-item").forEach((fila, i) => {
+      fila.dataset.locked = "1";
+      const ok = seleccion[i] === ej.items[i].cat;
+      fila.classList.add(ok ? "ok" : "mal");
+      Array.from(fila.querySelectorAll(".chip")).forEach(c => c.disabled = true);
+      if(ok) aciertos++;
+      if(!ok){
+        const nota = el("div", null, "");
+        nota.style.cssText = "flex-basis:100%;font-size:12px;color:#b91c1c;font-weight:700;";
+        nota.textContent = "→ Correcto: " + ej.categorias[ej.items[i].cat];
+        fila.appendChild(nota);
+      }
+    });
+    const perfecto = aciertos === ej.items.length;
+    mostrarFeedback(fb, perfecto ? "ok" : "mal",
+      perfecto ? "✓ ¡Clasificación perfecta!" : "✗ " + aciertos + " de " + ej.items.length + " correctas",
+      ej.retro || "");
+    if(perfecto) marcarCompletada(techId);
+    btn.remove();
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function renderOpen(ej, cont, fb, techId){
+  const ta = document.createElement("textarea");
+  ta.rows = 5; ta.placeholder = "Redacta aquí tu respuesta…";
+  cont.appendChild(ta);
+
+  const ul = el("ul","criterios"); ul.style.marginTop = "14px";
+  ej.criterios.forEach((c, i) => {
+    const li = document.createElement("li");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.id = "crit_" + techId + "_" + i;
+    const lb = document.createElement("label");
+    lb.htmlFor = cb.id; lb.textContent = c;
+    li.appendChild(cb); li.appendChild(lb);
+    ul.appendChild(li);
+  });
+  cont.appendChild(ul);
+
+  const mod = el("div","modelo");
+  mod.innerHTML = "<strong>Respuesta modelo orientativa</strong>" + ej.modelo;
+  cont.appendChild(mod);
+
+  const acciones = el("div","ej-actions");
+  const btn = boton("Ver respuesta modelo","primary");
+  acciones.appendChild(btn);
+  cont.appendChild(acciones);
+
+  btn.onclick = () => {
+    if(ta.value.trim().length < 25){
+      mostrarFeedback(fb,"info","Escribe primero tu respuesta","Redacta al menos unas líneas antes de comparar con el modelo.");
+      return;
+    }
+    mod.classList.add("show");
+    const marcados = cont.querySelectorAll(".criterios input:checked").length;
+    const total = ej.criterios.length;
+    mostrarFeedback(fb, marcados === total ? "ok" : "info",
+      marcados === total ? "✓ Autoevaluación completa" : "Autoevaluación: " + marcados + "/" + total,
+      "Compara tu texto con el modelo: ¿qué ideas coinciden? ¿qué te falta? ¿qué aportas tú?");
+    btn.textContent = "Ocultar respuesta modelo";
+    btn.onclick = () => {
+      mod.classList.toggle("show");
+      btn.textContent = mod.classList.contains("show") ? "Ocultar respuesta modelo" : "Ver respuesta modelo";
+    };
+    marcarCompletada(techId);
+    agregarReintentar(cont, () => renderEjercicio(ej, cont, fb, techId));
+  };
+}
+
+function agregarReintentar(cont, fn){
+  const acciones = cont.querySelector(".ej-actions") || cont;
+  const b = boton("↺ Intentar de nuevo","ghost");
+  b.style.marginTop = "10px";
+  b.onclick = fn;
+  acciones.appendChild(b);
+}
+
+/* =====================================================================
+   PROGRESO
+   ===================================================================== */
+function marcarCompletada(id){
+  const p = getProg(id);
+  if(!p.ok){
+    p.ok = true; guardar();
+    actualizarProgreso();
+    renderMenu(document.getElementById("search").value);
+    const block = CATEGORIAS.find(c => c.tecnicas.some(t => t.id === id));
+    if(block){
+      document.querySelectorAll(".bdot").forEach((d,i) => {
+        if(block.tecnicas[i]) d.classList.toggle("done", getProg(block.tecnicas[i].id).ok);
+      });
+    }
+  }
+}
+function actualizarProgreso(){
+  const total = TECNICAS_FLAT.length;
+  const hechas = TECNICAS_FLAT.filter(t => getProg(t.id).ok).length;
+  document.getElementById("progressText").textContent = hechas + " / " + total;
+  document.getElementById("progressFill").style.width = (hechas/total*100) + "%";
+}
+
+/* =====================================================================
+   SIDEBAR / BÚSQUEDA / RESET
+   ===================================================================== */
+const sidebar = document.getElementById("sidebar");
+const scrim = document.getElementById("scrim");
+function cerrarSidebar(){ sidebar.classList.remove("open"); scrim.classList.remove("show"); }
+document.getElementById("btnMenu").onclick = () => {
+  sidebar.classList.toggle("open");
+  scrim.classList.toggle("show", sidebar.classList.contains("open"));
+};
+scrim.onclick = cerrarSidebar;
+
+document.getElementById("search").addEventListener("input", e => {
+  renderMenu(e.target.value);
+  if(e.target.value.trim()){
+    document.querySelectorAll(".cat").forEach(c => c.classList.add("open"));
+  }
+});
+
+document.getElementById("btnReset").onclick = () => {
+  if(confirm("¿Borrar todo el progreso y las notas del cuaderno? Esta acción no se puede deshacer.")){
+    progreso = {}; guardar();
+    abrirTecnica(TECNICAS_FLAT[0].id);
+  }
+};
+
+/* =====================================================================
+   ARRANQUE
+   ===================================================================== */
+renderMenu("");
+abrirTecnica(actualId);
+actualizarProgreso();
+</script>
+</body>
+</html>

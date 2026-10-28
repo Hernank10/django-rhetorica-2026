@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuaderno de estética y arte · Bachillerato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F3F1;
+    --line:#E2DCD6;
+    --ink:#241F26;
+    --ink-soft:#6B6470;
+    --coral:#B8493B;
+    --coral-dark:#8F3729;
+    --peach:#F6E7DE;
+    --good:#2E6B45;
+    --bad:#B23A3A;
+    --bad-bg:#F7E5E4;
+    --card-shadow: 0 1px 0 rgba(36,31,38,0.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  .top-bar{
+    position:fixed; top:0; left:0; right:0; height:5px; z-index:2;
+    background: linear-gradient(90deg, var(--coral), var(--ink) 60%, var(--coral));
+    opacity:0.85;
+  }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    padding:28px 20px 60px;
+  }
+  header.top{ margin-bottom:18px; }
+  .eyebrow{ font-size:12.5px; color:var(--coral); font-weight:700; text-transform:uppercase; letter-spacing:0.08em; }
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:700;
+    font-size:32px;
+    line-height:1.1;
+    margin:6px 0 8px;
+    color:var(--ink);
+  }
+  .lede{ color:var(--ink-soft); font-size:14.5px; line-height:1.55; margin:0 0 8px; max-width:46ch; }
+  .progress-wrap{ display:flex; align-items:center; gap:10px; margin-top:14px; }
+  .progress-track{ flex:1; height:5px; border-radius:3px; background:var(--line); overflow:hidden; }
+  .progress-fill{ height:100%; background:var(--coral); border-radius:3px; transition:width .4s ease; }
+  .progress-label{ font-size:12.5px; color:var(--ink-soft); white-space:nowrap; font-variant-numeric: tabular-nums; }
+
+  .cat-list{ list-style:none; margin:24px 0 0; padding:0; border-top:1px solid var(--line); }
+  .cat-item{ border-bottom:1px solid var(--line); }
+  .cat-btn{
+    width:100%; text-align:left; background:none; border:none;
+    padding:16px 4px; cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    font-family:inherit; color:var(--ink);
+  }
+  .cat-num{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:17px; color:var(--coral); width:24px; flex-shrink:0; }
+  .cat-text{ flex:1; min-width:0; }
+  .cat-name{ font-size:16px; font-weight:600; line-height:1.3; }
+  .cat-sub{ font-size:12.5px; color:var(--ink-soft); margin-top:2px; }
+  .cat-progress{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--good); font-weight:600; white-space:nowrap; }
+  .cat-btn:active{ opacity:0.6; }
+
+  .deck-header{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .back-btn{ background:none; border:1px solid var(--line); border-radius:8px; padding:7px 12px; font-size:13px; color:var(--ink); font-family:inherit; cursor:pointer; }
+  .back-btn:active{ background:var(--line); }
+  .deck-title{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:19px; font-weight:700; flex:1; min-width:0; }
+
+  .card{
+    background:#fff; border:1px solid var(--line); border-radius:2px; border-top:3px double var(--ink);
+    padding:22px 20px 18px; box-shadow:var(--card-shadow); margin-top:8px;
+  }
+  .card-eyebrow{ display:flex; justify-content:space-between; align-items:baseline; font-size:12px; color:var(--coral); font-weight:700; margin-bottom:8px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:0.04em; }
+  .card-title{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; font-weight:700; line-height:1.25; margin:0 0 14px; }
+  .block-label{ font-size:11.5px; font-weight:700; color:var(--ink-soft); margin:16px 0 5px; text-transform:uppercase; letter-spacing:0.06em; }
+  .block-label:first-of-type{ margin-top:0; }
+  .concept-text{ font-size:15px; line-height:1.6; margin:0; }
+  .example-box{
+    background:var(--peach);
+    border-left:3px solid var(--coral);
+    border-radius:0 8px 8px 0;
+    padding:10px 12px;
+    font-size:14px; line-height:1.55; color:#4A2A20;
+  }
+  .exercise-prompt{ font-size:14.5px; line-height:1.55; margin:0 0 10px; color:var(--ink); }
+
+  .answer-row{ display:flex; gap:8px; }
+  input[type="text"]{
+    flex:1; border:1px solid var(--line); border-radius:8px; padding:10px 12px;
+    font-family:'IBM Plex Mono', monospace; font-size:14.5px; background:#FEFDFC; color:var(--ink);
+  }
+  input[type="text"]:focus{ outline:2px solid var(--coral); outline-offset:1px; }
+  textarea{
+    width:100%; min-height:90px; resize:vertical; border:1px solid var(--line); border-radius:8px;
+    padding:10px 12px; font-family:inherit; font-size:14.5px; background:#FEFDFC; color:var(--ink);
+  }
+  textarea:focus{ outline:2px solid var(--coral); outline-offset:1px; }
+
+  .check-btn, .save-btn{
+    background:var(--ink); color:#fff; border:none; border-radius:8px; padding:9px 16px;
+    font-size:14px; font-weight:600; font-family:inherit; cursor:pointer; white-space:nowrap;
+  }
+  .check-btn:active, .save-btn:active{ background:var(--coral-dark); }
+
+  .feedback{ margin-top:10px; padding:9px 12px; border-radius:8px; font-size:14px; font-weight:500; display:none; }
+  .feedback.ok{ display:block; background:#E4F0E9; color:var(--good); }
+  .feedback.bad{ display:block; background:var(--bad-bg); color:var(--bad); }
+
+  .reveal-row{ margin-top:8px; }
+  .reveal-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; padding:0; }
+  .solution-box{ margin-top:8px; font-size:14px; color:var(--ink); background:var(--paper); border:1px dashed var(--line); border-radius:8px; padding:8px 10px; display:none; }
+  .solution-box.show{ display:block; }
+
+  .card-actions{ display:flex; gap:8px; margin-top:10px; align-items:center; }
+  .saved-tag{ font-size:12.5px; color:var(--good); font-weight:600; opacity:0; transition:opacity .3s; }
+  .saved-tag.show{ opacity:1; }
+  .done-check{ margin-left:auto; font-size:12.5px; color:var(--ink-soft); display:flex; align-items:center; gap:5px; }
+  .done-dot{ width:8px; height:8px; border-radius:50%; background:var(--line); display:inline-block; }
+  .done-dot.on{ background:var(--good); }
+
+  .nav-row{ display:flex; justify-content:space-between; align-items:center; margin-top:16px; }
+  .nav-btn{ background:none; border:1px solid var(--line); border-radius:8px; padding:9px 14px; font-size:14px; font-family:inherit; color:var(--ink); cursor:pointer; }
+  .nav-btn:disabled{ opacity:0.3; }
+  .nav-btn:active:not(:disabled){ background:var(--line); }
+  .dots{ display:flex; gap:5px; flex-wrap:wrap; justify-content:center; max-width:150px; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:var(--line); }
+  .dot.active{ background:var(--coral); width:16px; border-radius:3px; }
+  .dot.done{ background:var(--good); }
+
+  .reset-row{ margin-top:26px; text-align:center; }
+  .reset-link{ background:none; border:none; color:var(--ink-soft); font-size:12.5px; text-decoration:underline; cursor:pointer; font-family:inherit; }
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div id="app">
+
+  <header class="top">
+    <div class="eyebrow">Estética y educación artística · 6º a 11º</div>
+    <h1>Cuaderno de estética y arte</h1>
+    <p class="lede">Cien técnicas y reflexiones sobre la belleza, el arte y la percepción, en diez bloques: de los fundamentos de la estética a la filosofía del arte y el proceso creativo.</p>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="globalFill" style="width:0%"></div></div>
+      <div class="progress-label" id="globalLabel">0/100 practicadas</div>
+    </div>
+  </header>
+
+  <section id="menuView">
+    <ul class="cat-list" id="catList"></ul>
+    <div class="reset-row">
+      <button class="reset-link" id="resetBtn">Borrar todo mi progreso</button>
+    </div>
+  </section>
+
+  <section id="deckView" class="hidden">
+    <div class="deck-header">
+      <button class="back-btn" id="backBtn">← Bloques</button>
+      <div class="deck-title" id="deckTitle"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-eyebrow">
+        <span id="cardNum"></span>
+        <span id="catName"></span>
+      </div>
+      <h2 class="card-title" id="cardTitle"></h2>
+
+      <div class="block-label">Concepto</div>
+      <p class="concept-text" id="cardConcept"></p>
+
+      <div class="block-label">Ejemplo</div>
+      <div class="example-box" id="cardExample"></div>
+
+      <div class="block-label">Ejercicio interactivo</div>
+      <p class="exercise-prompt" id="cardExercise"></p>
+
+      <div id="inputExercise">
+        <div class="answer-row">
+          <input type="text" id="cardInput" placeholder="Tu respuesta...">
+          <button class="check-btn" id="checkBtn">Comprobar</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="reveal-row"><button class="reveal-link" id="revealBtn">Ver solución</button></div>
+        <div class="solution-box" id="solutionBox"></div>
+      </div>
+
+      <div id="textExercise">
+        <textarea id="cardAnswer" placeholder="Escribe aquí tu respuesta o reflexión..."></textarea>
+        <div class="card-actions">
+          <button class="save-btn" id="saveBtn">Guardar</button>
+          <span class="saved-tag" id="savedTag">Guardado ✓</span>
+        </div>
+      </div>
+
+      <div class="card-actions" id="doneRow">
+        <span class="done-check"><span class="done-dot" id="doneDot"></span><span id="doneLabel">sin practicar</span></span>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn" id="prevBtn">← Anterior</button>
+      <div class="dots" id="dots"></div>
+      <button class="nav-btn" id="nextBtn">Siguiente →</button>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// item = [title, concepto, ejemplo, ejercicio, tipo, respuestas]
+// tipo "input": respuestas es un array de strings aceptadas (se normalizan)
+// tipo "text": respuestas es null (ejercicio abierto/reflexivo, se guarda sin corregir)
+
+const CATEGORIES = [
+{name:"Fundamentos de la estética", sub:"Belleza, gusto y juicio estético", items:[
+["Belleza objetiva y subjetiva","La estética se pregunta si la belleza es una propiedad objetiva de las cosas o depende de la percepción subjetiva de quien observa.","Mientras algunas personas consideran que una puesta de sol es bella «en sí misma», otras sostienen que la belleza surge solo en la experiencia de quien la contempla.","Escribe tu propia postura: ¿crees que la belleza existe en el objeto o depende del observador? Justifica con un ejemplo.","text",null],
+["Juicio estético y juicio moral","Un juicio estético valora algo como bello o feo; un juicio moral valora algo como bueno o malo; ambos pueden coincidir o no en un mismo objeto.","Una obra de arte puede representar algo moralmente perturbador (como la guerra) y, sin embargo, ser estéticamente valorada por su composición.","Piensa en una obra (pintura, canción o película) que te parezca estéticamente lograda aunque trate un tema moralmente difícil, y explica por qué.","text",null],
+["El concepto de gusto estético","El gusto estético es la capacidad y disposición personal para apreciar ciertas formas de belleza o arte, influida por la educación y la cultura.","Alguien educado en la música clásica puede desarrollar un gusto particular por la ópera, mientras otra persona prefiere el arte urbano.","Describe cómo se ha formado tu propio gusto estético (en música, cine o arte visual) a lo largo de tu vida.","text",null],
+["Lo bello, lo sublime y lo feo","Lo bello genera placer armonioso; lo sublime provoca asombro ante algo inmenso; lo feo puede generar rechazo, pero también interés estético.","Una tormenta vista desde un lugar seguro puede producir una sensación de lo sublime, distinta a la calma de un jardín bello.","Describe una experiencia (real o imaginada) en la que hayas sentido algo «sublime», distinto de simplemente «bello».","text",null],
+["La armonía en el arte","La armonía es el equilibrio y la proporción entre las partes de una obra, que genera una sensación de unidad y orden.","En un templo griego clásico, la proporción entre las columnas y el techo genera una sensación de armonía visual.","Observa un objeto o espacio cotidiano y describe si te parece armonioso o no, y por qué.","text",null],
+["La función expresiva del arte","El arte no solo busca representar la realidad, sino también expresar emociones, ideas o estados internos del artista.","Un cuadro con colores oscuros y pinceladas agitadas puede expresar angustia, más allá de lo que representa literalmente.","Elige una obra de arte (o imagina una) y describe qué emoción crees que buscaba expresar su autor.","text",null],
+["Arte figurativo y arte abstracto","El arte figurativo representa formas reconocibles del mundo; el arte abstracto se aleja de la representación literal.","Un retrato realista es arte figurativo; una composición de formas geométricas sin referente concreto es arte abstracto.","Una pintura que muestra claramente un paisaje reconocible, ¿es arte figurativo o abstracto?","input",["figurativo"]],
+["El concepto de estilo artístico","El estilo es el conjunto de características formales y técnicas que distinguen la obra de un artista, época o movimiento.","Las pinceladas sueltas y los colores vibrantes son parte del estilo característico del impresionismo.","Describe qué elementos podrían distinguir el «estilo» de tu artista, banda o director de cine favorito.","text",null],
+["Diferencia entre arte y artesanía","Aunque ambos implican habilidad técnica, el arte suele enfatizar la expresión, mientras la artesanía suele tener un propósito funcional u ornamental tradicional.","Una vasija hecha para uso diario es artesanía; una escultura hecha solo para ser contemplada suele considerarse arte, aunque la línea entre ambas no siempre es clara.","Explica si consideras que un objeto artesanal (como una manta tejida) puede considerarse también una obra de arte, y por qué.","text",null],
+["La función social del arte","El arte puede cumplir funciones sociales como denunciar injusticias, preservar la memoria colectiva o fortalecer la identidad de una comunidad.","Un mural que representa la historia de un barrio puede fortalecer el sentido de identidad y memoria de sus habitantes.","Piensa en una obra de arte (pública o conocida) que cumpla una función social, y describe cuál es esa función.","text",null]
+]},
+{name:"Percepción y experiencia estética", sub:"Cómo percibimos y vivimos el arte", items:[
+["Percepción sensorial y percepción estética","La percepción sensorial capta información básica (color, sonido, forma); la estética implica además una valoración y una respuesta emocional o reflexiva.","Ver que algo es rojo es percepción sensorial; sentir que ese rojo transmite pasión o peligro es percepción estética.","Describe un color, sonido o textura que te genere una respuesta estética particular, más allá de solo percibirlo.","text",null],
+["La atención estética sostenida","La atención estética sostenida implica detenerse a observar o escuchar algo con calma, en vez de percibirlo de forma rápida y automática.","Observar un cuadro durante varios minutos, notando detalles de color y composición, es distinto de pasar frente a él rápidamente.","Elige una obra de arte, una canción o un paisaje y dedícale al menos tres minutos de observación atenta. Escribe qué notaste que no habías notado antes.","text",null],
+["El concepto de distancia estética","La distancia estética es la capacidad de contemplar una obra, incluso perturbadora, sin reaccionar como si fuera una amenaza real.","Ver una película de terror permite sentir miedo dentro de un marco seguro, gracias a la distancia estética entre el espectador y la ficción.","Explica con un ejemplo cómo la distancia estética te permite disfrutar de una obra que trata un tema perturbador sin sentirte realmente en peligro.","text",null],
+["El contexto en la percepción de una obra","El lugar, el momento histórico y el conocimiento previo del espectador influyen en cómo se percibe una obra de arte.","Una escultura religiosa puede percibirse distinto en un museo que en el interior de una catedral, según el contexto.","Piensa en una obra que hayas visto en distintos contextos (una foto en redes vs. en persona, por ejemplo) y describe si tu percepción cambió.","text",null],
+["Interpretación personal e interpretación informada","Una interpretación personal surge de la reacción inmediata; una interpretación informada considera además el contexto histórico o técnico de la obra.","Interpretar un cuadro solo por lo que «se siente» al verlo es personal; investigar la intención del artista enriquece esa interpretación.","Elige una obra que conozcas y ofrece primero tu interpretación personal, y luego un dato de contexto que la enriquezca.","text",null],
+["El papel de la imaginación","La imaginación permite al espectador completar, proyectar o reinterpretar lo que una obra sugiere, más allá de lo literalmente representado.","Una escultura abstracta puede evocar distintas imágenes mentales según la imaginación de cada espectador.","Observa una obra abstracta (o imagina una) y describe qué imagen o idea evoca tu imaginación al mirarla.","text",null],
+["La empatía estética ante una obra","La empatía estética es la capacidad de conectar emocionalmente con lo que una obra expresa, poniéndose en el lugar de sus personajes o su creador.","Sentir tristeza al escuchar una canción sobre una pérdida, aunque no se haya vivido esa experiencia, es empatía estética.","Describe una obra (canción, película, pintura) que te haya generado empatía hacia una emoción que no habías vivido directamente.","text",null],
+["Placer estético y entretenimiento","El placer estético implica una experiencia reflexiva y a menudo compleja; el entretenimiento puede ser más inmediato y no siempre invita a la reflexión.","Una película de acción puede entretener sin generar mayor reflexión; una con estructura narrativa compleja puede generar ambas cosas.","Piensa en algo que consumas principalmente por entretenimiento y algo que valores por su placer estético, y compara la diferencia.","text",null],
+["Prejuicios en la percepción estética","Prejuicios sobre el género, la clase social o la nacionalidad de un artista pueden influir, sin darnos cuenta, en cómo valoramos su obra.","Una misma obra puede recibir una valoración distinta si se cree hecha por un artista reconocido o por alguien desconocido.","Reflexiona: ¿alguna vez has valorado una obra distinto al enterarte de quién la hizo? Describe la situación.","text",null],
+["Observación estética sin juicio inmediato","Suspender el juicio inmediato al observar una obra permite notar más detalles antes de formar una opinión final.","Observar detalladamente los colores, formas y técnica de un cuadro antes de decidir si «gusta» o no, revela más matices.","Elige una obra que en principio no te atraiga y descríbela detalladamente durante un minuto antes de emitir un juicio final. Escribe si tu opinión cambió.","text",null]
+]},
+{name:"Lenguaje visual", sub:"Línea, color, composición y espacio", items:[
+["Tipos de línea y su efecto expresivo","Las líneas rectas transmiten estabilidad; las curvas transmiten suavidad o movimiento; las quebradas pueden expresar tensión o energía.","Las líneas verticales en un edificio gótico transmiten una sensación de elevación y grandeza.","¿Qué tipo de línea suele transmitir suavidad y movimiento: la recta o la curva?","input",["curva"]],
+["Teoría básica del color","Los colores primarios (rojo, azul, amarillo) se combinan para formar los secundarios; los cálidos transmiten energía y los fríos calma.","Mezclar azul y amarillo produce verde, un color secundario.","¿Qué color secundario se obtiene al mezclar azul y amarillo?","input",["verde"]],
+["Colores cálidos y fríos","Los colores cálidos (rojo, naranja, amarillo) transmiten energía y cercanía; los fríos (azul, verde, morado) transmiten calma y distancia.","Una habitación pintada de naranja se siente más cálida y activa que una pintada de azul claro.","¿El color azul se considera un color cálido o frío?","input",["frío","frio"]],
+["El concepto de composición visual","La composición es la forma en que se organizan los elementos visuales dentro de una obra, afectando el equilibrio y el punto focal.","Colocar el elemento principal fuera del centro (regla de los tercios) suele generar una composición más dinámica que centrarlo.","Observa una fotografía o pintura y describe dónde está ubicado su punto focal dentro de la composición.","text",null],
+["El concepto de textura visual","La textura visual sugiere cómo se sentiría una superficie al tacto, aunque solo se perciba con la vista.","Una pintura con pinceladas gruesas puede sugerir una textura rugosa, aunque la superficie del cuadro sea lisa.","Describe la textura visual de un objeto o imagen que tengas cerca, aunque no lo toques directamente.","text",null],
+["Espacio y perspectiva","La perspectiva es una técnica que crea la ilusión de profundidad y espacio tridimensional en una superficie bidimensional.","En la perspectiva lineal, las líneas paralelas parecen converger en un punto de fuga en el horizonte.","Observa una imagen con perspectiva (una calle, un pasillo) y describe cómo se genera la sensación de profundidad.","text",null],
+["Equilibrio simétrico y asimétrico","El equilibrio simétrico distribuye los elementos de forma igual en ambos lados; el asimétrico logra balance con elementos distintos.","La fachada de un templo clásico suele ser simétrica; una composición fotográfica moderna puede lograr equilibrio con elementos distintos.","Una obra con los mismos elementos distribuidos igual en ambos lados, ¿tiene equilibrio simétrico o asimétrico?","input",["simétrico","simetrico"]],
+["El contraste como recurso visual","El contraste (de color, tamaño, forma) resalta un elemento frente a otro, dirigiendo la atención del espectador.","Un punto rojo pequeño sobre un fondo completamente gris resalta de inmediato por contraste de color.","Describe un ejemplo donde el contraste de color o tamaño resalte un elemento dentro de una composición.","text",null],
+["El concepto de proporción","La proporción es la relación de tamaño entre las partes de una obra y el conjunto; alterarla puede generar armonía o distorsión expresiva.","En el arte clásico, la proporción del cuerpo humano seguía cánones específicos, como el canon de Vitrubio.","Observa una imagen donde la proporción entre elementos te parezca especialmente armoniosa o deliberadamente distorsionada.","text",null],
+["El ritmo visual en una composición","El ritmo visual se genera por la repetición de elementos (formas, colores, líneas) que guían el recorrido visual del espectador.","Una fila de columnas idénticas en un edificio genera un ritmo visual regular y predecible.","Describe un patrón (en un edificio, una tela o un mosaico) donde notes un ritmo visual por repetición de elementos.","text",null]
+]},
+{name:"Lenguaje musical", sub:"Ritmo, melodía, armonía y estructura", items:[
+["El ritmo como elemento musical","El ritmo es la organización de los sonidos en el tiempo, marcada por patrones regulares o irregulares de duración y acento.","Una marcha militar tiene un ritmo muy regular y marcado, fácil de seguir al caminar.","Describe una canción cuyo ritmo te resulte especialmente marcado o memorable, y por qué.","text",null],
+["Melodía y armonía","La melodía es la sucesión de notas que se perciben como una línea musical principal; la armonía combina notas simultáneas que la acompañan.","En una canción, la voz principal suele llevar la melodía, mientras los instrumentos de fondo aportan la armonía.","¿La línea principal de notas que canta un solista en una canción se llama melodía o armonía?","input",["melodía","melodia"]],
+["El concepto de timbre","El timbre es la cualidad del sonido que permite distinguir un instrumento o voz de otro, aunque toquen la misma nota.","Un violín y un piano pueden tocar la misma nota, pero se distinguen fácilmente por su timbre distinto.","Describe la diferencia de timbre entre dos instrumentos o voces que conozcas bien.","text",null],
+["La dinámica musical","La dinámica se refiere a los cambios de volumen dentro de una pieza musical, que generan tensión o calma.","Una pieza orquestal puede comenzar suave (piano) y crecer gradualmente hasta un pasaje muy fuerte (fortissimo).","Describe una canción donde notes claramente un cambio de volumen y qué efecto genera ese cambio.","text",null],
+["Música tonal y atonal","La música tonal se organiza alrededor de una nota central que da sensación de resolución; la atonal no sigue este centro.","La mayoría de la música popular es tonal; algunas composiciones del siglo XX experimentaron con la atonalidad.","Recuerda una pieza musical que te resulte «inquietante» o distinta a lo habitual, e investiga si podría tratarse de música atonal.","text",null],
+["Géneros musicales y sus características","Cada género musical (jazz, rock, música clásica, salsa) tiene características rítmicas, instrumentales y estilísticas propias.","El jazz se caracteriza por la improvisación y el uso de escalas particulares, como el blues.","Elige un género musical que conozcas y describe dos características que lo distinguen de otros géneros.","text",null],
+["Relación entre letra y música","La música puede reforzar o contrastar el significado de la letra de una canción, intensificando su efecto emocional.","Una letra triste con una melodía lenta y en tono menor refuerza la emoción; con música alegre puede generar un efecto irónico.","Elige una canción que conozcas y describe si su música refuerza o contrasta con el significado de su letra.","text",null],
+["El uso expresivo del silencio","El silencio en una pieza musical no es solo ausencia de sonido, sino un recurso expresivo que genera tensión, sorpresa o énfasis.","Una pausa dramática justo antes del estribillo de una canción genera expectativa en el oyente.","Describe una canción donde recuerdes un silencio o pausa que te haya generado tensión o sorpresa.","text",null],
+["La función social y ritual de la música","La música cumple funciones sociales como acompañar celebraciones, rituales religiosos o afirmar la identidad de un grupo.","Los himnos nacionales usan la música para reforzar un sentido de identidad y pertenencia colectiva.","Describe una ocasión donde la música cumpla una función social importante, más allá de solo entretener.","text",null],
+["Estructura básica de una canción popular","Muchas canciones populares siguen una estructura de verso, estribillo (coro) y puente, que organiza la narrativa y la repetición musical.","En muchas canciones, el estribillo se repite varias veces y suele contener la frase más memorable de la canción.","Elige una canción que conozcas bien e identifica sus versos y su estribillo (coro).","text",null]
+]},
+{name:"Lenguaje corporal y escénico", sub:"Danza, teatro y expresión corporal", items:[
+["El cuerpo como medio de expresión","En la danza y el teatro, el cuerpo comunica emociones, narrativas e ideas a través del movimiento, sin necesidad de palabras.","Un bailarín puede expresar angustia solo a través de movimientos tensos y contraídos, sin decir una palabra.","Describe cómo expresarías con tu cuerpo la emoción de la alegría, sin usar palabras.","text",null],
+["Danza y mímica","La danza organiza el movimiento con una intención estética y a menudo rítmica; la mímica busca representar acciones reconocibles sin hablar.","Un bailarín de ballet se mueve con intención estética y musical; un mimo representa «abrir una puerta invisible».","Describe un movimiento que consideres «danza» y otro que consideres «mímica», y explica la diferencia.","text",null],
+["Elementos básicos del teatro","El teatro combina texto, actuación, escenografía, iluminación y sonido para construir una experiencia dramática.","Una obra de teatro puede usar solo una silla y una luz tenue para sugerir soledad, sin un escenario elaborado.","Imagina una escena teatral breve y describe qué elementos (escenografía, luz, sonido) usarías para transmitir una emoción.","text",null],
+["El concepto de personaje dramático","Un personaje dramático tiene motivaciones, conflictos y una voz propia que el actor interpreta, distinta de su propia personalidad.","Un actor puede interpretar a un villano cruel en escena, sin que eso refleje su personalidad real fuera del escenario.","Describe un personaje que te gustaría interpretar en una obra de teatro, y qué motivación tendría.","text",null],
+["El uso del espacio escénico","La disposición de actores y objetos en el escenario comunica relaciones de poder, cercanía o distancia entre los personajes.","Colocar a un personaje en un punto elevado del escenario puede sugerir poder o superioridad frente a otro.","Describe cómo ubicarías a dos personajes en un escenario para sugerir una relación de poder desigual entre ellos.","text",null],
+["La improvisación como herramienta artística","La improvisación consiste en crear movimiento, diálogo o música de forma espontánea, sin un guion fijo previo.","En el teatro de improvisación, los actores construyen una escena completa a partir de una sola palabra sugerida por el público.","Describe una breve escena que podrías improvisar a partir de la palabra «espera».","text",null],
+["La expresión facial como recurso comunicativo","La expresión facial comunica emociones de forma inmediata y universal, siendo clave en la actuación y la danza.","Una ceja levantada puede comunicar sorpresa o duda sin necesidad de palabras.","Describe qué expresión facial usarías para comunicar sorpresa, y en qué situación cotidiana la usarías.","text",null],
+["Ritmo escénico rápido y lento","El ritmo de una escena afecta la tensión y la atención del espectador.","Una escena de persecución suele tener un ritmo escénico rápido; una despedida emotiva suele tener un ritmo más lento.","Describe una escena cuyo ritmo escénico te haya parecido especialmente rápido o lento, y qué efecto generó.","text",null],
+["Vestuario y maquillaje escénico","El vestuario y el maquillaje ayudan a construir la identidad visual de un personaje y comunican su época, estatus o personalidad.","Un vestuario harapiento puede comunicar pobreza o marginalidad de un personaje sin necesidad de explicarlo.","Describe qué vestuario usarías para comunicar visualmente que un personaje es rico y poderoso, sin usar palabras.","text",null],
+["El valor de la puesta en escena colectiva","Una obra escénica es el resultado de un trabajo colectivo que combina distintas disciplinas artísticas.","Una obra de teatro musical combina actuación, danza, música y escenografía en una sola experiencia colectiva.","Piensa en una puesta en escena que hayas visto y describe qué disciplinas artísticas distintas se combinaron en ella.","text",null]
+]},
+{name:"Historia del arte", sub:"Movimientos y periodos artísticos", items:[
+["El arte clásico grecorromano","El arte clásico grecorromano valoraba la proporción, el equilibrio y la representación idealizada del cuerpo humano.","Las esculturas griegas de atletas representan cuerpos idealizados, con proporciones armoniosas y equilibradas.","Describe qué características asocias con el arte «clásico», y por qué crees que se sigue considerando un modelo de equilibrio.","text",null],
+["El arte del Renacimiento","El Renacimiento recuperó el interés por la proporción, la perspectiva y la representación realista del cuerpo humano.","Leonardo da Vinci utilizó la perspectiva lineal para crear una sensación de profundidad realista en sus obras.","¿Qué técnica visual, usada para crear sensación de profundidad, fue especialmente desarrollada durante el Renacimiento?","input",["perspectiva","la perspectiva"]],
+["Barroco y clasicismo","El barroco se caracteriza por el dramatismo y el contraste de luces y sombras; el clasicismo busca equilibrio y serenidad.","Las pinturas de Caravaggio usan fuertes contrastes de luz y sombra (claroscuro), típicos del barroco.","Describe la diferencia entre una obra que te parezca «dramática y llena de movimiento» y una que te parezca «equilibrada y serena».","text",null],
+["Características del impresionismo","El impresionismo buscaba capturar impresiones fugaces de luz y color, con pinceladas sueltas y visibles.","Los cuadros de Monet capturan cómo cambia la luz sobre un mismo paisaje en distintos momentos del día.","¿El impresionismo se enfocaba principalmente en capturar la luz y el color, o en representar detalles minuciosos?","input",["la luz y el color","luz y color"]],
+["Características del cubismo","El cubismo representa los objetos desde múltiples puntos de vista simultáneamente, fragmentando las formas en planos geométricos.","En un retrato cubista de Picasso, es posible ver el rostro de frente y de perfil al mismo tiempo.","Describe qué diferencia encuentras entre un retrato realista tradicional y uno cubista, según lo que sabes o imaginas.","text",null],
+["Características del surrealismo","El surrealismo exploraba el mundo de los sueños y el inconsciente, combinando elementos de forma ilógica o fantástica.","Los relojes derretidos en las pinturas de Salvador Dalí representan una realidad onírica, ajena a la lógica cotidiana.","Describe una imagen que consideres «surrealista», combinando elementos de forma ilógica o soñada.","text",null],
+["El arte abstracto del siglo XX","Artistas como Kandinsky o Mondrian se alejaron de la representación figurativa para explorar el color, la forma y la línea.","Las composiciones geométricas de Mondrian, con líneas negras y bloques de color primario, no representan ningún objeto reconocible.","Describe qué sensación te produce observar una obra sin ninguna forma reconocible, solo colores y formas puras.","text",null],
+["Arte y cultura latinoamericana del siglo XX","Movimientos como el muralismo mexicano usaron el arte público para representar temas sociales, históricos e identitarios de la región.","Los murales de Diego Rivera representan la historia y las luchas sociales del pueblo mexicano en espacios públicos.","Describe una obra o movimiento artístico latinoamericano que conozcas y explica qué tema social o cultural refleja.","text",null],
+["Arte contemporáneo y formas experimentales","El arte contemporáneo incluye instalaciones, arte digital y performance, formas que a menudo cuestionan qué se considera «arte».","Una instalación artística puede consistir en objetos cotidianos organizados de una forma inesperada dentro de un museo.","Describe una obra de arte contemporáneo que te parezca inusual, y explica qué crees que buscaba comunicar su autor.","text",null],
+["Comparar movimientos de distintas épocas","Comparar movimientos artísticos de distintas épocas revela cómo cambian las ideas sobre la belleza y el propósito del arte.","Comparar una escultura clásica griega con una escultura abstracta contemporánea revela cambios profundos en la representación del cuerpo.","Elige dos movimientos artísticos de distintas épocas que conozcas y describe una diferencia significativa entre ellos.","text",null]
+]},
+{name:"Análisis y crítica de obras", sub:"Descripción, interpretación y valoración", items:[
+["El análisis formal de una obra","El análisis formal se enfoca en los elementos visuales o técnicos de una obra, sin considerar aún su significado o contexto.","Al analizar formalmente un cuadro, se describe primero su paleta de colores y su composición antes de interpretar su significado.","Elige una obra visual y describe solo sus elementos formales (color, línea, composición), sin interpretar todavía su significado.","text",null],
+["El análisis iconográfico","El análisis iconográfico identifica los símbolos, personajes o referencias culturales presentes en una obra y su significado tradicional.","En muchas pinturas religiosas, una paloma blanca simboliza tradicionalmente al Espíritu Santo o la paz.","Elige un símbolo (una paloma, una calavera, una balanza) que aparezca frecuentemente en el arte y explica qué suele significar.","text",null],
+["El análisis contextual","El análisis contextual considera el momento histórico, social y biográfico en que se creó una obra para comprender mejor su significado.","Conocer que una pintura se hizo durante una guerra puede cambiar la interpretación de sus colores oscuros o su temática.","Elige una obra que conozcas y describe un dato de su contexto histórico o biográfico que ayude a entenderla mejor.","text",null],
+["Descripción e interpretación","Describir una obra implica señalar lo que objetivamente se observa; interpretarla implica proponer un significado posible.","«El cuadro muestra una mujer llorando junto a una ventana» es descripción; «representa la soledad de la vejez» es interpretación.","Elige una obra y escribe primero una descripción objetiva, y luego una interpretación posible de su significado.","text",null],
+["Formular una crítica artística fundamentada","Una crítica fundamentada no solo expresa gusto personal, sino que argumenta con base en elementos formales, contextuales o técnicos.","En vez de decir solo «no me gusta este cuadro», una crítica fundamentada explicaría que la composición se siente desequilibrada.","Elige una obra que no te guste especialmente y escribe una crítica fundamentada, explicando con argumentos por qué no te convence.","text",null],
+["La intención comunicativa del artista","Identificar qué buscaba comunicar el artista ayuda a interpretar la obra más allá de la primera impresión.","Una obra que representa una fábrica contaminante puede buscar generar conciencia ambiental en el espectador.","Elige una obra y describe cuál crees que era la intención comunicativa de su autor.","text",null],
+["Comparar dos obras de un mismo tema","Comparar cómo distintos artistas abordan un mismo tema revela diferencias de estilo, época o perspectiva.","Comparar cómo se representa la guerra en un cuadro clásico y en una fotografía periodística revela enfoques muy distintos.","Elige un tema (el amor, la naturaleza, la muerte) y describe cómo lo abordarían, de forma distinta, dos obras o artistas que conozcas.","text",null],
+["Originalidad e influencia entre artistas","Los artistas suelen influirse mutuamente, y una obra puede ser original aunque dialogue con obras o estilos anteriores.","Muchos artistas modernos reinterpretan composiciones clásicas, aportando su propia visión sin copiarlas literalmente.","Piensa en un artista contemporáneo que conozcas y describe si crees que fue influenciado por un estilo o artista anterior.","text",null],
+["Coherencia entre forma y contenido","Una obra lograda suele mostrar coherencia entre lo que representa y cómo lo representa, reforzando su efecto expresivo.","Una canción sobre la calma del mar con una melodía suave y lenta muestra coherencia entre forma y contenido.","Elige una obra y evalúa si su forma (ritmo, color, técnica) es coherente con lo que expresa su contenido.","text",null],
+["Elaborar una ficha de análisis","Una ficha de análisis organiza de forma sistemática información como autor, época, técnica e interpretación de una obra.","Una ficha simple puede incluir: título, autor, año, técnica, breve descripción e interpretación personal.","Elabora una ficha breve de análisis para una obra que conozcas, incluyendo al menos título, autor y una interpretación personal.","text",null]
+]},
+{name:"Filosofía del arte", sub:"Teorías estéticas clásicas y contemporáneas", items:[
+["La teoría platónica del arte como imitación","Para Platón, el arte es una imitación (mimesis) de la realidad, la cual a su vez imita el mundo de las ideas.","Según esta visión, una pintura de una silla imita a una silla real, que a su vez imita la «idea» perfecta de silla.","Explica si estás de acuerdo con la idea de que el arte «imita» la realidad, o si crees que hace algo más además de imitar.","text",null],
+["La teoría aristotélica de la catarsis","Para Aristóteles, el arte permite al espectador experimentar y liberar emociones intensas como el miedo o la compasión (catarsis).","Ver una tragedia teatral permite «purgar» emociones intensas de forma segura, sin vivir realmente esa tragedia.","Piensa en una obra que te haya hecho sentir una emoción intensa, y describe si sentiste algo parecido a un «alivio» después.","text",null],
+["La estética kantiana del juicio sin concepto","Para Kant, el juicio estético es universal pero no se basa en un concepto o utilidad, sino en el placer desinteresado ante la forma.","Apreciar la belleza de una flor no depende de considerar su utilidad, sino del placer que produce contemplarla por sí misma.","Piensa en algo que consideres bello sin que tenga ninguna utilidad práctica, y describe qué tipo de placer te produce contemplarlo.","text",null],
+["El arte como expresión (teorías expresivistas)","Algunas teorías sostienen que la función esencial del arte es expresar emociones o estados internos del artista.","Una pieza musical puede valorarse principalmente por la intensidad emocional que transmite, más que por su técnica.","Piensa en una obra que valores principalmente por la emoción que transmite, más que por su técnica o realismo, y descríbela.","text",null],
+["El arte como institución","Según algunas teorías contemporáneas, algo se considera «arte» en parte porque el mundo del arte lo reconoce como tal.","Un objeto cotidiano puede considerarse arte si es presentado y reconocido como tal dentro del contexto artístico.","Reflexiona: ¿crees que algo se convierte en arte solo por estar en un museo, o debe cumplir otras condiciones?","text",null],
+["Arte y verdad","Algunos filósofos sostienen que el arte puede revelar verdades sobre la experiencia humana que otros medios no logran expresar igual.","Una novela puede transmitir la experiencia subjetiva de la guerra de una forma que un informe estadístico no logra comunicar igual.","Piensa en una obra de ficción que te haya hecho comprender mejor una experiencia humana que otros medios no lograron transmitir igual.","text",null],
+["El valor del arte más allá de lo útil","Parte de la filosofía del arte defiende que su valor no depende de una utilidad práctica inmediata, sino de su capacidad de generar reflexión.","Financiar un museo u orquesta no genera una ganancia material directa, pero se justifica por su valor cultural y reflexivo.","Explica por qué crees que vale la pena invertir tiempo o recursos en el arte, aunque no tenga una utilidad práctica inmediata.","text",null],
+["Arte y libertad de expresión","La filosofía del arte discute los límites entre la libertad creativa del artista y las posibles consecuencias sociales o éticas de una obra.","Una obra que representa temas controversiales puede generar debate sobre si debería exhibirse o censurarse.","Reflexiona: ¿crees que debería haber límites a lo que un artista puede representar en su obra? Explica con un ejemplo.","text",null],
+["Arte «puro» frente a arte comprometido","Algunas posturas defienden un arte centrado solo en la forma y la belleza; otras defienden un arte comprometido con causas sociales.","Un poema centrado solo en el ritmo y la belleza representa el «arte por el arte»; un mural que denuncia una injusticia es arte comprometido.","Reflexiona: ¿crees que el arte debe tener siempre un compromiso social, o puede valorarse solo por su forma y belleza?","text",null],
+["El arte y la inteligencia artificial","La aparición de herramientas de IA capaces de generar imágenes o música plantea preguntas filosóficas sobre autoría y creatividad.","Una imagen generada por IA puede ser visualmente atractiva, pero surge el debate de si puede considerarse «arte» igual que una obra humana.","Reflexiona: ¿crees que una obra generada por inteligencia artificial puede considerarse arte en el mismo sentido que una obra humana?","text",null]
+]},
+{name:"Arte, cultura e identidad", sub:"Patrimonio, diversidad y arte popular", items:[
+["El arte popular y su valor cultural","El arte popular expresa la identidad y creatividad colectiva de una comunidad, más allá del circuito artístico formal.","Los tejidos tradicionales de una comunidad indígena expresan técnicas, símbolos e historias transmitidas por generaciones.","Describe una expresión de arte popular de tu región (música, artesanía, danza) y explica qué valor cultural tiene para ti.","text",null],
+["El concepto de patrimonio cultural","El patrimonio cultural incluye obras, tradiciones y lugares que una sociedad considera valiosos para preservar y transmitir.","Una catedral histórica o una tradición oral centenaria pueden considerarse parte del patrimonio cultural de un país.","Menciona un elemento del patrimonio cultural de tu país o región, y explica por qué crees que merece preservarse.","text",null],
+["La diversidad artística y cultural","Distintas culturas desarrollan tradiciones artísticas propias, con estéticas y significados particulares que merecen ser valoradas sin jerarquías.","La música andina y la música flamenca tienen estéticas completamente distintas, ambas igualmente válidas culturalmente.","Describe dos tradiciones artísticas de culturas distintas que conozcas, y explica en qué se diferencian.","text",null],
+["La apropiación cultural en el arte","La apropiación cultural ocurre cuando elementos artísticos de una cultura son usados por otra sin reconocimiento ni respeto por su significado.","Usar un tocado ceremonial indígena solo como accesorio de moda, sin conocer su significado, puede considerarse apropiación cultural.","Reflexiona: ¿qué diferencia habría entre «inspirarse» respetuosamente en una tradición y «apropiarse» de ella sin respeto?","text",null],
+["El arte como forma de resistencia","El arte ha sido usado por comunidades para resistir la opresión, visibilizar injusticias o preservar su identidad.","Canciones de protesta durante movimientos por los derechos civiles ayudaron a visibilizar y fortalecer la lucha por la igualdad.","Describe una obra de arte que conozcas que haya sido usada como forma de resistencia o protesta social.","text",null],
+["Arte y género","Históricamente, muchas mujeres y personas de géneros no normativos han sido excluidas del reconocimiento artístico oficial.","Muchas pintoras del pasado, como Artemisia Gentileschi, fueron menos reconocidas en su época que sus contemporáneos hombres.","Investiga (o recuerda) una artista mujer que consideres poco reconocida en comparación con su talento, y describe su obra.","text",null],
+["El arte urbano y el espacio público","El arte urbano transforma espacios públicos cotidianos en lugares de expresión artística, con mensajes sociales o comunitarios.","Un mural en un barrio puede embellecer el espacio y transmitir un mensaje sobre la identidad o historia de esa comunidad.","Describe una obra de arte urbano que podrías crear para transmitir un mensaje importante para tu comunidad.","text",null],
+["Acceso desigual al arte y la cultura","El acceso a museos, teatros o educación artística no siempre es equitativo, y puede depender de factores económicos o geográficos.","Una persona que vive lejos de las grandes ciudades puede tener menos acceso a museos o conciertos que alguien en la capital.","Reflexiona sobre el acceso al arte y la cultura en tu comunidad: ¿qué facilidades o dificultades existen para acceder a él?","text",null],
+["El papel de los museos y espacios culturales","Los museos no solo exhiben obras, sino que también las contextualizan, preservan y las hacen accesibles al público.","Un museo puede acompañar una obra con información sobre su autor, época y técnica, enriqueciendo la experiencia del visitante.","Describe una visita (real o imaginada) a un museo o espacio cultural, y qué aprendiste o sentiste durante esa experiencia.","text",null],
+["Valorar las expresiones artísticas propias","Reconocer y valorar las expresiones artísticas locales fortalece el sentido de identidad y pertenencia cultural.","Participar en un festival local de danza tradicional puede fortalecer el vínculo de una persona con su comunidad e historia.","Describe una expresión artística propia de tu comunidad que valores especialmente, y explica qué representa para ti.","text",null]
+]},
+{name:"Creación artística", sub:"Proceso creativo, exploración y práctica", items:[
+["Etapas del proceso creativo","El proceso creativo suele incluir la exploración de ideas, el boceto o ensayo, la ejecución y la revisión final de la obra.","Un pintor puede empezar con bocetos rápidos, luego elegir uno para desarrollar con más detalle, y ajustar los últimos detalles.","Piensa en algo que hayas creado (un dibujo, una canción, un escrito) y describe las etapas por las que pasaste hasta terminarlo.","text",null],
+["El papel del error en el proceso creativo","Los errores durante el proceso creativo pueden convertirse en oportunidades de descubrimiento o nuevas direcciones inesperadas.","Una mancha accidental de pintura puede inspirar a un artista a incorporar una nueva textura o forma en su obra.","Describe una situación en la que un error durante un proceso creativo haya terminado siendo positivo o interesante.","text",null],
+["Generar ideas sin autocensura (lluvia de ideas)","En las primeras etapas creativas, generar muchas ideas sin juzgarlas de inmediato favorece la originalidad.","Antes de decidir el tema de un mural, un grupo puede generar veinte ideas distintas sin descartar ninguna todavía.","Elige un tema y escribe rápidamente cinco ideas distintas para una obra artística sobre ese tema, sin juzgar si son buenas o malas.","text",null],
+["La importancia de las limitaciones creativas","Trabajar dentro de ciertas limitaciones puede estimular soluciones creativas inesperadas.","Crear una escultura usando solo materiales reciclados obliga a encontrar soluciones creativas distintas a las habituales.","Piensa en una limitación (de tiempo, materiales o espacio) y describe cómo podrías crear algo artístico interesante a pesar de ella.","text",null],
+["El valor del boceto o ensayo previo","Un boceto o ensayo previo permite explorar posibilidades antes de comprometerse con la versión final de una obra.","Un compositor puede grabar varias versiones simples de una melodía antes de decidir cuál desarrollar completamente.","Describe cómo harías un boceto o ensayo previo antes de crear una obra final (un dibujo, una canción, un poema).","text",null],
+["Revisión crítica de la propia obra","Revisar la propia obra con distancia crítica ayuda a identificar qué funciona y qué podría mejorarse.","Releer un poema propio después de unos días permite notar versos que podrían mejorarse, con una mirada más objetiva.","Si tienes una obra propia, revísala con distancia crítica y anota algo que mejorarías.","text",null],
+["Influencia de referentes artísticos propios","Todo creador se inspira, consciente o inconscientemente, en referentes artísticos previos que ha visto, escuchado o leído.","Un joven músico puede notar que su estilo de composición está influenciado por artistas que escuchaba en su infancia.","Piensa en un referente artístico que haya influido en tu propio gusto o creatividad, y explica cómo.","text",null],
+["Crear con un propósito comunicativo claro","Definir qué se quiere comunicar antes de crear ayuda a que las decisiones artísticas tengan mayor coherencia.","Si el propósito es transmitir nostalgia, un artista puede elegir colores apagados y una composición con espacios vacíos.","Elige una emoción o idea que quisieras comunicar en una obra, y describe qué decisiones artísticas tomarías para lograrlo.","text",null],
+["El valor de compartir y exponer la propia obra","Compartir una obra con otros permite recibir retroalimentación y conectar con una audiencia, aunque genere vulnerabilidad.","Mostrar un dibujo propio a un grupo de compañeros, aunque genere nervios, puede abrir la posibilidad de comentarios valiosos.","Describe cómo te sentirías al compartir una obra propia con otras personas, y qué tipo de retroalimentación te gustaría recibir.","text",null],
+["Revisar qué disciplina artística explorar más","Identificar qué disciplina artística despierta más interés personal ayuda a enfocar el aprendizaje y la práctica futura.","Alguien que disfruta especialmente de escribir podría explorar más la poesía o la narrativa como forma de expresión.","Después de practicar con esta app, escribe qué disciplina artística te gustaría explorar más a fondo y por qué.","text",null]
+]}
+];
+
+// ---- normalización y comprobación ----
+function stripAccents(s){
+  return s.replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i")
+          .replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n");
+}
+function normalize(s){
+  if(s===null || s===undefined) return "";
+  s = s.toString().toLowerCase().trim();
+  s = stripAccents(s);
+  s = s.replace(/[¿¡!?.,;]+$/g,"");
+  s = s.replace(/^[¿¡]+/g,"");
+  s = s.replace(/\s+/g," ");
+  return s;
+}
+function isCorrect(userText, accepted){
+  const u = normalize(userText);
+  if(u==="") return false;
+  return accepted.some(a => normalize(a)===u);
+}
+
+// ---- estado y almacenamiento ----
+let currentCat = null;
+let currentIdx = 0;
+let progress = {};
+
+function techKey(c,i){ return c+"-"+i; }
+
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('progreso-cuaderno-estetica', false);
+    if(res && res.value){ progress = JSON.parse(res.value); }
+  }catch(e){ progress = {}; }
+}
+async function saveProgressStore(){
+  try{ await window.storage.set('progreso-cuaderno-estetica', JSON.stringify(progress), false); }catch(e){}
+}
+async function loadAnswer(c,i){
+  try{
+    const res = await window.storage.get('respuesta-estetica-'+techKey(c,i), false);
+    return res && res.value ? res.value : "";
+  }catch(e){ return ""; }
+}
+async function saveAnswerStore(c,i,text){
+  try{ await window.storage.set('respuesta-estetica-'+techKey(c,i), text, false); }catch(e){}
+}
+
+function renderMenu(){
+  const ul = document.getElementById('catList');
+  ul.innerHTML = "";
+  CATEGORIES.forEach((cat, ci)=>{
+    const done = cat.items.filter((_,ii)=>progress[techKey(ci,ii)]).length;
+    const li = document.createElement('li');
+    li.className = 'cat-item';
+    li.innerHTML = `
+      <button class="cat-btn" data-cat="${ci}">
+        <span class="cat-num">${String(ci+1).padStart(2,'0')}</span>
+        <span class="cat-text">
+          <div class="cat-name">${cat.name}</div>
+          <div class="cat-sub">${cat.sub}</div>
+        </span>
+        <span class="cat-progress">${done}/10</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.cat-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDeck(parseInt(btn.dataset.cat)));
+  });
+  renderGlobalProgress();
+}
+
+function renderGlobalProgress(){
+  const total = 100;
+  const done = Object.keys(progress).filter(k=>progress[k]).length;
+  document.getElementById('globalFill').style.width = (done/total*100)+"%";
+  document.getElementById('globalLabel').textContent = done+"/100 practicadas";
+}
+
+function openDeck(ci){
+  currentCat = ci;
+  currentIdx = 0;
+  document.getElementById('menuView').classList.add('hidden');
+  document.getElementById('deckView').classList.remove('hidden');
+  document.getElementById('deckTitle').textContent = CATEGORIES[ci].name;
+  renderCard();
+  window.scrollTo(0,0);
+}
+function closeDeck(){
+  document.getElementById('deckView').classList.add('hidden');
+  document.getElementById('menuView').classList.remove('hidden');
+  renderMenu();
+  window.scrollTo(0,0);
+}
+function renderDots(){
+  const wrap = document.getElementById('dots');
+  wrap.innerHTML = "";
+  CATEGORIES[currentCat].items.forEach((_,i)=>{
+    const d = document.createElement('span');
+    d.className = 'dot' + (i===currentIdx? ' active':'') + (progress[techKey(currentCat,i)] && i!==currentIdx? ' done':'');
+    wrap.appendChild(d);
+  });
+}
+
+async function renderCard(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const [title, concept, example, exercise, type, answers] = item;
+  const globalNum = CATEGORIES.slice(0,currentCat).reduce((a,c)=>a+c.items.length,0) + currentIdx + 1;
+
+  document.getElementById('cardNum').textContent = "Técnica " + globalNum + " de 100";
+  document.getElementById('catName').textContent = CATEGORIES[currentCat].name;
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardConcept').textContent = concept;
+  document.getElementById('cardExample').textContent = example;
+  document.getElementById('cardExercise').textContent = exercise;
+
+  const feedback = document.getElementById('feedback');
+  feedback.className = 'feedback';
+  feedback.textContent = '';
+  const solBox = document.getElementById('solutionBox');
+  solBox.classList.remove('show');
+  document.getElementById('savedTag').classList.remove('show');
+
+  if(type==='input'){
+    document.getElementById('inputExercise').classList.remove('hidden');
+    document.getElementById('textExercise').classList.add('hidden');
+    document.getElementById('cardInput').value = "";
+    solBox.textContent = "Solución: " + answers[0];
+  } else {
+    document.getElementById('inputExercise').classList.add('hidden');
+    document.getElementById('textExercise').classList.remove('hidden');
+    const savedText = await loadAnswer(currentCat, currentIdx);
+    document.getElementById('cardAnswer').value = savedText;
+  }
+
+  const isDone = !!progress[techKey(currentCat,currentIdx)];
+  document.getElementById('doneDot').classList.toggle('on', isDone);
+  document.getElementById('doneLabel').textContent = isDone ? 'practicada' : 'sin practicar';
+
+  document.getElementById('prevBtn').disabled = currentIdx===0;
+  document.getElementById('nextBtn').disabled = currentIdx===CATEGORIES[currentCat].items.length-1;
+  renderDots();
+}
+
+async function markDone(){
+  progress[techKey(currentCat,currentIdx)] = true;
+  await saveProgressStore();
+  document.getElementById('doneDot').classList.add('on');
+  document.getElementById('doneLabel').textContent = 'practicada';
+  renderDots();
+  renderGlobalProgress();
+}
+
+function handleCheck(){
+  const item = CATEGORIES[currentCat].items[currentIdx];
+  const answers = item[5];
+  const val = document.getElementById('cardInput').value;
+  const feedback = document.getElementById('feedback');
+  if(isCorrect(val, answers)){
+    feedback.className = 'feedback ok';
+    feedback.textContent = '¡Correcto! Bien resuelto.';
+    markDone();
+  } else {
+    feedback.className = 'feedback bad';
+    feedback.textContent = 'Aún no. Revisa el ejemplo e inténtalo de nuevo.';
+  }
+}
+function handleReveal(){
+  document.getElementById('solutionBox').classList.toggle('show');
+}
+async function handleSaveText(){
+  const text = document.getElementById('cardAnswer').value;
+  await saveAnswerStore(currentCat, currentIdx, text);
+  if(text.trim().length>0){ await markDone(); }
+  const tag = document.getElementById('savedTag');
+  tag.classList.add('show');
+  setTimeout(()=>tag.classList.remove('show'), 1600);
+}
+
+document.getElementById('backBtn').addEventListener('click', closeDeck);
+document.getElementById('checkBtn').addEventListener('click', handleCheck);
+document.getElementById('revealBtn').addEventListener('click', handleReveal);
+document.getElementById('saveBtn').addEventListener('click', handleSaveText);
+document.getElementById('cardInput').addEventListener('keydown', (e)=>{ if(e.key==='Enter') handleCheck(); });
+document.getElementById('prevBtn').addEventListener('click', ()=>{
+  if(currentIdx>0){ currentIdx--; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('nextBtn').addEventListener('click', ()=>{
+  if(currentIdx<CATEGORIES[currentCat].items.length-1){ currentIdx++; renderCard(); window.scrollTo(0,0); }
+});
+document.getElementById('resetBtn').addEventListener('click', async ()=>{
+  if(confirm('¿Borrar todo tu progreso y tus respuestas guardadas?')){
+    try{
+      const list = await window.storage.list('respuesta-estetica-', false);
+      if(list && list.keys){
+        for(const k of list.keys){ await window.storage.delete(k, false); }
+      }
+    }catch(e){}
+    progress = {};
+    await saveProgressStore();
+    renderMenu();
+  }
+});
+
+(async function init(){
+  await loadProgress();
+  renderMenu();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1982 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 Súper Cuaderno 9° · Castellano y Literatura · ES/EN</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --indigo:#4f46e5; --rosa:#db2777;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+/* ============ LOGIN ============ */
+.login-screen{position:fixed;inset:0;background:linear-gradient(135deg,#1a2f5a,#4f46e5);display:flex;align-items:center;justify-content:center;z-index:5000;padding:1rem;overflow-y:auto;}
+.login-card{background:var(--bg-card);border-radius:20px;padding:2.5rem 2rem;max-width:460px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);margin:auto;}
+.login-card h1{font-size:1.5rem;text-align:center;margin-bottom:0.3rem;}
+.login-card .sub{text-align:center;color:var(--text-muted);font-size:0.85rem;margin-bottom:1.5rem;}
+.login-tabs{display:flex;gap:0.4rem;margin-bottom:1rem;background:var(--bg);padding:0.3rem;border-radius:10px;}
+.login-tabs button{flex:1;padding:0.5rem;border:none;background:transparent;color:var(--text-muted);font-weight:600;cursor:pointer;border-radius:8px;font-size:0.82rem;transition:all var(--transition);}
+.login-tabs button.active{background:var(--navy);color:#fff;}
+.login-form input{width:100%;padding:0.7rem;border:1px solid var(--border);border-radius:10px;font-size:0.85rem;background:var(--bg);color:var(--text);margin-bottom:0.7rem;font-family:'Public Sans',sans-serif;}
+.login-form input:focus{outline:2px solid var(--bronce);}
+.login-form label{display:block;font-size:0.78rem;font-weight:600;color:var(--text-muted);margin-bottom:0.3rem;}
+.login-btn{width:100%;padding:0.7rem;background:var(--navy);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;font-size:0.9rem;transition:background var(--transition);}
+.login-btn:hover{background:var(--bronce);}
+.login-info{background:var(--bg);border-radius:10px;padding:0.7rem;font-size:0.75rem;color:var(--text-muted);margin-top:1rem;text-align:center;}
+.avatar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.4rem;margin:0.5rem 0 1rem;}
+.avatar-opt{padding:0.5rem;border-radius:10px;border:2px solid var(--border);background:var(--bg-card);cursor:pointer;font-size:1.4rem;text-align:center;transition:all var(--transition);}
+.avatar-opt:hover{border-color:var(--bronce);}
+.avatar-opt.selected{border-color:var(--navy);background:rgba(176,141,87,0.15);}
+
+/* ============ TOPBAR ============ */
+.topbar{background:var(--navy);color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:0.95rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:34px;height:34px;border-radius:50%;border:2px solid var(--bronce);color:var(--bronce-light);text-align:center;line-height:30px;font-size:0.58rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.2rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:0.32rem 0.6rem;border-radius:30px;font-size:0.66rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-tabs-app button.active{background:var(--bronce);border-color:var(--bronce);color:#fff;}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.1);border:none;color:#fff;padding:0.32rem 0.6rem;border-radius:8px;font-size:0.7rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.25);}
+.user-chip{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.12);padding:0.25rem 0.6rem 0.25rem 0.25rem;border-radius:20px;cursor:pointer;transition:background var(--transition);}
+.user-chip:hover{background:rgba(255,255,255,0.22);}
+.user-chip .avatar{width:26px;height:26px;border-radius:50%;background:var(--bronce);display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.user-chip .uname{font-size:0.75rem;font-weight:600;}
+
+/* ============ LAYOUT ============ */
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--bronce);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--navy);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:var(--bronce-light);}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:150px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--bronce),var(--navy));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--navy);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--bronce);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:190px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:190px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--bronce),#8a6d3b);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.7;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--bronce);background:rgba(176,141,87,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--bronce);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--bronce),var(--navy));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--bronce);border-color:var(--bronce);color:#fff;}
+.punto.actual{border-color:var(--navy);box-shadow:0 0 0 3px rgba(10,31,68,0.2);}
+
+/* ============ TALLER ============ */
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--bronce);}
+.btn-accion{background:var(--navy);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--bronce);}
+.btn-accion.secundario{background:var(--bronce);}
+.btn-accion.secundario:hover{background:var(--navy);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+/* ============ PERFIL ============ */
+.perfil-header{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);display:flex;gap:1.5rem;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;}
+.perfil-avatar{width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--indigo));display:flex;align-items:center;justify-content:center;font-size:3rem;color:#fff;flex-shrink:0;}
+.perfil-info{flex:1;min-width:200px;}
+.perfil-info h2{font-size:1.4rem;margin-bottom:0.3rem;}
+.perfil-info p{font-size:0.85rem;color:var(--text-muted);}
+.perfil-badges{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.5rem;}
+.badge-insignia{background:var(--bronce);color:#fff;padding:0.25rem 0.6rem;border-radius:20px;font-size:0.7rem;font-weight:600;}
+.badge-insignia.verde{background:var(--verde);}
+.badge-insignia.azul{background:var(--azul);}
+.badge-insignia.morado{background:var(--morado);}
+.badge-insignia.indigo{background:var(--indigo);}
+
+/* ============ CERTIFICADO ============ */
+.certificado-portada{background:var(--bg-card);border:3px double var(--bronce);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--bronce);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--bronce);}
+.campo-editable{border-bottom:1px dashed var(--bronce);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(176,141,87,0.1);}
+.campo-editable:focus{outline:2px solid var(--bronce);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--bronce);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--bronce);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--bronce);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+/* ============ PWA ============ */
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:var(--bronce);border:none;color:#fff;padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.6);}
+
+/* ============ MENÚ PERFIL ============ */
+.perfil-menu{position:absolute;top:60px;right:1.2rem;background:var(--bg-card);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.2);padding:0.5rem;min-width:220px;z-index:1500;display:none;border:1px solid var(--border);}
+.perfil-menu.show{display:block;animation:fadeIn 0.2s;}
+.perfil-menu button{width:100%;text-align:left;background:transparent;border:none;color:var(--text);padding:0.6rem 0.8rem;border-radius:8px;font-size:0.82rem;cursor:pointer;transition:background var(--transition);display:flex;align-items:center;gap:0.5rem;}
+.perfil-menu button:hover{background:var(--bg);}
+.perfil-menu hr{border:none;border-top:1px solid var(--border);margin:0.3rem 0;}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+.hidden{display:none!important;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--bronce);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== LOGIN ==================== -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <h1>📚 Súper Cuaderno 9°</h1>
+    <p class="sub">Castellano y Literatura · ES/EN · Nivel preuniversitario</p>
+    <div class="login-tabs">
+      <button class="active" data-login-tab="login">🔑 Iniciar sesión</button>
+      <button data-login-tab="register">✍️ Registrarse</button>
+    </div>
+
+    <div class="login-form" id="formLogin">
+      <label>Usuario o correo</label>
+      <input type="text" id="loginUser" placeholder="tu_usuario">
+      <label>Contraseña</label>
+      <input type="password" id="loginPass" placeholder="••••••••">
+      <button class="login-btn" id="btnLogin">Entrar</button>
+    </div>
+
+    <div class="login-form hidden" id="formRegister">
+      <label>Nombre completo</label>
+      <input type="text" id="regName" placeholder="Lucía Fernández">
+      <label>Usuario</label>
+      <input type="text" id="regUser" placeholder="lucia_9a">
+      <label>Correo electrónico</label>
+      <input type="email" id="regEmail" placeholder="lucia@colegio.edu">
+      <label>Contraseña</label>
+      <input type="password" id="regPass" placeholder="Mínimo 4 caracteres">
+      <label>Curso</label>
+      <input type="text" id="regCurso" placeholder="9° A" value="9° A">
+      <label>Elige un avatar</label>
+      <div class="avatar-grid" id="avatarGrid">
+        <div class="avatar-opt selected" data-av="🦉">🦉</div>
+        <div class="avatar-opt" data-av="🎭">🎭</div>
+        <div class="avatar-opt" data-av="📚">📚</div>
+        <div class="avatar-opt" data-av="✒️">✒️</div>
+        <div class="avatar-opt" data-av="🎨">🎨</div>
+        <div class="avatar-opt" data-av="🎓">🎓</div>
+        <div class="avatar-opt" data-av="🚀">🚀</div>
+        <div class="avatar-opt" data-av="🌟">🌟</div>
+        <div class="avatar-opt" data-av="💡">💡</div>
+        <div class="avatar-opt" data-av="🔥">🔥</div>
+      </div>
+      <button class="login-btn" id="btnRegister">Crear cuenta</button>
+    </div>
+
+    <div class="login-info">
+      💡 Los datos se guardan localmente en tu navegador.
+    </div>
+  </div>
+</div>
+
+<!-- ==================== TOPBAR ==================== -->
+<header class="topbar hidden" id="topbar">
+  <div class="brand">
+    <span class="sello">9°</span>
+    <span>Súper Cuaderno · Castellano</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="perfil">👤 Perfil</button>
+    <button data-mode="literatura">📖 Literatura · 100</button>
+    <button data-mode="comprension">📚 Comprensión · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="html">💻 HTML/CSS/JS · 100</button>
+    <button data-mode="python">🐍 Python+Django · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <button id="btnIdioma" title="Cambiar idioma">🌐 ES</button>
+    <button id="btnTema" title="Modo oscuro">🌙</button>
+    <div class="user-chip" id="userChip">
+      <div class="avatar" id="userAvatar">🦉</div>
+      <span class="uname" id="userName">Estudiante</span>
+    </div>
+  </div>
+</header>
+
+<div class="perfil-menu" id="perfilMenu">
+  <button id="menuPerfil">👤 Mi perfil</button>
+  <button id="menuLogros">🏆 Mis logros</button>
+  <button id="menuNotas">📝 Mis notas</button>
+  <hr>
+  <button id="menuExportar">📤 Exportar mis datos</button>
+  <button id="menuLogout" style="color:#c0392b;">🚪 Cerrar sesión</button>
+</div>
+
+<!-- ==================== CONTENIDO ==================== -->
+<main class="app-container hidden" id="appContent">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 9° Castellano y Literatura</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Bienvenido/a, <span id="dashNombre">estudiante</span> · Nivel preuniversitario</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>📖 Literatura hispanoamericana</h4><div id="barrasLiteratura"></div></div>
+    <div class="chart-card"><h4>📚 Comprensión crítica</h4><div id="barrasComprension"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis avanzada</h4><div id="barrasSintaxis"></div></div>
+    <div class="chart-card"><h4>💻 HTML + CSS + JS</h4><div id="barrasHTML"></div></div>
+    <div class="chart-card"><h4>🐍 Python + Django</h4><div id="barrasPython"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global (500 técnicas)</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bronce)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--navy)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--bronce)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-perfil">
+  <h1 style="margin-bottom:1rem;">👤 Mi perfil</h1>
+  <div class="perfil-header">
+    <div class="perfil-avatar" id="perfilAvatar">🦉</div>
+    <div class="perfil-info">
+      <h2 id="perfilNombre">Nombre del estudiante</h2>
+      <p id="perfilCorreo">correo@colegio.edu · <span id="perfilCurso">9° A</span></p>
+      <p style="margin-top:0.4rem;font-size:0.78rem;">Miembro desde: <span id="perfilFecha">—</span></p>
+      <div class="perfil-badges" id="perfilInsignias"></div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:2rem;font-weight:700;color:var(--bronce);font-family:'PT Serif',serif;" id="perfilPuntos">0</div>
+      <div style="font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;">puntos</div>
+    </div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>📊 Mi progreso por módulo</h4><div id="perfilBarras"></div></div>
+    <div class="chart-card"><h4>🏆 Mis logros</h4><div id="perfilLogros"></div></div>
+    <div class="chart-card"><h4>📝 Mis notas</h4><div id="perfilNotasCount"></div></div>
+    <div class="chart-card"><h4>⚙️ Acciones</h4>
+      <button class="btn-accion" id="perfilEditar" style="margin-bottom:0.4rem;width:100%;">✏️ Editar perfil</button>
+      <button class="btn-accion secundario" id="perfilExportar" style="margin-bottom:0.4rem;width:100%;">📤 Exportar mis datos</button>
+      <button class="btn-accion" id="perfilReset" style="background:#c0392b;width:100%;">🔄 Reiniciar mi progreso</button>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-literatura">
+  <h1 style="margin-bottom:1rem;">📖 Literatura hispanoamericana · 100 técnicas (9°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLitText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLitFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLit"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLit"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-comprension">
+  <h1 style="margin-bottom:1rem;">📚 Comprensión crítica · 100 técnicas (9°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progCompText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progCompFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesComp"></div></aside>
+    <div class="tecnica-panel" id="tecnicaComp"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis avanzada · 100 técnicas (9°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-html">
+  <h1 style="margin-bottom:1rem;">💻 HTML + CSS + JS para LMS · 100 técnicas</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Cuaderno bilingüe ES/EN · Desarrollo de aplicaciones educativas</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progHTMLText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progHTMLFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesHTML"></div></aside>
+    <div class="tecnica-panel" id="tecnicaHTML"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python + Django para LMS · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller integrado · 20 herramientas</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado de Finalización</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Súper Cuaderno 9° Grado · Castellano y Literatura · ES/EN
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre" id="certNombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 500 técnicas del programa de 9° grado</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Institución: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Curso: <span class="campo-editable" contenteditable="true" data-campo="curso">9° ____</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   SISTEMA DE USUARIOS
+   ===================================================================== */
+const USERS_KEY = 'super_cuaderno_9_users';
+const SESSION_KEY = 'super_cuaderno_9_session';
+let currentUser = null;
+
+function getUsers(){ try { return JSON.parse(localStorage.getItem(USERS_KEY)) || {}; } catch { return {}; } }
+function saveUsers(users){ localStorage.setItem(USERS_KEY, JSON.stringify(users)); }
+function getSession(){ return localStorage.getItem(SESSION_KEY); }
+function setSession(u){ localStorage.setItem(SESSION_KEY, u); }
+function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+function getUserKey(s){ return `u_${currentUser}_${s}`; }
+function userGet(k, d=null){
+  if(!currentUser) return d;
+  try { const v = localStorage.getItem(getUserKey(k)); return v ? JSON.parse(v) : d; } catch { return d; }
+}
+function userSet(k, v){ if(currentUser) localStorage.setItem(getUserKey(k), JSON.stringify(v)); }
+
+/* =====================================================================
+   LOGIN / REGISTRO
+   ===================================================================== */
+let selectedAvatar = '🦉';
+
+document.querySelectorAll('.login-tabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.login-tabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.loginTab;
+    document.getElementById('formLogin').classList.toggle('hidden', tab!=='login');
+    document.getElementById('formRegister').classList.toggle('hidden', tab!=='register');
+  });
+});
+
+document.querySelectorAll('.avatar-opt').forEach(av=>{
+  av.addEventListener('click',()=>{
+    document.querySelectorAll('.avatar-opt').forEach(a=>a.classList.remove('selected'));
+    av.classList.add('selected');
+    selectedAvatar = av.dataset.av;
+  });
+});
+
+document.getElementById('btnLogin').addEventListener('click',()=>{
+  const user = document.getElementById('loginUser').value.trim().toLowerCase();
+  const pass = document.getElementById('loginPass').value;
+  if(!user || !pass){ alert('Completa usuario y contraseña'); return; }
+  const users = getUsers();
+  const found = Object.values(users).find(u => (u.usuario===user || u.email===user) && u.pass===btoa(pass));
+  if(!found){ alert('❌ Usuario o contraseña incorrectos'); return; }
+  setSession(found.usuario);
+  currentUser = found.usuario;
+  iniciarApp(found);
+});
+
+document.getElementById('btnRegister').addEventListener('click',()=>{
+  const nombre = document.getElementById('regName').value.trim();
+  const usuario = document.getElementById('regUser').value.trim().toLowerCase();
+  const email = document.getElementById('regEmail').value.trim().toLowerCase();
+  const pass = document.getElementById('regPass').value;
+  const curso = document.getElementById('regCurso').value.trim() || '9° A';
+  if(!nombre || !usuario || !email || !pass){ alert('Completa todos los campos'); return; }
+  if(pass.length < 4){ alert('La contraseña debe tener al menos 4 caracteres'); return; }
+  if(!/^[a-z0-9_]{3,20}$/.test(usuario)){ alert('Usuario: solo minúsculas, números y _ (3-20)'); return; }
+  const users = getUsers();
+  if(users[usuario]){ alert('❌ Ese usuario ya existe'); return; }
+  if(Object.values(users).some(u=>u.email===email)){ alert('❌ Ese correo ya está registrado'); return; }
+  users[usuario] = { usuario, nombre, email, pass: btoa(pass), curso, avatar: selectedAvatar, fechaRegistro: new Date().toISOString() };
+  saveUsers(users);
+  setSession(usuario);
+  currentUser = usuario;
+  alert('✅ ¡Cuenta creada! Bienvenido/a, ' + nombre);
+  iniciarApp(users[usuario]);
+});
+
+function cerrarSesion(){
+  if(!confirm('¿Cerrar sesión?')) return;
+  clearSession();
+  currentUser = null;
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('topbar').classList.add('hidden');
+  document.getElementById('appContent').classList.add('hidden');
+  document.getElementById('perfilMenu').classList.remove('show');
+}
+
+document.getElementById('menuLogout').addEventListener('click', cerrarSesion);
+document.getElementById('userChip').addEventListener('click',(e)=>{ e.stopPropagation(); document.getElementById('perfilMenu').classList.toggle('show'); });
+document.addEventListener('click',()=>document.getElementById('perfilMenu').classList.remove('show'));
+document.getElementById('perfilMenu').addEventListener('click',e=>e.stopPropagation());
+
+document.getElementById('menuPerfil').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); });
+document.getElementById('menuLogros').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); setTimeout(()=>document.getElementById('perfilLogros').scrollIntoView({behavior:'smooth'}),200); });
+document.getElementById('menuNotas').addEventListener('click',()=>{ document.getElementById('perfilMenu').classList.remove('show'); cambiarModo('perfil'); setTimeout(()=>document.getElementById('perfilNotasCount').scrollIntoView({behavior:'smooth'}),200); });
+document.getElementById('menuExportar').addEventListener('click',()=>exportarDatos());
+
+/* =====================================================================
+   INICIALIZACIÓN
+   ===================================================================== */
+function iniciarApp(user){
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('topbar').classList.remove('hidden');
+  document.getElementById('appContent').classList.remove('hidden');
+  document.getElementById('userAvatar').textContent = user.avatar;
+  document.getElementById('userName').textContent = user.nombre.split(' ')[0];
+  document.getElementById('dashNombre').textContent = user.nombre.split(' ')[0];
+  cargarEstadoUsuario();
+  actualizarDashboard();
+  actualizarPerfil();
+}
+
+window.addEventListener('DOMContentLoaded',()=>{
+  const session = getSession();
+  if(session){
+    const users = getUsers();
+    if(users[session]){ currentUser = session; iniciarApp(users[session]); }
+  }
+});
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+let estado = {
+  lit:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'lit-pre' },
+  comp:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'comp-niv' },
+  sin:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'sin-morf' },
+  html:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'html-sem' },
+  py:{ progreso:{}, notas:{}, tecnicaActual:1, bloqueActual:'py-bas' },
+  tema: 'light',
+  idioma: 'es',
+  campos: {}
+};
+
+function cargarEstadoUsuario(){
+  ['lit','comp','sin','html','py'].forEach(a=>{
+    estado[a].progreso = userGet(`${a}_prog`, {});
+    estado[a].notas = userGet(`${a}_notas`, {});
+  });
+  estado.tema = userGet('tema', 'light');
+  estado.idioma = userGet('idioma', 'es');
+  estado.campos = userGet('campos', {});
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+  document.getElementById('btnIdioma').textContent = estado.idioma==='es'?'🌐 ES':'🌐 EN';
+}
+
+function guardarEstado(area){
+  userSet(`${area}_prog`, estado[area].progreso);
+  userSet(`${area}_notas`, estado[area].notas);
+  actualizarDashboard();
+  actualizarPerfil();
+}
+
+/* =====================================================================
+   BLOQUES
+   ===================================================================== */
+const bloquesLit = [
+  {id:'lit-pre', titulo:'Modernismo y vanguardias', rango:[1,25], icono:'🌅'},
+  {id:'lit-boom', titulo:'Boom latinoamericano', rango:[26,50], icono:'🚀'},
+  {id:'lit-cont', titulo:'Literatura siglo XXI', rango:[51,75], icono:'📚'},
+  {id:'lit-gen', titulo:'Técnicas y teorías', rango:[76,100], icono:'🎭'}
+];
+
+const bloquesComp = [
+  {id:'comp-niv', titulo:'Lectura crítica preuniversitaria', rango:[1,20], icono:'🪜'},
+  {id:'comp-estr', titulo:'Estrategias académicas', rango:[21,40], icono:'🎯'},
+  {id:'comp-tipos', titulo:'Discursos académicos', rango:[41,60], icono:'📄'},
+  {id:'comp-infer', titulo:'Hermenéutica y análisis', rango:[61,80], icono:'🔍'},
+  {id:'comp-eval', titulo:'Producción académica', rango:[81,100], icono:'📝'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfosintaxis', rango:[1,25], icono:'🔤'},
+  {id:'sin-simple', titulo:'Oración simple y funciones', rango:[26,50], icono:'🧩'},
+  {id:'sin-comp', titulo:'Oración compuesta compleja', rango:[51,75], icono:'🔗'},
+  {id:'sin-norm', titulo:'Semántica y pragmática', rango:[76,100], icono:'📐'}
+];
+
+const bloquesHTML = [
+  {id:'html-sem', titulo:'HTML5 semántico', rango:[1,20], icono:'🏗️'},
+  {id:'html-css', titulo:'CSS moderno avanzado', rango:[21,40], icono:'🎨'},
+  {id:'html-js', titulo:'JavaScript ES6+', rango:[41,60], icono:'⚡'},
+  {id:'html-lms', titulo:'Componentes LMS avanzados', rango:[61,80], icono:'🎓'},
+  {id:'html-pwa', titulo:'PWA, accesibilidad, testing', rango:[81,100], icono:'📱'}
+];
+
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python avanzado', rango:[1,20], icono:'🐍'},
+  {id:'py-django', titulo:'Django · Modelos y vistas', rango:[21,40], icono:'🌐'},
+  {id:'py-lms', titulo:'Django REST + LMS', rango:[41,60], icono:'🎓'},
+  {id:'py-nlp', titulo:'NLP y análisis lingüístico', rango:[61,80], icono:'🔤'},
+  {id:'py-dep', titulo:'DevOps y despliegue', rango:[81,100], icono:'🔒'}
+];
+
+/* =====================================================================
+   GENERADORES DE TÉCNICAS
+   ===================================================================== */
+function genLit(){
+  const T = [
+    {t:'José Martí', c:'Poeta y ensayista cubano, precursor del modernismo.', e:'"Versos sencillos"', en:'Cuban poet, precursor of modernism.'},
+    {t:'Rubén Darío', c:'Nicaragüense, padre del modernismo.', e:'"Azul"', en:'Nicaraguan, father of modernism.'},
+    {t:'José Asunción Silva', c:'Colombiano, modernista.', e:'"Nocturnos"', en:'Colombian modernist.'},
+    {t:'Manuel Gutiérrez Nájera', c:'Mexicano, precursor.', e:'"La duquesa Job"', en:'Mexican precursor.'},
+    {t:'Julián del Casal', c:'Cubano modernista.', e:'"Nieve"', en:'Cuban modernist.'},
+    {t:'Amado Nervo', c:'Mexicano modernista tardío.', e:'"La amada inmóvil"', en:'Late Mexican modernist.'},
+    {t:'Leopoldo Lugones', c:'Argentino, modernista y criollista.', e:'"Lunario sentimental"', en:'Argentine modernist.'},
+    {t:'José Enrique Rodó', c:'Uruguayo ensayista.', e:'"Ariel"', en:'Uruguayan essayist.'},
+    {t:'Enrique González Martínez', c:'Mexicano, transición.', e:'"Tuércele el cuello al cisne"', en:'Mexican transition poet.'},
+    {t:'Delmira Agustini', c:'Uruguaya, poesía erótica.', e:'"Los cálices vacíos"', en:'Uruguayan erotic poetry.'},
+    {t:'Gabriela Mistral', c:'Chilena, Nobel 1945.', e:'"Desolación"', en:'Chilean, Nobel 1945.'},
+    {t:'Alfonsina Storni', c:'Argentina, poesía feminista.', e:'"Languidez"', en:'Argentine feminist poetry.'},
+    {t:'Juana de Ibarbourou', c:'Uruguaya, "Juana de América".', e:'"Las lenguas de diamante"', en:'Uruguayan poet.'},
+    {t:'César Vallejo', c:'Peruano vanguardista.', e:'"Trilce"', en:'Peruvian avant-garde.'},
+    {t:'José María Eguren', c:'Peruano simbolista.', e:'"Simbólicas"', en:'Peruvian symbolist.'},
+    {t:'Vicente Huidobro', c:'Chileno, creacionismo.', e:'"Altazor"', en:'Chilean creationism.'},
+    {t:'Jorge Luis Borges', c:'Argentino, cuento y ensayo.', e:'"Ficciones"', en:'Argentine short stories and essays.'},
+    {t:'Horacio Quiroga', c:'Uruguayo-argentino, cuento.', e:'"Cuentos de la selva"', en:'Uruguayan-Argentine short stories.'},
+    {t:'Baldomero Fernández Moreno', c:'Argentino, sencillismo.', e:'"La patria desconocida"', en:'Argentine simple style.'},
+    {t:'Ricardo Güiraldes', c:'Argentino, novela criollista.', e:'"Don Segundo Sombra"', en:'Argentine criollista novel.'},
+    {t:'Miguel Ángel Asturias', c:'Guatemalteco, Nobel 1967.', e:'"El señor Presidente"', en:'Guatemalan, Nobel 1967.'},
+    {t:'Alejo Carpentier', c:'Cubano, "lo real maravilloso".', e:'"El reino de este mundo"', en:'Cuban, magical realism.'},
+    {t:'Jorge Amado', c:'Brasileño, novela social.', e:'"Doña Flor y sus dos maridos"', en:'Brazilian social novel.'},
+    {t:'Juan Rulfo', c:'Mexicano, obra fundamental.', e:'"Pedro Páramo"', en:'Mexican foundational work.'},
+    {t:'Julio Cortázar', c:'Argentino, cuento y novela.', e:'"Rayuela"', en:'Argentine short stories and novel.'},
+    {t:'Juan Carlos Onetti', c:'Uruguayo existencialista.', e:'"El astillero"', en:'Uruguayan existentialist.'},
+    {t:'Augusto Roa Bastos', c:'Paraguayo, novela histórica.', e:'"Yo el Supremo"', en:'Paraguayan historical novel.'},
+    {t:'José María Arguedas', c:'Peruano indigenista.', e:'"Los ríos profundos"', en:'Peruvian indigenist.'},
+    {t:'Gabriel García Márquez', c:'Colombiano, Nobel 1982.', e:'"Cien años de soledad"', en:'Colombian, Nobel 1982.'},
+    {t:'Mario Vargas Llosa', c:'Peruano, Nobel 2010.', e:'"La ciudad y los perros"', en:'Peruvian, Nobel 2010.'},
+    {t:'Carlos Fuentes', c:'Mexicano, novela experimental.', e:'"La muerte de Artemio Cruz"', en:'Mexican experimental novel.'},
+    {t:'José Donoso', c:'Chileno, novela psicológica.', e:'"El obsceno pájaro de la noche"', en:'Chilean psychological novel.'},
+    {t:'Guillermo Cabrera Infante', c:'Cubano experimental.', e:'"Tres tristes tigres"', en:'Cuban experimental.'},
+    {t:'Severo Sarduy', c:'Cubano neobarroco.', e:'"De dónde son los cantantes"', en:'Cuban neo-baroque.'},
+    {t:'Manuel Puig', c:'Argentino, novela pop.', e:'"Boquitas pintadas"', en:'Argentine pop novel.'},
+    {t:'Reinaldo Arenas', c:'Cubano disidente.', e:'"El mundo alucinante"', en:'Cuban dissident.'},
+    {t:'Elena Poniatowska', c:'Mexicana, crónica y testimonio.', e:'"La noche de Tlatelolco"', en:'Mexican chronicle.'},
+    {t:'Rigoberta Menchú', c:'Guatemalteca, Nobel de la Paz.', e:'"Me llamo Rigoberta Menchú"', en:'Guatemalan, Nobel Peace.'},
+    {t:'Isabel Allende', c:'Chilena, novela popular.', e:'"La casa de los espíritus"', en:'Chilean popular novel.'},
+    {t:'Luisa Valenzuela', c:'Argentina, novela política.', e:'"Cambio de armas"', en:'Argentine political novel.'},
+    {t:'Roberto Bolaño', c:'Chileno, infrarealismo.', e:'"Los detectives salvajes"', en:'Chilean infrarealism.'},
+    {t:'Ricardo Piglia', c:'Argentino, novela policial.', e:'"Respiración artificial"', en:'Argentine crime novel.'},
+    {t:'Fernando Vallejo', c:'Colombiano, autoficción.', e:'"La virgen de los sicarios"', en:'Colombian autofiction.'},
+    {t:'Laura Esquivel', c:'Mexicana, realismo mágico culinario.', e:'"Como agua para chocolate"', en:'Mexican magical realism.'},
+    {t:'Cristina Peri Rossi', c:'Uruguaya, exilio y erotismo.', e:'"La nave de los locos"', en:'Uruguayan exile.'},
+    {t:'Diamela Eltit', c:'Chilena experimental.', e:'"Lumpérica"', en:'Chilean experimental.'},
+    {t:'Sergio Ramírez', c:'Nicaragüense, novela y testimonio.', e:'"Margarita, está linda la mar"', en:'Nicaraguan novel.'},
+    {t:'Gioconda Belli', c:'Nicaragüense, poesía y novela.', e:'"La mujer habitada"', en:'Nicaraguan poetry.'},
+    {t:'Ángeles Mastretta', c:'Mexicana, novela femenina.', e:'"Arráncame la vida"', en:'Mexican feminist novel.'},
+    {t:'Marcela Serrano', c:'Chilena, novela femenina.', e:'"Antigua vida mía"', en:'Chilean feminist novel.'},
+    {t:'Jorge Franco', c:'Colombiano, novela urbana.', e:'"Rosario Tijeras"', en:'Colombian urban novel.'},
+    {t:'Mario Mendoza', c:'Colombiano, novela urbana.', e:'"Satanás"', en:'Colombian urban novel.'},
+    {t:'Antonio Skármeta', c:'Chileno, novela y cine.', e:'"El cartero de Neruda"', en:'Chilean novel and film.'},
+    {t:'Luis Sepúlveda', c:'Chileno, novela y viaje.', e:'"Un viejo que leía novelas de amor"', en:'Chilean novel.'},
+    {t:'Juan Villoro', c:'Mexicano, crónica y novela.', e:'"El testigo"', en:'Mexican chronicle.'},
+    {t:'Javier Cercas', c:'Español, novela y ensayo.', e:'"Soldados de Salamina"', en:'Spanish novel.'},
+    {t:'Santiago Roncagliolo', c:'Peruano, novela y crónica.', e:'"Abril rojo"', en:'Peruvian novel.'},
+    {t:'Edmundo Paz Soldán', c:'Boliviano, tecnología.', e:'"El delirio de Turing"', en:'Bolivian tech novel.'},
+    {t:'Ariana Harwicz', c:'Argentina, autoficción.', e:'"Precoz"', en:'Argentine autofiction.'},
+    {t:'Realismo mágico', c:'Lo maravilloso se narra como natural.', e:'"Remedios la bella subió al cielo"', en:'Magical realism.'},
+    {t:'Lo real maravilloso', c:'Carpentier: patrimonio de América.', e:'"Lo real maravilloso es la fe"', en:'The marvelous real.'},
+    {t:'Boom latinoamericano', c:'Explosión editorial 60-70.', e:'Cortázar, Vargas Llosa, Fuentes.', en:'Latin American Boom.'},
+    {t:'Post-boom', c:'Reacción al boom.', e:'Novela histórica, testimonio.', en:'Post-boom reaction.'},
+    {t:'Narrador omnisciente', c:'Todo lo sabe.', e:'"Aureliano lo miró y supo"', en:'Omniscient narrator.'},
+    {t:'Narrador limitado', c:'Solo sabe lo de un personaje.', e:'"Yo no sabía qué pasaba"', en:'Limited narrator.'},
+    {t:'Narrador testigo', c:'Cuenta lo que ve.', e:'"Vi cómo entraba"', en:'Witness narrator.'},
+    {t:'Monólogo interior', c:'Flujo de conciencia.', e:'"yoyonomeacuerdo..."', en:'Interior monologue.'},
+    {t:'Autoficción', c:'Autor se narra a sí mismo.', e:'"Yo, el escritor..."', en:'Autofiction.'},
+    {t:'Novela histórica', c:'Reconstrucción del pasado.', e:'"En 1810..."', en:'Historical novel.'},
+    {t:'Testimonio', c:'Voz del testigo directo.', e:'"Me llamo Rigoberta..."', en:'Testimonial narrative.'},
+    {t:'Crónica', c:'Periodismo literario.', e:'"La noche de Tlatelolco"', en:'Literary chronicle.'},
+    {t:'Cuento breve', c:'Narración corta.', e:'"El almohadón de plumas"', en:'Short story.'},
+    {t:'Novela total', c:'Abarca toda una sociedad.', e:'"Cien años de soledad"', en:'Total novel.'},
+    {t:'Intertextualidad', c:'Diálogo con otros textos.', e:'"Rayuela cita..."', en:'Intertextuality.'},
+    {t:'Metaficción', c:'Ficción sobre sí misma.', e:'"El narrador escribe..."', en:'Metafiction.'},
+    {t:'Hipérbaton', c:'Alteración sintáctica.', e:'"Del monte en la ladera"', en:'Hyperbaton.'},
+    {t:'Anáfora', c:'Repetición al inicio.', e:'"Verde que te quiero verde"', en:'Anaphora.'},
+    {t:'Prosopopeya', c:'Cualidades humanas a objetos.', e:'"La luna sonríe"', en:'Personification.'},
+    {t:'Hipérbole', c:'Exageración expresiva.', e:'"Te lo dije un millón de veces"', en:'Hyperbole.'},
+    {t:'Elipsis narrativa', c:'Omisión de hechos.', e:'"Pasaron veinte años"', en:'Narrative ellipsis.'},
+    {t:'Ruptura temporal', c:'Saltos en el tiempo.', e:'"Muchos años después"', en:'Temporal rupture.'},
+    {t:'Identidad latinoamericana', c:'Búsqueda de la propia voz.', e:'"Nuestra América"', en:'Latin American identity.'},
+    {t:'Dictaduras', c:'Novela de denuncia.', e:'Eltit, Valenzuela, Arenas.', en:'Dictatorships.'},
+    {t:'Exilio', c:'Desplazamiento y nostalgia.', e:'"Escribo desde la distancia"', en:'Exile.'},
+    {t:'Indigenismo', c:'Voz de pueblos originarios.', e:'"Los ríos profundos"', en:'Indigenism.'},
+    {t:'Afrodescendencia', c:'Presencia africana en el Caribe.', e:'"El reino de este mundo"', en:'Afro-descendance.'},
+    {t:'Feminismo', c:'Voces femeninas.', e:'Mistral, Storni, Allende.', en:'Feminism.'},
+    {t:'Violencia urbana', c:'Ciudad como conflicto.', e:'Franco, Mendoza.', en:'Urban violence.'},
+    {t:'Memoria histórica', c:'Recuperación del pasado.', e:'"Recordar para no repetir"', en:'Historical memory.'},
+    {t:'Narcotráfico', c:'Novela y crónica.', e:'"La virgen de los sicarios"', en:'Drug trafficking.'},
+    {t:'Migración', c:'Desplazamiento y desarraigo.', e:'"Cruzando la frontera"', en:'Migration.'},
+    {t:'Posmemoria', c:'Hijos que narran el trauma de los padres.', e:'"Lo que no viví pero heredé"', en:'Postmemory.'},
+    {t:'Literatura digital', c:'Hipertexto y transmedia.', e:'Obras digitales', en:'Digital literature.'},
+    {t:'Crítica literaria', c:'Argumentación sobre una obra.', e:'Ensayos de Ángel Rama.', en:'Literary criticism.'},
+    {t:'Teoría literaria', c:'Aplicar teorías al texto.', e:'"Bajtin y la polifonía"', en:'Literary theory.'},
+    {t:'Canon literario', c:'Qué obras se incluyen y excluyen.', e:'"El canon y las escritoras"', en:'Literary canon.'},
+    {t:'Traducción literaria', c:'Cómo viaja la obra a otras lenguas.', e:'"La traducción de Cortázar"', en:'Literary translation.'},
+    {t:'Adaptación audiovisual', c:'De la novela al cine o serie.', e:'"Cien años de soledad" serie', en:'Audiovisual adaptation.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesLit.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'lit-pre',
+    opciones:[t.c,'Es un movimiento europeo.','No tiene relación con América.','Es solo poesía.'],
+    correcta:0
+  }));
+}
+
+function genComp(){
+  const base = [
+    {t:'Nivel literal', c:'Información explícita.', e:'¿Quién es el personaje?', en:'Literal level.'},
+    {t:'Nivel inferencial', c:'Deducir lo no dicho.', e:'¿Por qué actuó así?', en:'Inferential level.'},
+    {t:'Nivel crítico', c:'Evaluar y juzgar.', e:'¿Estás de acuerdo?', en:'Critical level.'},
+    {t:'Nivel apreciativo', c:'Valorar lo estético.', e:'¿Qué sentimientos produce?', en:'Appreciative level.'},
+    {t:'Nivel creador', c:'Nuevas ideas.', e:'¿Cómo continuarías?', en:'Creative level.'},
+    {t:'Idea principal', c:'Tema central.', e:'El texto trata sobre...', en:'Main idea.'},
+    {t:'Ideas secundarias', c:'Detalles que apoyan.', e:'Además, se menciona...', en:'Secondary ideas.'},
+    {t:'Tema', c:'Asunto general.', e:'La amistad, la muerte.', en:'Theme.'},
+    {t:'Título', c:'Sintetizar el texto.', e:'Un título sería...', en:'Title.'},
+    {t:'Personajes', c:'Principales y secundarios.', e:'Protagonista: Juan.', en:'Characters.'},
+    {t:'Escenario', c:'Lugar y tiempo.', e:'En un pueblo.', en:'Setting.'},
+    {t:'Trama', c:'Inicio, nudo, desenlace.', e:'Inicio: sale...', en:'Plot.'},
+    {t:'Conflicto', c:'Problema central.', e:'Hombre vs. naturaleza.', en:'Conflict.'},
+    {t:'Narrador', c:'Quién cuenta.', e:'Narrador en 1ª persona.', en:'Narrator.'},
+    {t:'Punto de vista', c:'Desde dónde se cuenta.', e:'Visión infantil.', en:'Point of view.'},
+    {t:'Tiempo narrativo', c:'Orden de hechos.', e:'Flashback.', en:'Narrative time.'},
+    {t:'Ritmo', c:'Velocidad narrativa.', e:'Escenas lentas.', en:'Pacing.'},
+    {t:'Ambiente', c:'Atmósfera emocional.', e:'Ambiente opresivo.', en:'Atmosphere.'},
+    {t:'Símbolos', c:'Representan ideas.', e:'La lluvia = tristeza.', en:'Symbols.'},
+    {t:'Tono', c:'Actitud del narrador.', e:'Tono irónico.', en:'Tone.'},
+    {t:'Skimming', c:'Lectura general.', e:'Leer títulos.', en:'Skimming.'},
+    {t:'Scanning', c:'Búsqueda específica.', e:'Buscar fecha.', en:'Scanning.'},
+    {t:'Predicción', c:'Anticipar.', e:'Por el título, creo...', en:'Prediction.'},
+    {t:'Saberes previos', c:'Relacionar.', e:'Esto se parece a...', en:'Prior knowledge.'},
+    {t:'Formular preguntas', c:'Antes, durante, después.', e:'¿Qué? ¿Quién?', en:'Questioning.'},
+    {t:'Visualización', c:'Imaginar.', e:'Veo al personaje...', en:'Visualization.'},
+    {t:'Parafraseo', c:'Con palabras propias.', e:'El autor dice que...', en:'Paraphrasing.'},
+    {t:'Resumen', c:'Sintetizar.', e:'El texto trata de...', en:'Summary.'},
+    {t:'Síntesis', c:'Integrar ideas.', e:'Combinando A y B...', en:'Synthesis.'},
+    {t:'Mapa conceptual', c:'Gráfico.', e:'Idea central → ramas.', en:'Concept map.'},
+    {t:'Cuadro sinóptico', c:'Jerárquico.', e:'Tema → subtemas.', en:'Synoptic table.'},
+    {t:'Subrayado', c:'Marcar.', e:'Subrayar ideas.', en:'Underlining.'},
+    {t:'Anotación marginal', c:'Comentarios.', e:'"Esto se relaciona..."', en:'Marginal notes.'},
+    {t:'Vocabulario contextual', c:'Deducir.', e:'"Efímero" = breve.', en:'Context vocabulary.'},
+    {t:'Inferencia léxica', c:'Por raíces.', e:'"In-" = negación.', en:'Lexical inference.'},
+    {t:'Relectura', c:'Volver a leer.', e:'Releer párrafo 3.', en:'Rereading.'},
+    {t:'Lectura en voz alta', c:'Escuchar ritmo.', e:'Leer el diálogo.', en:'Reading aloud.'},
+    {t:'Lectura compartida', c:'En grupo.', e:'Cada uno lee.', en:'Shared reading.'},
+    {t:'Lectura guiada', c:'Docente pregunta.', e:'¿Qué pasará?', en:'Guided reading.'},
+    {t:'Lectura independiente', c:'Leer solo.', e:'Elegir un libro.', en:'Independent reading.'},
+    {t:'Texto narrativo', c:'Cuenta hechos.', e:'Había una vez...', en:'Narrative text.'},
+    {t:'Texto descriptivo', c:'Presenta características.', e:'Era alto, delgado...', en:'Descriptive text.'},
+    {t:'Texto expositivo', c:'Explica objetivamente.', e:'La fotosíntesis es...', en:'Expository text.'},
+    {t:'Texto argumentativo', c:'Defiende tesis.', e:'Debemos reciclar...', en:'Argumentative text.'},
+    {t:'Texto instructivo', c:'Pasos.', e:'1. Abrir. 2. ...', en:'Instructive text.'},
+    {t:'Texto informativo', c:'Datos actualidad.', e:'Según el informe...', en:'Informative text.'},
+    {t:'Texto literario', c:'Lenguaje estético.', e:'"La luna sonríe..."', en:'Literary text.'},
+    {t:'Texto científico', c:'Rigor.', e:'Los datos muestran...', en:'Scientific text.'},
+    {t:'Texto periodístico', c:'Actualidad.', e:'Ayer ocurrió...', en:'Journalistic text.'},
+    {t:'Texto publicitario', c:'Persuade.', e:'¡Compra ahora!', en:'Advertising text.'},
+    {t:'Cuento', c:'Narración breve.', e:'El almohadón...', en:'Short story.'},
+    {t:'Novela', c:'Narración extensa.', e:'Cien años...', en:'Novel.'},
+    {t:'Poema', c:'En verso.', e:'Versos sencillos...', en:'Poem.'},
+    {t:'Ensayo', c:'Reflexión.', e:'Ariel de Rodó...', en:'Essay.'},
+    {t:'Crónica', c:'Periodística literaria.', e:'La noche de Tlatelolco...', en:'Chronicle.'},
+    {t:'Entrevista', c:'Diálogo.', e:'—¿Cómo empezó?', en:'Interview.'},
+    {t:'Artículo de opinión', c:'Argumentativo.', e:'En mi opinión...', en:'Opinion article.'},
+    {t:'Reseña', c:'Comentario crítico.', e:'Esta novela destaca...', en:'Review.'},
+    {t:'Inferencia de causa', c:'¿Por qué?', e:'Lloró porque...', en:'Inference of cause.'},
+    {t:'Inferencia de efecto', c:'Consecuencias.', e:'Si siguió así...', en:'Inference of effect.'},
+    {t:'Inferencia de intención', c:'Propósito.', e:'Quiere convencernos...', en:'Inference of intention.'},
+    {t:'Inferencia de sentimiento', c:'Emociones.', e:'Estaba triste...', en:'Inference of feeling.'},
+    {t:'Inferencia de tiempo', c:'Ubicar cuándo.', e:'Ocurrió en invierno...', en:'Inference of time.'},
+    {t:'Inferencia de lugar', c:'Deducir espacio.', e:'Estaban en la playa...', en:'Inference of place.'},
+    {t:'Detectar ironía', c:'Lo contrario.', e:'"¡Qué bonito!" sarcasmo.', en:'Detect irony.'},
+    {t:'Detectar humor', c:'Lo cómico.', e:'El chiste está en...', en:'Detect humor.'},
+    {t:'Detectar sesgo', c:'Parcialidad.', e:'Solo una versión.', en:'Detect bias.'},
+    {t:'Detectar falacias', c:'Argumentos falsos.', e:'Ad hominem.', en:'Detect fallacies.'},
+    {t:'Hecho vs. opinión', c:'Verificable vs. subjetivo.', e:'Hecho: llueve.', en:'Fact vs. opinion.'},
+    {t:'Tesis vs. argumentos', c:'Idea vs. razones.', e:'Tesis: reciclar.', en:'Thesis vs. arguments.'},
+    {t:'Evaluar fuentes', c:'Credibilidad.', e:'¿Es experto?', en:'Evaluate sources.'},
+    {t:'Contrastar información', c:'Comparar.', e:'Contradice a...', en:'Contrast information.'},
+    {t:'Detectar estereotipos', c:'Generalizaciones.', e:'"Todos los..."', en:'Detect stereotypes.'},
+    {t:'Intención comunicativa', c:'Informar, persuadir.', e:'Busca persuadir.', en:'Communicative intention.'},
+    {t:'Estructura', c:'Intro, desarrollo.', e:'Tres partes.', en:'Structure.'},
+    {t:'Conectores', c:'Enlazan ideas.', e:'"Sin embargo".', en:'Connectors.'},
+    {t:'Progresión temática', c:'Avance.', e:'General → particular.', en:'Thematic progression.'},
+    {t:'Coherencia global', c:'Sentido completo.', e:'Tema único.', en:'Global coherence.'},
+    {t:'Autoevaluación', c:'Reflexionar.', e:'¿Entendí todo?', en:'Self-assessment.'},
+    {t:'Metacognición', c:'Cómo se aprende.', e:'¿Qué estrategia sirvió?', en:'Metacognition.'},
+    {t:'Monitorización', c:'Detectar no-comprensión.', e:'No entendí, releo.', en:'Monitoring.'},
+    {t:'Regulación', c:'Ajustar estrategia.', e:'Buscar significado.', en:'Regulation.'},
+    {t:'Evaluación formativa', c:'Revisar proceso.', e:'¿Cómo mejorar?', en:'Formative assessment.'},
+    {t:'Evaluación sumativa', c:'Calificar.', e:'Nota del examen.', en:'Summative assessment.'},
+    {t:'Rúbrica', c:'Criterios.', e:'Niveles 1-3.', en:'Rubric.'},
+    {t:'Prueba ICFES', c:'Contexto.', e:'Según el texto...', en:'Standardized test.'},
+    {t:'Preguntas abiertas', c:'Desarrollo.', e:'Explica por qué...', en:'Open questions.'},
+    {t:'Aplicación', c:'Nuevos contextos.', e:'¿Cómo aplicarías?', en:'Application.'},
+    {t:'Debate', c:'Discutir.', e:'¿Fue justa?', en:'Debate.'},
+    {t:'Foro', c:'Interpretaciones.', e:'¿Qué opinan?', en:'Forum.'},
+    {t:'Portafolio', c:'Recopilar.', e:'Guardar resúmenes.', en:'Portfolio.'},
+    {t:'Diario de lectura', c:'Registrar.', e:'Hoy leí...', en:'Reading journal.'},
+    {t:'Ficha de lectura', c:'Datos, resumen.', e:'Título, autor...', en:'Reading card.'},
+    {t:'Gráfico de progreso', c:'Visualizar.', e:'Nivel 1 → 2 → 3.', en:'Progress chart.'},
+    {t:'Autoevaluación rúbrica', c:'Puntuar.', e:'4/5 en inferencias.', en:'Rubric self-eval.'},
+    {t:'Coevaluación', c:'Evaluar compañero.', e:'Identificó bien...', en:'Peer evaluation.'},
+    {t:'Heteroevaluación', c:'Docente evalúa.', e:'El docente asigna nota.', en:'Teacher evaluation.'},
+    {t:'Retroalimentación', c:'Comentarios.', e:'Buen trabajo; profundiza...', en:'Feedback.'}
+  ];
+  return base.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesComp.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'comp-niv',
+    opciones:[t.c,'Es una técnica de matemáticas.','No tiene relación con la lectura.','Es solo para textos científicos.'],
+    correcta:0
+  }));
+}
+
+function genSin(){
+  const T = [
+    {t:'Sustantivo', c:'Nombra personas, animales, cosas o ideas.', e:'niño, perro, agua.', en:'Noun.'},
+    {t:'Sustantivo propio', c:'Nombres específicos.', e:'Bogotá, Cervantes.', en:'Proper noun.'},
+    {t:'Sustantivo común', c:'Nombres generales.', e:'ciudad, escritor.', en:'Common noun.'},
+    {t:'Sustantivo concreto', c:'Se percibe por sentidos.', e:'mesa, flor.', en:'Concrete noun.'},
+    {t:'Sustantivo abstracto', c:'Ideas.', e:'libertad, amor.', en:'Abstract noun.'},
+    {t:'Sustantivo colectivo', c:'Grupo.', e:'bosque, enjambre.', en:'Collective noun.'},
+    {t:'Género del sustantivo', c:'Masculino o femenino.', e:'el libro, la casa.', en:'Gender.'},
+    {t:'Número del sustantivo', c:'Singular o plural.', e:'lápiz → lápices.', en:'Number.'},
+    {t:'El artículo', c:'Acompaña al sustantivo.', e:'el, la, los, las.', en:'Article.'},
+    {t:'Adjetivo', c:'Cualidad del sustantivo.', e:'casa grande.', en:'Adjective.'},
+    {t:'Grados del adjetivo', c:'Positivo, comparativo, superlativo.', e:'alto, más alto, altísimo.', en:'Degrees.'},
+    {t:'Adjetivo demostrativo', c:'este, ese, aquel.', e:'este libro.', en:'Demonstrative.'},
+    {t:'Adjetivo posesivo', c:'mi, tu, su.', e:'mi casa.', en:'Possessive.'},
+    {t:'Pronombre personal', c:'yo, tú, él, ella.', e:'Ella estudia.', en:'Personal pronoun.'},
+    {t:'Pronombre átono', c:'me, te, se, lo, la, le.', e:'Me lo dijo.', en:'Atonic pronoun.'},
+    {t:'El verbo', c:'Acción, estado o proceso.', e:'correr, ser.', en:'Verb.'},
+    {t:'Persona del verbo', c:'1ª, 2ª, 3ª.', e:'yo canto, tú cantas.', en:'Verb person.'},
+    {t:'Número del verbo', c:'Singular o plural.', e:'canta, cantan.', en:'Verb number.'},
+    {t:'Presente', c:'Acción actual.', e:'Yo como.', en:'Present.'},
+    {t:'Pretérito imperfecto', c:'Pasado habitual.', e:'Yo comía.', en:'Imperfect.'},
+    {t:'Pretérito indefinido', c:'Pasado puntual.', e:'Yo comí.', en:'Preterite.'},
+    {t:'Futuro', c:'Acción posterior.', e:'Yo comeré.', en:'Future.'},
+    {t:'El adverbio', c:'Modifica al verbo.', e:'aquí, ayer, bien.', en:'Adverb.'},
+    {t:'Adverbio de lugar', c:'aquí, allí, cerca.', e:'Vive allí.', en:'Place adverb.'},
+    {t:'Adverbio de tiempo', c:'ayer, hoy, mañana.', e:'Llegó ayer.', en:'Time adverb.'},
+    {t:'Adverbio de modo', c:'bien, mal, así.', e:'Corre bien.', en:'Manner adverb.'},
+    {t:'La preposición', c:'a, de, en, con, por, para.', e:'Voy a la casa.', en:'Preposition.'},
+    {t:'La conjunción', c:'y, o, pero, porque.', e:'Estudia y trabaja.', en:'Conjunction.'},
+    {t:'Interjecciones', c:'¡ay!, ¡oh!, ¡eh!', e:'¡Ay, me duele!', en:'Interjections.'},
+    {t:'Prefijos', c:'Al inicio: des-, re-, in-.', e:'hacer → deshacer.', en:'Prefixes.'},
+    {t:'Sufijos', c:'Al final: -ito, -oso, -ción.', e:'casa → casita.', en:'Suffixes.'},
+    {t:'Palabras compuestas', c:'Dos raíces.', e:'paraguas.', en:'Compound words.'},
+    {t:'Sinónimos', c:'Significado parecido.', e:'feliz / contento.', en:'Synonyms.'},
+    {t:'Antónimos', c:'Significado opuesto.', e:'alto / bajo.', en:'Antonyms.'},
+    {t:'Palabras agudas', c:'Acento en última sílaba.', e:'café, corazón.', en:'Oxytone.'},
+    {t:'Palabras llanas', c:'Acento en penúltima.', e:'árbol, lápiz.', en:'Paroxytone.'},
+    {t:'Palabras esdrújulas', c:'Acento en antepenúltima.', e:'música, célula.', en:'Proparoxytone.'},
+    {t:'Tilde diacrítica', c:'Distingue significados.', e:'él / el.', en:'Diacritical accent.'},
+    {t:'¿Qué es una oración?', c:'Unidad con verbo y sentido.', e:'El niño juega.', en:'Sentence.'},
+    {t:'Sujeto', c:'Quien realiza la acción.', e:'El niño (sujeto).', en:'Subject.'},
+    {t:'Predicado', c:'Lo que se dice del sujeto.', e:'juega (predicado).', en:'Predicate.'},
+    {t:'Sujeto elidido', c:'No expreso pero recuperable.', e:'(Yo) como.', en:'Elliptical subject.'},
+    {t:'Núcleo del sujeto', c:'Sustantivo principal.', e:'La casa (casa).', en:'Subject nucleus.'},
+    {t:'Núcleo del predicado', c:'Verbo conjugado.', e:'Juan corre (corre).', en:'Predicate nucleus.'},
+    {t:'Concordancia', c:'Número y persona.', e:'El niño juega.', en:'Agreement.'},
+    {t:'Oración enunciativa', c:'Afirma o niega.', e:'Hoy hace sol.', en:'Declarative.'},
+    {t:'Oración interrogativa', c:'Pregunta.', e:'¿Vienes?', en:'Interrogative.'},
+    {t:'Oración exclamativa', c:'Emoción.', e:'¡Qué alegría!', en:'Exclamatory.'},
+    {t:'Predicado nominal', c:'Verbo copulativo + atributo.', e:'María es médica.', en:'Nominal predicate.'},
+    {t:'Predicado verbal', c:'Verbo predicativo.', e:'Juan corre.', en:'Verbal predicate.'},
+    {t:'Verbos copulativos', c:'ser, estar, parecer.', e:'La sopa está caliente.', en:'Copulative.'},
+    {t:'Atributo', c:'Cualidad del sujeto.', e:'Juan es listo.', en:'Attribute.'},
+    {t:'Complemento Directo', c:'Recibe la acción.', e:'Compré pan.', en:'Direct object.'},
+    {t:'Complemento Indirecto', c:'Destinatario.', e:'Di el libro a María.', en:'Indirect object.'},
+    {t:'CC de lugar', c:'Dónde.', e:'Estudio en la biblioteca.', en:'Place adverbial.'},
+    {t:'CC de tiempo', c:'Cuándo.', e:'Llegaré mañana.', en:'Time adverbial.'},
+    {t:'CC de modo', c:'Cómo.', e:'Camina lentamente.', en:'Manner adverbial.'},
+    {t:'CC de causa', c:'Por qué.', e:'Lloró por la emoción.', en:'Cause adverbial.'},
+    {t:'CC de finalidad', c:'Para qué.', e:'Estudio para aprobar.', en:'Purpose adverbial.'},
+    {t:'Oración transitiva', c:'Lleva CD.', e:'Compré un libro.', en:'Transitive.'},
+    {t:'Oración intransitiva', c:'No lleva CD.', e:'Nací en Bogotá.', en:'Intransitive.'},
+    {t:'Oración impersonal', c:'Sin sujeto.', e:'Llueve; Hay gente.', en:'Impersonal.'},
+    {t:'Oración activa', c:'Sujeto realiza acción.', e:'El niño rompió el tubo.', en:'Active.'},
+    {t:'Oración pasiva', c:'Ser + participio + por.', e:'El tubo fue roto.', en:'Passive.'},
+    {t:'Sujeto agente', c:'Quien realiza en pasiva.', e:'roto por el niño.', en:'Agent.'},
+    {t:'Orden de la oración', c:'SVO.', e:'María compró flores.', en:'Order.'},
+    {t:'Concordancia art-sust', c:'Género y número.', e:'la casa / las casas.', en:'Article-noun agreement.'},
+    {t:'Concordancia sust-adj', c:'Género y número.', e:'los libros nuevos.', en:'Noun-adj agreement.'},
+    {t:'Oración compuesta', c:'Dos o más proposiciones.', e:'Quiero que vengas.', en:'Compound.'},
+    {t:'Yuxtaposición', c:'Sin nexo.', e:'Llegó, vio, venció.', en:'Juxtaposition.'},
+    {t:'Coordinación copulativa', c:'y, e, ni.', e:'Estudia y trabaja.', en:'Copulative.'},
+    {t:'Coordinación adversativa', c:'pero, sino.', e:'Es listo, pero perezoso.', en:'Adversative.'},
+    {t:'Coordinación disyuntiva', c:'o, u.', e:'¿Vienes o te quedas?', en:'Disjunctive.'},
+    {t:'Subordinación sustantiva', c:'Funciona como sustantivo.', e:'Me gusta que cantes.', en:'Noun clause.'},
+    {t:'Subordinada de CD', c:'Introducida por que.', e:'Dijo que vendría.', en:'Object clause.'},
+    {t:'Subordinada de sujeto', c:'Funciona como sujeto.', e:'Es importante que estudies.', en:'Subject clause.'},
+    {t:'Subordinación adjetiva', c:'Complementa sustantivo.', e:'El libro que leí.', en:'Adjective clause.'},
+    {t:'Adjetiva especificativa', c:'Sin comas.', e:'Los alumnos que estudiaron.', en:'Restrictive.'},
+    {t:'Adjetiva explicativa', c:'Entre comas.', e:'Los alumnos, que estudiaron.', en:'Non-restrictive.'},
+    {t:'Subordinación adverbial', c:'Funciona como adverbio.', e:'Iré cuando pueda.', en:'Adverbial clause.'},
+    {t:'Adverbial de tiempo', c:'cuando, mientras.', e:'Llegó cuando anochecía.', en:'Temporal.'},
+    {t:'Adverbial causal', c:'porque, ya que.', e:'No vino porque estaba enfermo.', en:'Causal.'},
+    {t:'Adverbial condicional', c:'si, siempre que.', e:'Si estudias, aprobarás.', en:'Conditional.'},
+    {t:'Adverbial concesiva', c:'aunque.', e:'Aunque llueva, iré.', en:'Concessive.'},
+    {t:'Uso de la coma', c:'Enumeraciones, vocativos.', e:'Compré pan, leche.', en:'Comma.'},
+    {t:'Coma vocativa', c:'Separa el nombre.', e:'Ana, ven aquí.', en:'Vocative comma.'},
+    {t:'Punto y coma', c:'Separa oraciones.', e:'Llegó tarde; sin embargo.', en:'Semicolon.'},
+    {t:'Dos puntos', c:'Anuncian enumeración.', e:'Dijo: "No puedo".', en:'Colon.'},
+    {t:'Comillas', c:'Citas textuales.', e:'Le llamó "genio".', en:'Quotation marks.'},
+    {t:'Paréntesis', c:'Aclaraciones.', e:'Nació en 1980 (en Madrid).', en:'Parentheses.'},
+    {t:'Dequeísmo', c:'"de que" por "que".', e:'*Pienso de que.', en:'Dequeísmo.'},
+    {t:'Queísmo', c:'Omitir "de".', e:'*Me di cuenta que.', en:'Queísmo.'},
+    {t:'Leísmo', c:'"le" por "lo".', e:'*Le vi → Lo vi.', en:'Leísmo.'},
+    {t:'Laísmo', c:'"la" por "le".', e:'*La dije → Le dije.', en:'Laísmo.'},
+    {t:'Pleonasmo', c:'Repetición innecesaria.', e:'*Subir arriba.', en:'Pleonasm.'},
+    {t:'Cosismo', c:'Abuso de "cosa".', e:'*Tengo una cosa que decirte.', en:'Cosismo.'},
+    {t:'Barbarismo', c:'Palabras mal formadas.', e:'*Haiga por haya.', en:'Barbarism.'},
+    {t:'Revisión final', c:'Leer, corregir.', e:'Revisar antes de entregar.', en:'Final revision.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesSin.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'sin-morf',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene aplicación en castellano.'],
+    correcta:0
+  }));
+}
+
+function genHTML(){
+  const T = [
+    {t:'Etiquetas semánticas', c:'header, nav, main, article, section, aside, footer.', e:'<header><h1>Título</h1></header>', en:'Semantic tags.'},
+    {t:'<details> y <summary>', c:'Desplegable nativo.', e:'<details><summary>Ver</summary><p>x</p></details>', en:'Native collapsible.'},
+    {t:'ARIA roles', c:'Accesibilidad.', e:'<div role="alert">Mensaje</div>', en:'ARIA roles.'},
+    {t:'<template>', c:'Fragmentos no renderizados.', e:'<template id="f"><tr></tr></template>', en:'HTML fragments.'},
+    {t:'<progress> y <meter>', c:'Indicadores nativos.', e:'<progress value="70" max="100">', en:'Progress indicators.'},
+    {t:'<dialog>', c:'Modales nativos.', e:'<dialog id="m">Hola</dialog>', en:'Native modals.'},
+    {t:'Meta viewport', c:'Responsive.', e:'<meta name="viewport" content="width=device-width">', en:'Responsive meta.'},
+    {t:'Validación HTML5', c:'required, pattern.', e:'<input type="email" required>', en:'HTML5 validation.'},
+    {t:'data-* atributos', c:'Datos personalizados.', e:'<div data-id="42">', en:'Data attributes.'},
+    {t:'<figure> y <figcaption>', c:'Imágenes con pie.', e:'<figure><img><figcaption>Pie</figcaption></figure>', en:'Figure with caption.'},
+    {t:'<mark>', c:'Resaltar texto.', e:'<p><mark>Importante</mark></p>', en:'Highlight text.'},
+    {t:'<time>', c:'Fechas máquina.', e:'<time datetime="2025-01-15">15 enero</time>', en:'Machine dates.'},
+    {t:'<aside>', c:'Contenido tangencial.', e:'<aside>Relacionado</aside>', en:'Tangential content.'},
+    {t:'loading="lazy"', c:'Carga diferida.', e:'<img src="foto.jpg" loading="lazy">', en:'Lazy loading.'},
+    {t:'<picture>', c:'Imágenes responsivas.', e:'<picture><source srcset="g.jpg"><img src="p.jpg"></picture>', en:'Responsive images.'},
+    {t:'Formularios accesibles', c:'label + for/id.', e:'<label for="n">Nombre</label><input id="n">', en:'Accessible forms.'},
+    {t:'<datalist>', c:'Sugerencias.', e:'<input list="op"><datalist id="op"><option value="A"></datalist>', en:'Suggestions.'},
+    {t:'<output>', c:'Resultado de cálculo.', e:'<output>0</output>', en:'Calculation output.'},
+    {t:'<canvas>', c:'Dibujo JS.', e:'<canvas id="lienzo"></canvas>', en:'JS drawing.'},
+    {t:'<svg> inline', c:'Gráficos vectoriales.', e:'<svg><circle r="40"/></svg>', en:'Vector graphics.'},
+    {t:'Custom properties CSS', c:'Variables.', e:':root { --color: #b08d57; }', en:'CSS variables.'},
+    {t:'clamp()', c:'Tipografía fluida.', e:'font-size: clamp(1rem, 2.5vw, 2rem);', en:'Fluid typography.'},
+    {t:'CSS Grid', c:'Diseño 2D.', e:'display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr));', en:'CSS Grid.'},
+    {t:'gap', c:'Espacio flex/grid.', e:'display: flex; gap: 1rem;', en:'Gap.'},
+    {t:'prefers-color-scheme', c:'Tema oscuro.', e:'@media (prefers-color-scheme: dark) { }', en:'Dark mode.'},
+    {t:'aspect-ratio', c:'Proporción.', e:'aspect-ratio: 16/9;', en:'Ratio.'},
+    {t:'@keyframes', c:'Animaciones.', e:'@keyframes girar { to { transform: rotate(360deg); } }', en:'Keyframes.'},
+    {t:'transition', c:'Suavizar.', e:'transition: all 0.3s;', en:'Transitions.'},
+    {t:'backdrop-filter', c:'Efectos fondo.', e:'backdrop-filter: blur(10px);', en:'Backdrop effects.'},
+    {t:':focus-visible', c:'Foco teclado.', e:':focus-visible { outline: 2px solid; }', en:'Focus visible.'},
+    {t:'line-clamp', c:'Limitar líneas.', e:'-webkit-line-clamp: 3;', en:'Line clamp.'},
+    {t:'grid-template-areas', c:'Áreas grid.', e:'grid-template-areas: "header header"', en:'Grid areas.'},
+    {t:'scroll-behavior', c:'Scroll suave.', e:'html { scroll-behavior: smooth; }', en:'Smooth scroll.'},
+    {t:':nth-child()', c:'Posición.', e:'li:nth-child(odd) { background: #f0f0f0; }', en:'Nth child.'},
+    {t:'object-fit', c:'Ajustar imágenes.', e:'object-fit: cover;', en:'Object fit.'},
+    {t:'CSS Nesting', c:'Anidar reglas.', e:'.card { .titulo { font-weight: 700; } }', en:'CSS Nesting.'},
+    {t:'clip-path', c:'Recortar formas.', e:'clip-path: circle(50%);', en:'Clip path.'},
+    {t:'Scroll Snap', c:'Ajuste scroll.', e:'scroll-snap-type: x mandatory;', en:'Scroll snap.'},
+    {t:'background-clip: text', c:'Texto degradado.', e:'-webkit-background-clip: text; color: transparent;', en:'Text gradient.'},
+    {t:'Container queries', c:'Media por contenedor.', e:'@container (min-width: 400px) { }', en:'Container queries.'},
+    {t:'querySelector', c:'Seleccionar elemento.', e:'document.querySelector(".clase")', en:'Query selector.'},
+    {t:'Event delegation', c:'Delegar eventos.', e:'lista.addEventListener("click", e => {})', en:'Event delegation.'},
+    {t:'Template literals', c:'Interpolar.', e:'`Hola ${nombre}`', en:'Template literals.'},
+    {t:'map/filter/reduce', c:'Métodos arrays.', e:'nums.map(n => n*2)', en:'Array methods.'},
+    {t:'fetch + async/await', c:'Peticiones HTTP.', e:'const r = await fetch(url);', en:'Fetch async.'},
+    {t:'localStorage', c:'Persistencia.', e:'localStorage.setItem("k", JSON.stringify(o));', en:'LocalStorage.'},
+    {t:'Módulos ES6', c:'Import/export.', e:'export const x = 1;', en:'ES6 modules.'},
+    {t:'Destructuring', c:'Extraer valores.', e:'const { a, b } = obj;', en:'Destructuring.'},
+    {t:'Arrow functions', c:'Funciones cortas.', e:'const s = (a,b) => a+b;', en:'Arrow functions.'},
+    {t:'Set y Map', c:'Colecciones únicas.', e:'new Set([1,2,2,3])', en:'Set and Map.'},
+    {t:'FormData', c:'Datos de formularios.', e:'new FormData(form)', en:'FormData.'},
+    {t:'IntersectionObserver', c:'Detectar viewport.', e:'new IntersectionObserver(cb)', en:'IntersectionObserver.'},
+    {t:'debounce', c:'Limitar frecuencia.', e:'function debounce(fn, ms) {}', en:'Debounce.'},
+    {t:'Clases ES6', c:'Sintaxis de clases.', e:'class Persona { constructor() {} }', en:'ES6 classes.'},
+    {t:'Custom Events', c:'Eventos personalizados.', e:'new CustomEvent("x", { detail: {} })', en:'Custom events.'},
+    {t:'try/catch', c:'Errores.', e:'try { } catch (e) { }', en:'Try catch.'},
+    {t:'Optional chaining', c:'Acceso seguro.', e:'user?.dir?.city', en:'Optional chaining.'},
+    {t:'RegExp', c:'Patrones.', e:'/\\d{3}-\\d{3}/g', en:'Regex.'},
+    {t:'Web Speech API', c:'Voz.', e:'speechSynthesis.speak(...)', en:'Web Speech.'},
+    {t:'requestAnimationFrame', c:'Animaciones.', e:'requestAnimationFrame(animar);', en:'Animation frame.'},
+    {t:'Barra de progreso LMS', c:'Avance.', e:'<div class="progress"><div class="fill"></div></div>', en:'LMS progress bar.'},
+    {t:'Flashcard giratoria', c:'Volteo 3D.', e:'transform: rotateY(180deg);', en:'Flipping card.'},
+    {t:'Acordeón temas', c:'Desplegar.', e:'<details><summary>Lección</summary></details>', en:'Accordion.'},
+    {t:'Modal confirmación', c:'<dialog>.', e:'<dialog>¿Seguro?</dialog>', en:'Modal confirmation.'},
+    {t:'Tabs navegación', c:'Secciones.', e:'[role="tab"][aria-selected="true"]', en:'Navigation tabs.'},
+    {t:'Notificaciones toast', c:'Mensajes flotantes.', e:'position: fixed; animation: slideIn 0.3s;', en:'Toast notifications.'},
+    {t:'Sidebar colapsable', c:'Navegación lateral.', e:'aside { transform: translateX(-100%); }', en:'Collapsible sidebar.'},
+    {t:'Modo oscuro persistente', c:'Guardar preferencia.', e:'localStorage.setItem("tema", "dark");', en:'Persistent dark mode.'},
+    {t:'Editor autoguardado', c:'Guardar al escribir.', e:'textarea.addEventListener("input", debounce(guardar, 500));', en:'Auto-save editor.'},
+    {t:'Quiz interactivo', c:'Preguntas con feedback.', e:'if (sel === correcta) { feedback(); }', en:'Interactive quiz.'},
+    {t:'Contador palabras', c:'Estadísticas.', e:'texto.trim().split(/\\s+/).length', en:'Word counter.'},
+    {t:'Exportar .txt', c:'Descargar.', e:'new Blob([texto], { type: "text/plain" })', en:'Export txt.'},
+    {t:'Copiar portapapeles', c:'navigator.clipboard.', e:'navigator.clipboard.writeText(texto);', en:'Clipboard.'},
+    {t:'Búsqueda tiempo real', c:'Filtrar al escribir.', e:'input.addEventListener("input", e => filtrar(e.target.value));', en:'Real-time search.'},
+    {t:'Filtros etiquetas', c:'Categorizar.', e:'[data-cat="x"] { display: none; }', en:'Tag filters.'},
+    {t:'Sistema insignias', c:'Logros.', e:'if (progreso >= 50) insignias.push("Medio");', en:'Badge system.'},
+    {t:'PWA service worker', c:'Offline.', e:'navigator.serviceWorker.register("sw.js");', en:'PWA service worker.'},
+    {t:'Manifest dinámico', c:'Iconos app.', e:'new Blob([JSON.stringify(manifest)])', en:'Dynamic manifest.'},
+    {t:'Cache-first', c:'Servir desde caché.', e:'caches.match(e.request).then(r => r || fetch(e.request))', en:'Cache-first.'},
+    {t:'Banner instalación', c:'Promover PWA.', e:'beforeinstallprompt → banner.', en:'Install banner.'},
+    {t:'Estado online/offline', c:'Detectar conexión.', e:'navigator.onLine; window.addEventListener("online")', en:'Online/offline.'},
+    {t:'Skip link accesibilidad', c:'Saltar contenido.', e:'<a href="#main" class="skip-link">Saltar</a>', en:'Skip link.'},
+    {t:'aria-live', c:'Anunciar cambios.', e:'<div aria-live="polite">Mensaje</div>', en:'ARIA live.'},
+    {t:'role="tab" aria-expanded', c:'Semántica tabs.', e:'<button role="tab" aria-expanded="true">', en:'Tab semantics.'},
+    {t:'prefers-reduced-motion', c:'Respetar preferencias.', e:'@media (prefers-reduced-motion: reduce) { }', en:'Reduced motion.'},
+    {t:'Foco visible', c:':focus-visible.', e:':focus-visible { outline: 2px solid; }', en:'Focus visible.'},
+    {t:'Contraste WCAG', c:'Razón 4.5:1.', e:'#0a1f44 sobre #ffffff', en:'WCAG contrast.'},
+    {t:'Navegación teclado', c:'Tab, Enter, Esc.', e:'document.addEventListener("keydown", e => {})', en:'Keyboard nav.'},
+    {t:'Roles ARIA', c:'Accesibilidad semántica.', e:'<nav role="navigation" aria-label="Principal">', en:'ARIA roles.'},
+    {t:'Web Components', c:'Custom Elements.', e:'class X extends HTMLElement {} customElements.define("x", X);', en:'Web Components.'},
+    {t:'Shadow DOM', c:'Encapsular estilos.', e:'this.attachShadow({ mode: "open" });', en:'Shadow DOM.'},
+    {t:'IntersectionObserver lazy', c:'Cargar al entrar.', e:'obs.observe(document.querySelector(".lazy"));', en:'Lazy IntersectionObserver.'},
+    {t:'Fetch POST', c:'Enviar datos.', e:'fetch(url, { method: "POST", body: JSON.stringify(data) });', en:'Fetch POST.'},
+    {t:'API REST CSRF', c:'Token seguridad.', e:'<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">', en:'REST API CSRF.'},
+    {t:'Validación formularios', c:'checkValidity.', e:'if (!form.checkValidity()) { form.reportValidity(); }', en:'Form validation.'},
+    {t:'Autoguardado debounce', c:'Guardar sin saturar.', e:'const g = debounce(() => { }, 1000);', en:'Auto-save debounce.'},
+    {t:'Exportar progreso', c:'Informe final.', e:'new Blob([informe], { type: "text/plain" })', en:'Export progress.'},
+    {t:'Dashboard SVG', c:'Gráficos nativos.', e:'<svg><circle stroke-dasharray="220 440"/></svg>', en:'SVG dashboard.'},
+    {t:'Sistema bilingüe ES/EN', c:'Traducción por objeto.', e:'const i18n = { es: {}, en: {} };', en:'Bilingual ES/EN system.'},
+    {t:'Modo lectura accesible', c:'Tipografía ampliada.', e:'.modo-lectura { font-size: 1.2rem; line-height: 1.8; }', en:'Accessible reading.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesHTML.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'html-sem',
+    opciones:[t.c,'Es una función de Python.','No sirve para la web.','Es solo para backend.'],
+    correcta:0
+  }));
+}
+
+function genPython(){
+  const T = [
+    {t:'Instalar Python', c:'Verificar versión.', e:'python --version', en:'Install Python.'},
+    {t:'Variables y tipos', c:'int, float, str, bool.', e:'nombre = "Ana"', en:'Variables and types.'},
+    {t:'print()', c:'Mostrar.', e:'print(f"Hola {nombre}")', en:'Print.'},
+    {t:'input()', c:'Leer usuario.', e:'nombre = input("¿Nombre? ")', en:'Input.'},
+    {t:'Operadores', c:'+ - * / // % **.', e:'7 // 2  # 3', en:'Arithmetic operators.'},
+    {t:'if', c:'Condicional.', e:'if nota >= 3: print("OK")', en:'Conditional.'},
+    {t:'if/elif/else', c:'Múltiples.', e:'if n>10: ... elif n>5: ...', en:'Multiple conditions.'},
+    {t:'for', c:'Repetir.', e:'for i in range(5): print(i)', en:'For loop.'},
+    {t:'while', c:'Mientras.', e:'while n>0: n -= 1', en:'While loop.'},
+    {t:'Listas', c:'Colección.', e:'frutas = ["manzana"]', en:'Lists.'},
+    {t:'Tuplas', c:'Inmutable.', e:'punto = (3, 4)', en:'Tuples.'},
+    {t:'Diccionarios', c:'Clave-valor.', e:'alumno = {"n": "Luis"}', en:'Dictionaries.'},
+    {t:'Set', c:'Sin duplicados.', e:'set("banana")', en:'Sets.'},
+    {t:'Funciones', c:'Def reutilizable.', e:'def saludar(n): return f"Hola {n}"', en:'Functions.'},
+    {t:'Parámetros por defecto', c:'Predeterminados.', e:'def p(b, e=2): return b ** e', en:'Default params.'},
+    {t:'*args/**kwargs', c:'Variables.', e:'def s(*n): return sum(n)', en:'*args/**kwargs.'},
+    {t:'List comprehensions', c:'Concisas.', e:'[x**2 for x in range(10)]', en:'List comprehensions.'},
+    {t:'try/except', c:'Errores.', e:'try: int("a") except ValueError: 0', en:'Try/except.'},
+    {t:'Módulos', c:'Imports.', e:'import math', en:'Modules.'},
+    {t:'Archivos', c:'open().', e:'with open("f.txt", "w") as f: f.write("x")', en:'Files.'},
+    {t:'Django: proyecto', c:'startproject.', e:'django-admin startproject mi_lms', en:'Django project.'},
+    {t:'Django: app', c:'startapp.', e:'python manage.py startapp cursos', en:'Django app.'},
+    {t:'settings.py', c:'Configuración.', e:"INSTALLED_APPS = ['cursos']", en:'Settings.'},
+    {t:'Modelos', c:'Tablas.', e:'class Alumno(models.Model): nombre = models.CharField(max_length=100)', en:'Models.'},
+    {t:'Migraciones', c:'Aplicar cambios.', e:'python manage.py makemigrations', en:'Migrations.'},
+    {t:'Admin', c:'Panel.', e:'admin.site.register(Alumno)', en:'Admin.'},
+    {t:'URLs', c:'Rutas.', e:"path('cursos/', views.lista)", en:'URLs.'},
+    {t:'Vistas FBV', c:'Funciones.', e:'def home(r): return render(r, "home.html")', en:'Function views.'},
+    {t:'Vistas CBV', c:'Clases.', e:'class Lista(ListView): model = Curso', en:'Class views.'},
+    {t:'Templates', c:'HTML.', e:'{% for c in cursos %}{{ c.nombre }}{% endfor %}', en:'Templates.'},
+    {t:'Formularios', c:'Forms.', e:'class F(forms.ModelForm): class Meta: ...', en:'Forms.'},
+    {t:'Autenticación', c:'Login.', e:'from django.contrib.auth import authenticate', en:'Authentication.'},
+    {t:'Modelo User', c:'Usuario.', e:'from django.contrib.auth.models import User', en:'User model.'},
+    {t:'Perfil usuario', c:'OneToOne.', e:'class Perfil(models.Model): user = models.OneToOneField(User)', en:'User profile.'},
+    {t:'Permisos', c:'Acceso.', e:'@login_required', en:'Permissions.'},
+    {t:'DRF: serializers', c:'JSON.', e:'class S(serializers.ModelSerializer): ...', en:'DRF serializers.'},
+    {t:'DRF: ViewSets', c:'API REST.', e:'class V(viewsets.ModelViewSet): ...', en:'DRF ViewSets.'},
+    {t:'DRF: routers', c:'Rutas API.', e:'router.register("cursos", V)', en:'DRF routers.'},
+    {t:'JWT tokens', c:'Auth.', e:'from rest_framework_simplejwt.views import TokenObtainPairView', en:'JWT tokens.'},
+    {t:'Middleware', c:'Procesar.', e:'class M: def __init__(self, get_response): ...', en:'Middleware.'},
+    {t:'Modelo Curso', c:'Título/descripción.', e:'class Curso(models.Model): titulo = models.CharField(max_length=200)', en:'Course model.'},
+    {t:'Modelo Lección', c:'FK a Curso.', e:'class Leccion(models.Model): curso = models.ForeignKey(Curso)', en:'Lesson model.'},
+    {t:'Modelo Inscripción', c:'Alumno-curso.', e:'class Inscripcion(models.Model): alumno = models.ForeignKey(User)', en:'Enrollment model.'},
+    {t:'Modelo Progreso', c:'Avance.', e:'class Progreso(models.Model): alumno = models.ForeignKey(User)', en:'Progress model.'},
+    {t:'Modelo Evaluación', c:'Quiz.', e:'class Evaluacion(models.Model): curso = models.ForeignKey(Curso)', en:'Assessment model.'},
+    {t:'Modelo Pregunta', c:'FK evaluación.', e:'class Pregunta(models.Model): evaluacion = models.ForeignKey(Evaluacion)', en:'Question model.'},
+    {t:'Modelo Respuesta', c:'Opciones.', e:'class Respuesta(models.Model): pregunta = models.ForeignKey(Pregunta)', en:'Answer model.'},
+    {t:'Modelo Insignia', c:'Logros.', e:'class Insignia(models.Model): alumno = models.ForeignKey(User)', en:'Badge model.'},
+    {t:'Dashboard LMS', c:'Métricas.', e:'def dashboard(r): return render(r, "dash.html")', en:'LMS dashboard.'},
+    {t:'Vista curso', c:'Detalle.', e:'def curso_detalle(r, id): return render(r, "curso.html")', en:'Course view.'},
+    {t:'Registro alumno', c:'Signup.', e:'def registro(r): if r.method == "POST": ...', en:'Student registration.'},
+    {t:'Login CBV', c:'LoginView.', e:'from django.contrib.auth.views import LoginView', en:'Login CBV.'},
+    {t:'Logout CBV', c:'LogoutView.', e:'from django.contrib.auth.views import LogoutView', en:'Logout CBV.'},
+    {t:'Perfil alumno', c:'Vista.', e:'@login_required def perfil(r): ...', en:'Student profile.'},
+    {t:'Editar perfil', c:'Actualizar.', e:'def editar_perfil(r): ...', en:'Edit profile.'},
+    {t:'Progreso tracking', c:'Marcar lección.', e:'def completar(r, id): ...', en:'Progress tracking.'},
+    {t:'Insignias auto', c:'Desbloquear.', e:'if progreso >= 50: Insignia.objects.create(...)', en:'Auto badges.'},
+    {t:'Exportar informe', c:'Reporte.', e:'def exportar(r): return HttpResponse(content_type="text/plain")', en:'Export report.'},
+    {t:'Búsqueda', c:'Filtrar.', e:'Curso.objects.filter(titulo__icontains=q)', en:'Search.'},
+    {t:'Paginación', c:'Dividir.', e:'paginator = Paginator(cursos, 10)', en:'Pagination.'},
+    {t:'Subida archivos', c:'FileField.', e:'archivo = models.FileField(upload_to="recursos/")', en:'File upload.'},
+    {t:'Enviar correos', c:'send_mail.', e:'send_mail("Asunto", "Msg", "from@x.com", ["to@x.com"])', en:'Send emails.'},
+    {t:'NLP tokenizar', c:'Dividir palabras.', e:'import re; re.findall(r"\\b\\w+\\b", t)', en:'NLP tokenize.'},
+    {t:'NLP stopwords', c:'Palabras vacías.', e:'STOP = set("de la que".split())', en:'NLP stopwords.'},
+    {t:'NLP frecuencia', c:'Contar.', e:'Counter(palabras)', en:'NLP frequency.'},
+    {t:'NLP n-gramas', c:'Secuencias.', e:'list(zip(palabras, palabras[1:]))', en:'NLP n-grams.'},
+    {t:'NLP lematizar', c:'Reducir.', e:'LEMAS = {"fue": "ir"}', en:'NLP lemmatize.'},
+    {t:'NLP sentimiento', c:'Polaridad.', e:'POS = {"feliz"}; NEG = {"triste"}', en:'NLP sentiment.'},
+    {t:'NLP similitud', c:'Jaccard.', e:'len(set(a)&set(b)) / len(set(a)|set(b))', en:'NLP similarity.'},
+    {t:'NLP TF-IDF', c:'Peso palabras.', e:'tfidf = tf * math.log(N / df)', en:'NLP TF-IDF.'},
+    {t:'NLP legibilidad', c:'Fernández Huerta.', e:'206.84 - 0.60*P - 1.02*F', en:'NLP readability.'},
+    {t:'NLP resumen', c:'Oraciones clave.', e:'sorted(oraciones, key=score, reverse=True)[:3]', en:'NLP summarization.'},
+    {t:'Análisis corpus', c:'Muchos textos.', e:'for f in Path("corpus").glob("*.txt"): ...', en:'Corpus analysis.'},
+    {t:'matplotlib', c:'Gráficos.', e:'import matplotlib.pyplot as plt; plt.bar(x, y)', en:'Matplotlib.'},
+    {t:'Pandas', c:'DataFrames.', e:'import pandas as pd; df = pd.read_csv("datos.csv")', en:'Pandas.'},
+    {t:'NumPy', c:'Arrays.', e:'import numpy as np; arr = np.array([1,2,3])', en:'NumPy.'},
+    {t:'Hash contraseñas', c:'Seguridad.', e:'from django.contrib.auth.hashers import make_password', en:'Password hash.'},
+    {t:'CSRF', c:'Token.', e:'{% csrf_token %}', en:'CSRF.'},
+    {t:'XSS', c:'Escapar.', e:'{{ v|escape }}', en:'XSS.'},
+    {t:'SQL injection', c:'Parametrizar.', e:'Curso.objects.filter(id=id)', en:'SQL injection.'},
+    {t:'Variables entorno', c:'Config.', e:'SECRET_KEY = os.environ.get("SECRET_KEY")', en:'Env vars.'},
+    {t:'DEBUG producción', c:'Nunca activo.', e:'DEBUG = False', en:'DEBUG production.'},
+    {t:'Archivos estáticos', c:'CSS/JS.', e:'STATIC_URL = "/static/"', en:'Static files.'},
+    {t:'Archivos media', c:'Subidas.', e:'MEDIA_URL = "/media/"', en:'Media files.'},
+    {t:'Gunicorn', c:'WSGI.', e:'gunicorn mi_proyecto.wsgi:application', en:'Gunicorn.'},
+    {t:'Nginx', c:'Proxy.', e:'location / { proxy_pass http://127.0.0.1:8000; }', en:'Nginx.'},
+    {t:'Logs', c:'Eventos.', e:'logging.error("Error")', en:'Logs.'},
+    {t:'Backups', c:'Copias.', e:'pg_dump mi_db > backup.sql', en:'Backups.'},
+    {t:'Testing', c:'Unitarias.', e:'def test(): assert suma(2,3) == 5', en:'Testing.'},
+    {t:'Documentación', c:'Docstrings.', e:'"""Mi función."""', en:'Documentation.'},
+    {t:'Git', c:'Control versiones.', e:'git init; git commit -m "init"', en:'Git.'},
+    {t:'Refactorización', c:'Mejorar código.', e:'# Extraer función', en:'Refactoring.'},
+    {t:'Escalabilidad', c:'Muchos usuarios.', e:'# Cache, CDN, balanceo', en:'Scalability.'},
+    {t:'WCAG', c:'Accesibilidad.', e:'<img alt="Descripción">', en:'WCAG.'},
+    {t:'Django i18n', c:'Internacionalización.', e:'{% trans "Hola" %}', en:'Django i18n.'},
+    {t:'Django REST + React', c:'Frontend separado.', e:'fetch("/api/cursos/").then(r => r.json())', en:'Django REST + React.'},
+    {t:'Mantenimiento', c:'Actualizar.', e:'# Revisar logs', en:'Maintenance.'}
+  ];
+  return T.slice(0,100).map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    conceptoEN:t.en,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es una función exclusiva de Java.','No tiene relación con Python.','Es solo para diseño gráfico.'],
+    correcta:0
+  }));
+}
+
+const tecnicasLit = genLit();
+const tecnicasComp = genComp();
+const tecnicasSin = genSin();
+const tecnicasHTML = genHTML();
+const tecnicasPy = genPython();
+
+/* =====================================================================
+   NAVEGACIÓN
+   ===================================================================== */
+function cambiarModo(modo){
+  document.querySelectorAll('#navTabs button').forEach(b=>b.classList.toggle('active', b.dataset.mode===modo));
+  document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+  const panel = document.getElementById('panel-'+modo);
+  if(panel) panel.classList.add('active');
+  if(modo==='dashboard') actualizarDashboard();
+  if(modo==='perfil') actualizarPerfil();
+  if(modo==='literatura') renderCuaderno('lit');
+  if(modo==='comprension') renderCuaderno('comp');
+  if(modo==='sintaxis') renderCuaderno('sin');
+  if(modo==='html') renderCuaderno('html');
+  if(modo==='python') renderCuaderno('py');
+  if(modo==='taller') renderTaller();
+  if(modo==='certificado') renderCertificado();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>cambiarModo(btn.dataset.mode));
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+  userSet('tema', estado.tema);
+});
+
+document.getElementById('btnIdioma').addEventListener('click',()=>{
+  estado.idioma = estado.idioma==='es'?'en':'es';
+  document.getElementById('btnIdioma').textContent = estado.idioma==='es'?'🌐 ES':'🌐 EN';
+  userSet('idioma', estado.idioma);
+  if(estado.modo) cambiarModo(estado.modo);
+});
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function actualizarDashboard(){
+  const lit = Object.keys(estado.lit.progreso).length;
+  const comp = Object.keys(estado.comp.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const html = Object.keys(estado.html.progreso).length;
+  const py = Object.keys(estado.py.progreso).length;
+  const total = lit+comp+sin+html+py;
+  const pct = Math.round((total/500)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/500</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${lit}/100</div><div class="kpi-label">📖 Literatura</div></div>
+    <div class="kpi-card"><div class="kpi-value">${comp}/100</div><div class="kpi-label">📚 Comprensión</div></div>
+    <div class="kpi-card"><div class="kpi-value">${sin}/100</div><div class="kpi-label">🧩 Sintaxis</div></div>
+    <div class="kpi-card"><div class="kpi-value">${html}/100</div><div class="kpi-label">💻 HTML/CSS/JS</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python+Django</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasLiteratura').innerHTML = barras(bloquesLit, tecnicasLit, estado.lit.progreso);
+  document.getElementById('barrasComprension').innerHTML = barras(bloquesComp, tecnicasComp, estado.comp.progreso);
+  document.getElementById('barrasSintaxis').innerHTML = barras(bloquesSin, tecnicasSin, estado.sin.progreso);
+  document.getElementById('barrasHTML').innerHTML = barras(bloquesHTML, tecnicasHTML, estado.html.progreso);
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/500)*120;
+    pts.push(`${x},${y}`);
+    acum += 42;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+/* =====================================================================
+   PERFIL
+   ===================================================================== */
+function actualizarPerfil(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+
+  document.getElementById('perfilAvatar').textContent = user.avatar;
+  document.getElementById('perfilNombre').textContent = user.nombre;
+  document.getElementById('perfilCorreo').innerHTML = `${user.email} · <span id="perfilCurso">${user.curso}</span>`;
+  const fecha = new Date(user.fechaRegistro);
+  document.getElementById('perfilFecha').textContent = fecha.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  const lit = Object.keys(estado.lit.progreso).length;
+  const comp = Object.keys(estado.comp.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const html = Object.keys(estado.html.progreso).length;
+  const py = Object.keys(estado.py.progreso).length;
+  const total = lit+comp+sin+html+py;
+  const totalNotas = Object.keys(estado.lit.notas).length + Object.keys(estado.comp.notas).length + Object.keys(estado.sin.notas).length + Object.keys(estado.html.notas).length + Object.keys(estado.py.notas).length;
+  const puntos = total*10 + totalNotas;
+  document.getElementById('perfilPuntos').textContent = puntos;
+
+  const insignias = [];
+  if(total >= 50) insignias.push({txt:'🥉 50 técnicas', cls:''});
+  if(total >= 100) insignias.push({txt:'🥈 100 técnicas', cls:'verde'});
+  if(total >= 250) insignias.push({txt:'🥇 250 técnicas', cls:'azul'});
+  if(total >= 400) insignias.push({txt:'🏆 400 técnicas', cls:'morado'});
+  if(total >= 490) insignias.push({txt:'👑 Maestría total', cls:'indigo'});
+  if(lit >= 25) insignias.push({txt:'📖 Lector iniciado', cls:''});
+  if(comp >= 50) insignias.push({txt:'📚 Comprensivo', cls:'azul'});
+  if(sin >= 50) insignias.push({txt:'🧩 Gramático', cls:'verde'});
+  if(html >= 50) insignias.push({txt:'💻 Programador web', cls:'morado'});
+  if(py >= 50) insignias.push({txt:'🐍 Pythonista', cls:'indigo'});
+  document.getElementById('perfilInsignias').innerHTML = insignias.length ? insignias.map(i=>`<span class="badge-insignia ${i.cls}">${i.txt}</span>`).join('') : '<span style="font-size:0.75rem;color:var(--text-muted);">Aún no tienes insignias. ¡Sigue avanzando!</span>';
+
+  document.getElementById('perfilBarras').innerHTML = [
+    {n:'📖 Literatura', v:lit},
+    {n:'📚 Comprensión', v:comp},
+    {n:'🧩 Sintaxis', v:sin},
+    {n:'💻 HTML/CSS/JS', v:html},
+    {n:'🐍 Python', v:py}
+  ].map(b=>`<div class="bar-row"><span class="bar-label">${b.n}</span><div class="bar-track"><div class="bar-fill" style="width:${b.v}%"></div></div><span class="bar-pct">${b.v}/100</span></div>`).join('');
+
+  document.getElementById('perfilLogros').innerHTML = `
+    <div style="font-size:0.82rem;line-height:1.8;">
+      <div>🎯 Técnicas completadas: <strong>${total}/500</strong></div>
+      <div>🏅 Puntos totales: <strong>${puntos}</strong></div>
+      <div>📝 Notas escritas: <strong>${totalNotas}</strong></div>
+      <div>🎖️ Insignias: <strong>${insignias.length}</strong></div>
+    </div>
+  `;
+
+  document.getElementById('perfilNotasCount').innerHTML = `
+    <div style="font-size:0.82rem;line-height:1.8;">
+      <div>📖 Literatura: <strong>${Object.keys(estado.lit.notas).length}</strong></div>
+      <div>📚 Comprensión: <strong>${Object.keys(estado.comp.notas).length}</strong></div>
+      <div>🧩 Sintaxis: <strong>${Object.keys(estado.sin.notas).length}</strong></div>
+      <div>💻 HTML/CSS/JS: <strong>${Object.keys(estado.html.notas).length}</strong></div>
+      <div>🐍 Python: <strong>${Object.keys(estado.py.notas).length}</strong></div>
+      <div style="margin-top:0.5rem;border-top:1px solid var(--border);padding-top:0.5rem;">Total: <strong>${totalNotas}</strong></div>
+    </div>
+  `;
+
+  if(document.getElementById('certNombre')) document.getElementById('certNombre').textContent = user.nombre;
+}
+
+document.getElementById('perfilEditar').addEventListener('click',()=>{
+  const users = getUsers();
+  const user = users[currentUser];
+  const nuevoNombre = prompt('Nuevo nombre:', user.nombre);
+  if(nuevoNombre && nuevoNombre.trim()){ user.nombre = nuevoNombre.trim(); }
+  const nuevoCurso = prompt('Nuevo curso:', user.curso);
+  if(nuevoCurso && nuevoCurso.trim()){ user.curso = nuevoCurso.trim(); }
+  saveUsers(users);
+  document.getElementById('userName').textContent = user.nombre.split(' ')[0];
+  actualizarPerfil();
+  alert('✅ Perfil actualizado');
+});
+
+document.getElementById('perfilExportar').addEventListener('click',()=>exportarDatos());
+
+document.getElementById('perfilReset').addEventListener('click',()=>{
+  if(!confirm('⚠️ Esto borrará TODO tu progreso y notas. ¿Continuar?')) return;
+  if(!confirm('¿Estás seguro/a? Esta acción no se puede deshacer.')) return;
+  ['lit_prog','lit_notas','comp_prog','comp_notas','sin_prog','sin_notas','html_prog','html_notas','py_prog','py_notas'].forEach(k=>{
+    localStorage.removeItem(getUserKey(k));
+  });
+  cargarEstadoUsuario();
+  actualizarDashboard();
+  actualizarPerfil();
+  alert('🔄 Progreso reiniciado');
+});
+
+function exportarDatos(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+  const data = {
+    usuario: user.usuario, nombre: user.nombre, curso: user.curso, email: user.email,
+    fechaRegistro: user.fechaRegistro,
+    progreso: {
+      literatura: estado.lit.progreso, comprension: estado.comp.progreso,
+      sintaxis: estado.sin.progreso, html: estado.html.progreso, python: estado.py.progreso
+    },
+    notas: {
+      literatura: estado.lit.notas, comprension: estado.comp.notas,
+      sintaxis: estado.sin.notas, html: estado.html.notas, python: estado.py.notas
+    },
+    fechaExportacion: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `datos_${user.usuario}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+}
+
+/* =====================================================================
+   RENDER CUADERNO
+   ===================================================================== */
+function renderCuaderno(area){
+  const cfg = {
+    lit: { bloques: bloquesLit, tecnicas: tecnicasLit, contenedor:'tecnicaLit', sidebar:'bloquesLit', progText:'progLitText', progFill:'progLitFill' },
+    comp:{ bloques: bloquesComp, tecnicas: tecnicasComp, contenedor:'tecnicaComp', sidebar:'bloquesComp', progText:'progCompText', progFill:'progCompFill' },
+    sin: { bloques: bloquesSin, tecnicas: tecnicasSin, contenedor:'tecnicaSin', sidebar:'bloquesSin', progText:'progSinText', progFill:'progSinFill' },
+    html:{ bloques: bloquesHTML, tecnicas: tecnicasHTML, contenedor:'tecnicaHTML', sidebar:'bloquesHTML', progText:'progHTMLText', progFill:'progHTMLFill' },
+    py:  { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+  if(!sidebar) return;
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  const concepto = estado.idioma==='en' && tec.conceptoEN ? tec.conceptoEN : tec.concepto;
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardarEstado(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardarEstado(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardarEstado(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+/* =====================================================================
+   TALLER
+   ===================================================================== */
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>🔤 Corrector gramatical</h4>
+      <textarea id="tDeque" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnDeque">Analizar</button>
+      <div class="resultado-box" id="rDeque"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Contador y estadísticas</h4>
+      <textarea id="tCont" placeholder="Pega texto..."></textarea>
+      <div class="resultado-box" id="rCont">Palabras: 0</div>
+    </div>
+    <div class="herramienta-card"><h4>🧩 Analizador de oraciones</h4>
+      <textarea id="tMorf" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector de tildes</h4>
+      <textarea id="tTildes" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTildes">Corregir</button>
+      <div class="resultado-box" id="rTildes"></div>
+    </div>
+    <div class="herramienta-card"><h4>📖 Detector tipo de texto</h4>
+      <textarea id="tTipo" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnTipo">Detectar</button>
+      <div class="resultado-box" id="rTipo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Extractor de idea principal</h4>
+      <textarea id="tIdea" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnIdea">Extraer</button>
+      <div class="resultado-box" id="rIdea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎲 Generador de oraciones</h4>
+      <button class="btn-accion" id="btnOracion">Generar</button>
+      <div class="resultado-box" id="rOracion"></div>
+    </div>
+    <div class="herramienta-card"><h4>📋 Rúbrica ponderada</h4>
+      <div id="rubricaBox"></div>
+      <div class="resultado-box" id="rRubrica">Nota: 0.0</div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador Python</h4>
+      <input id="pyTipo" placeholder="pipeline / tfidf">
+      <input id="pyTexto" placeholder="Texto de ejemplo">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>💻 Generador HTML+CSS</h4>
+      <input id="htmlTitulo" placeholder="Título">
+      <input id="htmlTexto" placeholder="Texto">
+      <button class="btn-accion" id="btnHtmlGen">Generar</button>
+      <div class="resultado-box" id="rHtmlGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Índice de legibilidad</h4>
+      <textarea id="tLegib" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>📅 Línea de tiempo literaria</h4>
+      <textarea id="tLinea" placeholder="1888 Azul de Darío"></textarea>
+      <button class="btn-accion" id="btnLinea">Ordenar</button>
+      <div class="resultado-box" id="rLinea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Quiz de comprensión</h4>
+      <textarea id="tQuiz" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnQuiz">Generar quiz</button>
+      <div class="resultado-box" id="rQuiz"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔍 Detector de palabras repetidas</h4>
+      <textarea id="tRepet" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnRepet">Detectar</button>
+      <div class="resultado-box" id="rRepet"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Densidad léxica</h4>
+      <textarea id="tLex" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnLex">Analizar</button>
+      <div class="resultado-box" id="rLex"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚖️ Detector de falacias</h4>
+      <textarea id="tFal" placeholder="Pega texto argumentativo..."></textarea>
+      <button class="btn-accion" id="btnFal">Detectar</button>
+      <div class="resultado-box" id="rFal"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔗 Similitud entre textos</h4>
+      <textarea id="tSimA" placeholder="Texto A..."></textarea>
+      <textarea id="tSimB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnSim">Calcular</button>
+      <div class="resultado-box" id="rSim"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de plagio</h4>
+      <textarea id="tPlagA" placeholder="Texto A..."></textarea>
+      <textarea id="tPlagB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnPlag">Comparar</button>
+      <div class="resultado-box" id="rPlag"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Análisis crítico del discurso</h4>
+      <textarea id="tAcd" placeholder="Pega texto periodístico..."></textarea>
+      <button class="btn-accion" id="btnAcd">Analizar</button>
+      <div class="resultado-box" id="rAcd"></div>
+    </div>
+  `;
+
+  document.getElementById('btnDeque').addEventListener('click',()=>{
+    const t = document.getElementById('tDeque').value;
+    const deq = t.match(/\b(pienso|creo|opino|digo|considero) de que\b/gi)||[];
+    const que = t.match(/\b(me di cuenta|me acuerdo|me olvidé|estoy seguro) que\b/gi)||[];
+    document.getElementById('rDeque').innerHTML =
+      (deq.length?`⚠️ Dequeísmo: ${deq.join(', ')}<br>`:'✅ Sin dequeísmo<br>') +
+      (que.length?`⚠️ Queísmo: ${que.join(', ')}`:'✅ Sin queísmo');
+  });
+
+  document.getElementById('tCont').addEventListener('input',e=>{
+    const t = e.target.value;
+    const p = t.trim()?t.trim().split(/\s+/).length:0;
+    const o = t.split(/[.!?]+/).filter(s=>s.trim()).length;
+    const par = t.split(/\n+/).filter(s=>s.trim()).length;
+    document.getElementById('rCont').textContent = `Palabras: ${p} · Oraciones: ${o} · Párrafos: ${par}`;
+  });
+
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t = document.getElementById('tMorf').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Desconocida';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sustantivo/Adjetivo';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML = analisis.join('<br>');
+  });
+
+  document.getElementById('btnTildes').addEventListener('click',()=>{
+    const t = document.getElementById('tTildes').value;
+    const errores = [];
+    if(/\besta\b/g.test(t)) errores.push('⚠️ esta/está');
+    if(/\bmas\b/g.test(t)) errores.push('⚠️ mas/más');
+    if(/\bde que\b/gi.test(t)) errores.push('⚠️ posible dequeísmo');
+    document.getElementById('rTildes').innerHTML = errores.length?errores.join('<br>'):'✅ Sin errores frecuentes.';
+  });
+
+  document.getElementById('btnTipo').addEventListener('click',()=>{
+    const t = document.getElementById('tTipo').value;
+    let tipo = 'Expositivo';
+    if(/había una vez|entonces|después|luego|finalmente/i.test(t)) tipo = 'Narrativo';
+    else if(/es|son|está|están|era|eran|tenía|color|forma/i.test(t) && !/porque|por tanto/i.test(t)) tipo = 'Descriptivo';
+    else if(/porque|por tanto|en consecuencia|debemos|considero/i.test(t)) tipo = 'Argumentativo';
+    const palabras = t.trim()?t.trim().split(/\s+/).length:0;
+    document.getElementById('rTipo').innerHTML = `<strong>Tipo probable: ${tipo}</strong><br>Palabras: ${palabras}`;
+  });
+
+  document.getElementById('btnIdea').addEventListener('click',()=>{
+    const t = document.getElementById('tIdea').value;
+    const oraciones = t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero']);
+    const freq = {};
+    oraciones.forEach(o=>{
+      o.toLowerCase().split(/\s+/).forEach(p=>{
+        p = p.replace(/[^\wáéíóúñ]/g,'');
+        if(p.length>3 && !stop.has(p)) freq[p]=(freq[p]||0)+1;
+      });
+    });
+    const top = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    const mejor = oraciones.reduce((best,o)=>{
+      const score = top.reduce((s,[w,c])=>s+(o.toLowerCase().includes(w)?c:0),0);
+      return score>best.score?{o,score}:best;
+    },{o:'',score:-1});
+    document.getElementById('rIdea').innerHTML = `<strong>Palabras clave:</strong> ${top.map(x=>x[0]).join(', ')}<br><br><strong>Idea principal:</strong><br>${mejor.o.trim()}.`;
+  });
+
+  document.getElementById('btnOracion').addEventListener('click',()=>{
+    const s=['El niño','La maestra','Mi amigo','El perro','La ciudad','Los estudiantes'];
+    const v=['come','escribe','corre','lee','construye','estudia'];
+    const c=['en el parque','una carta','muy rápido','un libro','una casa','para el examen'];
+    document.getElementById('rOracion').innerHTML = `<strong>${s[Math.floor(Math.random()*s.length)]} ${v[Math.floor(Math.random()*v.length)]} ${c[Math.floor(Math.random()*c.length)]}.</strong>`;
+  });
+
+  const criterios = [{n:'Cohesión',p:25},{n:'Coherencia',p:25},{n:'Adecuación',p:20},{n:'Ortografía',p:15},{n:'Estilo',p:15}];
+  document.getElementById('rubricaBox').innerHTML = criterios.map((c,i)=>`
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;font-size:0.76rem;">
+      <span style="width:100px;">${c.n} (${c.p}%)</span>
+      <input type="range" min="0" max="10" value="5" id="rub-${i}" style="flex:1;">
+      <span id="rubv-${i}">5</span>
+    </div>`).join('');
+  function calcRub(){
+    let n=0;
+    criterios.forEach((c,i)=>{
+      const v=parseInt(document.getElementById(`rub-${i}`).value);
+      document.getElementById(`rubv-${i}`).textContent=v;
+      n+=(v/10)*c.p;
+    });
+    document.getElementById('rRubrica').textContent=`Nota: ${n.toFixed(1)} / 100`;
+  }
+  document.querySelectorAll('#rubricaBox input').forEach(r=>r.addEventListener('input',calcRub));
+  calcRub();
+
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    const lit=Object.keys(estado.lit.progreso).length;
+    const comp=Object.keys(estado.comp.progreso).length;
+    const sin=Object.keys(estado.sin.progreso).length;
+    const html=Object.keys(estado.html.progreso).length;
+    const py=Object.keys(estado.py.progreso).length;
+    const users = getUsers();
+    const user = users[currentUser];
+    const inf = `INFORME SÚPER CUADERNO 9° CASTELLANO Y LITERATURA
+Estudiante: ${user?.nombre || 'Anónimo'}
+Curso: ${user?.curso || '9°'}
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+📖 Literatura: ${lit}/100
+📚 Comprensión: ${comp}/100
+🧩 Sintaxis: ${sin}/100
+💻 HTML/CSS/JS: ${html}/100
+🐍 Python+Django: ${py}/100
+TOTAL: ${lit+comp+sin+html+py}/500
+`;
+    document.getElementById('rExportar').textContent=inf;
+    const blob=new Blob([inf],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='informe_9_castellano.txt'; a.click();
+  });
+
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipo').value.trim()||'pipeline';
+    const texto=document.getElementById('pyTexto').value||'El perro corre por el parque';
+    let code='';
+    if(tipo==='pipeline'){
+      code=`import re\nfrom collections import Counter\ndef pipeline(t):\n    t=t.lower()\n    palabras=re.findall(r"\\b[\\wáéíóúñ]+\\b", t)\n    return {"total": len(palabras), "unicas": len(set(palabras)), "freq": Counter(palabras).most_common(5)}\nprint(pipeline("${texto}"))`;
+    } else if(tipo==='tfidf'){
+      code=`import math\nfrom collections import Counter\ndef tfidf(corpus):\n    df=Counter()\n    for d in corpus:\n        for p in set(d.split()): df[p]+=1\n    N=len(corpus)\n    return {p: math.log(N/(1+df[p])) for p in df}\nprint(tfidf(["${texto}", "otro texto"]))`;
+    } else {
+      code=`# Plantilla: ${tipo}\ntexto = "${texto}"\nprint(texto)`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  document.getElementById('btnHtmlGen').addEventListener('click',()=>{
+    const titulo = document.getElementById('htmlTitulo').value || 'Mi tarjeta';
+    const texto = document.getElementById('htmlTexto').value || 'Contenido de ejemplo';
+    const code = `<!-- HTML -->
+<div class="tarjeta">
+  <h3>${titulo}</h3>
+  <p>${texto}</p>
+</div>
+
+<!-- CSS -->
+<style>
+.tarjeta {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(10,31,68,0.08);
+  border-left: 4px solid #b08d57;
+}
+.tarjeta h3 { color: #0a1f44; margin-bottom: 0.5rem; }
+.tarjeta p { color: #5a5a5a; font-size: 0.9rem; }
+</style>`;
+    document.getElementById('rHtmlGen').textContent=code;
+  });
+
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('tLegib').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const idx=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const nivel=idx>90?'Muy fácil':idx>80?'Fácil':idx>70?'Normal':idx>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML=`FH: <strong>${idx.toFixed(1)}</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  document.getElementById('btnLinea').addEventListener('click',()=>{
+    const lineas=document.getElementById('tLinea').value.split('\n').filter(l=>l.trim());
+    const eventos=lineas.map(l=>{
+      const m=l.match(/^(\d{4})\s+(.+)/);
+      return m?{anio:parseInt(m[1]),desc:m[2]}:{anio:0,desc:l};
+    }).sort((a,b)=>a.anio-b.anio);
+    document.getElementById('rLinea').innerHTML=eventos.map(e=>`${e.anio} → ${e.desc}`).join('<br>');
+  });
+
+  document.getElementById('btnQuiz').addEventListener('click',()=>{
+    const t=document.getElementById('tQuiz').value;
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const preguntas=oraciones.slice(0,5).map((o,i)=>{
+      const palabras=o.trim().split(/\s+/);
+      const clave=palabras.sort((a,b)=>b.length-a.length)[0];
+      return `${i+1}. ¿Qué relación tiene "<em>${clave}</em>" con el texto?`;
+    });
+    document.getElementById('rQuiz').innerHTML=preguntas.join('<br>');
+  });
+
+  document.getElementById('btnRepet').addEventListener('click',()=>{
+    const t=document.getElementById('tRepet').value;
+    const palabras=t.toLowerCase().replace(/[^\wáéíóúñ\s]/g,'').split(/\s+/).filter(p=>p.length>3);
+    const freq={};
+    palabras.forEach(p=>freq[p]=(freq[p]||0)+1);
+    const repetidas=Object.entries(freq).filter(([_,n])=>n>1).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    document.getElementById('rRepet').innerHTML = repetidas.length ?
+      repetidas.map(([p,n])=>`"${p}" aparece ${n} veces`).join('<br>') : '✅ Sin palabras repetidas.';
+  });
+
+  document.getElementById('btnLex').addEventListener('click',()=>{
+    const t=document.getElementById('tLex').value;
+    const palabras=t.toLowerCase().match(/[\wáéíóúñ]+/g)||[];
+    const ttr = palabras.length ? (new Set(palabras).size/palabras.length) : 0;
+    document.getElementById('rLex').innerHTML = `
+      <strong>Total:</strong> ${palabras.length}<br>
+      <strong>Únicas:</strong> ${new Set(palabras).size}<br>
+      <strong>TTR:</strong> ${(ttr*100).toFixed(1)}%
+    `;
+  });
+
+  document.getElementById('btnFal').addEventListener('click',()=>{
+    const t=document.getElementById('tFal').value.toLowerCase();
+    const falacias=[];
+    if(/\b(todos los|ninguno)\b/.test(t)) falacias.push('⚠️ Generalización');
+    if(/\b(obviamente|es evidente)\b/.test(t)) falacias.push('⚠️ Apelación a la evidencia');
+    if(/\b(usted también|y tú qué)\b/.test(t)) falacias.push('⚠️ Ad hominem');
+    document.getElementById('rFal').innerHTML = falacias.length ? falacias.join('<br>') : '✅ Sin falacias detectadas.';
+  });
+
+  document.getElementById('btnSim').addEventListener('click',()=>{
+    const a=document.getElementById('tSimA').value.toLowerCase().split(/\s+/);
+    const b=document.getElementById('tSimB').value.toLowerCase().split(/\s+/);
+    const setA=new Set(a), setB=new Set(b);
+    const inter = [...setA].filter(p=>setB.has(p)).length;
+    const union = new Set([...setA, ...setB]).size;
+    const jaccard = union ? (inter/union)*100 : 0;
+    document.getElementById('rSim').innerHTML = `<strong>Similitud:</strong> ${jaccard.toFixed(1)}%`;
+  });
+
+  document.getElementById('btnPlag').addEventListener('click',()=>{
+    const a=document.getElementById('tPlagA').value.toLowerCase().replace(/\s+/g,' ').trim();
+    const b=document.getElementById('tPlagB').value.toLowerCase().replace(/\s+/g,' ').trim();
+    if(!a||!b){ document.getElementById('rPlag').textContent='Ingresa ambos textos.'; return; }
+    const n=5;
+    const ngA=new Set();
+    for(let i=0;i<=a.length-n;i++) ngA.add(a.slice(i,i+n));
+    const ngB=new Set();
+    for(let i=0;i<=b.length-n;i++) ngB.add(b.slice(i,i+n));
+    const inter=[...ngA].filter(g=>ngB.has(g)).length;
+    const pct = ngA.size ? (inter/ngA.size)*100 : 0;
+    document.getElementById('rPlag').innerHTML = `<strong>Coincidencia:</strong> ${pct.toFixed(1)}%<br>${pct>30?'⚠️ Posible plagio':'✅ Textos distintos'}`;
+  });
+
+  document.getElementById('btnAcd').addEventListener('click',()=>{
+    const t=document.getElementById('tAcd').value.toLowerCase();
+    const hallazgos = [];
+    if(/\b(nosotros|nuestro)\b/.test(t)) hallazgos.push('📌 "Nosotros" inclusivo');
+    if(/\b(ellos|los otros)\b/.test(t)) hallazgos.push('📌 Construcción de alteridad');
+    if(/\b(deber|tener que)\b/.test(t)) hallazgos.push('📌 Modalidad deóntica');
+    if(/\b(según|de acuerdo con)\b/.test(t)) hallazgos.push('📌 Apelación a autoridad');
+    document.getElementById('rAcd').innerHTML = hallazgos.length ? hallazgos.join('<br>') : '✅ Sin marcadores comunes.';
+  });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function renderCertificado(){
+  const users = getUsers();
+  const user = users[currentUser];
+  if(!user) return;
+
+  document.getElementById('certNombre').textContent = user.nombre;
+  document.getElementById('selloAnio').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c = el.dataset.campo;
+    if(estado.campos[c]) el.textContent = estado.campos[c];
+    el.addEventListener('blur',()=>{
+      estado.campos[c] = el.textContent;
+      userSet('campos', estado.campos);
+    });
+  });
+
+  const todos=[
+    {bloques:bloquesLit, tecnicas:tecnicasLit, tipo:'📖 Literatura hispanoamericana (9°)'},
+    {bloques:bloquesComp, tecnicas:tecnicasComp, tipo:'📚 Comprensión crítica (9°)'},
+    {bloques:bloquesSin, tecnicas:tecnicasSin, tipo:'🧩 Sintaxis avanzada (9°)'},
+    {bloques:bloquesHTML, tecnicas:tecnicasHTML, tipo:'💻 HTML + CSS + JS para LMS (Bilingüe)'},
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python + Django para LMS'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--bronce);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#0a1f44;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #b08d57;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #b08d57;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='certificado_9_castellano.doc'; a.click();
+}
+
+/* =====================================================================
+   PWA
+   ===================================================================== */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='super-cuaderno-9-v1';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+document.addEventListener('keydown',e=>{
+  if(!currentUser) return;
+  if(e.key === 'Escape'){
+    document.getElementById('perfilMenu').classList.remove('show');
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎓 Súper Cuaderno 10° · Python + Tipos de Texto + Comprensión Crítica + Sintaxis</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --indigo:#3d3a7c;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+.topbar{background:var(--navy);color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid var(--bronce);color:var(--bronce-light);text-align:center;line-height:32px;font-size:0.6rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);padding:0.35rem 0.75rem;border-radius:30px;font-size:0.74rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.1);color:#fff;}
+.nav-tabs-app button.active{background:var(--bronce);border-color:var(--bronce);color:#fff;}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.1);border:none;color:#fff;padding:0.35rem 0.7rem;border-radius:8px;font-size:0.74rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.25);}
+.connection-pill{font-size:0.66rem;padding:0.2rem 0.6rem;border-radius:20px;background:#2ecc71;color:#fff;font-weight:600;}
+.connection-pill.offline{background:#e74c3c;}
+
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--bronce);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--navy);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:var(--bronce-light);}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:150px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--bronce),var(--navy));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--navy);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--bronce);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:180px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:180px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--bronce),#8a6d3b);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.7;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--bronce);background:rgba(176,141,87,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--bronce);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--bronce),var(--navy));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--bronce);border-color:var(--bronce);color:#fff;}
+.punto.actual{border-color:var(--navy);box-shadow:0 0 0 3px rgba(10,31,68,0.2);}
+
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--bronce);}
+.btn-accion{background:var(--navy);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--bronce);}
+.btn-accion.secundario{background:var(--bronce);}
+.btn-accion.secundario:hover{background:var(--navy);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+.certificado-portada{background:var(--bg-card);border:3px double var(--bronce);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--bronce);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--bronce);}
+.campo-editable{border-bottom:1px dashed var(--bronce);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(176,141,87,0.1);}
+.campo-editable:focus{outline:2px solid var(--bronce);background:rgba(176,141,87,0.05);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--bronce);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--bronce);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--bronce);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+.tag-python{background:var(--verde);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-textos{background:var(--morado);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-lectura{background:var(--azul);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+.tag-sintaxis{background:var(--vino);color:#fff;padding:0.15rem 0.5rem;border-radius:20px;font-size:0.6rem;font-weight:600;}
+
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:var(--bronce);border:none;color:#fff;padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.6);}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--bronce);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="sello">10°</span>
+    <span>Súper Cuaderno · Bachillerato</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="python">🐍 Python · 100</button>
+    <button data-mode="textos">📝 Textos · 100</button>
+    <button data-mode="lectura">📚 Comprensión · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <span class="connection-pill" id="connectionPill">● En línea</span>
+    <button id="btnInstalar">⬇ Instalar</button>
+    <button id="btnTema">🌙</button>
+    <button id="btnReiniciar">↺</button>
+  </div>
+</header>
+
+<main class="app-container">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 10° Grado de Bachillerato</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Continuación progresiva de 6°, 7°, 8° y 9° · 400 técnicas · Nivel preuniversitario</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🐍 Python para Lengua Castellana</h4><div id="barrasPython"></div></div>
+    <div class="chart-card"><h4>📝 Tipos de texto hispanoamericanos</h4><div id="barrasTextos"></div></div>
+    <div class="chart-card"><h4>📚 Comprensión crítica y producción</h4><div id="barrasLectura"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis castellana</h4><div id="barrasSintaxis"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--bronce)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--navy)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado (400 técnicas)</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--bronce)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python preuniversitario avanzado para Lengua Castellana · 100 técnicas</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-textos">
+  <h1 style="margin-bottom:1rem;">📝 Tipos de texto hispanoamericanos · 100 técnicas (Nivel 10°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Narrativo · Descriptivo · Expositivo · Argumentativo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progTxtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progTxtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesTxt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaTxt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-lectura">
+  <h1 style="margin-bottom:1rem;">📚 Comprensión crítica y producción académica · 100 técnicas (Nivel 10°)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLecText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLecFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLec"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLec"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis castellana · 100 técnicas (Nivel 10°)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Morfología · Oración simple · Oración compuesta · Normativa y estilo</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller integrado · 24 herramientas (Nivel 10°)</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado de Finalización</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Súper Cuaderno 10° Grado · Python + Tipos de Texto + Comprensión Crítica + Sintaxis Castellana
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 400 técnicas del programa de 10° grado, continuando el progreso iniciado en 6°, 7°, 8° y 9°</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Institución: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Curso: <span class="campo-editable" contenteditable="true" data-campo="curso">10° ____</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   BLOQUES · 10° GRADO
+   ===================================================================== */
+const bloquesPy = [
+  {id:'py-bas', titulo:'Python preuniversitario', rango:[1,20], icono:'🐍'},
+  {id:'py-nlp', titulo:'NLP y análisis de corpus', rango:[21,40], icono:'🔤'},
+  {id:'py-morf', titulo:'Lingüística computacional', rango:[41,60], icono:'🧩'},
+  {id:'py-red', titulo:'Estilometría e investigación', rango:[61,80], icono:'✍️'},
+  {id:'py-ped', titulo:'Investigación académica', rango:[81,100], icono:'🎓'}
+];
+
+const bloquesTxt = [
+  {id:'txt-nar', titulo:'Texto narrativo (10°)', rango:[1,25], icono:'📖'},
+  {id:'txt-des', titulo:'Texto descriptivo (10°)', rango:[26,50], icono:'🎨'},
+  {id:'txt-exp', titulo:'Texto expositivo (10°)', rango:[51,75], icono:'📊'},
+  {id:'txt-arg', titulo:'Texto argumentativo (10°)', rango:[76,100], icono:'⚖️'}
+];
+
+const bloquesLec = [
+  {id:'lec-niv', titulo:'Lectura crítica universitaria', rango:[1,20], icono:'🪜'},
+  {id:'lec-estr', titulo:'Metodología de investigación', rango:[21,40], icono:'🎯'},
+  {id:'lec-tipos', titulo:'Discursos académicos', rango:[41,60], icono:'📄'},
+  {id:'lec-infer', titulo:'Teoría crítica y hermenéutica', rango:[61,80], icono:'🔍'},
+  {id:'lec-eval', titulo:'Producción de textos académicos', rango:[81,100], icono:'📝'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfología castellana', rango:[1,25], icono:'🔤'},
+  {id:'sin-simple', titulo:'Oración simple y funciones', rango:[26,50], icono:'🧩'},
+  {id:'sin-comp', titulo:'Oración compuesta', rango:[51,75], icono:'🔗'},
+  {id:'sin-norm', titulo:'Normativa, estilo y vicios', rango:[76,100], icono:'📐'}
+];
+
+/* =====================================================================
+   TÉCNICAS · PYTHON (100) - NIVEL 10°
+   ===================================================================== */
+function generarTecnicasPython(){
+  const T = [
+    // 1-20: Python preuniversitario avanzado
+    {t:'Programación funcional', c:'map, filter, reduce y composición.', e:'from functools import reduce\nsuma = reduce(lambda a,b: a+b, [1,2,3])'},
+    {t:'Dataclasses con frozen', c:'Objetos inmutables.', e:'@dataclass(frozen=True)\nclass Palabra:\n    forma: str'},
+    {t:'Patrón Strategy', c:'Estrategias intercambiables.', e:'class Analizador:\n    def __init__(self, estrategia): self.estrategia = estrategia'},
+    {t:'Decoradores con parámetros', c:'Personalizar decoradores.', e:'def repetir(n):\n    def deco(fn): ...\n    return deco'},
+    {t:'Generadores avanzados', c:'yield from para delegar.', e:'def cadena():\n    yield from range(3)\n    yield from "abc"'},
+    {t:'Contextmanager con contextlib', c:'Recursos personalizados.', e:'from contextlib import contextmanager\n@contextmanager\ndef medir():\n    t=time.time(); yield; print(time.time()-t)'},
+    {t:'Type hints avanzados', c:'Union, Optional, Callable, Literal.', e:'from typing import Union, Optional\nx: Optional[int] = None'},
+    {t:'Excepciones personalizadas', c:'Jerarquía de errores.', e:'class ErrorTexto(Exception): pass\nclass ErrorToken(ErrorTexto): pass'},
+    {t:'Logging profesional', c:'Niveles y formateo.', e:'import logging\nlogging.basicConfig(level=logging.INFO)'},
+    {t:'Async/await básico', c:'Concurrencia cooperativa.', e:'async def analizar(t):\n    return procesar(t)'},
+    {t:'Asyncio con gather', c:'Ejecutar tareas concurrentes.', e:'await asyncio.gather(*tareas)'},
+    {t:'Pathlib para archivos', c:'Rutas modernas.', e:'from pathlib import Path\nfor f in Path("corpus/").glob("*.txt"): ...'},
+    {t:'Regex compiladas y grupos nombrados', c:'Patrones reutilizables.', e:'patron = re.compile(r"(?P<art>el|la)\\s+(?P<sust>\\w+)")'},
+    {t:'Lookahead y lookbehind', c:'Condiciones sin consumir.', e:'re.findall(r"\\w+(?=\\s+de\\b)", texto)'},
+    {t:'Itertools avanzado', c:'Combinaciones, agrupaciones, cadenas.', e:'from itertools import groupby, chain, combinations'},
+    {t:'Functools avanzado', c:'lru_cache, partial, reduce.', e:'@lru_cache(maxsize=128)\ndef contar(p): ...'},
+    {t:'Collections avanzado', c:'Counter, defaultdict, deque, namedtuple.', e:'from collections import Counter, defaultdict, deque'},
+    {t:'Enums', c:'Constantes tipadas.', e:'from enum import Enum\nclass Categoria(Enum): SUST = "sustantivo"'},
+    {t:'Protocolos (duck typing)', c:'Interfaces por comportamiento.', e:'from typing import Protocol\nclass Procesable(Protocol):\n    def procesar(self, t: str) -> dict: ...'},
+    {t:'Metaclases', c:'Registrar clases automáticamente.', e:'REGISTRO = {}\nclass Meta(type):\n    def __new__(mcs, n, b, d):\n        cls = super().__new__(mcs, n, b, d); REGISTRO[n] = cls; return cls'},
+
+    // 21-40: NLP y análisis de corpus
+    {t:'Pipeline de NLP completo', c:'Normalizar, tokenizar, filtrar, analizar.', e:'def pipeline(t): return analizar(preprocesar(t))'},
+    {t:'Stopwords ampliadas', c:'Lista de palabras vacías del español.', e:'STOP = set("de la que el en y a los del las un una por con".split())'},
+    {t:'Lematización por diccionario', c:'Reducir a lemas.', e:'LEMAS = {"fue":"ir","dijo":"decir","tuvo":"tener"}'},
+    {t:'Stemming con reglas', c:'Sufijos del español.', e:'def stem(p):\n    for s in ["amiento","imiento","ación","ando","iendo"]:\n        if p.endswith(s): return p[:-len(s)]'},
+    {t:'Tokenización con regex', c:'Conservar tildes y ñ.', e:'re.findall(r"\\b[\\wáéíóúñ]+\\b", texto.lower())'},
+    {t:'Modelo bag-of-words', c:'Vector de frecuencias.', e:'vector = Counter(preprocesar(texto))'},
+    {t:'TF-IDF completo', c:'Cálculo sobre corpus.', e:'import math\ndef tfidf(corpus):\n    df = Counter()\n    for d in corpus:\n        for p in set(d): df[p] += 1\n    N = len(corpus)\n    return {p: math.log(N/(1+df[p])) for p in df}'},
+    {t:'Similitud coseno', c:'Comparar vectores.', e:'def cos(a,b): return sum(a[p]*b[p] for p in set(a)&set(b))/(norma(a)*norma(b))'},
+    {t:'Similitud Jaccard', c:'Conjuntos.', e:'len(set(a)&set(b))/len(set(a)|set(b))'},
+    {t:'Distancia de Levenshtein', c:'Ediciones mínimas.', e:'def lev(a,b):\n    if not a: return len(b)\n    if not b: return len(a)\n    return min(lev(a[1:],b)+1, lev(a,b[1:])+1, lev(a[1:],b[1:])+(a[0]!=b[0]))'},
+    {t:'Detección de idioma', c:'Perfiles n-gramas.', e:'PERFILES = {"es":Counter(ngramas(ES,3)),"en":Counter(ngramas(EN,3))}'},
+    {t:'Extracción de entidades', c:'Nombres propios por regex.', e:'re.findall(r"\\b[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+", texto)'},
+    {t:'Análisis de sentimiento', c:'Diccionario de polaridad.', e:'POS={"feliz","excelente"}\nNEG={"triste","horrible"}'},
+    {t:'Extracción de colocaciones', c:'Pares frecuentes.', e:'Counter(zip(p, p[1:])).most_common(20)'},
+    {t:'N-gramas de caracteres', c:'Análisis estilométrico.', e:'def ngramas(s,n): return [s[i:i+n] for i in range(len(s)-n+1)]'},
+    {t:'Concordancia KWIC', c:'Keywords In Context.', e:'for i,p in enumerate(palabras):\n    if p==objetivo: yield palabras[i-5:i+6]'},
+    {t:'Modelo de temas simplificado', c:'Agrupar por co-ocurrencia.', e:'# Usar ventanas y frecuencias'},
+    {t:'Análisis de co-ocurrencia', c:'Palabras que aparecen juntas.', e:'CO = defaultdict(Counter)\nfor a,b in zip(palabras,palabras[1:]): CO[a][b]+=1'},
+    {t:'Búsqueda con comodines', c:'Patrones flexibles.', e:'re.findall(r"\\b\\w*ción\\b", texto.lower())'},
+    {t:'Métricas de corpus', c:'Tamaño, vocabulario, distribución.', e:'def metricas(corpus): return {"tokens":..., "tipos":..., "ttr":...}'},
+
+    // 41-60: Lingüística computacional
+    {t:'Análisis POS con léxico', c:'Diccionario de categorías.', e:'POS={"el":"ART","corre":"VERBO"}'},
+    {t:'Análisis POS por sufijos', c:'Reglas de terminación.', e:'def pos(p):\n    if p.endswith(("ción","dad")): return "SUST"\n    if p.endswith(("oso","osa")): return "ADJ"'},
+    {t:'Análisis morfológico de verbos', c:'Raíz + desinencia.', e:'def morf(v):\n    for d in DESINENCIAS:\n        if v.endswith(d): return v[:-len(d)], d'},
+    {t:'Detección de tiempos verbales', c:'Clasificar por terminación.', e:'def tiempo(v):\n    if v.endswith(("é","aste","ó","aron")): return "indefinido"\n    if v.endswith(("aba","ía")): return "imperfecto"'},
+    {t:'Conjugación automática', c:'Generar formas verbales.', e:'def conjugar(raiz, term, tiempo, persona): ...'},
+    {t:'Detección de perífrasis', c:'Auxiliar + forma no personal.', e:'re.findall(r"\\b(ir|estar|tener|haber|deber|poder)\\s+(a\\s+|de\\s+)?\\w+(ar|er|ir|ando|iendo|ado|ido)\\b", texto.lower())'},
+    {t:'Reconocimiento de pasivas', c:'Perifrástica y refleja.', e:'ser+participio+por / se+3ª persona'},
+    {t:'Análisis de subordinadas', c:'Sustantivas, adjetivas, adverbiales.', e:'NEXOS={"sust":["que","si"],"adj":["que","quien"],"adv":["porque","aunque"]}'},
+    {t:'Árbol sintáctico simplificado', c:'SN + SV.', e:'def arbol(o): return {"SN":sujeto(o),"SV":predicado(o)}'},
+    {t:'Sujeto elidido', c:'Desinencia permite recuperarlo.', e:'def sujeto_elidido(v):\n    if v.endswith("o"): return "yo"\n    if v.endswith("as"): return "tú"'},
+    {t:'Concordancia', c:'Género, número, persona.', e:'def conc_art_sust(a,s): return a[-1]==s[-1] or (a.endswith("l") and s.endswith("o"))'},
+    {t:'Anáfora y catáfora', c:'Referencias textuales.', e:'re.findall(r"\\b(este|esta|esto|ese|eso|aquel)\\b", texto.lower())'},
+    {t:'Correferencia (heurística)', c:'Pronombre → antecedente.', e:'def resolver(pron, oraciones): ...'},
+    {t:'Segmentación en constituyentes', c:'SN, SV, SP.', e:'re.findall(r"\\b(el|la|los|las)\\s+\\w+\\b", texto.lower())'},
+    {t:'Valencia verbal', c:'Verbo y sus argumentos.', e:'def valencia(v):\n    if v in {"dar","decir"}: return 3\n    if v in {"comer","leer"}: return 2'},
+    {t:'Verbos copulativos', c:'Ser, estar, parecer.', e:'re.findall(r"\\b(ser|estar|parecer)\\b", texto.lower())'},
+    {t:'Atributo vs. predicativo', c:'Distinción sintáctica.', e:'# Atributo: ser/estar + Adj\n# Predicativo: verbo pleno + Adj concordante'},
+    {t:'CD y CI', c:'Por sustitución pronominal.', e:'# CD → lo/la/los/las\n# CI → le/les'},
+    {t:'Complementos circunstanciales', c:'Lugar, tiempo, modo, causa.', e:'CC={"lugar":["aquí","allí"],"tiempo":["ayer","hoy"]}'},
+    {t:'Modalidad oracional', c:'Enunciativa, interrogativa, exclamativa.', e:'def modalidad(o):\n    if o.endswith("?"): return "interrogativa"'},
+
+    // 61-80: Estilometría e investigación
+    {t:'Análisis de autoría', c:'Firma estilométrica.', e:'FIRMA={"ttr","long_media","puntuacion_media"}'},
+    {t:'Distancia entre estilos', c:'Similitud de firmas.', e:'def distancia(f1,f2): return sum(abs(f1[k]-f2[k]) for k in f1)'},
+    {t:'Índice de Herdan', c:'log(tipos)/log(palabras).', e:'math.log(len(set(p)))/math.log(len(p))'},
+    {t:'Índice de Guiraud', c:'tipos/√palabras.', e:'len(set(p))/len(p)**0.5'},
+    {t:'Índice de Yule (K)', c:'Constante de vocabulario.', e:'K = 10**4*(sum(f**2 for f in freqs)-n)/n**2'},
+    {t:'Entropía de Shannon', c:'Diversidad de la distribución.', e:'-sum(f/n*math.log2(f/n) for f in freqs)'},
+    {t:'Distribución de Zipf', c:'Frecuencia vs. rango.', e:'[(r,f) for r,(_,f) in enumerate(freq.most_common(),1)]'},
+    {t:'Riqueza léxica por segmento', c:'TTR en ventanas.', e:'[ttr(texto[i:i+500]) for i in range(0,len(texto),500)]'},
+    {t:'Análisis de puntuación', c:'Frecuencia de signos.', e:'Counter(c for c in texto if c in ".,;:!?—")'},
+    {t:'Longitud media de palabra', c:'Caracteres por palabra.', e:'sum(len(p) for p in palabras)/len(palabras)'},
+    {t:'Longitud media de oración', c:'Palabras por oración.', e:'sum(len(o.split()) for o in oraciones)/len(oraciones)'},
+    {t:'Varianza de longitud', c:'Ritmo del texto.', e:'statistics.pvariance([len(o.split()) for o in oraciones])'},
+    {t:'Complejidad sintáctica', c:'Subordinadas por oración.', e:'sum(len(re.findall(NEXOS,o)) for o in oraciones)/len(oraciones)'},
+    {t:'Legibilidad múltiple', c:'Fernández Huerta, Szigriszt, Crawford.', e:'def legibilidad(t): return {"fh":..., "sz":..., "cr":...}'},
+    {t:'Variación diatópica', c:'Rasgos dialectales.', e:'RASGOS={"vos":"rioplatense","ustedes":"americano"}'},
+    {t:'Variación diafásica', c:'Registro formal/informal.', e:'FORMAL={"usted","señor"}\nINFORMAL={"chévere","bacano"}'},
+    {t:'Arcaísmos', c:'Palabras antiguas.', e:'re.findall(r"\\b(agora|ansí|mesmo)\\b", texto.lower())'},
+    {t:'Neologismos', c:'Palabras recientes.', e:'NEO={"selfi","tuitear","wasap"}'},
+    {t:'Extranjerismos', c:'Anglicismos, galicismos.', e:'ANG={"email","feedback","marketing"}'},
+    {t:'Análisis de redes', c:'Grafo de co-ocurrencias.', e:'import networkx as nx\nG=nx.Graph()\nfor a,b in zip(palabras,palabras[1:]): G.add_edge(a,b)'},
+
+    // 81-100: Investigación académica
+    {t:'Análisis de la ideología', c:'Marcadores ideológicos.', e:'MARCADORES={"neoliberal":["mercado"],"progresista":["derechos"]}'},
+    {t:'Análisis crítico del discurso (ACD)', c:'Lenguaje-poder-ideología.', e:'def acd(t): return {"poder":..., "ideologia":...}'},
+    {t:'Framing', c:'Enmarcado del discurso.', e:'MARCOS={"economía":["mercado"],"derechos":["libertad"]}'},
+    {t:'Modalidad epistémica', c:'Grado de certeza.', e:'CERT={"sin duda"}\nDUDA={"quizás"}'},
+    {t:'Modalidad deóntica', c:'Obligación y permiso.', e:'DEONT={"deber","tener que","es necesario"}'},
+    {t:'Falacias avanzadas', c:'12 tipos.', e:'FALACIAS={"ad_hominem","pendiente","falsa_causa"}'},
+    {t:'Análisis de argumentación', c:'Tesis, argumentos, garantías.', e:'def arg(t): return {"tesis":..., "argumentos":..., "conclusion":...}'},
+    {t:'Sesgo de confirmación', c:'Solo evidencia favorable.', e:'# Analizar presencia de contraargumentos'},
+    {t:'Polarización', c:'Nosotros vs. ellos.', e:'re.findall(r"\\b(nosotros|ellos|los otros)\\b", texto.lower())'},
+    {t:'Detección de desinformación', c:'Verificar contra fuentes.', e:'def verificar(a, fs): return any(a in f for f in fs)'},
+    {t:'Resumen extractivo', c:'Frecuencia + posición.', e:'sorted(oraciones, key=score, reverse=True)[:5]'},
+    {t:'Resumen abstractivo (plantilla)', c:'Con plantillas.', e:'f"El texto trata sobre {tema}. Se argumenta que {tesis}."'},
+    {t:'Extracción de citas', c:'Con atribución.', e:'re.findall(r"[\\"\']([^\\"\']{20,})[\\"\']", texto)'},
+    {t:'Análisis de fuentes', c:'Contar y clasificar.', e:'FUENTES={"académica":0,"periodística":0}'},
+    {t:'Comparación de corpus', c:'Matriz de similitud.', e:'def matriz(c): return [[jaccard(a,b) for b in c] for a in c]'},
+    {t:'Clustering de textos', c:'Agrupar por similitud.', e:'# Umbral sobre similitud Jaccard'},
+    {t:'Clasificación supervisada', c:'Reglas de decisión.', e:'def clasificar(t):\n    if "había una vez" in t: return "narrativo"'},
+    {t:'Evaluación de clasificador', c:'Precisión, recall, F1.', e:'def f1(p,r): return 2*p*r/(p+r) if p+r else 0'},
+    {t:'Pipeline de investigación', c:'Encadenar etapas.', e:'def investigar(t): return {"pre":..., "stats":..., "legib":...}'},
+    {t:'Informe automático', c:'Generar reporte .txt.', e:'with open("informe.txt","w") as f: f.write(informe)'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-bas',
+    opciones:[t.c,'Es una función exclusiva de JavaScript.','Sirve solo para bases de datos.','No tiene relación con el análisis de textos.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TÉCNICAS · TIPOS DE TEXTO (100) - NIVEL 10°
+   ===================================================================== */
+function generarTecnicasTextos(){
+  const T = [
+    // ===== NARRATIVO (1-25) nivel 10° =====
+    {t:'Metaficción hispanoamericana', c:'La obra reflexiona sobre su propia construcción.', e:'"El jardín de senderos que se bifurcan", "Rayuela".'},
+    {t:'Novela total y enciclopédica', c:'Obra que abarca todos los géneros.', e:'"Rayuela", "Paradiso", "Cien años de soledad".'},
+    {t:'Realismo mágico y sus límites', c:'Debate crítico sobre la categoría.', e:'Crítica de Ángel Rama al "realismo mágico".'},
+    {t:'Narrativa testimonial y subalternidad', c:'Voz del subalterno.', e:'"Me llamo Rigoberta Menchú".'},
+    {t:'Autoficción del yo contemporáneo', c:'Autor-personaje problematiza la verdad.', e:'Vallejo, Piglia, Harwicz.'},
+    {t:'Narrativa del narcotráfico', c:'Subgénero del siglo XXI.', e:'"La virgen de los sicarios", "Rosario Tijeras".'},
+    {t:'Narrativa de la migración', c:'Desplazamiento y diáspora.', e:'"Los detectives salvajes".'},
+    {t:'Narrativa de la memoria traumática', c:'Reconstrucción del pasado violento.', e:'"El olvido que seremos".'},
+    {t:'Narrativa indígena contemporánea', c:'Voz y cosmovisión indígena.', e:'Arguedas, León-Portilla, Chocué.'},
+    {t:'Narrativa afrohispanoamericana', c:'Tradición oral y presencia afro.', e:'Zapata Olivella, Quince Duncan.'},
+    {t:'Narrativa feminista hispanoamericana', c:'Perspectiva de género.', e:'Valenzuela, Eltit, Peri Rossi.'},
+    {t:'Narrativa queer hispanoamericana', c:'Identidades disidentes.', e:'Arenas, Lemebel, Sosa Villada.'},
+    {t:'Narrativa distópica', c:'Futuros posibles y crítica social.', e:'"El delirio de Turing", "Cadáver exquisito".'},
+    {t:'Narrativa de ciencia ficción hispanoamericana', c:'Futuros tecnológicos.', e:'"La invención de Morel".'},
+    {t:'Novela gráfica hispanoamericana', c:'Narrativa visual.', e:'Power Paola, Liniers, Sole Otero.'},
+    {t:'Literatura digital e hipertexto', c:'Narrativa no lineal.', e:'Obras de Chiappe, Rodríguez.'},
+    {t:'Narrativa transmedia', c:'Historia expandida en múltiples plataformas.', e:'Proyectos narrativos digitales.'},
+    {t:'Crónica literaria contemporánea', c:'Periodismo narrativo.', e:'Guerriero, Villoro, Caparrós.'},
+    {t:'Ensayo narrativo', c:'Híbrido entre reflexión y narración.', e:'"El olvido que seremos".'},
+    {t:'Novela de la memoria familiar', c:'Reconstrucción del pasado familiar.', e:'Abad Faciolince, Sergio Ramírez.'},
+    {t:'Narrativa del posconflicto colombiano', c:'Literatura tras el conflicto armado.', e:'Obras contemporáneas sobre el proceso de paz.'},
+    {t:'Narrativa de la frontera', c:'Espacios liminales.', e:'Obras sobre la frontera México-EEUU.'},
+    {t:'Narrativa del exilio', c:'Desplazamiento forzado.', e:'Cortázar, Peri Rossi, Arenas.'},
+    {t:'Narrativa ambiental y ecocrítica', c:'Relación hombre-naturaleza.', e:'Narrativa sobre la Amazonía, el Caribe, los Andes.'},
+    {t:'Narrativa especulativa latinoamericana', c:'Ciencia ficción, fantasía, terror.', e:'Antologías contemporáneas.'},
+
+    // ===== DESCRIPTIVO (26-50) nivel 10° =====
+    {t:'Descripción impresionista avanzada', c:'Captar la atmósfera mediante sensaciones.', e:'"El cielo parecía arder en un incendio lento y silencioso."'},
+    {t:'Descripción expresionista y deformación', c:'Distorsión para expresar emoción.', e:'"Los edificios se retorcían como gigantes enfermos."'},
+    {t:'Retrato psicológico profundo', c:'Vida interior compleja.', e:'"Vivía atormentado por un recuerdo que no lograba nombrar."'},
+    {t:'Retrato moral y ético', c:'Valores y conductas.', e:'"Era un hombre recto, incapaz de una traición."'},
+    {t:'Caricatura y parodia descriptiva', c:'Exageración con humor.', e:'"Tenía una nariz que parecía un mapa de montañas."'},
+    {t:'Etopeya evolutiva', c:'El carácter cambia a lo largo de la obra.', e:'"Generoso en su juventud, amargado en su vejez."'},
+    {t:'Prosopografía expresionista', c:'Rasgos físicos distorsionados.', e:'"Sus ojos eran dos abismos sin fondo."'},
+    {t:'Topografía simbólica y mítica', c:'Lugar con valor profundo.', e:'Macondo, Comala, Santa María.'},
+    {t:'Cronografía subjetiva y simbólica', c:'El tiempo atmosférico como emoción.', e:'"El invierno se instaló como un huésped sombrío."'},
+    {t:'Pragmatografía narrativa', c:'Objetos con historia.', e:'"El reloj de oro que había pertenecido a su abuelo."'},
+    {t:'Sinestesia compleja y múltiple', c:'Mezcla de sentidos.', e:'"Su voz era un azul profundo que olía a mar y a tabaco viejo."'},
+    {t:'Descripción connotativa profunda', c:'Significados más allá de lo literal.', e:'"La casa parecía recordar a quienes la habitaron."'},
+    {t:'Descripción de ambiente social y de clase', c:'Grupo o clase social.', e:'"Los salones olían a perfume caro y a hipocresía."'},
+    {t:'Descripción de ambiente rural y campesino', c:'Campo y sus ritmos.', e:'"Los surcos esperaban la lluvia como una promesa."'},
+    {t:'Descripción de ambiente urbano y moderno', c:'Ciudad moderna y contrastes.', e:'"Bogotá: tranvías, paraguas, mendigos y ejecutivos."'},
+    {t:'Descripción de ambiente mítico', c:'Espacios con valor simbólico profundo.', e:'"El río era un dios antiguo que aún no había muerto."'},
+    {t:'Descripción del mar Caribe', c:'Tema recurrente.', e:'"El mar Caribe: azul violento, tibio, eterno."'},
+    {t:'Descripción de la selva amazónica', c:'Selva como personaje devorador.', e:'"La vorágine", "Los pasos perdidos".'},
+    {t:'Descripción de la montaña andina', c:'Cordillera como espacio sagrado y duro.', e:'"Los ríos profundos".'},
+    {t:'Descripción del llano y la pampa', c:'Vastedad y soledad.', e:'"Doña Bárbara", "Don Segundo Sombra".'},
+    {t:'Descripción del trópico', c:'Calor, humedad, exuberancia.', e:'"El otoño del patriarca".'},
+    {t:'Descripción del desierto', c:'Árido y espiritual.', e:'"La región más transparente".'},
+    {t:'Descripción de objeto-símbolo', c:'El objeto representa algo más.', e:'El collar de perlas en un cuento de Quiroga.'},
+    {t:'Descripción cromática expresiva', c:'El color como recurso.', e:'"Amarillo de los plátanos, verde de las palmeras, rojo del atardecer."'},
+    {t:'Descripción de lo abyecto', c:'Lo repulsivo como recurso estético.', e:'"El obsceno pájaro de la noche".'},
+
+    // ===== EXPOSITIVO (51-75) nivel 10° =====
+    {t:'Ensayo académico completo', c:'Explicación rigurosa con tesis implícita.', e:'"Sobre la identidad latinoamericana" de Villoro.'},
+    {t:'Monografía de investigación', c:'Estudio extenso y sistemático.', e:'"El indigenismo en la narrativa peruana".'},
+    {t:'Artículo de revisión', c:'Estado del arte sobre un tema.', e:'"Estudios sobre el boom latinoamericano: 1960-2020".'},
+    {t:'Análisis estructural', c:'Descomposición en partes.', e:'"Estructura de Cien años de soledad: 20 capítulos."'},
+    {t:'Análisis temático', c:'Temas recurrentes.', e:'"La soledad como tema central en García Márquez."'},
+    {t:'Análisis de personajes', c:'Personajes y funciones.', e:'"Aureliano Buendía: el guerrero solitario."'},
+    {t:'Análisis del espacio', c:'Lugar en la narrativa.', e:'"Macondo como microcosmos de América Latina."'},
+    {t:'Análisis del tiempo', c:'Temporalidad narrativa.', e:'"El tiempo cíclico en Cien años de soledad."'},
+    {t:'Análisis del narrador', c:'Voz narrativa.', e:'"El narrador omnisciente en Pedro Páramo."'},
+    {t:'Análisis del estilo', c:'Recursos expresivos.', e:'"El estilo barroco de Lezama Lima."'},
+    {t:'Análisis de la recepción', c:'Cómo fue leída la obra.', e:'"La crítica inicial a Rayuela."'},
+    {t:'Análisis comparativo', c:'Comparar obras, autores o movimientos.', e:'"Cortázar y Vargas Llosa: dos poéticas del boom."'},
+    {t:'Contexto histórico-literario', c:'Relación obra-época.', e:'"El boom y la Guerra Fría."'},
+    {t:'Estudio de influencias', c:'Fuentes y modelos.', e:'"Influencia de Faulkner en García Márquez."'},
+    {t:'Análisis de la traducción', c:'Cómo viajó la obra a otras lenguas.', e:'"La traducción de Cortázar al inglés."'},
+    {t:'Estudio de género literario', c:'Caracterización de un género.', e:'"La novela de la dictadura hispanoamericana."'},
+    {t:'Estudio de movimiento literario', c:'Caracterización de un movimiento.', e:'"El modernismo hispanoamericano."'},
+    {t:'Estudio de generación literaria', c:'Autores con rasgos comunes.', e:'"La generación del 98", "el boom", "el crack".'},
+    {t:'Estudio de campo literario', c:'Bourdieu aplicado a la literatura.', e:'"El campo literario latinoamericano de los 60."'},
+    {t:'Estudio de la recepción internacional', c:'Cómo se leyó América Latina fuera.', e:'"La recepción del boom en Europa."'},
+    {t:'Análisis de la crítica literaria', c:'Cómo se ha leído una obra.', e:'"Los estudios sobre Borges."'},
+    {t:'Análisis de la teoría literaria', c:'Aplicar teorías al texto.', e:'"Bajtin y la polifonía en Pedro Páramo."'},
+    {t:'Análisis del canon', c:'Qué obras se incluyen y excluyen.', e:'"El canon hispanoamericano y las escritoras olvidadas."'},
+    {t:'Estudio de la industria editorial', c:'Cómo se publica y distribuye.', e:'"El papel de las editoriales en el boom."'},
+    {t:'Estudio interdisciplinario', c:'Literatura + historia + sociología.', e:'"Literatura y violencia en Colombia."'},
+
+    // ===== ARGUMENTATIVO (76-100) nivel 10° =====
+    {t:'Ensayo argumentativo académico', c:'Tesis, argumentos, contraargumentos.', e:'"Cien años de soledad es una alegoría de América Latina."'},
+    {t:'Argumentación con aparato crítico', c:'Citas y referencias académicas.', e:'Según Ángel Rama (1982), "la narrativa..."'},
+    {t:'Argumentación con datos empíricos', c:'Estudios, cifras, encuestas.', e:'"El 70% de los encuestados prefiere la narrativa del boom."'},
+    {t:'Argumentación con análisis textual', c:'Evidencia en el propio texto.', e:'"El narrador omnisciente se manifiesta en..."'},
+    {t:'Argumentación con contexto histórico', c:'Hechos históricos como evidencia.', e:'"Tras la Revolución Cubana, muchos escritores..."'},
+    {t:'Argumentación con comparación literaria', c:'Contrastar obras o autores.', e:'"Cortázar y Vargas Llosa: dos poéticas del boom."'},
+    {t:'Refutación de tesis contraria', c:'Mencionar y rebatir.', e:'"Quienes afirman que el boom fue solo un fenómeno editorial olvidan..."'},
+    {t:'Concesión y refutación', c:'Aceptar parcialmente la objeción.', e:'"Es cierto que hubo marketing, pero también calidad literaria."'},
+    {t:'Argumentación por consecuencias', c:'Evaluar efectos de una posición.', e:'"Si se ignora la literatura indígena, se pierde..."'},
+    {t:'Argumentación por analogía', c:'Comparar con otros procesos.', e:'"El boom fue como el Siglo de Oro español..."'},
+    {t:'Argumentación por autoridad académica', c:'Estudios universitarios.', e:'Según un estudio de la UNAM...'},
+    {t:'Argumentación por ejemplos concretos', c:'Casos específicos.', e:'"Cien años de soledad vendió millones de ejemplares."'},
+    {t:'Argumentación estadística', c:'Cifras y estudios.', e:'"El 70% de los encuestados prefiere..."'},
+    {t:'Artículo de opinión académico', c:'Opinión fundamentada.', e:'"Por qué deberíamos leer más a las escritoras del boom."'},
+    {t:'Manifiesto literario', c:'Declaración programática.', e:'Manifiestos del modernismo y las vanguardias.'},
+    {t:'Prólogo argumentativo', c:'Defiende inclusión en el canon.', e:'"Por qué incluir a Felisberto Hernández en el canon."'},
+    {t:'Debate literario formal', c:'Dos posiciones enfrentadas.', e:'"¿Fue el boom un movimiento o una estrategia comercial?"'},
+    {t:'Reseña crítica argumentativa', c:'Evaluar con razones.', e:'"La novela falla en el desarrollo de los personajes secundarios."'},
+    {t:'Carta abierta', c:'Dirigida a audiencia pública.', e:'"Carta abierta a los lectores de literatura hispanoamericana."'},
+    {t:'Columna periodística', c:'Opinión breve y periódica.', e:'"Los autores olvidados del post-boom."'},
+    {t:'Ensayo de interpretación', c:'Lectura original de una obra.', e:'"La casa como personaje en La casa de los espíritus."'},
+    {t:'Argumentación sobre el canon', c:'Discute qué obras deben leerse.', e:'"El canon hispanoamericano necesita más voces femeninas."'},
+    {t:'Argumentación sobre traducción', c:'Defiende una forma de traducir.', e:'"Traducir a Cortázar requiere recrear su humor."'},
+    {t:'Argumentación sobre adaptación', c:'Defiende una adaptación audiovisual.', e:'"La serie de Cien años de soledad respeta el espíritu del libro."'},
+    {t:'Argumentación sobre memoria histórica', c:'La literatura como memoria.', e:'"Las novelas de la dictadura nos ayudan a no olvidar."'},
+    {t:'Argumentación sobre identidad', c:'La literatura y la identidad.', e:'"La narrativa hispanoamericana nos dice quiénes somos."'},
+    {t:'Conclusión con proyección', c:'Cierra invitando a seguir.', e:'"Estas obras no solo se leen: se habitan."'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesTxt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'txt-nar',
+    opciones:[t.c,'Es un tipo de texto solo para matemáticas.','No tiene relación con la literatura.','Es un deporte.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TÉCNICAS · COMPRENSIÓN CRÍTICA (100) - NIVEL 10°
+   ===================================================================== */
+function generarTecnicasLectura(){
+  const T = [
+    // 1-20: Lectura crítica universitaria
+    {t:'Lectura literal analítica', c:'Recuperar información explícita con precisión.', e:'¿Qué objetos menciona el autor?'},
+    {t:'Lectura inferencial profunda', c:'Deducir información implícita compleja.', e:'¿Qué motivó al personaje a actuar así?'},
+    {t:'Lectura crítica argumentativa', c:'Evaluar con criterios y justificar.', e:'¿Es verosímil la decisión del protagonista? Justifica.'},
+    {t:'Lectura apreciativo-estética', c:'Valorar recursos literarios y estilo.', e:'¿Qué metáforas destacan en el poema?'},
+    {t:'Lectura creador-intertextual', c:'Relacionar con otras obras.', e:'¿Qué relación tiene este cuento con...?'},
+    {t:'Lectura hermenéutica', c:'Interpretar el sentido profundo.', e:'¿Qué significa la casa en la novela?'},
+    {t:'Lectura deconstructiva', c:'Cuestionar las oposiciones del texto.', e:'¿Qué se silencia en este discurso?'},
+    {t:'Lectura psicoanalítica', c:'Inconsciente, deseo, represión.', e:'¿Qué deseo subyace en el personaje?'},
+    {t:'Lectura marxista', c:'Clase, ideología, poder.', e:'¿Qué relaciones de clase se representan?'},
+    {t:'Lectura feminista', c:'Género, patriarcado, subjetividad femenina.', e:'¿Cómo se representa a la mujer?'},
+    {t:'Lectura poscolonial', c:'Colonialidad, subalternidad, hibridez.', e:'¿Cómo se representa al indígena?'},
+    {t:'Lectura queer', c:'Identidades disidentes.', e:'¿Cómo se representa la sexualidad no normativa?'},
+    {t:'Lectura ecocrítica', c:'Relación hombre-naturaleza.', e:'¿Cómo se representa la selva?'},
+    {t:'Lectura intertextual', c:'Diálogo con otros textos.', e:'¿Qué textos cita o parodia?'},
+    {t:'Lectura comparada', c:'Comparar dos o más obras.', e:'¿En qué se parecen Cortázar y Rulfo?'},
+    {t:'Lectura contextual', c:'Relacionar con el contexto histórico.', e:'¿Cómo se refleja la dictadura?'},
+    {t:'Lectura estilística', c:'Analizar el estilo y la forma.', e:'¿Qué recursos usa el autor?'},
+    {t:'Lectura narratológica', c:'Narrador, focalización, tiempo.', e:'¿Quién narra y desde dónde?'},
+    {t:'Lectura temática', c:'Identificar temas recurrentes.', e:'¿Cuál es el tema central?'},
+    {t:'Lectura simbólica', c:'Interpretar símbolos y alegorías.', e:'¿Qué representa el río?'},
+
+    // 21-40: Metodología de investigación
+    {t:'Skimming académico', c:'Lectura rápida para estructura y tesis.', e:'Leer títulos, primeras líneas y conclusión.'},
+    {t:'Scanning especializado', c:'Búsqueda de datos específicos.', e:'Buscar fechas, nombres, cifras.'},
+    {t:'Predicción y verificación', c:'Anticipar y confirmar.', e:'Creo que... y efectivamente...'},
+    {t:'Activación de conocimientos previos', c:'Relacionar con lo ya sabido.', e:'Esto se relaciona con el modernismo.'},
+    {t:'Autopreguntas durante la lectura', c:'¿Qué dice? ¿Cómo lo dice? ¿Para qué?', e:'¿Cuál es la intención del autor?'},
+    {t:'Visualización y modelado mental', c:'Crear imágenes mentales.', e:'Imagino Macondo con sus calles de tierra.'},
+    {t:'Parafraseo académico', c:'Reformular con rigor.', e:'El autor sostiene que...'},
+    {t:'Resumen jerárquico', c:'Resumen por niveles.', e:'Idea principal, luego secundarias.'},
+    {t:'Síntesis integradora', c:'Integrar varias fuentes.', e:'Combinando A y B, se concluye que...'},
+    {t:'Mapa conceptual avanzado', c:'Esquema con relaciones etiquetadas.', e:'Idea → causa → consecuencia.'},
+    {t:'Cuadro comparativo', c:'Comparar varios elementos.', e:'Modernismo vs. Vanguardia: características.'},
+    {t:'Línea de tiempo de la lectura', c:'Ordenar eventos.', e:'1810 → 1820 → 1830.'},
+    {t:'Subrayado con códigos', c:'Colores o símbolos.', e:'Verde: tesis. Azul: argumentos. Rojo: dudas.'},
+    {t:'Anotación marginal', c:'Comentarios al lado.', e:'"Esto contradice lo anterior."'},
+    {t:'Vocabulario por contexto', c:'Deducir significados.', e:'Por el contexto, "ínclito" significa famoso.'},
+    {t:'Inferencia léxica por raíces', c:'Prefijos y sufijos.', e:'"In-" = negación: inútil.'},
+    {t:'Relectura selectiva', c:'Volver a partes específicas.', e:'Releer el párrafo 3 para confirmar.'},
+    {t:'Lectura en voz alta expresiva', c:'Modular la voz.', e:'Cambiar el tono en el diálogo.'},
+    {t:'Lectura colaborativa con roles', c:'Cada estudiante aporta.', e:'Uno resume, otro pregunta, otro critica.'},
+    {t:'Lectura guiada con preguntas', c:'El docente modela.', e:'¿Qué relación tiene esta idea con...?'},
+
+    // 41-60: Discursos académicos
+    {t:'Leer artículo académico', c:'Estructura IMRyD.', e:'Introducción, Métodos, Resultados, Discusión.'},
+    {t:'Leer ensayo académico', c:'Tesis, argumentos, conclusión.', e:'"Sobre la identidad latinoamericana".'},
+    {t:'Leer monografía', c:'Estudio extenso sobre un tema.', e:'"El indigenismo en la narrativa peruana".'},
+    {t:'Leer tesis doctoral', c:'Investigación original.', e:'Tesis sobre literatura hispanoamericana.'},
+    {t:'Leer reseña académica', c:'Evaluación de una obra.', e:'Reseña de una novela en una revista especializada.'},
+    {t:'Leer prólogo crítico', c:'Presentación y análisis.', e:'Prólogos de Borges.'},
+    {t:'Leer antología crítica', c:'Selección con criterio.', e:'Antologías de cuento fantástico.'},
+    {t:'Leer traducción comentada', c:'Comparar original y traducción.', e:'Distintas versiones de un poema.'},
+    {t:'Leer discurso político', c:'Retórica y persuasión.', e:'Discursos de líderes latinoamericanos.'},
+    {t:'Leer manifiesto literario', c:'Declaración programática.', e:'Manifiestos del modernismo y las vanguardias.'},
+    {t:'Leer crónica periodística', c:'Voz periodística y literaria.', e:'Crónicas de Villoro, Guerriero, Caparrós.'},
+    {t:'Leer entrevista literaria', c:'Voz del autor.', e:'Entrevistas a García Márquez, Cortázar.'},
+    {t:'Leer epistolario', c:'Cartas entre autores.', e:'Cartas de Cortázar a Fernández.'},
+    {t:'Leer diario íntimo', c:'Escritura del yo.', e:'Diarios de autores hispanoamericanos.'},
+    {t:'Leer autobiografía', c:'Relato de la propia vida.', e:'"Vivir para contarla" de García Márquez.'},
+    {t:'Leer biografía literaria', c:'Vida de un autor.', e:'Biografías de Borges, Neruda.'},
+    {t:'Leer memoria histórica', c:'Reconstrucción del pasado.', e:'"El olvido que seremos".'},
+    {t:'Leer testimonio', c:'Voz directa del testigo.', e:'"Me llamo Rigoberta Menchú".'},
+    {t:'Leer ensayo de identidad', c:'Reflexión sobre lo latinoamericano.', e:'"Nuestra América" de Martí.'},
+    {t:'Leer crítica literaria', c:'Argumentación sobre una obra.', e:'Ensayos de Ángel Rama.'},
+
+    // 61-80: Teoría crítica y hermenéutica
+    {t:'Análisis del discurso', c:'Estudiar el uso del lenguaje en contexto.', e:'¿Qué ideología transmite el texto?'},
+    {t:'Análisis crítico del discurso (ACD)', c:'Lenguaje-poder-ideología.', e:'¿A quién beneficia este discurso?'},
+    {t:'Análisis de la enunciación', c:'Quién habla, a quién, cómo.', e:'El autor se dirige a jóvenes.'},
+    {t:'Análisis de la modalización', c:'Grado de certeza.', e:'"Quizás", "sin duda", "podría".'},
+    {t:'Análisis de la deixis', c:'Marcadores de tiempo, lugar, persona.', e:'"Aquí", "ahora", "yo".'},
+    {t:'Análisis de la polifonía', c:'Múltiples voces.', e:'Bajtin: el texto dialoga con otros.'},
+    {t:'Análisis de la intertextualidad', c:'Referencias a otros textos.', e:'Citas, alusiones, parodias.'},
+    {t:'Análisis de la parodia', c:'Imitación crítica.', e:'"El Quijote" de Avellaneda.'},
+    {t:'Análisis del pastiche', c:'Mezcla de estilos.', e:'Obras posmodernas.'},
+    {t:'Análisis de la ironía', c:'Lo contrario de lo que se dice.', e:'"¡Qué bonito!" dicho con sarcasmo.'},
+    {t:'Análisis del humor', c:'Identificar lo cómico.', e:'El chiste está en...'},
+    {t:'Análisis del sesgo ideológico', c:'Parcialidad del texto.', e:'Una sola versión de los hechos.'},
+    {t:'Detección de falacias avanzadas', c:'12 tipos de falacias.', e:'Ad hominem, falsa causa, generalización.'},
+    {t:'Distinguir hecho, opinión e interpretación', c:'Tres niveles.', e:'Hecho: llueve. Opinión: qué horrible.'},
+    {t:'Evaluar credibilidad de fuentes', c:'Autor, editorial, fecha.', e:'¿Es un estudio académico?'},
+    {t:'Contrastar fuentes', c:'Comparar versiones.', e:'Este dato contradice a...'},
+    {t:'Detectar estereotipos y prejuicios', c:'Generalizaciones injustas.', e:'"Los indígenas son..."'},
+    {t:'Analizar la estructura argumentativa', c:'Tesis, argumentos, conclusión.', e:'El texto tiene tres partes.'},
+    {t:'Analizar conectores lógicos', c:'Cómo se enlazan las ideas.', e:'"Sin embargo" marca contraste.'},
+    {t:'Analizar coherencia global', c:'Unidad temática y lógica.', e:'El texto mantiene un tema único.'},
+
+    // 81-100: Producción de textos académicos
+    {t:'Escritura de ensayo académico', c:'Tesis, argumentos, conclusión, citas.', e:'Ensayo sobre la identidad latinoamericana.'},
+    {t:'Escritura de monografía', c:'Investigación extensa.', e:'Monografía sobre un autor o tema.'},
+    {t:'Escritura de reseña crítica', c:'Evaluación argumentada.', e:'Reseña de una novela o película.'},
+    {t:'Escritura de artículo de opinión', c:'Opinión fundamentada.', e:'Artículo sobre un tema cultural.'},
+    {t:'Escritura de crónica', c:'Narración periodística con estilo.', e:'Crónica de un evento cultural.'},
+    {t:'Escritura de prólogo', c:'Presentación de una obra.', e:'Prólogo a una antología.'},
+    {t:'Escritura de discurso', c:'Retórica y persuasión.', e:'Discurso sobre la importancia de la lectura.'},
+    {t:'Escritura de manifiesto', c:'Declaración programática.', e:'Manifiesto por una literatura comprometida.'},
+    {t:'Escritura de carta abierta', c:'Dirigida a audiencia pública.', e:'Carta abierta a los lectores.'},
+    {t:'Escritura de ensayo interpretativo', c:'Lectura original de una obra.', e:'Interpretación de un cuento de Borges.'},
+    {t:'Escritura de comparación literaria', c:'Contrastar obras o autores.', e:'Comparación entre Cortázar y Rulfo.'},
+    {t:'Escritura de análisis textual', c:'Análisis riguroso de un fragmento.', e:'Análisis de un poema de Neruda.'},
+    {t:'Escritura de síntesis', c:'Integrar varias fuentes.', e:'Síntesis de tres artículos sobre un tema.'},
+    {t:'Escritura de resumen académico', c:'Resumen riguroso.', e:'Resumen de un artículo académico.'},
+    {t:'Escritura de informe de lectura', c:'Resumen, análisis, valoración.', e:'Informe sobre "Pedro Páramo".'},
+    {t:'Escritura de ficha bibliográfica', c:'Datos y comentario.', e:'Ficha de un libro leído.'},
+    {t:'Escritura de bibliografía comentada', c:'Lista con comentarios.', e:'Bibliografía sobre el boom.'},
+    {t:'Escritura de proyecto de investigación', c:'Planteamiento, objetivos, metodología.', e:'Proyecto sobre literatura y violencia.'},
+    {t:'Escritura de ponencia', c:'Para presentar en un evento.', e:'Ponencia sobre el realismo mágico.'},
+    {t:'Escritura de artículo de divulgación', c:'Explicar un tema al público general.', e:'Artículo sobre cómo leer a Borges.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesLec.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'lec-niv',
+    opciones:[t.c,'Es una técnica solo para matemáticas.','Solo se usa en textos científicos.','No tiene relación con la lectura.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TÉCNICAS · SINTAXIS CASTELLANA (100) - NIVEL 10°
+   ===================================================================== */
+function generarTecnicasSintaxis(){
+  const T = [
+    // 1-25: Morfología
+    {t:'El sustantivo: clases', c:'Común/propio, concreto/abstracto, individual/colectivo, contable/no contable.', e:'Juan (propio), justicia (abstracto), enjambre (colectivo).'},
+    {t:'Género y número del sustantivo', c:'Reglas de formación del femenino y del plural.', e:'lunes → lunes; lápiz → lápices; el agua → las aguas.'},
+    {t:'El adjetivo: grados', c:'Positivo, comparativo (igualdad, superioridad, inferioridad), superlativo.', e:'alto, tan alto como, más alto que, altísimo.'},
+    {t:'Adjetivos determinativos', c:'Demostrativos, posesivos, numerales, indefinidos, interrogativos, exclamativos.', e:'este, mi, tres, algún, qué.'},
+    {t:'El artículo', c:'Determinado (el, la, los, las) e indeterminado (un, una, unos, unas). Neutro "lo".', e:'lo importante, el saber.'},
+    {t:'El pronombre personal', c:'Tónicos (yo, tú, él) y átonos (me, te, se, lo, la, le, nos, os, los, las, les).', e:'Ella me lo dio a mí.'},
+    {t:'Colocación de pronombres', c:'Anteposición (me lo dijo) o enclisis (dímelo).', e:'Dímelo / Me lo dices.'},
+    {t:'El verbo: estructura', c:'Raíz + vocal temática + desinencia. Persona, número, tiempo, modo, aspecto, voz.', e:'cant-á-ba-mos.'},
+    {t:'Tiempos verbales del indicativo', c:'Presente, pretéritos, futuros, condicional.', e:'amo, amé, amaba, amaré, amaría.'},
+    {t:'Tiempos verbales del subjuntivo', c:'Presente, pretéritos, futuros.', e:'ame, amara/amase, amare.'},
+    {t:'Modo imperativo', c:'Órdenes y mandatos.', e:'canta, come, vive; no cantes.'},
+    {t:'Formas no personales', c:'Infinitivo (ar, er, ir), gerundio (ando, iendo), participio (ado, ido).', e:'cantar, cantando, cantado.'},
+    {t:'Perífrasis verbales', c:'Modales (deber, poder, tener que) y aspectuales (empezar a, estar + ger., ir a).', e:'Debes estudiar; Estoy leyendo; Voy a salir.'},
+    {t:'Verbos irregulares', c:'Cambios en raíz o desinencia.', e:'ir → voy, fui, iré; ser → soy, fui, era.'},
+    {t:'Verbos defectivos', c:'Solo se conjugan en ciertas formas.', e:'abolir, atañer, concernir, soler.'},
+    {t:'El adverbio', c:'Lugar, tiempo, modo, cantidad, afirmación, negación, duda.', e:'aquí, ayer, bien, mucho, sí, no, quizás.'},
+    {t:'Adverbios en -mente', c:'Formados desde adjetivos.', e:'rápida → rápidamente; feliz → felizmente.'},
+    {t:'La preposición', c:'a, ante, bajo, con, contra, de, desde, en, entre, hacia, hasta, para, por, según, sin, sobre, tras.', e:'El libro está sobre la mesa.'},
+    {t:'Locuciones preposicionales', c:'Grupos que funcionan como preposición.', e:'a causa de, en virtud de, por medio de.'},
+    {t:'La conjunción coordinante', c:'Copulativas (y, e, ni), adversativas (pero, sino), disyuntivas (o, u), explicativas (es decir).', e:'Estudia y trabaja; pero está cansado.'},
+    {t:'La conjunción subordinante', c:'que, porque, aunque, si, cuando, como, donde.', e:'Iré cuando pueda.'},
+    {t:'Locuciones conjuntivas', c:'Grupos que funcionan como conjunción.', e:'sin embargo, no obstante, por lo tanto, ya que.'},
+    {t:'Interjecciones', c:'Expresan emociones.', e:'¡ay!, ¡oh!, ¡eh!, ¡uf!'},
+    {t:'Formación de palabras: derivación', c:'Prefijos y sufijos.', e:'des-hacer, util-idad, cant-ante.'},
+    {t:'Formación de palabras: composición', c:'Unión de dos o más raíces.', e:'paraguas, sacacorchos, telaraña.'},
+
+    // 26-50: Oración simple y funciones
+    {t:'La oración: sujeto y predicado', c:'Unidad sintáctica con verbo conjugado. Sujeto y predicado.', e:'El niño (S) juega (P).'},
+    {t:'Sujeto léxico y sujeto elidido', c:'Expreso o tácito.', e:'(Yo) comí paella.'},
+    {t:'Núcleo del sujeto', c:'Sustantivo o pronombre.', e:'La casa (núcleo: casa) es grande.'},
+    {t:'Núcleo del predicado', c:'Verbo conjugado.', e:'Juan corre (núcleo: corre).'},
+    {t:'Predicado nominal', c:'Verbo copulativo (ser, estar, parecer) + atributo.', e:'Juan es médico.'},
+    {t:'Predicado verbal', c:'Verbo predicativo.', e:'Juan corre por el parque.'},
+    {t:'Complemento Directo (CD)', c:'Recibe la acción. Se sustituye por lo, la, los, las.', e:'Compré el libro → Lo compré.'},
+    {t:'Complemento Indirecto (CI)', c:'Destinatario. Se sustituye por le, les.', e:'Di el regalo a María → Le di el regalo.'},
+    {t:'Complemento Circunstancial (CC)', c:'Lugar, tiempo, modo, causa, finalidad, instrumento, compañía.', e:'Estudié en la biblioteca ayer.'},
+    {t:'Atributo', c:'En oraciones copulativas. Se sustituye por "lo".', e:'Juan es listo → Juan lo es.'},
+    {t:'Complemento Predicativo', c:'Complementa al verbo y al sujeto u objeto. Concuerda en género y número.', e:'Ella llegó cansada.'},
+    {t:'Complemento de Régimen (CRV)', c:'Preposición exigida por el verbo.', e:'Habló de política → Habló de eso.'},
+    {t:'Complemento Agente', c:'En oraciones pasivas. Precedido por "por".', e:'La ley fue aprobada por el Congreso.'},
+    {t:'Oraciones impersonales', c:'Sin sujeto léxico. Meteorológicas, gramaticalizadas, reflejas, eventuales.', e:'Llueve; Hay gente; Se vive bien.'},
+    {t:'Oraciones copulativas', c:'Con verbos ser, estar, parecer.', e:'María está cansada.'},
+    {t:'Oraciones predicativas', c:'Verbos no copulativos.', e:'Juan corre.'},
+    {t:'Oraciones transitivas', c:'Llevan CD.', e:'Compré pan.'},
+    {t:'Oraciones intransitivas', c:'No llevan CD.', e:'Nací en Bogotá.'},
+    {t:'Oraciones reflexivas', c:'Sujeto y objeto coinciden.', e:'Yo me lavo.'},
+    {t:'Oraciones recíprocas', c:'Acción mutua entre dos o más sujetos.', e:'Ellos se saludan.'},
+    {t:'Oraciones activas', c:'Sujeto realiza la acción.', e:'El comité aprobó la ley.'},
+    {t:'Oraciones pasivas', c:'Sujeto paciente. Ser + participio + por.', e:'La ley fue aprobada por el comité.'},
+    {t:'Oraciones pasivas reflejas', c:'Se + verbo en 3ª persona.', e:'Se venden casas.'},
+    {t:'Modalidad oracional', c:'Enunciativa, interrogativa, exclamativa, imperativa, dubitativa, desiderativa.', e:'¿Vienes? ¡Qué alegría!'},
+    {t:'Orden de los elementos', c:'SVO por defecto. Alteraciones por énfasis.', e:'María compró flores (SVO).'},
+
+    // 51-75: Oración compuesta
+    {t:'Oración compuesta: concepto', c:'Dos o más proposiciones unidas.', e:'Quiero que vengas.'},
+    {t:'Yuxtaposición', c:'Proposiciones unidas sin nexo.', e:'Llegó, vio, venció.'},
+    {t:'Coordinación copulativa', c:'Nexos: y, e, ni.', e:'Estudia y trabaja.'},
+    {t:'Coordinación adversativa', c:'Nexos: pero, sino, sin embargo, no obstante.', e:'Es inteligente, pero perezoso.'},
+    {t:'Coordinación disyuntiva', c:'Nexos: o, u.', e:'¿Vienes o te quedas?'},
+    {t:'Coordinación explicativa', c:'Nexos: es decir, o sea, esto es.', e:'Es políglota, es decir, habla varias lenguas.'},
+    {t:'Subordinación sustantiva', c:'Funciona como sustantivo (sujeto, CD, CI, CRV).', e:'Me gusta que cantes (sujeto).'},
+    {t:'Subordinada sustantiva de CD', c:'Introducida por que, si, interrogativos.', e:'Dijo que vendría.'},
+    {t:'Subordinada sustantiva de sujeto', c:'Funciona como sujeto.', e:'Es importante que estudies.'},
+    {t:'Subordinada sustantiva de CRV', c:'Preposición + que.', e:'Insistió en que viniéramos.'},
+    {t:'Subordinación adjetiva o de relativo', c:'Complementa a un sustantivo. Nexos: que, quien, cual, cuyo, donde.', e:'El libro que leí es interesante.'},
+    {t:'Adjetiva especificativa', c:'Restringe el significado del antecedente. Sin comas.', e:'Los alumnos que estudiaron aprobaron.'},
+    {t:'Adjetiva explicativa', c:'Añade información. Entre comas.', e:'Los alumnos, que estudiaron, aprobaron.'},
+    {t:'Subordinación adverbial', c:'Funciona como adverbio. Tipos: lugar, tiempo, modo, causa, finalidad, condición, concesión, consecuencia, comparación.', e:'Iré cuando pueda (tiempo).'},
+    {t:'Adverbial de lugar', c:'Nexo: donde.', e:'Vive donde nació.'},
+    {t:'Adverbial de tiempo', c:'Nexos: cuando, mientras, antes que, después que.', e:'Llegó cuando anochecía.'},
+    {t:'Adverbial de modo', c:'Nexos: como, según, conforme.', e:'Hazlo como te dije.'},
+    {t:'Adverbial causal', c:'Nexos: porque, ya que, puesto que, dado que.', e:'No vino porque estaba enfermo.'},
+    {t:'Adverbial final', c:'Nexos: para que, a fin de que.', e:'Estudio para que me vaya bien.'},
+    {t:'Adverbial condicional', c:'Nexos: si, a condición de que, siempre que.', e:'Si estudias, aprobarás.'},
+    {t:'Adverbial concesiva', c:'Nexos: aunque, a pesar de que, si bien.', e:'Aunque llueva, iré.'},
+    {t:'Adverbial consecutiva', c:'Nexos: tan...que, tanto...que.', e:'Es tan alto que toca el techo.'},
+    {t:'Adverbial comparativa', c:'Nexos: como, más...que, menos...que, tan...como.', e:'Es más alto que su hermano.'},
+    {t:'Estilo directo', c:'Reproduce textualmente las palabras.', e:'Juan dijo: "Voy al cine".'},
+    {t:'Estilo indirecto', c:'Reproduce con ajustes.', e:'Juan dijo que iba al cine.'},
+
+    // 76-100: Normativa, estilo y vicios
+    {t:'Dequeísmo', c:'Uso incorrecto de "de que" cuando corresponde "que".', e:'*Pienso de que → Pienso que.'},
+    {t:'Queísmo', c:'Omisión incorrecta de "de" antes de "que".', e:'*Me di cuenta que → Me di cuenta de que.'},
+    {t:'Leísmo', c:'Uso de "le" por "lo".', e:'*Le vi → Lo vi (a él).'},
+    {t:'Laísmo', c:'Uso de "la" por "le".', e:'*La dije → Le dije (a ella).'},
+    {t:'Loísmo', c:'Uso de "lo" por "le".', e:'*Lo di el libro → Le di el libro.'},
+    {t:'Uso de gerundio', c:'Evitar gerundio de posterioridad.', e:'*Entró en el barco conteniendo la respiración (adecuado: conteniendo).'},
+    {t:'Pleonasmo', c:'Redundancia innecesaria.', e:'*Subir arriba; *Lo vi con mis propios ojos.'},
+    {t:'Anfibología', c:'Doble sentido por mala construcción.', e:'*Se venden mantas para niños (¿para niños o por niños?).'},
+    {t:'Cosismo', c:'Abuso de "cosa".', e:'*Tengo una cosa que decirte → Tengo algo que decirte.'},
+    {t:'Anacoluto', c:'Incoherencia sintáctica.', e:'*Yo, mi opinión es otra.'},
+    {t:'Cacofonía', c:'Repetición de sonidos desagradables.', e:'*La caca de la vaca.'},
+    {t:'Barbarismo', c:'Palabras mal formadas.', e:'*Haiga por haya; *accesar por acceder.'},
+    {t:'Ultracorrección', c:'Corregir de más.', e:'*Bilbado por Bilbao; *bacalado por bacalao.'},
+    {t:'Laísmo/leísmo/loísmo', c:'Confusión de pronombres átonos.', e:'Leísmo: *Le vi (a él) → Lo vi.'},
+    {t:'Concordancia sujeto-verbo', c:'Colectivos, impersonales.', e:'La mayoría aprobó / aprobaron.'},
+    {t:'Concordancia artículo-sustantivo', c:'Género y número.', e:'la casa / las casas.'},
+    {t:'Concordancia sustantivo-adjetivo', c:'Género y número.', e:'los libros nuevos.'},
+    {t:'Régimen preposicional', c:'Cada verbo exige preposición.', e:'Depende de que vengas.'},
+    {t:'Uso de mayúsculas', c:'Inicio, nombres propios, títulos.', e:'El presidente Juan Pérez.'},
+    {t:'Uso de comas', c:'Enumeraciones, vocativos, incisos.', e:'Ana, ven aquí. / Compré pan, leche y huevos.'},
+    {t:'Uso de punto y coma', c:'Separa oraciones relacionadas.', e:'Llegó tarde; sin embargo, entró.'},
+    {t:'Uso de dos puntos', c:'Anuncian enumeración, cita, conclusión.', e:'Dijo: "No puedo".'},
+    {t:'Uso de comillas', c:'Citas textuales, títulos.', e:'Le llamó "genio".'},
+    {t:'Uso de guiones y diálogos', c:'Guion largo (—) para diálogos.', e:'—¿Vienes? —preguntó.'},
+    {t:'Estilo claro y directo', c:'Frases cortas, orden SVO, voz activa.', e:'El perro mordió al niño.'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesSin.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'sin-morf',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene aplicación en castellano.'],
+    correcta:0
+  }));
+}
+
+const tecnicasPy = generarTecnicasPython();
+const tecnicasTxt = generarTecnicasTextos();
+const tecnicasLec = generarTecnicasLectura();
+const tecnicasSin = generarTecnicasSintaxis();
+
+/* =====================================================================
+   ESTADO Y PERSISTENCIA (10°)
+   ===================================================================== */
+const CLAVES = {
+  pyProg:'decimo_python_prog', pyNotas:'decimo_python_notas',
+  txtProg:'decimo_textos_prog', txtNotas:'decimo_textos_notas',
+  lecProg:'decimo_lectura_prog', lecNotas:'decimo_lectura_notas',
+  sinProg:'decimo_sintaxis_prog', sinNotas:'decimo_sintaxis_notas',
+  campos:'decimo_campos', tema:'decimo_tema'
+};
+
+let estado = {
+  py:{ progreso: JSON.parse(localStorage.getItem(CLAVES.pyProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.pyNotas))||{}, tecnicaActual:1, bloqueActual:'py-bas' },
+  txt:{ progreso: JSON.parse(localStorage.getItem(CLAVES.txtProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.txtNotas))||{}, tecnicaActual:1, bloqueActual:'txt-nar' },
+  lec:{ progreso: JSON.parse(localStorage.getItem(CLAVES.lecProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.lecNotas))||{}, tecnicaActual:1, bloqueActual:'lec-niv' },
+  sin:{ progreso: JSON.parse(localStorage.getItem(CLAVES.sinProg))||{}, notas: JSON.parse(localStorage.getItem(CLAVES.sinNotas))||{}, tecnicaActual:1, bloqueActual:'sin-morf' },
+  tema: localStorage.getItem(CLAVES.tema)||'light',
+  modo:'dashboard'
+};
+
+function guardar(area){
+  const map = {
+    py:[CLAVES.pyProg,CLAVES.pyNotas],
+    txt:[CLAVES.txtProg,CLAVES.txtNotas],
+    lec:[CLAVES.lecProg,CLAVES.lecNotas],
+    sin:[CLAVES.sinProg,CLAVES.sinNotas]
+  };
+  const [kp,kn] = map[area];
+  localStorage.setItem(kp, JSON.stringify(estado[area].progreso));
+  localStorage.setItem(kn, JSON.stringify(estado[area].notas));
+  actualizarDashboard();
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('#navTabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    estado.modo = btn.dataset.mode;
+    document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+estado.modo).classList.add('active');
+    if(estado.modo==='dashboard') actualizarDashboard();
+    if(estado.modo==='python') renderCuaderno('py');
+    if(estado.modo==='textos') renderCuaderno('txt');
+    if(estado.modo==='lectura') renderCuaderno('lec');
+    if(estado.modo==='sintaxis') renderCuaderno('sin');
+    if(estado.modo==='taller') renderTaller();
+    if(estado.modo==='certificado') renderCertificado();
+  });
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-theme', estado.tema);
+  localStorage.setItem(CLAVES.tema, estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+});
+if(estado.tema==='dark'){
+  document.documentElement.setAttribute('data-theme','dark');
+  document.getElementById('btnTema').textContent='☀️';
+}
+
+document.getElementById('btnReiniciar').addEventListener('click',()=>{
+  if(!confirm('¿Reiniciar todo el progreso de 10°?')) return;
+  [CLAVES.pyProg,CLAVES.pyNotas,CLAVES.txtProg,CLAVES.txtNotas,CLAVES.lecProg,CLAVES.lecNotas,CLAVES.sinProg,CLAVES.sinNotas].forEach(k=>localStorage.removeItem(k));
+  estado.py={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'py-bas'};
+  estado.txt={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'txt-nar'};
+  estado.lec={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'lec-niv'};
+  estado.sin={progreso:{},notas:{},tecnicaActual:1,bloqueActual:'sin-morf'};
+  renderTodo();
+});
+
+function actualizarDashboard(){
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const total = py+txt+lec+sin;
+  const pct = Math.round((total/400)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/400</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python</div></div>
+    <div class="kpi-card"><div class="kpi-value">${txt}/100</div><div class="kpi-label">📝 Textos</div></div>
+    <div class="kpi-card"><div class="kpi-value">${lec}/100</div><div class="kpi-label">📚 Comprensión</div></div>
+    <div class="kpi-card"><div class="kpi-value">${sin}/100</div><div class="kpi-label">🧩 Sintaxis</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+  document.getElementById('barrasTextos').innerHTML = barras(bloquesTxt, tecnicasTxt, estado.txt.progreso);
+  document.getElementById('barrasLectura').innerHTML = barras(bloquesLec, tecnicasLec, estado.lec.progreso);
+  document.getElementById('barrasSintaxis').innerHTML = barras(bloquesSin, tecnicasSin, estado.sin.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/400)*120;
+    pts.push(`${x},${y}`);
+    acum += 33;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+function renderCuaderno(area){
+  const cfg = {
+    py: { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' },
+    txt:{ bloques: bloquesTxt, tecnicas: tecnicasTxt, contenedor:'tecnicaTxt', sidebar:'bloquesTxt', progText:'progTxtText', progFill:'progTxtFill' },
+    lec:{ bloques: bloquesLec, tecnicas: tecnicasLec, contenedor:'tecnicaLec', sidebar:'bloquesLec', progText:'progLecText', progFill:'progLecFill' },
+    sin:{ bloques: bloquesSin, tecnicas: tecnicasSin, contenedor:'tecnicaSin', sidebar:'bloquesSin', progText:'progSinText', progFill:'progSinFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${tec.concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardar(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardar(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardar(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>🔤 Corrector gramatical completo</h4>
+      <textarea id="tDeque" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnDeque">Analizar</button>
+      <div class="resultado-box" id="rDeque"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Contador y estadísticas</h4>
+      <textarea id="tCont" placeholder="Pega texto..."></textarea>
+      <div class="resultado-box" id="rCont">Palabras: 0 · Oraciones: 0 · Párrafos: 0</div>
+    </div>
+    <div class="herramienta-card"><h4>🧩 Analizador morfosintáctico</h4>
+      <textarea id="tMorf" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector de tildes diacríticas</h4>
+      <textarea id="tTildes" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTildes">Corregir</button>
+      <div class="resultado-box" id="rTildes"></div>
+    </div>
+    <div class="herramienta-card"><h4>📖 Detector tipo de texto y narrador</h4>
+      <textarea id="tTipo" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnTipo">Detectar</button>
+      <div class="resultado-box" id="rTipo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Extractor de idea principal y tesis</h4>
+      <textarea id="tIdea" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnIdea">Extraer</button>
+      <div class="resultado-box" id="rIdea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎲 Generador de oraciones</h4>
+      <button class="btn-accion" id="btnOracion">Generar</button>
+      <div class="resultado-box" id="rOracion"></div>
+    </div>
+    <div class="herramienta-card"><h4>📋 Rúbrica ponderada avanzada</h4>
+      <div id="rubricaBox"></div>
+      <div class="resultado-box" id="rRubrica">Nota: 0.0</div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe de progreso</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador de código Python</h4>
+      <input id="pyTipo" placeholder="pipeline / tfidf / similitud">
+      <input id="pyTexto" placeholder="Texto de ejemplo">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Índices de legibilidad múltiples</h4>
+      <textarea id="tLegib" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>📅 Línea de tiempo</h4>
+      <textarea id="tLinea" placeholder="Un evento por línea: 1810 Independencia"></textarea>
+      <button class="btn-accion" id="btnLinea">Ordenar</button>
+      <div class="resultado-box" id="rLinea"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Quiz de comprensión</h4>
+      <textarea id="tQuiz" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnQuiz">Generar quiz</button>
+      <div class="resultado-box" id="rQuiz"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔍 Detector de palabras repetidas</h4>
+      <textarea id="tRepet" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnRepet">Detectar</button>
+      <div class="resultado-box" id="rRepet"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Densidad léxica avanzada</h4>
+      <textarea id="tLex" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnLex">Analizar</button>
+      <div class="resultado-box" id="rLex"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚖️ Detector de falacias</h4>
+      <textarea id="tFal" placeholder="Pega un texto argumentativo..."></textarea>
+      <button class="btn-accion" id="btnFal">Detectar</button>
+      <div class="resultado-box" id="rFal"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔗 Similitud entre dos textos</h4>
+      <textarea id="tSimA" placeholder="Texto A..."></textarea>
+      <textarea id="tSimB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnSim">Calcular</button>
+      <div class="resultado-box" id="rSim"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de plagio por n-gramas</h4>
+      <textarea id="tPlagA" placeholder="Texto A..."></textarea>
+      <textarea id="tPlagB" placeholder="Texto B..."></textarea>
+      <button class="btn-accion" id="btnPlag">Comparar</button>
+      <div class="resultado-box" id="rPlag"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Análisis crítico del discurso (ACD)</h4>
+      <textarea id="tAcd" placeholder="Pega un texto periodístico o político..."></textarea>
+      <button class="btn-accion" id="btnAcd">Analizar</button>
+      <div class="resultado-box" id="rAcd"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎨 Detector de tipo de descripción</h4>
+      <textarea id="tDescr" placeholder="Pega un texto descriptivo..."></textarea>
+      <button class="btn-accion" id="btnDescr">Detectar</button>
+      <div class="resultado-box" id="rDescr"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Análisis estilométrico completo</h4>
+      <textarea id="tEstilo" placeholder="Pega un texto extenso..."></textarea>
+      <button class="btn-accion" id="btnEstilo">Analizar</button>
+      <div class="resultado-box" id="rEstilo"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧩 Analizador sintáctico avanzado</h4>
+      <textarea id="tSint" placeholder="Escribe una oración compuesta..."></textarea>
+      <button class="btn-accion" id="btnSint">Analizar</button>
+      <div class="resultado-box" id="rSint"></div>
+    </div>
+    <div class="herramienta-card"><h4>📐 Detector de vicios del lenguaje</h4>
+      <textarea id="tVicios" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnVicios">Detectar</button>
+      <div class="resultado-box" id="rVicios"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔤 Analizador morfológico de verbos</h4>
+      <input id="tVerbo" placeholder="Escribe un verbo conjugado: cantábamos">
+      <button class="btn-accion" id="btnVerbo">Analizar</button>
+      <div class="resultado-box" id="rVerbo"></div>
+    </div>
+  `;
+
+  document.getElementById('btnDeque').addEventListener('click',()=>{
+    const t = document.getElementById('tDeque').value;
+    const deq = t.match(/\b(pienso|creo|opino|digo|considero) de que\b/gi)||[];
+    const que = t.match(/\b(me di cuenta|me acuerdo|me olvidé|estoy seguro) que\b/gi)||[];
+    const la = t.match(/\bla\s+(dije|di|conté|mandé)\b/gi)||[];
+    const le = t.match(/\ble\s+(vi|conocí|encontré)\b/gi)||[];
+    document.getElementById('rDeque').innerHTML =
+      (deq.length?`⚠️ Dequeísmo: ${deq.join(', ')}<br>`:'✅ Sin dequeísmo<br>') +
+      (que.length?`⚠️ Queísmo: ${que.join(', ')}<br>`:'✅ Sin queísmo<br>') +
+      (la.length?`⚠️ Laísmo: ${la.join(', ')}<br>`:'✅ Sin laísmo<br>') +
+      (le.length?`⚠️ Leísmo: ${le.join(', ')}`:'✅ Sin leísmo');
+  });
+
+  document.getElementById('tCont').addEventListener('input',e=>{
+    const t = e.target.value;
+    const p = t.trim()?t.trim().split(/\s+/).length:0;
+    const o = t.split(/[.!?]+/).filter(s=>s.trim()).length;
+    const par = t.split(/\n+/).filter(s=>s.trim()).length;
+    document.getElementById('rCont').textContent = `Palabras: ${p} · Oraciones: ${o} · Párrafos: ${par}`;
+  });
+
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t = document.getElementById('tMorf').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='Desconocida';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente|ayer|hoy|mañana|aquí|allí)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|comer|correr|leer|escribir)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sustantivo/Adjetivo';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML = analisis.join('<br>');
+  });
+
+  document.getElementById('btnTildes').addEventListener('click',()=>{
+    const t = document.getElementById('tTildes').value;
+    const errores = [];
+    const reglas = [
+      {re:/\besta\b/g, sug:'está (verbo) o esta (demostrativo)'},
+      {re:/\bmas\b/g, sug:'más (adverbio) o mas (pero)'},
+      {re:/\bde que\b/gi, sug:'que (posible dequeísmo)'},
+      {re:/\bél\b/gi, sug:'él (pronombre) o el (artículo)'},
+      {re:/\btú\b/gi, sug:'tú (pronombre) o tu (posesivo)'}
+    ];
+    reglas.forEach(r=>{ if(r.re.test(t)) errores.push(`⚠️ ${r.sug}`); });
+    document.getElementById('rTildes').innerHTML = errores.length?errores.join('<br>'):'✅ Sin errores frecuentes.';
+  });
+
+  document.getElementById('btnTipo').addEventListener('click',()=>{
+    const t = document.getElementById('tTipo').value;
+    let tipo = 'Expositivo';
+    let narrador = '';
+    if(/había una vez|entonces|después|luego|finalmente|un día/i.test(t)) tipo = 'Narrativo';
+    else if(/es|son|está|están|era|eran|tenía|color|forma|grande|pequeño/i.test(t) && !/porque|por tanto|en consecuencia/i.test(t)) tipo = 'Descriptivo';
+    else if(/porque|por tanto|en consecuencia|debemos|considero|opino/i.test(t)) tipo = 'Argumentativo';
+    else if(/se define|consiste|proceso|sistema|formado por|se caracteriza/i.test(t)) tipo = 'Expositivo';
+    if(tipo==='Narrativo'){
+      if(/\byo\b|\bmí\b|\bme\b/i.test(t)) narrador = 'Primera persona';
+      else if(/\btú\b|\bvos\b/i.test(t)) narrador = 'Segunda persona';
+      else narrador = 'Tercera persona';
+    }
+    const palabras = t.trim()?t.trim().split(/\s+/).length:0;
+    document.getElementById('rTipo').innerHTML = `<strong>Tipo probable: ${tipo}</strong>${narrador?'<br>Narrador: '+narrador:''}<br>Palabras: ${palabras}<br>Oraciones: ${t.split(/[.!?]+/).filter(s=>s.trim()).length}`;
+  });
+
+  document.getElementById('btnIdea').addEventListener('click',()=>{
+    const t = document.getElementById('tIdea').value;
+    const oraciones = t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const freq = {};
+    oraciones.forEach(o=>{
+      o.toLowerCase().split(/\s+/).forEach(p=>{
+        p = p.replace(/[^\wáéíóúñ]/g,'');
+        if(p.length>3 && !stop.has(p)) freq[p]=(freq[p]||0)+1;
+      });
+    });
+    const top = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    const mejor = oraciones.reduce((best,o)=>{
+      const score = top.reduce((s,[w,c])=>s+(o.toLowerCase().includes(w)?c:0),0);
+      return score>best.score?{o,score}:best;
+    },{o:'',score:-1});
+    document.getElementById('rIdea').innerHTML = `<strong>Palabras clave:</strong> ${top.map(x=>x[0]).join(', ')}<br><br><strong>Idea principal probable:</strong><br>${mejor.o.trim()}.`;
+  });
+
+  document.getElementById('btnOracion').addEventListener('click',()=>{
+    const s=['El niño','La maestra','Mi amigo','El perro','La ciudad','Los estudiantes','La abuela'];
+    const v=['come','escribe','corre','lee','construye','estudia','canta'];
+    const c=['en el parque','una carta','muy rápido','un libro','una casa','para el examen','en el teatro'];
+    document.getElementById('rOracion').innerHTML = `<strong>${s[Math.floor(Math.random()*s.length)]} ${v[Math.floor(Math.random()*v.length)]} ${c[Math.floor(Math.random()*c.length)]}.</strong>`;
+  });
+
+  const criterios = [{n:'Cohesión',p:15},{n:'Coherencia',p:15},{n:'Adecuación',p:15},{n:'Estilo',p:15},{n:'Ortografía',p:10},{n:'Originalidad',p:10},{n:'Argumentación',p:20}];
+  document.getElementById('rubricaBox').innerHTML = criterios.map((c,i)=>`
+    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.4rem;font-size:0.76rem;">
+      <span style="width:100px;">${c.n} (${c.p}%)</span>
+      <input type="range" min="0" max="10" value="5" id="rub-${i}" style="flex:1;">
+      <span id="rubv-${i}">5</span>
+    </div>`).join('');
+  function calcRub(){
+    let n=0;
+    criterios.forEach((c,i)=>{
+      const v=parseInt(document.getElementById(`rub-${i}`).value);
+      document.getElementById(`rubv-${i}`).textContent=v;
+      n+=(v/10)*c.p;
+    });
+    document.getElementById('rRubrica').textContent=`Nota: ${n.toFixed(1)} / 100`;
+  }
+  document.querySelectorAll('#rubricaBox input').forEach(r=>r.addEventListener('input',calcRub));
+  calcRub();
+
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    const py=Object.keys(estado.py.progreso).length;
+    const txt=Object.keys(estado.txt.progreso).length;
+    const lec=Object.keys(estado.lec.progreso).length;
+    const sin=Object.keys(estado.sin.progreso).length;
+    const inf = `INFORME SÚPER CUADERNO 10° GRADO
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🐍 Python: ${py}/100
+📝 Tipos de texto: ${txt}/100
+📚 Comprensión crítica: ${lec}/100
+🧩 Sintaxis castellana: ${sin}/100
+TOTAL: ${py+txt+lec+sin}/400
+
+Notas escritas: ${Object.keys(estado.py.notas).length+Object.keys(estado.txt.notas).length+Object.keys(estado.lec.notas).length+Object.keys(estado.sin.notas).length}
+`;
+    document.getElementById('rExportar').textContent=inf;
+    const blob=new Blob([inf],{type:'text/plain'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+    a.download='informe_decimo_grado.txt'; a.click();
+  });
+
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipo').value.trim()||'pipeline';
+    const texto=document.getElementById('pyTexto').value||'El perro corre por el parque';
+    let code='';
+    if(tipo==='pipeline'){
+      code=`import re\nfrom collections import Counter\nSTOP={"de","la","que","el","en","y"}\ndef pipeline(t):\n    t=t.lower()\n    palabras=re.findall(r"\\b[\\wáéíóúñ]+\\b", t)\n    contenido=[p for p in palabras if p not in STOP]\n    return {"total":len(palabras),"unicas":len(set(palabras)),"freq":Counter(contenido).most_common(5)}\nprint(pipeline("${texto}"))`;
+    } else if(tipo==='tfidf'){
+      code=`import math\nfrom collections import Counter\ndef tfidf(corpus):\n    df=Counter()\n    for d in corpus:\n        for p in set(d.split()): df[p]+=1\n    N=len(corpus)\n    return {p:math.log(N/(1+df[p])) for p in df}\nprint(tfidf(["${texto}","otro texto"]))`;
+    } else if(tipo==='similitud'){
+      code=`def jaccard(a,b):\n    sa,sb=set(a.split()),set(b.split())\n    return len(sa&sb)/len(sa|sb)\nprint(jaccard("${texto}", input("Texto B: ")))`;
+    } else {
+      code=`# Pipeline: ${tipo}\ntexto="${texto}"\n# TODO\nprint(texto)`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('tLegib').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const fh=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const sz=206.835-62.3*(silabas/palabras.length)-(palabras.length/oraciones);
+    const cr=-0.205*(oraciones/palabras.length*100)+0.049*(silabas/palabras.length*100)-3.407;
+    const nivel=fh>90?'Muy fácil':fh>80?'Fácil':fh>70?'Normal':fh>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML=`FH: <strong>${fh.toFixed(1)}</strong><br>SP: <strong>${sz.toFixed(1)}</strong><br>Crawford: <strong>${cr.toFixed(1)} años</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  document.getElementById('btnLinea').addEventListener('click',()=>{
+    const lineas=document.getElementById('tLinea').value.split('\n').filter(l=>l.trim());
+    const eventos=lineas.map(l=>{
+      const m=l.match(/^(\d{4})\s+(.+)/);
+      return m?{anio:parseInt(m[1]),desc:m[2]}:{anio:0,desc:l};
+    }).sort((a,b)=>a.anio-b.anio);
+    document.getElementById('rLinea').innerHTML=eventos.map(e=>`${e.anio} → ${e.desc}`).join('<br>');
+  });
+
+  document.getElementById('btnQuiz').addEventListener('click',()=>{
+    const t=document.getElementById('tQuiz').value;
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const preguntas=oraciones.slice(0,5).map((o,i)=>{
+      const palabras=o.trim().split(/\s+/);
+      const clave=palabras.sort((a,b)=>b.length-a.length)[0];
+      return `${i+1}. ¿Qué relación tiene "<em>${clave}</em>" con el texto?`;
+    });
+    document.getElementById('rQuiz').innerHTML=preguntas.join('<br>');
+  });
+
+  document.getElementById('btnRepet').addEventListener('click',()=>{
+    const t=document.getElementById('tRepet').value;
+    const palabras=t.toLowerCase().replace(/[^\wáéíóúñ\s]/g,'').split(/\s+/).filter(p=>p.length>3);
+    const freq={};
+    palabras.forEach(p=>freq[p]=(freq[p]||0)+1);
+    const repetidas=Object.entries(freq).filter(([_,n])=>n>1).sort((a,b)=>b[1]-a[1]).slice(0,10);
+    document.getElementById('rRepet').innerHTML = repetidas.length ?
+      repetidas.map(([p,n])=>`"${p}" aparece ${n} veces`).join('<br>') : '✅ No hay palabras repetidas.';
+  });
+
+  document.getElementById('btnLex').addEventListener('click',()=>{
+    const t=document.getElementById('tLex').value;
+    const palabras=t.toLowerCase().match(/[\wáéíóúñ]+/g)||[];
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const contenido = palabras.filter(p=>!stop.has(p));
+    const ttr = palabras.length ? (new Set(palabras).size/palabras.length) : 0;
+    const herdan = palabras.length>1 ? Math.log(new Set(palabras).size)/Math.log(palabras.length) : 0;
+    const guiraud = palabras.length ? new Set(palabras).size/Math.sqrt(palabras.length) : 0;
+    document.getElementById('rLex').innerHTML = `
+      <strong>Total:</strong> ${palabras.length}<br>
+      <strong>Únicas:</strong> ${new Set(palabras).size}<br>
+      <strong>TTR:</strong> ${(ttr*100).toFixed(1)}%<br>
+      <strong>Herdan:</strong> ${herdan.toFixed(2)}<br>
+      <strong>Guiraud:</strong> ${guiraud.toFixed(2)}<br>
+      <strong>Densidad:</strong> ${((contenido.length/palabras.length)*100).toFixed(1)}%
+    `;
+  });
+
+  document.getElementById('btnFal').addEventListener('click',()=>{
+    const t=document.getElementById('tFal').value.toLowerCase();
+    const falacias=[];
+    if(/\b(todos los|toda la|ninguno)\b/.test(t)) falacias.push('⚠️ Generalización apresurada');
+    if(/\b(obviamente|es evidente que|nadie puede negar)\b/.test(t)) falacias.push('⚠️ Apelación a la evidencia no demostrada');
+    if(/\b(usted también|y tú qué|el que lo dice)\b/.test(t)) falacias.push('⚠️ Ad hominem');
+    if(/\b(si permitimos esto|si aceptamos esto)\b/.test(t)) falacias.push('⚠️ Pendiente resbaladiza');
+    if(/\b(porque yo lo digo|es así porque sí)\b/.test(t)) falacias.push('⚠️ Apelación a la autoridad sin fundamento');
+    if(/\b(la mayoría piensa|todo el mundo sabe)\b/.test(t)) falacias.push('⚠️ Apelación a la mayoría');
+    if(/\b(o estás conmigo o estás contra mí)\b/.test(t)) falacias.push('⚠️ Falso dilema');
+    document.getElementById('rFal').innerHTML = falacias.length ? falacias.join('<br>') : '✅ No se detectaron falacias comunes.';
+  });
+
+  document.getElementById('btnSim').addEventListener('click',()=>{
+    const a=document.getElementById('tSimA').value.toLowerCase().split(/\s+/);
+    const b=document.getElementById('tSimB').value.toLowerCase().split(/\s+/);
+    const setA=new Set(a), setB=new Set(b);
+    const inter = [...setA].filter(p=>setB.has(p)).length;
+    const union = new Set([...setA, ...setB]).size;
+    const jaccard = union ? (inter/union)*100 : 0;
+    document.getElementById('rSim').innerHTML = `<strong>Similitud Jaccard:</strong> ${jaccard.toFixed(1)}%<br><strong>Comunes:</strong> ${inter}<br><strong>Total únicas:</strong> ${union}`;
+  });
+
+  document.getElementById('btnPlag').addEventListener('click',()=>{
+    const a=document.getElementById('tPlagA').value.toLowerCase().replace(/\s+/g,' ').trim();
+    const b=document.getElementById('tPlagB').value.toLowerCase().replace(/\s+/g,' ').trim();
+    if(!a||!b){ document.getElementById('rPlag').textContent='Ingresa ambos textos.'; return; }
+    const n=5;
+    const ngA=new Set();
+    for(let i=0;i<=a.length-n;i++) ngA.add(a.slice(i,i+n));
+    const ngB=new Set();
+    for(let i=0;i<=b.length-n;i++) ngB.add(b.slice(i,i+n));
+    const inter=[...ngA].filter(g=>ngB.has(g)).length;
+    const pct = ngA.size ? (inter/ngA.size)*100 : 0;
+    document.getElementById('rPlag').innerHTML = `<strong>Coincidencia n-gramas:</strong> ${pct.toFixed(1)}%<br><strong>Comunes:</strong> ${inter}<br>${pct>30?'⚠️ Posible plagio.':'✅ Textos suficientemente distintos.'}`;
+  });
+
+  document.getElementById('btnAcd').addEventListener('click',()=>{
+    const t=document.getElementById('tAcd').value.toLowerCase();
+    const hallazgos = [];
+    if(/\b(nosotros|nuestro)\b/.test(t)) hallazgos.push('📌 "Nosotros" inclusivo/excluyente');
+    if(/\b(ellos|los otros|los enemigos)\b/.test(t)) hallazgos.push('📌 Construcción de alteridad ("ellos")');
+    if(/\b(deber|tener que|es necesario)\b/.test(t)) hallazgos.push('📌 Modalidad deóntica (obligación)');
+    if(/\b(sin duda|ciertamente|es evidente)\b/.test(t)) hallazgos.push('📌 Modalidad epistémica de certeza');
+    if(/\b(quizás|tal vez|posiblemente)\b/.test(t)) hallazgos.push('📌 Modalidad epistémica de duda');
+    if(/\b(millones|miles|por ciento|%)\b/.test(t)) hallazgos.push('📌 Datos estadísticos como argumento');
+    if(/\b(según|de acuerdo con|como afirma)\b/.test(t)) hallazgos.push('📌 Apelación a autoridad');
+    if(/\b(obviamente|todo el mundo sabe|nadie puede negar)\b/.test(t)) hallazgos.push('📌 Apelación a la evidencia común');
+    document.getElementById('rAcd').innerHTML = hallazgos.length ? hallazgos.join('<br>') : '✅ No se detectaron marcadores discursivos comunes.';
+  });
+
+  document.getElementById('btnDescr').addEventListener('click',()=>{
+    const t=document.getElementById('tDescr').value;
+    const tipo = [];
+    if(/\bcomo\b/.test(t)) tipo.push('Comparación (uso de "como")');
+    if(/\bparecía|semejante\b/.test(t)) tipo.push('Símil');
+    if(/\b(verde|azul|rojo|amarillo|negro|blanco|gris)\b/i.test(t)) tipo.push('Descripción cromática');
+    if(/\b(olía|sonaba|sabía|tocaba|veía)\b/.test(t)) tipo.push('Descripción sensorial (5 sentidos)');
+    if(/\b(alto|bajo|delgado|gordo|guapo|feo)\b/i.test(t)) tipo.push('Prosopografía (rasgos físicos)');
+    if(/\b(bueno|malo|generoso|tacaño|valiente|miedoso)\b/i.test(t)) tipo.push('Etopeya (rasgos de carácter)');
+    document.getElementById('rDescr').innerHTML = tipo.length ? tipo.join('<br>') : 'No se detectaron marcadores específicos.';
+  });
+
+  document.getElementById('btnEstilo').addEventListener('click',()=>{
+    const t=document.getElementById('tEstilo').value;
+    const palabras=t.toLowerCase().match(/[\wáéíóúñ]+/g)||[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const contenido = palabras.filter(p=>!stop.has(p));
+    const ttr = palabras.length ? (new Set(palabras).size/palabras.length) : 0;
+    const longMediaOracion = oraciones.length ? palabras.length/oraciones.length : 0;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const fh=206.84-0.60*(silabas/palabras.length*100)-1.02*longMediaOracion;
+    const puntuacion = (t.match(/[,;:]/g)||[]).length / oraciones.length;
+    document.getElementById('rEstilo').innerHTML = `
+      <strong>Palabras:</strong> ${palabras.length}<br>
+      <strong>Oraciones:</strong> ${oraciones.length}<br>
+      <strong>Long. media oración:</strong> ${longMediaOracion.toFixed(1)}<br>
+      <strong>TTR:</strong> ${(ttr*100).toFixed(1)}%<br>
+      <strong>Legibilidad FH:</strong> ${fh.toFixed(1)}<br>
+      <strong>Puntuación/oración:</strong> ${puntuacion.toFixed(2)}
+    `;
+  });
+
+  document.getElementById('btnSint').addEventListener('click',()=>{
+    const t=document.getElementById('tSint').value;
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const analisis = oraciones.map((o,i)=>{
+      const palabras=o.trim().split(/\s+/);
+      const verbos=palabras.filter(p=>/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|comer|correr|leer|escribir)$/i.test(p) || /\w+(a|e|ó|an|aron|aba|ía)$/i.test(p));
+      const nexos=palabras.filter(p=>/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde|que|quien|cual)$/i.test(p));
+      const subordinadas = palabras.filter(p=>/^(que|si|porque|aunque|cuando|como|donde)$/i.test(p));
+      let tipo = 'simple';
+      if(nexos.length) tipo = subordinadas.length ? 'compuesta subordinada' : 'compuesta coordinada';
+      return `<strong>Oración ${i+1}:</strong> ${o.trim().substring(0,80)}...<br>→ Palabras: ${palabras.length} | Verbos: ${verbos.length} | Nexos: ${nexos.length} | Tipo: <em>${tipo}</em>`;
+    });
+    document.getElementById('rSint').innerHTML = analisis.join('<br><br>') || 'Escribe una oración.';
+  });
+
+  document.getElementById('btnVicios').addEventListener('click',()=>{
+    const t=document.getElementById('tVicios').value;
+    const vicios=[];
+    if(/\b(pienso|creo|opino) de que\b/gi.test(t)) vicios.push('⚠️ Dequeísmo');
+    if(/\bme di cuenta que\b/gi.test(t)) vicios.push('⚠️ Queísmo');
+    if(/\ble vi\b/gi.test(t)) vicios.push('⚠️ Leísmo');
+    if(/\bla dije\b/gi.test(t)) vicios.push('⚠️ Laísmo');
+    if(/\b(subir arriba|bajar abajo|salir afuera|entrar adentro)\b/gi.test(t)) vicios.push('⚠️ Pleonasmo');
+    if(/\b(cosa)\b/gi.test(t)) vicios.push('⚠️ Cosismo (abuso de "cosa")');
+    if(/\b(haiga|accesar|prevee|dijistes|vinistes)\b/gi.test(t)) vicios.push('⚠️ Barbarismo');
+    if(/\b(habían muchos|habían varias)\b/gi.test(t)) vicios.push('⚠️ Concordancia incorrecta (había)');
+    if(/\b(más sin embargo|pero sin embargo|más no obstante)\b/gi.test(t)) vicios.push('⚠️ Redundancia de conectores');
+    document.getElementById('rVicios').innerHTML = vicios.length ? vicios.join('<br>') : '✅ No se detectaron vicios comunes.';
+  });
+
+  document.getElementById('btnVerbo').addEventListener('click',()=>{
+    const v=document.getElementById('tVerbo').value.trim().toLowerCase();
+    if(!v){ document.getElementById('rVerbo').textContent='Escribe un verbo conjugado.'; return; }
+    const desinencias = [
+      {d:'aba', tiempo:'pretérito imperfecto', modo:'indicativo', persona:'1ª/3ª singular'},
+      {d:'ía', tiempo:'pretérito imperfecto', modo:'indicativo', persona:'1ª/3ª singular'},
+      {d:'aste', tiempo:'pretérito indefinido', modo:'indicativo', persona:'2ª singular'},
+      {d:'ó', tiempo:'pretérito indefinido', modo:'indicativo', persona:'3ª singular'},
+      {d:'amos', tiempo:'presente/pretérito', modo:'indicativo', persona:'1ª plural'},
+      {d:'aron', tiempo:'pretérito indefinido', modo:'indicativo', persona:'3ª plural'},
+      {d:'ando', tiempo:'gerundio', modo:'no personal', persona:'—'},
+      {d:'ado', tiempo:'participio', modo:'no personal', persona:'—'},
+      {d:'ar', tiempo:'infinitivo', modo:'no personal', persona:'—'},
+      {d:'er', tiempo:'infinitivo', modo:'no personal', persona:'—'},
+      {d:'ir', tiempo:'infinitivo', modo:'no personal', persona:'—'},
+      {d:'o', tiempo:'presente', modo:'indicativo', persona:'1ª singular'},
+      {d:'as', tiempo:'presente', modo:'indicativo', persona:'2ª singular'},
+      {d:'a', tiempo:'presente', modo:'indicativo', persona:'3ª singular'},
+      {d:'mos', tiempo:'presente', modo:'indicativo', persona:'1ª plural'},
+      {d:'n', tiempo:'presente', modo:'indicativo', persona:'3ª plural'}
+    ];
+    let encontrado = null;
+    for(const d of desinencias){
+      if(v.endsWith(d.d)){ encontrado = d; break; }
+    }
+    if(encontrado){
+      const raiz = v.slice(0, v.length - encontrado.d.length);
+      document.getElementById('rVerbo').innerHTML = `
+        <strong>Verbo:</strong> ${v}<br>
+        <strong>Raíz:</strong> ${raiz}<br>
+        <strong>Desinencia:</strong> -${encontrado.d}<br>
+        <strong>Tiempo:</strong> ${encontrado.tiempo}<br>
+        <strong>Modo:</strong> ${encontrado.modo}<br>
+        <strong>Persona:</strong> ${encontrado.persona}
+      `;
+    } else {
+      document.getElementById('rVerbo').textContent = 'No se pudo analizar la forma verbal.';
+    }
+  });
+}
+
+function renderCertificado(){
+  const campos=JSON.parse(localStorage.getItem(CLAVES.campos))||{};
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c=el.dataset.campo;
+    if(campos[c]) el.textContent=campos[c];
+    el.addEventListener('blur',()=>{
+      campos[c]=el.textContent;
+      localStorage.setItem(CLAVES.campos,JSON.stringify(campos));
+    });
+  });
+  document.getElementById('selloAnio').textContent=new Date().getFullYear();
+
+  const todos=[
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python preuniversitario avanzado para Lengua Castellana (Nivel 10°)'},
+    {bloques:bloquesTxt, tecnicas:tecnicasTxt, tipo:'📝 Tipos de texto hispanoamericanos (Nivel 10°)'},
+    {bloques:bloquesLec, tecnicas:tecnicasLec, tipo:'📚 Comprensión crítica y producción académica (Nivel 10°)'},
+    {bloques:bloquesSin, tecnicas:tecnicasSin, tipo:'🧩 Sintaxis castellana (Nivel 10°)'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--bronce);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#0a1f44;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #b08d57;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #b08d57;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='certificado_decimo_grado.doc'; a.click();
+}
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnInstalar')?.addEventListener('click',()=>{
+  if(deferredPrompt) deferredPrompt.prompt();
+  else alert('Usa el menú del navegador → "Instalar app" o "Añadir a pantalla de inicio".');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='decimo-cuaderno-v1';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+window.addEventListener('online',()=>{
+  document.getElementById('connectionPill').textContent='● En línea';
+  document.getElementById('connectionPill').classList.remove('offline');
+});
+window.addEventListener('offline',()=>{
+  document.getElementById('connectionPill').textContent='○ Sin conexión';
+  document.getElementById('connectionPill').classList.add('offline');
+});
+
+function renderTodo(){
+  actualizarDashboard();
+  if(estado.modo==='python') renderCuaderno('py');
+  if(estado.modo==='textos') renderCuaderno('txt');
+  if(estado.modo==='lectura') renderCuaderno('lec');
+  if(estado.modo==='sintaxis') renderCuaderno('sin');
+  if(estado.modo==='taller') renderTaller();
+  if(estado.modo==='certificado') renderCertificado();
+}
+renderTodo();
+</script>
+</body>
+</html>

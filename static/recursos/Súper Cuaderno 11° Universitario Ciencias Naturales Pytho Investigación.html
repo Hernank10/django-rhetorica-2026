@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎓 Súper Cuaderno 11° Universitario · Ciencias Naturales + Python + Investigación</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1f44; --navy-light:#1a2f5a; --bronce:#b08d57; --bronce-light:#d4b483;
+  --bg:#f8f6f2; --bg-card:#ffffff; --text:#1e1e1e; --text-muted:#5a5a5a;
+  --border:#ddd6cc; --shadow:0 4px 20px rgba(10,31,68,0.08); --radius:16px;
+  --transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --verde:#2e7d5b; --rojo:#c0392b; --azul:#2c5aa0; --morado:#6b4c9a; --naranja:#d97706;
+  --teal:#0d7377; --coral:#e76f51; --vino:#7b2c48; --cielo:#0ea5e9; --hoja:#16a34a;
+  --oceano:#0369a1; --tierra:#92400e; --atm:#7c3aed; --biologia:#059669; --quimica:#c2410c;
+  --nucleo:#4f46e5; --cuantica:#db2777; --astro:#4338ca; --neuro:#0891b2;
+  --ciencia10:#dc2626; --ciencia10b:#f59e0b;
+  --grado11:#0f766e; --grado11b:#0891b2;
+  --univ:#7c3aed; --univb:#c026d3; --univc:#1e293b;
+  --u11:#047857; --u11b:#065f46; --u11c:#059669;
+}
+[data-theme="dark"]{
+  --bg:#0f1219; --bg-card:#1a1f2e; --text:#e8e6e1; --text-muted:#a0a0a0;
+  --border:#2a3040; --shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Public Sans',sans-serif;background:var(--bg);color:var(--text);transition:background var(--transition),color var(--transition);min-height:100vh;}
+h1,h2,h3,h4,h5{font-family:'PT Serif',serif;color:var(--navy);}
+[data-theme="dark"] h1,[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] h4,[data-theme="dark"] h5{color:var(--bronce-light);}
+code,pre,.mono{font-family:'JetBrains Mono',monospace;}
+
+.topbar{background:linear-gradient(135deg,var(--u11),var(--u11c));color:#fff;padding:0.6rem 1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.6rem;position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.2);}
+.topbar .brand{font-family:'PT Serif',serif;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:0.5rem;}
+.topbar .brand .sello{display:inline-block;width:36px;height:36px;border-radius:50%;border:2px solid #fff;color:#fff;text-align:center;line-height:32px;font-size:0.55rem;font-weight:700;}
+.nav-tabs-app{display:flex;gap:0.25rem;flex-wrap:wrap;}
+.nav-tabs-app button{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.85);padding:0.35rem 0.75rem;border-radius:30px;font-size:0.72rem;font-weight:600;cursor:pointer;transition:all var(--transition);white-space:nowrap;}
+.nav-tabs-app button:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.nav-tabs-app button.active{background:#fff;border-color:#fff;color:var(--u11);}
+.topbar-actions{display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;}
+.topbar-actions button{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:0.35rem 0.7rem;border-radius:8px;font-size:0.72rem;cursor:pointer;transition:background var(--transition);}
+.topbar-actions button:hover{background:rgba(255,255,255,0.3);}
+.user-badge{background:rgba(255,255,255,0.2);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.72rem;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:0.4rem;}
+.user-badge:hover{background:rgba(255,255,255,0.35);}
+.user-avatar{width:20px;height:20px;border-radius:50%;background:#fff;color:var(--u11);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;}
+.connection-pill{font-size:0.66rem;padding:0.2rem 0.6rem;border-radius:20px;background:#22c55e;color:#fff;font-weight:600;}
+.connection-pill.offline{background:#e74c3c;}
+
+.auth-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,var(--u11),var(--u11c));display:none;align-items:center;justify-content:center;z-index:3000;padding:1rem;overflow-y:auto;}
+.auth-overlay.show{display:flex;}
+.auth-card{background:#fff;border-radius:20px;padding:2rem;max-width:480px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.auth-card h2{color:var(--u11);margin-bottom:0.3rem;text-align:center;font-size:1.5rem;}
+.auth-card p.subtitle{color:#666;font-size:0.85rem;text-align:center;margin-bottom:1.5rem;}
+.auth-tabs{display:flex;gap:0.3rem;margin-bottom:1.5rem;background:#f0f0f0;border-radius:12px;padding:0.3rem;}
+.auth-tabs button{flex:1;background:transparent;border:none;padding:0.6rem;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;color:#666;transition:all 0.3s;}
+.auth-tabs button.active{background:#fff;color:var(--u11);box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.auth-form label{display:block;font-size:0.78rem;font-weight:600;color:#333;margin-bottom:0.3rem;margin-top:0.8rem;}
+.auth-form input, .auth-form select{width:100%;padding:0.7rem;border:2px solid #e5e5e5;border-radius:10px;font-size:0.85rem;font-family:'Public Sans',sans-serif;transition:border-color 0.3s;}
+.auth-form input:focus, .auth-form select:focus{outline:none;border-color:var(--u11);}
+.auth-form button.primary{width:100%;margin-top:1.2rem;padding:0.8rem;background:var(--u11);color:#fff;border:none;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.3s;}
+.auth-form button.primary:hover{background:var(--u11c);}
+.auth-error{background:#fee;color:#c0392b;padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-error.show{display:block;}
+.auth-success{background:#e6f7ed;color:var(--u11);padding:0.6rem;border-radius:8px;font-size:0.78rem;margin-top:0.8rem;display:none;}
+.auth-success.show{display:block;}
+.auth-hint{font-size:0.72rem;color:#888;text-align:center;margin-top:1rem;line-height:1.5;}
+.users-list{max-height:180px;overflow-y:auto;margin-bottom:1rem;}
+.user-item{display:flex;align-items:center;gap:0.8rem;padding:0.7rem;border-radius:12px;cursor:pointer;transition:background 0.2s;border:2px solid transparent;}
+.user-item:hover{background:#f5f5f5;border-color:var(--u11);}
+.user-item .avatar{width:40px;height:40px;border-radius:50%;background:var(--u11);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;}
+.user-item .info{flex:1;}
+.user-item .info strong{display:block;font-size:0.85rem;color:#222;}
+.user-item .info span{font-size:0.72rem;color:#888;}
+.user-item .btn-delete{background:transparent;border:none;color:#c0392b;cursor:pointer;font-size:1rem;padding:0.3rem;}
+.user-item .btn-delete:hover{background:#fee;border-radius:6px;}
+
+.user-menu{position:absolute;top:100%;right:0;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.15);padding:0.5rem;min-width:220px;z-index:1500;display:none;}
+.user-menu.show{display:block;}
+.user-menu button{width:100%;text-align:left;background:transparent;border:none;padding:0.6rem 0.8rem;border-radius:8px;font-size:0.8rem;cursor:pointer;color:#333;display:flex;align-items:center;gap:0.5rem;}
+.user-menu button:hover{background:#f0fdf4;color:var(--u11);}
+.user-menu hr{border:none;border-top:1px solid #eee;margin:0.3rem 0;}
+
+.app-container{max-width:1400px;margin:0 auto;padding:1.5rem;}
+.mode-panel{display:none;}
+.mode-panel.active{display:block;animation:fadeIn 0.4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);border-left:4px solid var(--u11);transition:transform var(--transition);}
+.kpi-card:hover{transform:translateY(-3px);}
+.kpi-card .kpi-value{font-size:1.8rem;font-weight:700;color:var(--u11);font-family:'PT Serif',serif;}
+[data-theme="dark"] .kpi-card .kpi-value{color:#4ade80;}
+.kpi-card .kpi-label{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.5px;}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-bottom:1.5rem;}
+.chart-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.chart-card h4{font-size:0.95rem;margin-bottom:0.8rem;}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.76rem;}
+.bar-row .bar-label{width:170px;flex-shrink:0;}
+.bar-row .bar-track{flex:1;height:10px;background:var(--border);border-radius:10px;overflow:hidden;}
+.bar-row .bar-fill{height:100%;background:linear-gradient(90deg,var(--u11),var(--u11c));border-radius:10px;transition:width 0.8s ease;}
+.bar-row .bar-pct{width:40px;text-align:right;font-weight:600;font-size:0.72rem;}
+
+.cuaderno-layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;}
+@media(max-width:900px){.cuaderno-layout{grid-template-columns:1fr;}}
+.sidebar{background:var(--bg-card);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow);height:fit-content;position:sticky;top:80px;max-height:calc(100vh - 100px);overflow-y:auto;}
+.sidebar h5{font-size:0.86rem;margin-bottom:0.6rem;}
+.sidebar .bloque-item{padding:0.5rem 0.7rem;border-radius:10px;cursor:pointer;font-size:0.76rem;transition:background var(--transition);margin-bottom:0.2rem;display:flex;justify-content:space-between;align-items:center;}
+.sidebar .bloque-item:hover{background:var(--border);}
+.sidebar .bloque-item.active{background:var(--u11);color:#fff;}
+.sidebar .bloque-item .badge-prog{font-size:0.6rem;background:var(--bronce);color:#fff;padding:0.1rem 0.4rem;border-radius:10px;}
+
+.tecnica-panel{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);min-height:400px;}
+.tecnica-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;}
+.tecnica-num{font-size:2.8rem;font-weight:700;font-family:'PT Serif',serif;color:var(--u11);line-height:1;}
+.tecnica-titulo{font-size:1.3rem;font-weight:700;}
+.flashcard{perspective:1000px;margin:1rem 0;}
+.flashcard-inner{position:relative;width:100%;min-height:180px;transition:transform 0.6s;transform-style:preserve-3d;cursor:pointer;}
+.flashcard.flipped .flashcard-inner{transform:rotateY(180deg);}
+.flashcard-front,.flashcard-back{position:absolute;width:100%;min-height:180px;backface-visibility:hidden;border-radius:12px;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;}
+.flashcard-front{background:linear-gradient(135deg,var(--u11),var(--u11c));color:#fff;}
+.flashcard-back{background:linear-gradient(135deg,var(--u11c),#022c22);color:#fff;transform:rotateY(180deg);}
+.flashcard-hint{font-size:0.68rem;opacity:0.8;margin-top:0.5rem;}
+
+.ejercicio-box{background:var(--bg);border-radius:12px;padding:1rem;margin:1rem 0;border:1px solid var(--border);}
+.ejercicio-box .opcion{padding:0.5rem 0.8rem;border:1px solid var(--border);border-radius:8px;margin:0.3rem 0;cursor:pointer;transition:all var(--transition);font-size:0.8rem;}
+.ejercicio-box .opcion:hover{border-color:var(--u11);background:rgba(4,120,87,0.08);}
+.ejercicio-box .opcion.correct{background:#d4edda;border-color:#28a745;color:#155724;}
+.ejercicio-box .opcion.incorrect{background:#f8d7da;border-color:#dc3545;color:#721c24;}
+[data-theme="dark"] .ejercicio-box .opcion.correct{background:#1a3a1a;color:#a3d9a5;}
+[data-theme="dark"] .ejercicio-box .opcion.incorrect{background:#3a1a1a;color:#f5a3a3;}
+
+.notas-box textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:0.7rem;font-size:0.8rem;background:var(--bg);color:var(--text);resize:vertical;}
+.notas-box textarea:focus{outline:2px solid var(--u11);}
+
+.nav-tecnicas{display:flex;justify-content:space-between;margin-top:1rem;gap:0.5rem;}
+.nav-tecnicas button{padding:0.4rem 1rem;border:1px solid var(--border);border-radius:10px;background:var(--bg-card);color:var(--text);cursor:pointer;font-size:0.78rem;transition:all var(--transition);}
+.nav-tecnicas button:hover{background:var(--u11);color:#fff;border-color:var(--u11);}
+.nav-tecnicas button:disabled{opacity:0.4;cursor:not-allowed;}
+
+.progreso-global{display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;font-size:0.8rem;}
+.progreso-global .track{flex:1;height:8px;background:var(--border);border-radius:10px;overflow:hidden;}
+.progreso-global .fill{height:100%;background:linear-gradient(90deg,var(--u11),var(--u11c));transition:width 0.5s;}
+
+.puntos-avance{display:flex;gap:0.3rem;flex-wrap:wrap;margin:0.5rem 0;}
+.punto{width:26px;height:26px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:0.6rem;cursor:pointer;transition:all var(--transition);background:var(--bg-card);color:var(--text-muted);}
+.punto.completado{background:var(--u11);border-color:var(--u11);color:#fff;}
+.punto.actual{border-color:var(--u11c);box-shadow:0 0 0 3px rgba(6,95,70,0.25);}
+
+.taller-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:1.2rem;}
+.herramienta-card{background:var(--bg-card);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow);}
+.herramienta-card h4{font-size:0.95rem;margin-bottom:0.6rem;}
+.herramienta-card textarea,.herramienta-card input,.herramienta-card select{width:100%;padding:0.5rem 0.7rem;border:1px solid var(--border);border-radius:8px;font-size:0.78rem;background:var(--bg);color:var(--text);margin-bottom:0.5rem;font-family:'Public Sans',sans-serif;}
+.herramienta-card textarea:focus,.herramienta-card input:focus{outline:2px solid var(--u11);}
+.btn-accion{background:var(--u11);color:#fff;border:none;padding:0.45rem 1rem;border-radius:8px;font-size:0.76rem;cursor:pointer;transition:background var(--transition);}
+.btn-accion:hover{background:var(--u11c);}
+.btn-accion.secundario{background:var(--u11c);}
+.btn-accion.secundario:hover{background:var(--u11);}
+.resultado-box{background:var(--bg);border-radius:8px;padding:0.7rem;font-size:0.78rem;margin-top:0.5rem;max-height:240px;overflow-y:auto;border:1px solid var(--border);white-space:pre-wrap;font-family:'JetBrains Mono',monospace;}
+
+.certificado-portada{background:var(--bg-card);border:3px double var(--u11);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:720px;margin:0 auto 2rem;position:relative;}
+.certificado-portada .sello-grande{width:80px;height:80px;border-radius:50%;border:3px solid var(--u11);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-family:'PT Serif',serif;font-size:1.4rem;font-weight:700;color:var(--u11);}
+.campo-editable{border-bottom:1px dashed var(--u11);padding:0.2rem 0.4rem;min-width:120px;display:inline-block;cursor:text;transition:background var(--transition);}
+.campo-editable:hover{background:rgba(4,120,87,0.1);}
+.campo-editable:focus{outline:2px solid var(--u11);background:rgba(4,120,87,0.05);}
+.bloque-cert{background:var(--bg-card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow);page-break-before:always;}
+.bloque-cert h3{border-bottom:2px solid var(--u11);padding-bottom:0.5rem;margin-bottom:1rem;}
+.tecnica-cert{margin-bottom:1rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.tecnica-cert .num{font-weight:700;color:var(--u11);font-size:1.05rem;}
+.tecnica-cert .ejemplo{background:var(--bg);border-left:3px solid var(--u11);padding:0.5rem 0.8rem;border-radius:0 8px 8px 0;font-family:'JetBrains Mono',monospace;font-size:0.74rem;margin-top:0.3rem;white-space:pre-wrap;}
+
+.pwa-banner{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--u11);color:#fff;padding:0.7rem 1.2rem;border-radius:30px;display:none;align-items:center;gap:0.8rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:2000;font-size:0.78rem;}
+.pwa-banner.show{display:flex;}
+.pwa-banner button{background:#fff;border:none;color:var(--u11);padding:0.3rem 0.8rem;border-radius:20px;cursor:pointer;font-size:0.74rem;font-weight:600;}
+.pwa-banner button.cerrar{background:transparent;color:rgba(255,255,255,0.7);}
+
+.text-muted-app{color:var(--text-muted);font-size:0.78rem;}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:var(--u11);}
+
+@media print{
+  .topbar,.sidebar,.nav-tecnicas,.pwa-banner,.no-print,.auth-overlay{display:none!important;}
+  .mode-panel{display:block!important;}
+  .bloque-cert{page-break-before:always;box-shadow:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ AUTH OVERLAY ============ -->
+<div class="auth-overlay show" id="authOverlay">
+  <div class="auth-card">
+    <h2>🎓 Súper Cuaderno 11° Universitario</h2>
+    <p class="subtitle">Ciencias Naturales · Nivel de investigación avanzada · Tesis y publicación</p>
+
+    <div class="auth-tabs">
+      <button data-tab="login" class="active">Iniciar sesión</button>
+      <button data-tab="register">Crear cuenta</button>
+    </div>
+
+    <div class="auth-panel" id="authPanelLogin">
+      <div id="usersListView">
+        <p style="font-size:0.8rem;color:#666;margin-bottom:0.8rem;">Selecciona tu perfil:</p>
+        <div class="users-list" id="usersList"></div>
+        <p class="auth-hint" id="noUsersHint" style="display:none;">No hay usuarios registrados. Crea una cuenta nueva.</p>
+      </div>
+      <div id="passwordView" style="display:none;">
+        <label>Contraseña de <span id="loginUserName" style="color:var(--u11);"></span></label>
+        <input type="password" id="loginPassword" placeholder="Ingresa tu contraseña">
+        <div class="auth-error" id="loginError">Contraseña incorrecta.</div>
+        <button class="primary" id="btnDoLogin">Entrar</button>
+        <button class="primary" id="btnBackToUsers" style="background:#888;margin-top:0.5rem;">← Volver a la lista</button>
+      </div>
+    </div>
+
+    <div class="auth-panel" id="authPanelRegister" style="display:none;">
+      <form class="auth-form" id="registerForm" onsubmit="return false;">
+        <label>Nombre completo</label>
+        <input type="text" id="regNombre" placeholder="Ej: María González" required>
+        <label>Programa / Carrera</label>
+        <select id="regCurso">
+          <option value="Biología">Biología</option>
+          <option value="Química">Química</option>
+          <option value="Física">Física</option>
+          <option value="Matemáticas">Matemáticas</option>
+          <option value="Ingeniería Biomédica">Ingeniería Biomédica</option>
+          <option value="Ciencias Ambientales">Ciencias Ambientales</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <label>Universidad</label>
+        <input type="text" id="regInstitucion" placeholder="Ej: Universidad Nacional" required>
+        <label>Contraseña (mínimo 4 caracteres)</label>
+        <input type="password" id="regPassword" placeholder="••••••" required>
+        <label>Confirmar contraseña</label>
+        <input type="password" id="regPassword2" placeholder="••••••" required>
+        <div class="auth-error" id="regError"></div>
+        <div class="auth-success" id="regSuccess">¡Cuenta creada! Iniciando sesión...</div>
+        <button class="primary" id="btnDoRegister">Crear cuenta</button>
+      </form>
+      <p class="auth-hint">Tus datos se guardan solo en este dispositivo (localStorage). No se envía nada a internet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="topbar">
+  <div class="brand">
+    <span class="sello">11°UNIV</span>
+    <span>Súper Cuaderno · Ciencias Naturales · Investigación</span>
+  </div>
+  <nav class="nav-tabs-app" id="navTabs">
+    <button data-mode="dashboard" class="active">📊 Dashboard</button>
+    <button data-mode="python">🐍 Python · 100</button>
+    <button data-mode="textos">🧪 Textos · 100</button>
+    <button data-mode="lectura">🔬 Comprensión · 100</button>
+    <button data-mode="redaccion">✍️ Redacción · 100</button>
+    <button data-mode="sintaxis">🧩 Sintaxis · 100</button>
+    <button data-mode="taller">🛠 Taller</button>
+    <button data-mode="certificado">🎓 Certificado</button>
+  </nav>
+  <div class="topbar-actions">
+    <span class="connection-pill" id="connectionPill">● En línea</span>
+    <div style="position:relative;">
+      <div class="user-badge" id="userBadge" title="Menú de usuario">
+        <span class="user-avatar" id="userAvatar">?</span>
+        <span id="userName">—</span>
+      </div>
+      <div class="user-menu" id="userMenu">
+        <button id="menuPerfil">👤 Ver mi perfil</button>
+        <button id="menuCambiar">🔄 Cambiar de usuario</button>
+        <hr>
+        <button id="menuExportar">📤 Exportar mi progreso</button>
+        <button id="menuEliminar" style="color:#c0392b;">🗑 Eliminar mi cuenta</button>
+      </div>
+    </div>
+    <button id="btnInstalar">⬇ Instalar</button>
+    <button id="btnTema">🌙</button>
+    <button id="btnReiniciar">↺</button>
+  </div>
+</header>
+
+<main class="app-container">
+
+<section class="mode-panel active" id="panel-dashboard">
+  <h1 style="margin-bottom:0.3rem;">📊 Dashboard · 11° Universitario Ciencias Naturales</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">500 técnicas · Nivel avanzado · Investigación, tesis y publicación científica · Continuación del programa anterior</p>
+  <div class="kpi-grid" id="kpiGrid"></div>
+  <div class="chart-grid">
+    <div class="chart-card"><h4>🐍 Python para investigación avanzada</h4><div id="barrasPython"></div></div>
+    <div class="chart-card"><h4>🧪 Textos y comunicación científica</h4><div id="barrasTextos"></div></div>
+    <div class="chart-card"><h4>🔬 Comprensión crítica avanzada</h4><div id="barrasLectura"></div></div>
+    <div class="chart-card"><h4>✍️ Redacción, tesis y publicación</h4><div id="barrasRedaccion"></div></div>
+    <div class="chart-card"><h4>🧩 Sintaxis y discurso científico</h4><div id="barrasSintaxis"></div></div>
+  </div>
+  <div class="chart-grid">
+    <div class="chart-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+      <h4>🎯 Global</h4>
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--border)" stroke-width="14"/>
+        <circle cx="90" cy="90" r="75" fill="none" stroke="var(--u11)" stroke-width="14"
+          stroke-dasharray="0 471" stroke-linecap="round" transform="rotate(-90 90 90)" id="donutFill"/>
+        <text x="90" y="85" text-anchor="middle" font-size="30" font-weight="700" fill="var(--u11)" id="donutPct">0%</text>
+        <text x="90" y="105" text-anchor="middle" font-size="10" fill="var(--text-muted)">completado</text>
+      </svg>
+    </div>
+    <div class="chart-card" style="grid-column:span 3;">
+      <h4>📈 Curva de avance acumulado (500 técnicas)</h4>
+      <svg viewBox="0 0 620 190" style="width:100%;height:190px;">
+        <line x1="40" y1="20" x2="600" y2="20" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="60" x2="600" y2="60" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="100" x2="600" y2="100" stroke="var(--border)" stroke-dasharray="4"/>
+        <line x1="40" y1="140" x2="600" y2="140" stroke="var(--border)" stroke-dasharray="4"/>
+        <text x="10" y="24" font-size="9" fill="var(--text-muted)">100%</text>
+        <text x="10" y="64" font-size="9" fill="var(--text-muted)">75%</text>
+        <text x="10" y="104" font-size="9" fill="var(--text-muted)">50%</text>
+        <text x="10" y="144" font-size="9" fill="var(--text-muted)">25%</text>
+        <polyline id="curvaLine" points="" fill="none" stroke="var(--u11)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-python">
+  <h1 style="margin-bottom:1rem;">🐍 Python para investigación avanzada · 100 técnicas (11° Universitario)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progPyText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progPyFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesPy"></div></aside>
+    <div class="tecnica-panel" id="tecnicaPy"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-textos">
+  <h1 style="margin-bottom:1rem;">🧪 Textos y comunicación científica · 100 técnicas (11° Universitario)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Paper · Revisión · Tesis · Divulgación · Comunicación de crisis</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progTxtText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progTxtFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesTxt"></div></aside>
+    <div class="tecnica-panel" id="tecnicaTxt"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-lectura">
+  <h1 style="margin-bottom:1rem;">🔬 Comprensión crítica avanzada · 100 técnicas (11° Universitario)</h1>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progLecText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progLecFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesLec"></div></aside>
+    <div class="tecnica-panel" id="tecnicaLec"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-redaccion">
+  <h1 style="margin-bottom:1rem;">✍️ Redacción, tesis y publicación · 100 técnicas (11° Universitario)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Tesis · Paper · Revisión por pares · Publicación · Divulgación</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progRedText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progRedFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesRed"></div></aside>
+    <div class="tecnica-panel" id="tecnicaRed"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-sintaxis">
+  <h1 style="margin-bottom:1rem;">🧩 Sintaxis y discurso científico · 100 técnicas (11° Universitario)</h1>
+  <p class="text-muted-app" style="margin-bottom:1rem;">Morfosintaxis · Análisis del discurso · Retórica científica · Escritura académica</p>
+  <div class="progreso-global">
+    <span>Progreso: <strong id="progSinText">0/100</strong></span>
+    <div class="track"><div class="fill" id="progSinFill" style="width:0%"></div></div>
+  </div>
+  <div class="cuaderno-layout">
+    <aside class="sidebar"><h5>Bloques</h5><div id="bloquesSin"></div></aside>
+    <div class="tecnica-panel" id="tecnicaSin"></div>
+  </div>
+</section>
+
+<section class="mode-panel" id="panel-taller">
+  <h1 style="margin-bottom:1rem;">🛠 Taller 11° Universitario · 40 herramientas</h1>
+  <div class="taller-grid" id="tallerGrid"></div>
+</section>
+
+<section class="mode-panel" id="panel-certificado">
+  <div class="no-print" style="text-align:center;margin-bottom:1rem;">
+    <button class="btn-accion" onclick="window.print()">🖨 Guardar como PDF</button>
+    <button class="btn-accion secundario" onclick="descargarWord()">📄 Descargar Word</button>
+  </div>
+  <div class="certificado-portada" id="certificadoPortada">
+    <div class="sello-grande" id="selloAnio">2025</div>
+    <h1 style="font-size:1.7rem;margin-bottom:0.3rem;">Certificado 11° Universitario</h1>
+    <p style="font-size:0.86rem;color:var(--text-muted);margin-bottom:1.5rem;">
+      Ciencias Naturales · Nivel de investigación avanzada · Tesis y publicación científica
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">Se certifica que</p>
+    <p style="font-size:1.4rem;font-weight:700;margin-bottom:1rem;">
+      <span class="campo-editable" contenteditable="true" data-campo="nombre">Nombre del estudiante</span>
+    </p>
+    <p style="font-size:1rem;margin-bottom:1rem;">ha completado satisfactoriamente las 500 técnicas del programa de Ciencias Naturales de 11° universitario, <strong>culminando la formación investigativa y estando capacitado para la tesis de grado y el posgrado</strong></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;font-size:0.8rem;text-align:left;">
+      <div>Docente: <span class="campo-editable" contenteditable="true" data-campo="docente">____________</span></div>
+      <div>Universidad: <span class="campo-editable" contenteditable="true" data-campo="institucion">____________</span></div>
+      <div>Facultad: <span class="campo-editable" contenteditable="true" data-campo="facultad">____________</span></div>
+      <div>Programa: <span class="campo-editable" contenteditable="true" data-campo="curso">____________</span></div>
+      <div>Ciudad: <span class="campo-editable" contenteditable="true" data-campo="ciudad">____________</span></div>
+      <div>Fecha: <span class="campo-editable" contenteditable="true" data-campo="fecha">____________</span></div>
+      <div>Semestre: <span class="campo-editable" contenteditable="true" data-campo="semestre">11</span></div>
+      <div>Radicado: <span class="campo-editable" contenteditable="true" data-campo="radicado">____________</span></div>
+    </div>
+  </div>
+  <div id="certificadoContenido"></div>
+</section>
+
+</main>
+
+<div class="pwa-banner" id="pwaBanner">
+  <span>📲 Instala esta app en tu dispositivo</span>
+  <button id="btnInstalarBanner">Instalar</button>
+  <button class="cerrar" id="btnCerrarBanner">Ahora no</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* =====================================================================
+   SISTEMA DE USUARIOS
+   ===================================================================== */
+const CLAVE_USUARIOS = 'cienciasU11_usuarios';
+const CLAVE_SESION = 'cienciasU11_sesion';
+let currentUser = null;
+
+function hashPass(pass){
+  let h = 0;
+  const salt = 'cienciasU11_2025';
+  const str = salt + pass;
+  for(let i=0;i<str.length;i++){ h = ((h<<5)-h) + str.charCodeAt(i); h = h & h; }
+  return 'h' + Math.abs(h).toString(36);
+}
+function getUsuarios(){ try { return JSON.parse(localStorage.getItem(CLAVE_USUARIOS)) || []; } catch { return []; } }
+function saveUsuarios(users){ localStorage.setItem(CLAVE_USUARIOS, JSON.stringify(users)); }
+function getSesion(){ return localStorage.getItem(CLAVE_SESION); }
+function setSesion(id){ id ? localStorage.setItem(CLAVE_SESION, id) : localStorage.removeItem(CLAVE_SESION); }
+function getClaveArea(a){ return `cienciasU11_${currentUser.id}_${a}_prog`; }
+function getClaveNotas(a){ return `cienciasU11_${currentUser.id}_${a}_notas`; }
+function getClaveCampos(){ return `cienciasU11_${currentUser.id}_campos`; }
+
+function renderAuth(){
+  const users = getUsuarios();
+  const listView = document.getElementById('usersList');
+  const noUsers = document.getElementById('noUsersHint');
+  if(users.length === 0){
+    listView.innerHTML = '';
+    noUsers.style.display = 'block';
+  } else {
+    noUsers.style.display = 'none';
+    listView.innerHTML = users.map(u => `
+      <div class="user-item" data-id="${u.id}">
+        <div class="avatar">${u.nombre.charAt(0).toUpperCase()}</div>
+        <div class="info"><strong>${u.nombre}</strong><span>${u.curso} · ${u.institucion}</span></div>
+        <button class="btn-delete" data-delete="${u.id}" title="Eliminar perfil">🗑</button>
+      </div>
+    `).join('');
+    listView.querySelectorAll('.user-item').forEach(el => {
+      el.addEventListener('click', (e) => {
+        if(e.target.dataset.delete) return;
+        const id = el.dataset.id;
+        const u = users.find(x=>x.id===id);
+        document.getElementById('loginUserName').textContent = u.nombre;
+        document.getElementById('usersListView').style.display = 'none';
+        document.getElementById('passwordView').style.display = 'block';
+        document.getElementById('loginPassword').value = '';
+        document.getElementById('loginPassword').dataset.userId = id;
+        document.getElementById('loginPassword').focus();
+        document.getElementById('loginError').classList.remove('show');
+      });
+    });
+    listView.querySelectorAll('[data-delete]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = btn.dataset.delete;
+        if(!confirm('¿Eliminar este perfil y todo su progreso?')) return;
+        saveUsuarios(getUsuarios().filter(x=>x.id!==id));
+        renderAuth();
+      });
+    });
+  }
+}
+
+document.getElementById('btnDoLogin').addEventListener('click', () => {
+  const input = document.getElementById('loginPassword');
+  const id = input.dataset.userId;
+  const u = getUsuarios().find(x=>x.id===id);
+  if(!u){ document.getElementById('loginError').textContent='Usuario no encontrado.'; document.getElementById('loginError').classList.add('show'); return; }
+  if(u.passHash !== hashPass(input.value)){
+    document.getElementById('loginError').textContent = 'Contraseña incorrecta.';
+    document.getElementById('loginError').classList.add('show');
+    return;
+  }
+  setSesion(id); currentUser = u; iniciarApp();
+});
+
+document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+  if(e.key==='Enter') document.getElementById('btnDoLogin').click();
+});
+
+document.getElementById('btnBackToUsers').addEventListener('click', () => {
+  document.getElementById('passwordView').style.display = 'none';
+  document.getElementById('usersListView').style.display = 'block';
+});
+
+document.getElementById('btnDoRegister').addEventListener('click', () => {
+  const nombre = document.getElementById('regNombre').value.trim();
+  const curso = document.getElementById('regCurso').value;
+  const institucion = document.getElementById('regInstitucion').value.trim();
+  const pass = document.getElementById('regPassword').value;
+  const pass2 = document.getElementById('regPassword2').value;
+  const errEl = document.getElementById('regError');
+  const okEl = document.getElementById('regSuccess');
+  errEl.classList.remove('show'); okEl.classList.remove('show');
+  if(!nombre){ errEl.textContent='Escribe tu nombre.'; errEl.classList.add('show'); return; }
+  if(!institucion){ errEl.textContent='Escribe tu universidad.'; errEl.classList.add('show'); return; }
+  if(pass.length < 4){ errEl.textContent='Contraseña muy corta (mínimo 4).'; errEl.classList.add('show'); return; }
+  if(pass !== pass2){ errEl.textContent='Las contraseñas no coinciden.'; errEl.classList.add('show'); return; }
+  const users = getUsuarios();
+  if(users.some(u => u.nombre.toLowerCase() === nombre.toLowerCase())){
+    errEl.textContent='Ya existe un usuario con ese nombre.'; errEl.classList.add('show'); return;
+  }
+  const nuevo = { id: 'u'+Date.now().toString(36)+Math.random().toString(36).slice(2,6), nombre, curso, institucion, passHash: hashPass(pass), creado: new Date().toISOString() };
+  users.push(nuevo); saveUsuarios(users);
+  okEl.textContent = '¡Cuenta creada! Iniciando sesión...'; okEl.classList.add('show');
+  setTimeout(() => { setSesion(nuevo.id); currentUser = nuevo; iniciarApp(); }, 800);
+});
+
+document.querySelectorAll('.auth-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.auth-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById('authPanelLogin').style.display = tab==='login' ? 'block' : 'none';
+    document.getElementById('authPanelRegister').style.display = tab==='register' ? 'block' : 'none';
+    document.getElementById('passwordView').style.display = 'none';
+    document.getElementById('usersListView').style.display = 'block';
+    document.getElementById('loginError').classList.remove('show');
+    document.getElementById('regError').classList.remove('show');
+    document.getElementById('regSuccess').classList.remove('show');
+  });
+});
+
+function iniciarApp(){
+  document.getElementById('authOverlay').classList.remove('show');
+  document.getElementById('userName').textContent = currentUser.nombre.split(' ')[0];
+  document.getElementById('userAvatar').textContent = currentUser.nombre.charAt(0).toUpperCase();
+  cargarEstado(); renderTodo();
+}
+
+document.getElementById('userBadge').addEventListener('click', (e) => { e.stopPropagation(); document.getElementById('userMenu').classList.toggle('show'); });
+document.addEventListener('click', () => { document.getElementById('userMenu').classList.remove('show'); });
+document.getElementById('userMenu').addEventListener('click', (e) => e.stopPropagation());
+
+document.getElementById('menuPerfil').addEventListener('click', () => {
+  alert(`🎓 Perfil 11° Universitario\n\nNombre: ${currentUser.nombre}\nPrograma: ${currentUser.curso}\nUniversidad: ${currentUser.institucion}\nID: ${currentUser.id}\nCreado: ${new Date(currentUser.creado).toLocaleDateString('es')}`);
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+document.getElementById('menuCambiar').addEventListener('click', () => {
+  if(!confirm('¿Cerrar sesión y cambiar de usuario?')) return;
+  setSesion(null); currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  document.getElementById('usersListView').style.display = 'block';
+  document.getElementById('passwordView').style.display = 'none';
+  renderAuth();
+});
+
+document.getElementById('menuEliminar').addEventListener('click', () => {
+  if(!confirm('⚠️ Esta acción eliminará tu cuenta y TODO tu progreso. ¿Continuar?')) return;
+  const id = currentUser.id;
+  ['py','txt','lec','red','sin'].forEach(a => {
+    localStorage.removeItem(getClaveArea(a));
+    localStorage.removeItem(getClaveNotas(a));
+  });
+  localStorage.removeItem(getClaveCampos());
+  saveUsuarios(getUsuarios().filter(u => u.id !== id));
+  setSesion(null); currentUser = null;
+  document.getElementById('userMenu').classList.remove('show');
+  document.getElementById('authOverlay').classList.add('show');
+  renderAuth();
+});
+
+document.getElementById('menuExportar').addEventListener('click', () => {
+  exportarProgresoUsuario();
+  document.getElementById('userMenu').classList.remove('show');
+});
+
+function exportarProgresoUsuario(){
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const inf = `INFORME SÚPER CUADERNO 11° UNIVERSITARIO · CIENCIAS NATURALES
+=====================================================
+Usuario: ${currentUser.nombre}
+Programa: ${currentUser.curso}
+Universidad: ${currentUser.institucion}
+Fecha: ${new Intl.DateTimeFormat('es',{dateStyle:'full',timeStyle:'short'}).format(new Date())}
+
+🐍 Python para investigación avanzada: ${py}/100
+🧪 Textos y comunicación científica: ${txt}/100
+🔬 Comprensión crítica avanzada: ${lec}/100
+✍️ Redacción, tesis y publicación: ${red}/100
+🧩 Sintaxis y discurso científico: ${sin}/100
+TOTAL: ${py+txt+lec+red+sin}/500
+`;
+  const blob = new Blob([inf], {type:'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `informe_${currentUser.nombre.replace(/\s+/g,'_')}_ciencias_U11.txt`;
+  a.click();
+}
+
+/* =====================================================================
+   BLOQUES · 11° UNIVERSITARIO CIENCIAS
+   ===================================================================== */
+const bloquesPy = [
+  {id:'py-inv', titulo:'Investigación avanzada reproducible', rango:[1,20], icono:'🐍'},
+  {id:'py-ai', titulo:'IA avanzada y ciencia de datos', rango:[21,40], icono:'🤖'},
+  {id:'py-fis', titulo:'Física teórica y experimental', rango:[41,60], icono:'⚛️'},
+  {id:'py-bio', titulo:'Biología de sistemas y ómicas', rango:[61,80], icono:'🧬'},
+  {id:'py-open', titulo:'Ciencia abierta, ética y futuro', rango:[81,100], icono:'🌍'}
+];
+
+const bloquesTxt = [
+  {id:'txt-paper', titulo:'Paper y artículo científico', rango:[1,25], icono:'📰'},
+  {id:'txt-rev', titulo:'Revisión y meta-análisis', rango:[26,50], icono:'📚'},
+  {id:'txt-tesis', titulo:'Tesis y proyecto de investigación', rango:[51,75], icono:'🎓'},
+  {id:'txt-div', titulo:'Divulgación y comunicación', rango:[76,100], icono:'📢'}
+];
+
+const bloquesLec = [
+  {id:'lec-crit', titulo:'Lectura crítica avanzada', rango:[1,20], icono:'🪜'},
+  {id:'lec-met', titulo:'Metodología y estadística avanzada', rango:[21,40], icono:'🔬'},
+  {id:'lec-gen', titulo:'Géneros académicos y científicos', rango:[41,60], icono:'📄'},
+  {id:'lec-anal', titulo:'Análisis avanzado de datos', rango:[61,80], icono:'📊'},
+  {id:'lec-filo', titulo:'Filosofía, ética y sociedad', rango:[81,100], icono:'🧠'}
+];
+
+const bloquesRed = [
+  {id:'red-inv', titulo:'Investigación y escritura', rango:[1,25], icono:'📝'},
+  {id:'red-tesis', titulo:'Tesis de grado', rango:[26,50], icono:'🎓'},
+  {id:'red-paper', titulo:'Paper y publicación', rango:[51,75], icono:'📰'},
+  {id:'red-pub', titulo:'Ética, revisión y comunicación', rango:[76,100], icono:'🌐'}
+];
+
+const bloquesSin = [
+  {id:'sin-morf', titulo:'Morfosintaxis avanzada', rango:[1,30], icono:'🔤'},
+  {id:'sin-disc', titulo:'Análisis del discurso científico', rango:[31,70], icono:'🧩'},
+  {id:'sin-ret', titulo:'Retórica y escritura académica', rango:[71,100], icono:'📐'}
+];
+
+/* =====================================================================
+   PYTHON 11° UNIVERSITARIO (100)
+   ===================================================================== */
+function generarTecnicasPython(){
+  const T = [
+    {t:'Ciencia reproducible end-to-end', c:'Pipelines con Snakemake/Nextflow.', e:'rule all:\\n    input: "results.html"'},
+    {t:'Entornos reproducibles', c:'Docker + conda + lock files.', e:'conda env export > environment.yml'},
+    {t:'Empaquetado científico', c:'PyPI, conda-forge, DOI Zenodo.', e:'twine upload dist/*'},
+    {t:'Testing con property-based', c:'Hypothesis.', e:'from hypothesis import given'},
+    {t:'CI/CD científico', c:'GitHub Actions con matrices.', e:'matrix: {python: [3.10, 3.11]}'},
+    {t:'Pre-registro automatizado', c:'OSF, AsPredicted.', e:'# Registro antes de recolectar'},
+    {t:'HPC: SLURM y MPI', c:'Clusters universitarios.', e:'sbatch script.sh'},
+    {t:'GPU y TPU', c:'CUDA, JAX, XLA.', e:'jax.devices()'},
+    {t:'Computación distribuida', c:'Dask, Ray, Spark.', e:'import ray\\nray.init()'},
+    {t:'Bases de datos científicas', c:'PostgreSQL, MongoDB, BigQuery.', e:'import psycopg2'},
+    {t:'APIs científicas avanzadas', c:'NCBI, Ensembl, UniProt, PDB.', e:'from Bio import Entrez'},
+    {t:'Workflows de datos', c:'Airflow, Prefect.', e:'from prefect import flow'},
+    {t:'Documentación profesional', c:'Sphinx + ReadTheDocs.', e:'sphinx-build -b html . _build'},
+    {t:'Publicación de datos', c:'FAIR data, Zenodo, Dryad.', e:'# DOI + metadatos'},
+    {t:'Análisis de código', c:'Ruff, mypy, black.', e:'ruff check .'},
+    {t:'Contenedores para ciencia', c:'Docker, Singularity, Podman.', e:'FROM nvidia/cuda:12.0'},
+    {t:'Versionado semántico', c:'SemVer + Zenodo.', e:'v1.2.3 + DOI'},
+    {t:'Notebooks reproducibles', c:'Jupyter + nbval + Binder.', e:'# Binder + nbval test'},
+    {t:'Automatización de informes', c:'Quarto, Papermill.', e:'papermill analysis.ipynb out.ipynb'},
+    {t:'Reproducibilidad verificable', c:'ReproZip, Code Ocean.', e:'# Snapshot + DOI'},
+
+    {t:'Deep learning en investigación', c:'PyTorch, JAX, Lightning.', e:'import lightning as L'},
+    {t:'Vision transformers', c:'ViT, Swin, DINO.', e:'from transformers import ViTModel'},
+    {t:'Modelos fundacionales', c:'GPT, LLM, agentes.', e:'from openai import OpenAI'},
+    {t:'Modelado generativo', c:'VAE, GAN, difusión.', e:'from diffusers import StableDiffusionPipeline'},
+    {t:'RL profundo', c:'PPO, SAC, DQN.', e:'from stable_baselines3 import PPO'},
+    {t:'Aprendizaje auto-supervisado', c:'SimCLR, MoCo, BYOL.', e:'# Contraste sin etiquetas'},
+    {t:'Grafos neuronales', c:'GNN, GAT, GraphSAGE.', e:'from torch_geometric.nn import GCN'},
+    {t:'NLP científico', c:'BioBERT, SciBERT, PubMedBERT.', e:'from transformers import AutoTokenizer'},
+    {t:'IA multimodal avanzada', c:'CLIP, GPT-4V, Gemini.', e:'# Texto+imagen+audio'},
+    {t:'Aprendizaje federado', c:'Sin centralizar datos.', e:'import flwr as fl'},
+    {t:'XAI avanzado', c:'SHAP, LIME, Integrated Gradients.', e:'import shap'},
+    {t:'Fairness y sesgo', c:'Mitigación algorítmica.', e:'from fairlearn.reductions import ExponentiatedGradient'},
+    {t:'MLOps', c:'MLflow, DVC, Weights&Biases.', e:'import mlflow\\nmlflow.log_metric("r2", 0.95)'},
+    {t:'AutoML', c:'AutoSklearn, TPOT, NAS.', e:'import autosklearn.classification'},
+    {t:'Deep learning en genómica', c:'AlphaFold, ESM, DNABERT.', e:'# Predicción estructural'},
+    {t:'Deep learning en física', c:'Neural operators, PINNs.', e:'# Physics-Informed NN'},
+    {t:'IA para clima y ambiente', c:'GraphCast, Pangu-Weather.', e:'# Predicción a corto plazo'},
+    {t:'IA para medicina', c:'Diagnóstico asistido, imagen médica.', e:'# Segmentación tumoral'},
+    {t:'Ética en IA', c:'EU AI Act, UNESCO.', e:'# Principios de IA responsable'},
+    {t:'IA explicable en ciencia', c:'Descubrimiento científico asistido.', e:'# Interpretabilidad'},
+    {t:'IA generativa en investigación', c:'Copilotos de laboratorio.', e:'# Asistencia científica'},
+
+    {t:'Relatividad general avanzada', c:'Tensor de curvatura, geodésicas.', e:'# gμν, Rμν, Gμν'},
+    {t:'Cosmología moderna', c:'ΛCDM, inflación, CMB.', e:'# Planck 2018'},
+    {t:'Astrofísica de altas energías', c:'Rayos cósmicos, gamma.', e:'# Fermi-LAT, IceCube'},
+    {t:'Ondas gravitacionales', c:'LIGO/Virgo/KAGRA, GWTC.', e:'# Detección de fusiones'},
+    {t:'Agujeros negros y holografía', c:'Hawking, AdS/CFT.', e:'# Entropía de Bekenstein-Hawking'},
+    {t:'Gravedad cuántica', c:'Cuerdas, loops, gravedad emergente.', e:'# Debate abierto'},
+    {t:'Mecánica cuántica relativista', c:'Dirac, QFT intro.', e:'# iℏγμ∂μψ = mψ'},
+    {t:'Entrelazamiento avanzado', c:'Bell tests, GHZ.', e:'# Violación experimental'},
+    {t:'Computación cuántica aplicada', c:'Qiskit, Cirq, PennyLane.', e:'from qiskit import QuantumCircuit'},
+    {t:'Algoritmos cuánticos', c:'Shor, Grover, VQE, QAOA.', e:'# Aplicaciones'},
+    {t:'Corrección de errores cuánticos', c:'Surface code, color code.', e:'# Qubits lógicos'},
+    {t:'Física de partículas avanzada', c:'Modelo estándar, más allá.', e:'# Higgs, SUSY'},
+    {t:'Física de neutrinos', c:'Oscilaciones, masa.', e:'# DUNE, Hyper-K'},
+    {t:'Fusión nuclear', c:'ITER, NIF, tokamaks.', e:'# Confinamiento magnético'},
+    {t:'Fisión y reactores avanzados', c:'SMR, torio, IV Gen.', e:'# Seguridad nuclear'},
+    {t:'Superconductividad', c:'Alta Tc, aplicaciones.', e:'# BCS, pares de Cooper'},
+    {t:'Nanofotónica', c:'Plasmones, metamateriales.', e:'# Óptica subwavelength'},
+    {t:'Física estadística', c:'Transiciones de fase, criticalidad.', e:'# Modelo de Ising'},
+    {t:'Física de materiales', c:'DFT, simulación, ML.', e:'# VASP, Quantum ESPRESSO'},
+    {t:'Física experimental avanzada', c:'Instrumentación, metrología.', e:'# Óptica cuántica'},
+
+    {t:'Genómica avanzada', c:'WGS, GWAS, single-cell.', e:'# Variantes, CNV, SNV'},
+    {t:'Transcriptómica espacial', c:'Visium, MERFISH.', e:'# Expresión en contexto'},
+    {t:'Proteómica estructural', c:'Cryo-EM, AlphaFold2.', e:'# Estructuras 3D'},
+    {t:'Metabolómica cuantitativa', c:'MS, RMN, integración.', e:'# Metaboloma'},
+    {t:'Epigenómica multi-ómica', c:'ATAC-seq, ChIP-seq, Hi-C.', e:'# Integración'},
+    {t:'Bioinformática de sistemas', c:'Redes de interacción, GWAS.', e:'# Network analysis'},
+    {t:'CRISPR terapéutico', c:'Base editing, prime editing.', e:'# Edición de precisión'},
+    {t:'Terapia génica', c:'AAV, lentivirus, LNP.', e:'# Aplicaciones clínicas'},
+    {t:'Vacunas mRNA y nuevas', c:'Nanopartículas, ADN, vectores.', e:'# Moderna, Pfizer'},
+    {t:'Ingeniería de proteínas', c:'AlphaFold2/3, RoseTTAFold.', e:'# Diseño computacional'},
+    {t:'Biología sintética', c:'Circuitos genéticos, organelos.', e:'# BioBricks'},
+    {t:'Células madre y medicina regenerativa', c:'iPSC, organoides.', e:'# Terapias avanzadas'},
+    {t:'Inmunoterapia avanzada', c:'CAR-T, NK, checkpoints.', e:'# Cáncer'},
+    {t:'Neurociencia computacional', c:'Modelos de red, conciencia.', e:'# Redes recurrentes'},
+    {t:'Interfaces cerebro-máquina', c:'BCI, Neuralink, EEG.', e:'# Control neural'},
+    {t:'Optogenética avanzada', c:'Control neuronal con luz.', e:'# Channelrhodopsin'},
+    {t:'Microbioma y metagenómica', c:'16S, shotgun, integración.', e:'# Salud intestinal'},
+    {t:'Biología de sistemas', c:'Modelos integrativos.', e:'# Systems biology'},
+    {t:'Ecología computacional', c:'Modelos de ecosistemas.', e:'# NetLogo, Mesa'},
+    {t:'Astrobiología y exoplanetas', c:'Biosignaturas, habitabilidad.', e:'# Zona habitable'},
+
+    {t:'Cambio climático avanzado', c:'CMIP6, SSP, RCP.', e:'# Modelos integrados'},
+    {t:'Transición energética', c:'Renovables, hidrógeno verde.', e:'# Net zero 2050'},
+    {t:'Economía circular', c:'Reciclaje y reutilización.', e:'# Ciclos cerrados'},
+    {t:'Límites planetarios', c:'Rockström, 9 límites.', e:'# Fronteras seguras'},
+    {t:'Antropoceno', c:'Era humana.', e:'# Estratos geológicos'},
+    {t:'Biodiversidad y conservación', c:'Hotspots, IPBES.', e:'# Extinción masiva'},
+    {t:'Salud pública avanzada', c:'Epidemiología, OMS.', e:'# Modelos SIR, SEIR'},
+    {t:'One Health', c:'Salud humana-animal-ambiente.', e:'# Enfoque integrador'},
+    {t:'Bioética avanzada', c:'Principios, comités.', e:'# Autonomía, beneficencia'},
+    {t:'Ética de la investigación', c:'Helsinki, Belmont, CIOMS.', e:'# Consentimiento'},
+    {t:'Comunicación científica avanzada', c:'Divulgación efectiva.', e:'# Ciencia ciudadana'},
+    {t:'Política científica', c:'UNESCO, OCDE, CTI.', e:'# Financiación'},
+    {t:'Ciencia abierta', c:'FAIR, Open Access, Open Data.', e:'# UNESCO Recommendation'},
+    {t:'Reproducibilidad avanzada', c:'Crisis de replicación.', e:'# ManyLabs, SCORE'},
+    {t:'Métricas responsables', c:'DORA, Leiden Manifesto.', e:'# Beyond JIF'},
+    {t:'Ciencia y género', c:'Brechas, sesgos.', e:'# Mujeres en STEM'},
+    {t:'Ciencia y desarrollo', c:'Sur Global, capacidades.', e:'# Cooperación'},
+    {t:'Ciencia y paz', c:'Usos pacíficos.', e:'# Desarme'},
+    {t:'Futuro de la humanidad', c:'Transhumanismo, singularidad.', e:'# Debate ético'},
+    {t:'Filosofía de la ciencia avanzada', c:'Popper, Kuhn, Lakatos, Feyerabend.', e:'# Falsabilidad'},
+    {t:'Sociología de la ciencia', c:'Merton, Latour, Knorr-Cetina.', e:'# Comunidad científica'},
+    {t:'Historia de la ciencia', c:'Revoluciones científicas.', e:'# Copérnico, Newton, Einstein'},
+    {t:'Ciencia y arte', c:'Diálogos interdisciplinarios.', e:'# Neuroestética'},
+    {t:'Ciencia y espiritualidad', c:'Diálogos contemporáneos.', e:'# Debate abierto'},
+    {t:'Ciencia y educación', c:'Alfabetización científica.', e:'# STEM, STEAM'},
+    {t:'Ciencia post-normal', c:'Funtowicz y Ravetz.', e:'# Incertidumbre'},
+    {t:'Ciencia y política', c:'Evidence-based policy.', e:'# Asesoría'},
+    {t:'Ciencia y empresa', c:'Transferencia tecnológica.', e:'# Spin-offs'},
+    {t:'Ciencia y patentes', c:'Propiedad intelectual.', e:'# Innovación'},
+    {t:'Futuro del trabajo científico', c:'Automatización, IA.', e:'# Investigación asistida'},
+    {t:'Ciencia para los ODS', c:'Agenda 2030.', e:'# 17 objetivos'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesPy.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'py-inv',
+    opciones:[t.c,'Es una fórmula de arte.','No tiene relación con la ciencia.','Solo sirve para literatura.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   TEXTOS 11° UNIVERSITARIO (100)
+   ===================================================================== */
+function generarTecnicasTextos(){
+  const T = [
+    {t:'Paper científico IMRyD', c:'Estándar internacional.', e:'Introduction, Methods, Results, Discussion'},
+    {t:'Título efectivo', c:'Claro, específico, informativo.', e:'"Effect of pH on enzyme kinetics"'},
+    {t:'Autores y afiliaciones', c:'ICMJE, contribución.', e:'# Order by contribution'},
+    {t:'Abstract estructurado', c:'Background, methods, results, conclusion.', e:'# 250 palabras'},
+    {t:'Highlights', c:'3-5 puntos clave.', e:'# Elsevier requirement'},
+    {t:'Palabras clave (MeSH)', c:'Indexación.', e:'Enzyme, kinetics, pH'},
+    {t:'Introducción en embudo', c:'General → específico → objetivo.', e:'# Funnel'},
+    {t:'Métodos reproducibles', c:'Protocolo detallado.', e:'# Reagents, equipment'},
+    {t:'Resultados sin interpretación', c:'Datos puros.', e:'# Tablas y figuras'},
+    {t:'Discusión estructurada', c:'Hallazgos, comparación, limitaciones.', e:'# Loop'},
+    {t:'Conclusión proporcionada', c:'Sin sobreinterpretar.', e:'# Matching evidence'},
+    {t:'Agradecimientos', c:'Financiación, apoyo.', e:'# Funder, collaborators'},
+    {t:'Conflictos de interés', c:'Declaración ICMJE.', e:'# Forms'},
+    {t:'Referencias bibliográficas', c:'Estilo de revista.', e:'# Vancouver, APA'},
+    {t:'Material suplementario', c:'Datos extendidos.', e:'# SI files'},
+    {t:'Data availability statement', c:'Dónde están los datos.', e:'# FAIR'},
+    {t:'Code availability statement', c:'Dónde está el código.', e:'# GitHub, Zenodo'},
+    {t:'CRediT authorship', c:'Taxonomía de contribuciones.', e:'# Conceptualization, methodology'},
+    {t:'ORCID', c:'Identificador de investigador.', e:'0000-0000-0000-0000'},
+    {t:'Preprint', c:'Antes de revisión.', e:'# arXiv, bioRxiv'},
+    {t:'Cover letter', c:'Carta al editor.', e:'# Relevancia, originalidad'},
+    {t:'Suggested reviewers', c:'Revisores sugeridos.', e:'# 3-5 expertos'},
+    {t:'Response to reviewers', c:'Rebuttal punto por punto.', e:'# Table format'},
+    {t:'Revised manuscript', c:'Cambios resaltados.', e:'# Track changes'},
+    {t:'Accepted version', c:'Postprint.', e:'# Green OA'},
+
+    {t:'Revisión narrativa', c:'Síntesis amplia.', e:'# Experto'},
+    {t:'Revisión sistemática', c:'PRISMA 2020.', e:'# Protocol registration'},
+    {t:'Meta-análisis', c:'Efectos combinados.', e:'# Forest plot'},
+    {t:'Scoping review', c:'Mapeo de literatura.', e:'# Extensión'},
+    {t:'Umbrella review', c:'De revisiones sistemáticas.', e:'# Overview'},
+    {t:'Living review', c:'Actualización continua.', e:'# COVID-19'},
+    {t:'Rapid review', c:'Síntesis acelerada.', e:'# Emergencias'},
+    {t:'Realist review', c:'¿Qué funciona, para quién?', e:'# Contexto'},
+    {t:'Mixed methods review', c:'Cuali + cuanti.', e:'# Integración'},
+    {t:'Protocolo PROSPERO', c:'Registro previo.', e:'# Systematic reviews'},
+    {t:'Búsqueda sistemática', c:'PICOS + booleanos.', e:'# PubMed, Scopus, WoS'},
+    {t:'Cribado por título/abstract', c:'Dos revisores.', e:'# Rayyan'},
+    {t:'Cribado por texto completo', c:'Inclusión/exclusión.', e:'# PRISMA flow'},
+    {t:'Riesgo de sesgo', c:'Cochrane RoB 2, ROBINS-I.', e:'# Domain-based'},
+    {t:'GRADE', c:'Calidad de evidencia.', e:'# High, moderate, low'},
+    {t:'Extracción de datos', c:'Formulario estandarizado.', e:'# Duplicate'},
+    {t:'Análisis de heterogeneidad', c:'I², Tau², Q.', e:'# Random-effects'},
+    {t:'Sesgo de publicación', c:'Funnel, Egger, trim-and-fill.', e:'# Asymmetry'},
+    {t:'Análisis de subgrupos', c:'Moderadores.', e:'# Subgroups'},
+    {t:'Meta-regresión', c:'Modelos con covariables.', e:'# Moderators'},
+    {t:'Forest plot', c:'Visualización de efectos.', e:'# CI 95%'},
+    {t:'Funnel plot', c:'Sesgo de publicación.', e:'# Symmetry'},
+    {t:'Network meta-analysis', c:'Comparaciones indirectas.', e:'# NMA'},
+    {t:'Living systematic review', c:'Actualización continua.', e:'# COVID-19 evidence'},
+    {t:'Informe PRISMA 2020', c:'27 ítems.', e:'# Checklist'},
+    {t:'Informe MOOSE', c:'Observacionales.', e:'# Meta-analysis'},
+
+    {t:'Anteproyecto de tesis', c:'Problema, objetivos, justificación.', e:'# 10-20 páginas'},
+    {t:'Planteamiento del problema', c:'Vacío de conocimiento.', e:'# Estado del arte'},
+    {t:'Pregunta de investigación', c:'Clara, viable, relevante.', e:'# FINER criteria'},
+    {t:'Objetivo general', c:'Verbo medible.', e:'# SMART'},
+    {t:'Objetivos específicos', c:'Pasos hacia el general.', e:'# 3-5 objetivos'},
+    {t:'Hipótesis', c:'Contrastable.', e:'# H₀, H₁'},
+    {t:'Justificación', c:'Relevancia científica y social.', e:'# Impacto'},
+    {t:'Marco teórico', c:'Fundamento conceptual.', e:'# 30-50 páginas'},
+    {t:'Marco metodológico', c:'Diseño, muestra, instrumentos.', e:'# Detallado'},
+    {t:'Cronograma', c:'Gantt del proyecto.', e:'# Fases, hitos'},
+    {t:'Presupuesto', c:'Recursos y costos.', e:'# Justificado'},
+    {t:'Consideraciones éticas', c:'Consentimiento, comités.', e:'# Aprobación'},
+    {t:'Revisión de literatura', c:'Síntesis crítica.', e:'# 100-300 refs'},
+    {t:'Metodología cuantitativa', c:'Diseño, muestra, análisis.', e:'# Estadística'},
+    {t:'Metodología cualitativa', c:'Diseño, participantes, análisis.', e:'# Códigos, temas'},
+    {t:'Metodología mixta', c:'Integración.', e:'# Convergencia'},
+    {t:'Recolección de datos', c:'Instrumentos validados.', e:'# Encuestas, entrevistas'},
+    {t:'Análisis de datos', c:'Plan estadístico.', e:'# Software'},
+    {t:'Resultados de tesis', c:'Datos y hallazgos.', e:'# Tablas, figuras'},
+    {t:'Discusión de tesis', c:'Interpretación y comparación.', e:'# Literatura'},
+    {t:'Conclusiones de tesis', c:'Respuesta a objetivos.', e:'# Por objetivo'},
+    {t:'Recomendaciones', c:'Futuras líneas.', e:'# Aplicación'},
+    {t:'Referencias de tesis', c:'Estilo institucional.', e:'# APA, IEEE'},
+    {t:'Anexos de tesis', c:'Instrumentos, consentimientos.', e:'# Complementario'},
+    {t:'Defensa pública', c:'Argumentación oral.', e:'# Réplica'},
+
+    {t:'Comunicado de prensa', c:'Para medios.', e:'# Titular, lead'},
+    {t:'Nota de prensa universitaria', c:'Difusión institucional.', e:'# Oficina de prensa'},
+    {t:'Artículo de divulgación', c:'Para público general.', e:'# Sin jerga'},
+    {t:'Blog científico', c:'Plataformas digitales.', e:'# Medium, SciLogs'},
+    {t:'Hilo en X (Twitter)', c:'Divulgación breve.', e:'# 10-20 tuits'},
+    {t:'Video de divulgación', c:'YouTube, TikTok.', e:'# 3-10 min'},
+    {t:'Pódcast científico', c:'Audio de divulgación.', e:'# Entrevistas'},
+    {t:'Infografía divulgativa', c:'Datos visuales.', e:'# Canva'},
+    {t:'Charla TED-style', c:'18 minutos.', e:'# Storytelling'},
+    {t:'Charla en colegios', c:'Adaptada a edad.', e:'# Experimentos'},
+    {t:'Taller científico', c:'Participación activa.', e:'# ABP'},
+    {t:'Feria de ciencias', c:'Exposición pública.', e:'# Stand, póster'},
+    {t:'Ciencia ciudadana', c:'Participación del público.', e:'# Zooniverse'},
+    {t:'Consultoría científica', c:'Asesoría a empresas.', e:'# Informe técnico'},
+    {t:'Peritaje científico', c:'Uso forense.', e:'# Informe pericial'},
+    {t:'Asesoría política', c:'Evidence-based policy.', e:'# Informe'},
+    {t:'Divulgación en museos', c:'Exhibiciones interactivas.', e:'# Maloka'},
+    {t:'Divulgación en medios', c:'Radio, TV, prensa.', e:'# Entrevistas'},
+    {t:'Redes académicas', c:'ResearchGate, Academia.edu.', e:'# Networking'},
+    {t:'Altmetrics', c:'Impacto social.', e:'# Altmetric, PlumX'},
+    {t:'Open peer review', c:'Revisión abierta.', e:'# Publons, F1000'},
+    {t:'Post-publication review', c:'Comentarios post.', e:'# PubPeer'},
+    {t:'Retracción', c:'Corrección grave.', e:'# Retraction Watch'},
+    {t:'Errata y corrigenda', c:'Enmiendas menores.', e:'# Correcciones'},
+    {t:'Réplica y contrarréplica', c:'Debate académico.', e:'# Comment, Reply'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesTxt.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'txt-paper',
+    opciones:[t.c,'Es un texto literario sin rigor.','No tiene relación con la ciencia.','Es un texto de ficción.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   COMPRENSIÓN 11° UNIVERSITARIO (100)
+   ===================================================================== */
+function generarTecnicasLectura(){
+  const T = [
+    {t:'Lectura crítica de papers', c:'Estructura y contenido.', e:'# IMRyD'},
+    {t:'Análisis de título y abstract', c:'Primer filtro.', e:'# ¿Responde mi pregunta?'},
+    {t:'Análisis de introducción', c:'Contexto y objetivo.', e:'# Brecha'},
+    {t:'Análisis de métodos', c:'Reproducibilidad.', e:'# ¿Puedo replicarlo?'},
+    {t:'Análisis de resultados', c:'Interpretación de datos.', e:'# ¿Qué muestran?'},
+    {t:'Análisis de discusión', c:'Significado y límites.', e:'# ¿Los datos apoyan?'},
+    {t:'Análisis de conclusiones', c:'Mensaje principal.', e:'# Proporcionado'},
+    {t:'Análisis de referencias', c:'Literatura clave.', e:'# Actualizada'},
+    {t:'Evaluación de novedad', c:'Aporte al conocimiento.', e:'# ¿Qué es nuevo?'},
+    {t:'Evaluación de impacto', c:'Citaciones, altmetrics.', e:'# ¿Quién lo cita?'},
+    {t:'Evaluación de calidad', c:'Rigor metodológico.', e:'# Riesgo de sesgo'},
+    {t:'Evaluación de sesgos', c:'Selección, medición, reporte.', e:'# Sesgos conocidos'},
+    {t:'Análisis de conflictos', c:'Financiación.', e:'# ¿Quién paga?'},
+    {t:'Verificación de datos', c:'Reproducibilidad.', e:'# Disponibles'},
+    {t:'Verificación de código', c:'Open source.', e:'# GitHub'},
+    {t:'Verificación de métodos', c:'Estándares de campo.', e:'# MIQE, CONSORT'},
+    {t:'Verificación estadística', c:'Pruebas apropiadas.', e:'# Paramétricas'},
+    {t:'Verificación de conclusiones', c:'Apoyo en datos.', e:'# Sobreinterpretación'},
+    {t:'Comparación con literatura', c:'Contexto.', e:'# ¿Coincide?'},
+    {t:'Síntesis crítica', c:'Integrar varios papers.', e:'# Mapa de evidencia'},
+
+    {t:'Diseño experimental', c:'Control y aleatorización.', e:'# RCT'},
+    {t:'Cuasiexperimental', c:'Sin aleatorización.', e:'# Diferencias'},
+    {t:'Observacional', c:'Sin intervención.', e:'# Cohortes'},
+    {t:'Transversal', c:'Un momento.', e:'# Prevalencia'},
+    {t:'Longitudinal', c:'Seguimiento.', e:'# Incidencia'},
+    {t:'Caso-control', c:'Retrospectivo.', e:'# OR'},
+    {t:'Cohorte', c:'Prospectivo.', e:'# RR'},
+    {t:'Ensayo clínico', c:'Intervención controlada.', e:'# Fases I-IV'},
+    {t:'Meta-análisis', c:'Estadístico.', e:'# Forest plot'},
+    {t:'Revisión sistemática', c:'Exhaustiva.', e:'# PRISMA'},
+    {t:'Estudio de caso', c:'Profundo.', e:'# Unidad'},
+    {t:'Investigación-acción', c:'Con intervención.', e:'# Ciclos'},
+    {t:'Etnografía', c:'Observación.', e:'# Descripción densa'},
+    {t:'Fenomenología', c:'Experiencia vivida.', e:'# Reducción'},
+    {t:'Teoría fundamentada', c:'Generar teoría.', e:'# Codificación'},
+    {t:'Análisis del discurso', c:'Fairclough.', e:'# Crítico'},
+    {t:'Análisis de contenido', c:'Categorización.', e:'# Códigos'},
+    {t:'Estudio de método mixto', c:'Convergencia.', e:'# Integración'},
+    {t:'Investigación participativa', c:'Comunidad.', e:'# PAR'},
+    {t:'Investigación reproducible', c:'Open science.', e:'# Preregistro'},
+
+    {t:'Estadística descriptiva', c:'Resumen.', e:'# Media, mediana'},
+    {t:'Estadística inferencial', c:'Generalizar.', e:'# Test hipótesis'},
+    {t:'Distribuciones', c:'Normal, t, chi².', e:'# Familia'},
+    {t:'Contraste de hipótesis', c:'H₀ vs. H₁.', e:'# p-valor'},
+    {t:'Errores tipo I y II', c:'Falso positivo/negativo.', e:'# α, β'},
+    {t:'Potencia', c:'1-β.', e:'# Detecta efecto'},
+    {t:'Tamaño del efecto', c:'Magnitud.', e:'# Cohen d'},
+    {t:'Intervalos de confianza', c:'Rango.', e:'# 95% CI'},
+    {t:'Test t', c:'Dos medias.', e:'# Independiente'},
+    {t:'ANOVA', c:'Múltiples medias.', e:'# Factorial'},
+    {t:'Chi-cuadrado', c:'Asociación.', e:'# Tablas'},
+    {t:'Correlación', c:'Relación lineal.', e:'# Pearson'},
+    {t:'Regresión', c:'Modelar relaciones.', e:'# Lineal, logística'},
+    {t:'Multivariante', c:'Múltiples variables.', e:'# PCA'},
+    {t:'Bayesiano', c:'Actualizar creencias.', e:'# Posterior'},
+    {t:'Modelos mixtos', c:'Efectos fijos/aleatorios.', e:'# Multinivel'},
+    {t:'Series temporales', c:'Datos en tiempo.', e:'# ARIMA'},
+    {t:'Supervivencia', c:'Tiempo hasta evento.', e:'# Kaplan-Meier'},
+    {t:'Meta-análisis estadístico', c:'Efectos combinados.', e:'# Forest'},
+    {t:'ML en investigación', c:'Predicción.', e:'# CV'},
+
+    {t:'Epistemología', c:'Teoría del conocimiento.', e:'# ¿Cómo conocemos?'},
+    {t:'Falsabilidad', c:'Popper.', e:'# Refutabilidad'},
+    {t:'Paradigmas', c:'Kuhn.', e:'# Ciencia normal'},
+    {t:'Programas de investigación', c:'Lakatos.', e:'# Núcleo'},
+    {t:'Anarquismo metodológico', c:'Feyerabend.', e:'# Todo vale'},
+    {t:'Realismo científico', c:'Teorías describen.', e:'# Debate'},
+    {t:'Instrumentalismo', c:'Herramientas.', e:'# Debate'},
+    {t:'Constructivismo', c:'Construido.', e:'# Social'},
+    {t:'Reduccionismo', c:'Explicar simple.', e:'# Física'},
+    {t:'Emergentismo', c:'Propiedades emergentes.', e:'# Conciencia'},
+    {t:'Determinismo', c:'Causas necesarias.', e:'# Debate'},
+    {t:'Indeterminismo', c:'Azar.', e:'# Cuántica'},
+    {t:'Bioética', c:'Principios.', e:'# Autonomía'},
+    {t:'Ética de la investigación', c:'Helsinki.', e:'# Comités'},
+    {t:'Ética animal', c:'3R.', e:'# IACUC'},
+    {t:'Ética ambiental', c:'Responsabilidad.', e:'# Antropoceno'},
+    {t:'Ética de IA', c:'Sesgos.', e:'# Regulación'},
+    {t:'Ética de datos', c:'Privacidad.', e:'# GDPR'},
+    {t:'Ciencia y sociedad', c:'Diálogo.', e:'# Ciencia ciudadana'},
+    {t:'Comunicación de la ciencia', c:'Divulgación.', e:'# Público'},
+    {t:'Alfabetización científica', c:'Comprensión.', e:'# PISA'},
+    {t:'Pseudociencia', c:'Sin método.', e:'# Astrología'},
+    {t:'Negacionismo', c:'Rechazo evidencia.', e:'# Cambio climático'},
+    {t:'Postverdad', c:'Emoción.', e:'# Fake news'},
+    {t:'Fact-checking', c:'Contrastar.', e:'# Snopes'},
+    {t:'Métricas de impacto', c:'H-index, JIF.', e:'# Debate'},
+    {t:'Sesgo de publicación', c:'Positivos.', e:'# Funnel'},
+    {t:'Reproducibilidad', c:'Crisis.', e:'# ManyLabs'},
+    {t:'Ciencia abierta', c:'Open Science.', e:'# FAIR'},
+    {t:'Política científica', c:'Financiación.', e:'# UNESCO'},
+    {t:'Futuro de la ciencia', c:'IA, big data.', e:'# Post-normal'},
+    {t:'Autoevaluación crítica', c:'¿Entiendo?', e:'# Explicar'},
+    {t:'Metacognición', c:'Estrategias.', e:'# Resumir'},
+    {t:'Pensamiento sistémico', c:'Relaciones.', e:'# Redes'},
+    {t:'Pensamiento computacional', c:'Modelar.', e:'# Algoritmos'},
+    {t:'Pensamiento estadístico', c:'Incertidumbre.', e:'# Probabilidad'},
+    {t:'Evaluación formativa', c:'Proceso.', e:'# Mejora'},
+    {t:'Evaluación sumativa', c:'Producto.', e:'# Calificación'},
+    {t:'Rúbrica avanzada', c:'Criterios.', e:'# Niveles'},
+    {t:'Coevaluación', c:'Pares.', e:'# Peer review'},
+    {t:'Portafolio', c:'Recopilar.', e:'# Reflexión'},
+    {t:'Diario de investigación', c:'Bitácora.', e:'# Registro'},
+    {t:'Fichas avanzadas', c:'Resumen y análisis.', e:'# Zotero'},
+    {t:'Gestión bibliográfica', c:'Zotero, Mendeley.', e:'# Citas'},
+    {t:'Lectura en pantalla', c:'Digital.', e:'# PDF'},
+    {t:'Lectura en papel', c:'Manual.', e:'# Comprensión'},
+    {t:'Lectura en voz alta', c:'Detectar errores.', e:'# Ritmo'},
+    {t:'Journal club', c:'Discusión crítica.', e:'# Colaborativa'},
+    {t:'Lectura guiada', c:'Con preguntas.', e:'# Docente'},
+    {t:'Lectura independiente', c:'Autonomía.', e:'# Autodirigido'},
+    {t:'Lectura rápida', c:'Skimming.', e:'# Panorama'},
+    {t:'Lectura profunda', c:'Análisis.', e:'# Detalle'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesLec.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'lec-crit',
+    opciones:[t.c,'Es una técnica de arte.','No tiene relación con la ciencia.','Solo se usa en literatura.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   REDACCIÓN 11° UNIVERSITARIO (100)
+   ===================================================================== */
+function generarTecnicasRedaccion(){
+  const T = [
+    {t:'Escritura científica', c:'Claridad, precisión, objetividad.', e:'"The results show..."'},
+    {t:'Voz activa vs. pasiva', c:'Según revista.', e:'# "We measured"'},
+    {t:'Tiempos verbales', c:'Presente/pasado.', e:'# "We found"'},
+    {t:'Tercera persona', c:'Preferida.', e:'"The study demonstrates"'},
+    {t:'Primera persona plural', c:'Aceptada.', e:'"We hypothesized"'},
+    {t:'Precisión terminológica', c:'Vocabulario técnico.', e:'# Glosario'},
+    {t:'Cifras y unidades SI', c:'Correctas.', e:'25.4 °C'},
+    {t:'Notación científica', c:'Números grandes.', e:'3 × 10⁸ m/s'},
+    {t:'Símbolos y abreviaturas', c:'Definir primera vez.', e:'# ADN, PCR'},
+    {t:'Ecuaciones', c:'Numeradas.', e:'# LaTeX'},
+    {t:'Citas en el texto', c:'Formato de revista.', e:'# (Smith, 2022)'},
+    {t:'Referencias bibliográficas', c:'Aparato crítico.', e:'# APA, Vancouver'},
+    {t:'Gestión bibliográfica', c:'Zotero, Mendeley.', e:'# Automatizar'},
+    {t:'Evitar plagio', c:'Citar siempre.', e:'# iThenticate'},
+    {t:'Parafrasear', c:'Con palabras propias.', e:'# Sentido'},
+    {t:'Citas directas', c:'Con comillas y página.', e:'# "..." (p. 45)'},
+    {t:'Autoplagio', c:'Reutilizar texto.', e:'# Requiere cita'},
+    {t:'Redacción de títulos', c:'Claros, específicos.', e:'# Atractivos'},
+    {t:'Redacción de abstracts', c:'Estructurado.', e:'# Background'},
+    {t:'Redacción de introducción', c:'Contexto, problema, objetivo.', e:'# Funnel'},
+    {t:'Redacción de métodos', c:'Reproducible.', e:'# Detalle'},
+    {t:'Redacción de resultados', c:'Datos sin interpretar.', e:'# Tablas'},
+    {t:'Redacción de discusión', c:'Interpretación.', e:'# Significado'},
+    {t:'Redacción de conclusión', c:'Mensaje principal.', e:'# No exagerar'},
+    {t:'Redacción de limitaciones', c:'Honestidad.', e:'# Alcance'},
+
+    {t:'Estructura de tesis', c:'Capítulos estándar.', e:'# Intro, marco, método, resultados'},
+    {t:'Portada de tesis', c:'Datos institucionales.', e:'# Normativa universitaria'},
+    {t:'Resumen de tesis', c:'300-500 palabras.', e:'# Castellano + inglés'},
+    {t:'Palabras clave de tesis', c:'5-8 términos.', e:'# MeSH'},
+    {t:'Índices de tesis', c:'Contenido, tablas, figuras.', e:'# Automatizados'},
+    {t:'Introducción de tesis', c:'Contexto y problema.', e:'# 20-30 páginas'},
+    {t:'Planteamiento del problema', c:'Vacío de conocimiento.', e:'# Estado del arte'},
+    {t:'Pregunta de investigación', c:'Clara y viable.', e:'# FINER'},
+    {t:'Objetivos de tesis', c:'General + específicos.', e:'# SMART'},
+    {t:'Hipótesis', c:'Contrastable.', e:'# H₀, H₁'},
+    {t:'Justificación', c:'Relevancia.', e:'# Impacto'},
+    {t:'Marco teórico', c:'Fundamento.', e:'# 30-50 págs'},
+    {t:'Estado del arte', c:'Revisión crítica.', e:'# 50-100 refs'},
+    {t:'Marco metodológico', c:'Diseño detallado.', e:'# Justificado'},
+    {t:'Cronograma', c:'Gantt.', e:'# Hitos'},
+    {t:'Presupuesto', c:'Recursos.', e:'# Costos'},
+    {t:'Consideraciones éticas', c:'Consentimiento.', e:'# Comité'},
+    {t:'Resultados de tesis', c:'Datos obtenidos.', e:'# Tablas'},
+    {t:'Discusión de tesis', c:'Interpretación.', e:'# Comparación'},
+    {t:'Conclusiones de tesis', c:'Por objetivo.', e:'# Aporte'},
+    {t:'Recomendaciones', c:'Futuras líneas.', e:'# Aplicación'},
+    {t:'Referencias de tesis', c:'Estilo institucional.', e:'# APA, IEEE'},
+    {t:'Anexos de tesis', c:'Instrumentos.', e:'# Complementario'},
+    {t:'Defensa pública', c:'Argumentación.', e:'# Réplica'},
+    {t:'Corrección de tesis', c:'Por jurado.', e:'# Versión final'},
+
+    {t:'Submission a revista', c:'Sistema editorial.', e:'# ScholarOne'},
+    {t:'Cover letter', c:'Al editor.', e:'# Relevancia'},
+    {t:'Suggested reviewers', c:'Revisores.', e:'# 3-5 expertos'},
+    {t:'Response to reviewers', c:'Rebuttal.', e:'# Punto por punto'},
+    {t:'Revised manuscript', c:'Cambios resaltados.', e:'# Track changes'},
+    {t:'Accepted manuscript', c:'Postprint.', e:'# Green OA'},
+    {t:'Galley proofs', c:'Corrección final.', e:'# Antes de publicar'},
+    {t:'DOI', c:'Identificador.', e:'# 10.xxxx'},
+    {t:'ORCID', c:'Investigador.', e:'# 0000-...'},
+    {t:'Open Access', c:'Acceso libre.', e:'# Gold, Green'},
+    {t:'Licencias CC', c:'Creative Commons.', e:'# CC-BY'},
+    {t:'Preprint', c:'Antes revisión.', e:'# bioRxiv'},
+    {t:'Postprint', c:'Después revisión.', e:'# Aceptado'},
+    {t:'Versión de registro', c:'Final publicada.', e:'# VoR'},
+    {t:'Peer review abierta', c:'Transparente.', e:'# Publons'},
+    {t:'Post-publication review', c:'Después.', e:'# PubPeer'},
+    {t:'Retracción', c:'Corrección grave.', e:'# Watch'},
+    {t:'Errata', c:'Corrección menor.', e:'# Nota'},
+    {t:'Réplica', c:'Debate.', e:'# Comment'},
+    {t:'Replicación', c:'Confirmación.', e:'# ManyLabs'},
+    {t:'Meta-análisis', c:'Síntesis.', e:'# Forest'},
+    {t:'Revisión sistemática', c:'PRISMA.', e:'# Protocol'},
+    {t:'Publicación de protocolo', c:'Antes.', e:'# protocols.io'},
+    {t:'Registro de ensayo', c:'ClinicalTrials.', e:'# Pre-registro'},
+    {t:'Registro de revisión', c:'PROSPERO.', e:'# Pre-registro'},
+
+    {t:'Datos abiertos', c:'FAIR.', e:'# Findable'},
+    {t:'Código abierto', c:'GitHub.', e:'# Reproducibilidad'},
+    {t:'Notebooks reproducibles', c:'Jupyter.', e:'# Ejecutables'},
+    {t:'Docker', c:'Contenedores.', e:'# Environments'},
+    {t:'Versionado', c:'Git.', e:'# Ramas'},
+    {t:'Documentación', c:'README, docs.', e:'# Sphinx'},
+    {t:'Agradecimientos', c:'Financiación.', e:'# Grants'},
+    {t:'Conflictos', c:'Declaración.', e:'# ICMJE'},
+    {t:'Autoría', c:'ICMJE.', e:'# Contribución'},
+    {t:'Orden de autores', c:'Por contribución.', e:'# Primer autor'},
+    {t:'Autoría honoraria', c:'No permitida.', e:'# Ghost'},
+    {t:'Plagio', c:'Uso sin citar.', e:'# Grave'},
+    {t:'Fabricación', c:'Inventar datos.', e:'# Fraude'},
+    {t:'Falsificación', c:'Manipular.', e:'# Grave'},
+    {t:'P-hacking', c:'Manipular análisis.', e:'# Falsos positivos'},
+    {t:'HARKing', c:'Post-hoc.', e:'# Presentar a priori'},
+    {t:'Preregistro', c:'Plan anticipado.', e:'# OSF'},
+    {t:'Reproducibilidad', c:'Mismos datos.', e:'# Reanálisis'},
+    {t:'Replicabilidad', c:'Nuevos datos.', e:'# Confirmación'},
+    {t:'Robustez', c:'Resistencia.', e:'# Sensibilidad'},
+    {t:'Generalización', c:'Validez externa.', e:'# Poblaciones'},
+    {t:'Transferibilidad', c:'Otros contextos.', e:'# Cualitativa'},
+    {t:'Ética en publicación', c:'COPE.', e:'# Committee'},
+    {t:'Publicación depredadora', c:'Fraudulentas.', e:'# Beall'},
+    {t:'Índices de revistas', c:'Scopus, WoS.', e:'# Q1-Q4'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesRed.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'red-inv',
+    opciones:[t.c,'Es una técnica de arte.','No tiene relación con la ciencia.','Solo se usa en matemáticas.'],
+    correcta:0
+  }));
+}
+
+/* =====================================================================
+   SINTAXIS 11° UNIVERSITARIO (100)
+   ===================================================================== */
+function generarTecnicasSintaxis(){
+  const T = [
+    {t:'Categorías gramaticales', c:'Clasificación funcional.', e:'Sustantivo, verbo, adjetivo.'},
+    {t:'Sustantivo: subclases', c:'Común/propio, concreto/abstracto.', e:'agua, gravedad.'},
+    {t:'Género y número', c:'Reglas.', e:'el agua / las aguas.'},
+    {t:'El artículo', c:'Determinado, indeterminado, neutro.', e:'el, un, lo importante.'},
+    {t:'El adjetivo: grados', c:'Positivo, comparativo, superlativo.', e:'alto, más alto.'},
+    {t:'Adjetivos determinativos', c:'Demostrativos, posesivos, numerales.', e:'este, mi, tres.'},
+    {t:'El pronombre personal', c:'Tónicos y átonos.', e:'Él me lo dio.'},
+    {t:'Colocación pronominal', c:'Anteposición y enclisis.', e:'Dímelo.'},
+    {t:'El verbo: estructura', c:'Raíz + desinencia.', e:'cant-á-ba-mos.'},
+    {t:'Tiempos verbales', c:'Presente, pretéritos.', e:'amo, amé.'},
+    {t:'Modos verbales', c:'Indicativo, subjuntivo, imperativo.', e:'amo / ame.'},
+    {t:'Formas no personales', c:'Infinitivo, gerundio, participio.', e:'cantar, cantando.'},
+    {t:'Perífrasis verbales', c:'Modales, aspectuales.', e:'Debe estudiar.'},
+    {t:'Verbos irregulares', c:'Cambios.', e:'ir → voy.'},
+    {t:'Verbos defectivos', c:'Formas limitadas.', e:'abolir.'},
+    {t:'El adverbio', c:'Lugar, tiempo, modo.', e:'aquí, ayer, bien.'},
+    {t:'Adverbios en -mente', c:'Desde adjetivos.', e:'rápidamente.'},
+    {t:'La preposición', c:'Enlaces.', e:'a, de, en.'},
+    {t:'Locuciones preposicionales', c:'Grupos.', e:'a causa de.'},
+    {t:'La conjunción', c:'Coordinantes y subordinantes.', e:'y, pero, porque.'},
+    {t:'Locuciones conjuntivas', c:'Grupos.', e:'sin embargo.'},
+    {t:'Interjecciones', c:'Emociones.', e:'¡ay!'},
+    {t:'Familia de palabras', c:'Raíz común.', e:'ciencia, científico.'},
+    {t:'Prefijos', c:'Al inicio.', e:'des-hacer.'},
+    {t:'Sufijos', c:'Al final.', e:'célula → celular.'},
+    {t:'Palabras simples y compuestas', c:'Una raíz / dos.', e:'paraguas.'},
+    {t:'Sinónimos', c:'Parecidos.', e:'agua / líquido.'},
+    {t:'Antónimos', c:'Opuestos.', e:'caliente / frío.'},
+    {t:'Homónimos', c:'Igual forma.', e:'vino / vino.'},
+    {t:'Polisemia', c:'Varios significados.', e:'banco.'},
+    {t:'¿Qué es una oración?', c:'Unidad completa.', e:'El agua hierve.'},
+    {t:'Sujeto', c:'Realiza la acción.', e:'El agua (sujeto).'},
+    {t:'Predicado', c:'Lo que se dice.', e:'hierve (predicado).'},
+    {t:'Sujeto expreso y elidido', c:'Expreso o tácito.', e:'(Yo) medí.'},
+    {t:'Núcleo del sujeto', c:'Sustantivo.', e:'El agua (núcleo: agua).'},
+    {t:'Núcleo del predicado', c:'Verbo.', e:'Juan mide (núcleo: mide).'},
+    {t:'Concordancia sujeto-verbo', c:'Número y persona.', e:'Los niños miden.'},
+    {t:'Oraciones enunciativas', c:'Afirman.', e:'El agua hierve.'},
+    {t:'Oraciones interrogativas', c:'Preguntan.', e:'¿A qué temperatura?'},
+    {t:'Oraciones exclamativas', c:'Emoción.', e:'¡Qué interesante!'},
+    {t:'Oraciones imperativas', c:'Órdenes.', e:'Mide la temperatura.'},
+    {t:'Predicado nominal', c:'Copulativo + atributo.', e:'El agua es transparente.'},
+    {t:'Predicado verbal', c:'Verbo predicativo.', e:'El agua hierve.'},
+    {t:'Verbos copulativos', c:'ser, estar, parecer.', e:'El agua está fría.'},
+    {t:'Atributo', c:'Cualidad.', e:'El agua es transparente.'},
+    {t:'CD', c:'Recibe acción.', e:'Medí la temperatura.'},
+    {t:'CI', c:'Destinatario.', e:'Entregué el informe a la profesora.'},
+    {t:'CC de lugar', c:'Dónde.', e:'Estudio en el laboratorio.'},
+    {t:'CC de tiempo', c:'Cuándo.', e:'Mediré mañana.'},
+    {t:'CC de modo', c:'Cómo.', e:'Observa atentamente.'},
+    {t:'CC de causa', c:'Por qué.', e:'Lloró por la emoción.'},
+    {t:'CC de finalidad', c:'Para qué.', e:'Estudio para aprobar.'},
+    {t:'Oraciones transitivas', c:'Llevan CD.', e:'Compré un microscopio.'},
+    {t:'Oraciones intransitivas', c:'No llevan CD.', e:'Nací en Bogotá.'},
+    {t:'Oraciones impersonales', c:'Sin sujeto.', e:'Llueve mucho.'},
+    {t:'Oraciones activas', c:'Sujeto realiza.', e:'El niño rompió el tubo.'},
+    {t:'Oraciones pasivas', c:'Ser + participio + por.', e:'El tubo fue roto.'},
+    {t:'Sujeto agente', c:'Quien realiza en pasiva.', e:'por el niño.'},
+    {t:'Orden de la oración', c:'S + V + Complementos.', e:'María compró flores.'},
+    {t:'Concordancia artículo-sustantivo', c:'Género y número.', e:'la célula / las células.'},
+    {t:'Concordancia sustantivo-adjetivo', c:'Género y número.', e:'los átomos pequeños.'},
+    {t:'Oración compuesta', c:'Dos o más proposiciones.', e:'Quiero que vengas.'},
+    {t:'Yuxtaposición', c:'Sin nexo.', e:'Llegó, vio, venció.'},
+    {t:'Coordinación copulativa', c:'y, e, ni.', e:'Estudia y trabaja.'},
+    {t:'Coordinación adversativa', c:'pero, sino.', e:'Es listo, pero perezoso.'},
+    {t:'Coordinación disyuntiva', c:'o, u.', e:'¿Vienes o te quedas?'},
+    {t:'Subordinada sustantiva', c:'Como sustantivo.', e:'Me gusta que cantes.'},
+    {t:'Subordinada adjetiva', c:'Complementa sustantivo.', e:'El libro que leí.'},
+    {t:'Subordinada adverbial', c:'Causa, tiempo.', e:'Iré cuando pueda.'},
+    {t:'Estilo directo', c:'Textual.', e:'Dijo: "Voy."'},
+    {t:'Estilo indirecto', c:'Con ajustes.', e:'Dijo que iba.'},
+    {t:'Análisis crítico del discurso', c:'Fairclough.', e:'# Texto, práctica, sociedad'},
+    {t:'Cohesión', c:'Conectores, pronombres.', e:'# Mecanismos'},
+    {t:'Coherencia', c:'Unidad temática.', e:'# Progresión'},
+    {t:'Tipologías textuales', c:'Narrativo, descriptivo.', e:'# Clasificación'},
+    {t:'Géneros discursivos', c:'Bajtin, Swales.', e:'# Comunidad'},
+    {t:'Enunciación', c:'Quién, a quién.', e:'# Benveniste'},
+    {t:'Modalidad epistémica', c:'Certeza.', e:'# Grado'},
+    {t:'Modalidad deóntica', c:'Obligación.', e:'# Deber'},
+    {t:'Polifonía', c:'Múltiples voces.', e:'# Bajtin'},
+    {t:'Intertextualidad', c:'Diálogo.', e:'# Kristeva'},
+    {t:'Discurso científico', c:'Objetividad, precisión.', e:'# Rasgos'},
+    {t:'Nominalización', c:'Verbos → sustantivos.', e:'# Densidad léxica'},
+    {t:'Impersonalidad', c:'Ocultar agente.', e:'# Pasivas'},
+    {t:'Atenuación', c:'Hedges.', e:'# "It seems"'},
+    {t:'Refuerzo', c:'Boosters.', e:'# "Clearly shows"'},
+    {t:'Citación', c:'Integral / no integral.', e:'# "Según X"'},
+    {t:'Metadiscurso', c:'Organizar.', e:'# "As we saw"'},
+    {t:'Marcadores discursivos', c:'Conectores.', e:'# "Sin embargo"'},
+    {t:'Cohesión léxica', c:'Repetición, sinonimia.', e:'# Campos'},
+    {t:'Progresión temática', c:'Tema-rema.', e:'# Lineal'},
+    {t:'Voz activa vs. pasiva', c:'Elección.', e:'# Foco'},
+    {t:'Registro y género', c:'Adecuación.', e:'# Formal'},
+    {t:'Variedades del español', c:'Diatópicas, diafásicas.', e:'# Dialectos'},
+    {t:'Uso de mayúsculas', c:'Nombres, siglas.', e:'# RAE'},
+    {t:'Uso de tildes', c:'Ortografía.', e:'# Reglas'},
+    {t:'Puntuación', c:'Coma, punto y coma.', e:'# Normas'},
+    {t:'Revisión y edición', c:'Corrección de estilo.', e:'# Capas'},
+    {t:'Estilo académico', c:'Claridad, precisión.', e:'# Sin coloquialismos'},
+    {t:'Ética discursiva', c:'Uso responsable.', e:'# No manipular'}
+  ];
+  return T.map((t,i)=>({
+    id:i+1, titulo:t.t, concepto:t.c, ejemplo:t.e,
+    bloque: bloquesSin.find(b=>i+1>=b.rango[0] && i+1<=b.rango[1])?.id || 'sin-morf',
+    opciones:[t.c,'Es una figura literaria.','Solo se usa en latín.','No tiene aplicación en castellano.'],
+    correcta:0
+  }));
+}
+
+const tecnicasPy = generarTecnicasPython();
+const tecnicasTxt = generarTecnicasTextos();
+const tecnicasLec = generarTecnicasLectura();
+const tecnicasRed = generarTecnicasRedaccion();
+const tecnicasSin = generarTecnicasSintaxis();
+
+/* =====================================================================
+   ESTADO
+   ===================================================================== */
+let estado = null;
+
+function cargarEstado(){
+  estado = {
+    py:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('py')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('py')))||{}, tecnicaActual:1, bloqueActual:'py-inv' },
+    txt:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('txt')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('txt')))||{}, tecnicaActual:1, bloqueActual:'txt-paper' },
+    lec:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('lec')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('lec')))||{}, tecnicaActual:1, bloqueActual:'lec-crit' },
+    red:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('red')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('red')))||{}, tecnicaActual:1, bloqueActual:'red-inv' },
+    sin:{ progreso: JSON.parse(localStorage.getItem(getClaveArea('sin')))||{}, notas: JSON.parse(localStorage.getItem(getClaveNotas('sin')))||{}, tecnicaActual:1, bloqueActual:'sin-morf' },
+    tema: localStorage.getItem('cienciasU11_tema')||'light',
+    modo:'dashboard'
+  };
+  if(estado.tema==='dark'){
+    document.documentElement.setAttribute('data-theme','dark');
+    document.getElementById('btnTema').textContent='☀️';
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    document.getElementById('btnTema').textContent='🌙';
+  }
+}
+
+function guardar(area){
+  localStorage.setItem(getClaveArea(area), JSON.stringify(estado[area].progreso));
+  localStorage.setItem(getClaveNotas(area), JSON.stringify(estado[area].notas));
+  actualizarDashboard();
+}
+
+document.querySelectorAll('#navTabs button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    if(!currentUser) return;
+    document.querySelectorAll('#navTabs button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    estado.modo = btn.dataset.mode;
+    document.querySelectorAll('.mode-panel').forEach(p=>p.classList.remove('active'));
+    document.getElementById('panel-'+estado.modo).classList.add('active');
+    if(estado.modo==='dashboard') actualizarDashboard();
+    if(estado.modo==='python') renderCuaderno('py');
+    if(estado.modo==='textos') renderCuaderno('txt');
+    if(estado.modo==='lectura') renderCuaderno('lec');
+    if(estado.modo==='redaccion') renderCuaderno('red');
+    if(estado.modo==='sintaxis') renderCuaderno('sin');
+    if(estado.modo==='taller') renderTaller();
+    if(estado.modo==='certificado') renderCertificado();
+  });
+});
+
+document.getElementById('btnTema').addEventListener('click',()=>{
+  estado.tema = estado.tema==='light'?'dark':'light';
+  if(estado.tema==='dark') document.documentElement.setAttribute('data-theme', estado.tema);
+  else document.documentElement.removeAttribute('data-theme');
+  localStorage.setItem('cienciasU11_tema', estado.tema);
+  document.getElementById('btnTema').textContent = estado.tema==='dark'?'☀️':'🌙';
+});
+
+document.getElementById('btnReiniciar').addEventListener('click',()=>{
+  if(!currentUser) return;
+  if(!confirm(`¿Reiniciar todo el progreso de ${currentUser.nombre} en Ciencias 11° Universitario?`)) return;
+  ['py','txt','lec','red','sin'].forEach(a=>{
+    localStorage.removeItem(getClaveArea(a));
+    localStorage.removeItem(getClaveNotas(a));
+  });
+  cargarEstado();
+  renderTodo();
+});
+
+/* =====================================================================
+   DASHBOARD
+   ===================================================================== */
+function actualizarDashboard(){
+  if(!estado) return;
+  const py = Object.keys(estado.py.progreso).length;
+  const txt = Object.keys(estado.txt.progreso).length;
+  const lec = Object.keys(estado.lec.progreso).length;
+  const red = Object.keys(estado.red.progreso).length;
+  const sin = Object.keys(estado.sin.progreso).length;
+  const total = py+txt+lec+red+sin;
+  const pct = Math.round((total/500)*100);
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card"><div class="kpi-value">${total}/500</div><div class="kpi-label">Técnicas completadas</div></div>
+    <div class="kpi-card"><div class="kpi-value">${py}/100</div><div class="kpi-label">🐍 Python</div></div>
+    <div class="kpi-card"><div class="kpi-value">${txt}/100</div><div class="kpi-label">🧪 Textos</div></div>
+    <div class="kpi-card"><div class="kpi-value">${lec}/100</div><div class="kpi-label">🔬 Comprensión</div></div>
+    <div class="kpi-card"><div class="kpi-value">${red}/100</div><div class="kpi-label">✍️ Redacción</div></div>
+    <div class="kpi-card"><div class="kpi-value">${sin}/100</div><div class="kpi-label">🧩 Sintaxis</div></div>
+  `;
+
+  const barras = (bloques, tecnicas, progreso) => bloques.map(b=>{
+    const t = tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>progreso[x.id]).length;
+    const p = t.length ? Math.round((c/t.length)*100) : 0;
+    return `<div class="bar-row"><span class="bar-label">${b.icono} ${b.titulo}</span><div class="bar-track"><div class="bar-fill" style="width:${p}%"></div></div><span class="bar-pct">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  document.getElementById('barrasPython').innerHTML = barras(bloquesPy, tecnicasPy, estado.py.progreso);
+  document.getElementById('barrasTextos').innerHTML = barras(bloquesTxt, tecnicasTxt, estado.txt.progreso);
+  document.getElementById('barrasLectura').innerHTML = barras(bloquesLec, tecnicasLec, estado.lec.progreso);
+  document.getElementById('barrasRedaccion').innerHTML = barras(bloquesRed, tecnicasRed, estado.red.progreso);
+  document.getElementById('barrasSintaxis').innerHTML = barras(bloquesSin, tecnicasSin, estado.sin.progreso);
+
+  const per = 2*Math.PI*75;
+  document.getElementById('donutFill').setAttribute('stroke-dasharray', `${(pct/100)*per} ${per}`);
+  document.getElementById('donutPct').textContent = pct+'%';
+
+  const pts = [];
+  let acum = 0;
+  for(let i=0;i<=12;i++){
+    const x = 40 + (i*46);
+    const y = 140 - (acum/500)*120;
+    pts.push(`${x},${y}`);
+    acum += 42;
+  }
+  document.getElementById('curvaLine').setAttribute('points', pts.join(' '));
+}
+
+/* =====================================================================
+   RENDER CUADERNO
+   ===================================================================== */
+function renderCuaderno(area){
+  if(!estado) return;
+  const cfg = {
+    py: { bloques: bloquesPy, tecnicas: tecnicasPy, contenedor:'tecnicaPy', sidebar:'bloquesPy', progText:'progPyText', progFill:'progPyFill' },
+    txt:{ bloques: bloquesTxt, tecnicas: tecnicasTxt, contenedor:'tecnicaTxt', sidebar:'bloquesTxt', progText:'progTxtText', progFill:'progTxtFill' },
+    lec:{ bloques: bloquesLec, tecnicas: tecnicasLec, contenedor:'tecnicaLec', sidebar:'bloquesLec', progText:'progLecText', progFill:'progLecFill' },
+    red:{ bloques: bloquesRed, tecnicas: tecnicasRed, contenedor:'tecnicaRed', sidebar:'bloquesRed', progText:'progRedText', progFill:'progRedFill' },
+    sin:{ bloques: bloquesSin, tecnicas: tecnicasSin, contenedor:'tecnicaSin', sidebar:'bloquesSin', progText:'progSinText', progFill:'progSinFill' }
+  }[area];
+
+  const st = estado[area];
+  const sidebar = document.getElementById(cfg.sidebar);
+
+  sidebar.innerHTML = cfg.bloques.map(b=>{
+    const t = cfg.tecnicas.filter(x=>x.bloque===b.id);
+    const c = t.filter(x=>st.progreso[x.id]).length;
+    const activo = st.bloqueActual===b.id ? 'active':'';
+    return `<div class="bloque-item ${activo}" data-bloque="${b.id}"><span>${b.icono} ${b.titulo}</span><span class="badge-prog">${c}/${t.length}</span></div>`;
+  }).join('');
+
+  sidebar.querySelectorAll('.bloque-item').forEach(el=>{
+    el.addEventListener('click',()=>{
+      st.bloqueActual = el.dataset.bloque;
+      const primera = cfg.tecnicas.find(t=>t.bloque===el.dataset.bloque);
+      if(primera) st.tecnicaActual = primera.id;
+      renderCuaderno(area);
+    });
+  });
+
+  const tec = cfg.tecnicas.find(t=>t.id===st.tecnicaActual);
+  if(!tec) return;
+  const completada = st.progreso[tec.id];
+  const nota = st.notas[tec.id]||'';
+  const bloque = cfg.bloques.find(b=>b.id===tec.bloque);
+  const tecBloque = cfg.tecnicas.filter(t=>t.bloque===tec.bloque);
+
+  document.getElementById(cfg.contenedor).innerHTML = `
+    <div class="tecnica-header">
+      <div>
+        <div class="tecnica-num">${tec.id}</div>
+        <div class="tecnica-titulo">${tec.titulo}</div>
+        <div class="text-muted-app">${bloque.icono} ${bloque.titulo} · Técnica ${tec.id} de 100</div>
+      </div>
+      <button class="btn-accion ${completada?'secundario':''}" id="btnComp-${area}">
+        ${completada?'✅ Completada':'Marcar como completada'}
+      </button>
+    </div>
+    <div class="flashcard" id="fc-${area}">
+      <div class="flashcard-inner">
+        <div class="flashcard-front">
+          <h4>${tec.titulo}</h4>
+          <p style="font-size:0.88rem;margin-top:0.5rem;">${tec.concepto}</p>
+          <div class="flashcard-hint">🔄 Clic para ver ejemplo</div>
+        </div>
+        <div class="flashcard-back">
+          <h4>Ejemplo</h4>
+          <pre style="font-size:0.76rem;white-space:pre-wrap;margin-top:0.5rem;">${tec.ejemplo}</pre>
+        </div>
+      </div>
+    </div>
+    <div class="ejercicio-box">
+      <p><strong>✍️ Ejercicio:</strong> ¿Cuál es la definición correcta de <em>${tec.titulo}</em>?</p>
+      <div id="ops-${area}">
+        ${tec.opciones.map((op,i)=>`<div class="opcion" data-idx="${i}">${op}</div>`).join('')}
+      </div>
+      <div id="fb-${area}" style="margin-top:0.5rem;font-size:0.8rem;"></div>
+    </div>
+    <div class="notas-box">
+      <label style="font-size:0.8rem;font-weight:600;">📝 Mis notas:</label>
+      <textarea id="notas-${area}" placeholder="Escribe tus notas aquí...">${nota}</textarea>
+    </div>
+    <div class="puntos-avance">
+      ${tecBloque.map(t=>`<div class="punto ${st.progreso[t.id]?'completado':''} ${t.id===tec.id?'actual':''}" data-id="${t.id}">${t.id}</div>`).join('')}
+    </div>
+    <div class="nav-tecnicas">
+      <button id="prev-${area}" ${tec.id<=1?'disabled':''}>← Anterior</button>
+      <button id="next-${area}" ${tec.id>=100?'disabled':''}>Siguiente →</button>
+    </div>
+  `;
+
+  document.getElementById(`fc-${area}`).addEventListener('click',function(){ this.classList.toggle('flipped'); });
+  document.getElementById(`btnComp-${area}`).addEventListener('click',()=>{
+    if(st.progreso[tec.id]) delete st.progreso[tec.id];
+    else st.progreso[tec.id]=true;
+    guardar(area); renderCuaderno(area);
+  });
+  document.querySelectorAll(`#ops-${area} .opcion`).forEach(op=>{
+    op.addEventListener('click',()=>{
+      const idx = parseInt(op.dataset.idx);
+      const fb = document.getElementById(`fb-${area}`);
+      if(idx===tec.correcta){
+        op.classList.add('correct'); fb.innerHTML='✅ ¡Correcto!';
+        if(!st.progreso[tec.id]){ st.progreso[tec.id]=true; guardar(area); }
+      } else { op.classList.add('incorrect'); fb.innerHTML='❌ Inténtalo de nuevo.'; }
+    });
+  });
+  document.getElementById(`notas-${area}`).addEventListener('input',e=>{
+    st.notas[tec.id]=e.target.value; guardar(area);
+  });
+  document.getElementById(`prev-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id-1; renderCuaderno(area); });
+  document.getElementById(`next-${area}`)?.addEventListener('click',()=>{ st.tecnicaActual=tec.id+1; renderCuaderno(area); });
+  document.querySelectorAll(`#${cfg.contenedor} .punto`).forEach(p=>{
+    p.addEventListener('click',()=>{ st.tecnicaActual=parseInt(p.dataset.id); renderCuaderno(area); });
+  });
+
+  const total = Object.keys(st.progreso).length;
+  document.getElementById(cfg.progText).textContent = `${total}/100`;
+  document.getElementById(cfg.progFill).style.width = total+'%';
+}
+
+/* =====================================================================
+   TALLER 40 herramientas
+   ===================================================================== */
+function renderTaller(){
+  const grid = document.getElementById('tallerGrid');
+  grid.innerHTML = `
+    <div class="herramienta-card"><h4>🔬 Calculadora científica</h4>
+      <input id="calcExpr" placeholder="Ej: sqrt(16)+2**3">
+      <button class="btn-accion" id="btnCalc">Calcular</button>
+      <div class="resultado-box" id="rCalc"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Estadística descriptiva</h4>
+      <textarea id="statDatos" placeholder="Un dato por línea"></textarea>
+      <button class="btn-accion" id="btnStat">Analizar</button>
+      <div class="resultado-box" id="rStat"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 t-Student</h4>
+      <input id="ttA" placeholder="Grupo A">
+      <input id="ttB" placeholder="Grupo B">
+      <button class="btn-accion" id="btnTT">Comparar</button>
+      <div class="resultado-box" id="rTT"></div>
+    </div>
+    <div class="herramienta-card"><h4>📉 Regresión lineal</h4>
+      <textarea id="regDatos" placeholder="x,y por línea"></textarea>
+      <button class="btn-accion" id="btnReg">Ajustar</button>
+      <div class="resultado-box" id="rReg"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔢 Distribución normal</h4>
+      <input id="normMu" type="number" placeholder="μ">
+      <input id="normSigma" type="number" placeholder="σ">
+      <input id="normX" type="number" placeholder="x">
+      <button class="btn-accion" id="btnNorm">Calcular</button>
+      <div class="resultado-box" id="rNorm"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚛️ Física avanzada</h4>
+      <select id="fisTipo">
+        <option value="e_mc2">E = mc²</option>
+        <option value="foton">E = hf</option>
+        <option value="bohr">E_n Bohr</option>
+        <option value="dobroglie">λ = h/p</option>
+        <option value="hubble">Ley de Hubble</option>
+        <option value="schwarz">Radio de Schwarzschild</option>
+      </select>
+      <input id="fisA" type="number" placeholder="a">
+      <input id="fisB" type="number" placeholder="b">
+      <button class="btn-accion" id="btnFis">Calcular</button>
+      <div class="resultado-box" id="rFis"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚗️ Química analítica</h4>
+      <select id="quimTipo">
+        <option value="molaridad">Molaridad</option>
+        <option value="ph">pH</option>
+        <option value="buffer">Buffer HH</option>
+        <option value="ka">Ka</option>
+        <option value="mm">Michaelis-Menten</option>
+        <option value="beer">Beer-Lambert</option>
+      </select>
+      <input id="quimA" type="number" step="any" placeholder="a">
+      <input id="quimB" type="number" step="any" placeholder="b">
+      <input id="quimC" type="number" step="any" placeholder="c">
+      <button class="btn-accion" id="btnQuim">Calcular</button>
+      <div class="resultado-box" id="rQuim"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Traductor ADN → proteína</h4>
+      <input id="adnSeq" placeholder="ATGGCTTAA">
+      <button class="btn-accion" id="btnAdn">Traducir</button>
+      <div class="resultado-box" id="rAdn"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Analizador FASTA</h4>
+      <textarea id="fastaTexto" placeholder=">secuencia&#10;ATGGCTTAA"></textarea>
+      <button class="btn-accion" id="btnFasta">Analizar</button>
+      <div class="resultado-box" id="rFasta"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 H-index calculator</h4>
+      <input id="citasInput" placeholder="Citas por artículo: 5,8,12,20">
+      <button class="btn-accion" id="btnHindex">Calcular</button>
+      <div class="resultado-box" id="rHindex"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Contador de referencias</h4>
+      <textarea id="refTexto" placeholder="Una referencia por línea"></textarea>
+      <button class="btn-accion" id="btnRef">Contar</button>
+      <div class="resultado-box" id="rRef"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Detector de sesgos</h4>
+      <textarea id="sesgoTexto" placeholder="Pega un resumen científico..."></textarea>
+      <button class="btn-accion" id="btnSesgo">Detectar</button>
+      <div class="resultado-box" id="rSesgo"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧠 Analizador ACD</h4>
+      <textarea id="acdTexto" placeholder="Pega un texto científico..."></textarea>
+      <button class="btn-accion" id="btnAcd">Analizar</button>
+      <div class="resultado-box" id="rAcd"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧪 Detector tipo de texto</h4>
+      <textarea id="tipoTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnTipo">Detectar</button>
+      <div class="resultado-box" id="rTipo"></div>
+    </div>
+    <div class="herramienta-card"><h4>📈 Legibilidad científica</h4>
+      <textarea id="legibTexto" placeholder="Pega un texto..."></textarea>
+      <button class="btn-accion" id="btnLegib">Calcular</button>
+      <div class="resultado-box" id="rLegib"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔬 Analizador hipótesis</h4>
+      <textarea id="hipTexto" placeholder="Si aumento T, entonces v aumenta."></textarea>
+      <button class="btn-accion" id="btnHip">Analizar</button>
+      <div class="resultado-box" id="rHip"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Detector variables</h4>
+      <textarea id="varTexto" placeholder="Pega el método..."></textarea>
+      <button class="btn-accion" id="btnVar">Detectar</button>
+      <div class="resultado-box" id="rVar"></div>
+    </div>
+    <div class="herramienta-card"><h4>📐 Detector vicios</h4>
+      <textarea id="vicTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnVic">Detectar</button>
+      <div class="resultado-box" id="rVic"></div>
+    </div>
+    <div class="herramienta-card"><h4>🔤 Analizador morfológico</h4>
+      <textarea id="morfTexto" placeholder="Escribe una oración..."></textarea>
+      <button class="btn-accion" id="btnMorf">Analizar</button>
+      <div class="resultado-box" id="rMorf"></div>
+    </div>
+    <div class="herramienta-card"><h4>✍️ Corrector tildes</h4>
+      <textarea id="tildTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTild">Corregir</button>
+      <div class="resultado-box" id="rTild"></div>
+    </div>
+    <div class="herramienta-card"><h4>📚 Extractor idea principal</h4>
+      <textarea id="ideaTexto" placeholder="Pega un párrafo..."></textarea>
+      <button class="btn-accion" id="btnIdea">Extraer</button>
+      <div class="resultado-box" id="rIdea"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Serie temporal</h4>
+      <textarea id="serieDatos" placeholder="Un dato por línea"></textarea>
+      <button class="btn-accion" id="btnSerie">Analizar</button>
+      <div class="resultado-box" id="rSerie"></div>
+    </div>
+    <div class="herramienta-card"><h4>🌍 Huella de carbono</h4>
+      <input id="hcKm" type="number" placeholder="Km/día">
+      <input id="hcElec" type="number" placeholder="kWh/mes">
+      <button class="btn-accion" id="btnHc">Calcular</button>
+      <div class="resultado-box" id="rHc"></div>
+    </div>
+    <div class="herramienta-card"><h4>🎯 Cuadro Punnett</h4>
+      <input id="punA" placeholder="Genotipo 1">
+      <input id="punB" placeholder="Genotipo 2">
+      <button class="btn-accion" id="btnPun">Cruzar</button>
+      <div class="resultado-box" id="rPun"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚛️ Balanceador químico</h4>
+      <input id="balEc" placeholder="H2 + O2 = H2O">
+      <button class="btn-accion" id="btnBal">Sugerir</button>
+      <div class="resultado-box" id="rBal"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧮 Moles y estequiometría</h4>
+      <input id="molMasa" type="number" placeholder="Masa (g)">
+      <input id="molMolar" type="number" placeholder="M (g/mol)">
+      <button class="btn-accion" id="btnMol">Calcular</button>
+      <div class="resultado-box" id="rMol"></div>
+    </div>
+    <div class="herramienta-card"><h4>⏱️ Vida media radiactiva</h4>
+      <input id="vmIni" type="number" placeholder="N0">
+      <input id="vmVida" type="number" placeholder="Vida media">
+      <input id="vmT" type="number" placeholder="t">
+      <button class="btn-accion" id="btnVm">Calcular</button>
+      <div class="resultado-box" id="rVm"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧠 Modelo SIR</h4>
+      <input id="sirBeta" type="number" placeholder="β">
+      <input id="sirGamma" type="number" placeholder="γ">
+      <button class="btn-accion" id="btnSir">Calcular R₀</button>
+      <div class="resultado-box" id="rSir"></div>
+    </div>
+    <div class="herramienta-card"><h4>📡 Espectro electromagnético</h4>
+      <input id="emFreq" type="number" placeholder="Hz">
+      <button class="btn-accion" id="btnEm">Clasificar</button>
+      <div class="resultado-box" id="rEm"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector términos</h4>
+      <textarea id="termTexto" placeholder="Pega texto..."></textarea>
+      <button class="btn-accion" id="btnTerm">Detectar</button>
+      <div class="resultado-box" id="rTerm"></div>
+    </div>
+    <div class="herramienta-card"><h4>🐍 Generador Python</h4>
+      <select id="pyTipoGen">
+        <option value="regresion">Regresión</option>
+        <option value="adn">Traducción ADN</option>
+        <option value="einstein">E = mc²</option>
+        <option value="kmeans">K-means</option>
+        <option value="cnn">CNN</option>
+        <option value="pca">PCA</option>
+      </select>
+      <input id="pyTextoGen" placeholder="Datos">
+      <button class="btn-accion" id="btnPyGen">Generar</button>
+      <div class="resultado-box" id="rPyGen"></div>
+    </div>
+    <div class="herramienta-card"><h4>📏 Distancia astronómica</h4>
+      <input id="astroPc" type="number" placeholder="Pársecs">
+      <button class="btn-accion" id="btnAstro">Convertir</button>
+      <div class="resultado-box" id="rAstro"></div>
+    </div>
+    <div class="herramienta-card"><h4>⚡ Energía cinética/potencial</h4>
+      <select id="enerTipo">
+        <option value="ec">Ec = ½mv²</option>
+        <option value="ep">Ep = mgh</option>
+      </select>
+      <input id="enerA" type="number" placeholder="m (kg)">
+      <input id="enerB" type="number" placeholder="v (m/s) o h (m)">
+      <button class="btn-accion" id="btnEner">Calcular</button>
+      <div class="resultado-box" id="rEner"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧬 Detector de tipo de estudio</h4>
+      <textarea id="estudioTexto" placeholder="Pega el método de un paper..."></textarea>
+      <button class="btn-accion" id="btnEstudio">Clasificar</button>
+      <div class="resultado-box" id="rEstudio"></div>
+    </div>
+    <div class="herramienta-card"><h4>📖 Generador de citas APA</h4>
+      <input id="apaAutor" placeholder="Autor (Apellido, N.)">
+      <input id="apaAnio" placeholder="Año">
+      <input id="apaTitulo" placeholder="Título">
+      <button class="btn-accion" id="btnApa">Generar</button>
+      <div class="resultado-box" id="rApa"></div>
+    </div>
+    <div class="herramienta-card"><h4>🧪 Calculadora de disoluciones</h4>
+      <input id="disC1" type="number" step="any" placeholder="C1 (M)">
+      <input id="disV1" type="number" step="any" placeholder="V1 (mL)">
+      <input id="disV2" type="number" step="any" placeholder="V2 final (mL)">
+      <button class="btn-accion" id="btnDis">Calcular C2</button>
+      <div class="resultado-box" id="rDis"></div>
+    </div>
+    <div class="herramienta-card"><h4>📊 Detector de p-hacking</h4>
+      <textarea id="phackTexto" placeholder="Pega métodos y análisis estadísticos..."></textarea>
+      <button class="btn-accion" id="btnPhack">Analizar</button>
+      <div class="resultado-box" id="rPhack"></div>
+    </div>
+    <div class="herramienta-card"><h4>📤 Exportar informe</h4>
+      <button class="btn-accion" id="btnExportar">Generar .txt</button>
+      <div class="resultado-box" id="rExportar"></div>
+    </div>
+  `;
+
+  // Calculadora
+  document.getElementById('btnCalc').addEventListener('click',()=>{
+    const e = document.getElementById('calcExpr').value;
+    try {
+      const r = Function('"use strict";const sqrt=Math.sqrt,sin=Math.sin,cos=Math.cos,tan=Math.tan,log=Math.log,exp=Math.exp,PI=Math.PI;return ('+e+')')();
+      document.getElementById('rCalc').textContent = `= ${r}`;
+    } catch { document.getElementById('rCalc').textContent = 'Error.'; }
+  });
+
+  document.getElementById('btnStat').addEventListener('click',()=>{
+    const nums = document.getElementById('statDatos').value.split('\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
+    if(nums.length<2){ document.getElementById('rStat').textContent='Ingresa al menos 2 datos.'; return; }
+    const n=nums.length, media=nums.reduce((a,b)=>a+b,0)/n;
+    const sorted=[...nums].sort((a,b)=>a-b);
+    const mediana = n%2 ? sorted[Math.floor(n/2)] : (sorted[n/2-1]+sorted[n/2])/2;
+    const varianza = nums.reduce((s,x)=>s+(x-media)**2,0)/(n-1);
+    const desv = Math.sqrt(varianza);
+    document.getElementById('rStat').innerHTML = `
+      <strong>N:</strong> ${n}<br>
+      <strong>Media:</strong> ${media.toFixed(3)}<br>
+      <strong>Mediana:</strong> ${mediana.toFixed(3)}<br>
+      <strong>Desv. muestral:</strong> ${desv.toFixed(3)}<br>
+      <strong>Varianza:</strong> ${varianza.toFixed(3)}<br>
+      <strong>Mín/Máx:</strong> ${Math.min(...nums)} / ${Math.max(...nums)}
+    `;
+  });
+
+  document.getElementById('btnTT').addEventListener('click',()=>{
+    const A=document.getElementById('ttA').value.split(',').map(x=>parseFloat(x.trim())).filter(x=>!isNaN(x));
+    const B=document.getElementById('ttB').value.split(',').map(x=>parseFloat(x.trim())).filter(x=>!isNaN(x));
+    if(A.length<2||B.length<2){ document.getElementById('rTT').textContent='Cada grupo necesita 2 datos.'; return; }
+    const mA=A.reduce((a,b)=>a+b,0)/A.length;
+    const mB=B.reduce((a,b)=>a+b,0)/B.length;
+    const vA=A.reduce((s,x)=>s+(x-mA)**2,0)/(A.length-1);
+    const vB=B.reduce((s,x)=>s+(x-mB)**2,0)/(B.length-1);
+    const sp=Math.sqrt(vA/A.length + vB/B.length);
+    const t=(mA-mB)/sp;
+    const gl=A.length+B.length-2;
+    document.getElementById('rTT').innerHTML = `
+      <strong>Media A:</strong> ${mA.toFixed(3)}<br>
+      <strong>Media B:</strong> ${mB.toFixed(3)}<br>
+      <strong>t:</strong> ${t.toFixed(3)}<br>
+      <strong>gl:</strong> ${gl}<br>
+      <em>|t| > 2: diferencia significativa</em>
+    `;
+  });
+
+  document.getElementById('btnReg').addEventListener('click',()=>{
+    const lineas=document.getElementById('regDatos').value.split('\n').filter(l=>l.trim());
+    const puntos=lineas.map(l=>l.split(',').map(x=>parseFloat(x.trim()))).filter(p=>p.length===2 && !isNaN(p[0]) && !isNaN(p[1]));
+    if(puntos.length<2){ document.getElementById('rReg').textContent='Ingresa al menos 2 puntos.'; return; }
+    const n=puntos.length;
+    const sx=puntos.reduce((s,p)=>s+p[0],0);
+    const sy=puntos.reduce((s,p)=>s+p[1],0);
+    const sxy=puntos.reduce((s,p)=>s+p[0]*p[1],0);
+    const sx2=puntos.reduce((s,p)=>s+p[0]**2,0);
+    const sy2=puntos.reduce((s,p)=>s+p[1]**2,0);
+    const m=(n*sxy-sx*sy)/(n*sx2-sx*sx);
+    const b=(sy-m*sx)/n;
+    const r=(n*sxy-sx*sy)/Math.sqrt((n*sx2-sx*sx)*(n*sy2-sy*sy));
+    document.getElementById('rReg').innerHTML = `
+      <strong>y = ${m.toFixed(4)}x + ${b.toFixed(4)}</strong><br>
+      <strong>R² = ${(r*r).toFixed(4)}</strong><br>
+      <strong>R = ${r.toFixed(4)}</strong>
+    `;
+  });
+
+  document.getElementById('btnNorm').addEventListener('click',()=>{
+    const mu=parseFloat(document.getElementById('normMu').value);
+    const sigma=parseFloat(document.getElementById('normSigma').value);
+    const x=parseFloat(document.getElementById('normX').value);
+    if(isNaN(mu)||isNaN(sigma)||isNaN(x)){ document.getElementById('rNorm').textContent='Completa los valores.'; return; }
+    const z=(x-mu)/sigma;
+    const pdf = Math.exp(-0.5*z*z)/(sigma*Math.sqrt(2*Math.PI));
+    document.getElementById('rNorm').innerHTML = `
+      <strong>z:</strong> ${z.toFixed(3)}<br>
+      <strong>Densidad:</strong> ${pdf.toFixed(6)}
+    `;
+  });
+
+  document.getElementById('btnFis').addEventListener('click',()=>{
+    const t=document.getElementById('fisTipo').value;
+    const a=parseFloat(document.getElementById('fisA').value);
+    const b=parseFloat(document.getElementById('fisB').value);
+    let r,u,f;
+    const h=6.626e-34, c=3e8, G=6.674e-11;
+    if(t==='e_mc2'){ r=a*c*c; f='E = mc²'; u='J'; }
+    else if(t==='foton'){ r=h*a; f='E = hf'; u='J'; }
+    else if(t==='bohr'){ r=-13.6/(a*a); f='E_n'; u='eV'; }
+    else if(t==='dobroglie'){ r=h/a; f='λ = h/p'; u='m'; }
+    else if(t==='hubble'){ r=a/70; f='d = v/H₀'; u='Mpc'; }
+    else { r=2*G*a/(c*c); f='R_s = 2GM/c²'; u='m'; }
+    document.getElementById('rFis').innerHTML = `${f}<br>Resultado: <strong>${r.toExponential(4)} ${u}</strong>`;
+  });
+
+  document.getElementById('btnQuim').addEventListener('click',()=>{
+    const t=document.getElementById('quimTipo').value;
+    const a=parseFloat(document.getElementById('quimA').value);
+    const b=parseFloat(document.getElementById('quimB').value);
+    const c=parseFloat(document.getElementById('quimC').value);
+    let r,u,f;
+    if(t==='molaridad'){ r=a/b; f='M = n/V'; u='M'; }
+    else if(t==='ph'){ r=-Math.log10(a); f='pH'; u=''; }
+    else if(t==='buffer'){ r=a+Math.log10(b); f='pH = pKa + log([A⁻]/[HA])'; u=''; }
+    else if(t==='ka'){ r=Math.pow(10,-a); f='Ka'; u=''; }
+    else if(t==='mm'){ r=a*b/(b+b); f='v = Vmax[S]/(Km+[S])'; u=''; }
+    else { r=a*b*c; f='A = εcl'; u=''; }
+    document.getElementById('rQuim').innerHTML = `${f}<br>Resultado: <strong>${r.toExponential(4)} ${u}</strong>`;
+  });
+
+  document.getElementById('btnAdn').addEventListener('click',()=>{
+    const s=document.getElementById('adnSeq').value.toUpperCase().replace(/[^ATGC]/g,'');
+    if(!s){ document.getElementById('rAdn').textContent='Ingresa una secuencia.'; return; }
+    const codigo = {TTT:'F',TTC:'F',TTA:'L',TTG:'L',CTT:'L',CTC:'L',CTA:'L',CTG:'L',ATT:'I',ATC:'I',ATA:'I',ATG:'M',GTT:'V',GTC:'V',GTA:'V',GTG:'V',TCT:'S',TCC:'S',TCA:'S',TCG:'S',CCT:'P',CCC:'P',CCA:'P',CCG:'P',ACT:'T',ACC:'T',ACA:'T',ACG:'T',GCT:'A',GCC:'A',GCA:'A',GCG:'A',TAT:'Y',TAC:'Y',TAA:'*',TAG:'*',CAT:'H',CAC:'H',CAA:'Q',CAG:'Q',AAT:'N',AAC:'N',AAA:'K',AAG:'K',GAT:'D',GAC:'D',GAA:'E',GAG:'E',TGT:'C',TGC:'C',TGA:'*',TGG:'W',CGT:'R',CGC:'R',CGA:'R',CGG:'R',AGT:'S',AGC:'S',AGA:'R',AGG:'R',GGT:'G',GGC:'G',GGA:'G',GGG:'G'};
+    let prot='';
+    for(let i=0;i<s.length-2;i+=3){ prot += codigo[s.substr(i,3)] || '?'; }
+    const comp = s.split('').map(x=>x==='A'?'T':x==='T'?'A':x==='G'?'C':'G').join('');
+    document.getElementById('rAdn').innerHTML = `
+      <strong>ADN:</strong> ${s}<br>
+      <strong>Complementaria:</strong> ${comp}<br>
+      <strong>Proteína:</strong> ${prot}
+    `;
+  });
+
+  document.getElementById('btnFasta').addEventListener('click',()=>{
+    const lineas=document.getElementById('fastaTexto').value.split('\n');
+    let seq='';
+    lineas.forEach(l=>{ if(!l.startsWith('>')) seq += l.trim().toUpperCase().replace(/[^ATGC]/g,''); });
+    if(!seq){ document.getElementById('rFasta').textContent='Ingresa una secuencia FASTA.'; return; }
+    const gc = ((seq.match(/[GC]/g)||[]).length / seq.length * 100).toFixed(1);
+    document.getElementById('rFasta').innerHTML = `
+      <strong>Longitud:</strong> ${seq.length} pb<br>
+      <strong>Contenido GC:</strong> ${gc}%
+    `;
+  });
+
+  document.getElementById('btnHindex').addEventListener('click',()=>{
+    const citas=document.getElementById('citasInput').value.split(',').map(x=>parseInt(x.trim())).filter(x=>!isNaN(x));
+    if(!citas.length){ document.getElementById('rHindex').textContent='Ingresa citas.'; return; }
+    const sorted=[...citas].sort((a,b)=>b-a);
+    let h=0;
+    for(let i=0;i<sorted.length;i++){ if(sorted[i]>=i+1) h=i+1; else break; }
+    document.getElementById('rHindex').innerHTML = `
+      <strong>H-index:</strong> ${h}<br>
+      <em>Citas ordenadas: ${sorted.join(', ')}</em>
+    `;
+  });
+
+  document.getElementById('btnRef').addEventListener('click',()=>{
+    const refs=document.getElementById('refTexto').value.split('\n').filter(l=>l.trim());
+    document.getElementById('rRef').innerHTML = `
+      <strong>Total:</strong> ${refs.length}<br>
+      <em>20-60 para paper, 100+ para revisión</em>
+    `;
+  });
+
+  document.getElementById('btnSesgo').addEventListener('click',()=>{
+    const t=document.getElementById('sesgoTexto').value.toLowerCase();
+    const sesgos=[];
+    if(/nuestro estudio|demostramos|confirmamos/.test(t)) sesgos.push('📌 Autopromocional');
+    if(/claramente|obviamente|sin duda/.test(t)) sesgos.push('📌 Refuerzo excesivo');
+    if(/todos los|siempre|nunca/.test(t)) sesgos.push('📌 Generalización');
+    if(!/limitaci|sin embargo|no obstante/.test(t)) sesgos.push('📌 Sin limitaciones');
+    document.getElementById('rSesgo').innerHTML = sesgos.length ? sesgos.join('<br>') : '✅ Sin sesgos evidentes.';
+  });
+
+  document.getElementById('btnAcd').addEventListener('click',()=>{
+    const t=document.getElementById('acdTexto').value.toLowerCase();
+    const hallazgos=[];
+    if(/nuestro|nuestros/.test(t)) hallazgos.push('📌 "Nosotros" académico');
+    if(/se observ|se determin|se midi/.test(t)) hallazgos.push('📌 Impersonalidad');
+    if(/claramente|demuestra|evidencia/.test(t)) hallazgos.push('📌 Refuerzo');
+    if(/puede|sugiere|parece|probablemente/.test(t)) hallazgos.push('📌 Atenuación');
+    if(/según|de acuerdo con|citado por/.test(t)) hallazgos.push('📌 Citación');
+    document.getElementById('rAcd').innerHTML = hallazgos.length ? hallazgos.join('<br>') : '✅ Sin marcadores evidentes.';
+  });
+
+  document.getElementById('btnTipo').addEventListener('click',()=>{
+    const t = document.getElementById('tipoTexto').value;
+    let tipo='Expositivo científico';
+    if(/^\s*1\.|paso 1|materiales|procedimiento/i.test(t)) tipo='Instructivo';
+    else if(/porque|por tanto|en consecuencia|debemos/i.test(t)) tipo='Argumentativo';
+    else if(/es|son|está|tiene|color|forma/i.test(t) && !/porque/i.test(t)) tipo='Descriptivo';
+    else if(/se define|consiste|proceso|se caracteriza/i.test(t)) tipo='Expositivo';
+    document.getElementById('rTipo').innerHTML = `<strong>Tipo:</strong> ${tipo}`;
+  });
+
+  document.getElementById('btnLegib').addEventListener('click',()=>{
+    const t=document.getElementById('legibTexto').value;
+    const palabras=t.trim()?t.trim().split(/\s+/):[];
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim()).length||1;
+    const silabas=palabras.reduce((s,p)=>s+(p.toLowerCase().match(/[aeiouáéíóú]+/g)||[]).length,1);
+    const idx=206.84-0.60*(silabas/palabras.length*100)-1.02*(palabras.length/oraciones);
+    const nivel=idx>90?'Muy fácil':idx>80?'Fácil':idx>70?'Normal':idx>60?'Algo difícil':'Difícil';
+    document.getElementById('rLegib').innerHTML = `FH: <strong>${idx.toFixed(1)}</strong><br>Nivel: <strong>${nivel}</strong>`;
+  });
+
+  document.getElementById('btnHip').addEventListener('click',()=>{
+    const t=document.getElementById('hipTexto').value;
+    const tieneSi=/\bsi\b/i.test(t);
+    const tieneEntonces=/\bentonces\b/i.test(t);
+    const partes=t.split(/\bentonces\b/i);
+    document.getElementById('rHip').innerHTML = `
+      ${tieneSi?'✅ "si"':'⚠️ Falta "si"'}<br>
+      ${tieneEntonces?'✅ "entonces"':'⚠️ Falta "entonces"'}<br>
+      ${partes[0]?`<br><strong>VI:</strong> ${partes[0].replace(/si/i,'').trim()}`:''}
+      ${partes[1]?`<br><strong>VD:</strong> ${partes[1].trim()}`:''}
+    `;
+  });
+
+  document.getElementById('btnVar').addEventListener('click',()=>{
+    const t=document.getElementById('varTexto').value.toLowerCase();
+    const v=[];
+    if(/\b(temperatura|calor)\b/.test(t)) v.push('🌡️ Temperatura');
+    if(/\b(luz|iluminación)\b/.test(t)) v.push('☀️ Luz');
+    if(/\b(agua|riego)\b/.test(t)) v.push('💧 Agua');
+    if(/\b(tiempo|días|horas)\b/.test(t)) v.push('⏱️ Tiempo');
+    if(/\b(masa|peso)\b/.test(t)) v.push('⚖️ Masa');
+    if(/\b(altura|crecimiento)\b/.test(t)) v.push('📏 Altura');
+    if(/\b(ph|acidez)\b/.test(t)) v.push('🧪 pH');
+    document.getElementById('rVar').innerHTML = v.length ? v.join('<br>') : 'Sin variables detectadas.';
+  });
+
+  document.getElementById('btnVic').addEventListener('click',()=>{
+    const t=document.getElementById('vicTexto').value;
+    const v=[];
+    if(/\b(pienso|creo|opino) de que\b/gi.test(t)) v.push('⚠️ Dequeísmo');
+    if(/\bme di cuenta que\b/gi.test(t)) v.push('⚠️ Queísmo');
+    if(/\ble vi\b/gi.test(t)) v.push('⚠️ Leísmo');
+    if(/\bla dije\b/gi.test(t)) v.push('⚠️ Laísmo');
+    if(/\b(subir arriba|bajar abajo)\b/gi.test(t)) v.push('⚠️ Pleonasmo');
+    if(/\b(haiga|accesar|prevee)\b/gi.test(t)) v.push('⚠️ Barbarismo');
+    document.getElementById('rVic').innerHTML = v.length ? v.join('<br>') : '✅ Sin vicios.';
+  });
+
+  document.getElementById('btnMorf').addEventListener('click',()=>{
+    const t=document.getElementById('morfTexto').value;
+    const palabras = t.trim()?t.trim().split(/\s+/):[];
+    const analisis = palabras.map(p=>{
+      let c='?';
+      if(/^(el|la|los|las|un|una|unos|unas)$/i.test(p)) c='Artículo';
+      else if(/^(yo|tú|él|ella|nosotros|me|te|se|lo|la|le|les|nos)$/i.test(p)) c='Pronombre';
+      else if(/^(y|e|o|u|pero|sino|porque|aunque|si|cuando|como|donde)$/i.test(p)) c='Conjunción';
+      else if(/^(a|ante|bajo|con|contra|de|desde|en|entre|hacia|hasta|para|por|según|sin|sobre|tras)$/i.test(p)) c='Preposición';
+      else if(/^(muy|bastante|poco|mucho|bien|mal|rápidamente|ayer|hoy|mañana|aquí|allí)$/i.test(p)) c='Adverbio';
+      else if(/^(es|son|está|están|era|eran|fue|fueron|ser|estar|tener|haber|hacer|ir|venir|decir|poder|querer|saber|ver|dar|comer|correr|leer|escribir|medir|pesar|calentar|disolver)$/i.test(p)) c='Verbo';
+      else if(/o$|a$|os$|as$/.test(p)&&p.length>2) c='Sust/Adj';
+      return `${p} → ${c}`;
+    });
+    document.getElementById('rMorf').innerHTML=analisis.join('<br>');
+  });
+
+  document.getElementById('btnTild').addEventListener('click',()=>{
+    const t=document.getElementById('tildTexto').value;
+    const errores=[];
+    if(/\besta\b/g.test(t)) errores.push('⚠️ esta/está');
+    if(/\bmas\b/g.test(t)) errores.push('⚠️ mas/más');
+    if(/\bde que\b/gi.test(t)) errores.push('⚠️ posible dequeísmo');
+    document.getElementById('rTild').innerHTML = errores.length ? errores.join('<br>') : '✅ Sin errores.';
+  });
+
+  document.getElementById('btnIdea').addEventListener('click',()=>{
+    const t=document.getElementById('ideaTexto').value;
+    const oraciones=t.split(/[.!?]+/).filter(s=>s.trim());
+    const stop = new Set(['de','la','que','el','en','y','a','los','del','las','un','una','por','con','para','es','son','se','su','al','lo','como','más','pero','sus','le','ya','o','este','sí','porque','esta','entre','cuando','muy','sin','sobre','también','me','hasta','hay','donde','quien','desde','todo','nos','durante','todos','uno','les','ni','contra','otros','ese','eso','ante','ellos','e','esto','mí','antes','algunos','qué','unos','yo','otro','otras','otra','él','tanto','esa','estos','mucho','quienes','nada','muchos','cual','poco','ella','estar','estas','algunas','algo','nosotros']);
+    const freq={};
+    oraciones.forEach(o=>{
+      o.toLowerCase().split(/\s+/).forEach(p=>{
+        p=p.replace(/[^\wáéíóúñ]/g,'');
+        if(p.length>3 && !stop.has(p)) freq[p]=(freq[p]||0)+1;
+      });
+    });
+    const top=Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0,5);
+    const mejor=oraciones.reduce((best,o)=>{
+      const score=top.reduce((s,[w,c])=>s+(o.toLowerCase().includes(w)?c:0),0);
+      return score>best.score?{o,score}:best;
+    },{o:'',score:-1});
+    document.getElementById('rIdea').innerHTML = `<strong>Clave:</strong> ${top.map(x=>x[0]).join(', ')}<br><br><strong>Idea:</strong><br>${mejor.o.trim()}.`;
+  });
+
+  document.getElementById('btnSerie').addEventListener('click',()=>{
+    const datos=document.getElementById('serieDatos').value.split('\n').map(x=>parseFloat(x)).filter(x=>!isNaN(x));
+    if(datos.length<2){ document.getElementById('rSerie').textContent='Ingresa al menos 2 datos.'; return; }
+    const pendiente = (datos[datos.length-1] - datos[0]) / (datos.length-1);
+    const tendencia = pendiente>0.1?'Ascendente 📈':pendiente<-0.1?'Descendente 📉':'Estable ➡️';
+    document.getElementById('rSerie').innerHTML = `
+      <strong>N:</strong> ${datos.length}<br>
+      <strong>Pendiente:</strong> ${pendiente.toFixed(3)}<br>
+      <strong>Tendencia:</strong> ${tendencia}
+    `;
+  });
+
+  document.getElementById('btnHc').addEventListener('click',()=>{
+    const km=parseFloat(document.getElementById('hcKm').value)||0;
+    const kwh=parseFloat(document.getElementById('hcElec').value)||0;
+    const co2 = km*0.192*365 + kwh*0.4*12;
+    document.getElementById('rHc').innerHTML = `<strong>${co2.toFixed(0)} kg CO₂/año</strong>`;
+  });
+
+  document.getElementById('btnPun').addEventListener('click',()=>{
+    const a=document.getElementById('punA').value.padEnd(2,'?');
+    const b=document.getElementById('punB').value.padEnd(2,'?');
+    const cruz = [[a[0]+b[0],a[0]+b[1]],[a[1]+b[0],a[1]+b[1]]];
+    document.getElementById('rPun').innerHTML = `<strong>Genotipos:</strong> ${cruz.flat().join(', ')}`;
+  });
+
+  document.getElementById('btnBal').addEventListener('click',()=>{
+    const e=document.getElementById('balEc').value;
+    const comunes={'H2 + O2 = H2O':'2 H2 + O2 = 2 H2O','N2 + H2 = NH3':'N2 + 3 H2 = 2 NH3'};
+    document.getElementById('rBal').textContent = comunes[e.replace(/\s+/g,' ').trim()] || 'Revisa los átomos.';
+  });
+
+  document.getElementById('btnMol').addEventListener('click',()=>{
+    const m=parseFloat(document.getElementById('molMasa').value);
+    const M=parseFloat(document.getElementById('molMolar').value);
+    if(!m||!M){ document.getElementById('rMol').textContent='Completa los valores.'; return; }
+    document.getElementById('rMol').innerHTML = `<strong>${(m/M).toFixed(4)} moles</strong>`;
+  });
+
+  document.getElementById('btnVm').addEventListener('click',()=>{
+    const N0=parseFloat(document.getElementById('vmIni').value);
+    const T=parseFloat(document.getElementById('vmVida').value);
+    const t=parseFloat(document.getElementById('vmT').value);
+    if(isNaN(N0)||isNaN(T)||isNaN(t)){ document.getElementById('rVm').textContent='Completa los valores.'; return; }
+    const lambda = Math.log(2)/T;
+    const N = N0 * Math.exp(-lambda*t);
+    document.getElementById('rVm').innerHTML = `
+      <strong>λ:</strong> ${lambda.toExponential(4)}<br>
+      <strong>N(t):</strong> ${N.toFixed(3)}<br>
+      <strong>Fracción:</strong> ${((N/N0)*100).toFixed(2)}%
+    `;
+  });
+
+  document.getElementById('btnSir').addEventListener('click',()=>{
+    const beta=parseFloat(document.getElementById('sirBeta').value);
+    const gamma=parseFloat(document.getElementById('sirGamma').value);
+    if(isNaN(beta)||isNaN(gamma)||gamma===0){ document.getElementById('rSir').textContent='Completa β y γ.'; return; }
+    const R0=beta/gamma;
+    document.getElementById('rSir').innerHTML = `<strong>R₀ = ${R0.toFixed(3)}</strong><br>${R0>1?'🔴 Epidemia':'🟢 Controlada'}`;
+  });
+
+  document.getElementById('btnEm').addEventListener('click',()=>{
+    const f=parseFloat(document.getElementById('emFreq').value);
+    if(isNaN(f)){ document.getElementById('rEm').textContent='Ingresa frecuencia.'; return; }
+    let tipo='';
+    if(f<3e9) tipo='📡 Radio';
+    else if(f<3e11) tipo='🍿 Microondas';
+    else if(f<4e14) tipo='🔥 Infrarrojo';
+    else if(f<7.5e14) tipo='🌈 Visible';
+    else if(f<3e16) tipo='☀️ UV';
+    else if(f<3e19) tipo='🩻 X';
+    else tipo='☢️ Gamma';
+    document.getElementById('rEm').innerHTML = `<strong>${tipo}</strong>`;
+  });
+
+  document.getElementById('btnTerm').addEventListener('click',()=>{
+    const t=document.getElementById('termTexto').value.toLowerCase();
+    const terminos=['fotosíntesis','célula','átomo','molécula','energía','materia','ecosistema','biodiversidad','temperatura','densidad','reacción','sustancia','mitosis','meiosis','adn','proteína','bacteria','volcán','sismo','clima','hábitat','gravedad','oxidación','combustión','ph','cinemática','fuerza','aceleración','potencia','circuito','voltaje','corriente','gen','alelo','enzima','relatividad','cuántica','fotón','neurona','sinapsis','crispr','pcr','genoma'];
+    const encontrados=terminos.filter(x=>t.includes(x));
+    document.getElementById('rTerm').innerHTML = encontrados.length ? encontrados.map(x=>'• '+x).join('<br>') : 'Sin términos.';
+  });
+
+  document.getElementById('btnPyGen').addEventListener('click',()=>{
+    const tipo=document.getElementById('pyTipoGen').value;
+    let code='';
+    if(tipo==='regresion'){
+      code=`import numpy as np\nfrom scipy import stats\nx = np.array([1,2,3,4,5])\ny = np.array([2.1,4.0,5.9,8.1,10.0])\nslope, intercept, r, p, se = stats.linregress(x, y)\nprint(f"y = {slope:.3f}x + {intercept:.3f}, R² = {r**2:.3f}")`;
+    } else if(tipo==='adn'){
+      code=`from Bio.Seq import Seq\nseq = Seq("ATGGCTTAA")\nprint(f"Proteína: {seq.translate()}")`;
+    } else if(tipo==='einstein'){
+      code=`def energia(m):\n    c = 3e8\n    return m * c**2\nprint(f"E = {energia(0.001):.2e} J")`;
+    } else if(tipo==='kmeans'){
+      code=`from sklearn.cluster import KMeans\nimport numpy as np\nX = np.random.rand(100, 2)\nkmeans = KMeans(n_clusters=3, random_state=42).fit(X)\nprint(kmeans.labels_)`;
+    } else if(tipo==='cnn'){
+      code=`import torch\nimport torch.nn as nn\nmodel = nn.Sequential(\n    nn.Conv2d(3, 32, 3, padding=1),\n    nn.ReLU(),\n    nn.MaxPool2d(2),\n    nn.Linear(32*16*16, 10)\n)\nprint(model)`;
+    } else {
+      code=`from sklearn.decomposition import PCA\nfrom sklearn.preprocessing import StandardScaler\nimport numpy as np\nX = np.random.rand(100, 5)\nX_scaled = StandardScaler().fit_transform(X)\npca = PCA(n_components=2)\nX_pca = pca.fit_transform(X_scaled)\nprint(f"Varianza: {pca.explained_variance_ratio_}")`;
+    }
+    document.getElementById('rPyGen').textContent=code;
+  });
+
+  document.getElementById('btnAstro').addEventListener('click',()=>{
+    const pc=parseFloat(document.getElementById('astroPc').value);
+    if(isNaN(pc)){ document.getElementById('rAstro').textContent='Ingresa pársecs.'; return; }
+    document.getElementById('rAstro').innerHTML = `
+      <strong>${pc} pc</strong> = ${(pc*3.26).toFixed(2)} años luz
+    `;
+  });
+
+  document.getElementById('btnEner').addEventListener('click',()=>{
+    const t=document.getElementById('enerTipo').value;
+    const a=parseFloat(document.getElementById('enerA').value);
+    const b=parseFloat(document.getElementById('enerB').value);
+    let r,f;
+    if(t==='ec'){ r=0.5*a*b*b; f='Ec = ½mv²'; }
+    else { r=a*9.8*b; f='Ep = mgh'; }
+    document.getElementById('rEner').innerHTML = `${f}<br><strong>${r.toFixed(2)} J</strong>`;
+  });
+
+  document.getElementById('btnEstudio').addEventListener('click',()=>{
+    const t=document.getElementById('estudioTexto').value.toLowerCase();
+    let tipo='Observacional';
+    if(/aleatoriz|randomiz|ensayo clínico/.test(t)) tipo='Ensayo clínico (RCT)';
+    else if(/cohorte|seguimiento/.test(t)) tipo='Cohorte';
+    else if(/caso.control/.test(t)) tipo='Casos y controles';
+    else if(/transversal|prevalencia/.test(t)) tipo='Transversal';
+    else if(/revisión sistemática|prisma/.test(t)) tipo='Revisión sistemática';
+    else if(/meta.análisis/.test(t)) tipo='Meta-análisis';
+    else if(/entrevista|etnograf/.test(t)) tipo='Cualitativo';
+    document.getElementById('rEstudio').innerHTML = `<strong>${tipo}</strong>`;
+  });
+
+  document.getElementById('btnApa').addEventListener('click',()=>{
+    const a=document.getElementById('apaAutor').value || 'Autor, A.';
+    const y=document.getElementById('apaAnio').value || '2025';
+    const t=document.getElementById('apaTitulo').value || 'Título del trabajo';
+    document.getElementById('rApa').innerHTML = `${a} (${y}). <em>${t}</em>.`;
+  });
+
+  document.getElementById('btnDis').addEventListener('click',()=>{
+    const c1=parseFloat(document.getElementById('disC1').value);
+    const v1=parseFloat(document.getElementById('disV1').value);
+    const v2=parseFloat(document.getElementById('disV2').value);
+    if(!c1||!v1||!v2){ document.getElementById('rDis').textContent='Completa los valores.'; return; }
+    const c2 = c1*v1/v2;
+    document.getElementById('rDis').innerHTML = `<strong>C₂ = ${c2.toFixed(4)} M</strong>`;
+  });
+
+  document.getElementById('btnPhack').addEventListener('click',()=>{
+    const t=document.getElementById('phackTexto').value.toLowerCase();
+    const señales=[];
+    if(/múltiples|varios|varias/.test(t) && /test|prueba/.test(t)) señales.push('⚠️ Múltiples comparaciones');
+    if(/excluir|excluido/.test(t) && /outlier/.test(t)) señales.push('⚠️ Exclusión de outliers');
+    if(/post.hoc|posterior/.test(t)) señales.push('⚠️ Análisis post-hoc');
+    if(!/preregistr|pre.register/.test(t)) señales.push('📌 Sin preregistro declarado');
+    if(!/potencia|power/.test(t)) señales.push('📌 Sin análisis de potencia');
+    document.getElementById('rPhack').innerHTML = señales.length ? señales.join('<br>') : '✅ Sin señales claras.';
+  });
+
+  document.getElementById('btnExportar').addEventListener('click',()=>{
+    exportarProgresoUsuario();
+    document.getElementById('rExportar').textContent = 'Informe generado.';
+  });
+}
+
+/* =====================================================================
+   CERTIFICADO
+   ===================================================================== */
+function renderCertificado(){
+  const campos=JSON.parse(localStorage.getItem(getClaveCampos()))||{};
+  document.querySelectorAll('#certificadoPortada .campo-editable').forEach(el=>{
+    const c=el.dataset.campo;
+    if(campos[c]) el.textContent=campos[c];
+    if(c==='nombre' && currentUser) el.textContent = currentUser.nombre;
+    if(c==='institucion' && currentUser) el.textContent = currentUser.institucion;
+    if(c==='curso' && currentUser) el.textContent = currentUser.curso;
+    el.addEventListener('blur',()=>{
+      campos[c]=el.textContent;
+      localStorage.setItem(getClaveCampos(),JSON.stringify(campos));
+    });
+  });
+  document.getElementById('selloAnio').textContent=new Date().getFullYear();
+
+  const todos=[
+    {bloques:bloquesPy, tecnicas:tecnicasPy, tipo:'🐍 Python para investigación avanzada (11° Universitario)'},
+    {bloques:bloquesTxt, tecnicas:tecnicasTxt, tipo:'🧪 Textos y comunicación científica (11° Universitario)'},
+    {bloques:bloquesLec, tecnicas:tecnicasLec, tipo:'🔬 Comprensión crítica avanzada (11° Universitario)'},
+    {bloques:bloquesRed, tecnicas:tecnicasRed, tipo:'✍️ Redacción, tesis y publicación (11° Universitario)'},
+    {bloques:bloquesSin, tecnicas:tecnicasSin, tipo:'🧩 Sintaxis y discurso científico (11° Universitario)'}
+  ];
+
+  let html='';
+  todos.forEach(mod=>{
+    html+=`<h2 style="margin:2rem 0 1rem;color:var(--u11);">${mod.tipo}</h2>`;
+    mod.bloques.forEach(b=>{
+      const tec=mod.tecnicas.filter(t=>t.bloque===b.id);
+      html+=`<div class="bloque-cert"><h3>${b.icono} ${b.titulo} (${b.rango[0]}-${b.rango[1]})</h3>
+        ${tec.map(t=>`<div class="tecnica-cert">
+          <span class="num">${t.id}.</span> <strong>${t.titulo}</strong>
+          <p style="font-size:0.83rem;margin:0.2rem 0;">${t.concepto}</p>
+          <div class="ejemplo">${t.ejemplo}</div>
+        </div>`).join('')}
+      </div>`;
+    });
+  });
+
+  document.getElementById('certificadoContenido').innerHTML=html;
+}
+
+function descargarWord(){
+  const portada=document.getElementById('certificadoPortada').innerHTML;
+  const contenido=document.getElementById('certificadoContenido').innerHTML;
+  const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Certificado</title><style>body{font-family:'PT Serif',Georgia,serif;color:#1e1e1e;}h1,h2,h3{color:#047857;}.bloque-cert{page-break-before:always;}.ejemplo{background:#f8f6f2;border-left:3px solid #047857;padding:0.5rem;font-family:monospace;}.certificado-portada{border:3px double #047857;padding:2rem;text-align:center;}</style></head><body>${portada}${contenido}</body></html>`;
+  const blob=new Blob([html],{type:'application/msword'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download=`certificado_${currentUser.nombre.replace(/\s+/g,'_')}_ciencias_U11.doc`; a.click();
+}
+
+/* =====================================================================
+   PWA
+   ===================================================================== */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('pwaBanner').classList.add('show');
+});
+document.getElementById('btnInstalarBanner')?.addEventListener('click',async()=>{
+  if(deferredPrompt){ deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt=null; }
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnCerrarBanner')?.addEventListener('click',()=>{
+  document.getElementById('pwaBanner').classList.remove('show');
+});
+document.getElementById('btnInstalar')?.addEventListener('click',()=>{
+  if(deferredPrompt) deferredPrompt.prompt();
+  else alert('Usa el menú del navegador → "Instalar app" o "Añadir a pantalla de inicio".');
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='cienciasU11-cuaderno';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['/','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css','https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js'])));});self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`;
+  const blob=new Blob([sw],{type:'application/javascript'});
+  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+}
+
+window.addEventListener('online',()=>{
+  document.getElementById('connectionPill').textContent='● En línea';
+  document.getElementById('connectionPill').classList.remove('offline');
+});
+window.addEventListener('offline',()=>{
+  document.getElementById('connectionPill').textContent='○ Sin conexión';
+  document.getElementById('connectionPill').classList.add('offline');
+});
+
+/* =====================================================================
+   INICIALIZACIÓN
+   ===================================================================== */
+function renderTodo(){
+  if(!estado) return;
+  actualizarDashboard();
+  if(estado.modo==='python') renderCuaderno('py');
+  if(estado.modo==='textos') renderCuaderno('txt');
+  if(estado.modo==='lectura') renderCuaderno('lec');
+  if(estado.modo==='redaccion') renderCuaderno('red');
+  if(estado.modo==='sintaxis') renderCuaderno('sin');
+  if(estado.modo==='taller') renderTaller();
+  if(estado.modo==='certificado') renderCertificado();
+}
+
+(function init(){
+  renderAuth();
+  const sesionId = getSesion();
+  if(sesionId){
+    const u = getUsuarios().find(x=>x.id===sesionId);
+    if(u){
+      currentUser = u;
+      iniciarApp();
+      return;
+    } else {
+      setSesion(null);
+    }
+  }
+  document.getElementById('authOverlay').classList.add('show');
+})();
+</script>
+</body>
+</html>
