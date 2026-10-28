@@ -42,6 +42,12 @@ if [ "$RUN_RESET_DEMO" = "True" ]; then
   python manage.py set_demo_passwords || true
 fi
 
+
+# Cargar progreso histórico (solo si RUN_LOAD_PROGRESS es "True")
+if [ "$RUN_LOAD_PROGRESS" = "True" ]; then
+  echo "Cargando progreso histórico..."
+  python manage.py load_progress_fixture --clear || true
+fi
 # Crear certificaciones de prueba (solo si RUN_DEMO_CERTS es "True")
 if [ "$RUN_DEMO_CERTS" = "True" ]; then
   echo "Creando certificaciones demo..."
