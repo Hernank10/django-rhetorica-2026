@@ -8,7 +8,6 @@ from django.db import transaction
 
 
 DELETE_ORDER = [
-    # Hijos primero, padres al final
     ("core", "PreguntaEvaluacion"),
     ("core", "EvaluacionCurso"),
     ("core", "Leccion"),
@@ -21,7 +20,7 @@ DELETE_ORDER = [
     ("core", "TecnicaSintactica"),
     ("core", "Recurso"),
     ("core", "ContenidoJSON"),
-    ("core", "Certificacion"),  # cascada a CertificacionObtenida
+    ("core", "Certificacion"),
 ]
 
 
@@ -29,11 +28,20 @@ class Command(BaseCommand):
     help = "Carga fixtures/core_content.json parcheando FKs a User (idempotente)"
 
     def add_arguments(self, parser):
-        parser.add_argument("--force", action="store_true",
-                            help="Borra contenido existente y recarga")
-        parser.add_argument("--no-clear", action="store_true",
-                            help="Con --force, no borrar; solo intentar loaddata")
-        parser.add_argument("--fixture", default="fixtures/core_content.json")
+        parser.add_argument(
+            "--force",
+            action="store_true",
+            help="Borra contenido existente y recarga",
+        )
+        parser.add_argument(
+            "--no-clear",
+            action="store_true",
+            help="Con --force, no borrar; solo intentar loaddata",
+        )
+        parser.add_argument(
+            "--fixture",
+            default="fixtures/core_content.json",
+        )
 
     def _clear_content(self):
         total = 0
@@ -58,7 +66,6 @@ class Command(BaseCommand):
         force = options["force"]
         no_clear = options["no_clear"]
 
-        # 1) Heuristica de "ya hay datos" si no hay --force
         if not force:
             targets = [
                 ("core", "TecnicaGramatical"),
@@ -75,18 +82,19 @@ class Command(BaseCommand):
                 except LookupError:
                     continue
             if not todo_vacio:
-                self.stdout.write(self.style.SUCCESS(
-                    "[SKIP] Ya hay datos. Usa --force para recargar."
-                ))
+                self.stdout.write(
+                    self.style.SUCCESS(
+                        "[SKIP] Ya hay datos. Usa --force para recargar."
+                    )
+                )
                 return
 
-        # 2) Limpiar contenido (si --force y no --no-clear)
         if force and not no_clear:
             self._clear_content()
 
-        # 3) Pre-parchear FKs a User (Curso.creado_por / profesor_asignado)
         try:
             import json
+
             User = get_user_model()
             admin = User.objects.filter(is_superuser=True).order_by("pk").first()
             if admin:
@@ -111,14 +119,19 @@ class Command(BaseCommand):
                     self.stdout.write(
                         f"[PATCH] {patched} FKs a User -> pk={admin.pk}"
                     )
+                else:
+                    self.stdout.write("[PATCH] Sin FKs de Curso que parchear")
             else:
-                self.stdout.write(self.style.WARNING(
-                    "[WARN] No hay superusuario; se carga sin parchear"
-                ))
+                self.stdout.write(
+                    self.style.WARNING(
+                        "[WARN] No hay superusuario; se carga sin parchear"
+                    )
+                )
         except Exception as e:
             self.stdout.write(self.style.WARNING(f"[WARN] Pre-parcheo fallo: {e}"))
 
-        # 4) Cargar SIN atrapar errores -> set -o errexit cortara el build
         self.stdout.write(f"[LOAD] {fixture_path}")
         call_command("loaddata", str(fixture_path), verbosity=2)
-        self.stdout.write(self.style.SUCCESS(f"[OK] Fixture cargado: {fixture_path}"))
+        self.stdout.write(
+            self.style.SUCCESS(f"[OK] Fixture cargado: {fixture_path}")
+        )
