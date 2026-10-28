@@ -26,3 +26,8 @@ if [ "$RUN_TEST_USERS" = "True" ]; then
   echo "Creando usuarios de prueba..."
   python manage.py seed_test_users
 fi
+# Resetear passwords de usuarios est* para demo (solo si RUN_RESET_DEMO es "True")
+if [ "$RUN_RESET_DEMO" = "True" ]; then
+  echo "Reseteando passwords demo..."
+  python manage.py set_demo_passwords
+fi
