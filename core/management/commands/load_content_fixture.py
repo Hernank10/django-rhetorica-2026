@@ -4,6 +4,25 @@ from django.apps import apps
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
+from django.db import transaction
+
+
+DELETE_ORDER = [
+    # Hijos primero, padres al final
+    ("core", "PreguntaEvaluacion"),
+    ("core", "EvaluacionCurso"),
+    ("core", "Leccion"),
+    ("core", "Modulo"),
+    ("core", "Curso"),
+    ("core", "EjercicioGramatical"),
+    ("core", "EjercicioTecnica"),
+    ("core", "EjercicioLinguistico"),
+    ("core", "TecnicaGramatical"),
+    ("core", "TecnicaSintactica"),
+    ("core", "Recurso"),
+    ("core", "ContenidoJSON"),
+    ("core", "Certificacion"),  # cascada a CertificacionObtenida
+]
 
 
 class Command(BaseCommand):
@@ -11,8 +30,24 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument("--force", action="store_true",
-                            help="Recarga aunque ya haya datos")
+                            help="Borra contenido existente y recarga")
+        parser.add_argument("--no-clear", action="store_true",
+                            help="Con --force, no borrar; solo intentar loaddata")
         parser.add_argument("--fixture", default="fixtures/core_content.json")
+
+    def _clear_content(self):
+        total = 0
+        with transaction.atomic():
+            for app_label, model_name in DELETE_ORDER:
+                try:
+                    Model = apps.get_model(app_label, model_name)
+                except LookupError:
+                    continue
+                deleted, _ = Model.objects.all().delete()
+                if deleted:
+                    self.stdout.write(f"[CLEAR] {model_name}: {deleted} borrados")
+                    total += deleted
+        self.stdout.write(f"[CLEAR] Total borrados: {total}")
 
     def handle(self, *args, **options):
         fixture_path = Path(options["fixture"])
@@ -20,7 +55,36 @@ class Command(BaseCommand):
             self.stdout.write(self.style.WARNING(f"[SKIP] No existe {fixture_path}"))
             return
 
-        # 1) Pre-parchear FKs a User (Curso.creado_por / profesor_asignado)
+        force = options["force"]
+        no_clear = options["no_clear"]
+
+        # 1) Heuristica de "ya hay datos" si no hay --force
+        if not force:
+            targets = [
+                ("core", "TecnicaGramatical"),
+                ("core", "Recurso"),
+                ("core", "Curso"),
+            ]
+            todo_vacio = True
+            for app_label, model_name in targets:
+                try:
+                    n = apps.get_model(app_label, model_name).objects.count()
+                    if n > 0:
+                        self.stdout.write(f"[INFO] {model_name}: {n} filas")
+                        todo_vacio = False
+                except LookupError:
+                    continue
+            if not todo_vacio:
+                self.stdout.write(self.style.SUCCESS(
+                    "[SKIP] Ya hay datos. Usa --force para recargar."
+                ))
+                return
+
+        # 2) Limpiar contenido (si --force y no --no-clear)
+        if force and not no_clear:
+            self._clear_content()
+
+        # 3) Pre-parchear FKs a User (Curso.creado_por / profesor_asignado)
         try:
             import json
             User = get_user_model()
@@ -47,8 +111,6 @@ class Command(BaseCommand):
                     self.stdout.write(
                         f"[PATCH] {patched} FKs a User -> pk={admin.pk}"
                     )
-                else:
-                    self.stdout.write("[PATCH] Sin FKs de Curso que parchear")
             else:
                 self.stdout.write(self.style.WARNING(
                     "[WARN] No hay superusuario; se carga sin parchear"
@@ -56,31 +118,7 @@ class Command(BaseCommand):
         except Exception as e:
             self.stdout.write(self.style.WARNING(f"[WARN] Pre-parcheo fallo: {e}"))
 
-        # 2) Heuristica de "ya hay datos"
-        targets = [
-            ("core", "TecnicaGramatical"),
-            ("core", "TecnicaSintactica"),
-            ("core", "EjercicioLinguistico"),
-            ("core", "Recurso"),
-            ("core", "Curso"),
-        ]
-        todo_vacio = True
-        for app_label, model_name in targets:
-            try:
-                n = apps.get_model(app_label, model_name).objects.count()
-                if n > 0:
-                    self.stdout.write(f"[INFO] {model_name}: {n} filas")
-                    todo_vacio = False
-            except LookupError:
-                continue
-
-        if not todo_vacio and not options["force"]:
-            self.stdout.write(self.style.SUCCESS(
-                "[SKIP] Ya hay datos. Usa --force para recargar."
-            ))
-            return
-
-        # 3) Cargar SIN atrapar errores -> set -o errexit cortara el build
+        # 4) Cargar SIN atrapar errores -> set -o errexit cortara el build
         self.stdout.write(f"[LOAD] {fixture_path}")
         call_command("loaddata", str(fixture_path), verbosity=2)
         self.stdout.write(self.style.SUCCESS(f"[OK] Fixture cargado: {fixture_path}"))

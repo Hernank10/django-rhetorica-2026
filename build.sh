@@ -31,13 +31,24 @@ if [ "$RUN_RESET_DEMO" = "True" ]; then
   echo "Reseteando passwords demo..."
   python manage.py set_demo_passwords
 fi
+caciones demo..."
+  python manage.py seed_demo_certs
+fi
+XTURE es "True")
+if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
+  echo "Cargando fixture de contenido..."
+  python manage.py load_content_fixture --force
+fi
+# Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
+# IMPORTANTE: --force borra contenido y certificaciones (cascada).
+# Por eso debe correr ANTES de RUN_DEMO_CERTS.
+if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
+  echo "Cargando fixture de contenido..."
+  python manage.py load_content_fixture --force
+fi
+
 # Crear certificaciones de prueba (solo si RUN_DEMO_CERTS es "True")
 if [ "$RUN_DEMO_CERTS" = "True" ]; then
   echo "Creando certificaciones demo..."
   python manage.py seed_demo_certs
-fi
-# Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
-if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
-  echo "Cargando fixture de contenido..."
-  python manage.py load_content_fixture --force
 fi
