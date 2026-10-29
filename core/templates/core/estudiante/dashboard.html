@@ -468,6 +468,23 @@ new Chart(document.getElementById('chartActividad'), {
 </div>
 
 
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-info">
+        <div class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-graduation-cap"></i> Lengua Castellana A2 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=a2" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel básico-intermedio (MCER A2): pasados (indefinido, imperfecto, perfecto), futuro, condicional, imperativo, pronombres personales y situaciones comunicativas. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_a2' %}" class="btn btn-info text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+          <a href="{% url 'gramatica:tecnica' 501 %}" class="btn btn-outline-info"><i class="fas fa-play"></i> Empezar por la 501</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div class="row g-3 mb-4">
   <div class="col-md-12">
     <div class="card shadow-sm border-primary">
