@@ -154,3 +154,11 @@ EJERCICIOS = {
             {"id": "c", "texto": "El sábado pasado me levanté tarde, desayuno en casa y voy al cine.", "correcta": False, "razon": "Mezcla indefinido con presente."},
         ], "justificacion_obligatoria": False, "regla": "narración completa en indefinido"}}],
 }
+
+# Bloques B y C (511-530): indefinido irregular + imperfecto
+from .tecnicas_a2_bloque_b import TECNICAS_511_520, EJERCICIOS_511_520
+from .tecnicas_a2_bloque_c import TECNICAS_521_530, EJERCICIOS_521_530
+TECNICAS.extend(TECNICAS_511_520)
+TECNICAS.extend(TECNICAS_521_530)
+EJERCICIOS.update(EJERCICIOS_511_520)
+EJERCICIOS.update(EJERCICIOS_521_530)
