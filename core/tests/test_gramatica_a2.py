@@ -1,4 +1,4 @@
-﻿"""Tests A2 — Lengua Castellana (Bloques A, B, C). Self-contained."""
+﻿"""Tests A2 — Lengua Castellana (Bloques A-E). Self-contained."""
 import pytest
 from django.contrib.auth import get_user_model
 from django.test import Client
@@ -35,27 +35,26 @@ def a2_user():
 
 
 class TestA2Bloques:
-    def test_30_tecnicas(self, a2_data):
-        assert TecnicaGramatical.objects.filter(modulo="a2").count() == 30
+    def test_50_tecnicas(self, a2_data):
+        assert TecnicaGramatical.objects.filter(modulo="a2").count() == 50
 
     def test_por_bloque(self, a2_data):
-        for letra in ("A", "B", "C"):
+        for letra in ("A", "B", "C", "D", "E"):
             n = TecnicaGramatical.objects.filter(modulo="a2", bloque=letra).count()
             assert n == 10, f"bloque {letra}: {n}"
 
-    def test_rango_501_530(self, a2_data):
+    def test_rango_501_550(self, a2_data):
         ns = sorted(TecnicaGramatical.objects.filter(modulo="a2").values_list("numero", flat=True))
-        assert ns == list(range(501, 531))
+        assert ns == list(range(501, 551))
 
     def test_ejercicios(self, a2_data):
         ids = list(TecnicaGramatical.objects.filter(modulo="a2").values_list("id", flat=True))
-        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 30
+        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 50
 
     def test_indice_a2_200(self, a2_data, a2_user):
         client = Client(); client.force_login(a2_user)
         r = client.get("/gramatica/a2/")
         assert r.status_code == 200
-        assert b"Bloque A" in r.content
-        assert b"Bloque B" in r.content
-        assert b"Bloque C" in r.content
+        for letra in ("Bloque A", "Bloque B", "Bloque C", "Bloque D", "Bloque E"):
+            assert letra.encode() in r.content
         assert "Lengua Castellana A2".encode() in r.content

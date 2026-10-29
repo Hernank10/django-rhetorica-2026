@@ -44,7 +44,9 @@ BLOQUES_A2 = {
     "A": "Pretérito indefinido regular",
     "B": "Pretérito indefinido irregular",
     "C": "Pretérito imperfecto",
-    # D-J se añadirán en fases 2 y 3
+    "D": "Contraste indefinido vs imperfecto",
+    "E": "Pretérito perfecto",
+    # F-J se añadirán en fase 3
 }
 
 
