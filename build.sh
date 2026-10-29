@@ -12,6 +12,15 @@ if [ "$CREATE_SUPERUSER" = "True" ]; then
   python manage.py create_superuser
 fi
 
+
+# Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
+# IMPORTANTE: --force borra contenido y certificaciones (cascada).
+# Por eso debe correr ANTES de RUN_DEMO_CERTS.
+if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
+  echo "Cargando fixture de contenido..."
+  python manage.py load_content_fixture --force || true
+fi
+
 # Seeds de tecnicas (solo si RUN_SEEDS es "True")
 if [ "$RUN_SEEDS" = "True" ]; then
   echo "Ejecutando seeds..."
@@ -20,15 +29,6 @@ if [ "$RUN_SEEDS" = "True" ]; then
   python scripts/seed_generativa.py
   python scripts/seed_a1.py
   python scripts/seed_b1.py
-fi
-
-
-# Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
-# IMPORTANTE: --force borra contenido y certificaciones (cascada).
-# Por eso debe correr ANTES de RUN_DEMO_CERTS.
-if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
-  echo "Cargando fixture de contenido..."
-  python manage.py load_content_fixture --force || true
 fi
 
 # Seeds de A2 (solo si RUN_SEED_A2 es "True")

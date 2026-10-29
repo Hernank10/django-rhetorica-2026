@@ -48,7 +48,9 @@ BLOQUES_A2 = {
     "E": "Pretérito perfecto",
     "F": "Futuro",
     "G": "Condicional simple",
-    # H-J se añadirán en fase 3
+    "H": "Imperativo",
+    "I": "Pronombres personales",
+    # J se añadirá en fase final
 }
 
 
