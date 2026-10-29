@@ -23,18 +23,18 @@ if [ "$RUN_SEEDS" = "True" ]; then
 fi
 
 
-# Seeds de A2 (solo si RUN_SEED_A2 es "True")
-if [ "$RUN_SEED_A2" = "True" ]; then
-  echo "Ejecutando seed A2..."
-  python scripts/seed_a2.py || true
-fi
-
 # Cargar fixture de contenido (solo si RUN_LOAD_FIXTURE es "True")
 # IMPORTANTE: --force borra contenido y certificaciones (cascada).
 # Por eso debe correr ANTES de RUN_DEMO_CERTS.
 if [ "$RUN_LOAD_FIXTURE" = "True" ]; then
   echo "Cargando fixture de contenido..."
   python manage.py load_content_fixture --force || true
+fi
+
+# Seeds de A2 (solo si RUN_SEED_A2 es "True")
+if [ "$RUN_SEED_A2" = "True" ]; then
+  echo "Ejecutando seed A2..."
+  python scripts/seed_a2.py || true
 fi
 
 # Crear usuarios de prueba (solo si RUN_TEST_USERS es "True")
@@ -48,7 +48,6 @@ if [ "$RUN_RESET_DEMO" = "True" ]; then
   echo "Reseteando passwords demo..."
   python manage.py set_demo_passwords || true
 fi
-
 
 # Cargar progreso histórico (solo si RUN_LOAD_PROGRESS es "True")
 if [ "$RUN_LOAD_PROGRESS" = "True" ]; then
