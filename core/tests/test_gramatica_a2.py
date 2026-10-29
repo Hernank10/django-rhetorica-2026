@@ -1,4 +1,4 @@
-﻿"""Tests A2 — Lengua Castellana (Bloques A-I). Self-contained."""
+﻿"""Tests A2 — Lengua Castellana (A2 completo, 100 técnicas)."""
 import pytest
 from django.contrib.auth import get_user_model
 from django.test import Client
@@ -34,28 +34,27 @@ def a2_user():
     return user
 
 
-class TestA2Bloques:
-    def test_90_tecnicas(self, a2_data):
-        assert TecnicaGramatical.objects.filter(modulo="a2").count() == 90
+class TestA2Completo:
+    def test_100_tecnicas(self, a2_data):
+        assert TecnicaGramatical.objects.filter(modulo="a2").count() == 100
 
-    def test_por_bloque(self, a2_data):
-        for letra in ("A", "B", "C", "D", "E", "F", "G", "H", "I"):
+    def test_10_bloques(self, a2_data):
+        for letra in "ABCDEFGHIJ":
             n = TecnicaGramatical.objects.filter(modulo="a2", bloque=letra).count()
             assert n == 10, f"bloque {letra}: {n}"
 
-    def test_rango_501_590(self, a2_data):
+    def test_rango_501_600(self, a2_data):
         ns = sorted(TecnicaGramatical.objects.filter(modulo="a2").values_list("numero", flat=True))
-        assert ns == list(range(501, 591))
+        assert ns == list(range(501, 601))
 
     def test_ejercicios(self, a2_data):
         ids = list(TecnicaGramatical.objects.filter(modulo="a2").values_list("id", flat=True))
-        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 90
+        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 100
 
     def test_indice_a2_200(self, a2_data, a2_user):
         client = Client(); client.force_login(a2_user)
         r = client.get("/gramatica/a2/")
         assert r.status_code == 200
-        for letra in ("Bloque A", "Bloque B", "Bloque C", "Bloque D", "Bloque E",
-                      "Bloque F", "Bloque G", "Bloque H", "Bloque I"):
-            assert letra.encode() in r.content
+        for letra in "ABCDEFGHIJ":
+            assert f"Bloque {letra}".encode() in r.content
         assert "Lengua Castellana A2".encode() in r.content

@@ -50,7 +50,7 @@ BLOQUES_A2 = {
     "G": "Condicional simple",
     "H": "Imperativo",
     "I": "Pronombres personales",
-    # J se añadirá en fase final
+    "J": "Comparativos y situaciones",
 }
 
 
