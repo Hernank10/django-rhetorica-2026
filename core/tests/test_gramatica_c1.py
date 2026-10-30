@@ -35,28 +35,28 @@ def c1_user():
     return user
 
 
-class TestC1BloquesAE:
-    def test_50_tecnicas(self, c1_data):
-        assert TecnicaGramatical.objects.filter(modulo="c1").count() == 50
+class TestC1BloquesAG:
+    def test_70_tecnicas(self, c1_data):
+        assert TecnicaGramatical.objects.filter(modulo="c1").count() == 70
 
-    def test_5_bloques(self, c1_data):
-        for letra in "ABCDE":
+    def test_7_bloques(self, c1_data):
+        for letra in "ABCDEFG":
             n = TecnicaGramatical.objects.filter(modulo="c1", bloque=letra).count()
             assert n == 10, f"bloque {letra}: {n}"
 
-    def test_rango_701_750(self, c1_data):
+    def test_rango_701_770(self, c1_data):
         ns = sorted(TecnicaGramatical.objects.filter(modulo="c1").values_list("numero", flat=True))
-        assert ns == list(range(701, 751))
+        assert ns == list(range(701, 771))
 
     def test_ejercicios(self, c1_data):
         ids = list(TecnicaGramatical.objects.filter(modulo="c1").values_list("id", flat=True))
-        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 50
+        assert EjercicioGramatical.objects.filter(tecnica_id__in=ids).count() >= 70
 
     def test_indice_c1_200(self, c1_data, c1_user):
         client = Client(); client.force_login(c1_user)
         r = client.get("/gramatica/c1/")
         assert r.status_code == 200
-        for letra in "ABCDE":
+        for letra in "ABCDEFG":
             assert f"Bloque {letra}".encode() in r.content
         assert "Lengua Castellana C1".encode() in r.content
 

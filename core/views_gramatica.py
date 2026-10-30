@@ -87,7 +87,9 @@ BLOQUES_C1 = {
     "C": "Cohesión y coherencia avanzadas",
     "D": "Expresiones idiomáticas",
     "E": "Matices aspectuales y modales",
-    # F-J se añadirán en fases 4-5
+    "F": "Léxico especializado",
+    "G": "Sintaxis compleja",
+    # H-J se añadirán en fase final
 }
 
 
