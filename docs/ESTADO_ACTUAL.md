@@ -1,13 +1,13 @@
 # Estado actual — django-rhetorica-2026
 
-Snapshot tras `v2.1.1` (2026-10-30). Verificar con `/debug/db/?token=...` (sin prefijo `/en/`).
+Snapshot tras `v2.1.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin prefijo `/en/`).
 
 ## Modelos en producción
 
 | Modelo | Filas |
 |---|---|
-| TecnicaGramatical | **620** |
-| EjercicioGramatical | **620** |
+| TecnicaGramatical | **710** |
+| EjercicioGramatical | **710** |
 | TecnicaSintactica | 100 |
 | TecnicaLinguistica | 10 |
 | EjercicioTecnica | 100 |
@@ -79,8 +79,8 @@ Snapshot tras `v2.1.1` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | `testest001..096` | 96 | `Test1234!` |
 | `admin` | 1 | (creado por `create_superuser`) |
 
-## C1 en curso (701-800)
+## C1 COMPLETO (701-800)
 
-- ✅ Bloque A (701-710): discurso académico — `v2.1.0`
-- ✅ Fix resiliencia `tecnica()` + cleanup pre/post — `v2.1.1`
-- 🚧 Bloques B-J: pendientes (fases `v2.1.2` a `v2.1.5`)
+- ✅ Bloques A-J: 100/100 técnicas
+- ✅ Tag `v2.1.6` — C1 COMPLETO
+- 🚧 C2: pendiente (801-900)
