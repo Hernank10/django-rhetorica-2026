@@ -91,7 +91,7 @@ BLOQUES_C1 = {
     "G": "Sintaxis compleja",
     "H": "Discurso oral formal",
     "I": "Análisis crítico del discurso",
-    # J se añadirá en fase final
+    "J": "Síntesis y creación de textos",
 }
 
 
