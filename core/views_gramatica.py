@@ -83,7 +83,9 @@ BLOQUES_B2 = {
 
 BLOQUES_C1 = {
     "A": "Discurso académico",
-    # B-J se añadirán en fases 2-5
+    "B": "Registro literario",
+    "C": "Cohesión y coherencia avanzadas",
+    # D-J se añadirán en fases 3-5
 }
 
 

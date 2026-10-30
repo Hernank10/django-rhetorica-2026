@@ -154,3 +154,11 @@ EJERCICIOS = {
             {"id": "c", "texto": "Básicamente, pues sí, porque es así.", "correcta": False, "razon": "Coloquial."},
         ], "justificacion_obligatoria": False, "regla": "repaso integrador"}}],
 }
+
+# Bloques B y C (711-730): registro literario + cohesión avanzada
+from .tecnicas_c1_bloque_b import TECNICAS_711_720, EJERCICIOS_711_720
+from .tecnicas_c1_bloque_c import TECNICAS_721_730, EJERCICIOS_721_730
+TECNICAS.extend(TECNICAS_711_720)
+TECNICAS.extend(TECNICAS_721_730)
+EJERCICIOS.update(EJERCICIOS_711_720)
+EJERCICIOS.update(EJERCICIOS_721_730)
