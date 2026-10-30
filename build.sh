@@ -63,6 +63,13 @@ if [ "$RUN_SEED_C1" = "True" ]; then
   python scripts/seed_c1.py || true
 fi
 
+
+# Seeds de C2 (solo si RUN_SEED_C2 es "True")
+if [ "$RUN_SEED_C2" = "True" ]; then
+  echo "Ejecutando seed C2..."
+  python scripts/seed_c2.py || true
+fi
+
 # Cargar progreso histórico (solo si RUN_LOAD_PROGRESS es "True")
 if [ "$RUN_LOAD_PROGRESS" = "True" ]; then
   echo "Cargando progreso histórico..."

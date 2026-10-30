@@ -466,6 +466,22 @@ new Chart(document.getElementById('chartActividad'), {
     </div>
   </div>
 
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-dark">
+        <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-gem"></i> Lengua Castellana C2 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=c2" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel maestría (MCER C2): registro literario avanzado, ironía fina, intertextualidad, discurso especializado, variación dialectal, estilística avanzada y creación literaria. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_c2' %}" class="btn btn-dark text-white"><i class="fas fa-list"></i> Ver las 10 técnicas (en construcción)</a>
+          <a href="{% url 'gramatica:tecnica' 801 %}" class="btn btn-outline-dark"><i class="fas fa-play"></i> Empezar por la 801</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <div class="row g-3 mb-4">
   <div class="col-md-12">
