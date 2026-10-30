@@ -74,7 +74,9 @@ BLOQUES_B2 = {
     "D": "Voz pasiva",
     "E": "Estilo indirecto avanzado",
     "F": "Perífrasis verbales",
-    # G-J se añadirán en fase final
+    "G": "Subordinadas complejas",
+    "H": "Conectores avanzados",
+    # I-J se añadirán en fase final
 }
 
 
