@@ -162,3 +162,11 @@ TECNICAS.extend(TECNICAS_711_720)
 TECNICAS.extend(TECNICAS_721_730)
 EJERCICIOS.update(EJERCICIOS_711_720)
 EJERCICIOS.update(EJERCICIOS_721_730)
+
+# Bloques D y E (731-750): expresiones idiomáticas + matices aspectuales/modales
+from .tecnicas_c1_bloque_d import TECNICAS_731_740, EJERCICIOS_731_740
+from .tecnicas_c1_bloque_e import TECNICAS_741_750, EJERCICIOS_741_750
+TECNICAS.extend(TECNICAS_731_740)
+TECNICAS.extend(TECNICAS_741_750)
+EJERCICIOS.update(EJERCICIOS_731_740)
+EJERCICIOS.update(EJERCICIOS_741_750)

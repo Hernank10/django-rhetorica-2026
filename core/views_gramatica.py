@@ -85,7 +85,9 @@ BLOQUES_C1 = {
     "A": "Discurso académico",
     "B": "Registro literario",
     "C": "Cohesión y coherencia avanzadas",
-    # D-J se añadirán en fases 3-5
+    "D": "Expresiones idiomáticas",
+    "E": "Matices aspectuales y modales",
+    # F-J se añadirán en fases 4-5
 }
 
 
