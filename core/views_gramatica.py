@@ -76,7 +76,8 @@ BLOQUES_B2 = {
     "F": "Perífrasis verbales",
     "G": "Subordinadas complejas",
     "H": "Conectores avanzados",
-    # I-J se añadirán en fase final
+    "I": "Verbos de cambio",
+    "J": "Situaciones B2",
 }
 
 
