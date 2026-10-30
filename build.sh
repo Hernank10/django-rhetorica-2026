@@ -37,6 +37,13 @@ if [ "$RUN_SEED_A2" = "True" ]; then
   python scripts/seed_a2.py || true
 fi
 
+
+# Seeds de B2 (solo si RUN_SEED_B2 es "True")
+if [ "$RUN_SEED_B2" = "True" ]; then
+  echo "Ejecutando seed B2..."
+  python scripts/seed_b2.py || true
+fi
+
 # Crear usuarios de prueba (solo si RUN_TEST_USERS es "True")
 if [ "$RUN_TEST_USERS" = "True" ]; then
   echo "Creando usuarios de prueba..."

@@ -67,6 +67,12 @@ BLOQUES_B1 = {
     "H": "Subjuntivo imperfecto y condicionales 2/3",
 }
 
+BLOQUES_B2 = {
+    "A": "Subjuntivo imperfecto avanzado",
+    # B-J se añadirán en fases 2-5
+}
+
+
 
 @login_required
 def indice(request):
@@ -167,6 +173,26 @@ def indice_b1(request):
             bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
     resumen = engine.resumen_progreso(request.user, modulo="b1")
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_b1": True})
+
+
+@login_required
+def indice_b2(request):
+    """Indice de las 100 tecnicas de Lengua Castellana B2."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="b2")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_B2.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user, modulo="b2")
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_b2": True})
 
 
 @login_required
