@@ -89,7 +89,9 @@ BLOQUES_C1 = {
     "E": "Matices aspectuales y modales",
     "F": "Léxico especializado",
     "G": "Sintaxis compleja",
-    # H-J se añadirán en fase final
+    "H": "Discurso oral formal",
+    "I": "Análisis crítico del discurso",
+    # J se añadirá en fase final
 }
 
 
