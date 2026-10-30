@@ -71,7 +71,10 @@ BLOQUES_B2 = {
     "A": "Subjuntivo imperfecto avanzado",
     "B": "Condicionales 2/3 y mixtos",
     "C": "Secuencia de tiempos con subjuntivo",
-    # D-J se añadirán en fases 3-5
+    "D": "Voz pasiva",
+    "E": "Estilo indirecto avanzado",
+    "F": "Perífrasis verbales",
+    # G-J se añadirán en fase final
 }
 
 
