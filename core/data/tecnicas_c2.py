@@ -154,3 +154,11 @@ EJERCICIOS = {
             {"id": "c", "texto": "La casa tenía un olor raro.", "correcta": False, "razon": "Coloquial."},
         ], "justificacion_obligatoria": False, "regla": "registro literario completo"}}],
 }
+
+# Bloques B y C (811-830): ironía fina + intertextualidad
+from .tecnicas_c2_bloque_b import TECNICAS_811_820, EJERCICIOS_811_820
+from .tecnicas_c2_bloque_c import TECNICAS_821_830, EJERCICIOS_821_830
+TECNICAS.extend(TECNICAS_811_820)
+TECNICAS.extend(TECNICAS_821_830)
+EJERCICIOS.update(EJERCICIOS_811_820)
+EJERCICIOS.update(EJERCICIOS_821_830)

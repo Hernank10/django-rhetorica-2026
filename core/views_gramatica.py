@@ -96,7 +96,9 @@ BLOQUES_C1 = {
 
 BLOQUES_C2 = {
     "A": "Registro literario avanzado",
-    # B-J se añadirán en fases 2-6
+    "B": "Ironía fina y humor",
+    "C": "Intertextualidad y metaficción",
+    # D-J se añadirán en fases 3-6
 }
 
 
