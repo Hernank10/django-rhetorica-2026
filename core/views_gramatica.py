@@ -100,7 +100,9 @@ BLOQUES_C2 = {
     "C": "Intertextualidad y metaficción",
     "D": "Discurso especializado",
     "E": "Argumentación compleja",
-    # F-J se añadirán en fases 4-6
+    "F": "Variación dialectal",
+    "G": "Estilística avanzada",
+    # H-J se añadirán en fases 5-6
 }
 
 
