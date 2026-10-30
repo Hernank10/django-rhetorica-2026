@@ -69,7 +69,9 @@ BLOQUES_B1 = {
 
 BLOQUES_B2 = {
     "A": "Subjuntivo imperfecto avanzado",
-    # B-J se añadirán en fases 2-5
+    "B": "Condicionales 2/3 y mixtos",
+    "C": "Secuencia de tiempos con subjuntivo",
+    # D-J se añadirán en fases 3-5
 }
 
 

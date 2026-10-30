@@ -154,3 +154,11 @@ EJERCICIOS = {
             {"id": "c", "texto": "Quería que vendrías, aunque no podrías quedarte mucho.", "correcta": False, "razon": "Condicional en subordinada (incorrecto)."},
         ], "justificacion_obligatoria": False, "regla": "correlación temporal completa"}}],
 }
+
+# Bloques B y C (611-630): condicionales 2/3 + secuencia de tiempos
+from .tecnicas_b2_bloque_b import TECNICAS_611_620, EJERCICIOS_611_620
+from .tecnicas_b2_bloque_c import TECNICAS_621_630, EJERCICIOS_621_630
+TECNICAS.extend(TECNICAS_611_620)
+TECNICAS.extend(TECNICAS_621_630)
+EJERCICIOS.update(EJERCICIOS_611_620)
+EJERCICIOS.update(EJERCICIOS_621_630)
