@@ -17,15 +17,15 @@ def c2_data():
     TecnicaGramatical.objects.filter(modulo="c2").delete()
 
 
-class TestC2BloquesABC:
-    def test_30_tecnicas(self, c2_data):
-        assert TecnicaGramatical.objects.filter(modulo="c2").count() == 30
+class TestC2BloquesAE:
+    def test_50_tecnicas(self, c2_data):
+        assert TecnicaGramatical.objects.filter(modulo="c2").count() == 50
 
-    def test_3_bloques(self, c2_data):
-        for letra in "ABC":
+    def test_5_bloques(self, c2_data):
+        for letra in "ABCDE":
             n = TecnicaGramatical.objects.filter(modulo="c2", bloque=letra).count()
             assert n == 10, f"bloque {letra}: {n}"
 
-    def test_rango_801_830(self, c2_data):
+    def test_rango_801_850(self, c2_data):
         ns = sorted(TecnicaGramatical.objects.filter(modulo="c2").values_list("numero", flat=True))
-        assert ns == list(range(801, 831))
+        assert ns == list(range(801, 851))

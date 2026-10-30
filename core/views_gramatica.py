@@ -98,7 +98,9 @@ BLOQUES_C2 = {
     "A": "Registro literario avanzado",
     "B": "Ironía fina y humor",
     "C": "Intertextualidad y metaficción",
-    # D-J se añadirán en fases 3-6
+    "D": "Discurso especializado",
+    "E": "Argumentación compleja",
+    # F-J se añadirán en fases 4-6
 }
 
 
