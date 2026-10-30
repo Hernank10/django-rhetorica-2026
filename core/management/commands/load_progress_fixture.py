@@ -40,7 +40,18 @@ class Command(BaseCommand):
         # Contar después
         despues_pt = PT.objects.count()
         despues_pg = PG.objects.count()
-        self.stdout.write(self.style.SUCCESS(
+        
+
+        # Limpiar ProgresoGramatical con tecnica_id huérfano
+        from core.models_gramatica import TecnicaGramatical
+        valid_ids = set(TecnicaGramatical.objects.values_list('id', flat=True))
+        huerfanos = ProgresoGramatical.objects.exclude(tecnica_id__in=valid_ids)
+        n = huerfanos.count()
+        if n:
+            huerfanos.delete()
+            self.stdout.write(f'[CLEANUP] {n} ProgresoGramatical huérfanos eliminados')
+
+self.stdout.write(self.style.SUCCESS(
             f"[OK] ProgresoTecnica: {antes_pt}->{despues_pt} | "
             f"ProgresoGramatical: {antes_pg}->{despues_pg}"
         ))
