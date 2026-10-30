@@ -1,13 +1,13 @@
 # Estado actual — django-rhetorica-2026
 
-Snapshot tras `v2.0.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin prefijo `/en/`).
+Snapshot tras `v2.1.1` (2026-10-30). Verificar con `/debug/db/?token=...` (sin prefijo `/en/`).
 
 ## Modelos en producción
 
 | Modelo | Filas |
 |---|---|
-| TecnicaGramatical | **610** |
-| EjercicioGramatical | **610** |
+| TecnicaGramatical | **620** |
+| EjercicioGramatical | **620** |
 | TecnicaSintactica | 100 |
 | TecnicaLinguistica | 10 |
 | EjercicioTecnica | 100 |
@@ -35,7 +35,7 @@ Snapshot tras `v2.0.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | **A2** | **100** | **501-600** | **✅ completo** |
 | B1 | 110 | 301-410 | ✅ completo (+10 bloque H) |
 | **B2** | **100** | **601-700** | **✅ completo** |
-| C1 | 0 | — | ❌ pendiente |
+| **C1** | **10** | **701-710** | **🚧 en curso (bloque A)** |
 | C2 | 0 | — | ❌ pendiente |
 
 ## Distribución por módulo
@@ -48,6 +48,7 @@ Snapshot tras `v2.0.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | b1 | 110 | A-H (H = subjuntivo imperfecto + condicionales 2/3) |
 | **a2** | **100** | **A-J** |
 | **b2** | **100** | **A-J** |
+| **c1** | **10** | **A (bloque inicial)** |
 
 ## Tests (verificado 2026-10-30)
 
@@ -57,7 +58,7 @@ Snapshot tras `v2.0.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 
 ## Tags pusheados (18)
 
-`v1.8.15` · `v1.8.16` (B1-H) · `v1.9.0` a `v1.9.7` (A2 10 tags) · `v1.9.7-rollback` · `v2.0.0` a `v2.0.6` (B2 7 tags)
+`v1.8.15` · `v1.8.16` (B1-H) · `v1.9.0` a `v1.9.7` (A2 10 tags) · `v1.9.7-rollback` · `v2.0.0` a `v2.0.6` (B2 7 tags) · `v2.1.0` (C1-A) · `v2.1.1` (fix resiliencia) · `v2.1.0` (C1-A) · `v2.1.1` (fix resiliencia)
 
 ## Hitos de la sesión (2026-10-29 / 30)
 
@@ -78,18 +79,8 @@ Snapshot tras `v2.0.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | `testest001..096` | 96 | `Test1234!` |
 | `admin` | 1 | (creado por `create_superuser`) |
 
-## Próximo paso: C1 (701-800)
+## C1 en curso (701-800)
 
-Plan tentativo de 10 bloques:
-- A (701-710): Discurso académico
-- B (711-720): Registro literario
-- C (721-730): Cohesión y coherencia
-- D (731-740): Expresiones idiomáticas
-- E (741-750): Matices aspectuales y modales
-- F (751-760): Léxico especializado y culto
-- G (761-770): Sintaxis compleja y variación estilística
-- H (771-780): Discurso oral formal
-- I (781-790): Análisis crítico del discurso
-- J (791-800): Síntesis y creación
-
-Fases: `v2.1.0` (A) · `v2.1.1` (B+C) · `v2.1.2` (D+E) · `v2.1.3` (F+G) · `v2.1.4` (H+I) · `v2.1.5` (J) = C1 100/100
+- ✅ Bloque A (701-710): discurso académico — `v2.1.0`
+- ✅ Fix resiliencia `tecnica()` + cleanup pre/post — `v2.1.1`
+- 🚧 Bloques B-J: pendientes (fases `v2.1.2` a `v2.1.5`)

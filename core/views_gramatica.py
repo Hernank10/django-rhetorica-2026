@@ -7,6 +7,7 @@ import json
 
 from core.models_gramatica import TecnicaGramatical, EjercicioGramatical, ProgresoGramatical
 from core.services import gramatica as engine
+from django.db import IntegrityError, transaction
 
 
 BLOQUES_INFO = {
@@ -233,7 +234,25 @@ def indice_c1(request):
 def tecnica(request, numero):
     t = get_object_or_404(TecnicaGramatical, numero=numero)
     ejercicios = t.ejercicios.all()
-    progreso, _ = ProgresoGramatical.objects.get_or_create(usuario=request.user, tecnica=t)
+    progreso = None
+    try:
+        with transaction.atomic():
+            progreso, _ = ProgresoGramatical.objects.get_or_create(
+                usuario=request.user, tecnica=t
+            )
+    except IntegrityError:
+        # FK huérfana (progreso de fixture apunta a técnica borrada)
+        try:
+            ProgresoGramatical.objects.filter(usuario=request.user).exclude(
+                tecnica__in=TecnicaGramatical.objects.all()
+            ).delete()
+            with transaction.atomic():
+                progreso, _ = ProgresoGramatical.objects.get_or_create(
+                    usuario=request.user, tecnica=t
+                )
+        except IntegrityError:
+            # fallback final: no rompemos la vista
+            progreso = ProgresoGramatical(usuario=request.user, tecnica=t, estado="no_iniciada")
     anterior = TecnicaGramatical.objects.filter(
         numero__lt=numero, modulo=t.modulo
     ).order_by("-numero").first()
