@@ -11,6 +11,7 @@ urlpatterns = [
     path("a2/", v.indice_a2, name="indice_a2"),
     path("b1/", v.indice_b1, name="indice_b1"),
     path("b2/", v.indice_b2, name="indice_b2"),
+    path("c1/", v.indice_c1, name="indice_c1"),
     path("tecnica/<int:numero>/", v.tecnica, name="tecnica"),
     path("evaluar/", v.evaluar_ajax, name="evaluar"),
     path("progreso/", v.progreso, {"modulo": "gramatica"}, name="progreso"),

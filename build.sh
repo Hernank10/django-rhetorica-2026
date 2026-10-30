@@ -56,6 +56,13 @@ if [ "$RUN_RESET_DEMO" = "True" ]; then
   python manage.py set_demo_passwords || true
 fi
 
+
+# Seeds de C1 (solo si RUN_SEED_C1 es "True")
+if [ "$RUN_SEED_C1" = "True" ]; then
+  echo "Ejecutando seed C1..."
+  python scripts/seed_c1.py || true
+fi
+
 # Cargar progreso histórico (solo si RUN_LOAD_PROGRESS es "True")
 if [ "$RUN_LOAD_PROGRESS" = "True" ]; then
   echo "Cargando progreso histórico..."

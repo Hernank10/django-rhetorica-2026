@@ -80,6 +80,12 @@ BLOQUES_B2 = {
     "J": "Situaciones B2",
 }
 
+BLOQUES_C1 = {
+    "A": "Discurso académico",
+    # B-J se añadirán en fases 2-5
+}
+
+
 
 
 @login_required
@@ -204,6 +210,26 @@ def indice_b2(request):
 
 
 @login_required
+def indice_c1(request):
+    """Indice de las 100 tecnicas de Lengua Castellana C1."""
+    tecnicas = TecnicaGramatical.objects.filter(modulo="c1")
+    progresos = {p.tecnica_id: p for p in ProgresoGramatical.objects.filter(usuario=request.user)}
+    bloques = {}
+    for letra, nombre in BLOQUES_C1.items():
+        items = []
+        for t in tecnicas:
+            if t.bloque != letra:
+                continue
+            p = progresos.get(t.id)
+            items.append({"tecnica": t, "estado": p.estado if p else "no_iniciada", "intentos": p.intentos if p else 0})
+        if items:
+            dominadas = sum(1 for i in items if i["estado"] == "dominada")
+            bloques[letra] = {"nombre": nombre, "items": items, "dominadas": dominadas, "total": len(items)}
+    resumen = engine.resumen_progreso(request.user, modulo="c1")
+    return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_c1": True})
+
+
+@login_required
 def tecnica(request, numero):
     t = get_object_or_404(TecnicaGramatical, numero=numero)
     ejercicios = t.ejercicios.all()
@@ -222,6 +248,8 @@ def tecnica(request, numero):
         bname = BLOQUES_B1.get(t.bloque, "")
     elif t.modulo == "b2":
         bname = BLOQUES_B2.get(t.bloque, "")
+    elif t.modulo == "c1":
+        bname = BLOQUES_C1.get(t.bloque, "")
     else:
         bname = BLOQUES_INFO.get(t.bloque, "")
 
