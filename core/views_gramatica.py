@@ -200,14 +200,20 @@ def tecnica(request, numero):
     t = get_object_or_404(TecnicaGramatical, numero=numero)
     ejercicios = t.ejercicios.all()
     progreso, _ = ProgresoGramatical.objects.get_or_create(usuario=request.user, tecnica=t)
-    anterior = TecnicaGramatical.objects.filter(numero__lt=numero).order_by("-numero").first()
-    siguiente = TecnicaGramatical.objects.filter(numero__gt=numero).order_by("numero").first()
+    anterior = TecnicaGramatical.objects.filter(
+        numero__lt=numero, modulo=t.modulo
+    ).order_by("-numero").first()
+    siguiente = TecnicaGramatical.objects.filter(
+        numero__gt=numero, modulo=t.modulo
+    ).order_by("numero").first()
     if t.modulo == "generativa":
         bname = BLOQUES_GENERATIVA.get(t.bloque, "")
     elif t.modulo == "a1":
         bname = BLOQUES_A1.get(t.bloque, "")
     elif t.modulo == "b1":
         bname = BLOQUES_B1.get(t.bloque, "")
+    elif t.modulo == "b2":
+        bname = BLOQUES_B2.get(t.bloque, "")
     else:
         bname = BLOQUES_INFO.get(t.bloque, "")
 
@@ -218,6 +224,7 @@ def tecnica(request, numero):
         "es_generativa": t.modulo == "generativa",
         "es_a1": t.modulo == "a1",
         "es_b1": t.modulo == "b1",
+        "es_b2": t.modulo == "b2",
     })
 
 
