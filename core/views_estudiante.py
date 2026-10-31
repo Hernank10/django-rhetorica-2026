@@ -404,6 +404,73 @@ def mis_estadisticas(request):
         ).count()
         actividad.append({"dia": inicio.strftime("%d/%m"), "count": n})
 
+
+    # ??? Comparativas vs cohorte (v2.2.17) ???
+    _COHORTE = "testest"
+    _raw_class = list(
+        Respuesta.objects
+        .filter(user__username__startswith=_COHORTE)
+        .exclude(user=u)
+        .values("user")
+        .annotate(total=Count("id"), correctas=Count("id", filter=Q(es_correcta=True)))
+        .filter(total__gte=10)
+    )
+    _class_tasas = [r["correctas"] / r["total"] * 100 for r in _raw_class]
+    _class_tasa_avg = round(sum(_class_tasas) / len(_class_tasas), 1) if _class_tasas else 0
+    _top10_tasas = sorted(_class_tasas, reverse=True)[:10]
+    _top10_tasa_avg = round(sum(_top10_tasas) / len(_top10_tasas), 1) if _top10_tasas else 0
+
+    _user_lecciones = ProgresoUsuario.objects.filter(usuario=u, completado=True).count()
+    _raw_lec = list(
+        ProgresoUsuario.objects
+        .filter(completado=True, usuario__username__startswith=_COHORTE)
+        .exclude(usuario=u)
+        .values("usuario")
+        .annotate(n=Count("id"))
+    )
+    _class_lec_vals = [r["n"] for r in _raw_lec]
+    _class_lec_avg = round(sum(_class_lec_vals) / len(_class_lec_vals), 1) if _class_lec_vals else 0
+    _top10_lec_vals = sorted(_class_lec_vals, reverse=True)[:10]
+    _top10_lec_avg = round(sum(_top10_lec_vals) / len(_top10_lec_vals), 1) if _top10_lec_vals else 0
+
+    _cohorte_tasas = _class_tasas + [tasa]
+    _percentil = round(sum(1 for t in _cohorte_tasas if t < tasa) / len(_cohorte_tasas) * 100) if _cohorte_tasas else 0
+
+    _tipos_user = (
+        Respuesta.objects.filter(user=u)
+        .values("tipo_ejercicio")
+        .annotate(total=Count("id"), correctas=Count("id", filter=Q(es_correcta=True)))
+        .order_by("-total")
+    )
+    _class_tipos_map = {}
+    for _r in (Respuesta.objects
+        .filter(user__username__startswith=_COHORTE)
+        .exclude(user=u)
+        .values("tipo_ejercicio", "user")
+        .annotate(total=Count("id"), correctas=Count("id", filter=Q(es_correcta=True)))
+        .filter(total__gte=5)
+    ):
+        _class_tipos_map.setdefault(_r["tipo_ejercicio"], []).append(_r["correctas"] / _r["total"] * 100)
+
+    _comparativa_tipos = []
+    for _t in _tipos_user:
+        _tipo = _t["tipo_ejercicio"]
+        _tu_tasa = round(_t["correctas"] / _t["total"] * 100, 1) if _t["total"] else 0
+        _vals = _class_tipos_map.get(_tipo, [])
+        _cavg = round(sum(_vals) / len(_vals), 1) if _vals else 0
+        _comparativa_tipos.append({"tipo": _tipo, "tu_tasa": _tu_tasa, "class_tasa": _cavg})
+
+    _comparativa = {
+        "user_tasa": tasa,
+        "class_tasa_avg": _class_tasa_avg,
+        "top10_tasa_avg": _top10_tasa_avg,
+        "user_lecciones": _user_lecciones,
+        "class_lecciones_avg": _class_lec_avg,
+        "top10_lecciones_avg": _top10_lec_avg,
+        "percentil": _percentil,
+        "cohorte_size": len(_class_tasas),
+    }
+
     return render(request, "core/estudiante/mis_estadisticas.html", {
         "total_resp": total_resp,
         "correctas": correctas,
@@ -411,6 +478,8 @@ def mis_estadisticas(request):
         "cursos_stats": cursos_stats,
         "tipos_data": tipos_data,
         "actividad": actividad,
+        "comparativa": _comparativa,
+        "comparativa_tipos": _comparativa_tipos,
     })
 
 
@@ -495,3 +564,20 @@ def descargar_certificado_docx(request, certificado_id):
     )
     response["Content-Disposition"] = f'attachment; filename="certificado_{cert.codigo_verificacion}.docx"'
     return response
+
+
+def _diag(request):
+    """Diagn?stico temporal: conteos de datos para gr?ficas. Borrar tras usar."""
+    from django.http import JsonResponse
+    from django.apps import apps
+    u = request.user
+    Respuesta = apps.get_model("core", "Respuesta")
+    ProgresoUsuario = apps.get_model("core", "ProgresoUsuario")
+    ProgresoGramatical = apps.get_model("core", "ProgresoGramatical")
+    return JsonResponse({
+        "user": u.username,
+        "respuesta_count": Respuesta.objects.filter(user=u).count(),
+        "progreso_usuario_count": ProgresoUsuario.objects.filter(usuario=u, completado=True).count(),
+        "mcer_dominadas": ProgresoGramatical.objects.filter(usuario=u, estado="dominada").count(),
+        "cursos_activos": ProgresoUsuario.objects.filter(usuario=u).values("leccion__modulo__curso").distinct().count(),
+    })

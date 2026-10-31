@@ -94,4 +94,128 @@ new Chart(document.getElementById('chartAct'), {
   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
 });
 </script>
+
+<!-- ??? v2.2.17: Comparativas vs cohorte ??? -->
+<h4 class="mt-5 mb-3"><i class="fas fa-users"></i> C?mo est?s respecto a la clase</h4>
+
+<div class="row g-3">
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b>Tasa de aciertos</b> ? t? vs clase vs top 10</div>
+      <div class="card-body"><canvas id="chartComparativaTasa" height="140"></canvas></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b>Lecciones completadas</b> ? t? vs clase vs top 10</div>
+      <div class="card-body"><canvas id="chartComparativaLecciones" height="140"></canvas></div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b>Tu percentil</b></div>
+      <div class="card-body text-center">
+        <canvas id="chartPercentil" height="180"></canvas>
+        <p class="small text-muted mt-2 mb-0">Superas al <b>{{ comparativa.percentil }}%</b> de la clase (n={{ comparativa.cohorte_size }})</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b>Por tipo de ejercicio</b> ? tu tasa vs clase</div>
+      <div class="card-body"><canvas id="chartComparativaTipos" height="140"></canvas></div>
+    </div>
+  </div>
+</div>
+
+{{ comparativa|json_script:"comparativa-data" }}
+{{ comparativa_tipos|json_script:"comparativa-tipos-data" }}
+
+<script>
+(function () {
+  const comparativa = JSON.parse(document.getElementById("comparativa-data").textContent);
+  const comparativaTipos = JSON.parse(document.getElementById("comparativa-tipos-data").textContent);
+
+  new Chart(document.getElementById("chartComparativaTasa"), {
+    type: "bar",
+    data: {
+      labels: ["T?", "Promedio clase", "Top 10"],
+      datasets: [{
+        label: "Tasa de aciertos (%)",
+        data: [comparativa.user_tasa, comparativa.class_tasa_avg, comparativa.top10_tasa_avg],
+        backgroundColor: ["#3b82f6", "#94a3b8", "#10b981"],
+        borderRadius: 6,
+      }],
+    },
+    options: {
+      scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + "%" } } },
+      plugins: { legend: { display: false } },
+    },
+  });
+
+  new Chart(document.getElementById("chartComparativaLecciones"), {
+    type: "bar",
+    data: {
+      labels: ["T?", "Promedio clase", "Top 10"],
+      datasets: [{
+        label: "Lecciones completadas",
+        data: [comparativa.user_lecciones, comparativa.class_lecciones_avg, comparativa.top10_lecciones_avg],
+        backgroundColor: ["#3b82f6", "#94a3b8", "#10b981"],
+        borderRadius: 6,
+      }],
+    },
+    options: {
+      scales: { y: { beginAtZero: true } },
+      plugins: { legend: { display: false } },
+    },
+  });
+
+  new Chart(document.getElementById("chartPercentil"), {
+    type: "doughnut",
+    data: {
+      labels: ["Superados", "Por delante de ti"],
+      datasets: [{
+        data: [comparativa.percentil, 100 - comparativa.percentil],
+        backgroundColor: ["#10b981", "#e5e7eb"],
+        borderWidth: 0,
+      }],
+    },
+    options: {
+      cutout: "70%",
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => c.label + ": " + c.parsed + "%" } },
+      },
+    },
+  });
+
+  new Chart(document.getElementById("chartComparativaTipos"), {
+    type: "radar",
+    data: {
+      labels: comparativaTipos.map(t => t.tipo),
+      datasets: [
+        {
+          label: "T?",
+          data: comparativaTipos.map(t => t.tu_tasa),
+          backgroundColor: "rgba(59,130,246,.25)",
+          borderColor: "#3b82f6",
+          pointBackgroundColor: "#3b82f6",
+        },
+        {
+          label: "Clase",
+          data: comparativaTipos.map(t => t.class_tasa),
+          backgroundColor: "rgba(148,163,184,.2)",
+          borderColor: "#94a3b8",
+          pointBackgroundColor: "#94a3b8",
+        },
+      ],
+    },
+    options: {
+      scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20, callback: v => v + "%" } } },
+    },
+  });
+})();
+</script>
+<!-- ??? fin comparativas ??? -->
+
 {% endblock %}
