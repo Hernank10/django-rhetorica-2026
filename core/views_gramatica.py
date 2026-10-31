@@ -102,7 +102,9 @@ BLOQUES_C2 = {
     "E": "Argumentación compleja",
     "F": "Variación dialectal",
     "G": "Estilística avanzada",
-    # H-J se añadirán en fases 5-6
+    "H": "Creación literaria",
+    "I": "Ensayo de autor",
+    # J se añadirá en fase final
 }
 
 
