@@ -471,6 +471,19 @@ def mis_estadisticas(request):
         "cohorte_size": len(_class_tasas),
     }
 
+
+    # --- Enriquecimiento comparativa v2.2.18 ---
+    _comparativa["delta_tasa"] = round(tasa - _comparativa["class_tasa_avg"], 1)
+    _comparativa["percentil_inv"] = 100 - _comparativa["percentil"]
+    _comparativa["delta_lecciones"] = _user_lecciones - _comparativa["class_lecciones_avg"]
+    if _comparativa_tipos:
+        _with_delta = [dict(t, delta=round(t["tu_tasa"] - t["class_tasa"], 1)) for t in _comparativa_tipos]
+        _comparativa["mejor_tipo"] = max(_with_delta, key=lambda x: x["delta"])
+        _comparativa["peor_tipo"] = min(_with_delta, key=lambda x: x["delta"])
+    else:
+        _comparativa["mejor_tipo"] = None
+        _comparativa["peor_tipo"] = None
+
     return render(request, "core/estudiante/mis_estadisticas.html", {
         "total_resp": total_resp,
         "correctas": correctas,

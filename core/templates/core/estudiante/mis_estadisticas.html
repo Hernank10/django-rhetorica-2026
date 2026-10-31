@@ -96,19 +96,66 @@ new Chart(document.getElementById('chartAct'), {
 </script>
 
 <!-- ??? v2.2.17: Comparativas vs cohorte ??? -->
-<h4 class="mt-5 mb-3"><i class="fas fa-users"></i> C?mo est?s respecto a la clase</h4>
+<div class="alert alert-light border small mb-3">
+  <b><i class="fas fa-info-circle text-primary"></i> Cómo leer estas gráficas</b>
+  <ul class="mb-0 mt-2">
+    <li><b>Tasa de aciertos</b> ? porcentaje de respuestas correctas sobre el total. M?s alto es mejor.</li>
+    <li><b>Lecciones completadas</b> ? lecciones marcadas como terminadas, comparadas con el promedio de la clase.</li>
+    <li><b>Percentil</b> ? tu posici?n: percentil 80 = superas al 80% de tus compa?eros (sin mostrar nombres).</li>
+    <li><b>Radar por tipo</b> ? compara tu tasa con el promedio del grupo en cada tipo (multiple_choice, completar, ordenar...). L?nea azul por dentro de la gris = vas por debajo en ese tipo.</li>
+  </ul>
+</div>
+
+<h4 class="mt-5 mb-3"><i class="fas fa-users"></i> Cómo estás respecto a la clase</h4>
 
 <div class="row g-3">
   <div class="col-md-6">
     <div class="card shadow-sm h-100">
-      <div class="card-header bg-white"><b>Tasa de aciertos</b> ? t? vs clase vs top 10</div>
+      <div class="card-header bg-white"><b>Tasa de aciertos</b> ? tú vs clase vs top 10</div>
       <div class="card-body"><canvas id="chartComparativaTasa" height="140"></canvas></div>
+    <div class="card-footer small bg-white" data-insight="tasa">
+      <div class="mb-1">
+        <b>Tú:</b> {{ comparativa.user_tasa }}% &middot;
+        <b>Promedio clase:</b> {{ comparativa.class_tasa_avg }}% &middot;
+        <b>Top 10:</b> {{ comparativa.top10_tasa_avg }}%
+      </div>
+      <div class="text-muted">
+        {% if comparativa.user_tasa > comparativa.class_tasa_avg %}
+          Est?s <b class="text-success">+{{ comparativa.delta_tasa }} pts</b> por encima del promedio.
+        {% elif comparativa.user_tasa == comparativa.class_tasa_avg %}
+          Est?s <b>exactamente en el promedio</b> de la clase.
+        {% else %}
+          Est?s <b class="text-danger">{{ comparativa.delta_tasa }} pts</b> por debajo del promedio.
+        {% endif %}
+        {% if comparativa.user_tasa >= comparativa.top10_tasa_avg %}
+          <span class="badge bg-success">?Nivel top 10!</span>
+        {% else %}
+          El top 10 est? a {{ comparativa.top10_tasa_avg }}%.
+        {% endif %}
+      </div>
+    </div>
     </div>
   </div>
   <div class="col-md-6">
     <div class="card shadow-sm h-100">
-      <div class="card-header bg-white"><b>Lecciones completadas</b> ? t? vs clase vs top 10</div>
+      <div class="card-header bg-white"><b>Lecciones completadas</b> ? tú vs clase vs top 10</div>
       <div class="card-body"><canvas id="chartComparativaLecciones" height="140"></canvas></div>
+    <div class="card-footer small bg-white" data-insight="lecciones">
+      <div class="mb-1">
+        <b>Tú:</b> {{ comparativa.user_lecciones }} &middot;
+        <b>Promedio clase:</b> {{ comparativa.class_lecciones_avg }} &middot;
+        <b>Top 10:</b> {{ comparativa.top10_lecciones_avg }}
+      </div>
+      <div class="text-muted">
+        {% if comparativa.delta_lecciones > 0 %}
+          Llevas <b class="text-success">+{{ comparativa.delta_lecciones }}</b> lecciones m?s que el promedio.
+        {% elif comparativa.delta_lecciones == 0 %}
+          Est?s <b>exactamente en el promedio</b>.
+        {% else %}
+          Llevas <b class="text-danger">{{ comparativa.delta_lecciones }}</b> lecciones menos que el promedio.
+        {% endif %}
+      </div>
+    </div>
     </div>
   </div>
   <div class="col-md-4">
@@ -118,12 +165,52 @@ new Chart(document.getElementById('chartAct'), {
         <canvas id="chartPercentil" height="180"></canvas>
         <p class="small text-muted mt-2 mb-0">Superas al <b>{{ comparativa.percentil }}%</b> de la clase (n={{ comparativa.cohorte_size }})</p>
       </div>
+    <div class="card-footer small bg-white" data-insight="percentil">
+      <div class="mb-1">
+        <b>Percentil:</b> {{ comparativa.percentil }} &middot;
+        <b>Posici?n:</b> top {{ comparativa.percentil_inv }}%
+      </div>
+      <div class="text-muted">
+        {% if comparativa.percentil >= 90 %}
+          <span class="badge bg-success">Excelente</span> Est?s en el 10% superior.
+        {% elif comparativa.percentil >= 70 %}
+          <span class="badge bg-info">Buen nivel</span> Por encima del 70% de la clase.
+        {% elif comparativa.percentil >= 50 %}
+          <span class="badge bg-warning text-dark">En la media</span> En la mitad superior.
+        {% elif comparativa.percentil >= 30 %}
+          <span class="badge bg-warning text-dark">A mejorar</span> El {{ comparativa.percentil }}% va por debajo de ti.
+        {% else %}
+          <span class="badge bg-danger">Refuerza</span> Casi toda la clase va por delante.
+        {% endif %}
+      </div>
+    </div>
     </div>
   </div>
   <div class="col-md-8">
     <div class="card shadow-sm h-100">
       <div class="card-header bg-white"><b>Por tipo de ejercicio</b> ? tu tasa vs clase</div>
       <div class="card-body"><canvas id="chartComparativaTipos" height="140"></canvas></div>
+    <div class="card-footer small bg-white" data-insight="tipos">
+      {% if comparativa.mejor_tipo and comparativa.mejor_tipo.delta > 0 %}
+      <div class="mb-1">
+        <b class="text-success">? Destacas en:</b>
+        <code>{{ comparativa.mejor_tipo.tipo }}</code>
+        (tú {{ comparativa.mejor_tipo.tu_tasa }}% vs clase {{ comparativa.mejor_tipo.class_tasa }}%,
+        <b>+{{ comparativa.mejor_tipo.delta }} pts</b>)
+      </div>
+      {% endif %}
+      {% if comparativa.peor_tipo and comparativa.peor_tipo.delta < 0 %}
+      <div class="mb-1">
+        <b class="text-danger">? Te cuesta:</b>
+        <code>{{ comparativa.peor_tipo.tipo }}</code>
+        (tú {{ comparativa.peor_tipo.tu_tasa }}% vs clase {{ comparativa.peor_tipo.class_tasa }}%,
+        <b>{{ comparativa.peor_tipo.delta }} pts</b>)
+      </div>
+      {% endif %}
+      {% if not comparativa.mejor_tipo or comparativa.mejor_tipo.delta <= 0 %}
+      <div class="text-muted">Aún no destacas por encima del grupo. Sigue practicando.</div>
+      {% endif %}
+    </div>
     </div>
   </div>
 </div>
