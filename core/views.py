@@ -286,11 +286,30 @@ def dashboard_gamificacion(request):
     certificaciones_obtenidas = CertificacionObtenida.objects.filter(user_id=usuario_id)
     progreso = ProgresoCategoria.objects.filter(user_id=usuario_id)
 
-    # Calcular puntos totales
-    puntos_totales = 0
+    # Calcular puntos totales: 3 fuentes
+    from core.models_gramatica import ProgresoGramatical
+    try:
+        from core.models import Respuesta
+        respuestas_correctas = Respuesta.objects.filter(user=request.user, es_correcta=True).count()
+    except ImportError:
+        respuestas_correctas = 0
+    
+    # 1. Puntos por logros (bonus)
+    puntos_por_logros = 0
     for lo in logros_obtenidos:
         if hasattr(lo, 'logro') and lo.logro:
-            puntos_totales += getattr(lo.logro, 'puntos_requeridos', 10)
+            puntos_por_logros += getattr(lo.logro, 'puntos_requeridos', 10)
+    
+    # 2. Puntos por t?cnicas dominadas (5 pts ? t?cnica)
+    tecnicas_dominadas = ProgresoGramatical.objects.filter(
+        usuario=request.user, estado="dominada"
+    ).count()
+    puntos_por_tecnicas = tecnicas_dominadas * 5
+    
+    # 3. Puntos por respuestas correctas (1 pt ? respuesta)
+    puntos_por_respuestas = respuestas_correctas * 1
+    
+    puntos_totales = puntos_por_logros + puntos_por_tecnicas + puntos_por_respuestas
 
     # Lista de logros obtenidos
     logros_lista = []
