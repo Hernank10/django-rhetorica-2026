@@ -70,6 +70,13 @@ if [ "$RUN_SEED_C2" = "True" ]; then
   python scripts/seed_c2.py || true
 fi
 
+# Seed MCER demo (idempotente): cert + 6 logros + backfill 610 t?cnicas + respuestas
+# Corre DESPU?S de todos los seeds (t?cnicas y testest users deben existir)
+if [ "$RUN_SEED_MCER" = "True" ]; then
+  echo "Aplicando seed MCER demo..."
+  python manage.py seed_mcer_demo || true
+fi
+
 # Cargar progreso histórico (solo si RUN_LOAD_PROGRESS es "True")
 if [ "$RUN_LOAD_PROGRESS" = "True" ]; then
   echo "Cargando progreso histórico..."
