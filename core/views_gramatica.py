@@ -2,6 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from django.views.decorators.http import require_POST
 import json
 
@@ -272,6 +273,35 @@ def indice_c2(request):
     return render(request, "core/gramatica/indice.html", {"bloques": bloques, "resumen": resumen, "es_c2": True})
 
 
+def _indice_url_para(tecnica):
+    """Devuelve la URL del indice del nivel para el modulo de la tecnica.
+
+    Capas de fallback:
+    1. URL especifica del nivel (gramatica:indice_<modulo>)
+    2. URL del indice base (gramatica:indice)
+    3. URL hardcodeada /gramatica/<modulo>/
+    """
+    MODULOS = {
+        "a1": "gramatica:indice_a1",
+        "a2": "gramatica:indice_a2",
+        "b1": "gramatica:indice_b1",
+        "b2": "gramatica:indice_b2",
+        "c1": "gramatica:indice_c1",
+        "c2": "gramatica:indice_c2",
+        "generativa": "gramatica:indice_generativa",
+    }
+    name = MODULOS.get(tecnica.modulo)
+    if name:
+        try:
+            return reverse(name)
+        except Exception:
+            pass  # cae al siguiente fallback
+    try:
+        return reverse("gramatica:indice")
+    except Exception:
+        return f"/gramatica/{tecnica.modulo}/" if tecnica.modulo != "generativa" else "/gramatica/generativa/"
+
+
 @login_required
 def tecnica(request, numero):
     t = get_object_or_404(TecnicaGramatical, numero=numero)
@@ -324,6 +354,7 @@ def tecnica(request, numero):
         "es_a1": t.modulo == "a1",
         "es_b1": t.modulo == "b1",
         "es_b2": t.modulo == "b2",
+        "indice_url": _indice_url_para(t),
     })
 
 
