@@ -1,0 +1,25 @@
+[run]
+omit =
+    */migrations/*
+    */__init__.py
+    */tests/*
+    */apps.py
+    */admin.py
+    */venv/*
+    */management/commands/create_superuser.py
+    */management/commands/load_content_fixture.py
+    */management/commands/load_progress_fixture.py
+    */management/commands/otorgar_certificaciones.py
+    */management/commands/seed_demo_certs.py
+    */management/commands/seed_test_users.py
+    */management/commands/set_demo_passwords.py
+    */views_debug.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+
+[html]
+directory = htmlcov

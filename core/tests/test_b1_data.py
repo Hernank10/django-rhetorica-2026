@@ -7,7 +7,7 @@ class TestDataB1(TestCase):
     def test_total_tecnicas(self):
         # Crecimiento progresivo hasta 100 (bloques A-G)
         self.assertGreaterEqual(len(TECNICAS), 15)
-        self.assertLessEqual(len(TECNICAS), 100)
+        self.assertEqual(len(TECNICAS), 110)
 
     def test_numeros_consecutivos(self):
         nums = sorted(t["numero"] for t in TECNICAS)
@@ -17,7 +17,7 @@ class TestDataB1(TestCase):
 
     def test_todos_modulo_b1(self):
         # Bloques A-G (plan completo de 100 tecnicas B1)
-        BLOQUES_VALIDOS = {"A", "B", "C", "D", "E", "F", "G"}
+        BLOQUES_VALIDOS = {"A", "B", "C", "D", "E", "F", "G", "H"}
         for t in TECNICAS:
             self.assertEqual(t["modulo"], "b1")
             self.assertIn(
