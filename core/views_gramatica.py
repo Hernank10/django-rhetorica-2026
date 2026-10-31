@@ -104,7 +104,7 @@ BLOQUES_C2 = {
     "G": "Estilística avanzada",
     "H": "Creación literaria",
     "I": "Ensayo de autor",
-    # J se añadirá en fase final
+    "J": "Síntesis maestra",
 }
 
 
