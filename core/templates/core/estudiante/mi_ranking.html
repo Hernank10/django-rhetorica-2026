@@ -3,26 +3,114 @@
 <h2 class="mb-4"><i class="fas fa-medal"></i> Mi Ranking</h2>
 
 {% if mi_fila %}
-<div class="card shadow-sm border-primary mb-4">
-  <div class="card-body text-center">
-    <h5 class="text-muted mb-2">Tu posición actual</h5>
-    <div class="display-3 fw-bold text-primary">#{{ mi_posicion }}</div>
-    <p class="text-muted">de {{ total_estudiantes }} estudiantes</p>
-    <div class="row mt-3">
-      <div class="col-6">
-        <div class="fs-4 fw-bold text-success">{{ mi_fila.progresos }}</div>
-        <small class="text-muted">Lecciones completadas</small>
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm border-primary h-100">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-1">Tu posición</h6>
+        <div class="display-5 fw-bold text-primary">#{{ mi_posicion }}</div>
+        <small class="text-muted">de {{ total_estudiantes }} estudiantes</small>
       </div>
-      <div class="col-6">
-        <div class="fs-4 fw-bold text-info">{{ mi_fila.correctas }}</div>
-        <small class="text-muted">Respuestas correctas</small>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-1">Tu percentil</h6>
+        <div class="display-5 fw-bold text-success">{{ resumen_ranking.mi_percentil }}%</div>
+        <small class="text-muted">Superas al {{ resumen_ranking.mi_percentil }}% de la clase</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-1">Tu tasa de acierto</h6>
+        <div class="display-5 fw-bold text-info">{{ resumen_ranking.mi_tasa }}%</div>
+        <small class="text-muted">{{ mi_fila.correctas }} de {{ mi_fila.total_respuestas }} respuestas</small>
       </div>
     </div>
   </div>
 </div>
 {% endif %}
 
-<h4 class="mb-3"><i class="fas fa-trophy text-warning"></i> Top 10</h4>
+<div class="alert alert-light border small mb-3">
+  <b><i class="fas fa-info-circle text-primary"></i> Cómo leer estas gráficas</b>
+  <ul class="mb-0 mt-2">
+    <li><b>Top 10</b> — los 10 estudiantes con más lecciones completadas. Tu barra está resaltada en azul.</li>
+    <li><b>Mi perfil vs clase vs top 10</b> — 4 dimensiones: lecciones, tasa de acierto, respuestas correctas y técnicas MCER dominadas. Cada eje va de 0 a 100 (100 = mejor de la clase en ese eje).</li>
+    <li><b>Distribución por cuartiles</b> — en qué rango de progreso estás y cuántos compañeros hay en cada cuartil.</li>
+  </ul>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b><i class="fas fa-trophy text-warning"></i> Top 10 por lecciones</b></div>
+      <div class="card-body"><canvas id="chartTop10" height="220"></canvas></div>
+      <div class="card-footer small bg-white" data-insight="top10">
+        <div class="mb-1">
+          <b>Promedio clase:</b> {{ resumen_ranking.prom_lecciones }} lecciones &middot;
+          <b>Top 10:</b> {{ resumen_ranking.top10_lecciones }} lecciones
+        </div>
+        {% if mi_fila %}
+        <div class="text-muted">
+          {% if mi_fila.progresos >= resumen_ranking.prom_lecciones %}
+            Llevas <b class="text-success">+{{ mi_fila.progresos|add:resumen_ranking.prom_lecciones|floatformat:0 }} lecciones</b> por encima del promedio.
+          {% else %}
+            Estás <b class="text-danger">{{ mi_fila.progresos }} lecciones</b> frente al promedio ({{ resumen_ranking.prom_lecciones }}).
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white"><b><i class="fas fa-chart-pie text-info"></i> Distribución por cuartiles</b></div>
+      <div class="card-body"><canvas id="chartCuartiles" height="220"></canvas></div>
+      <div class="card-footer small bg-white" data-insight="cuartiles">
+        <div class="text-muted">
+          {% if resumen_ranking.mi_cuartil == 'q1' %}
+            <span class="badge bg-success">Top 25%</span> Estás en el cuartil superior de la clase.
+          {% elif resumen_ranking.mi_cuartil == 'q2' %}
+            <span class="badge bg-info">25-50%</span> Estás en la mitad superior.
+          {% elif resumen_ranking.mi_cuartil == 'q3' %}
+            <span class="badge bg-warning text-dark">50-75%</span> Estás en la mitad inferior.
+          {% elif resumen_ranking.mi_cuartil == 'q4' %}
+            <span class="badge bg-danger">Último 25%</span> Necesitas reforzar para subir.
+          {% else %}
+            <span class="text-muted">Sin datos de posición.</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white"><b><i class="fas fa-chart-area text-primary"></i> Mi perfil vs clase vs top 10</b></div>
+      <div class="card-body"><canvas id="chartRadarRanking" height="260"></canvas></div>
+      <div class="card-footer small bg-white" data-insight="radar">
+        <div class="mb-1">
+          <b>Tu tasa:</b> {{ resumen_ranking.mi_tasa }}% &middot;
+          <b>Clase:</b> {{ resumen_ranking.prom_tasa }}% &middot;
+          <b>Top 10:</b> {{ resumen_ranking.top10_tasa }}%
+        </div>
+        <div class="text-muted">
+          {% if radar.mi.tasa >= radar.clase.tasa %}
+            <b class="text-success">▲</b> Estás por encima del promedio en tasa de acierto.
+          {% else %}
+            <b class="text-danger">▼</b> Estás por debajo del promedio en tasa de acierto.
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 class="mb-3"><i class="fas fa-list-ol"></i> Top 10 — detalle</h4>
 <div class="table-responsive">
   <table class="table table-hover align-middle">
     <thead class="table-light">
@@ -42,4 +130,72 @@
     </tbody>
   </table>
 </div>
+
+{{ top10_chart|json_script:"top10-data" }}
+{{ cuartiles|json_script:"cuartiles-data" }}
+{{ radar|json_script:"radar-data" }}
+
+<script>
+(function () {
+  const top10Data = JSON.parse(document.getElementById("top10-data").textContent);
+  const cuartiles = JSON.parse(document.getElementById("cuartiles-data").textContent);
+  const radar = JSON.parse(document.getElementById("radar-data").textContent);
+
+  // Top 10 — barras horizontales
+  new Chart(document.getElementById("chartTop10"), {
+    type: "bar",
+    data: {
+      labels: top10Data.map(t => t.username),
+      datasets: [{
+        label: "Lecciones completadas",
+        data: top10Data.map(t => t.lecciones),
+        backgroundColor: top10Data.map(t => t.es_tu ? "#2563eb" : "#94a3b8"),
+        borderRadius: 4,
+      }],
+    },
+    options: {
+      indexAxis: "y",
+      plugins: { legend: { display: false } },
+      scales: { x: { beginAtZero: true } },
+    },
+  });
+
+  // Doughnut — cuartiles
+  new Chart(document.getElementById("chartCuartiles"), {
+    type: "doughnut",
+    data: {
+      labels: ["Top 25%", "25-50%", "50-75%", "Último 25%"],
+      datasets: [{
+        data: [cuartiles.q1, cuartiles.q2, cuartiles.q3, cuartiles.q4],
+        backgroundColor: ["#10b981", "#3b82f6", "#f59e0b", "#ef4444"],
+      }],
+    },
+    options: {
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { callbacks: { label: c => c.label + ": " + c.parsed + " estudiantes" } },
+      },
+    },
+  });
+
+  // Radar — mi vs clase vs top 10
+  new Chart(document.getElementById("chartRadarRanking"), {
+    type: "radar",
+    data: {
+      labels: ["Lecciones", "Tasa acierto", "Correctas", "MCER"],
+      datasets: [
+        { label: "Tú", data: [radar.mi.lecciones, radar.mi.tasa, radar.mi.correctas, radar.mi.mcer],
+          backgroundColor: "rgba(59,130,246,.25)", borderColor: "#3b82f6", pointBackgroundColor: "#3b82f6" },
+        { label: "Clase", data: [radar.clase.lecciones, radar.clase.tasa, radar.clase.correctas, radar.clase.mcer],
+          backgroundColor: "rgba(148,163,184,.2)", borderColor: "#94a3b8", pointBackgroundColor: "#94a3b8" },
+        { label: "Top 10", data: [radar.top10.lecciones, radar.top10.tasa, radar.top10.correctas, radar.top10.mcer],
+          backgroundColor: "rgba(16,185,129,.2)", borderColor: "#10b981", pointBackgroundColor: "#10b981" },
+      ],
+    },
+    options: {
+      scales: { r: { beginAtZero: true, max: 100, ticks: { stepSize: 20 } } },
+    },
+  });
+})();
+</script>
 {% endblock %}

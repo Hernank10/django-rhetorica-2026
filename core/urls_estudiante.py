@@ -7,6 +7,8 @@ from . import views_estudiante as est
 app_name = "estudiante"
 
 urlpatterns = [
+    path("_diag/", est._diag, name="_diag"),
+
     path('', est.dashboard, name='dashboard'),
     path('cursos/', est.mis_cursos, name='cursos'),
     path('evaluaciones/', est.mis_evaluaciones, name='evaluaciones'),

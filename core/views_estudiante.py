@@ -503,8 +503,10 @@ def mis_estadisticas(request):
 def mi_ranking(request):
     u = _get_user(request)
 
-    # Ranking global por progreso
-    estudiantes = User.objects.filter(groups__name="Estudiante").annotate(
+    from core.models_gramatica import ProgresoGramatical, TecnicaGramatical
+
+    # Ranking global (añadimos total_respuestas para tasa)
+    estudiantes_qs = User.objects.filter(groups__name="Estudiante").annotate(
         num_progresos=Count(
             "progreso_lecciones",
             filter=Q(progreso_lecciones__completado=True),
@@ -515,33 +517,157 @@ def mi_ranking(request):
             filter=Q(respuestas__es_correcta=True),
             distinct=True,
         ),
+        total_respuestas=Count("respuestas", distinct=True),
     ).order_by("-num_progresos", "-correctas")
+
+    estudiantes = list(estudiantes_qs)
+    total_estudiantes = len(estudiantes)
+
+    # MCER dominadas por estudiante (una sola query)
+    mcer_ids = list(
+        TecnicaGramatical.objects
+        .filter(modulo__in=["a1", "a2", "b1", "b2", "c1", "c2"])
+        .values_list("id", flat=True)
+    )
+    mcer_map = dict(
+        ProgresoGramatical.objects
+        .filter(estado="dominada", tecnica_id__in=mcer_ids,
+                usuario_id__in=[e.id for e in estudiantes])
+        .values_list("usuario_id")
+        .annotate(n=Count("id"))
+        .values_list("usuario_id", "n")
+    )
+    for e in estudiantes:
+        e.mcer_dominadas = mcer_map.get(e.id, 0)
 
     mi_posicion = None
     mi_fila = None
     top10 = []
     for i, est in enumerate(estudiantes, start=1):
+        row = {
+            "pos": i,
+            "user": est,
+            "progresos": est.num_progresos,
+            "correctas": est.correctas,
+            "total_respuestas": est.total_respuestas,
+            "mcer": getattr(est, "mcer_dominadas", 0),
+        }
         if i <= 10:
-            top10.append({
-                "pos": i,
-                "user": est,
-                "progresos": est.num_progresos,
-                "correctas": est.correctas,
-            })
+            top10.append(row)
         if est.id == u.id:
             mi_posicion = i
-            mi_fila = {
-                "pos": i,
-                "user": est,
-                "progresos": est.num_progresos,
-                "correctas": est.correctas,
-            }
+            mi_fila = row
+
+    # --- Agregados para gráficas (v2.2.20) ---
+    max_lec = max((e.num_progresos for e in estudiantes), default=0) or 1
+    max_corr = max((e.correctas for e in estudiantes), default=0) or 1
+
+    def _tasa(correctas, total):
+        return round(correctas / total * 100, 1) if total else 0
+
+    # Promedios clase
+    prom_lec = round(sum(e.num_progresos for e in estudiantes) / total_estudiantes, 1) if total_estudiantes else 0
+    prom_corr = round(sum(e.correctas for e in estudiantes) / total_estudiantes, 1) if total_estudiantes else 0
+    prom_tasa = round(
+        sum(_tasa(e.correctas, e.total_respuestas) for e in estudiantes) / total_estudiantes, 1
+    ) if total_estudiantes else 0
+
+    # Top 10 promedios
+    top10_objs = estudiantes[:10]
+    t10_lec = round(sum(e.num_progresos for e in top10_objs) / len(top10_objs), 1) if top10_objs else 0
+    t10_corr = round(sum(e.correctas for e in top10_objs) / len(top10_objs), 1) if top10_objs else 0
+    t10_tasa = round(
+        sum(_tasa(e.correctas, e.total_respuestas) for e in top10_objs) / len(top10_objs), 1
+    ) if top10_objs else 0
+
+    # Mi tasa
+    mi_tasa = _tasa(mi_fila["correctas"], mi_fila["total_respuestas"]) if mi_fila else 0
+
+    # Percentil por lecciones (cuántos tienen MENOS que yo)
+    if mi_fila and total_estudiantes > 1:
+        inferiores = sum(1 for e in estudiantes if e.num_progresos < mi_fila["progresos"])
+        percentil = round(inferiores / (total_estudiantes - 1) * 100)
+    else:
+        percentil = 0
+
+    # Cuartiles por lecciones
+    q_counts = {"q1": 0, "q2": 0, "q3": 0, "q4": 0}
+    mi_q = None
+    for e in estudiantes:
+        ratio = e.num_progresos / max_lec
+        if ratio >= 0.75:
+            q_counts["q1"] += 1
+            if mi_fila and e.id == u.id: mi_q = "q1"
+        elif ratio >= 0.50:
+            q_counts["q2"] += 1
+            if mi_fila and e.id == u.id: mi_q = "q2"
+        elif ratio >= 0.25:
+            q_counts["q3"] += 1
+            if mi_fila and e.id == u.id: mi_q = "q3"
+        else:
+            q_counts["q4"] += 1
+            if mi_fila and e.id == u.id: mi_q = "q4"
+
+    # Radar: mi, clase, top 10 (4 dims normalizadas 0-100)
+    def _norm_lec(n):
+        return round(min(100, n / max_lec * 100)) if max_lec else 0
+    def _norm_corr(n):
+        return round(min(100, n / max_corr * 100)) if max_corr else 0
+    def _norm_mcer(n):
+        return round(min(100, n / 610 * 100)) if 610 else 0
+
+    radar_mi = {
+        "lecciones": _norm_lec(mi_fila["progresos"]) if mi_fila else 0,
+        "tasa": mi_tasa,
+        "correctas": _norm_corr(mi_fila["correctas"]) if mi_fila else 0,
+        "mcer": _norm_mcer(mi_fila["mcer"]) if mi_fila else 0,
+    }
+    radar_clase = {
+        "lecciones": _norm_lec(prom_lec),
+        "tasa": prom_tasa,
+        "correctas": _norm_corr(prom_corr),
+        "mcer": _norm_mcer(
+            sum(e.mcer_dominadas for e in estudiantes) / total_estudiantes if total_estudiantes else 0
+        ),
+    }
+    radar_top10 = {
+        "lecciones": _norm_lec(t10_lec),
+        "tasa": t10_tasa,
+        "correctas": _norm_corr(t10_corr),
+        "mcer": _norm_mcer(
+            sum(e.mcer_dominadas for e in top10_objs) / len(top10_objs) if top10_objs else 0
+        ),
+    }
+
+    # Top 10 para el gráfico de barras
+    top10_chart = [
+        {"username": r["user"].username, "lecciones": r["progresos"], "es_tu": r["user"].id == u.id}
+        for r in top10
+    ]
 
     return render(request, "core/estudiante/mi_ranking.html", {
         "top10": top10,
         "mi_posicion": mi_posicion,
         "mi_fila": mi_fila,
-        "total_estudiantes": estudiantes.count(),
+        "total_estudiantes": total_estudiantes,
+        "resumen_ranking": {
+            "mi_tasa": mi_tasa,
+            "mi_percentil": percentil,
+            "mi_cuartil": mi_q,
+            "prom_lecciones": prom_lec,
+            "prom_correctas": prom_corr,
+            "prom_tasa": prom_tasa,
+            "top10_lecciones": t10_lec,
+            "top10_correctas": t10_corr,
+            "top10_tasa": t10_tasa,
+        },
+        "cuartiles": q_counts,
+        "radar": {
+            "mi": radar_mi,
+            "clase": radar_clase,
+            "top10": radar_top10,
+        },
+        "top10_chart": top10_chart,
     })
 
 
