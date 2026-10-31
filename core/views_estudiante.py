@@ -199,6 +199,20 @@ def dashboard(request):
     }
     context["mcer_progreso"] = _mcer_progreso(request.user)
 
+    # ??? MCER como curso + lecciones (fix v2.2.15) ???
+    try:
+        from core.models_gramatica import ProgresoGramatical as _PG, TecnicaGramatical as _TG
+        _mcer_ids = list(_TG.objects.filter(modulo__in=["a1","a2","b1","b2","c1","c2"]).values_list("id", flat=True))
+        _mcer_dom = _PG.objects.filter(usuario=u, tecnica_id__in=_mcer_ids, estado="dominada").count()
+    except Exception:
+        _mcer_dom = 0
+    if _mcer_dom > 0:
+        if isinstance(context.get("kpis"), dict):
+            context["kpis"]["cursos_activos"] = context["kpis"].get("cursos_activos", 0) + 1
+            context["kpis"]["lecciones"] = context["kpis"].get("lecciones", 0) + _mcer_dom
+        context["cursos_activos"] = context.get("cursos_activos", 0) + 1
+        context["lecciones_completadas"] = context.get("lecciones_completadas", 0) + _mcer_dom
+
     return render(request, "core/estudiante/dashboard.html", context)
 
 
