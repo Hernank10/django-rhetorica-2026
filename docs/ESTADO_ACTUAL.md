@@ -1,13 +1,17 @@
 # Estado actual — django-rhetorica-2026
 
-Snapshot tras `v2.1.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin prefijo `/en/`).
+Snapshot tras `v2.2.6` / `MCER-COMPLETO` (2026-10-30).
+
+## 🎉 MCER A1–C2 COMPLETO
+
+**810 técnicas** en producción. **6 niveles MCER cerrados**. **32 tags** pusheados.
 
 ## Modelos en producción
 
 | Modelo | Filas |
 |---|---|
-| TecnicaGramatical | **710** |
-| EjercicioGramatical | **710** |
+| **TecnicaGramatical** | **810** |
+| **EjercicioGramatical** | **810** |
 | TecnicaSintactica | 100 |
 | TecnicaLinguistica | 10 |
 | EjercicioTecnica | 100 |
@@ -32,11 +36,13 @@ Snapshot tras `v2.1.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | Nivel | Técnicas | Rango | Estado |
 |---|---|---|---|
 | A1 | 100 | 201-300 | ✅ completo |
-| **A2** | **100** | **501-600** | **✅ completo** |
+| A2 | 100 | 501-600 | ✅ completo |
 | B1 | 110 | 301-410 | ✅ completo (+10 bloque H) |
-| **B2** | **100** | **601-700** | **✅ completo** |
-| **C1** | **10** | **701-710** | **🚧 en curso (bloque A)** |
-| C2 | 0 | — | ❌ pendiente |
+| B2 | 100 | 601-700 | ✅ completo |
+| C1 | 100 | 701-800 | ✅ completo |
+| **C2** | **100** | **801-900** | **✅ completo** |
+
+**Total MCER (A1–C2): 610 técnicas** + 200 técnicas base (gramática + generativa) = **810 técnicas**.
 
 ## Distribución por módulo
 
@@ -45,30 +51,39 @@ Snapshot tras `v2.1.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | gramatica | 100 | A-G (base) |
 | generativa | 100 | A-G |
 | a1 | 100 | A-J |
-| b1 | 110 | A-H (H = subjuntivo imperfecto + condicionales 2/3) |
-| **a2** | **100** | **A-J** |
-| **b2** | **100** | **A-J** |
-| **c1** | **10** | **A (bloque inicial)** |
+| a2 | 100 | A-J |
+| b1 | 110 | A-H |
+| b2 | 100 | A-J |
+| c1 | 100 | A-J |
+| c2 | 100 | A-J |
 
 ## Tests (verificado 2026-10-30)
 
-- **B2**: 5 tests, `5 passed` en ~7 s
-- **A2**: 5 tests, `5 passed` en ~12 s
-- Resto de la suite: verde (1279 passed en sesión v1.8.15)
+- **C2**: 3 tests, `3 passed` en ~7.65 s
+- **C1**: 7 tests, `7 passed`
+- **B2**: 5 tests, `5 passed`
+- **A2**: 5 tests, `5 passed`
+- Suite completa: verde
 
-## Tags pusheados (18)
+## Tags pusheados (32)
 
-`v1.8.15` · `v1.8.16` (B1-H) · `v1.9.0` a `v1.9.7` (A2 10 tags) · `v1.9.7-rollback` · `v2.0.0` a `v2.0.6` (B2 7 tags) · `v2.1.0` (C1-A) · `v2.1.1` (fix resiliencia) · `v2.1.0` (C1-A) · `v2.1.1` (fix resiliencia)
+`v1.8.15` · `v1.8.16` (B1-H) · `v1.9.0` a `v1.9.7` (A2 10 tags) · `v1.9.7-rollback` · `v2.0.0` a `v2.0.6` (B2 7 tags) · `v2.1.0` a `v2.1.7` (C1 8 tags) · `v2.2.0` a `v2.2.6` (C2 7 tags) · **`MCER-COMPLETO`**
 
-## Hitos de la sesión (2026-10-29 / 30)
+## Hitos del proyecto
 
-- A2 completo: 10 tags, 100 técnicas, 100 ejercicios, UI, tests, dashboard
-- B1 bloque H: subjuntivo imperfecto + condicionales 2/3 (401-410)
-- B2 completo: 6 tags, 100 técnicas, 100 ejercicios, UI, tests, dashboard
-- 7 fixes de build.sh (`RUN_SEEDS`, `RUN_SEED_A2`, `RUN_SEED_B2` después de `LOAD_FIXTURE`)
-- Fix de navegación B2 (`anterior`/`siguiente` filtrados por módulo)
+- **A1 completo**: 100 técnicas
+- **A2 completo**: 10 tags, 100 técnicas
+- **B1 completo**: 110 técnicas (+10 bloque H: subjuntivo imperfecto + condicionales 2/3)
+- **B2 completo**: 6 tags, 100 técnicas, UI, tests, dashboard
+- **C1 completo**: 6 tags, 100 técnicas, UI, tests, dashboard
+- **C2 completo**: 6 tags, 100 técnicas, UI, tests, dashboard
+- **MCER A1–C2 cerrado**: 810 técnicas, 6 niveles, producción estable
+- 7 fixes de build.sh (`RUN_SEEDS`, `RUN_SEED_A2/B2/C1/C2` después de `LOAD_FIXTURE`)
+- Fix de navegación B2/C1/C2 (`anterior`/`siguiente` filtrados por módulo)
 - Fix de URL A2 (`indice_a2` en vez de `gramatica_a2`)
 - Cleanup de huérfanos en `load_progress_fixture.py`
+- Resiliencia `tecnica()` contra FK huérfanas
+- Card B2/C1/C2 con "Ver las 100 técnicas"
 
 ## Usuarios
 
@@ -79,8 +94,10 @@ Snapshot tras `v2.1.6` (2026-10-30). Verificar con `/debug/db/?token=...` (sin p
 | `testest001..096` | 96 | `Test1234!` |
 | `admin` | 1 | (creado por `create_superuser`) |
 
-## C1 COMPLETO (701-800)
+## URL de producción
 
-- ✅ Bloques A-J: 100/100 técnicas
-- ✅ Tag `v2.1.6` — C1 COMPLETO
-- 🚧 C2: pendiente (801-900)
+https://django-rhetorica-2026-1.onrender.com
+
+## Estado: PROYECTO CERRADO
+
+MCER A1–C2 completo. 810 técnicas. 32 tags. Producción estable.
