@@ -39,6 +39,43 @@ def _get_user(request):
 # ============================================================
 # DASHBOARD PRINCIPAL
 # ============================================================
+def _mcer_progreso(user):
+    """Devuelve el progreso MCER (A1-C2) del estudiante.
+
+    Returns:
+        dict: {
+            "niveles": {"A1": {"total": 100, "dominadas": 0, "pct": 0}, ...},
+            "total_mcer": int,       # t?cnicas MCER totales (610)
+            "dominadas_mcer": int,   # t?cnicas MCER dominadas por el user
+            "pct_mcer": int,         # porcentaje redondeado
+        }
+    """
+    from core.models_gramatica import TecnicaGramatical, ProgresoGramatical
+
+    modulos = ["a1", "a2", "b1", "b2", "c1", "c2"]
+    niveles = {}
+    total_mcer = 0
+    dominadas_mcer = 0
+
+    for mod in modulos:
+        qs = TecnicaGramatical.objects.filter(modulo=mod)
+        total = qs.count()
+        dominadas = ProgresoGramatical.objects.filter(
+            usuario=user, tecnica__in=qs, estado="dominada"
+        ).count()
+        pct = round(100 * dominadas / total) if total else 0
+        niveles[mod.upper()] = {"total": total, "dominadas": dominadas, "pct": pct}
+        total_mcer += total
+        dominadas_mcer += dominadas
+
+    pct_mcer = round(100 * dominadas_mcer / total_mcer) if total_mcer else 0
+    return {
+        "niveles": niveles,
+        "total_mcer": total_mcer,
+        "dominadas_mcer": dominadas_mcer,
+        "pct_mcer": pct_mcer,
+    }
+
 @login_required
 def dashboard(request):
     u = _get_user(request)
@@ -78,7 +115,7 @@ def dashboard(request):
             "completadas": completadas,
             "total": total,
             "pct": pct,
-        })
+    })
     cursos_progreso.sort(key=lambda x: x["pct"], reverse=True)
     cursos_progreso = cursos_progreso[:8]
 
@@ -160,6 +197,8 @@ def dashboard(request):
         "evals_disponibles": evals_disponibles,
         "evals_programadas": evals_programadas,
     }
+    context["mcer_progreso"] = _mcer_progreso(request.user)
+
     return render(request, "core/estudiante/dashboard.html", context)
 
 
@@ -192,7 +231,7 @@ def mis_cursos(request):
 
     return render(request, "core/estudiante/mis_cursos.html", {
         "cursos_data": data,
-    })
+        })
 
 
 # ============================================================
