@@ -101,10 +101,12 @@
           <b>Top 10:</b> {{ resumen_ranking.top10_tasa }}%
         </div>
         <div class="text-muted">
-          {% if radar.mi.tasa >= radar.clase.tasa %}
+          {% if radar.mi.tasa > radar.clase.tasa %}
             <b class="text-success">▲</b> Estás por encima del promedio en tasa de acierto.
+          {% elif radar.mi.tasa == radar.clase.tasa %}
+            <b>Estás exactamente en el promedio</b> de la clase.
           {% else %}
-            <b class="text-danger">▼</b> Estás por debajo del promedio en tasa de acierto.
+            <b class="text-danger">▼</b> Estás por debajo del promedio ({{ resumen_ranking.mi_tasa }}% vs {{ resumen_ranking.prom_tasa }}%).
           {% endif %}
         </div>
       </div>
