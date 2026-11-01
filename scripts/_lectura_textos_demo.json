@@ -174,5 +174,263 @@
         "orden": 4
       }
     ]
+  },
+  {
+    "titulo": "El debate sobre las redes sociales en los institutos",
+    "tipo": "informativo",
+    "nivel_mcer": "B1",
+    "fuente": "Informe del Observatorio de Adolescencia Digital, 2025",
+    "orden": 4,
+    "cuerpo": "El instituto San Isidro ha prohibido los moviles durante el horario escolar. La medida, aprobada por el consejo escolar el pasado mes de septiembre, ha generado un intenso debate entre profesores, familias y alumnos. Segun el informe del Observatorio de Adolescencia Digital de 2025, el 78% de los adolescentes espanoles de entre 12 y 16 anos usa redes sociales a diario. Sin embargo, solo el 32% de los padres considera que sus hijos hacen un uso responsable de ellas. Los defensores de la prohibicion argumentan que los moviles son ubicuos en las aulas y dificultan la atencion. Ademas, senalan que las redes sociales pueden generar ansiedad y comparaciones poco saludables. Por ejemplo, un estudio reciente de la Universidad de Valencia encontro que los adolescentes que pasan mas de tres horas diarias en redes tienen un 40% mas de probabilidad de mostrar sintomas de ansiedad. Los criticos, en cambio, consideran que la prohibicion es una medida paternalista y que no resuelve el problema de fondo: la falta de educacion digital. Argumentan que los jovenes necesitan aprender a usar la tecnologia de forma responsable, no evitarse. El debate sigue abierto. Mientras algunos institutos ya han aprobado medidas similares, otros prefieren esperar a ver los resultados del San Isidro al final del curso.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 9,
+        "enunciado": "En la oracion 'El instituto San Isidro ha prohibido los moviles durante el horario escolar', ¿cual es el sujeto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) los moviles",
+            "B) El instituto San Isidro",
+            "C) el horario escolar"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 10,
+        "enunciado": "¿Cual es la tesis del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El 78% de los adolescentes usa redes sociales a diario.",
+            "B) La prohibicion de moviles en los institutos es un tema debatido, con argumentos a favor y en contra.",
+            "C) Los moviles son malos para los adolescentes."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 11,
+        "enunciado": "¿Que relacion marca el conector 'sin embargo' en la frase 'El 78% usa redes a diario. Sin embargo, solo el 32% de los padres...'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Causa",
+            "B) Contraste",
+            "C) Adicion"
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 13,
+        "enunciado": "¿Que significa 'ubicuos' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que estan en todas partes.",
+            "B) Que son muy caros.",
+            "C) Que son dificiles de usar."
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 18,
+        "enunciado": "¿Cual es el tema del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La ansiedad en los adolescentes.",
+            "B) El debate sobre la prohibicion de moviles en los institutos.",
+            "C) La Universidad de Valencia."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 20,
+        "enunciado": "¿Como se relacionan el segundo y el tercer parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El segundo presenta argumentos a favor y el tercero argumentos en contra.",
+            "B) El tercero repite lo que dice el segundo.",
+            "C) No tienen relacion."
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 23,
+        "enunciado": "¿El texto es un cuento o una noticia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un cuento, porque tiene personajes ficticios.",
+            "B) Una noticia, porque narra hechos reales sobre un instituto.",
+            "C) Una novela, porque es largo."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 25,
+        "enunciado": "¿Cual es el argumento principal del texto a favor de la prohibicion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Los moviles son ubicuos y dificultan la atencion.",
+            "B) El 78% de los adolescentes usa redes sociales.",
+            "C) Los criticos consideran que es paternalista."
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      }
+    ]
+  },
+  {
+    "titulo": "La manipulacion del lenguaje en el discurso politico",
+    "tipo": "informativo",
+    "nivel_mcer": "C1",
+    "fuente": "Revista de Analisis Politico, vol. 12, 2026",
+    "orden": 5,
+    "cuerpo": "El lenguaje politico no solo transmite informacion: tambien construye realidades. Como senala el linguista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del termino 'los ciudadanos de bien'. Detras de esa expresion aparentemente neutra se esconde una distincion entre 'nosotros' y 'los otros': quienes no encajan en esa categoria son, implicitamente, ciudadanos de mal. El politico que usa este termino no esta describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de esloganes aparentemente positivos. El famoso 'Espana va bien' no describe un estado de cosas: invita al oyente a compartir una vision optimista y a desconfiar de quien la critique. Detras del eslogan hay una intencion persuasiva: quien lo pone en duda es presentado como un agorero. Tambien son comunes las falsas disyuntivas: 'o esta con nosotros o esta contra Espana'. Esta formula, que parece ofrecer una eleccion, en realidad la cancela: solo hay una opcion legitima. Es una falacia clasica que los analistas del discurso llevan decadas senalando. Para evaluar la calidad de un discurso politico, el lector critico debe preguntarse: ¿que evidencia respalda cada afirmacion? ¿se citan estudios o solo se apela a la emocion? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es mas creible que uno que solo apela a la emocion y a las generalizaciones. El analisis del lenguaje politico no es un ejercicio de cinismo: es una condicion para la ciudadania. Quien no sabe leer el lenguaje del poder esta condenado a obedecerle sin darse cuenta.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 12,
+        "enunciado": "¿Cual es la fuente de la cita 'el lenguaje es poder'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) George Lakoff (2004), en 'No pienses en un elefante'.",
+            "B) Un politico anonimo.",
+            "C) La Revista de Analisis Politico."
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 15,
+        "enunciado": "¿Que intencion tiene el politico al usar la expresion 'los ciudadanos de bien'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Describir objetivamente a los ciudadanos.",
+            "B) Construir una identidad colectiva que excluye a quienes no lo votan.",
+            "C) Informar sobre una encuesta."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 16,
+        "enunciado": "¿Que postura revela la seleccion de ejemplos del autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una postura neutral: solo describe.",
+            "B) Una postura critica hacia la manipulacion del lenguaje politico.",
+            "C) Una postura favorable a los politicos."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 21,
+        "enunciado": "¿Desde que punto de vista esta escrito el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Narrador interno (dice 'yo').",
+            "B) Narrador externo en tercera persona, con un punto de vista analitico.",
+            "C) Un dialogo entre dos personajes."
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 22,
+        "enunciado": "¿El registro del texto es formal o informal?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Informal, con expresiones coloquiales.",
+            "B) Formal, con vocabulario tecnico y sintaxis compleja.",
+            "C) Mixto, mitad y mitad."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 24,
+        "enunciado": "¿Que intencion tiene el eslogan 'Espana va bien'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Describir objetivamente la situacion del pais.",
+            "B) Invitar al oyente a compartir una vision optimista y a desconfiar de quien la critique.",
+            "C) Informar sobre datos economicos."
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 26,
+        "enunciado": "¿Que falacia contiene la frase 'o esta con nosotros o esta contra Espana'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Generalizacion apresurada.",
+            "B) Falso dilema (solo presenta dos opciones cuando hay mas).",
+            "C) Ataque personal."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 27,
+        "enunciado": "¿Cual de estas evidencias es mas solida para sostener una afirmacion politica?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Un amigo mio dice que...'",
+            "B) 'Todo el mundo sabe que...'",
+            "C) 'Un estudio de 2024 con 10.000 participantes, publicado en una revista cientifica, muestra que...'"
+          ],
+          "correcta": "C"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 28,
+        "enunciado": "¿Que terminos del texto revelan un sesgo ideologico del autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'moviles', 'instituto', 'alumnos' (son neutros).",
+            "B) 'construye realidades', 'controla las palabras', 'quien no sabe leer el lenguaje del poder esta condenado' (revelan una postura critica).",
+            "C) 'el', 'la', 'de' (son articulos)."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      }
+    ]
   }
 ]
