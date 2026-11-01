@@ -1,0 +1,90 @@
+[
+  {
+    "numero": 1,
+    "proceso": "P1",
+    "nivel_mcer": "A1",
+    "titulo": "Encontrar la idea principal explicita",
+    "teoria": "En los textos informativos breves, el autor suele declarar explicitamente de que trata el texto en la primera o segunda oracion. Esta idea principal explicita es la que organiza toda la informacion posterior. Encontrarla es el primer paso de la comprension lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
+    "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer parrafo completo (no solo la primera oracion) y preguntarse: 'de que me estan hablando?'. La respuesta suele estar en una oracion que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
+    "regla": "La idea principal explicita esta en la primera o segunda oracion del texto; se reconoce porque contiene el tema y lo que se afirma sobre el.",
+    "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos mas eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Ademas, el vidrio reciclado requiere menos energia que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
+    "ejemplo_incorrecto": "Mismo texto. Lector que responde: 'El vidrio se puede reciclar infinitas veces.' -> Es un detalle, no la idea principal. La idea principal es la afirmacion general (eficiencia), no un ejemplo que la sostiene."
+  },
+  {
+    "numero": 2,
+    "proceso": "P1",
+    "nivel_mcer": "B1",
+    "titulo": "Localizar informacion en tablas y graficos",
+    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar informacion en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico segun el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoria buscada, y solo despues leer el dato.",
+    "explicacion": "Ante una tabla, el lector debe: (1) leer el titulo de la tabla para saber que mide; (2) identificar las filas (categorias) y columnas (variables); (3) ubicar la interseccion fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
+    "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoria buscada, y solo entonces se lee el dato.",
+    "ejemplo_correcto": "Pregunta: 'Cuantos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
+    "ejemplo_incorrecto": "El lector busca '3o ESO' en el texto que acompana la tabla, no en la tabla misma, y responde 'muchos'. La informacion estaba en una celda; no se localizo por no leer los encabezados."
+  },
+  {
+    "numero": 3,
+    "proceso": "P2",
+    "nivel_mcer": "A2",
+    "titulo": "Deducir causa-efecto entre dos frases",
+    "teoria": "Muchos textos no explicitan la relacion causal entre dos hechos: la dejan implicita para no repetir conectores. El lector competente reconstruye esa relacion a partir del orden de las frases y del conocimiento del mundo. Inferir causa-efecto directa es uno de los procesos basicos de la comprension lectora (PIRLS P2): la relacion no es dicha, pero el significado permanece claro.",
+    "explicacion": "Para inferir causa-efecto: (1) identificar los dos hechos mencionados; (2) preguntarse cual de ellos pudo provocar al otro; (3) usar el conocimiento previo para decidir la direccion de la causalidad. El orden de las frases suele indicar el orden temporal, pero no siempre el orden causal: 'Se apago la luz. La sala quedo a oscuras' -> la causa esta en la primera frase.",
+    "regla": "Cuando dos hechos aparecen en frases consecutivas sin conector, el lector debe preguntarse cual de los dos pudo causar al otro y descartar la direccion imposible.",
+    "ejemplo_correcto": "Texto: 'La carretera estaba mojada. El coche derrapo en la curva.' -> Inferencia: el coche derrapo porque la carretera estaba mojada. La causa es la primera; el efecto, la segunda.",
+    "ejemplo_incorrecto": "El lector responde: 'La carretera se mojo porque el coche derrapo'. La direccion causal es imposible: un coche derrapando no moja una carretera. El lector no aplico el conocimiento del mundo."
+  },
+  {
+    "numero": 4,
+    "proceso": "P2",
+    "nivel_mcer": "B2",
+    "titulo": "Inferir el rasgo de un personaje por sus acciones",
+    "teoria": "En los textos narrativos, el autor rara vez describe directamente la personalidad de un personaje. En cambio, muestra sus acciones y deja que el lector infiera el rasgo. Este proceso (PIRLS P2) requiere que el lector conecte una accion concreta con un rasgo psicologico o moral: la relacion no esta escrita, pero se deduce del contexto.",
+    "explicacion": "Para inferir un rasgo: (1) localizar una accion o reaccion del personaje; (2) preguntarse que tipo de persona realizaria esa accion; (3) proponer un adjetivo (generoso, egoista, valiente, cobarde, prudente...) y verificar que sea coherente con el resto del texto. La inferencia es valida si el texto no la contradice.",
+    "regla": "El rasgo de un personaje se infiere de lo que hace, no de lo que dice ser; la accion concreta es la evidencia.",
+    "ejemplo_correcto": "Texto: 'Ana vio que su companero no tenia lapiz. Sin decir nada, partio el suyo por la mitad y le dio un trozo.' -> Rasgo inferido: generosidad / empatia. La accion de compartir sin que se lo pidan lo evidencia.",
+    "ejemplo_incorrecto": "Lector que responde: 'Ana es una persona que tiene lapices'. Es una descripcion literal, no una inferencia del rasgo. El lector no paso de la accion al rasgo."
+  },
+  {
+    "numero": 5,
+    "proceso": "P3",
+    "nivel_mcer": "B1",
+    "titulo": "Construir la idea global de un texto",
+    "teoria": "La idea global (o tema) es la sintesis de todo el texto en una sola afirmacion. A diferencia de la idea principal explicita (P1), que suele estar declarada, la idea global requiere integrar informacion de varios parrafos: el lector debe construirla. Es el proceso central de PIRLS P3.",
+    "explicacion": "Para construir la idea global: (1) leer el texto completo; (2) identificar el tema (de que trata) y la tesis (que se afirma sobre el tema); (3) sintetizar en una oracion que abarque todos los parrafos sin repetir detalles. Si la sintesis solo cubre un parrafo, es un resumen parcial, no la idea global.",
+    "regla": "La idea global es una oracion que abarca todo el texto y que no podria eliminarse sin que el texto pierda su sentido.",
+    "ejemplo_correcto": "Texto sobre el reciclaje (3 parrafos: eficiencia, energia, ejemplos). Idea global: 'El reciclaje de vidrio es eficiente porque ahorra energia y materiales.' Abarca los tres parrafos.",
+    "ejemplo_incorrecto": "Lector que responde: 'El vidrio se recicla'. Es el tema, no la tesis. La idea global necesita una afirmacion sobre el tema, no solo nombrarlo."
+  },
+  {
+    "numero": 6,
+    "proceso": "P3",
+    "nivel_mcer": "C1",
+    "titulo": "Interpretar la intencion del autor",
+    "teoria": "Todo texto es escrito con un proposito: informar, persuadir, entretener, criticar, homenajear. La intencion no siempre se declara: se infiere de las elecciones del autor (vocabulario, tono, seleccion de hechos, uso de adjetivos). Interpretar la intencion es un proceso de P3 que requiere atender al 'como se dice' tanto como al 'que se dice'.",
+    "explicacion": "Para interpretar la intencion: (1) identificar el genero y el contexto; (2) observar el tono (ironico, solemne, entusiasta); (3) analizar la seleccion de informacion (que se destaca, que se omite); (4) analizar el lexico valorativo (adjetivos, adverbios); (5) proponer una intencion y verificar que sea coherente con todos los indicios.",
+    "regla": "La intencion del autor se infiere del tono, del lexico valorativo y de la seleccion de hechos, no de una declaracion explicita.",
+    "ejemplo_correcto": "Texto: 'Una vez mas, la empresa prometio reducir emisiones. Una vez mas, los datos la desmintieron al mes siguiente.' -> Intencion: critica / desconfianza. El 'una vez mas' repetido y la oposicion promesa/datos lo evidencian.",
+    "ejemplo_incorrecto": "Lector que responde: 'El autor informa sobre la empresa'. Si solo informara, no usaria 'una vez mas' de forma repetida ni el contraste ironico. La intencion es critica, no meramente informativa."
+  },
+  {
+    "numero": 7,
+    "proceso": "P4",
+    "nivel_mcer": "B2",
+    "titulo": "Distinguir hecho de opinion",
+    "teoria": "Los textos periodisticos y argumentativos mezclan hechos (verificables, objetivos) con opiniones (valoraciones, subjetivas). Distinguirlos es un proceso de P4 (analisis y evaluacion) esencial para la lectura critica. Un hecho puede verificarse; una opinion puede discutirse.",
+    "explicacion": "Para distinguir hecho de opinion: (1) preguntarse si la afirmacion puede verificarse con datos externos; (2) buscar marcas de subjetividad (adjetivos valorativos, verbos de opinion como 'creo', 'considero', 'deberia'); (3) clasificar cada oracion. Una oracion puede contener ambos: 'El ayuntamiento aprobo la ley (hecho); fue una decision acertada (opinion).'",
+    "regla": "Un hecho se verifica; una opinion se valora. Las marcas de subjetividad (adjetivos, verbos de opinion) delatan la opinion.",
+    "ejemplo_correcto": "Texto: 'El ayuntamiento aprobo la ordenanza el martes. La medida, sin embargo, es insuficiente.' -> 'Aprobo la ordenanza' es hecho (verificable). 'Es insuficiente' es opinion (valorativa).",
+    "ejemplo_incorrecto": "Lector que clasifica todo como 'hecho' porque el texto es periodistico. El genero no garantiza objetividad: la segunda oracion es claramente valorativa."
+  },
+  {
+    "numero": 8,
+    "proceso": "P4",
+    "nivel_mcer": "C1",
+    "titulo": "Evaluar la credibilidad de una fuente",
+    "teoria": "En la lectura digital, el lector debe evaluar la fiabilidad de la fuente: quien lo dice, con que autoridad, con que interes, con que evidencia. Evaluar la credibilidad es un proceso de P4 que requiere atencion a indicios extratextuales (autor, medio, fecha) y a la calidad interna del texto (evidencias, citas, equilibrio).",
+    "explicacion": "Para evaluar la credibilidad: (1) identificar autor y medio; (2) preguntarse si tienen autoridad en la materia; (3) buscar si el texto cita fuentes o presenta evidencia; (4) evaluar si presenta solo una version o reconoce otras; (5) verificar la fecha (un texto de 2010 puede estar obsoleto en 2026). Una fuente es mas creible cuanto mas verificable y menos interesada.",
+    "regla": "Una fuente es creible si el autor tiene autoridad, si el texto cita evidencias verificables y si reconoce otras posiciones. La credibilidad no se presume: se verifica.",
+    "ejemplo_correcto": "Texto: 'Segun la OMS (2024), la contaminacion del aire causo 4,2 millones de muertes prematuras.' -> Fuente: OMS, con anio. Alta credibilidad: organismo internacional, dato verificable, fecha reciente.",
+    "ejemplo_incorrecto": "Texto: 'Muchos expertos dicen que el aire es malo.' -> 'Muchos expertos' sin nombre ni institucion. Baja credibilidad: no se puede verificar quien lo dice."
+  }
+]
