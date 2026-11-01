@@ -1,0 +1,178 @@
+[
+  {
+    "titulo": "El faro y la tormenta",
+    "tipo": "literario",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 1,
+    "cuerpo": "Aquella noche, el viento golpeaba las ventanas del faro con una fuerza desconocida. Marta, la farera, llevaba treinta anos encendiendo la luz cada atardecer, pero nunca habia visto el mar tan furioso. A las tres de la madrugada, escucho un golpe seco contra las rocas. Corrio hacia la ventana: un pequeno bote pesquero luchaba contra las olas. Sin pensarlo dos veces, Marta bajo las escaleras, encendio la linterna grande y la coloco en el punto mas alto del acantilado. Guio al bote hacia la cala durante casi una hora. Al amanecer, los tres pescadores estaban a salvo. Marta volvio a subir al faro, apago la linterna y sonrio. Nadie le daria las gracias, pero no lo necesitaba.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 1,
+        "enunciado": "¿Cual es la idea principal del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El mar estaba muy agitado esa noche.",
+            "B) Marta salvo a unos pescadores usando su experiencia como farera.",
+            "C) El faro tenia treinta anos."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 3,
+        "enunciado": "¿Por que Marta encendio la linterna grande?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque el faro se quedo sin luz.",
+            "B) Porque queria ver mejor las olas.",
+            "C) Porque el bote pesquero necesitaba ser guiado hacia la cala."
+          ],
+          "correcta": "C"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 4,
+        "enunciado": "¿Que rasgo describe mejor a Marta segun el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Valiente y generosa.",
+            "B) Temeraria y descuidada.",
+            "C) Curiosa y aventurera."
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      }
+    ]
+  },
+  {
+    "titulo": "El reciclaje de vidrio en Espana",
+    "tipo": "informativo",
+    "nivel_mcer": "B1",
+    "fuente": "Ecovidrio (2024)",
+    "orden": 2,
+    "cuerpo": "El reciclaje de vidrio es uno de los procesos mas eficientes de la industria moderna en Espana. Segun los datos publicados por Ecovidrio en 2024, cada ciudadano reciclo una media de 19,2 kilogramos de vidrio durante ese ano, un 5% mas que el ano anterior. Un envase de vidrio puede reciclarse de forma infinita sin perder calidad, lo que lo convierte en un material especialmente valioso. Ademas, el vidrio reciclado requiere menos energia que el vidrio nuevo: fundir vidrio ya usado consume un 40% menos de energia que producirlo desde cero. Sin embargo, algunos expertos consideran que las campanas de reciclaje deberian estar mejor distribuidas en las zonas rurales, donde la cobertura es menor. El debate sigue abierto.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 1,
+        "enunciado": "Segun el texto, ¿cual es la idea principal?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El vidrio es un material muy comun.",
+            "B) El reciclaje de vidrio en Espana es eficiente, aunque la cobertura rural es mejorable.",
+            "C) Los ciudadanos espanoles reciclan poco."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 2,
+        "enunciado": "Segun Ecovidrio (2024), ¿cuantos kilogramos de vidrio reciclo de media cada espanol?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 5 kg.",
+            "B) 19,2 kg.",
+            "C) 40 kg."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 5,
+        "enunciado": "¿Que afirmacion resume mejor el texto?",
+        "tipo": "abierta",
+        "payload": {
+          "respuesta_esperada": "El reciclaje de vidrio en Espana es eficiente porque ahorra energia y materiales, aunque la cobertura rural es mejorable.",
+          "criterios": "Menciona eficiencia + ahorro + critica rural (2 de 3 = valida)"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 7,
+        "enunciado": "La frase 'algunos expertos consideran que las campanas de reciclaje deberian estar mejor distribuidas' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un hecho verificable.",
+            "B) Una opinion.",
+            "C) Una pregunta retorica."
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      }
+    ]
+  },
+  {
+    "titulo": "La promesa incumplida de la empresa energetica",
+    "tipo": "informativo",
+    "nivel_mcer": "C1",
+    "fuente": "Periodico El Debate, seccion Economia, 15/10/2026",
+    "orden": 3,
+    "cuerpo": "Una vez mas, la empresa energetica Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez mas, los datos la desmintieron al mes siguiente de la rueda de prensa: segun el informe trimestral publicado por la propia compania, las emisiones habian aumentado un 4% respecto al ano anterior. El director de sostenibilidad, en declaraciones a este periodico, aseguro que 'el incremento es temporal y responde a una mayor demanda energetica'. Sin embargo, dos expertos independientes consultados por El Debate senalan que la empresa habia recibido subvenciones publicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compania no ha respondido a las preguntas de este periodico.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 6,
+        "enunciado": "¿Cual parece ser la intencion del autor del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Informar de forma neutral sobre la rueda de prensa de la empresa.",
+            "B) Criticar la falta de cumplimiento y la posible falta de transparencia de la empresa.",
+            "C) Elogiar las politicas de sostenibilidad de la empresa."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 7,
+        "enunciado": "La frase 'el incremento es temporal y responde a una mayor demanda energetica' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un hecho verificable.",
+            "B) Una opinion del director de sostenibilidad.",
+            "C) Un dato del informe trimestral."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 8,
+        "enunciado": "¿Que elementos del texto aumentan la credibilidad de la informacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el autor diga que es periodista.",
+            "B) Que se citen el informe trimestral de la empresa, dos expertos independientes y la fuente periodistica.",
+            "C) Que la empresa no responda a las preguntas."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 4,
+        "enunciado": "¿Que se puede inferir sobre la empresa Promesas S.A. a partir de sus acciones?",
+        "tipo": "abierta",
+        "payload": {
+          "respuesta_esperada": "Que incumple sus promesas publicas y posiblemente no ejecuta las mejoras subvencionadas.",
+          "criterios": "Menciona incumplimiento + falta de transparencia (2 de 2 = valida)"
+        },
+        "orden": 4
+      }
+    ]
+  }
+]
