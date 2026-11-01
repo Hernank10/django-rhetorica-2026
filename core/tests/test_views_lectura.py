@@ -34,11 +34,11 @@ def texto_ejercicio(db):
 
 class TestSelectorVista:
     def test_get_200(self, client, db):
-        r = client.get(reverse("lectura_selector"))
+        r = client.get(reverse("lectura:indice"))
         assert r.status_code == 200
 
     def test_muestra_texto_creado(self, client, texto_ejercicio):
-        r = client.get(reverse("lectura_selector"))
+        r = client.get(reverse("lectura:indice"))
         assert r.status_code == 200
         contenido = r.content.decode("utf-8")
         assert texto_ejercicio.titulo in contenido
