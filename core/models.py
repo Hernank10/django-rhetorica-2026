@@ -338,3 +338,6 @@ from .models_gramatica import (  # noqa: E402, F401
     ProgresoGramatical,
     TecnicaGramatical,
 )
+
+# Importar modelos de lectura para que Django los registre
+from . import models_lectura  # noqa: F401,E402
