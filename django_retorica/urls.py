@@ -99,6 +99,7 @@ urlpatterns += i18n_patterns(
 
     path('recursos/', include('core.urls_recursos')),
 
+    path('lectura/', include('core.urls_lectura')),
     path('estudiante/', include('core.urls_estudiante')),
     path('notificaciones/', include('core.urls_notificaciones')),
     path('sintaxis/', include('core.urls_sintaxis')),
@@ -218,15 +219,6 @@ urlpatterns += i18n_patterns(
 
 
     # Lectura asistida (Modulo 3)
-
-    path('lectura/', views_lectura.selector, name='lectura_selector'),
-
-    path('lectura/ajax/morfologia/', views_lectura.morfologia_ajax, name='lectura_morfologia_ajax'),
-
-    path('lectura/<int:texto_id>/', views_lectura.lector, name='lectura_lector'),
-
-
-
     prefix_default_language=False,
 
 )

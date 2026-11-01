@@ -1,0 +1,141 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <a href="{% url 'lectura:indice' %}" class="btn btn-sm btn-outline-secondary">
+    <i class="fas fa-arrow-left"></i> Volver al indice
+  </a>
+  <div>
+    <span class="badge bg-secondary">{{ texto.nivel_mcer }}</span>
+    {% if progreso.completado %}<span class="badge bg-success">Completado</span>{% endif %}
+  </div>
+</div>
+
+<h2 class="mb-3">{{ texto.titulo }}</h2>
+{% if texto.fuente %}
+<p class="text-muted small mb-3"><i class="fas fa-quote-left"></i> Fuente: {{ texto.fuente }}</p>
+{% endif %}
+
+<div class="card shadow-sm mb-4">
+  <div class="card-body" style="line-height: 1.8; font-size: 1.05rem;">
+    {{ texto.cuerpo|linebreaks }}
+  </div>
+</div>
+
+<div class="alert alert-light border small mb-3">
+  <b>Progreso:</b> {{ completados }}/{{ total }} ejercicios respondidos correctamente
+  {% if total > 0 %}
+  <div class="progress mt-2" style="height: 6px;">
+    <div class="progress-bar bg-success" style="width: {% widthratio completados total 100 %}%"></div>
+  </div>
+  {% endif %}
+</div>
+
+<h4 class="mb-3">Ejercicios ({{ ejercicios|length }})</h4>
+
+{% for item in ejercicios %}
+<div class="card shadow-sm mb-3" data-ejercicio="{{ item.ejercicio.id }}">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h6 class="mb-0">
+        <span class="badge bg-primary">{{ forloop.counter }}</span>
+        {{ item.ejercicio.enunciado }}
+      </h6>
+      <small class="text-muted">
+        {{ item.ejercicio.get_tipo_display }} &middot;
+        <code>{{ item.ejercicio.tecnica.proceso }}/{{ item.ejercicio.tecnica.nivel_mcer }}</code>
+      </small>
+    </div>
+
+    {% if item.ejercicio.tipo == 'multiple_choice' %}
+      {% for opcion in item.ejercicio.payload.opciones %}
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="radio" name="ej_{{ item.ejercicio.id }}" value="{{ opcion|slice:':1' }}">
+        <label class="form-check-label">{{ opcion }}</label>
+      </div>
+      {% endfor %}
+      <button class="btn btn-sm btn-primary mt-2 btn-enviar" data-ejercicio="{{ item.ejercicio.id }}">
+        <i class="fas fa-paper-plane"></i> Enviar respuesta
+      </button>
+    {% elif item.ejercicio.tipo == 'verdadero_falso' %}
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="radio" name="ej_{{ item.ejercicio.id }}" value="v">
+        <label class="form-check-label">Verdadero</label>
+      </div>
+      <div class="form-check mb-1">
+        <input class="form-check-input" type="radio" name="ej_{{ item.ejercicio.id }}" value="f">
+        <label class="form-check-label">Falso</label>
+      </div>
+      <button class="btn btn-sm btn-primary mt-2 btn-enviar" data-ejercicio="{{ item.ejercicio.id }}">
+        <i class="fas fa-paper-plane"></i> Enviar respuesta
+      </button>
+    {% elif item.ejercicio.tipo == 'abierta' %}
+      <textarea class="form-control mb-2" rows="3" name="ta_{{ item.ejercicio.id }}" placeholder="Escribe tu respuesta...">{% if item.respuesta %}{{ item.respuesta.respuesta }}{% endif %}</textarea>
+      <button class="btn btn-sm btn-primary btn-enviar" data-ejercicio="{{ item.ejercicio.id }}">
+        <i class="fas fa-paper-plane"></i> Enviar respuesta
+      </button>
+    {% endif %}
+
+    <div class="feedback mt-2" id="fb_{{ item.ejercicio.id }}">
+      {% if item.respuesta %}
+        {% if item.respuesta.es_correcta is True %}
+          <div class="alert alert-success small mb-0 py-1"><i class="fas fa-check"></i> Correcto</div>
+        {% elif item.respuesta.es_correcta is False %}
+          <div class="alert alert-danger small mb-0 py-1"><i class="fas fa-times"></i> Incorrecto</div>
+        {% else %}
+          <div class="alert alert-info small mb-0 py-1"><i class="fas fa-clock"></i> Pendiente de revision</div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<script>
+(function () {
+  function getCookie(name) {
+    const v = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return v ? v.pop() : '';
+  }
+  const csrftoken = getCookie('csrftoken');
+
+  document.querySelectorAll(".btn-enviar").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const ejId = btn.dataset.ejercicio;
+      let respuesta = "";
+      const radios = document.querySelectorAll('input[name="ej_' + ejId + '"]:checked');
+      if (radios.length > 0) {
+        respuesta = radios[0].value;
+      } else {
+        const ta = document.querySelector('textarea[name="ta_' + ejId + '"]');
+        if (ta) respuesta = ta.value.trim();
+      }
+      if (!respuesta) {
+        alert("Selecciona o escribe una respuesta antes de enviar.");
+        return;
+      }
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      try {
+        const r = await fetch("{% url 'lectura:evaluar' %}", {
+          method: "POST",
+          headers: {"Content-Type": "application/json", "X-CSRFToken": csrftoken},
+          body: JSON.stringify({ejercicio_id: ejId, respuesta: respuesta}),
+        });
+        const data = await r.json();
+        const fb = document.getElementById("fb_" + ejId);
+        let cls = "info";
+        let icon = "clock";
+        if (data.es_correcta === true) { cls = "success"; icon = "check"; }
+        else if (data.es_correcta === false) { cls = "danger"; icon = "times"; }
+        fb.innerHTML = '<div class="alert alert-' + cls + ' small mb-0 py-1"><i class="fas fa-' + icon + '"></i> ' + data.feedback + '</div>';
+        btn.innerHTML = '<i class="fas fa-check"></i> Enviado';
+      } catch (e) {
+        alert("Error al enviar: " + e.message);
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar respuesta';
+      }
+    });
+  });
+})();
+</script>
+{% endblock %}

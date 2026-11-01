@@ -1,0 +1,62 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<h2 class="mb-4"><i class="fas fa-book-open"></i> Lectura</h2>
+
+<div class="card shadow-sm border-primary mb-4">
+  <div class="card-header bg-primary text-white">
+    <b><i class="fas fa-graduation-cap"></i> Recorrido MCER de lectura</b>
+  </div>
+  <div class="card-body">
+    <div class="row g-2">
+      {% for nivel, datos in mcer.items %}
+      <div class="col-md-2 col-4 text-center">
+        <h6 class="mb-1">{{ nivel }}</h6>
+        <div class="progress" style="height: 8px;">
+          <div class="progress-bar bg-success" style="width: {{ datos.pct }}%"></div>
+        </div>
+        <small class="text-muted">{{ datos.dominadas }}/{{ datos.total }}</small>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-end mt-2">
+      <a href="{% url 'lectura:progreso' %}" class="btn btn-sm btn-outline-primary">
+        Ver progreso detallado <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<h4 class="mb-3">Textos disponibles ({{ textos|length }})</h4>
+
+<div class="row g-3">
+  {% for item in textos %}
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100 {% if item.completado %}border-success{% endif %}">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+          <h5 class="card-title mb-0">{{ item.texto.titulo }}</h5>
+          <span class="badge bg-secondary">{{ item.texto.nivel_mcer }}</span>
+        </div>
+        <p class="text-muted small mb-2">
+          {% if item.texto.tipo == 'literario' %}<i class="fas fa-feather"></i> Literario
+          {% else %}<i class="fas fa-newspaper"></i> Informativo{% endif %}
+          &middot; {{ item.n_ejercicios }} ejercicio{{ item.n_ejercicios|pluralize:"s" }}
+        </p>
+        {% if item.completado %}
+          <span class="badge bg-success mb-2"><i class="fas fa-check"></i> Completado</span>
+        {% endif %}
+        <div class="mt-3">
+          <a href="{% url 'lectura:texto_detalle' item.texto.id %}" class="btn btn-primary btn-sm">
+            <i class="fas fa-play"></i> {% if item.completado %}Repasar{% else %}Leer{% endif %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12">
+    <div class="alert alert-info">No hay textos disponibles aun.</div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -40,6 +40,11 @@
            {% if 'estudiante/estadisticas' in request.path %}aria-current="page"{% endif %}>
           <i class="fas fa-chart-line" aria-hidden="true"></i> Estadísticas
         </a>
+        <a class="list-group-item list-group-item-action {% if '/lectura/' in request.path %}active{% endif %}"
+           href="{% url 'lectura:indice' %}"
+           {% if '/lectura/' in request.path %}aria-current="page"{% endif %}>
+          <i class="fas fa-book-open" aria-hidden="true"></i> Lectura
+        </a>
         <a class="list-group-item list-group-item-action {% if 'estudiante/ranking' in request.path %}active{% endif %}"
            href="{% url 'estudiante:ranking' %}"
            {% if 'estudiante/ranking' in request.path %}aria-current="page"{% endif %}>
