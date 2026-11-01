@@ -50,3 +50,6 @@ try:
         autocomplete_fields = ("user",)
 except ImportError:
     pass
+
+# Importar admin de lectura para que Django lo registre
+from . import admin_lectura  # noqa: F401,E402
