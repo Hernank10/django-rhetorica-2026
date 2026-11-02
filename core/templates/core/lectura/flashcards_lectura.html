@@ -11,6 +11,39 @@
     </span>
   </div>
 
+  <form method="get" class="card shadow-sm mb-3">
+    <div class="card-body py-2">
+      <div class="row g-2 align-items-center">
+        <div class="col-5 col-md-4">
+          <label class="form-label small mb-0 text-muted">Nivel</label>
+          <select name="nivel" class="form-select form-select-sm" onchange="this.form.submit()">
+            <option value="A1" {% if nivel == 'A1' %}selected{% endif %}>A1</option>
+            <option value="A2" {% if nivel == 'A2' %}selected{% endif %}>A2</option>
+            <option value="B1" {% if nivel == 'B1' %}selected{% endif %}>B1</option>
+            <option value="B2" {% if nivel == 'B2' %}selected{% endif %}>B2</option>
+            <option value="C1" {% if nivel == 'C1' %}selected{% endif %}>C1</option>
+            <option value="C2" {% if nivel == 'C2' %}selected{% endif %}>C2</option>
+          </select>
+        </div>
+        <div class="col-5 col-md-4">
+          <label class="form-label small mb-0 text-muted">Proceso</label>
+          <select name="proceso" class="form-select form-select-sm" onchange="this.form.submit()">
+            <option value="" {% if proceso == 'todos' %}selected{% endif %}>Todos</option>
+            <option value="P1" {% if proceso == 'P1' %}selected{% endif %}>P1 - Localización</option>
+            <option value="P2" {% if proceso == 'P2' %}selected{% endif %}>P2 - Inferencia</option>
+            <option value="P3" {% if proceso == 'P3' %}selected{% endif %}>P3 - Interpretación</option>
+            <option value="P4" {% if proceso == 'P4' %}selected{% endif %}>P4 - Análisis</option>
+          </select>
+        </div>
+        <div class="col-2 col-md-4 text-end">
+          <noscript>
+            <button type="submit" class="btn btn-sm btn-primary w-100">Filtrar</button>
+          </noscript>
+        </div>
+      </div>
+    </div>
+  </form>
+
   <div class="progress mb-4" style="height: 10px;">
     <div class="progress-bar bg-success" role="progressbar"
          style="width: {% widthratio completadas total 100 %}%"

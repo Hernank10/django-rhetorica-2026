@@ -45,6 +45,11 @@
            {% if '/lectura/' in request.path %}aria-current="page"{% endif %}>
           <i class="fas fa-book-open" aria-hidden="true"></i> Lectura
         </a>
+        <a class="list-group-item list-group-item-action {% if '/lectura/flashcards/' in request.path %}active{% endif %}"
+           href="{% url 'lectura:flashcards_lectura' %}"
+           {% if '/lectura/flashcards/' in request.path %}aria-current="page"{% endif %}>
+          <i class="fas fa-layer-group" aria-hidden="true"></i> Flashcards
+        </a>
         <a class="list-group-item list-group-item-action {% if 'estudiante/ranking' in request.path %}active{% endif %}"
            href="{% url 'estudiante:ranking' %}"
            {% if 'estudiante/ranking' in request.path %}aria-current="page"{% endif %}>

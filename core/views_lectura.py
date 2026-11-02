@@ -225,6 +225,16 @@ def _aplicar_sm2_a_progreso(progreso, calidad):
             )
             progreso.proxima_revision = hoy + timedelta(days=nuevo_int)
 
+    # Fase 6D: actualizar estado segun repeticiones y facilidad
+    # - 2+ aciertos con facilidad >= 2.3 -> dominada
+    # - 1+ acierto -> en_progreso
+    # - 0 aciertos -> no_iniciada (no cambia)
+    if progreso.repeticiones >= 2 and progreso.facilidad >= 2.3:
+        progreso.estado = "dominada"
+    elif progreso.repeticiones >= 1:
+        if progreso.estado != "dominada":
+            progreso.estado = "en_progreso"
+
     progreso.ultima_revision = timezone.now()
     progreso.save()
     return progreso
@@ -308,9 +318,5 @@ def flashcards_verificar(request):
     calidad = 5 if sabia else 1
     _aplicar_sm2_a_progreso(progreso, calidad)
 
-    # Si acerto, marcar en_progreso (si aun no iniciada)
-    if sabia and progreso.estado == "no_iniciada":
-        progreso.estado = "en_progreso"
-        progreso.save()
 
     return redirect("lectura:flashcards_lectura")
