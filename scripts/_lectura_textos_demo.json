@@ -1700,5 +1700,1335 @@
         "tecnica_nivel": "C2"
       }
     ]
+  },
+  {
+    "titulo": "El perro perdido",
+    "tipo": "literario",
+    "nivel_mcer": "A1",
+    "fuente": "",
+    "orden": 13,
+    "cuerpo": "Un lunes por la manana, Pablo salio de su casa con su perro Toby. Toby era pequeno y de color marron. De repente, el perro corrio detras de un gato y se perdio. —¿Donde estas, Toby? —pregunto Pablo, preocupado. Primero busco en el parque. Despues, en la panaderia de la esquina. No encontro a Toby por ningun lado. —Toby no esta aqui —dijo el panadero—. Pero puedes mirar en la plaza. Pablo corrio a la plaza. Alli vio a una nina con un perro marron. ¡Era Toby! La nina se llamaba Lucia. Lucia habia encontrado a Toby cerca de la fuente. —¡Muchas gracias! —dijo Pablo. —Si, es tu perro —respondio Lucia—. Estaba asustado. Pablo abrazo a Toby y volvio a casa. Aquel dia aprendio que hay que cuidar a los perros.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 15,
+        "tecnica_nivel": "A1",
+        "enunciado": "En la oracion 'Pablo salio de su casa', ¿quien es el sujeto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) su casa",
+            "B) Pablo",
+            "C) salio"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 16,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'Toby corrio detras de un gato', ¿cual es el verbo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Toby",
+            "B) gato",
+            "C) corrio"
+          ],
+          "correcta": "C"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 17,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es el titulo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El perro perdido",
+            "B) La panaderia",
+            "C) La plaza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 18,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es un nombre propio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) perro",
+            "B) Toby",
+            "C) parque"
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 19,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es un adjetivo calificativo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) corrio",
+            "B) pequeno",
+            "C) parque"
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 20,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica color?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) marron",
+            "B) pequeno",
+            "C) lunes"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 21,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica tamano?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) marron",
+            "B) pequeno",
+            "C) lunes"
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 22,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica numero o cantidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) un (lunes)",
+            "B) corrio",
+            "C) Toby"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 23,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica orden en la secuencia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Primero",
+            "B) marron",
+            "C) corrio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 24,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica negacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) tambien",
+            "B) no (encontro)",
+            "C) si"
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 25,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto indica afirmacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) no",
+            "B) nunca",
+            "C) Si (es tu perro)"
+          ],
+          "correcta": "C"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 26,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que palabra del texto inicia una pregunta?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Donde",
+            "B) Toby",
+            "C) parque"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 27,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que signo de puntuacion aparece en '¡Era Toby!'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) punto",
+            "B) signo de exclamacion",
+            "C) coma"
+          ],
+          "correcta": "B"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 28,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Por que 'Pablo' lleva mayuscula?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque es un nombre propio",
+            "B) Porque es un verbo",
+            "C) Porque es una accion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 29,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es un articulo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pablo",
+            "B) el",
+            "C) corrio"
+          ],
+          "correcta": "B"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 30,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es un demostrativo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) aquel (dia)",
+            "B) Pablo",
+            "C) perro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 31,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es un posesivo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) su (casa)",
+            "B) Pablo",
+            "C) perro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 32,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas palabras es una preposicion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) de",
+            "B) Pablo",
+            "C) corrio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 33,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Quien es el personaje principal de la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Toby el perro",
+            "B) Pablo",
+            "C) Lucia"
+          ],
+          "correcta": "B"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 34,
+        "tecnica_nivel": "A1",
+        "enunciado": "Lucia aparece en el texto. ¿Que tipo de personaje es Lucia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El personaje principal",
+            "B) Un personaje secundario",
+            "C) El narrador"
+          ],
+          "correcta": "B"
+        },
+        "orden": 20
+      }
+    ]
+  },
+  {
+    "titulo": "Mi escuela",
+    "tipo": "informativo",
+    "nivel_mcer": "A1",
+    "fuente": "",
+    "orden": 14,
+    "cuerpo": "Mi escuela se llama San Isidro. Es un edificio grande y blanco, con muchas ventanas azules. Esta en el centro del pueblo. Por la manana, los ninos llegan a las nueve. La profesora, que se llama Ana, los espera en la puerta. Ana es alta y tiene el pelo negro. —Buenos dias, ninos —dice Ana, sonriendo. Los ninos entran en clase y se sientan en sus pupitres. En la clase hay un mapa grande, una pizarra y muchos libros. A las once, los ninos salen al patio. El patio tiene arboles y bancos. Alli juegan al futbol y hablan con sus amigos. —¡Que bien lo pasamos en el patio! —dice Pablo, contento. A las dos, los ninos vuelven a casa. La escuela cierra a las cinco. Por la tarde, hay clases de musica y de dibujo. Me gusta mi escuela porque aprendo mucho y tengo amigos.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 35,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'Es un edificio grande y blanco', ¿que significa 'edificio'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una construccion",
+            "B) Un animal",
+            "C) Una persona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 36,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'Ana dice Buenos dias, ninos, sonriendo', ¿como esta Ana?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Triste",
+            "B) Contento/a",
+            "C) Enfadado/a"
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 37,
+        "tecnica_nivel": "A1",
+        "enunciado": "Cuando los ninos juegan con sus amigos, ¿la accion es buena o mala?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Buena, porque se divierten y socializan",
+            "B) Mala, porque no estudian",
+            "C) Neutra"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 38,
+        "tecnica_nivel": "A1",
+        "enunciado": "Ana espera a los ninos en la puerta de la escuela y les da clase. ¿Que oficio tiene Ana?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Medica",
+            "B) Profesora",
+            "C) Panadera"
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 39,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Donde esta la escuela?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En el centro del pueblo",
+            "B) En la playa",
+            "C) En la montana"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 40,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Por que los ninos entran en clase?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque Ana los llama",
+            "B) Porque hace frio",
+            "C) Porque quieren jugar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 41,
+        "tecnica_nivel": "A1",
+        "enunciado": "Si los ninos van a clase por la manana, ¿que pasara por la tarde?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Habra clases de musica y dibujo",
+            "B) Cerraran la escuela",
+            "C) No habra clase"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 42,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es real o imaginario?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Real, porque describe una escuela normal",
+            "B) Imaginario, porque hay dragones",
+            "C) Imaginario, porque los animales hablan"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 43,
+        "tecnica_nivel": "A1",
+        "enunciado": "Los ninos van a la escuela y juegan en el patio. ¿Que edad aproximada tienen?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ninos (6-12 anos)",
+            "B) Adultos",
+            "C) Ancianos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 44,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que relacion hay entre Ana y los ninos?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Profesora y alumnos",
+            "B) Hermanos",
+            "C) Enemigos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 45,
+        "tecnica_nivel": "A1",
+        "enunciado": "El texto dice 'Por la manana, los ninos llegan'. ¿A que momento del dia se refiere?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Por la manana",
+            "B) Por la noche",
+            "C) Al mediodia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 46,
+        "tecnica_nivel": "A1",
+        "enunciado": "Segun el texto, Ana 'es alta y tiene el pelo negro'. ¿Que se puede inferir sobre Ana?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es una mujer",
+            "B) Es un hombre",
+            "C) Es un nino"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 47,
+        "tecnica_nivel": "A1",
+        "enunciado": "Cuando los ninos salen al patio a las once, ¿que es lo mas probable que hagan?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Jugar y hablar con amigos",
+            "B) Dormir",
+            "C) Irse a casa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 48,
+        "tecnica_nivel": "A1",
+        "enunciado": "Ana dice 'Buenos dias, ninos' sonriendo. ¿Que sugiere la sonrisa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que esta contenta y es amable",
+            "B) Que esta enfadada",
+            "C) Que tiene sueno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 49,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'los ninos miran el mapa con atencion', ¿que sugiere esa mirada?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que estan interesados en la clase",
+            "B) Que estan aburridos",
+            "C) Que estan enfadados"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 50,
+        "tecnica_nivel": "A1",
+        "enunciado": "Pablo dice '¡Que bien lo pasamos en el patio!' estando contento. ¿Cual es la causa de su alegria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Juega con sus amigos en el patio",
+            "B) No tiene deberes",
+            "C) Ha aprobado un examen"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 51,
+        "tecnica_nivel": "A1",
+        "enunciado": "En la escena del patio, aparecen 'los ninos' y 'sus amigos'. ¿Cuantos grupos de personajes se pueden distinguir?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Al menos dos grupos (ninos y amigos)",
+            "B) Solo uno",
+            "C) Ninguno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 52,
+        "tecnica_nivel": "A1",
+        "enunciado": "El texto dice que la escuela es 'un edificio grande y blanco'. ¿De que material podria estar hecha?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) De ladrillo o cemento",
+            "B) De tela",
+            "C) De papel"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 53,
+        "tecnica_nivel": "A1",
+        "enunciado": "En la clase hay una pizarra. ¿Para que sirve la pizarra?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Para escribir y explicar",
+            "B) Para comer",
+            "C) Para dormir"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 54,
+        "tecnica_nivel": "A1",
+        "enunciado": "El texto dice que las ventanas son 'azules'. ¿Que color tienen las ventanas?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Azul",
+            "B) Rojo",
+            "C) Verde"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 55,
+        "tecnica_nivel": "A1",
+        "enunciado": "El texto dice que Ana 'es alta'. ¿Que indica 'alta' sobre Ana?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que es de estatura elevada",
+            "B) Que es baja",
+            "C) Que es joven"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      },
+      {
+        "tecnica_numero": 56,
+        "tecnica_nivel": "A1",
+        "enunciado": "En el texto no hay ningun personaje que mienta. ¿Que indica esto sobre el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que es un texto informativo/descriptivo",
+            "B) Que es un texto de terror",
+            "C) Que es un misterio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 22
+      }
+    ]
+  },
+  {
+    "titulo": "La fiesta de cumpleanos",
+    "tipo": "literario",
+    "nivel_mcer": "A1",
+    "fuente": "",
+    "orden": 15,
+    "cuerpo": "Sofia cumplia ocho anos el sabado. Su madre preparo una fiesta en el jardin. Habia globos de colores y una tarta de chocolate. —¡Que tarta tan grande! —exclamo Sofia, con los ojos brillantes como estrellas. Por la tarde, llegaron sus amigos. Jugaron, rieron y bailaron. El reloj corria y la tarde pasaba volando. De repente, empezo a llover. Los ninos corrieron a la casa. Sofia se puso triste. —No te preocupes —dijo su madre—. La fiesta sigue dentro. Entonces, todos se sentaron en el salon. La madre trajo la tarta. Sofia soplo las velas y pidio un deseo. —¡Que se cumpla tu deseo! —dijeron sus amigos a coro. Cuando termino la fiesta, Sofia abrazo a su madre. —Gracias, mama. Ha sido el mejor cumpleanos de mi vida. Esa noche, Sofia durmio feliz. Habia aprendido que la lluvia no arruina una fiesta.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 57,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que parte del cuento es el inicio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sofia cumple ocho anos y su madre prepara la fiesta",
+            "B) Empieza a llover",
+            "C) Sofia sopla las velas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 58,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Quien es el personaje principal del cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sofia",
+            "B) La madre",
+            "C) Los amigos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 59,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Donde ocurre la fiesta al principio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En el jardin",
+            "B) En la playa",
+            "C) En el colegio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 60,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Como termina el cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sofia duerme feliz y aprende que la lluvia no arruina una fiesta",
+            "B) Sofia se enfada con su madre",
+            "C) La fiesta se cancela"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 61,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que anticipa el titulo 'La fiesta de cumpleanos'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que se hablara de una fiesta de cumpleanos",
+            "B) Que se hablara de la lluvia",
+            "C) Que se hablara de un viaje"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 62,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que parte del texto es dialogo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las frases entre guiones (—¡Que tarta tan grande!—)",
+            "B) La descripcion del jardin",
+            "C) El titulo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 63,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Quien cuenta la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un narrador externo (tercera persona)",
+            "B) Sofia (primera persona)",
+            "C) La madre (primera persona)"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 64,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es la moraleja del cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La lluvia no arruina una fiesta",
+            "B) Hay que comer tarta",
+            "C) Los cumpleanos son aburridos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 65,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es el conflicto del cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Empieza a llover y la fiesta peligra",
+            "B) No hay tarta",
+            "C) Sofia no tiene amigos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 66,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Como se resuelve el conflicto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La fiesta continua dentro de la casa",
+            "B) La lluvia para",
+            "C) Los amigos se van"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 67,
+        "tecnica_nivel": "A1",
+        "enunciado": "En el texto, la tarta de cumpleanos aparece en el centro de la fiesta. ¿Que simboliza la tarta?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La celebracion y la alegria del cumpleanos",
+            "B) El hambre",
+            "C) La tristeza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 68,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que tipo de texto es 'La fiesta de cumpleanos'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un cuento",
+            "B) Una noticia",
+            "C) Una receta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 69,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es la idea principal del cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una fiesta de cumpleanos que se salva de la lluvia",
+            "B) La vida en el campo",
+            "C) La lluvia en invierno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 70,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que ocurre primero en el cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sofia cumple ocho anos y su madre prepara la fiesta",
+            "B) Empieza a llover",
+            "C) Sofia sopla las velas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 71,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que personaje es secundario en el cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La madre de Sofia",
+            "B) Sofia",
+            "C) El narrador"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 72,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Que parte del texto es una descripcion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Habia globos de colores y una tarta de chocolate'",
+            "B) 'Sofia soplo las velas'",
+            "C) 'Empezo a llover'"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 73,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'ojos brillantes como estrellas', ¿que recurso se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una comparacion",
+            "B) Una pregunta",
+            "C) Una negacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 74,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'el reloj corria', ¿que recurso se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una personificacion (el reloj no corre, las personas si)",
+            "B) Una comparacion",
+            "C) Una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 75,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'la tarde pasaba volando', ¿que recurso se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una hiperbole (exageracion)",
+            "B) Una pregunta",
+            "C) Una negacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 76,
+        "tecnica_nivel": "A1",
+        "enunciado": "En el texto, la frase 'jugaron, rieron y bailaron' repite la estructura. ¿Que recurso es?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una repeticion (enumeracion ritmica)",
+            "B) Una comparacion",
+            "C) Una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 77,
+        "tecnica_nivel": "A1",
+        "enunciado": "El refran 'Al mal tiempo, buena cara' ensena que:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Hay que ser positivo ante las dificultades",
+            "B) Hay que enfadarse cuando llueve",
+            "C) Hay que cancelar las fiestas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "Los animales de la granja",
+    "tipo": "informativo",
+    "nivel_mcer": "A1",
+    "fuente": "",
+    "orden": 16,
+    "cuerpo": "En la granja de Juan hay muchos animales. Hay cinco vacas, tres cerdos y diez gallinas. Las vacas son grandes y de color blanco y negro. Dan leche cada manana. Los cerdos son rosados y les gusta revolcarse en el barro. —Los cerdos son muy divertidos —dice Juan, riendo. Las gallinas ponen huevos todos los dias. Son pequenas y de color marron. Los huevos son blancos y muy ricos. Un dia, Juan encontro un huevo muy grande. —¡Que huevo tan grande! —exclamo—. ¿De que gallina sera? Juan miro a las gallinas. Ninguna era mas grande que las otras. Entonces, Juan entendio: el huevo era grande porque la gallina habia comido mucho maiz. Juan recogio el huevo y lo llevo a la cocina. Su madre lo cocino y toda la familia lo compartio. —Este huevo es el mas rico de todos —dijo la madre—. Juan sonrio. Aquel dia aprendio que las apariencias enganan: un huevo grande no siempre es mejor.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 78,
+        "tecnica_nivel": "A1",
+        "enunciado": "La frase 'las vacas son grandes y de color blanco y negro' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un hecho verificable",
+            "B) Una opinion",
+            "C) Una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 79,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es real o imaginario?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Real, porque describe animales de granja que existen",
+            "B) Imaginario, porque hay dragones",
+            "C) Imaginario, porque los animales hablan"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 80,
+        "tecnica_nivel": "A1",
+        "enunciado": "En 'el huevo era grande porque la gallina habia comido mucho maiz', ¿cual es la causa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La gallina comio mucho maiz",
+            "B) El huevo era grande",
+            "C) Juan lo encontro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 81,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estas afirmaciones del texto es verdadera?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En la granja hay cinco vacas",
+            "B) En la granja hay veinte vacas",
+            "C) En la granja no hay animales"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 82,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es el proposito del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Informar sobre los animales de una granja",
+            "B) Persuadir de comprar una granja",
+            "C) Criticar a los granjeros"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 83,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿A que publico objetivo va dirigido el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A ninos, por el vocabulario sencillo",
+            "B) A expertos en ganaderia",
+            "C) A cientificos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 84,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es el punto de vista del autor sobre los animales?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Favorable: los describe con carino",
+            "B) Critico: los considera peligrosos",
+            "C) Neutro: solo da datos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 85,
+        "tecnica_nivel": "A1",
+        "enunciado": "La frase 'todos los cerdos son divertidos' es una:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Generalizacion apresurada",
+            "B) Evidencia empirica",
+            "C) Una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 86,
+        "tecnica_nivel": "A1",
+        "enunciado": "La frase 'un huevo grande siempre es mejor' es una:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Exageracion",
+            "B) Pregunta retorica",
+            "C) Definicion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 87,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Hay alguna contradiccion en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No, el texto es coherente",
+            "B) Si, dice que los cerdos son rosados y grandes",
+            "C) Si, dice que hay diez gallinas y luego cinco"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 88,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estos datos es mas relevante para la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que Juan encontro un huevo muy grande",
+            "B) Que las gallinas son de color marron",
+            "C) Que los cerdos comen barro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 89,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es el argumento principal del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las apariencias enganan: un huevo grande no siempre es mejor",
+            "B) Los cerdos son divertidos",
+            "C) Las gallinas ponen huevos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 90,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es claro?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, usa oraciones cortas y palabras sencillas",
+            "B) No, usa palabras muy dificiles",
+            "C) No, no se entiende"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 91,
+        "tecnica_nivel": "A1",
+        "enunciado": "El texto dice 'cinco vacas' y 'diez gallinas'. ¿Es preciso?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, da numeros exactos",
+            "B) No, es vago",
+            "C) No, se contradice"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 92,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las apariencias enganan: un huevo grande no siempre es mejor",
+            "B) Los animales son muchos",
+            "C) La granja es grande"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 93,
+        "tecnica_nivel": "A1",
+        "enunciado": "El ejemplo del huevo grande, ¿es relevante para la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, ilustra que las apariencias enganan",
+            "B) No, no tiene relacion",
+            "C) No, es demasiado largo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 94,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto tiene algun sesgo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No, describe los animales de forma neutral",
+            "B) Si, critica a los cerdos",
+            "C) Si, elogia solo a las vacas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 95,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es coherente?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, las ideas se conectan logicamente",
+            "B) No, salta de un tema a otro",
+            "C) No, se contradice"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 96,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es la funcion del primer parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presentar la granja y sus animales",
+            "B) Dar la conclusion",
+            "C) Plantear un problema"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 97,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual es la funcion del ultimo parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Cerrar el texto con una reflexion",
+            "B) Presentar a los personajes",
+            "C) Describir el lugar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 98,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es objetivo o subjetivo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Mayormente objetivo (describe hechos) con algun toque subjetivo",
+            "B) Totalmente subjetivo",
+            "C) Totalmente objetivo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      },
+      {
+        "tecnica_numero": 99,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿Cual de estos seria un buen resumen del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Juan tiene una granja con animales. Un dia encuentra un huevo grande y aprende que las apariencias enganan.",
+            "B) Hay cinco vacas y tres cerdos",
+            "C) Las vacas dan leche"
+          ],
+          "correcta": "A"
+        },
+        "orden": 22
+      },
+      {
+        "tecnica_numero": 100,
+        "tecnica_nivel": "A1",
+        "enunciado": "¿El texto es de calidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es claro, preciso, coherente y relevante",
+            "B) No, es demasiado largo",
+            "C) No, no tiene sentido"
+          ],
+          "correcta": "A"
+        },
+        "orden": 23
+      }
+    ]
   }
 ]

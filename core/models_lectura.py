@@ -53,7 +53,7 @@ class Texto(models.Model):
     orden = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
-        ordering = ["nivel_mcer", "orden", "titulo"]
+        ordering = ["nivel_mcer", "orden"]
         verbose_name = "Texto de lectura"
         verbose_name_plural = "Textos de lectura"
 
