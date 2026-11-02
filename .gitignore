@@ -139,3 +139,14 @@ scripts/fix_conftest.py
 fixtures/_patched.json
 verify_*.log
 precheck_*.log
+
+# ─── Scripts temporales (diagnostico, hotfix, etc.) ───
+scripts/_*.py
+scripts/_*.ps1
+*.bak
+build.sh.bak
+pytest_*.log
+
+# ─── Entornos y DB local ───
+.env.local
+db.sqlite3-journal
