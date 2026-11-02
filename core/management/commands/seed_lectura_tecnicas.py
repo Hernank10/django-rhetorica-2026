@@ -28,6 +28,7 @@ class Command(BaseCommand):
 
         for t in data:
             obj, created = TecnicaLectura.objects.update_or_create(
+                nivel_mcer=t["nivel_mcer"],
                 numero=t["numero"],
                 defaults={
                     "proceso": t["proceso"],

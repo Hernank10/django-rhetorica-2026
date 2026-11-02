@@ -19,10 +19,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 3,
+        "tecnica_numero": 1,
         "enunciado": "¿Por que Marta encendio la linterna grande?",
         "tipo": "multiple_choice",
         "payload": {
@@ -33,10 +34,11 @@
           ],
           "correcta": "C"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 4,
+        "tecnica_numero": 1,
         "enunciado": "¿Que rasgo describe mejor a Marta segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -47,7 +49,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "B2"
       }
     ]
   },
@@ -71,10 +74,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 2,
+        "tecnica_numero": 1,
         "enunciado": "Segun Ecovidrio (2024), ¿cuantos kilogramos de vidrio reciclo de media cada espanol?",
         "tipo": "multiple_choice",
         "payload": {
@@ -85,20 +89,22 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 5,
+        "tecnica_numero": 2,
         "enunciado": "¿Que afirmacion resume mejor el texto?",
         "tipo": "abierta",
         "payload": {
           "respuesta_esperada": "El reciclaje de vidrio en Espana es eficiente porque ahorra energia y materiales, aunque la cobertura rural es mejorable.",
           "criterios": "Menciona eficiencia + ahorro + critica rural (2 de 3 = valida)"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 7,
+        "tecnica_numero": 2,
         "enunciado": "La frase 'algunos expertos consideran que las campanas de reciclaje deberian estar mejor distribuidas' es:",
         "tipo": "multiple_choice",
         "payload": {
@@ -109,7 +115,8 @@
           ],
           "correcta": "B"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "B2"
       }
     ]
   },
@@ -122,7 +129,7 @@
     "cuerpo": "Una vez mas, la empresa energetica Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez mas, los datos la desmintieron al mes siguiente de la rueda de prensa: segun el informe trimestral publicado por la propia compania, las emisiones habian aumentado un 4% respecto al ano anterior. El director de sostenibilidad, en declaraciones a este periodico, aseguro que 'el incremento es temporal y responde a una mayor demanda energetica'. Sin embargo, dos expertos independientes consultados por El Debate senalan que la empresa habia recibido subvenciones publicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compania no ha respondido a las preguntas de este periodico.",
     "ejercicios": [
       {
-        "tecnica_numero": 6,
+        "tecnica_numero": 1,
         "enunciado": "¿Cual parece ser la intencion del autor del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -133,10 +140,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 7,
+        "tecnica_numero": 2,
         "enunciado": "La frase 'el incremento es temporal y responde a una mayor demanda energetica' es:",
         "tipo": "multiple_choice",
         "payload": {
@@ -147,10 +155,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 8,
+        "tecnica_numero": 2,
         "enunciado": "¿Que elementos del texto aumentan la credibilidad de la informacion?",
         "tipo": "multiple_choice",
         "payload": {
@@ -161,17 +170,19 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 4,
+        "tecnica_numero": 1,
         "enunciado": "¿Que se puede inferir sobre la empresa Promesas S.A. a partir de sus acciones?",
         "tipo": "abierta",
         "payload": {
           "respuesta_esperada": "Que incumple sus promesas publicas y posiblemente no ejecuta las mejoras subvencionadas.",
           "criterios": "Menciona incumplimiento + falta de transparencia (2 de 2 = valida)"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "B2"
       }
     ]
   },
@@ -184,7 +195,7 @@
     "cuerpo": "El instituto San Isidro ha prohibido los moviles durante el horario escolar. La medida, aprobada por el consejo escolar el pasado mes de septiembre, ha generado un intenso debate entre profesores, familias y alumnos. Segun el informe del Observatorio de Adolescencia Digital de 2025, el 78% de los adolescentes espanoles de entre 12 y 16 anos usa redes sociales a diario. Sin embargo, solo el 32% de los padres considera que sus hijos hacen un uso responsable de ellas. Los defensores de la prohibicion argumentan que los moviles son ubicuos en las aulas y dificultan la atencion. Ademas, senalan que las redes sociales pueden generar ansiedad y comparaciones poco saludables. Por ejemplo, un estudio reciente de la Universidad de Valencia encontro que los adolescentes que pasan mas de tres horas diarias en redes tienen un 40% mas de probabilidad de mostrar sintomas de ansiedad. Los criticos, en cambio, consideran que la prohibicion es una medida paternalista y que no resuelve el problema de fondo: la falta de educacion digital. Argumentan que los jovenes necesitan aprender a usar la tecnologia de forma responsable, no evitarse. El debate sigue abierto. Mientras algunos institutos ya han aprobado medidas similares, otros prefieren esperar a ver los resultados del San Isidro al final del curso.",
     "ejercicios": [
       {
-        "tecnica_numero": 9,
+        "tecnica_numero": 2,
         "enunciado": "En la oracion 'El instituto San Isidro ha prohibido los moviles durante el horario escolar', ¿cual es el sujeto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -195,10 +206,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 10,
+        "tecnica_numero": 3,
         "enunciado": "¿Cual es la tesis del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -209,10 +221,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 11,
+        "tecnica_numero": 3,
         "enunciado": "¿Que relacion marca el conector 'sin embargo' en la frase 'El 78% usa redes a diario. Sin embargo, solo el 32% de los padres...'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -223,10 +236,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 13,
+        "tecnica_numero": 3,
         "enunciado": "¿Que significa 'ubicuos' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -237,10 +251,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 18,
+        "tecnica_numero": 2,
         "enunciado": "¿Cual es el tema del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -251,10 +266,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 20,
+        "tecnica_numero": 5,
         "enunciado": "¿Como se relacionan el segundo y el tercer parrafo?",
         "tipo": "multiple_choice",
         "payload": {
@@ -265,10 +281,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 23,
+        "tecnica_numero": 3,
         "enunciado": "¿El texto es un cuento o una noticia?",
         "tipo": "multiple_choice",
         "payload": {
@@ -279,10 +296,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 25,
+        "tecnica_numero": 6,
         "enunciado": "¿Cual es el argumento principal del texto a favor de la prohibicion?",
         "tipo": "multiple_choice",
         "payload": {
@@ -293,7 +311,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "B1"
       }
     ]
   },
@@ -306,7 +325,7 @@
     "cuerpo": "El lenguaje politico no solo transmite informacion: tambien construye realidades. Como senala el linguista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del termino 'los ciudadanos de bien'. Detras de esa expresion aparentemente neutra se esconde una distincion entre 'nosotros' y 'los otros': quienes no encajan en esa categoria son, implicitamente, ciudadanos de mal. El politico que usa este termino no esta describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de esloganes aparentemente positivos. El famoso 'Espana va bien' no describe un estado de cosas: invita al oyente a compartir una vision optimista y a desconfiar de quien la critique. Detras del eslogan hay una intencion persuasiva: quien lo pone en duda es presentado como un agorero. Tambien son comunes las falsas disyuntivas: 'o esta con nosotros o esta contra Espana'. Esta formula, que parece ofrecer una eleccion, en realidad la cancela: solo hay una opcion legitima. Es una falacia clasica que los analistas del discurso llevan decadas senalando. Para evaluar la calidad de un discurso politico, el lector critico debe preguntarse: ¿que evidencia respalda cada afirmacion? ¿se citan estudios o solo se apela a la emocion? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es mas creible que uno que solo apela a la emocion y a las generalizaciones. El analisis del lenguaje politico no es un ejercicio de cinismo: es una condicion para la ciudadania. Quien no sabe leer el lenguaje del poder esta condenado a obedecerle sin darse cuenta.",
     "ejercicios": [
       {
-        "tecnica_numero": 12,
+        "tecnica_numero": 3,
         "enunciado": "¿Cual es la fuente de la cita 'el lenguaje es poder'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -317,10 +336,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 15,
+        "tecnica_numero": 4,
         "enunciado": "¿Que intencion tiene el politico al usar la expresion 'los ciudadanos de bien'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -331,10 +351,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 16,
+        "tecnica_numero": 4,
         "enunciado": "¿Que postura revela la seleccion de ejemplos del autor?",
         "tipo": "multiple_choice",
         "payload": {
@@ -345,10 +366,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 21,
+        "tecnica_numero": 5,
         "enunciado": "¿Desde que punto de vista esta escrito el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -359,10 +381,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 22,
+        "tecnica_numero": 5,
         "enunciado": "¿El registro del texto es formal o informal?",
         "tipo": "multiple_choice",
         "payload": {
@@ -373,10 +396,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 24,
+        "tecnica_numero": 5,
         "enunciado": "¿Que intencion tiene el eslogan 'Espana va bien'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -387,10 +411,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 26,
+        "tecnica_numero": 6,
         "enunciado": "¿Que falacia contiene la frase 'o esta con nosotros o esta contra Espana'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -401,10 +426,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 27,
+        "tecnica_numero": 6,
         "enunciado": "¿Cual de estas evidencias es mas solida para sostener una afirmacion politica?",
         "tipo": "multiple_choice",
         "payload": {
@@ -415,10 +441,11 @@
           ],
           "correcta": "C"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 28,
+        "tecnica_numero": 2,
         "enunciado": "¿Que terminos del texto revelan un sesgo ideologico del autor?",
         "tipo": "multiple_choice",
         "payload": {
@@ -429,7 +456,8 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "C2"
       }
     ]
   },
@@ -442,7 +470,7 @@
     "cuerpo": "El uso de la inteligencia artificial (IA) en la educacion ha crecido de forma exponencial en los ultimos anos. Segun el informe de la OCDE de 2025, el 67% de los centros educativos de los paises desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluacion automatica. En Espana, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el ultimo curso. Los defensores de la IA en la educacion argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentacion inmediata. Ademas, los sistemas de evaluacion automatica liberan a los profesores de tareas repetitivas, permitiendoles dedicar mas tiempo a la ensenanza. Sin embargo, los criticos senalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanizacion: si la IA sustituye al profesor en la retroalimentacion, se pierde el vinculo humano, que es esencial en la educacion. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tension se produjo en 2024, cuando un instituto de Barcelona decidio sustituir parte de las tutorias por un asistente de IA. La medida genero protestas de las familias, que consideraban que la educacion requiere un acompanamiento humano que la tecnologia no puede ofrecer. El instituto dio marcha atras. El debate sigue abierto. La pregunta no es si la IA estara en la educacion, sino como integrarla de forma que potencie el aprendizaje sin perder lo humano. Como senala un informe de la UNESCO (2023), 'la tecnologia debe estar al servicio de las personas, no al reves'.",
     "ejercicios": [
       {
-        "tecnica_numero": 29,
+        "tecnica_numero": 4,
         "enunciado": "¿Donde ocurrio el caso del instituto que sustituyo tutorias por un asistente de IA?",
         "tipo": "multiple_choice",
         "payload": {
@@ -453,10 +481,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 30,
+        "tecnica_numero": 7,
         "enunciado": "En el texto, ¿como se define la IA?",
         "tipo": "multiple_choice",
         "payload": {
@@ -467,10 +496,11 @@
           ],
           "correcta": "C"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 32,
+        "tecnica_numero": 6,
         "enunciado": "¿Que se puede inferir sobre los estudiantes que usan IA segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -481,10 +511,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 33,
+        "tecnica_numero": 7,
         "enunciado": "¿Que consecuencia se infiere de la desigualdad de acceso a la IA?",
         "tipo": "multiple_choice",
         "payload": {
@@ -495,10 +526,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 34,
+        "tecnica_numero": 8,
         "enunciado": "¿Cual es el proposito comunicativo del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -509,10 +541,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 36,
+        "tecnica_numero": 9,
         "enunciado": "¿Cual de estos datos es mas relevante para la tesis del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -523,10 +556,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 37,
+        "tecnica_numero": 8,
         "enunciado": "¿Como esta estructurado el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -537,10 +571,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 38,
+        "tecnica_numero": 4,
         "enunciado": "La frase 'la tecnologia debe estar al servicio de las personas, no al reves' es una analogia. ¿Que la hace solida o debil?",
         "tipo": "multiple_choice",
         "payload": {
@@ -551,10 +586,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 31,
+        "tecnica_numero": 3,
         "enunciado": "¿Cual es la tesis implicita del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -565,10 +601,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 35,
+        "tecnica_numero": 7,
         "enunciado": "¿Como se relaciona el titulo 'promesas y riesgos' con el contenido del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -579,10 +616,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 14,
+        "tecnica_numero": 4,
         "enunciado": "¿Que se puede inferir sobre el estado de animo de las familias que protestaron en Barcelona?",
         "tipo": "multiple_choice",
         "payload": {
@@ -593,10 +631,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 11
+        "orden": 11,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 17,
+        "tecnica_numero": 1,
         "enunciado": "¿Que significa la metafora 'la tecnologia debe estar al servicio de las personas, no al reves'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -607,7 +646,8 @@
           ],
           "correcta": "B"
         },
-        "orden": 12
+        "orden": 12,
+        "tecnica_nivel": "C2"
       }
     ]
   },
@@ -620,7 +660,7 @@
     "cuerpo": "Aquel martes por la tarde, Lucia empujo la puerta de la biblioteca del barrio y descubrio que estaba cerrada por obras. Un cartel anunciaba que reabriria en dos semanas. Lucia, que tenia doce anos y una sed insaciable de historias, sintio que el corazon le daba un vuelco. No podia esperar dos semanas sin leer. Mientras volvia a casa, se fijo en una puerta pequena y descuidada que nunca habia visto antes, entre la panaderia y la ferreteria. Tenia un letrero dorado que decia: 'Biblioteca de libros olvidados'. Lucia dudo un momento, miro a ambos lados de la calle y empujo la puerta. Dentro, el aire olia a papel viejo y a madera. Las estanterias subian hasta el techo, repletas de libros con lomos gastados. Una mujer mayor, de pelo blanco y gafas redondas, levanto la vista de un libro y sonrio. -Bienvenida, Lucia -dijo la mujer-. Te estaba esperando. Lucia se quedo muda. Quien era aquella mujer? Como sabia su nombre? La mujer se llamaba Rosa y le explico que la biblioteca llevaba cerrada al publico mas de cincuenta anos, pero que seguia abierta para quien de verdad necesitara un libro. -Los libros no se prestan -dijo Rosa-. Se regalan. Pero solo a quien los merece. Lucia paso toda la tarde alli. Rosa le conto que la biblioteca habia sido de su padre, un librero que creia que los libros debian circular libremente. Cuando murio, Rosa decidio mantenerla abierta en secreto, solo para lectores de verdad. Al anochecer, Rosa le dio un libro pequeno, de tapas azules. -Este es para ti -dijo-. Cuando lo termines, vuelve y te dare otro. Lucia volvio a casa corriendo, con el libro apretado contra el pecho. Esa noche, leyo hasta que se le cerraron los ojos. Al dia siguiente volvio a la biblioteca secreta. Rosa la esperaba con otro libro y una sonrisa.",
     "ejercicios": [
       {
-        "tecnica_numero": 39,
+        "tecnica_numero": 5,
         "enunciado": "¿Cuando ocurre la historia?",
         "tipo": "multiple_choice",
         "payload": {
@@ -631,10 +671,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 40,
+        "tecnica_numero": 7,
         "enunciado": "¿Quien empuja la puerta de la biblioteca del barrio al principio?",
         "tipo": "multiple_choice",
         "payload": {
@@ -645,10 +686,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 44,
+        "tecnica_numero": 6,
         "enunciado": "¿Como se siente Lucia cuando descubre que la biblioteca esta cerrada?",
         "tipo": "multiple_choice",
         "payload": {
@@ -659,10 +701,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 45,
+        "tecnica_numero": 8,
         "enunciado": "¿Que es lo mas probable que ocurra despues del final del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -673,10 +716,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 46,
+        "tecnica_numero": 11,
         "enunciado": "¿Que relacion hay entre Rosa y su padre, segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -687,10 +731,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 47,
+        "tecnica_numero": 10,
         "enunciado": "¿Por que Rosa mantiene la biblioteca abierta en secreto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -701,10 +746,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 49,
+        "tecnica_numero": 7,
         "enunciado": "¿El texto es un cuento o una noticia?",
         "tipo": "multiple_choice",
         "payload": {
@@ -715,10 +761,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 50,
+        "tecnica_numero": 9,
         "enunciado": "¿Quien es el personaje principal del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -729,10 +776,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 51,
+        "tecnica_numero": 12,
         "enunciado": "¿Cual es el tema central del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -743,10 +791,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 54,
+        "tecnica_numero": 10,
         "enunciado": "¿Que parte del texto es dialogo?",
         "tipo": "multiple_choice",
         "payload": {
@@ -757,10 +806,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 19,
+        "tecnica_numero": 4,
         "enunciado": "¿Como esta estructurado el cuento?",
         "tipo": "multiple_choice",
         "payload": {
@@ -771,7 +821,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 11
+        "orden": 11,
+        "tecnica_nivel": "A2"
       }
     ]
   },
@@ -784,7 +835,7 @@
     "cuerpo": "Las redes sociales han transformado la forma en que nos informamos, pero tambien la forma en que pensamos. Segun el informe Digital 2025 de la consultora We Are Social, el 67% de los adultos espanoles usa redes sociales a diario, y el 42% las consulta como primera fuente de informacion. Estos datos deberian hacernos reflexionar: si la mayoria se informa por redes, la calidad de la informacion publica depende, en gran medida, de la calidad de esas redes. El primer problema es el ruido. Las redes estan disenadas para maximizar la atencion, no para informar. Los algoritmos priorizan el contenido que genera interaccion (likes, compartidos, comentarios), y ese contenido suele ser el mas emocional, no el mas veraz. Un estudio de la Universidad de Oxford (2024) encontro que las noticias falsas se comparten un 70% mas que las verdaderas. No es porque la gente sea tonta: es porque el sistema esta disenado para premiar la emocion. El segundo problema es la camara de eco. Los algoritmos nos muestran lo que coincide con nuestras opiniones previas, y eso refuerza nuestras creencias en lugar de cuestionarlas. El filosofo Cass Sunstein (2001) llamo a esto 'la repubblica de la eco': un espacio donde solo escuchamos lo que ya pensamos. El resultado es una sociedad mas polarizada, donde el que piensa distinto no es un interlocutor, sino un enemigo. El tercer problema es la perdida de contexto. Un tuit de 280 caracteres no puede explicar un conflicto complejo. Un video de 30 segundos no puede analizar una reforma fiscal. La brevedad es enemiga de la matizacion, y sin matices no hay pensamiento critico posible. Como escribio el periodista Ezra Klein (2020), 'las redes no nos hacen mas tontos, pero si nos hacen mas rapidos, y la rapidez es enemiga de la reflexion'. El cuarto problema es la erosion de la confianza. Cuando el 67% se informa por redes y las noticias falsas se comparten mas que las verdaderas, la consecuencia es que la sociedad deja de creer en cualquier informacion. El escepticismo universal es tan peligroso como la credulidad universal: si nada es verdad, cualquier cosa puede serlo. La solucion no es abandonar las redes, sino exigirles lo que no tienen: contexto, verificacion y responsabilidad. Las redes no son el problema; el problema es creer que las redes son la solucion. Como escribio el filosofo Byung-Chul Han (2021), 'la transparencia total no es la verdad: es la muerte de la verdad'. La educacion mediatica, la verificacion de fuentes y el pensamiento critico son las unicas vacunas contra el ruido. Y esa vacuna no se administra en las redes: se administra en la escuela, en la familia y en la lectura.",
     "ejercicios": [
       {
-        "tecnica_numero": 41,
+        "tecnica_numero": 10,
         "enunciado": "Segun el informe Digital 2025, ¿que porcentaje de adultos espanoles usa redes sociales a diario?",
         "tipo": "multiple_choice",
         "payload": {
@@ -795,10 +846,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 42,
+        "tecnica_numero": 9,
         "enunciado": "¿Que cita textual apoya la afirmacion sobre la rapidez de las redes?",
         "tipo": "multiple_choice",
         "payload": {
@@ -809,10 +861,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 43,
+        "tecnica_numero": 8,
         "enunciado": "¿Como se define implicitamente la 'camara de eco' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -823,10 +876,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 48,
+        "tecnica_numero": 9,
         "enunciado": "¿Que terminos del texto revelan la postura critica del autor hacia las redes?",
         "tipo": "multiple_choice",
         "payload": {
@@ -837,10 +891,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 52,
+        "tecnica_numero": 11,
         "enunciado": "¿Como se interpreta el final del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -851,10 +906,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 53,
+        "tecnica_numero": 5,
         "enunciado": "¿Hay ironia en la frase 'las redes no son el problema; el problema es creer que las redes son la solucion'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -865,10 +921,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 55,
+        "tecnica_numero": 13,
         "enunciado": "¿Cual es la idea principal del primer parrafo?",
         "tipo": "multiple_choice",
         "payload": {
@@ -879,10 +936,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 56,
+        "tecnica_numero": 12,
         "enunciado": "¿El siguiente argumento es logico? 'Las redes premian la emocion. Las noticias falsas son emocionales. Por tanto, las redes premian las noticias falsas.'",
         "tipo": "multiple_choice",
         "payload": {
@@ -893,10 +951,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 57,
+        "tecnica_numero": 10,
         "enunciado": "¿Que generalizacion apresurada aparece en el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -907,10 +966,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 58,
+        "tecnica_numero": 6,
         "enunciado": "¿El texto es internamente coherente?",
         "tipo": "multiple_choice",
         "payload": {
@@ -921,7 +981,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "C2"
       }
     ]
   },
@@ -934,7 +995,7 @@
     "cuerpo": "Una manana de primavera, Pablo encontro un gato gris sentado en el muro de su jardin. El gato lo miro fijamente y dijo: -Buenos dias, Pablo. Pablo se quedo paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compania. Pablo, despues de dudar un momento, se sento en el muro junto al gato. El gato le conto que vivia en el tejado de la casa vecina y que pasaba los dias mirando a la gente. -Primero observo, luego decido si me acerco -explico el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pajaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiro, bostezo y dijo: -Me voy. Manana volvere. Y salto del muro con elegancia. Pablo lo miro alejarse por el tejado. Al dia siguiente, cuando bajo al jardin, el gato gris ya estaba alli, esperandolo, con los ojos brillantes y la cola levantada.",
     "ejercicios": [
       {
-        "tecnica_numero": 64,
+        "tecnica_numero": 9,
         "enunciado": "¿La situacion del texto es real o imaginaria?",
         "tipo": "multiple_choice",
         "payload": {
@@ -945,10 +1006,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 74,
+        "tecnica_numero": 14,
         "enunciado": "¿Que elemento del texto es fantastico?",
         "tipo": "multiple_choice",
         "payload": {
@@ -959,10 +1021,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 59,
+        "tecnica_numero": 8,
         "enunciado": "En la oracion 'Pablo encontro un gato gris', ¿cual es el objeto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -973,10 +1036,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 59,
+        "tecnica_numero": 8,
         "enunciado": "En 'El gato salto del muro', ¿cual es el objeto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -987,10 +1051,11 @@
           ],
           "correcta": "C"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 65,
+        "tecnica_numero": 12,
         "enunciado": "¿Que sugiere que el gato 'lo miro fijamente'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1001,10 +1066,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 65,
+        "tecnica_numero": 12,
         "enunciado": "¿Que sugiere que el gato este 'con los ojos brillantes y la cola levantada'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1015,10 +1081,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 70,
+        "tecnica_numero": 13,
         "enunciado": "¿Cual es el escenario principal del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1029,10 +1096,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 69,
+        "tecnica_numero": 10,
         "enunciado": "¿Que ocurre primero en la historia?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1043,10 +1111,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 60,
+        "tecnica_numero": 11,
         "enunciado": "En la frase 'Primero observo, luego decido si me acerco', ¿que palabras indican orden?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1057,10 +1126,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 74,
+        "tecnica_numero": 14,
         "enunciado": "¿Cual de estas frases del texto es un hecho real (no fantastico)?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1071,7 +1141,8 @@
           ],
           "correcta": "B"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "A2"
       }
     ]
   },
@@ -1084,7 +1155,7 @@
     "cuerpo": "La industria de la moda rapida (fast fashion) ha transformado la manera en que consumimos ropa. Segun el informe Textile Exchange 2025, la produccion global de prendas se ha duplicado en los ultimos veinte anos, mientras que el tiempo medio de uso de una prenda se ha reducido a la mitad. Estos datos deberian hacernos reflexionar: compramos mas ropa que nunca y la usamos menos tiempo que nunca. El primer problema es el costo humano. Segun la Organizacion Internacional del Trabajo (OIT, 2024), mas de 40 millones de personas trabajan en la industria textil en condiciones precarias: jornadas de 12 horas, salarios por debajo del minimo y exposicion a productos quimicos toxicos. Un estudio de la Universidad de Lund (2023) realizado en dos distritos de Bangladesh encontro que el 78% de las trabajadoras textiles no tiene contrato formal. No es casualidad que las prendas mas baratas se produzcan en los paises con menos regulacion laboral. El segundo problema es el impacto ambiental. La produccion textil consume mas agua que cualquier otra industria despues de la agricultura. Un solo par de vaqueros requiere unos 7.500 litros de agua, segun la UNESCO (2023). Ademas, la moda rapida genera 92 millones de toneladas de residuos textiles al ano, y solo el 12% se recicla. El vaquero, ese objeto cotidiano que usamos sin pensar, se convierte asi en un simbolo del costo ambiental de nuestra ropa. El tercer problema es el greenwashing. Muchas marcas se presentan como 'sostenibles' o 'eco-friendly' sin cambiar sus practicas. Como senala la periodista Elizabeth Cline (2021) en su libro The Conscious Closet, 'la moda sostenible no es una etiqueta: es una cadena de produccion completamente distinta'. Etiquetar una camiseta como 'verde' mientras se produce en talleres sin condiciones laborales no es sostenibilidad: es marketing. La etiqueta verde, ese pequeno rectangulo que promete un mundo mejor, se convierte en un simbolo de la hipocresia corporativa. ¿Quien puede negar que la moda rapida tiene un costo humano y ambiental que no podemos seguir ignorando? Como en la fabula de La cigarra y la hormiga, el que solo piensa en el placer inmediato y no en el futuro termina pagando las consecuencias. Y 'pagar las consecuencias' puede significar muchas cosas: pagar mas dinero, pagar con la salud, o pagar con el planeta. Un dato para la reflexion: segun un informe de McKinsey (2024), el 67% de los consumidores dice estar dispuesto a pagar mas por ropa sostenible. Sin embargo, solo el 23% lo hace realmente. ¿Por que esta diferencia? La respuesta es compleja y admite varias lecturas. La solucion no es dejar de comprar ropa, sino comprar menos y mejor. Un consumidor informado puede exigir transparencia a las marcas y preferir prendas duraderas, producidas en condiciones justas. La moda sostenible es posible, pero requiere un cambio de mentalidad: del consumo rapido al consumo consciente.",
     "ejercicios": [
       {
-        "tecnica_numero": 75,
+        "tecnica_numero": 17,
         "enunciado": "¿Cual es el proposito del parrafo introductorio del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1095,10 +1166,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 62,
+        "tecnica_numero": 13,
         "enunciado": "¿Cual de estas afirmaciones del texto es evidencia empirica?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1109,10 +1181,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 63,
+        "tecnica_numero": 11,
         "enunciado": "En la frase 'Como senala la periodista Elizabeth Cline (2021)... la moda sostenible no es una etiqueta...', ¿que parte es voz citada y cual es voz del autor?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1123,10 +1196,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 66,
+        "tecnica_numero": 15,
         "enunciado": "Segun el texto, ¿cual es una causa de las condiciones laborales precarias en la industria textil?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1137,10 +1211,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 67,
+        "tecnica_numero": 14,
         "enunciado": "La pregunta '¿Quien puede negar que la moda rapida tiene un costo humano y ambiental que no podemos seguir ignorando?' es retorica. ¿Que intencion tiene?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1151,10 +1226,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 68,
+        "tecnica_numero": 12,
         "enunciado": "¿A que publico objetivo parece dirigido el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1165,10 +1241,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 71,
+        "tecnica_numero": 16,
         "enunciado": "El texto cita la fabula de 'La cigarra y la hormiga'. ¿Cual es la moraleja que el autor usa para apoyar su argumento?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1179,10 +1256,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 61,
+        "tecnica_numero": 14,
         "enunciado": "¿Cual es la conclusion del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1193,10 +1271,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 72,
+        "tecnica_numero": 15,
         "enunciado": "El 'vaquero' y la 'etiqueta verde' aparecen en el texto con un valor simbolico. ¿Que simbolizan?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1207,10 +1286,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 73,
+        "tecnica_numero": 7,
         "enunciado": "La frase 'pagar las consecuencias puede significar muchas cosas: pagar mas dinero, pagar con la salud, o pagar con el planeta' es deliberadamente ambigua. ¿Cual es la interpretacion mas coherente con el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1221,10 +1301,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 76,
+        "tecnica_numero": 16,
         "enunciado": "El texto menciona la fabula de 'La cigarra y la hormiga' como ejemplo para apoyar su argumento. ¿Es un ejemplo relevante?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1235,10 +1316,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 11
+        "orden": 11,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 77,
+        "tecnica_numero": 13,
         "enunciado": "El texto cita un informe de McKinsey (2024) segun el cual el 67% de los consumidores dice estar dispuesto a pagar mas por ropa sostenible, pero solo el 23% lo hace. ¿Hay sesgo de seleccion en esta muestra?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1249,10 +1331,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 12
+        "orden": 12,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 78,
+        "tecnica_numero": 8,
         "enunciado": "El texto dice que la produccion textil 'genera 92 millones de toneladas de residuos al ano, y solo el 12% se recicla' (UNESCO, 2023). ¿Que hace que esta conclusion sea solida?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1263,7 +1346,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 13
+        "orden": 13,
+        "tecnica_nivel": "C2"
       }
     ]
   },
@@ -1276,7 +1360,7 @@
     "cuerpo": "Cada domingo, Sofia iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofia queria aprender. -Hoy te enseno mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atencion. -Si, abuela -respondio Sofia, con los ojos brillantes. La abuela saco mucha harina, bastante azucar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego anadimos el azucar y, por ultimo, la harina -explico la abuela-. Nunca lo hacemos todo a la vez. Sofia removio la mezcla con una cuchara de madera. La abuela la miraba con carino. -Abuela, ¿por que no usas la batidora electrica? -pregunto Sofia. -Porque con la cuchara se siente la textura -contesto la abuela-. Y la textura es lo mas importante. Sofia no dijo nada, pero entendio. Cuando el bizcocho estuvo en el horno, la abuela le conto que aquella receta era de su propia abuela, que la habia aprendido de nina en un pueblo pequeno. Al final, el bizcocho salio perfecto. Sofia se lo llevo a casa y lo compartio con sus padres. Nunca lo olvido: aquella tarde aprendio mas que una receta.",
     "ejercicios": [
       {
-        "tecnica_numero": 79,
+        "tecnica_numero": 11,
         "enunciado": "En el texto, la abuela usa 'mucha harina', 'bastante azucar' y 'un poco de sal'. ¿Que indican estas palabras?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1287,10 +1371,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 80,
+        "tecnica_numero": 15,
         "enunciado": "¿Que palabras del texto indican negacion?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1301,10 +1386,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 85,
+        "tecnica_numero": 12,
         "enunciado": "Cuando Sofia comparte el bizcocho con sus padres, ¿la accion es buena o mala?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1315,10 +1401,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 86,
+        "tecnica_numero": 16,
         "enunciado": "¿Que oficio tiene la abuela, segun las herramientas que usa en el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1329,10 +1416,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 90,
+        "tecnica_numero": 13,
         "enunciado": "En el dialogo '-Hoy te enseno mi receta secreta -dijo la abuela-', ¿quien habla?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1343,10 +1431,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 91,
+        "tecnica_numero": 17,
         "enunciado": "¿Que tipo de texto es 'La receta de la abuela'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1357,10 +1446,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "A2"
       },
       {
-        "tecnica_numero": 92,
+        "tecnica_numero": 20,
         "enunciado": "¿Que anticipa el titulo 'La receta de la abuela'?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1371,10 +1461,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 95,
+        "tecnica_numero": 14,
         "enunciado": "En la oracion 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cual es la causa y cual es la consecuencia?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1385,10 +1476,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "A1"
       },
       {
-        "tecnica_numero": 96,
+        "tecnica_numero": 18,
         "enunciado": "¿Cual de estas afirmaciones del texto es verdadera (segun el texto)?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1399,7 +1491,8 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "A2"
       }
     ]
   },
@@ -1412,7 +1505,7 @@
     "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Segun datos de la Organizacion Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturacion del espacio publico. Un estudio de la Universidad de Barcelona (2024) encontro que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturacion provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la perdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques tematicos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el numero de residentes ha caido un 30% en la ultima decada. Sin embargo, no todos estan de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequenos comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose Maria Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos politicos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la critica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energia de los hoteles contribuyen al cambio climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quien puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fabula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solucion pasa por un modelo de turismo que combine el respeto al patrimonio, la proteccion de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turistico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios economicos y la calidad de vida de los residentes.",
     "ejercicios": [
       {
-        "tecnica_numero": 81,
+        "tecnica_numero": 18,
         "enunciado": "¿Cual es la tesis del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1423,10 +1516,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 1
+        "orden": 1,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 82,
+        "tecnica_numero": 17,
         "enunciado": "¿Cual es el contraargumento que aparece en el texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1437,10 +1531,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 2
+        "orden": 2,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 83,
+        "tecnica_numero": 14,
         "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024) encontro que...' es una fuente primaria. ¿Cual de las siguientes seria una fuente secundaria?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1451,10 +1546,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 3
+        "orden": 3,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 84,
+        "tecnica_numero": 9,
         "enunciado": "La frase del concejal 'Quien critique el turismo es un enemigo del progreso' es una falacia. ¿Que tipo de falacia es?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1465,10 +1561,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 4
+        "orden": 4,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 87,
+        "tecnica_numero": 19,
         "enunciado": "Segun el texto, ¿cual es una causa del impacto ambiental del turismo masivo?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1479,10 +1576,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 5
+        "orden": 5,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 88,
+        "tecnica_numero": 18,
         "enunciado": "El autor menciona el barrio de Alfama (Lisboa) donde 'el numero de residentes ha caido un 30%'. ¿Que revela este ejemplo sobre su postura?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1493,10 +1591,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 6
+        "orden": 6,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 89,
+        "tecnica_numero": 15,
         "enunciado": "¿Que contexto historico se puede inferir del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1507,10 +1606,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 7
+        "orden": 7,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 93,
+        "tecnica_numero": 19,
         "enunciado": "¿Cual es el punto de vista del narrador del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1521,10 +1621,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 8
+        "orden": 8,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 94,
+        "tecnica_numero": 10,
         "enunciado": "El texto usa la 'etiqueta verde' como simbolo. ¿Que simboliza?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1535,10 +1636,11 @@
           ],
           "correcta": "B"
         },
-        "orden": 9
+        "orden": 9,
+        "tecnica_nivel": "C2"
       },
       {
-        "tecnica_numero": 97,
+        "tecnica_numero": 21,
         "enunciado": "¿Cual es el argumento principal del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1549,10 +1651,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 10
+        "orden": 10,
+        "tecnica_nivel": "B1"
       },
       {
-        "tecnica_numero": 98,
+        "tecnica_numero": 20,
         "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024)' es una fuente primaria. ¿Como se clasificaria una encuesta realizada por el propio autor del texto?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1563,10 +1666,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 11
+        "orden": 11,
+        "tecnica_nivel": "B2"
       },
       {
-        "tecnica_numero": 99,
+        "tecnica_numero": 16,
         "enunciado": "La frase del concejal 'Quien critique el turismo es un enemigo del progreso' es una falacia ad hominem. ¿Por que?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1577,10 +1681,11 @@
           ],
           "correcta": "A"
         },
-        "orden": 12
+        "orden": 12,
+        "tecnica_nivel": "C1"
       },
       {
-        "tecnica_numero": 100,
+        "tecnica_numero": 11,
         "enunciado": "El texto cita al economista Hernandez: 'el turismo no es el enemigo: el problema es como se gestiona'. ¿Es una definicion solida?",
         "tipo": "multiple_choice",
         "payload": {
@@ -1591,7 +1696,8 @@
           ],
           "correcta": "A"
         },
-        "orden": 13
+        "orden": 13,
+        "tecnica_nivel": "C2"
       }
     ]
   }

@@ -46,7 +46,11 @@ class Command(BaseCommand):
 
             for e in t.get("ejercicios", []):
                 try:
-                    tecnica = TecnicaLectura.objects.get(numero=e["tecnica_numero"])
+                    # Fase 0: numero ya no es unico, buscar por nivel del texto + numero
+                    tecnica = TecnicaLectura.objects.get(
+                        nivel_mcer=e["tecnica_nivel"],
+                        numero=e["tecnica_numero"],
+                    )
                 except TecnicaLectura.DoesNotExist:
                     self.stdout.write(self.style.WARNING(
                         f"  [SKIP] ejercicio {e['orden']}: tecnica #{e['tecnica_numero']} no existe"
