@@ -1,0 +1,27 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<div class="container my-5" style="max-width: 600px;">
+  <div class="card shadow-sm text-center">
+    <div class="card-body py-5">
+      <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+      <h2 class="mt-3">¡Sesión completada!</h2>
+      <p class="text-muted mb-4">
+        Has revisado todas las tarjetas de nivel <strong>{{ nivel }}</strong>
+        {% if proceso != 'todos' %}({{ proceso }}){% endif %}.
+      </p>
+      <p class="text-muted small">
+        Total: {{ total }} técnicas. Vuelve mañana para repasar las que has acertado,
+        o practica con los textos mientras tanto.
+      </p>
+      <div class="d-grid gap-2 mt-4">
+        <a href="{% url 'lectura:indice' %}" class="btn btn-outline-primary">
+          <i class="fas fa-book-open"></i> Ir a los textos
+        </a>
+        <a href="{% url 'lectura:progreso' %}" class="btn btn-outline-secondary">
+          <i class="fas fa-chart-line"></i> Ver mi progreso
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

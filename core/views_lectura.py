@@ -1,13 +1,15 @@
 """Vistas de lectura (indice, detalle, evaluacion, progreso)."""
 import json
+from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.db.models import Count, Q
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
+from core.services.srs import intervalo_estimado
 from core.models_lectura import (
     EjercicioLectura, ProgresoTecnicaLectura, ProgresoTexto,
     RespuestaLectura, TecnicaLectura, Texto,
@@ -173,3 +175,142 @@ def _calcular_mcer_lectura(user):
         out[n] = {"total": total, "dominadas": dominadas,
                   "pct": round(100 * dominadas / total) if total else 0}
     return out
+
+
+# ═══════════════════════════════════════════════════════════════
+# Fase 6B - Wrapper SM-2 para ProgresoTecnicaLectura
+# ═══════════════════════════════════════════════════════════════
+def _aplicar_sm2_a_progreso(progreso, calidad):
+    """Adapta SM-2 (core.services.srs) a ProgresoTecnicaLectura.
+
+    Calidad: 1 = no sabia, 5 = si sabia.
+
+    Reglas:
+      - Primer repaso (repeticiones == 0):
+          * calidad < 3  -> proxima_revision = hoy (revisar hoy)
+          * calidad >= 3 -> intervalo 1 dia, proxima_revision = hoy + 1
+      - Repasos >= 2:
+          * calidad < 3  -> reset (repeticiones=0, proxima_revision=hoy)
+          * calidad >= 3 -> SM-2 estandar (intervalo x facilidad)
+    """
+    hoy = timezone.now().date()
+
+    if progreso.repeticiones == 0:
+        # Primer repaso: regla explicita (SM-2 estandar no distingue 1 vs 5 aqui)
+        if calidad < 3:
+            progreso.proxima_revision = hoy
+            progreso.repeticiones = 0
+        else:
+            progreso.intervalo_dias = 1
+            progreso.repeticiones = 1
+            progreso.proxima_revision = hoy + timedelta(days=1)
+    else:
+        # SM-2 estandar para repasos posteriores
+        if calidad < 3:
+            progreso.repeticiones = 0
+            progreso.intervalo_dias = 0
+            progreso.proxima_revision = hoy
+        else:
+            nuevo_int = intervalo_estimado(
+                progreso.intervalo_dias,
+                progreso.facilidad,
+                progreso.repeticiones,
+                calidad,
+            )
+            progreso.intervalo_dias = nuevo_int
+            progreso.repeticiones += 1
+            progreso.facilidad = max(
+                1.3,
+                progreso.facilidad + (0.1 - (5 - calidad) * (0.08 + (5 - calidad) * 0.02))
+            )
+            progreso.proxima_revision = hoy + timedelta(days=nuevo_int)
+
+    progreso.ultima_revision = timezone.now()
+    progreso.save()
+    return progreso
+
+
+# ═══════════════════════════════════════════════════════════════
+# Fase 6B - Vistas de flashcards (SM-2)
+# ═══════════════════════════════════════════════════════════════
+@login_required
+def flashcards_lectura(request):
+    """Sesion de estudio de flashcards de lectura (SM-2).
+
+    GET /lectura/flashcards/?nivel=A1&proceso=P1&modo=estudio
+    Muestra la primera tecnica pendiente (proxima_revision <= hoy o None).
+    """
+    nivel = request.GET.get("nivel", "A1").upper()
+    proceso = request.GET.get("proceso", "").upper()
+    modo = request.GET.get("modo", "estudio")
+    hoy = timezone.now().date()
+
+    qs = TecnicaLectura.objects.filter(nivel_mcer=nivel)
+    if proceso in ("P1", "P2", "P3", "P4"):
+        qs = qs.filter(proceso=proceso)
+    qs = qs.order_by("numero")
+
+    # Cargar progreso del usuario para estas tecnicas
+    progresos = {
+        p.tecnica_id: p
+        for p in ProgresoTecnicaLectura.objects.filter(
+            usuario=request.user, tecnica__in=qs
+        )
+    }
+
+    # Pendientes: sin progreso, sin proxima_revision, o proxima_revision <= hoy
+    pendientes = []
+    for tec in qs:
+        prog = progresos.get(tec.id)
+        if prog is None or prog.proxima_revision is None or prog.proxima_revision <= hoy:
+            pendientes.append((tec, prog))
+
+    total = qs.count()
+    completadas = total - len(pendientes)
+
+    if not pendientes:
+        return render(request, "core/lectura/flashcards_completado.html", {
+            "nivel": nivel,
+            "proceso": proceso or "todos",
+            "total": total,
+        })
+
+    tec, prog = pendientes[0]
+    return render(request, "core/lectura/flashcards_lectura.html", {
+        "tecnica": tec,
+        "progreso": prog,
+        "pendientes": len(pendientes),
+        "total": total,
+        "completadas": completadas,
+        "nivel": nivel,
+        "proceso": proceso or "todos",
+        "modo": modo,
+    })
+
+
+@login_required
+@require_POST
+def flashcards_verificar(request):
+    """Registra la respuesta si/no y actualiza SM-2 del progreso."""
+    tecnica_id = request.POST.get("tecnica_id")
+    sabia = request.POST.get("sabia", "0") == "1"
+
+    if not tecnica_id:
+        return redirect("lectura:flashcards_lectura")
+
+    tecnica = get_object_or_404(TecnicaLectura, id=tecnica_id)
+    progreso, _ = ProgresoTecnicaLectura.objects.get_or_create(
+        usuario=request.user,
+        tecnica=tecnica,
+        defaults={"estado": "no_iniciada"},
+    )
+
+    calidad = 5 if sabia else 1
+    _aplicar_sm2_a_progreso(progreso, calidad)
+
+    # Si acerto, marcar en_progreso (si aun no iniciada)
+    if sabia and progreso.estado == "no_iniciada":
+        progreso.estado = "en_progreso"
+        progreso.save()
+
+    return redirect("lectura:flashcards_lectura")

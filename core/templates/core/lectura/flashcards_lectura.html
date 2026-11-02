@@ -1,0 +1,92 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<div class="container my-4" style="max-width: 720px;">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <a href="{% url 'lectura:indice' %}" class="btn btn-sm btn-outline-secondary">
+      <i class="fas fa-arrow-left"></i> Volver a lectura
+    </a>
+    <span class="badge bg-primary">
+      Nivel {{ nivel }}{% if proceso != 'todos' %} · {{ proceso }}{% endif %}
+    </span>
+  </div>
+
+  <div class="progress mb-4" style="height: 10px;">
+    <div class="progress-bar bg-success" role="progressbar"
+         style="width: {% widthratio completadas total 100 %}%"
+         aria-valuenow="{{ completadas }}" aria-valuemin="0" aria-valuemax="{{ total }}">
+    </div>
+  </div>
+  <p class="text-muted small text-center mb-3">
+    {{ completadas }} de {{ total }} completadas · {{ pendientes }} pendientes
+  </p>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-light">
+      <span class="badge bg-secondary">{{ tecnica.proceso }}</span>
+      <span class="badge bg-info text-dark">{{ tecnica.nivel_mcer }}</span>
+      <small class="text-muted float-end">#{{ tecnica.numero }}</small>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title mb-3">{{ tecnica.titulo }}</h3>
+
+      <details class="mt-4">
+        <summary class="btn btn-outline-primary w-100">
+          <i class="fas fa-eye"></i> Ver respuesta
+        </summary>
+        <div class="mt-3">
+          <h6 class="text-uppercase text-muted small">Teoría</h6>
+          <p>{{ tecnica.teoria|linebreaks }}</p>
+
+          <h6 class="text-uppercase text-muted small">Regla</h6>
+          <p class="fst-italic">{{ tecnica.regla }}</p>
+
+          <h6 class="text-uppercase text-muted small">Ejemplo correcto</h6>
+          <div class="alert alert-success py-2">{{ tecnica.ejemplo_correcto|linebreaks }}</div>
+
+          <h6 class="text-uppercase text-muted small">Ejemplo incorrecto</h6>
+          <div class="alert alert-danger py-2">{{ tecnica.ejemplo_incorrecto|linebreaks }}</div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <form method="post" action="{% url 'lectura:flashcards_verificar' %}" id="form-respuesta">
+    {% csrf_token %}
+    <input type="hidden" name="tecnica_id" value="{{ tecnica.id }}">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+      <button type="submit" name="sabia" value="0" class="btn btn-outline-danger btn-lg flex-fill">
+        <i class="fas fa-times"></i> No la sabía
+      </button>
+      <button type="submit" name="sabia" value="1" class="btn btn-success btn-lg flex-fill">
+        <i class="fas fa-check"></i> Sí la sabía
+      </button>
+    </div>
+  </form>
+
+  <p class="text-center text-muted small mt-3">
+    <i class="fas fa-info-circle"></i>
+    Si <strong>no la sabías</strong>, volverás a verla hoy.
+    Si <strong>sí la sabías</strong>, la verás mañana.
+  </p>
+
+</div>
+
+<script>
+  document.addEventListener("keydown", function (e) {
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+    if (e.key === " " || e.key === "Enter") {
+      var d = document.querySelector("details");
+      if (d) { d.open = true; e.preventDefault(); }
+    }
+    if (e.key === "1") {
+      var b = document.querySelector('button[name="sabia"][value="0"]');
+      if (b) b.click();
+    }
+    if (e.key === "2") {
+      var b = document.querySelector('button[name="sabia"][value="1"]');
+      if (b) b.click();
+    }
+  });
+</script>
+{% endblock %}
