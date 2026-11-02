@@ -88,3 +88,51 @@ Comandos:
 - App: https://django-rhetorica-2026-1.onrender.com
 - Reset build minutes: dia 1 de cada mes.
 - Ultima version estable: v2.2.22 (pendiente deploy por limite).
+
+
+---
+
+## Leccion aprendida: seeds nuevos DEBEN ir a `build.sh`
+
+### Sintoma
+- En local: `/lectura/7/` y `/lectura/8/` funcionaban (200, con datos).
+- En produccion (Render): `/lectura/7/` y `/lectura/8/` daban **404**.
+- La vista `/lectura/` respondia 200 pero mostraba solo los textos viejos.
+
+### Causa
+Los management commands `seed_lectura_tecnicas` y `seed_lectura_textos` se crearon en Fase 2/3, y los JSON se commitearon al repo. Pero `build.sh` nunca los invocaba. La migracion `0026_add_lectura` si se ejecutaba (creaba las tablas vacias), pero **los datos nunca se cargaban en produccion**.
+
+### Diagnostico
+Ver los logs del deploy en Render. Buscar lineas tipo:
+
+    Aplicando seed MCER demo...
+    Cargando tecnicas de lectura...   <-- si NO aparece, el seed no se ejecuta
+
+### Fix (v2.5.2)
+Anadir al final de `build.sh`:
+
+    # Lectura (Fase 2 + Fase 3)
+    if [ "$RUN_SEEDS" = "True" ]; then
+      echo "Cargando tecnicas de lectura..."
+      python manage.py seed_lectura_tecnicas || true
+      echo "Cargando textos y ejercicios de lectura..."
+      python manage.py seed_lectura_textos || true
+    fi
+
+### Regla para futuras fases
+Cada vez que se cree un management command `seed_*` o `load_*` que llene la DB, DEBE anadirse a `build.sh`.
+
+Checklist antes de commitear un seed nuevo:
+1. [ ] El comando es idempotente (`get_or_create` / `update_or_create`).
+2. [ ] Esta en `core/management/commands/`.
+3. [ ] Esta referenciado en `build.sh` dentro de un `if [ "$RUN_*" = "True" ]`.
+4. [ ] Se probo en local con `python manage.py seed_X` (0 errores).
+5. [ ] Despues del push, en los Logs de Render aparece `[OK] ... creadas/actualizadas`.
+
+### Hotfix sin redeploy (Render Shell)
+Si el deploy ya esta hecho y los datos faltan:
+
+    python manage.py seed_lectura_tecnicas
+    python manage.py seed_lectura_textos
+
+Los seeds son idempotentes: pueden correrse multiples veces sin duplicar.
