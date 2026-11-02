@@ -87,3 +87,14 @@ if [ "$RUN_DEMO_CERTS" = "True" ]; then
   echo "Creando certificaciones demo..."
   python manage.py seed_demo_certs || true
 fi
+
+
+# Lectura (Fase 2 + Fase 3)
+# Carga las 58 tecnicas lectoras y los 8 textos con sus ejercicios.
+# Idempotente: no duplica en cada deploy.
+if [ "$RUN_SEEDS" = "True" ]; then
+  echo "Cargando tecnicas de lectura..."
+  python manage.py seed_lectura_tecnicas || true
+  echo "Cargando textos y ejercicios de lectura..."
+  python manage.py seed_lectura_textos || true
+fi
