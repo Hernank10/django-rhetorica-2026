@@ -5,7 +5,47 @@ Versionado: [SemVer](https://semver.org/lang/es/).
 
 ## [Unreleased]
 ### Pendiente
-- Verificar manualmente (Ctrl+Shift+R) que los botones "Leer" de `/lectura/` funcionan. Diagnostico ya confirmo hrefs validos y rutas 200; probablemente era cache del navegador.
+- Verificar en Render que el enlace "Flashcards" del sidebar, el boton en `/lectura/` y el selector de nivel/proceso funcionan en produccion.
+
+## [v2.8.2] - 2026-11-02
+### Added
+- Fase 6C: enlace "Flashcards" en el sidebar del estudiante (`base.html`).
+- Fase 6C: boton "Estudiar con flashcards" en `/lectura/` (indice.html).
+- Fase 6C: selector de nivel (A1-C2) y proceso (P1-P4) en `/lectura/flashcards/` (auto-submit al cambiar).
+- Fase 6D: el wrapper `_aplicar_sm2_a_progreso` actualiza `estado`:
+  - 2+ repeticiones con facilidad >= 2.3 -> `dominada`
+  - 1+ repeticion -> `en_progreso`
+  - Logica duplicada eliminada de `flashcards_verificar`.
+### Changed
+- El panel `/lectura/progreso/` ahora refleja el avance real de las flashcards.
+### Tags / commits
+- Tag: `v2.8.2-lectura-flashcards-mvp`. Commit: `c404ec7`.
+
+## [v2.8.1] - 2026-11-02
+### Added
+- Fase 6B: wrapper `_aplicar_sm2_a_progreso(progreso, calidad)` (calidad 1 = no sabia -> hoy; calidad 5 = si sabia -> hoy+1).
+- Fase 6B: vista `flashcards_lectura` (GET, muestra la primera pendiente del nivel/proceso).
+- Fase 6B: vista `flashcards_verificar` (POST, registra respuesta y aplica SM-2).
+- Fase 6B: 2 templates (`flashcards_lectura.html`, `flashcards_completado.html`).
+- Fase 6B: 2 URLs (`/lectura/flashcards/`, `/lectura/flashcards/verificar/`).
+### Fixed
+- Indentacion de las 2 rutas nuevas en `urls_lectura.py`.
+### Tags / commits
+- Tag: `v2.8.1-lectura-flashcards`. Commit: `9ab6f52`.
+
+## [v2.8.0] - 2026-11-02
+### Added
+- Fase 6A: 5 campos SM-2 en `ProgresoTecnicaLectura`:
+  - `intervalo_dias` (PositiveIntegerField, default 0)
+  - `facilidad` (FloatField, default 2.5)
+  - `repeticiones` (PositiveIntegerField, default 0)
+  - `proxima_revision` (DateField, null=True)
+  - `ultima_revision` (DateTimeField, null=True)
+- Fase 6A: migracion `0027_lectura_sm2.py` (aditiva, no borra datos).
+### Changed
+- El registro previo de `testest044` (tecnica #1, dominada) queda intacto con los defaults SM-2.
+### Tags / commits
+- Tag: `v2.8.0-lectura-sm2`. Commit: `1c8348d`.
 
 ## [v2.7.0] - 2026-11-02
 ### Added

@@ -130,3 +130,102 @@ Por nivel MCER: A1=14, A2=18, B1=21, B2=20, C1=16, C2=11.
 | v2.5.2 | `2cbdf5b` | Fix `build.sh` (seeds de lectura) |
 | v2.6.0 | `bd2b39a` | Fase 4: 78 tecnicas, 10 textos |
 | **v2.7.0** | **`834a571`** | **Fase 5: 100 tecnicas, 12 textos, cobertura 100/100** |
+
+---
+
+## Flashcards SM-2 (v2.8.2)
+
+### Concepto
+
+Sistema de repaso espaciado sobre las 100 tecnicas lectoras, basado en el algoritmo SM-2
+(SuperMemo 2). Complementa la practica con textos (ejercicios) con un modo de "estudio de
+conceptos" (flashcards).
+
+**Diferencia con el SRS de gramatica:**
+- El SRS de gramatica usa `Flashcard` (por estudiante) + `Review` (SM-2 estandar).
+- Las flashcards de lectura usan `ProgresoTecnicaLectura` (por usuario + tecnica) extendido con 5 campos SM-2.
+- **Razon**: las 100 tecnicas son globales (no por estudiante). Duplicar 100 tarjetas por cada estudiante no escala.
+
+### Modelo extendido (`ProgresoTecnicaLectura`)
+
+Campos originales (v2.4.0):
+- `usuario`, `tecnica`, `estado` (no_iniciada / en_progreso / dominada), `intentos`, `actualizado_en`
+
+Campos SM-2 anadidos (v2.8.0, migracion `0027_lectura_sm2`):
+- `intervalo_dias` (PositiveIntegerField, default 0)
+- `facilidad` (FloatField, default 2.5)
+- `repeticiones` (PositiveIntegerField, default 0)
+- `proxima_revision` (DateField, null=True)
+- `ultima_revision` (DateTimeField, null=True)
+
+### Wrapper `_aplicar_sm2_a_progreso(progreso, calidad)`
+
+Adapta el servicio `core.services.srs` a `ProgresoTecnicaLectura`.
+
+Parametros:
+- `progreso`: instancia de `ProgresoTecnicaLectura`
+- `calidad`: 1 (no sabia) o 5 (si sabia)
+
+Reglas:
+| Caso | Accion |
+|---|---|
+| Primer repaso (`repeticiones == 0`), calidad < 3 | `proxima_revision = hoy` (revisar hoy) |
+| Primer repaso, calidad >= 3 | `intervalo_dias = 1`, `proxima_revision = hoy + 1` |
+| Repasos >= 2, calidad < 3 | Reset: `repeticiones = 0`, `proxima_revision = hoy` |
+| Repasos >= 2, calidad >= 3 | SM-2 estandar: `intervalo = intervalo_anterior * facilidad`, `proxima_revision = hoy + intervalo` |
+
+Actualizacion de `estado` (v2.8.2):
+- `repeticiones >= 2` y `facilidad >= 2.3` -> `dominada`
+- `repeticiones >= 1` -> `en_progreso` (si no estaba dominada)
+
+**IMPORTANTE**: si la calidad es 1 en el primer repaso, la proxima revision es HOY. Esto evita
+que SM-2 estandar (que siempre devuelve 1 dia en el primer repaso) obligue al usuario a esperar
+24h para volver a ver una tarjeta que no sabia.
+
+### Vistas
+
+| URL | Vista | Proposito |
+|---|---|---|
+| `/lectura/flashcards/` | `flashcards_lectura` | GET. Muestra la primera pendiente del nivel/proceso. |
+| `/lectura/flashcards/verificar/` | `flashcards_verificar` | POST. Registra `sabia=0/1`, aplica SM-2, redirige. |
+
+Parametros GET de `flashcards_lectura`:
+- `nivel`: A1 (default), A2, B1, B2, C1, C2
+- `proceso`: P1, P2, P3, P4, o vacio (todos)
+- `modo`: estudio (default, todas las pendientes)
+
+### Flujo de usuario
+
+1. Usuario entra a `/lectura/flashcards/` (desde sidebar o boton en `/lectura/`).
+2. Ve la primera tecnica pendiente (sin progreso, o proxima_revision <= hoy).
+3. Lee el titulo + teoria + regla + ejemplos.
+4. Responde "No la sabia" (calidad 1) o "Si la sabia" (calidad 5).
+5. `flashcards_verificar` aplica SM-2 y redirige a `flashcards_lectura`.
+6. Al dia siguiente (o hoy si fallo), vuelve a ver las pendientes.
+
+### Integracion con el panel de progreso
+
+Antes de v2.8.2: `flashcards_verificar` marcaba `en_progreso` la primera vez, pero no `dominada`.
+Por eso el panel `/lectura/progreso/` se quedaba en `0/14` aunque estudiaras todas las flashcards.
+
+Despues de v2.8.2: el wrapper actualiza `estado`:
+- 1 acierto -> `en_progreso` (no cuenta en el panel, pero es visible en admin)
+- 2 aciertos con facilidad >= 2.3 -> `dominada` (SI cuenta en el panel `X/14`)
+
+### Templates
+
+- `core/templates/core/lectura/flashcards_lectura.html`: tarjeta con `<details>` para el reverso, 2 botones (sabia / no sabia), atajos de teclado (Space = ver, 1 = no, 2 = si), selector de nivel/proceso.
+- `core/templates/core/lectura/flashcards_completado.html`: pantalla "sesion completada" con enlaces a los textos y al progreso.
+
+### Tests
+
+- `pytest core/tests/` verde (Exit 0, ~327s).
+- El wrapper se verifica funcionalmente en `_fase6cd_p2d.py` (Fase 6D): sabia=1 x2 -> dominada.
+
+### Tags / commits
+
+| Version | Commit | Hito |
+|---|---|---|
+| v2.8.0 | `1c8348d` | 5 campos SM-2 + migracion 0027 |
+| v2.8.1 | `9ab6f52` | Wrapper + 2 vistas + 2 templates + 2 URLs |
+| **v2.8.2** | **`c404ec7`** | **MVP completo (enlace + boton + selector + estado dominada)** |
