@@ -610,5 +610,319 @@
         "orden": 12
       }
     ]
+  },
+  {
+    "titulo": "La biblioteca secreta",
+    "tipo": "literario",
+    "nivel_mcer": "B1",
+    "fuente": "",
+    "orden": 7,
+    "cuerpo": "Aquel martes por la tarde, Lucia empujo la puerta de la biblioteca del barrio y descubrio que estaba cerrada por obras. Un cartel anunciaba que reabriria en dos semanas. Lucia, que tenia doce anos y una sed insaciable de historias, sintio que el corazon le daba un vuelco. No podia esperar dos semanas sin leer. Mientras volvia a casa, se fijo en una puerta pequena y descuidada que nunca habia visto antes, entre la panaderia y la ferreteria. Tenia un letrero dorado que decia: 'Biblioteca de libros olvidados'. Lucia dudo un momento, miro a ambos lados de la calle y empujo la puerta. Dentro, el aire olia a papel viejo y a madera. Las estanterias subian hasta el techo, repletas de libros con lomos gastados. Una mujer mayor, de pelo blanco y gafas redondas, levanto la vista de un libro y sonrio. -Bienvenida, Lucia -dijo la mujer-. Te estaba esperando. Lucia se quedo muda. Quien era aquella mujer? Como sabia su nombre? La mujer se llamaba Rosa y le explico que la biblioteca llevaba cerrada al publico mas de cincuenta anos, pero que seguia abierta para quien de verdad necesitara un libro. -Los libros no se prestan -dijo Rosa-. Se regalan. Pero solo a quien los merece. Lucia paso toda la tarde alli. Rosa le conto que la biblioteca habia sido de su padre, un librero que creia que los libros debian circular libremente. Cuando murio, Rosa decidio mantenerla abierta en secreto, solo para lectores de verdad. Al anochecer, Rosa le dio un libro pequeno, de tapas azules. -Este es para ti -dijo-. Cuando lo termines, vuelve y te dare otro. Lucia volvio a casa corriendo, con el libro apretado contra el pecho. Esa noche, leyo hasta que se le cerraron los ojos. Al dia siguiente volvio a la biblioteca secreta. Rosa la esperaba con otro libro y una sonrisa.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 39,
+        "enunciado": "¿Cuando ocurre la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un martes por la tarde.",
+            "B) Un domingo por la manana.",
+            "C) En Navidad."
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 40,
+        "enunciado": "¿Quien empuja la puerta de la biblioteca del barrio al principio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Rosa, la mujer mayor.",
+            "B) Lucia, una nina de doce anos.",
+            "C) El padre de Rosa."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 44,
+        "enunciado": "¿Como se siente Lucia cuando descubre que la biblioteca esta cerrada?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Contentisima, porque podra descansar de leer.",
+            "B) Triste y decepcionada, porque no puede esperar dos semanas sin leer.",
+            "C) Indiferente, porque no le gusta leer."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 45,
+        "enunciado": "¿Que es lo mas probable que ocurra despues del final del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Lucia no volvera a la biblioteca secreta.",
+            "B) Lucia volvera a la biblioteca secreta a por mas libros.",
+            "C) Rosa cerrara la biblioteca para siempre."
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 46,
+        "enunciado": "¿Que relacion hay entre Rosa y su padre, segun el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Eran enemigos.",
+            "B) Rosa heredo la biblioteca de su padre y mantiene su idea de que los libros deben circular.",
+            "C) No tenian ninguna relacion."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 47,
+        "enunciado": "¿Por que Rosa mantiene la biblioteca abierta en secreto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque quiere hacerse rica.",
+            "B) Porque su padre creia que los libros debian circular y ella quiere mantener esa idea.",
+            "C) Porque no le gusta la gente."
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 49,
+        "enunciado": "¿El texto es un cuento o una noticia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una noticia, porque narra hechos reales.",
+            "B) Un cuento, porque es una historia de ficcion con personajes inventados.",
+            "C) Un articulo de opinion."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 50,
+        "enunciado": "¿Quien es el personaje principal del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Rosa, la mujer mayor.",
+            "B) Lucia, la nina de doce anos.",
+            "C) El padre de Rosa."
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 51,
+        "enunciado": "¿Cual es el tema central del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El amor por los libros y el valor de las bibliotecas.",
+            "B) La vida en el barrio.",
+            "C) La vejez de Rosa."
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 54,
+        "enunciado": "¿Que parte del texto es dialogo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La descripcion de las estanterias.",
+            "B) Las frases entre guiones, como '-Bienvenida, Lucia -dijo la mujer-'.",
+            "C) El titulo del texto."
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 19,
+        "enunciado": "¿Como esta estructurado el cuento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Inicio (Lucia descubre la biblioteca cerrada) + nudo (encuentra la biblioteca secreta) + desenlace (Rosa le regala un libro y Lucia volvera).",
+            "B) Solo tiene inicio y desenlace.",
+            "C) No tiene estructura clara."
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      }
+    ]
+  },
+  {
+    "titulo": "El ruido de las redes sociales",
+    "tipo": "informativo",
+    "nivel_mcer": "C1",
+    "fuente": "Revista de Analisis Digital, vol. 8, 2026",
+    "orden": 8,
+    "cuerpo": "Las redes sociales han transformado la forma en que nos informamos, pero tambien la forma en que pensamos. Segun el informe Digital 2025 de la consultora We Are Social, el 67% de los adultos espanoles usa redes sociales a diario, y el 42% las consulta como primera fuente de informacion. Estos datos deberian hacernos reflexionar: si la mayoria se informa por redes, la calidad de la informacion publica depende, en gran medida, de la calidad de esas redes. El primer problema es el ruido. Las redes estan disenadas para maximizar la atencion, no para informar. Los algoritmos priorizan el contenido que genera interaccion (likes, compartidos, comentarios), y ese contenido suele ser el mas emocional, no el mas veraz. Un estudio de la Universidad de Oxford (2024) encontro que las noticias falsas se comparten un 70% mas que las verdaderas. No es porque la gente sea tonta: es porque el sistema esta disenado para premiar la emocion. El segundo problema es la camara de eco. Los algoritmos nos muestran lo que coincide con nuestras opiniones previas, y eso refuerza nuestras creencias en lugar de cuestionarlas. El filosofo Cass Sunstein (2001) llamo a esto 'la repubblica de la eco': un espacio donde solo escuchamos lo que ya pensamos. El resultado es una sociedad mas polarizada, donde el que piensa distinto no es un interlocutor, sino un enemigo. El tercer problema es la perdida de contexto. Un tuit de 280 caracteres no puede explicar un conflicto complejo. Un video de 30 segundos no puede analizar una reforma fiscal. La brevedad es enemiga de la matizacion, y sin matices no hay pensamiento critico posible. Como escribio el periodista Ezra Klein (2020), 'las redes no nos hacen mas tontos, pero si nos hacen mas rapidos, y la rapidez es enemiga de la reflexion'. El cuarto problema es la erosion de la confianza. Cuando el 67% se informa por redes y las noticias falsas se comparten mas que las verdaderas, la consecuencia es que la sociedad deja de creer en cualquier informacion. El escepticismo universal es tan peligroso como la credulidad universal: si nada es verdad, cualquier cosa puede serlo. La solucion no es abandonar las redes, sino exigirles lo que no tienen: contexto, verificacion y responsabilidad. Las redes no son el problema; el problema es creer que las redes son la solucion. Como escribio el filosofo Byung-Chul Han (2021), 'la transparencia total no es la verdad: es la muerte de la verdad'. La educacion mediatica, la verificacion de fuentes y el pensamiento critico son las unicas vacunas contra el ruido. Y esa vacuna no se administra en las redes: se administra en la escuela, en la familia y en la lectura.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 41,
+        "enunciado": "Segun el informe Digital 2025, ¿que porcentaje de adultos espanoles usa redes sociales a diario?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 42%",
+            "B) 67%",
+            "C) 70%"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 42,
+        "enunciado": "¿Que cita textual apoya la afirmacion sobre la rapidez de las redes?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Las redes no nos hacen mas tontos, pero si nos hacen mas rapidos, y la rapidez es enemiga de la reflexion' (Ezra Klein, 2020).",
+            "B) 'La gente es tonta'.",
+            "C) 'Las redes son malas'."
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 43,
+        "enunciado": "¿Como se define implicitamente la 'camara de eco' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Como un espacio donde solo escuchamos lo que ya pensamos.",
+            "B) Como una camara de fotos.",
+            "C) Como un lugar fisico."
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 48,
+        "enunciado": "¿Que terminos del texto revelan la postura critica del autor hacia las redes?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'ruido', 'enemiga de la matizacion', 'erosion de la confianza', 'muerte de la verdad'.",
+            "B) 'redes', 'informacion', 'sociedad' (son neutros).",
+            "C) '67%', '42%', '70%' (son datos)."
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 52,
+        "enunciado": "¿Como se interpreta el final del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Como una llamada a la educacion mediatica y al pensamiento critico, no a abandonar las redes.",
+            "B) Como una invitacion a cerrar las redes sociales.",
+            "C) Como una rendicion ante el ruido."
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 53,
+        "enunciado": "¿Hay ironia en la frase 'las redes no son el problema; el problema es creer que las redes son la solucion'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es una ironia: parece defender las redes pero en realidad critica la fe ciega en ellas.",
+            "B) No, es una afirmacion literal.",
+            "C) No, es una pregunta."
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 55,
+        "enunciado": "¿Cual es la idea principal del primer parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La mayoria se informa por redes, y eso hace que la calidad de la informacion publica dependa de la calidad de las redes.",
+            "B) El 67% de los adultos usa redes.",
+            "C) We Are Social es una consultora."
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 56,
+        "enunciado": "¿El siguiente argumento es logico? 'Las redes premian la emocion. Las noticias falsas son emocionales. Por tanto, las redes premian las noticias falsas.'",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es valido: la conclusion se sigue de las premisas.",
+            "B) No, es invalido: la conclusion no se sigue de las premisas.",
+            "C) No se puede evaluar."
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 57,
+        "enunciado": "¿Que generalizacion apresurada aparece en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'La gente es tonta' (el texto la menciona para refutarla).",
+            "B) 'El 67% usa redes' (dato verificado).",
+            "C) 'Las redes existen' (hecho obvio)."
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 58,
+        "enunciado": "¿El texto es internamente coherente?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si: los cuatro problemas se relacionan y la conclusion (educacion mediatica) se sigue de ellos.",
+            "B) No: el texto se contradice entre parrafos.",
+            "C) No se puede evaluar."
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      }
+    ]
   }
 ]
