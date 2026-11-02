@@ -286,6 +286,13 @@ def flashcards_lectura(request):
         })
 
     tec, prog = pendientes[0]
+    # Textos que practican esta tecnica (ordenados por cercania de nivel)
+    NIVEL_ORDER = {"A1": 1, "A2": 2, "B1": 3, "B2": 4, "C1": 5, "C2": 6}
+    tec_nivel = NIVEL_ORDER.get(tec.nivel_mcer, 3)
+    textos_practica = sorted(
+        Texto.objects.filter(ejercicios__tecnica=tec).distinct(),
+        key=lambda t: (abs(NIVEL_ORDER.get(t.nivel_mcer, 3) - tec_nivel), t.orden),
+    )[:2]
     return render(request, "core/lectura/flashcards_lectura.html", {
         "tecnica": tec,
         "progreso": prog,
@@ -295,6 +302,7 @@ def flashcards_lectura(request):
         "nivel": nivel,
         "proceso": proceso or "todos",
         "modo": modo,
+        "textos_practica": textos_practica,
     })
 
 
