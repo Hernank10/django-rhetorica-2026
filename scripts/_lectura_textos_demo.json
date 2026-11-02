@@ -1266,5 +1266,333 @@
         "orden": 13
       }
     ]
+  },
+  {
+    "titulo": "La receta de la abuela",
+    "tipo": "literario",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 11,
+    "cuerpo": "Cada domingo, Sofia iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofia queria aprender. -Hoy te enseno mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atencion. -Si, abuela -respondio Sofia, con los ojos brillantes. La abuela saco mucha harina, bastante azucar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego anadimos el azucar y, por ultimo, la harina -explico la abuela-. Nunca lo hacemos todo a la vez. Sofia removio la mezcla con una cuchara de madera. La abuela la miraba con carino. -Abuela, ¿por que no usas la batidora electrica? -pregunto Sofia. -Porque con la cuchara se siente la textura -contesto la abuela-. Y la textura es lo mas importante. Sofia no dijo nada, pero entendio. Cuando el bizcocho estuvo en el horno, la abuela le conto que aquella receta era de su propia abuela, que la habia aprendido de nina en un pueblo pequeno. Al final, el bizcocho salio perfecto. Sofia se lo llevo a casa y lo compartio con sus padres. Nunca lo olvido: aquella tarde aprendio mas que una receta.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 79,
+        "enunciado": "En el texto, la abuela usa 'mucha harina', 'bastante azucar' y 'un poco de sal'. ¿Que indican estas palabras?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El color de los ingredientes.",
+            "B) La cantidad de los ingredientes.",
+            "C) El sabor de los ingredientes."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 80,
+        "enunciado": "¿Que palabras del texto indican negacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'mucho' y 'bastante'.",
+            "B) 'nunca' y 'no'.",
+            "C) 'siempre' y 'tambien'."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 85,
+        "enunciado": "Cuando Sofia comparte el bizcocho con sus padres, ¿la accion es buena o mala?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Buena, porque comparte con otros lo que ha hecho.",
+            "B) Mala, porque se queda sin bizcocho.",
+            "C) Neutra, porque no afecta a nadie."
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 86,
+        "enunciado": "¿Que oficio tiene la abuela, segun las herramientas que usa en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Medica, porque usa batas.",
+            "B) Cocinera o repostera, porque usa harina, horno, cuchara y batidora.",
+            "C) Jardinera, porque trabaja con plantas."
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 90,
+        "enunciado": "En el dialogo '-Hoy te enseno mi receta secreta -dijo la abuela-', ¿quien habla?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sofia.",
+            "B) La abuela.",
+            "C) El narrador."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 91,
+        "enunciado": "¿Que tipo de texto es 'La receta de la abuela'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un cuento, porque narra una historia con personajes.",
+            "B) Una noticia, porque informa de un hecho real.",
+            "C) Una receta, porque solo tiene ingredientes."
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 92,
+        "enunciado": "¿Que anticipa el titulo 'La receta de la abuela'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el texto tratara sobre una receta que la abuela ensena a Sofia.",
+            "B) Que el texto tratara sobre la vida de una abuela.",
+            "C) Que el texto tratara sobre un restaurante."
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 95,
+        "enunciado": "En la oracion 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cual es la causa y cual es la consecuencia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Causa: no usa batidora. Consecuencia: se siente la textura con la cuchara.",
+            "B) Causa: se siente la textura con la cuchara. Consecuencia: no usa batidora.",
+            "C) No hay causa ni consecuencia en esa oracion."
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 96,
+        "enunciado": "¿Cual de estas afirmaciones del texto es verdadera (segun el texto)?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La abuela usaba levadura comprada.",
+            "B) La receta era de la propia abuela de la abuela, que la habia aprendido de nina.",
+            "C) Sofia no compartio el bizcocho con nadie."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      }
+    ]
+  },
+  {
+    "titulo": "El turismo masivo en las ciudades",
+    "tipo": "informativo",
+    "nivel_mcer": "B2",
+    "fuente": "Revista Ciudades Sostenibles, vol. 14, 2026",
+    "orden": 12,
+    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Segun datos de la Organizacion Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturacion del espacio publico. Un estudio de la Universidad de Barcelona (2024) encontro que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturacion provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la perdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques tematicos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el numero de residentes ha caido un 30% en la ultima decada. Sin embargo, no todos estan de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequenos comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose Maria Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos politicos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la critica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energia de los hoteles contribuyen al cambio climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quien puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fabula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solucion pasa por un modelo de turismo que combine el respeto al patrimonio, la proteccion de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turistico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios economicos y la calidad de vida de los residentes.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 81,
+        "enunciado": "¿Cual es la tesis del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El turismo masivo genera 1.500 millones de llegadas en 2024.",
+            "B) El turismo masivo transforma las ciudades y requiere regulacion para ser sostenible.",
+            "C) Barcelona es una ciudad con demasiados turistas."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 82,
+        "enunciado": "¿Cual es el contraargumento que aparece en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El turismo es una fuente esencial de ingresos y empleo, y sin el muchos comercios quebrarian.",
+            "B) El turismo masivo satura el espacio publico.",
+            "C) El turismo genera una huella de carbono significativa."
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 83,
+        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024) encontro que...' es una fuente primaria. ¿Cual de las siguientes seria una fuente secundaria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Un estudio de la Universidad de Barcelona (2024)'.",
+            "B) 'Un articulo de la revista Ciudades Sostenibles que resume el estudio de la Universidad de Barcelona'.",
+            "C) 'Una entrevista directa a un vecino del barrio Gotico'."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 84,
+        "enunciado": "La frase del concejal 'Quien critique el turismo es un enemigo del progreso' es una falacia. ¿Que tipo de falacia es?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falacia ad hominem: ataca a la persona, no al argumento.",
+            "B) Generalizacion apresurada.",
+            "C) Apelacion a la autoridad."
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 87,
+        "enunciado": "Segun el texto, ¿cual es una causa del impacto ambiental del turismo masivo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Los vuelos, los cruceros y el consumo de agua y energia de los hoteles.",
+            "B) Que los turistas hablan idiomas distintos.",
+            "C) Que las ciudades son muy grandes."
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 88,
+        "enunciado": "El autor menciona el barrio de Alfama (Lisboa) donde 'el numero de residentes ha caido un 30%'. ¿Que revela este ejemplo sobre su postura?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una postura favorable al turismo masivo.",
+            "B) Una postura critica hacia los efectos del turismo masivo en los barrios historicos.",
+            "C) Una postura neutral: solo describe."
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 89,
+        "enunciado": "¿Que contexto historico se puede inferir del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un contexto medieval, por las murallas y los caballeros.",
+            "B) Un contexto contemporaneo (siglo XXI), por los datos de la OMT (2024-2025), los vuelos y los cruceros.",
+            "C) Un contexto del siglo XIX, por las fabricas."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 93,
+        "enunciado": "¿Cual es el punto de vista del narrador del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Narrador interno que participa en la historia y dice 'yo'.",
+            "B) Narrador externo en tercera persona con acceso a datos y al debate (punto de vista analitico).",
+            "C) Un dialogo entre dos personajes."
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 94,
+        "enunciado": "El texto usa la 'etiqueta verde' como simbolo. ¿Que simboliza?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Simboliza la ecologia y el cuidado del medio ambiente.",
+            "B) Simboliza la hipocresia corporativa (greenwashing): una etiqueta que promete un mundo mejor pero no cambia las practicas.",
+            "C) Simboliza el color favorito de los turistas."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 97,
+        "enunciado": "¿Cual es el argumento principal del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El turismo masivo tiene efectos negativos (saturacion, perdida de identidad, impacto ambiental) que requieren regulacion.",
+            "B) Barcelona es la ciudad mas turistica del mundo.",
+            "C) Los turistas gastan mucho dinero."
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 98,
+        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024)' es una fuente primaria. ¿Como se clasificaria una encuesta realizada por el propio autor del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Fuente primaria: es una investigacion original.",
+            "B) Fuente secundaria: el autor solo resume otras fuentes.",
+            "C) No es una fuente, es una opinion."
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 99,
+        "enunciado": "La frase del concejal 'Quien critique el turismo es un enemigo del progreso' es una falacia ad hominem. ¿Por que?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque ataca a la persona que critica (la llama 'enemigo') en lugar de refutar su argumento.",
+            "B) Porque generaliza a partir de pocos casos.",
+            "C) Porque apela a una autoridad."
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 100,
+        "enunciado": "El texto cita al economista Hernandez: 'el turismo no es el enemigo: el problema es como se gestiona'. ¿Es una definicion solida?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si: es clara, precisa, no circular, y delimita el problema (la gestion) sin repetir el termino.",
+            "B) No: es una definicion circular que repite el termino 'turismo'.",
+            "C) No: es demasiado larga para ser una definicion."
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      }
+    ]
   }
 ]
