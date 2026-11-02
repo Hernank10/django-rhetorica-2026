@@ -75,12 +75,14 @@ def verificar_y_otorgar(user, dry_run=False):
             nuevas.append(cert)
             if not dry_run:
                 codigo = f"CERT-{user.id:04d}-{cert.id:04d}"
-                CertificacionObtenida.objects.create(
+                CertificacionObtenida.objects.get_or_create(
                     user=user,
                     certificacion=cert,
-                    fecha_obtenida=timezone.now(),
-                    codigo_verificacion=codigo,
-                    url_verificacion=f"/verificar/{codigo}/",
+                    defaults={
+                        "fecha_obtenida": timezone.now(),
+                        "codigo_verificacion": codigo,
+                        "url_verificacion": f"/verificar/{codigo}/",
+                    },
                 )
 
     return nuevas

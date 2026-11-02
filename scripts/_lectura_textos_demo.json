@@ -432,5 +432,183 @@
         "orden": 9
       }
     ]
+  },
+  {
+    "titulo": "La inteligencia artificial en la educacion: promesas y riesgos",
+    "tipo": "informativo",
+    "nivel_mcer": "B2",
+    "fuente": "Informe de la OCDE, 2025",
+    "orden": 6,
+    "cuerpo": "El uso de la inteligencia artificial (IA) en la educacion ha crecido de forma exponencial en los ultimos anos. Segun el informe de la OCDE de 2025, el 67% de los centros educativos de los paises desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluacion automatica. En Espana, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el ultimo curso. Los defensores de la IA en la educacion argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentacion inmediata. Ademas, los sistemas de evaluacion automatica liberan a los profesores de tareas repetitivas, permitiendoles dedicar mas tiempo a la ensenanza. Sin embargo, los criticos senalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanizacion: si la IA sustituye al profesor en la retroalimentacion, se pierde el vinculo humano, que es esencial en la educacion. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tension se produjo en 2024, cuando un instituto de Barcelona decidio sustituir parte de las tutorias por un asistente de IA. La medida genero protestas de las familias, que consideraban que la educacion requiere un acompanamiento humano que la tecnologia no puede ofrecer. El instituto dio marcha atras. El debate sigue abierto. La pregunta no es si la IA estara en la educacion, sino como integrarla de forma que potencie el aprendizaje sin perder lo humano. Como senala un informe de la UNESCO (2023), 'la tecnologia debe estar al servicio de las personas, no al reves'.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 29,
+        "enunciado": "¿Donde ocurrio el caso del instituto que sustituyo tutorias por un asistente de IA?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Madrid",
+            "B) Barcelona",
+            "C) Valencia"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 30,
+        "enunciado": "En el texto, ¿como se define la IA?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Sistemas de evaluacion automatica' (entre parentesis).",
+            "B) 'Asistentes virtuales, sistemas de evaluacion automatica...' (a traves de ejemplos).",
+            "C) No se define explicitamente, solo se ejemplifica."
+          ],
+          "correcta": "C"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 32,
+        "enunciado": "¿Que se puede inferir sobre los estudiantes que usan IA segun el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Son todos adolescentes.",
+            "B) Tienen acceso a herramientas que personalizan su aprendizaje.",
+            "C) No necesitan profesores."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 33,
+        "enunciado": "¿Que consecuencia se infiere de la desigualdad de acceso a la IA?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Todos los estudiantes aprenderan igual.",
+            "B) La brecha entre estudiantes puede ampliarse.",
+            "C) Los profesores trabajaran menos."
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 34,
+        "enunciado": "¿Cual es el proposito comunicativo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Persuadir al lector de que la IA es buena.",
+            "B) Informar sobre las promesas y riesgos de la IA en la educacion.",
+            "C) Entretener con una historia."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 36,
+        "enunciado": "¿Cual de estos datos es mas relevante para la tesis del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El 67% de los centros usa IA (dato que muestra la magnitud del fenomeno).",
+            "B) El nombre del instituto de Barcelona (dato accesorio).",
+            "C) El ano del informe de la UNESCO (dato de contexto)."
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 37,
+        "enunciado": "¿Como esta estructurado el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Introduccion (presenta el fenomeno) + desarrollo (argumentos a favor y en contra) + conclusion (debate abierto).",
+            "B) Solo introduccion y conclusion.",
+            "C) No tiene estructura clara."
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 38,
+        "enunciado": "La frase 'la tecnologia debe estar al servicio de las personas, no al reves' es una analogia. ¿Que la hace solida o debil?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es solida porque establece una relacion clara de servicio (personas = fin, tecnologia = medio).",
+            "B) Es debil porque no explica que es la tecnologia.",
+            "C) Es debil porque no cita un estudio."
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 31,
+        "enunciado": "¿Cual es la tesis implicita del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La IA es mala para la educacion.",
+            "B) La IA debe integrarse en la educacion de forma que potencie el aprendizaje sin perder lo humano.",
+            "C) Los profesores son innecesarios."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 35,
+        "enunciado": "¿Como se relaciona el titulo 'promesas y riesgos' con el contenido del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El titulo anticipa la estructura: el texto presenta primero las promesas (defensores) y luego los riesgos (criticos).",
+            "B) El titulo no tiene relacion con el texto.",
+            "C) El titulo solo habla de promesas."
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 14,
+        "enunciado": "¿Que se puede inferir sobre el estado de animo de las familias que protestaron en Barcelona?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Estaban contentas con la medida.",
+            "B) Estaban preocupadas y en desacuerdo con la sustitucion de tutorias por IA.",
+            "C) Eran indiferentes al cambio."
+          ],
+          "correcta": "B"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 17,
+        "enunciado": "¿Que significa la metafora 'la tecnologia debe estar al servicio de las personas, no al reves'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que la tecnologia es un fin en si misma.",
+            "B) Que la tecnologia es un medio para mejorar la vida de las personas, no un objetivo que las someta.",
+            "C) Que las personas deben servir a la tecnologia."
+          ],
+          "correcta": "B"
+        },
+        "orden": 12
+      }
+    ]
   }
 ]

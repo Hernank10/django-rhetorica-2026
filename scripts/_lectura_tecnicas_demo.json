@@ -306,5 +306,115 @@
     "regla": "El sesgo ideologico se revela en el vocabulario, las fuentes citadas y las soluciones propuestas.",
     "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, hay un sesgo ideologico claro.",
     "ejemplo_incorrecto": "Decir que el texto es neutral porque no menciona partidos. El vocabulario ya revela una postura."
+  },
+  {
+    "numero": 29,
+    "proceso": "P1",
+    "nivel_mcer": "A1",
+    "titulo": "Localizar el lugar donde ocurre un hecho",
+    "teoria": "En los textos narrativos e informativos, el lugar donde ocurre un hecho suele estar indicado por expresiones como 'en', 'en el', 'dentro de'. Localizarlo es basico para entender la historia.",
+    "explicacion": "Busca expresiones de lugar: 'en Madrid', 'en el parque', 'dentro de la casa'. Si el texto no lo dice explicitamente, se infiere del contexto.",
+    "regla": "El lugar se indica con preposiciones: en, dentro de, sobre, bajo.",
+    "ejemplo_correcto": "En 'Ayer comimos en un restaurante italiano', el lugar es 'un restaurante italiano'.",
+    "ejemplo_incorrecto": "Decir que el lugar es 'ayer' porque aparece al principio. 'Ayer' es tiempo, no lugar."
+  },
+  {
+    "numero": 30,
+    "proceso": "P1",
+    "nivel_mcer": "B1",
+    "titulo": "Localizar la definicion de un termino en el texto",
+    "teoria": "En los textos expositivos, los terminos tecnicos suelen definirse al presentarse. La definicion puede estar entre parentesis, comillas o despues de dos puntos.",
+    "explicacion": "Busca el termino y comprueba si va seguido de una explicacion: 'X, es decir, ...', 'X (que significa ...)', 'X: ...'.",
+    "regla": "La definicion sigue al termino con comas, parentesis o dos puntos.",
+    "ejemplo_correcto": "En 'La fotosintesis (proceso por el cual las plantas producen su alimento) ocurre en las hojas', la definicion esta entre parentesis.",
+    "ejemplo_incorrecto": "Buscar la definicion de 'fotosintesis' en otro parrafo lejano. La definicion suele estar junto al termino la primera vez que aparece."
+  },
+  {
+    "numero": 31,
+    "proceso": "P1",
+    "nivel_mcer": "C2",
+    "titulo": "Localizar la tesis implicita en un texto filosofico",
+    "teoria": "En los textos filosoficos, la tesis no siempre se declara: se infiere del conjunto de argumentos. Localizarla requiere sintetizar la postura del autor.",
+    "explicacion": "Lee el texto completo. Preguntate: que quiere defender el autor? Cual es la afirmacion que todos los argumentos sostienen? Esa es la tesis implicita.",
+    "regla": "La tesis implicita se sintetiza del conjunto, no de una sola oracion.",
+    "ejemplo_correcto": "En un texto que argumenta que la libertad requiere responsabilidad, la tesis implicita es 'la libertad no es posible sin responsabilidad'.",
+    "ejemplo_incorrecto": "Decir que no hay tesis porque no aparece una frase que diga 'yo defiendo que...'. La tesis puede estar implicita."
+  },
+  {
+    "numero": 32,
+    "proceso": "P2",
+    "nivel_mcer": "A2",
+    "titulo": "Inferir la edad o el rol de un personaje",
+    "teoria": "En los textos narrativos, la edad o el rol de un personaje se infieren de sus acciones, su lenguaje o su relacion con otros.",
+    "explicacion": "Busca pistas: si va a la escuela, es nino; si trabaja en una oficina, es adulto; si usa 'usted', puede ser mayor o formal. Combina varias pistas.",
+    "regla": "La edad y el rol se infieren de acciones, lenguaje y contexto social.",
+    "ejemplo_correcto": "En 'Maria tomo el autobus para ir al instituto', se infiere que es adolescente.",
+    "ejemplo_incorrecto": "Decir que es adulta porque toma el autobus. Ir al instituto indica adolescencia."
+  },
+  {
+    "numero": 33,
+    "proceso": "P2",
+    "nivel_mcer": "B2",
+    "titulo": "Inferir la consecuencia de una decision",
+    "teoria": "En los textos argumentativos y narrativos, las decisiones tienen consecuencias que no siempre se explicitan. Inferirlas ayuda a entender la logica del texto.",
+    "explicacion": "Identifica la decision. Preguntate: que pasara despues como resultado? Verifica que la consecuencia sea coherente con el resto del texto.",
+    "regla": "La consecuencia se infiere de la decision y del contexto, no de una declaracion explicita.",
+    "ejemplo_correcto": "En 'El gobierno decidio subir los impuestos', se infiere que habra mas ingresos publicos y posible descontento social.",
+    "ejemplo_incorrecto": "Decir que no hay consecuencias porque no se mencionan. Toda decision tiene consecuencias implicitas."
+  },
+  {
+    "numero": 34,
+    "proceso": "P3",
+    "nivel_mcer": "B1",
+    "titulo": "Reconocer el proposito comunicativo de un texto",
+    "teoria": "Todo texto tiene un proposito: informar, persuadir, entretener, criticar. Reconocerlo es el primer paso para interpretarlo.",
+    "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, critica.",
+    "regla": "Proposito = que busca el autor: informar, persuadir, entretener o criticar.",
+    "ejemplo_correcto": "En un articulo con datos y citas, el proposito es informar.",
+    "ejemplo_incorrecto": "Decir que un articulo de opinion informa porque tiene datos. Su proposito principal es persuadir, aunque use datos."
+  },
+  {
+    "numero": 35,
+    "proceso": "P3",
+    "nivel_mcer": "C1",
+    "titulo": "Relacionar el titulo con el contenido del texto",
+    "teoria": "El titulo anticipa el tema o la tesis del texto. Relacionarlo con el contenido ayuda a construir el sentido global.",
+    "explicacion": "Lee el titulo y preguntate: de que creo que va a tratar? Luego lee el texto y comprueba si el titulo anticipa el tema, la tesis o una metafora.",
+    "regla": "El titulo puede anticipar el tema, la tesis o una metafora del contenido.",
+    "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el titulo anticipa que se hablara de los costos (no monetarios) de ser famoso.",
+    "ejemplo_incorrecto": "Decir que el titulo no tiene relacion con el texto porque es metaforico. Los titulos metaforicos tambien se relacionan con el contenido."
+  },
+  {
+    "numero": 36,
+    "proceso": "P4",
+    "nivel_mcer": "B1",
+    "titulo": "Distinguir informacion relevante de irrelevante",
+    "teoria": "No toda la informacion de un texto es igual de importante. Distinguir lo relevante de lo accesorio ayuda a comprender y resumir.",
+    "explicacion": "Preguntate: si quito esta informacion, el texto pierde sentido? Si la respuesta es si, es relevante. Si la respuesta es no, es accesoria.",
+    "regla": "La informacion relevante es la que, si se elimina, el texto pierde sentido.",
+    "ejemplo_correcto": "En un texto sobre el cambio climatico, la causa principal (emisiones de CO2) es relevante; el nombre del autor del estudio, accesorio.",
+    "ejemplo_incorrecto": "Decir que todos los datos son igual de relevantes. Algunos son ejemplos o detalles que se pueden omitir."
+  },
+  {
+    "numero": 37,
+    "proceso": "P4",
+    "nivel_mcer": "B2",
+    "titulo": "Identificar la estructura de un texto expositivo",
+    "teoria": "Los textos expositivos suelen tener una estructura: introduccion (presenta el tema), desarrollo (lo explica) y conclusion (sintetiza).",
+    "explicacion": "Identifica donde se presenta el tema (introduccion), donde se desarrolla (desarrollo) y donde se sintetiza (conclusion).",
+    "regla": "Estructura expositiva: introduccion + desarrollo + conclusion.",
+    "ejemplo_correcto": "En un texto sobre el reciclaje, la introduccion presenta el tema, el desarrollo explica el proceso y la conclusion invita a reciclar.",
+    "ejemplo_incorrecto": "Decir que el texto no tiene estructura porque es continuo. La estructura se infiere del contenido, no de subtitulos."
+  },
+  {
+    "numero": 38,
+    "proceso": "P4",
+    "nivel_mcer": "C2",
+    "titulo": "Evaluar la solidez de una analogia",
+    "teoria": "Una analogia compara dos cosas para explicar o persuadir. Su solidez depende de que la comparacion sea pertinente y no oculta diferencias importantes.",
+    "explicacion": "Identifica los dos terminos comparados. Preguntate: en que se parecen? Esa semejanza es relevante para lo que se quiere explicar? Hay diferencias importantes que se omiten?",
+    "regla": "Una analogia es solida si la semejanza es relevante y las diferencias no invalidan la comparacion.",
+    "ejemplo_correcto": "Comparar el cerebro con un ordenador es una analogia util para explicar el procesamiento de informacion, aunque tiene limites (el cerebro no es binario).",
+    "ejemplo_incorrecto": "Aceptar como valida la analogia 'el universo es como un reloj' sin preguntar quien seria el relojero. La analogia oculta una diferencia clave."
   }
 ]
