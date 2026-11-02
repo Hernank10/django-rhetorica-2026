@@ -924,5 +924,347 @@
         "orden": 10
       }
     ]
+  },
+  {
+    "titulo": "El gato que hablaba",
+    "tipo": "literario",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 9,
+    "cuerpo": "Una manana de primavera, Pablo encontro un gato gris sentado en el muro de su jardin. El gato lo miro fijamente y dijo: -Buenos dias, Pablo. Pablo se quedo paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compania. Pablo, despues de dudar un momento, se sento en el muro junto al gato. El gato le conto que vivia en el tejado de la casa vecina y que pasaba los dias mirando a la gente. -Primero observo, luego decido si me acerco -explico el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pajaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiro, bostezo y dijo: -Me voy. Manana volvere. Y salto del muro con elegancia. Pablo lo miro alejarse por el tejado. Al dia siguiente, cuando bajo al jardin, el gato gris ya estaba alli, esperandolo, con los ojos brillantes y la cola levantada.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 64,
+        "enunciado": "¿La situacion del texto es real o imaginaria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Real, porque hay un jardin y un gato.",
+            "B) Imaginaria, porque el gato habla y los gatos no hablan en la realidad.",
+            "C) Real, porque Pablo es un nino real."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 74,
+        "enunciado": "¿Que elemento del texto es fantastico?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el gato este sentado en el muro.",
+            "B) Que el gato hable y diga el nombre de Pablo.",
+            "C) Que el gato duerma en un tejado."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 59,
+        "enunciado": "En la oracion 'Pablo encontro un gato gris', ¿cual es el objeto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pablo.",
+            "B) Un gato gris.",
+            "C) Una manana de primavera."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 59,
+        "enunciado": "En 'El gato salto del muro', ¿cual es el objeto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El gato.",
+            "B) Del muro (complemento de lugar, no objeto directo).",
+            "C) No hay objeto directo: 'saltar' es intransitivo."
+          ],
+          "correcta": "C"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 65,
+        "enunciado": "¿Que sugiere que el gato 'lo miro fijamente'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el gato tiene un problema en los ojos.",
+            "B) Que el gato quiere llamar la atencion de Pablo con intencion.",
+            "C) Que el gato no ve bien."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 65,
+        "enunciado": "¿Que sugiere que el gato este 'con los ojos brillantes y la cola levantada'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el gato esta enojado y va a atacar.",
+            "B) Que el gato esta contento y espera a Pablo.",
+            "C) Que el gato tiene frio."
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 70,
+        "enunciado": "¿Cual es el escenario principal del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una playa en verano.",
+            "B) El jardin de Pablo y el muro, con el tejado de la casa vecina.",
+            "C) Una escuela."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 69,
+        "enunciado": "¿Que ocurre primero en la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pablo se sienta en el muro junto al gato.",
+            "B) Pablo encuentra un gato gris en el muro de su jardin.",
+            "C) El gato se va saltando del muro."
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 60,
+        "enunciado": "En la frase 'Primero observo, luego decido si me acerco', ¿que palabras indican orden?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'observo' y 'decido'.",
+            "B) 'Primero' y 'luego'.",
+            "C) 'me' y 'si'."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 74,
+        "enunciado": "¿Cual de estas frases del texto es un hecho real (no fantastico)?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'El gato lo miro fijamente y dijo: Buenos dias, Pablo'.",
+            "B) 'Pablo se sento en el muro junto al gato'.",
+            "C) 'El gato le conto que vivia en el tejado'."
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      }
+    ]
+  },
+  {
+    "titulo": "La moda rapida y el costo humano",
+    "tipo": "informativo",
+    "nivel_mcer": "B2",
+    "fuente": "Revista de Consumo Consciente, vol. 5, 2026",
+    "orden": 10,
+    "cuerpo": "La industria de la moda rapida (fast fashion) ha transformado la manera en que consumimos ropa. Segun el informe Textile Exchange 2025, la produccion global de prendas se ha duplicado en los ultimos veinte anos, mientras que el tiempo medio de uso de una prenda se ha reducido a la mitad. Estos datos deberian hacernos reflexionar: compramos mas ropa que nunca y la usamos menos tiempo que nunca. El primer problema es el costo humano. Segun la Organizacion Internacional del Trabajo (OIT, 2024), mas de 40 millones de personas trabajan en la industria textil en condiciones precarias: jornadas de 12 horas, salarios por debajo del minimo y exposicion a productos quimicos toxicos. Un estudio de la Universidad de Lund (2023) realizado en dos distritos de Bangladesh encontro que el 78% de las trabajadoras textiles no tiene contrato formal. No es casualidad que las prendas mas baratas se produzcan en los paises con menos regulacion laboral. El segundo problema es el impacto ambiental. La produccion textil consume mas agua que cualquier otra industria despues de la agricultura. Un solo par de vaqueros requiere unos 7.500 litros de agua, segun la UNESCO (2023). Ademas, la moda rapida genera 92 millones de toneladas de residuos textiles al ano, y solo el 12% se recicla. El vaquero, ese objeto cotidiano que usamos sin pensar, se convierte asi en un simbolo del costo ambiental de nuestra ropa. El tercer problema es el greenwashing. Muchas marcas se presentan como 'sostenibles' o 'eco-friendly' sin cambiar sus practicas. Como senala la periodista Elizabeth Cline (2021) en su libro The Conscious Closet, 'la moda sostenible no es una etiqueta: es una cadena de produccion completamente distinta'. Etiquetar una camiseta como 'verde' mientras se produce en talleres sin condiciones laborales no es sostenibilidad: es marketing. La etiqueta verde, ese pequeno rectangulo que promete un mundo mejor, se convierte en un simbolo de la hipocresia corporativa. ¿Quien puede negar que la moda rapida tiene un costo humano y ambiental que no podemos seguir ignorando? Como en la fabula de La cigarra y la hormiga, el que solo piensa en el placer inmediato y no en el futuro termina pagando las consecuencias. Y 'pagar las consecuencias' puede significar muchas cosas: pagar mas dinero, pagar con la salud, o pagar con el planeta. Un dato para la reflexion: segun un informe de McKinsey (2024), el 67% de los consumidores dice estar dispuesto a pagar mas por ropa sostenible. Sin embargo, solo el 23% lo hace realmente. ¿Por que esta diferencia? La respuesta es compleja y admite varias lecturas. La solucion no es dejar de comprar ropa, sino comprar menos y mejor. Un consumidor informado puede exigir transparencia a las marcas y preferir prendas duraderas, producidas en condiciones justas. La moda sostenible es posible, pero requiere un cambio de mentalidad: del consumo rapido al consumo consciente.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 75,
+        "enunciado": "¿Cual es el proposito del parrafo introductorio del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Dar la solucion al problema de la moda rapida.",
+            "B) Presentar el fenomeno de la moda rapida con datos impactantes para enganchar al lector.",
+            "C) Despedirse del lector."
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 62,
+        "enunciado": "¿Cual de estas afirmaciones del texto es evidencia empirica?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'La moda rapida es mala'.",
+            "B) 'Segun la OIT (2024), mas de 40 millones de personas trabajan en la industria textil en condiciones precarias'.",
+            "C) 'Deberiamos comprar menos ropa'."
+          ],
+          "correcta": "B"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 63,
+        "enunciado": "En la frase 'Como senala la periodista Elizabeth Cline (2021)... la moda sostenible no es una etiqueta...', ¿que parte es voz citada y cual es voz del autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Todo es voz del autor.",
+            "B) La cita de Cline es voz citada; el resto del texto es voz del autor.",
+            "C) Todo es voz citada."
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 66,
+        "enunciado": "Segun el texto, ¿cual es una causa de las condiciones laborales precarias en la industria textil?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La falta de regulacion laboral en los paises donde se produce.",
+            "B) Que los trabajadores no quieren contratos.",
+            "C) Que la ropa es muy cara."
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 67,
+        "enunciado": "La pregunta '¿Quien puede negar que la moda rapida tiene un costo humano y ambiental que no podemos seguir ignorando?' es retorica. ¿Que intencion tiene?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pedir una respuesta concreta al lector.",
+            "B) Afirmar de forma enfatica que la moda rapida tiene un costo que no se puede ignorar.",
+            "C) Expresar una duda del autor."
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 68,
+        "enunciado": "¿A que publico objetivo parece dirigido el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A ninos de primaria, por el vocabulario sencillo.",
+            "B) A consumidores informados o interesados en sostenibilidad, por los datos y el tono reflexivo.",
+            "C) A especialistas en quimica textil, por los terminos tecnicos."
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 71,
+        "enunciado": "El texto cita la fabula de 'La cigarra y la hormiga'. ¿Cual es la moraleja que el autor usa para apoyar su argumento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que hay que trabajar sin descanso.",
+            "B) Que el que solo piensa en el placer inmediato y no en el futuro termina pagando las consecuencias.",
+            "C) Que las hormigas son mas inteligentes que las cigarras."
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 61,
+        "enunciado": "¿Cual es la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La moda rapida es inevitable y no se puede cambiar.",
+            "B) La solucion no es dejar de comprar ropa, sino comprar menos y mejor, exigiendo transparencia a las marcas.",
+            "C) Los consumidores deben dejar de comprar ropa para siempre."
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 72,
+        "enunciado": "El 'vaquero' y la 'etiqueta verde' aparecen en el texto con un valor simbolico. ¿Que simbolizan?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El vaquero simboliza la moda juvenil; la etiqueta verde, la ecologia.",
+            "B) El vaquero simboliza el costo ambiental de nuestra ropa; la etiqueta verde, la hipocresia corporativa (greenwashing).",
+            "C) El vaquero y la etiqueta verde no tienen valor simbolico."
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 73,
+        "enunciado": "La frase 'pagar las consecuencias puede significar muchas cosas: pagar mas dinero, pagar con la salud, o pagar con el planeta' es deliberadamente ambigua. ¿Cual es la interpretacion mas coherente con el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Solo significa pagar mas dinero por la ropa.",
+            "B) La ambiguedad es intencional: el autor senala que las consecuencias de la moda rapida son multiples (economicas, sanitarias, ambientales).",
+            "C) Es un error del autor que no se entiende."
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 76,
+        "enunciado": "El texto menciona la fabula de 'La cigarra y la hormiga' como ejemplo para apoyar su argumento. ¿Es un ejemplo relevante?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque ilustra la idea de que el placer inmediato sin previsión tiene consecuencias.",
+            "B) No, porque las fabulas no tienen relacion con la moda.",
+            "C) No, porque es un ejemplo demasiado infantil."
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 77,
+        "enunciado": "El texto cita un informe de McKinsey (2024) segun el cual el 67% de los consumidores dice estar dispuesto a pagar mas por ropa sostenible, pero solo el 23% lo hace. ¿Hay sesgo de seleccion en esta muestra?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No se puede saber: el texto no especifica quien fue encuestado ni como se selecciono la muestra.",
+            "B) No, porque McKinsey es una consultora de prestigio.",
+            "C) Si, porque el 67% es un porcentaje muy alto."
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 78,
+        "enunciado": "El texto dice que la produccion textil 'genera 92 millones de toneladas de residuos al ano, y solo el 12% se recicla' (UNESCO, 2023). ¿Que hace que esta conclusion sea solida?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que la cita un organismo internacional (UNESCO) y presenta datos concretos y verificables.",
+            "B) Que el autor lo afirma sin citar fuente.",
+            "C) Que es una opinion personal del autor."
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      }
+    ]
   }
 ]
