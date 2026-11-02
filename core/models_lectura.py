@@ -116,6 +116,16 @@ class ProgresoTecnicaLectura(models.Model):
     intentos = models.PositiveIntegerField(default=0)
     actualizado_en = models.DateTimeField(auto_now=True)
 
+    # ─── Campos SM-2 (Fase 6A) ───
+    # Algoritmo de repeticion espaciada (ver core/services/srs.py).
+    # El wrapper de Fase 6B mapea calidad 1 (no sabia) -> hoy,
+    # calidad 5 (si sabia) -> hoy + 1 dia (primer repaso).
+    intervalo_dias = models.PositiveIntegerField(default=0)
+    facilidad = models.FloatField(default=2.5)
+    repeticiones = models.PositiveIntegerField(default=0)
+    proxima_revision = models.DateField(null=True, blank=True)
+    ultima_revision = models.DateTimeField(null=True, blank=True)
+
     class Meta:
         unique_together = ("usuario", "tecnica")
         verbose_name = "Progreso de tecnica lectora"
