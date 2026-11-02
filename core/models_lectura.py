@@ -15,7 +15,7 @@ class TecnicaLectura(models.Model):
         ("A1", "A1"), ("A2", "A2"), ("B1", "B1"),
         ("B2", "B2"), ("C1", "C1"), ("C2", "C2"),
     ]
-    numero = models.PositiveIntegerField(unique=True)
+    numero = models.PositiveIntegerField()  # 1-100 por nivel
     proceso = models.CharField(max_length=2, choices=PROCESOS)
     nivel_mcer = models.CharField(max_length=2, choices=NIVELES)
     titulo = models.CharField(max_length=200)
@@ -27,6 +27,7 @@ class TecnicaLectura(models.Model):
 
     class Meta:
         ordering = ["numero"]
+        unique_together = ("nivel_mcer", "numero")
         verbose_name = "Tecnica de lectura"
         verbose_name_plural = "Tecnicas de lectura"
 
