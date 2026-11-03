@@ -17,7 +17,10 @@
     <div class="row g-2">
       {% for nivel, datos in mcer.items %}
       <div class="col-md-2 col-4 text-center">
-        <h6 class="mb-1">{{ nivel }}</h6>
+        <h6 class="mb-1">
+          {% if nivel == "A1" %}🟢{% elif nivel == "A2" %}🟡{% elif nivel == "B1" %}🟠{% elif nivel == "B2" %}🔴{% elif nivel == "C1" %}🟣{% elif nivel == "C2" %}⚫{% endif %}
+          {{ nivel }}
+        </h6>
         <div class="progress" style="height: 8px;">
           <div class="progress-bar bg-success" style="width: {{ datos.pct }}%"></div>
         </div>
@@ -41,12 +44,18 @@
     <div class="card shadow-sm h-100 {% if item.completado %}border-success{% endif %}">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-start mb-2">
-          <h5 class="card-title mb-0">{{ item.texto.titulo }}</h5>
-          <span class="badge bg-secondary">{{ item.texto.nivel_mcer }}</span>
+          <h5 class="card-title mb-0">{{ item.texto.emoji_nivel }} {{ item.texto.emoji_tipo }} {{ item.texto.titulo }}</h5>
+          <span class="badge
+          {% if item.texto.nivel_mcer == 'A1' %}bg-success
+          {% elif item.texto.nivel_mcer == 'A2' %}bg-warning text-dark
+          {% elif item.texto.nivel_mcer == 'B1' %}bg-orange text-white
+          {% elif item.texto.nivel_mcer == 'B2' %}bg-danger
+          {% elif item.texto.nivel_mcer == 'C1' %}bg-purple text-white
+          {% elif item.texto.nivel_mcer == 'C2' %}bg-dark
+          {% else %}bg-secondary{% endif %}">{{ item.texto.nivel_mcer }}</span>
         </div>
         <p class="text-muted small mb-2">
-          {% if item.texto.tipo == 'literario' %}<i class="fas fa-feather"></i> Literario
-          {% else %}<i class="fas fa-newspaper"></i> Informativo{% endif %}
+          {{ item.texto.emoji_tipo }} {{ item.texto.get_tipo_display }}
           &middot; {{ item.n_ejercicios }} ejercicio{{ item.n_ejercicios|pluralize:"s" }}
         </p>
         {% if item.completado %}

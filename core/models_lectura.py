@@ -60,6 +60,26 @@ class Texto(models.Model):
     def __str__(self):
         return f"[{self.nivel_mcer}] {self.titulo}"
 
+    @property
+    def emoji_nivel(self):
+        return {
+            "A1": "\U0001F7E2",  # verde
+            "A2": "\U0001F7E1",  # amarillo
+            "B1": "\U0001F7E0",  # naranja
+            "B2": "\U0001F534",  # rojo
+            "C1": "\U0001F7E3",  # purpura
+            "C2": "\u26AB",      # negro
+        }.get(self.nivel_mcer, "\u26AA")
+
+    @property
+    def emoji_tipo(self):
+        return {
+            "literario": "\U0001F4D6",      # libro
+            "informativo": "\U0001F4F0",    # periodico
+            "academico": "\U0001F393",      # graduacion
+            "argumentativo": "\U0001F4AC",  # bocadillo
+        }.get(self.tipo, "\U0001F4C4")
+
 
 class EjercicioLectura(models.Model):
     """Ejercicio asociado a un texto y a una tecnica lectora."""
