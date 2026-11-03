@@ -3030,5 +3030,1357 @@
         "orden": 23
       }
     ]
+  },
+  {
+    "titulo": "El misterio del cuadro robado",
+    "tipo": "literario",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 17,
+    "cuerpo": "El lunes por la manana, el detective Ramos llego al Museo del Prado. Alguien habia robado un cuadro pequeno y valioso. La sala estaba en silencio. Solo tres personas habian estado alli el domingo: el vigilante, la guia y el restaurador. —¿Quien entro primero? —pregunto Ramos al vigilante. —Yo abri la puerta a las nueve —respondio el vigilante, nervioso—. Despues llego la guia. El detective miro la lista de sospechosos. La guia tenia 45 anos. El restaurador, 60. El vigilante, 30. —¿Viste algo raro? —insistio Ramos. —Solo un ruido en la sala de restauracion —dijo el vigilante—. Como un cristal roto. Ramos reviso la sala. En el suelo habia un trozo de vidrio. Cerca de la ventana, una huella de zapato. —La ventana estaba abierta —observo Ramos—. Por eso el ladron pudo escapar rapidamente. Ramos penso: si el ladron salio por la ventana, tuvo que ser alguien agil. Entonces, recordo el ruido del cristal. El restaurador trabajaba con vidrio a diario. —El restaurador rompio el cristal sin querer —concluyo Ramos—. Eso lo delato. Al final, el restaurador confeso. Habia robado el cuadro para venderlo. Ramos sonrio. Habia resuelto el misterio en solo una manana.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 19,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la idea principal del primer parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El detective Ramos llega al museo porque han robado un cuadro",
+            "B) El museo del Prado es grande",
+            "C) El vigilante trabaja de noche",
+            "D) El cuadro es pequeno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 20,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El restaurador confeso y Ramos resolvio el misterio",
+            "B) El vigilante era el culpable",
+            "C) El cuadro nunca se encontro",
+            "D) La guia era la ladrona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 21,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que cita textual del vigilante aparece en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Yo abri la puerta a las nueve'",
+            "B) 'El cuadro es muy bonito'",
+            "C) 'Me gusta el museo'",
+            "D) 'El restaurador es simpatico'"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 22,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'el ladron salio por la ventana, por eso tuvo que ser alguien agil', ¿que relacion marca 'por eso'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Causa",
+            "B) Contraste",
+            "C) Adicion",
+            "D) Consecuencia"
+          ],
+          "correcta": "D"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 23,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es el tema del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La investigacion de un robo en un museo",
+            "B) La vida de los vigilantes",
+            "C) Los museos de Madrid",
+            "D) La restauracion de cuadros"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 24,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual de estas palabras es clave en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) detective",
+            "B) manana",
+            "C) sonrio",
+            "D) pequeno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 25,
+        "tecnica_nivel": "A2",
+        "enunciado": "En el texto, 'valioso' significa lo mismo que:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) barato",
+            "B) caro",
+            "C) feo",
+            "D) comun"
+          ],
+          "correcta": "B"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 26,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'El restaurador rompio el cristal, por eso lo delato', ¿cual es la causa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El restaurador rompio el cristal",
+            "B) El restaurador fue delatado",
+            "C) El detective lo descubrio",
+            "D) La ventana estaba abierta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 27,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que marcador temporal indica el inicio de la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El lunes por la manana",
+            "B) A las nueve",
+            "C) El domingo",
+            "D) Al final"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 28,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'En el suelo habia un trozo de vidrio', ¿que marcador espacial aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En el suelo",
+            "B) El lunes",
+            "C) A las nueve",
+            "D) Por eso"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 29,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'El detective miro la lista. La guia tenia 45 anos', ¿a que se refiere 'la lista'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A la lista de sospechosos",
+            "B) A la lista de cuadros",
+            "C) A la lista de compras",
+            "D) A la lista de empleados"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 30,
+        "tecnica_nivel": "A2",
+        "enunciado": "Segun los datos del texto, ¿cuantos anos tiene el vigilante?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 30 anos",
+            "B) 45 anos",
+            "C) 60 anos",
+            "D) 50 anos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 31,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si el texto dijera 'el museo tiene 3 salas', ¿que tipo de informacion seria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un dato numerico",
+            "B) Una opinion",
+            "C) Una pregunta",
+            "D) Un dialogo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 32,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'Alguien habia robado un cuadro', ¿que tiempo verbal indica 'habia robado'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pasado",
+            "B) Presente",
+            "C) Futuro",
+            "D) Condicional"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 33,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual de estas palabras es un adjetivo valorativo en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) valioso",
+            "B) pequeno",
+            "C) lunes",
+            "D) manana"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 34,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'escapo rapidamente', ¿que adverbio de modo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) rapidamente",
+            "B) escapo",
+            "C) ventana",
+            "D) ladron"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 35,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que fuente cita el detective cuando dice 'el vigilante dijo que oyo un ruido'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El vigilante",
+            "B) La guia",
+            "C) El restaurador",
+            "D) El periodico"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 36,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si buscaramos 'restaurador' en un glosario, ¿en que letra lo encontrariamos?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) R",
+            "B) E",
+            "C) S",
+            "D) T"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 37,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que frase se repite en el texto para enfatizar?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) '—pregunto Ramos'",
+            "B) 'El lunes por la manana'",
+            "C) 'En el suelo'",
+            "D) 'Al final'"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 38,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que parte del texto es un dialogo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las frases entre guiones (—¿Quien entro primero? —pregunto Ramos)",
+            "B) La descripcion del museo",
+            "C) El titulo",
+            "D) La lista de sospechosos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 39,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cuantos parrafos tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 6",
+            "B) 3",
+            "C) 10",
+            "D) 1"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "La vida en el fondo del mar",
+    "tipo": "informativo",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 18,
+    "cuerpo": "La doctora Elena era biologa marina. Llevaba veinte anos estudiando el fondo del mar. Un dia, bajo con su equipo a las profundidades del oceano. El agua estaba oscura y fria, como un enorme abismo. —¿Que ves? —pregunto su companero Luis por el radio. —Veo un mundo increible —respondio Elena, emocionada—. Hay peces que brillan en la oscuridad. Parecen estrellas. Elena siempre habia sido curiosa. De nina, pasaba horas mirando el mar. Ahora, su trabajo era descubrir sus secretos. De repente, un pez enorme paso cerca de ella. Elena sintio miedo. Luis le pregunto: —¿Tienes miedo? —No, en absoluto —dijo Elena. Pero sus manos temblaban. Elena sabia que los animales marinos no atacan si no se sienten amenazados, asi que no se movio. —El oceano es infinito, ¿verdad? —pregunto Luis. —Claro, y por eso se esta acabando —respondio Elena con una sonrisa ironica. Al volver a la superficie, Elena penso: 'El mar es un mundo desconocido. ¿Quien puede negar que debemos protegerlo?'. La contaminacion y la pesca excesiva estan destruyendo este ecosistema. Elena decidio dedicar su vida a protegerlo.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 40,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'El agua estaba oscura y fria, como un enorme abismo', ¿que significa 'abismo' por el contexto amplio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un lugar muy profundo",
+            "B) Un animal marino",
+            "C) Un tipo de pez",
+            "D) Un barco"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 41,
+        "tecnica_nivel": "A2",
+        "enunciado": "Elena dice 'Veo un mundo increible' y responde 'emocionada'. ¿Como se siente Elena por multiples pistas?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Emocionada y entusiasmada",
+            "B) Triste y aburrida",
+            "C) Enfadada",
+            "D) Cansada"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 42,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Por que Elena decidio dedicar su vida al mar?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque desde nina sentia curiosidad por el mar",
+            "B) Porque queria ganar dinero",
+            "C) Porque no le gustaba la ciudad",
+            "D) Porque se lo pidio Luis"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 43,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si seguimos contaminando el oceano, ¿que consecuencia se infiere?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El ecosistema marino se destruira",
+            "B) El mar sera mas bonito",
+            "C) Habra mas peces",
+            "D) Nada cambiara"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 44,
+        "tecnica_nivel": "A2",
+        "enunciado": "Segun el dialogo, ¿que relacion hay entre Elena y Luis?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Companeros de trabajo",
+            "B) Enemigos",
+            "C) Hermanos",
+            "D) Desconocidos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 45,
+        "tecnica_nivel": "A2",
+        "enunciado": "Elena 'lleva veinte anos estudiando el fondo del mar' y 'bajo con su equipo'. ¿Cual es su oficio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Biologa marina",
+            "B) Medica",
+            "C) Profesora",
+            "D) Pescadora"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 46,
+        "tecnica_nivel": "A2",
+        "enunciado": "La pregunta '¿Quien puede negar que debemos protegerlo?' es retorica. ¿Que intencion tiene?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Afirmar con enfasis que debemos proteger el mar",
+            "B) Pedir una respuesta concreta",
+            "C) Expresar una duda",
+            "D) Hacer una broma"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 47,
+        "tecnica_nivel": "A2",
+        "enunciado": "Cuando Luis dice 'El oceano es infinito, ¿verdad?' y Elena responde 'Claro, y por eso se esta acabando', ¿que recurso usa Elena?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La ironia",
+            "B) La mentira",
+            "C) La exageracion",
+            "D) La pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 48,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es el tono del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Entusiasta al principio y preocupado al final",
+            "B) Triste todo el tiempo",
+            "C) Humoristico",
+            "D) Neutro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 49,
+        "tecnica_nivel": "A2",
+        "enunciado": "El autor menciona 'la contaminacion y la pesca excesiva'. ¿Que revela esta seleccion de ejemplos sobre su postura?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una postura critica hacia la destruccion del oceano",
+            "B) Una postura favorable a la contaminacion",
+            "C) Una postura neutral",
+            "D) Una postura humoristica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 50,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿A que publico objetivo va dirigido el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A lectores interesados en ciencia y naturaleza",
+            "B) A ninos de primaria",
+            "C) A expertos en quimica",
+            "D) A deportistas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 51,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto menciona 'equipo', 'radio' y 'biologa marina'. ¿En que contexto historico se situa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Contemporaneo (siglo XX-XXI)",
+            "B) Edad Media",
+            "C) Prehistoria",
+            "D) Antigua Roma"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 52,
+        "tecnica_nivel": "A2",
+        "enunciado": "Elena dice 'No, en absoluto' cuando Luis le pregunta si tiene miedo, pero 'sus manos temblaban'. ¿Que se infiere?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que Elena miente: tiene miedo aunque lo niega",
+            "B) Que Elena dice la verdad",
+            "C) Que Luis miente",
+            "D) Que Elena no tiene manos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 53,
+        "tecnica_nivel": "A2",
+        "enunciado": "Elena siente miedo pero decide no moverse porque sabe que los animales no atacan si no se sienten amenazados. ¿Que revela esto sobre su conflicto interno?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un conflicto entre el miedo y el conocimiento cientifico",
+            "B) Un conflicto entre el hambre y el sueno",
+            "C) No tiene conflicto interno",
+            "D) Un conflicto con Luis"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 54,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Como evoluciona Elena a lo largo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) De nina curiosa a biologa que decide proteger el oceano",
+            "B) De medica a profesora",
+            "C) De pescadora a cocinera",
+            "D) No evoluciona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 55,
+        "tecnica_nivel": "A2",
+        "enunciado": "Segun el texto, ¿cual es una causa de la destruccion del ecosistema marino?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La contaminacion y la pesca excesiva",
+            "B) Los peces que brillan",
+            "C) El agua fria",
+            "D) Los abismos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 56,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'Hay peces que brillan en la oscuridad. Parecen estrellas', ¿que significa la metafora?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que los peces brillan como estrellas en el cielo",
+            "B) Que los peces son estrellas reales",
+            "C) Que los peces son de color amarillo",
+            "D) Que los peces estan en el cielo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 57,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'su trabajo era descubrir sus secretos', ¿que recurso se usa con 'el mar guarda secretos'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una personificacion (el mar no guarda secretos, las personas si)",
+            "B) Una comparacion",
+            "C) Una pregunta",
+            "D) Una negacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 58,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto dice que hay peces que brillan pero no especifica cuantos ni de que especie. ¿Que se puede inferir de esta informacion omitida?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el autor prioriza la impresion general sobre los datos tecnicos",
+            "B) Que no hay peces que brillan",
+            "C) Que el autor no sabe nada del mar",
+            "D) Que el texto es ficcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      }
+    ]
+  },
+  {
+    "titulo": "El debate sobre los deberes",
+    "tipo": "informativo",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 19,
+    "cuerpo": "En el instituto San Isidro, profesores y familias debaten sobre los deberes. Unos dicen que los deberes son necesarios. Otros creen que son excesivos. El primer argumento a favor es que los deberes refuerzan lo aprendido en clase. Segun un estudio de la Universidad de Madrid (2023), los alumnos que hacen deberes regularmente obtienen mejores resultados. Ademas, los deberes ensenan a organizar el tiempo. Sin embargo, los criticos senalan varios problemas. El primero es que los deberes consumen el tiempo libre de los ninos. 'Un nino de 12 anos no deberia estudiar mas de dos horas al dia', afirma la profesora Ana Lopez. El segundo es que no todos los alumnos tienen las mismas condiciones en casa: algunos no tienen un lugar tranquilo para estudiar. Un dato llamativo: segun una encuesta de 2024, el 60% de las familias cree que los deberes son excesivos. Pero solo el 20% pide eliminarlos. La mayoria prefiere que se reduzcan. En el fondo, el debate no es sobre los deberes, sino sobre la equidad. Como dijo un profesor en la reunion: 'El problema no es el deber, sino las condiciones desiguales'.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 59,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que tipo de estructura tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Expositiva (introduccion + desarrollo + conclusion)",
+            "B) Solo introduccion",
+            "C) Solo conclusion",
+            "D) No tiene estructura"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 60,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la tesis del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Los deberes son un tema debatido, con argumentos a favor y en contra",
+            "B) Los deberes son malos",
+            "C) Los deberes son buenos",
+            "D) No hay tesis"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 61,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Como se relaciona el titulo con el contenido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El titulo anticipa el tema del texto: el debate sobre los deberes",
+            "B) No tiene relacion",
+            "C) Solo habla de un debate",
+            "D) Habla de la escuela"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 62,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la funcion de la introduccion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presentar el tema del debate",
+            "B) Dar la conclusion",
+            "C) Dar datos numericos",
+            "D) Cerrar el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 63,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la funcion de la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sintetizar que el debate es sobre la equidad",
+            "B) Presentar el tema",
+            "C) Dar los argumentos",
+            "D) Repetir la introduccion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 64,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que funcion cumple el primer parrafo en el conjunto del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presentar el debate",
+            "B) Dar la conclusion",
+            "C) Dar la opinion del autor",
+            "D) Ejemplificar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 65,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto menciona el estudio de la Universidad de Madrid (2023). ¿Que funcion cumple?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ilustrar los argumentos a favor",
+            "B) Contradecir el texto",
+            "C) Cerrar el debate",
+            "D) Es un ejemplo irrelevante"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 66,
+        "tecnica_nivel": "A2",
+        "enunciado": "La cita 'Un nino de 12 anos no deberia estudiar mas de dos horas al dia' (Ana Lopez). ¿Que funcion cumple?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Apoyar los argumentos en contra de los deberes",
+            "B) Contradecir a los criticos",
+            "C) Cerrar el debate",
+            "D) Es irrelevante"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 67,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'los deberes consumen el tiempo libre de los ninos', ¿que funcion cumple esta afirmacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presenta un argumento en contra de los deberes",
+            "B) Presenta un argumento a favor",
+            "C) Cierra el debate",
+            "D) Es una cita"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 68,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto menciona 'un lugar tranquilo para estudiar'. ¿Que simboliza ese lugar?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La desigualdad de condiciones entre alumnos",
+            "B) La tranquilidad del hogar",
+            "C) La falta de deberes",
+            "D) La disciplina"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 69,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto menciona 'el 60% de las familias cree que los deberes son excesivos'. ¿Que simboliza este dato?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La preocupacion mayoritaria por los deberes",
+            "B) La falta de datos",
+            "C) La indiferencia de las familias",
+            "D) La falta de debate"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 70,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es el final del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una reflexion sobre la equidad",
+            "B) Una pregunta",
+            "C) Un dato mas",
+            "D) Una lista"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 71,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Desde que punto de vista esta escrito el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Narrador externo, con vision de conjunto",
+            "B) Narrador interno (dice 'yo')",
+            "C) Dialogo entre personajes",
+            "D) Carta personal"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 72,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Que funcion cumple el dialogo en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Informar de una cita de un profesor",
+            "B) Contar una historia",
+            "C) Describir un lugar",
+            "D) Cerrar el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 73,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto describe 'un lugar tranquilo para estudiar'. ¿Que funcion cumple esta descripcion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ilustrar un problema social (la desigualdad)",
+            "B) Describir una casa",
+            "C) Presentar personajes",
+            "D) Cerrar el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 74,
+        "tecnica_nivel": "A2",
+        "enunciado": "La frase 'Como dijo un profesor en la reunion' introduce una cita. ¿Que funcion tiene en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Dar autoridad a la conclusion",
+            "B) Cerrar la introduccion",
+            "C) Contradecir",
+            "D) Es irrelevante"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 75,
+        "tecnica_nivel": "A2",
+        "enunciado": "En el texto, 'el primer argumento a favor es que los deberes refuerzan lo aprendido'. ¿Como se relaciona con el siguiente parrafo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El parrafo siguiente presenta los argumentos en contra",
+            "B) Repite lo mismo",
+            "C) No se relaciona",
+            "D) Cierra el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 76,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto presenta el estudio de la Universidad de Madrid (2023). ¿Que funcion cumple como cita?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Apoyar el argumento a favor con evidencia",
+            "B) Contradecir el texto",
+            "C) Cerrar el debate",
+            "D) Es una opinion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 77,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'El problema no es el deber, sino las condiciones desiguales', ¿que comparacion se establece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Se contrasta el deber con las condiciones desiguales",
+            "B) Se comparan dos deberes",
+            "C) Se comparan dos profesores",
+            "D) Se comparan dos alumnos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 78,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto tiene un titulo, una introduccion, un desarrollo con argumentos y una conclusion. ¿Que tipo de texto es?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Articulo de opinion",
+            "B) Cuento",
+            "C) Noticia",
+            "D) Poema"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 79,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es el proposito comunicativo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Informar sobre un debate actual",
+            "B) Persuadir de no hacer deberes",
+            "C) Entretener",
+            "D) Criticar a los profesores"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "Como funciona el reciclaje",
+    "tipo": "informativo",
+    "nivel_mcer": "A2",
+    "fuente": "",
+    "orden": 20,
+    "cuerpo": "El reciclaje es un proceso que transforma los residuos en nuevos productos. Segun el informe de Ecoembes (2024), en Espana se reciclan 1,5 millones de toneladas de envases al ano. El proceso tiene tres fases: recogida, clasificacion y transformacion. En la primera fase, los ciudadanos separan los residuos en casa. En la segunda, las plantas clasificadoras separan el plastico, el vidrio y el papel. En la tercera, las fabricas transforman los materiales en nuevos productos. Reciclar tiene muchas ventajas. Primero, reduce la cantidad de residuos en los vertederos. Segundo, ahorra energia: reciclar aluminio consume un 95% menos de energia que producirlo desde cero. Tercero, reduce la contaminacion. Sin embargo, algunos expertos senalan limitaciones. 'El reciclaje no es la solucion definitiva', afirma la doctora Garcia, experta en medio ambiente. 'Lo importante es reducir el consumo'. Ademas, no todos los materiales se reciclan con la misma eficacia. Algunos criticos dicen: 'Quien no recicla es un enemigo del planeta'. Pero esta afirmacion es una falacia: ataca a las personas en lugar de explicar los beneficios del reciclaje. En conclusion, el reciclaje es una herramienta util, pero no suficiente. Necesitamos reducir, reutilizar y reciclar, en ese orden.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 80,
+        "tecnica_nivel": "A2",
+        "enunciado": "La frase 'en Espana se reciclan 1,5 millones de toneladas de envases al ano' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un hecho verificable",
+            "B) Una opinion",
+            "C) Una pregunta",
+            "D) Un dialogo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 81,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'Reciclar reduce residuos porque ahorra energia', ¿cual es la premisa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ahorra energia",
+            "B) Reciclar reduce residuos",
+            "C) Ambos son premisas",
+            "D) No hay premisa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 82,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual es la conclusion del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El reciclaje es util pero no suficiente; hay que reducir, reutilizar y reciclar",
+            "B) El reciclaje es la solucion definitiva",
+            "C) No hay que reciclar",
+            "D) El reciclaje es malo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 83,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si las premisas son 'reciclar ahorra energia' y 'el ahorro es bueno', ¿se sigue la conclusion 'reciclar es bueno'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, la conclusion se sigue de las premisas",
+            "B) No, la conclusion no se sigue",
+            "C) No se puede evaluar",
+            "D) Depende"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 84,
+        "tecnica_nivel": "A2",
+        "enunciado": "La frase 'Quien no recicla es un enemigo del planeta' es una falacia. ¿Que tipo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ad hominem: ataca a la persona",
+            "B) Generalizacion apresurada",
+            "C) Falso dilema",
+            "D) Apelacion a la emocion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 85,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si alguien dice 'todos los que no reciclan son malos', ¿que falacia comete?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Generalizacion apresurada",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la emocion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 86,
+        "tecnica_nivel": "A2",
+        "enunciado": "La frase 'O reciclas o destruyes el planeta' es una falacia. ¿Que tipo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falso dilema",
+            "B) Ad hominem",
+            "C) Generalizacion",
+            "D) Apelacion a la emocion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 87,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si un anuncio dice 'Recicla o tus hijos moriran', ¿que falacia comete?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Apelacion a la emocion",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Generalizacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 88,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto cita 'el informe de Ecoembes (2024)'. ¿Es una fuente de calidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es una institucion con autoridad y datos verificables",
+            "B) No, es una fuente anonima",
+            "C) No, no tiene datos",
+            "D) No se puede evaluar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 89,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿El informe de Ecoembes es una fuente primaria o secundaria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Primaria, porque es el estudio original de Ecoembes",
+            "B) Secundaria, porque resume otros estudios",
+            "C) No es una fuente",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 90,
+        "tecnica_nivel": "A2",
+        "enunciado": "La doctora Garcia es experta en medio ambiente y cita datos. ¿Su testimonio es creible?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, tiene autoridad en la materia",
+            "B) No, es una opinion sin fundamento",
+            "C) No, es anonima",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 91,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto usa el ejemplo del aluminio ('95% menos de energia'). ¿Es un ejemplo relevante?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, ilustra el ahorro de energia del reciclaje",
+            "B) No, no tiene relacion",
+            "C) No, es demasiado tecnico",
+            "D) Es irrelevante"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 92,
+        "tecnica_nivel": "A2",
+        "enunciado": "En 'el reciclaje reduce residuos y por eso reduce la contaminacion', ¿cual es la causa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El reciclaje reduce residuos",
+            "B) La contaminacion se reduce",
+            "C) Ambos son causa",
+            "D) No hay causa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 93,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto solo menciona ventajas del reciclaje y luego una limitacion. ¿Hay sesgo de seleccion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No, presenta ventajas y limitaciones",
+            "B) Si, solo presenta ventajas",
+            "C) Si, solo presenta limitaciones",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 94,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿El texto tiene algun sesgo ideologico?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No, presenta el tema de forma equilibrada",
+            "B) Si, es favorable a las empresas",
+            "C) Si, es critico con los ciudadanos",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 95,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿El texto es coherente?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, las ideas se conectan y no hay contradicciones",
+            "B) No, se contradice",
+            "C) No, salta de un tema a otro",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 96,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿El texto es claro?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, usa oraciones cortas y estructura clara",
+            "B) No, es confuso",
+            "C) No, usa palabras muy tecnicas",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 97,
+        "tecnica_nivel": "A2",
+        "enunciado": "El texto dice '1,5 millones de toneladas de envases'. ¿Es preciso?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, da datos exactos",
+            "B) No, es vago",
+            "C) No, se contradice",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 98,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿Cual de estos seria un buen resumen del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El reciclaje transforma residuos en productos, tiene ventajas y limitaciones; hay que reducir, reutilizar y reciclar",
+            "B) En Espana se reciclan 1,5 millones de toneladas",
+            "C) El aluminio se recicla con menos energia",
+            "D) La doctora Garcia es experta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 99,
+        "tecnica_nivel": "A2",
+        "enunciado": "Si comparamos este texto con uno que dijera 'el reciclaje es la unica solucion', ¿que diferencia habria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Este texto es mas equilibrado; el otro seria mas radical",
+            "B) No habria diferencia",
+            "C) Este texto seria mas radical",
+            "D) No se puede comparar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 100,
+        "tecnica_nivel": "A2",
+        "enunciado": "¿El texto es de calidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es claro, preciso, coherente y presenta datos verificables",
+            "B) No, es demasiado largo",
+            "C) No, no tiene sentido",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
   }
 ]
