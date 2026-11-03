@@ -7006,5 +7006,1389 @@
         "orden": 19
       }
     ]
+  },
+  {
+    "titulo": "Analisis critico del discurso institucional: la reforma educativa",
+    "tipo": "academico",
+    "nivel_mcer": "C1",
+    "fuente": "",
+    "orden": 29,
+    "cuerpo": "Analisis critico del discurso institucional: la reforma educativa\n\nIntroduccion\n\nEste articulo analiza el discurso institucional del anuncio de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMetodo\n\nSe analizo el texto del anuncio (2.500 palabras) mediante el analisis critico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalizacion, las presuposiciones pragmaticas, los actos de habla y las estrategias de legitimacion.\n\nResultados\n\nEl analisis revela varios hallazgos. Primero, el anuncio usa abundantemente la despersonalizacion: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmaticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deicticos construyen la enunciacion: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los criticos). Las estrategias de cortesia son escasas: el discurso es directo y asertivo. La cohesion lexica se construye mediante sinonimos (\"reforma\", \"cambio\", \"transformacion\") y antonimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulacion (\"esto es\", \"en otras palabras\") aclaran los terminos tecnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metafora medica), \"Bruselas ha decidido\" (metonimia: la sede por la institucion), \"una vela en el horizonte\" (sinecdoque). Las figuras de diccion incluyen anaforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formacion flexible\").\n\nEl texto sigue la estructura IMRAD de forma implicita. Los mecanismos de atenuacion (hedging) aparecen en algunos pasajes (\"probablemente\", \"podria\", \"en cierta medida\"), aunque en general el discurso es asertivo y categorico. Las estrategias de legitimacion incluyen la autoridad legal (\"la ley establece\"), la tradicion (\"siempre se ha hecho asi\") y la eficacia (\"funciona en otros paises\").\n\nLa interdiscursividad es notable: hay voces del discurso medico (\"diagnostico\", \"tratamiento\"), juridico (\"normativa\", \"derecho\") y economico (\"inversion\", \"rentabilidad\"). El lexico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"historica\"; los criticos son \"inmovilistas\" y \"nostalgicos\".\n\nLa polifonia textual es limitada: se citan voces favorables (\"segun los expertos\") pero no las criticas. Los marcadores de evidencialidad (\"segun el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metaforas conceptuales estructuran el pensamiento: \"la educacion es una inversion\" (metafora economica), \"la reforma es una guerra\" (metafora belica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retorica clasica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los ninos\", \"imagina el futuro\", \"por el bien de todos\". La argumentacion por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusion\n\nLos resultados muestran que el anuncio construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces criticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus criticos son obstaculos.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 17,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'se ha decidido', 'se ha aprobado', que mecanismo discursivo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Despersonalizacion: oculta el agente de la accion",
+            "B) Metafora",
+            "C) Ironia",
+            "D) Pregunta retorica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 18,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'el actual sistema ha fracasado', que presuposicion pragmatica hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que hay un sistema y que ha fracasado",
+            "B) Que no hay sistema",
+            "C) Que el sistema funciona",
+            "D) Que el sistema es nuevo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 19,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'declaramos', 'afirmamos', que tipo de acto de habla se realiza?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Declarativo y asertivo: el emisor se posiciona como autoridad",
+            "B) Directivo (orden)",
+            "C) Expresivo (emocion)",
+            "D) Comisivo (promesa)"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 20,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumplen los deicticos 'nosotros' y 'ellos' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Construyen la enunciacion y oponen al emisor (Ministerio) frente a los criticos",
+            "B) Describen el paisaje",
+            "C) Indican tiempo pasado",
+            "D) Marcan cortesia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 21,
+        "tecnica_nivel": "C1",
+        "enunciado": "Como se describe la cortesia verbal en el discurso analizado?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es escasa: el discurso es directo y asertivo",
+            "B) Es abundante: usa 'por favor' y 'usted'",
+            "C) Es ironica",
+            "D) No se menciona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 22,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que mecanismos de cohesion lexica se identifican en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sinonimos (reforma, cambio, transformacion) y antonimos (pasado vs futuro)",
+            "B) Solo repeticion literal",
+            "C) Solo hiperonimos",
+            "D) No hay cohesion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 23,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumplen 'esto es' y 'en otras palabras' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Son conectores de reformulacion: aclaran o precisan lo dicho",
+            "B) Son conectores de contraste",
+            "C) Son marcadores de orden",
+            "D) Son deicticos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 24,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Bruselas ha decidido', que tropo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Metonimia: la sede (Bruselas) por la institucion (UE)",
+            "B) Metafora pura",
+            "C) Ironia",
+            "D) Hiperbole"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 25,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que figuras de diccion se identifican en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Anaforas (ahora... ahora...) y aliteraciones (futuro firme, formacion flexible)",
+            "B) Solo metaforas",
+            "C) Solo preguntas retoricas",
+            "D) Solo hiperboles"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 26,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que seccion del IMRAD corresponde a 'Metodo'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La que describe como se hizo el analisis",
+            "B) La que presenta los resultados",
+            "C) La que introduce el tema",
+            "D) La que discute los hallazgos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 27,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que son los mecanismos de atenuacion (hedging) que aparecen en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Expresiones que reducen la certeza ('probablemente', 'podria', 'en cierta medida')",
+            "B) Expresiones que aumentan la certeza ('sin duda', 'es evidente')",
+            "C) Preguntas retoricas",
+            "D) Metaforas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 28,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que estrategias de legitimacion del discurso se identifican en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Autoridad legal ('la ley establece'), tradicion ('siempre se ha hecho asi') y eficacia ('funciona en otros paises')",
+            "B) Solo autoridad legal",
+            "C) Solo tradicion",
+            "D) Solo eficacia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 29,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'diagnostico', 'normativa', 'inversion', que fenomeno discursivo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Interdiscursividad: voces del discurso medico, juridico y economico",
+            "B) Metafora pura",
+            "C) Ironia",
+            "D) Pregunta retorica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 30,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que revela el lexico valorativo del texto ('necesaria', 'urgente', 'inmovilistas')?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La linea editorial favorable a la reforma y critica con sus opositores",
+            "B) Una postura neutral",
+            "C) Una postura contraria a la reforma",
+            "D) Una postura humoristica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 31,
+        "tecnica_nivel": "C1",
+        "enunciado": "Como se describe la polifonia textual del discurso analizado?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es limitada: cita voces favorables pero no las criticas",
+            "B) Es abundante: cita todas las voces",
+            "C) No hay citas",
+            "D) Solo cita a los criticos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 32,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumplen 'segun el informe' y 'de acuerdo con los datos' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Son marcadores de evidencialidad: indican la fuente de la informacion",
+            "B) Son metaforas",
+            "C) Son ironias",
+            "D) Son preguntas retoricas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 33,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que metaforas conceptuales estructuran el discurso segun el analisis?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'La educacion es una inversion' (economica) y 'la reforma es una guerra' (belica)",
+            "B) 'La educacion es un juego'",
+            "C) 'La reforma es un viaje'",
+            "D) No hay metaforas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 34,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que partes de la estructura retorica clasica se identifican en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Exordio, narratio, argumentatio y peroratio",
+            "B) Solo exordio",
+            "C) Solo peroratio",
+            "D) No hay estructura retorica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 35,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'piensa en los ninos', 'imagina el futuro', que recurso de persuasion aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pathos: apelacion a las emociones",
+            "B) Ethos: credibilidad del autor",
+            "C) Logos: argumento logico",
+            "D) Ironia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 36,
+        "tecnica_nivel": "C1",
+        "enunciado": "Como se describe la argumentacion por el ejemplo en el texto analizado?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es escasa: solo 'como muestra el caso de Finlandia'",
+            "B) Es abundante",
+            "C) No hay ejemplos",
+            "D) Solo hay ejemplos negativos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 37,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumplen 'en cuanto a' y 'respecto a' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Son topicalizadores: introducen un tema en el discurso",
+            "B) Son focalizadores",
+            "C) Son metaforas",
+            "D) Son deicticos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "Elogio de la lentitud",
+    "tipo": "argumentativo",
+    "nivel_mcer": "C1",
+    "fuente": "",
+    "orden": 30,
+    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacia donde. Pero yo me pregunto: ¿de verdad queremos vivir asi?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metafora economica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y asi, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competicion. Pero detras de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera asi? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la manana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una linea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada mas lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atencion, pausa.\n\nPensemos en el arte de la conversacion. Una buena conversacion requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milan Kundera: \"La lentitud es la felicidad\". Y tenia razon.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objecion, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnologia nos hara mas libres. La tecnologia, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexion y nos dieron soledad.\n\n¿Que hacer, entonces? La respuesta no es facil. Pero quiza el primer paso sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino mas despacio, leo mas despacio, escucho mas despacio. Y desde entonces, extranamente, soy mas feliz. Quiza la felicidad no este en correr, sino en detenerse a mirar.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 38,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que frame o marco conceptual activa la expresion 'el tiempo es oro'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El marco economico: el tiempo como recurso que se posee o se pierde",
+            "B) El marco religioso",
+            "C) El marco ludico",
+            "D) El marco cientifico"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 39,
+        "tecnica_nivel": "C1",
+        "enunciado": "Cual es el subtexto del parrafo sobre el vecino ('linea recta entre el trabajo y la cama')?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El subtexto es que esa vida no es vida, es mera supervivencia",
+            "B) El subtexto es que el vecino es feliz",
+            "C) El subtexto es que el vecino es rico",
+            "D) El subtexto es que el vecino es un extranjero"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 40,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Claro, tu quieres volver al siglo XIX', que intencion pragmatica tiene la ironia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ridiculizar al autor, atribuyendole una postura reaccionaria que no defiende",
+            "B) Elogiar al autor",
+            "C) Expresar admiracion",
+            "D) Pedir perdon"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 41,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que modelo mental de receptor construye el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un lector critico, culto, que valora la reflexion y desconfia de la velocidad",
+            "B) Un lector que solo busca entretenimiento rapido",
+            "C) Un experto en economia",
+            "D) Un nino"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 42,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que ideologia revela la metafora 'la tecnologia se ha convertido en esclavitud'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una ideologia critica con el capitalismo tecnologico y la vigilancia digital",
+            "B) Una ideologia favorable a las grandes corporaciones",
+            "C) Una ideologia neutral",
+            "D) Una ideologia religiosa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 43,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que posicion tiene el autor sobre la fiabilidad de la cita de Kundera?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La presenta como autoridad y la apoya ('tenia razon')",
+            "B) La presenta con distancia ironica",
+            "C) La refuta",
+            "D) La ignora"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 44,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que consecuencia no deseada se sigue de aceptar 'la lentitud es un privilegio de ricos'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que solo los ricos tienen derecho a la lentitud, lo cual el autor considera injusto",
+            "B) Que la lentitud es mala",
+            "C) Que los ricos son lentos",
+            "D) Que todos son ricos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 45,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que punto de vista implicito revela el uso de 'agotado', 'sobrevivir', 'mentira'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una postura critica con la vida acelerada y reivindicativa de otra forma de vivir",
+            "B) Una postura neutral",
+            "C) Una postura favorable a la velocidad",
+            "D) Una postura humoristica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 46,
+        "tecnica_nivel": "C1",
+        "enunciado": "Cual es la estructura profunda del argumento del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Premisa implicita: lo valioso requiere tiempo. Premisa: la vida valiosa requiere tiempo. Conclusion: deberiamos recuperar la lentitud",
+            "B) Premisa: la velocidad es buena. Conclusion: deberiamos correr mas",
+            "C) No hay argumento",
+            "D) Solo hay descripcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 47,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que marco etico moviliza el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presenta como bueno el tiempo, la atencion y la reflexion, y como malo la velocidad y la productividad como unico valor",
+            "B) Presenta como bueno el dinero",
+            "C) Presenta como bueno el consumo",
+            "D) No hay marco etico"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 48,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que se omite deliberadamente en el texto sobre la lentitud?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Los casos en que la velocidad es necesaria (urgencias medicas, catastrofes)",
+            "B) El nombre del autor",
+            "C) La cita de Kundera",
+            "D) La opinion del vecino"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 49,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion pragmatica cumple la cortesia en 'Algunos me diran...'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Anticipar la objecion con cortesia para luego refutarla con mas fuerza",
+            "B) Expresar respeto sincero",
+            "C) Pedir perdon",
+            "D) Ironizar sin mas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 50,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que estrategia de construccion del ethos usa el autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Se presenta como alguien que ha cambiado su vida ('he decidido bajar el ritmo') y como lector culto (cita a Kundera)",
+            "B) Se presenta como experto cientifico",
+            "C) Se presenta como politico",
+            "D) Se presenta como empresario"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 51,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que estrategia de deslegitimacion usa el autor contra las grandes corporaciones?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Atribuirles intereses ocultos ('nos prometieron libertad y nos dieron vigilancia')",
+            "B) Alabarlas",
+            "C) Ignorarlas",
+            "D) Defenderlas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 52,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la cita de Kundera en la argumentacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Apoyar la tesis con la autoridad de un escritor reconocido",
+            "B) Contradecir la tesis",
+            "C) Ironizar",
+            "D) Cerrar el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 53,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que implica el cambio de registro en 'Y no me vengan con que la tecnologia...'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Marca un cambio de tono coloquial que intensifica la critica y crea complicidad con el lector",
+            "B) Es un error del autor",
+            "C) Es una cita",
+            "D) Es una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 54,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la repeticion 'Nos prometieron... nos dieron... Nos prometieron... nos dieron...'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Enfatiza el contraste entre promesa y realidad, creando un ritmo persuasivo",
+            "B) Es un descuido",
+            "C) Es una cita",
+            "D) Es una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 55,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumplen las preguntas retoricas '¿Es eso vivir? ¿O es solo sobrevivir?'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Implican al lector y enfatizan la critica a la vida acelerada",
+            "B) Piden informacion",
+            "C) Expresan duda sincera",
+            "D) Son un error"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 56,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple el ejemplo del vecino en la argumentacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ilustrar y sostener la tesis: la vida acelerada no es vida",
+            "B) Entretener sin mas",
+            "C) Refutar la tesis",
+            "D) Describir un lugar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 57,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que estrategia de construccion del consenso usa el autor en 'todo el mundo lo repite'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presenta una creencia como ampliamente compartida para luego criticarla",
+            "B) La presenta como verdad absoluta",
+            "C) La defiende",
+            "D) La ignora"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 58,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple el discurso referido 'dicen' en 'El tiempo es oro, dicen'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El autor se distancia de la cita con 'dicen' para criticarla despues",
+            "B) La asume como propia",
+            "C) La apoya",
+            "D) La cierra"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "El cuento que se escribia solo",
+    "tipo": "literario",
+    "nivel_mcer": "C1",
+    "fuente": "",
+    "orden": 31,
+    "cuerpo": "El cuento que se escribia solo\n\nAurelio encontro el cuaderno en el fondo de un cajon, entre facturas y fotografias viejas. Era un cuaderno de tapas negras, como los que usaba de joven para escribir sus cuentos. Lo abrio con curiosidad. En la primera pagina, con su propia letra, habia un cuento titulado 'El bibliotecario'. Lo reconocio: era un cuento que habia escrito a los veinte anos.\n\nLo leyo. Trataba de un bibliotecario que descubria que todos los libros de su biblioteca hablaban de el. Aurelio sonrio. Aquel cuento era un homenaje a Borges, a 'La biblioteca de Babel'. Recordo la frase de Borges: 'El universo (que otros llaman la Biblioteca) se compone de un numero indefinido, y tal vez infinito, de galerias hexagonales'. Siempre le habia fascinado esa idea.\n\nPaso la pagina. En la segunda, habia otro cuento, titulado 'El espejo'. No lo recordaba. Lo leyo. Trataba de un hombre que se miraba en un espejo y descubria que su reflejo era otro hombre, que a su vez lo miraba a el. Aurelio sintio un escalofrio. No recordaba haber escrito aquel cuento, pero la letra era suya. Y el estilo tambien.\n\nPaso otra pagina. Un tercer cuento, titulado 'El sueno'. Trataba de un hombre que sonaba con un hombre que sonaba con el. El cuento terminaba con la frase: 'Y al despertar, comprendio que el era el sueno del otro'. Aurelio dejo el cuaderno sobre la mesa. Aquello era demasiado. El no habia escrito esos cuentos. O quiza si, y los habia olvidado. O quiza alguien los habia escrito por el.\n\nAquella noche no pudo dormir. Se levanto a las tres de la manana y volvio al cuaderno. En la ultima pagina, habia un cuento nuevo, titulado 'El lector'. Lo leyo temblando. Trataba de un hombre llamado Aurelio que encontraba un cuaderno en el fondo de un cajon y leia cuentos que no recordaba haber escrito. El cuento terminaba con la frase: 'Y entonces Aurelio comprendio que el tambien era un personaje, y que alguien, en algun lugar, lo estaba leyendo'.\n\nCierro el cuaderno. Miro por la ventana. La ciudad dormia. Y por primera vez en su vida, Aurelio se pregunto si el tambien seria un personaje, y si alguien, en algun lugar, estaria leyendo su historia.\n\nAl dia siguiente, Aurelio fue a ver a su amigo Bernardo, profesor de literatura. Le conto lo sucedido. Bernardo lo escucho con atencion. 'Interesante', dijo. 'Es un caso de metaficcion. Como en 'El Quijote', cuando los personajes han leido el Quijote. O como en Cortazar, cuando el lector es personaje. O como en Borges, cuando el sueno y la vigilia se confunden'.\n\n'Pero yo no lo escribi', dijo Aurelio. 'Yo no escribi esos cuentos'.\n\nBernardo sonrio. 'Quiza no los escribiste tu. Quiza te escribieron a ti. Quiza tu eres el personaje de un cuento que alguien esta escribiendo ahora mismo, en este instante'.\n\nAurelio sintio un vertigo. Miro sus manos. Miro la mesa. Miro a Bernardo. Todo parecia real. Pero quiza no lo era. Quiza todo era un sueno, o un cuento, o una metafora.\n\n'Mira', dijo Bernardo, 'te voy a contar un cuento. Habia una vez un hombre llamado Aurelio que descubrio que era un personaje. Y al descubrirlo, empezo a escribir su propia historia. Y al escribirla, se libero. Porque escribir es una forma de liberarse, aunque sea de la ficcion'.\n\nAurelio lo miro. 'Y como termina el cuento?'\n\n'No termina', dijo Bernardo. 'Los cuentos que se escriben solos nunca terminan. Solo se interrumpen. Y luego, en algun otro lugar, alguien los retoma'.\n\nAurelio volvio a su casa. Abrio el cuaderno. En la ultima pagina, habia un cuento nuevo. Titulado 'El principio'. Y en el, Aurelio se veia a si mismo escribiendo el cuento que estaba leyendo. Y asi, en un bucle infinito, el cuento se escribia solo.\n\nAurelio cerro el cuaderno. Sonrio. Y por primera vez en su vida, comprendio que la literatura no es un espejo de la realidad, sino una realidad paralela. Y que el, Aurelio, era a la vez autor y personaje, lector y escrito, principio y fin.\n\nO quiza no. Quiza todo era un sueno. O quiza todo era un cuento. O quiza todo era una metafora. Pero de algo estaba seguro: mientras alguien lo leyera, el seguiria existiendo. Y eso, despues de todo, era una forma de inmortalidad.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 59,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que practica social refleja el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La literatura como espacio de reflexion sobre la identidad y la realidad",
+            "B) La politica como tema central",
+            "C) La economia como tema",
+            "D) La ciencia como tema"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 60,
+        "tecnica_nivel": "C1",
+        "enunciado": "Con que discursos dialoga el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Con Borges, Cervantes y Cortazar: dialogismo literario",
+            "B) Con la fisica cuantica",
+            "C) Con la economia",
+            "D) Con la religion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 61,
+        "tecnica_nivel": "C1",
+        "enunciado": "Quien es el enunciador del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un narrador externo que cuenta la historia de Aurelio (que a su vez es personaje)",
+            "B) Aurelio en primera persona",
+            "C) Bernardo",
+            "D) Borges"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 62,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que relacion hay entre el texto y la imagen mental que evoca?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El texto construye imagenes (el cuaderno, el espejo, el sueno) que refuerzan el tema de la reflexion",
+            "B) No hay imagenes",
+            "C) Solo hay dialogos",
+            "D) Solo hay descripcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 63,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que referencias intertextuales aparecen en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Borges ('La biblioteca de Babel'), Cervantes ('El Quijote'), Cortazar",
+            "B) Solo Borges",
+            "C) Solo Cervantes",
+            "D) Solo Cortazar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 64,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que perspectivismo narrativo construye el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presenta multiples niveles de realidad (Aurelio como autor, como personaje, como lector)",
+            "B) Solo hay una perspectiva",
+            "C) Solo hay un narrador",
+            "D) Solo hay un personaje"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 65,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que revela el monologo interior de Aurelio al final?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Su aceptacion de la ficcion como forma de inmortalidad",
+            "B) Su desesperacion",
+            "C) Su enfado",
+            "D) Su indiferencia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 66,
+        "tecnica_nivel": "C1",
+        "enunciado": "Por que el narrador puede considerarse no fiable?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque no sabemos si lo que cuenta es real o es un sueno o un cuento dentro del cuento",
+            "B) Porque miente siempre",
+            "C) Porque es un nino",
+            "D) Porque esta loco"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 67,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que estructura temporal tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Orden lineal con rupturas (el cuento dentro del cuento) y duracion variable",
+            "B) Orden estrictamente cronologico",
+            "C) Analepsis constante",
+            "D) Tiempo circular sin avance"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 68,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que simboliza el cuaderno?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La identidad del escritor y el misterio de la creacion literaria",
+            "B) La riqueza",
+            "C) El poder politico",
+            "D) La religion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 69,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la metaliteratura en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Reflexiona sobre la literatura misma: el acto de escribir, leer y ser personaje",
+            "B) Describe un paisaje",
+            "C) Presenta un personaje",
+            "D) Cierra el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 70,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la parodia de los cuentos de Borges?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Homenajea y subvierte los temas borgianos (el sueno, el espejo, la biblioteca)",
+            "B) Critica a Borges",
+            "C) Es una copia literal",
+            "D) No tiene funcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 71,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que elementos de pastiche hay en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Mezcla el cuento fantastico con la metaficcion y el ensayo",
+            "B) Solo es un cuento",
+            "C) Solo es un ensayo",
+            "D) Solo es poesia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 72,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la metaficcion en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Reflexiona sobre la ficcion misma: el cuento dentro del cuento, el personaje que se sabe personaje",
+            "B) Describe un paisaje",
+            "C) Presenta un personaje",
+            "D) Cierra el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 73,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple el viaje iniciatico de Aurelio?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es un viaje hacia el descubrimiento de su naturaleza como personaje",
+            "B) Es un viaje fisico",
+            "C) Es un viaje comercial",
+            "D) Es un viaje politico"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 74,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple el descenso a los infiernos (katabasis) en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El descubrimiento del cuaderno y la noche en vela son un descenso simbolico al misterio de la creacion",
+            "B) Es un viaje fisico al infierno",
+            "C) Es una pesadilla sin sentido",
+            "D) Es un viaje comercial"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 75,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que funcion cumple la muerte y el renacimiento en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Aurelio 'muere' como autor convencional y 'renace' como personaje consciente de serlo",
+            "B) Es una muerte fisica",
+            "C) Es una resurreccion religiosa",
+            "D) No hay muerte ni renacimiento"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 76,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que ironia dramatica hay en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El lector sabe (o sospecha) que Aurelio es un personaje, mientras Aurelio lo descubre al final",
+            "B) No hay ironia dramatica",
+            "C) El lector sabe menos que Aurelio",
+            "D) Aurelio sabe mas que el lector"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 77,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que tipo de focalizacion narrativa predomina?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Focalizacion interna (desde Aurelio), con cambios a externa en los cuentos dentro del cuento",
+            "B) Solo focalizacion cero",
+            "C) Solo focalizacion externa",
+            "D) No hay focalizacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 78,
+        "tecnica_nivel": "C1",
+        "enunciado": "Donde aparece el estilo indirecto libre en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En 'Quiza no lo era. Quiza todo era un sueno', donde se mezcla la voz del narrador y la de Aurelio",
+            "B) Solo en los dialogos",
+            "C) Solo en los cuentos",
+            "D) No aparece"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 79,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que cronotopo (Bajtin) articula el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El cuaderno (espacio) y la noche (tiempo) como cronotopo del descubrimiento",
+            "B) El castillo medieval",
+            "C) El camino rural",
+            "D) La ciudad industrial"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      },
+      {
+        "tecnica_numero": 80,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que polifonia narrativa construye el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Multiples voces: el narrador, Aurelio, Bernardo, los cuentos dentro del cuento, Borges",
+            "B) Solo una voz",
+            "C) Solo dialogos",
+            "D) Solo descripcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 22
+      }
+    ]
+  },
+  {
+    "titulo": "Desinformacion: como detectar la manipulacion",
+    "tipo": "argumentativo",
+    "nivel_mcer": "C1",
+    "fuente": "",
+    "orden": 32,
+    "cuerpo": "Desinformacion: como detectar la manipulacion\n\nVivimos en la era de la desinformacion. Cada dia recibimos cientos de mensajes que intentan convencernos de algo. Algunos son honestos; otros, no. Este texto ofrece herramientas para detectar la manipulacion y evaluar criticamente la informacion.\n\n1. Argumentos con premisas implicitas\n\nMuchos argumentos ocultan premisas que no se explicitan. Por ejemplo: 'Deberiamos prohibir los videojuegos violentos; son peligrosos'. Aqui la premisa implicita es 'todo lo peligroso debe prohibirse'. Si no la aceptamos, la conclusion no se sigue. Evaluar la solidez de un argumento complejo requiere explicitar esas premisas y comprobar si son verdaderas.\n\n2. Manipulacion mediatica: framing y priming\n\nLos medios pueden manipular mediante el framing (encuadre) y el priming (activacion de marcos mentales). Una noticia que titula 'Inmigrantes ocupan la plaza' presenta el fenomeno como invasion; otra que titula 'Familias migrantes llegan a la plaza' presenta el mismo hecho de forma mas neutra. El encuadre ya orienta la interpretacion.\n\n3. Evidencia cientifica: muestra, metodo, replicabilidad\n\nUn estudio con 20 participantes no es evidencia suficiente para una conclusion general. La evidencia cientifica es de calidad si la muestra es representativa, el metodo es solido y los resultados son replicables. Aceptar un estudio sin estos criterios es aceptar una evidencia de baja calidad.\n\n4. Falacia de autoridad cientifica\n\nEn el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmacion solo porque la dice un cientifico. 'Un premio Nobel dice que X, luego X es verdad' es una falacia si no se aporta evidencia. La autoridad no sustituye a la prueba.\n\n5. Coherencia entre discurso y practica\n\nUna empresa que declara sostenibilidad pero contamina es incoherente. Una institucion que defiende la transparencia pero oculta datos es incoherente. Evaluar la coherencia entre discurso y practica permite detectar la hipocresia institucional.\n\n6. Falsa dicotomia en el discurso politico\n\nEl discurso politico suele presentar solo dos opciones: 'O estas con nosotros o estas contra nosotros'. Es una falsa dicotomia: hay muchas posiciones intermedias. Detectar esta falacia permite analizar criticamente la retorica politica.\n\n7. Calidad del debate publico\n\nUn debate de calidad incluye contraargumentos, evita falacias y aporta evidencia. Un debate de baja calidad se basa en descalificaciones, falacias y datos sin contexto. Evaluar la calidad del debate publico es esencial para una democracia sana.\n\n8. Manipulacion estadistica\n\nLos graficos enganosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto son formas de manipulacion estadistica. Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequena. Un porcentaje sin base puede ocultar la verdad.\n\n9. Intencion persuasiva oculta\n\nAlgunos textos aparentemente informativos tienen una intencion persuasiva oculta: seleccion de datos, framing, fuentes sesgadas. Un reportaje que solo muestra una version de un conflicto tiene intencion persuasiva oculta, aunque no opine explicitamente.\n\n10. Falsa equivalencia\n\nLa falsa equivalencia equipara cosas que no son comparables. 'Es como comparar el cancer con un resfriado' es una falsa equivalencia. Detectar esta falacia permite analizar criticamente comparaciones en el discurso publico.\n\n11. Argumento estadistico complejo: tasas, base, contexto\n\nEn 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadistica engana. Un argumento estadistico es solido si la base es clara, las tasas se usan correctamente y el contexto se considera.\n\n12. Sesgo algoritmico\n\nLos algoritmos de seleccion de informacion (redes sociales, buscadores) crean camaras de eco: muestran solo contenido afin a nuestros intereses. Detectar este sesgo permite evaluar criticamente la informacion que consumimos y salir de la burbuja.\n\n13. Analogia compleja: diferencias relevantes\n\n'Como el cuerpo necesita ejercicio, la mente necesita estimulacion' es una analogia relevante. 'Como los barcos necesitan capitan, los paises necesitan rey' es una analogia con diferencias relevantes (un pais no es un barco). Evaluar una analogia compleja requiere identificar esas diferencias.\n\n14. Falsa premisa\n\nLa falsa premisa es una premisa que se presenta como verdadera sin justificacion. 'Todos los jovenes son vagos; por tanto, no hay que contratarlos' contiene una premisa falsa. Detectar esta falacia permite rechazar conclusiones basadas en premisas no sustentadas.\n\n15. Calidad etica de un argumento\n\nUn argumento puede ser logicamente valido pero eticamente rechazable. Defender la esclavitud con logica es eticamente rechazable. La calidad etica de un argumento depende del respeto a la dignidad, la justicia y las personas.\n\n16. Falsa causa compleja: multicausalidad\n\n'La delincuencia se debe solo a la inmigracion' ignora la multicausalidad (pobreza, educacion, etc.). Detectar esta falacia permite analizar criticamente explicaciones simplistas de fenomenos complejos.\n\n17. Coherencia entre medios, fines y valores\n\nUn argumento politico es solido si los medios propuestos son coherentes con los fines y con los valores declarados. Defender la libertad usando censura es incoherente. Evaluar esta coherencia permite analizar criticamente las propuestas politicas.\n\n18. Manipulacion emocional en publicidad\n\n'Si quieres ser feliz, compra este coche' apela a la emocion sin argumentos racionales. La publicidad manipula usando emociones para persuadir. Detectar esta manipulacion permite analizar criticamente los anuncios.\n\n19. Calidad de un texto academico\n\nUn texto academico es de calidad si tiene rigor conceptual, metodologia solida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.\n\n20. Falsa generalizacion estadistica\n\n'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del pais apoya X' es una falsa generalizacion: la muestra no es representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.\n\nConclusion\n\nLa desinformacion no se combate con mas informacion, sino con pensamiento critico. Las 20 herramientas de este texto son un kit basico para detectar la manipulacion y evaluar criticamente la informacion. Aplicarlas no garantiza la verdad, pero al menos nos protege de la mentira.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 81,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Deberiamos prohibir los videojuegos violentos; son peligrosos', que premisa implicita hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que todo lo peligroso debe prohibirse",
+            "B) Que los videojuegos son buenos",
+            "C) Que la violencia no existe",
+            "D) Que los jovenes no juegan"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 82,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Inmigrantes ocupan la plaza' frente a 'Familias migrantes llegan a la plaza', que estrategia mediatica se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Framing (encuadre): el mismo hecho se presenta con marcos distintos",
+            "B) Ironia",
+            "C) Metafora",
+            "D) Pregunta retorica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 83,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que criterios definen la calidad de la evidencia cientifica segun el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Muestra representativa, metodo solido y resultados replicables",
+            "B) Solo el prestigio del autor",
+            "C) Solo el numero de citas",
+            "D) Solo la antiguedad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 84,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Un premio Nobel dice que X, luego X es verdad', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falacia de autoridad cientifica (acepta sin evidencia)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Pendiente resbaladiza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 85,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que revela la incoherencia entre discurso y practica de una institucion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Hipocresia institucional: dice una cosa y hace otra",
+            "B) Transparencia",
+            "C) Coherencia total",
+            "D) Neutralidad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 86,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'O estas con nosotros o estas contra nosotros', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa dicotomia (solo presenta dos opciones cuando hay mas)",
+            "B) Ad hominem",
+            "C) Falsa causa",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 87,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que caracteriza un debate publico de calidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presencia de contraargumentos, ausencia de falacias y uso de evidencia",
+            "B) Solo descalificaciones",
+            "C) Solo datos sin contexto",
+            "D) Solo emociones"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 88,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Un grafico que empieza en 95 en lugar de 0', que manipulacion estadistica hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Escala truncada que exagera una diferencia pequena",
+            "B) Es un grafico correcto",
+            "C) Es una falacia ad hominem",
+            "D) Es una falsa dicotomia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 89,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que revela un reportaje que solo muestra una version de un conflicto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una intencion persuasiva oculta bajo apariencia informativa",
+            "B) Neutralidad total",
+            "C) Rigor cientifico",
+            "D) Transparencia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 90,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Es como comparar el cancer con un resfriado', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa equivalencia (equipara cosas no comparables)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Falsa causa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 91,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'El 50% de los que enferman son vacunados', que hay que analizar?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable",
+            "B) Solo el porcentaje",
+            "C) Solo el titular",
+            "D) Solo la fuente"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 92,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que es el sesgo algoritmico?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La filtracion de informacion por algoritmos que crea camaras de eco",
+            "B) Un error de calculo",
+            "C) Una falacia logica",
+            "D) Un tipo de metafora"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 93,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que hace solida o debil una analogia compleja?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La relevancia de las diferencias entre las situaciones comparadas",
+            "B) La extension del texto",
+            "C) El numero de ejemplos",
+            "D) La fama del autor"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 94,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Todos los jovenes son vagos; por tanto, no hay que contratarlos', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa premisa (premisa no justificada)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 95,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que hace que un argumento sea eticamente rechazable aunque sea logicamente valido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La falta de respeto a la dignidad, la justicia o las personas",
+            "B) La extension del texto",
+            "C) La cantidad de datos",
+            "D) La fama del autor"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 96,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'La delincuencia se debe solo a la inmigracion', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa causa compleja (ignora la multicausalidad)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Falsa equivalencia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 97,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que revela defender la libertad usando censura?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Incoherencia entre medios y fines/valores",
+            "B) Coherencia total",
+            "C) Rigor cientifico",
+            "D) Transparencia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 98,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'Si quieres ser feliz, compra este coche', que manipulacion hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Manipulacion emocional: apela a la emocion sin argumentos",
+            "B) Rigor cientifico",
+            "C) Transparencia",
+            "D) Neutralidad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 99,
+        "tecnica_nivel": "C1",
+        "enunciado": "Que define la calidad de un texto academico?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Rigor conceptual, metodologia solida y citas verificables",
+            "B) Solo la extension",
+            "C) Solo el prestigio del autor",
+            "D) Solo el numero de palabras"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 100,
+        "tecnica_nivel": "C1",
+        "enunciado": "En 'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del pais apoya X', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa generalizacion estadistica (muestra no representativa)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Falsa causa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      }
+    ]
   }
 ]
