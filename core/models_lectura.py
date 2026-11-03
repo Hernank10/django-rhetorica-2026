@@ -38,8 +38,10 @@ class TecnicaLectura(models.Model):
 class Texto(models.Model):
     """Texto de lectura (literario o informativo)."""
     TIPOS = [
-        ("literario", "Experiencia literaria"),
-        ("informativo", "Adquisicion de informacion"),
+        ("literario", "Literario"),
+        ("informativo", "Informativo"),
+        ("academico", "Académico"),
+        ("argumentativo", "Argumentativo"),
     ]
     NIVELES = [
         ("A1", "A1"), ("A2", "A2"), ("B1", "B1"),
