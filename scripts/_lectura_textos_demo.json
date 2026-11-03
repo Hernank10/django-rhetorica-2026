@@ -4382,5 +4382,1309 @@
         "orden": 21
       }
     ]
+  },
+  {
+    "titulo": "La fuerza de las palabras",
+    "tipo": "informativo",
+    "nivel_mcer": "B1",
+    "fuente": "",
+    "orden": 21,
+    "cuerpo": "La fuerza de las palabras\n\nLas palabras no son solo sonidos: tienen poder. Un estudio de la Universidad de Stanford (2023) demostro que las palabras que usamos a diario influyen directamente en como nos sentimos y en como nos relacionamos con los demas.\n\nEl poder de las palabras positivas (subtitulo)\n\nPrimero, las palabras positivas generan bienestar. Por ejemplo, un elogio sincero puede alegrar el dia de una persona. Sin embargo, las palabras negativas pueden herir profundamente. Un insulto, aunque sea pequeno, deja una huella duradera.\n\nAlgunos sostienen que las palabras no importan: \"las palabras se las lleva el viento\", dicen. No obstante, la evidencia empirica contradice esta idea. Segun la doctora Garcia, psicologa de la Universidad de Madrid, \"las palabras construyen o destruyen relaciones; su impacto es real y medible\".\n\nPalabras que transforman (subtitulo)\n\nAdemas, las palabras pueden transformar la realidad. Lo siguiente es clave: un \"te quiero\" puede cambiar una vida; un \"no puedo\" puede limitarla. Las palabras son como semillas: crecen en la mente y dan fruto en las acciones. Finalmente, cuidemos lo que decimos: nuestras palabras pueden construir un mundo mejor o destruirlo.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 22,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Sin embargo, las palabras negativas pueden herir profundamente', que relacion marca el conector 'Sin embargo'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Causa",
+            "B) Contraste",
+            "C) Adicion",
+            "D) Consecuencia"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 23,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que marcador de orden aparece al inicio del segundo parrafo de desarrollo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Primero",
+            "B) Ademas",
+            "C) Finalmente",
+            "D) Sin embargo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 24,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'las palabras construyen o destruyen relaciones; su impacto es real', a que se refiere 'su'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A las relaciones",
+            "B) A las palabras",
+            "C) A la doctora Garcia",
+            "D) A la Universidad"
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 25,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual de estos pares de palabras del texto son antonimos?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) construir / destruir",
+            "B) palabras / sonidos",
+            "C) poder / influir",
+            "D) elogio / bienestar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 26,
+        "tecnica_nivel": "B1",
+        "enunciado": "En el texto, 'elogio' e 'insulto' son hiponimos de...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) sonidos",
+            "B) palabras",
+            "C) relaciones",
+            "D) estudios"
+          ],
+          "correcta": "B"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 27,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que ejemplo usa el texto para ilustrar que las palabras positivas generan bienestar?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un estudio de Stanford",
+            "B) Un elogio sincero",
+            "C) Un insulto pequeno",
+            "D) Una huella duradera"
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 28,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que cita textual aparece en el texto y a quien se atribuye?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'las palabras construyen o destruyen relaciones' - doctora Garcia",
+            "B) 'las palabras se las lleva el viento' - Stanford",
+            "C) 'influyen en como nos sentimos' - el autor",
+            "D) 'crecen en la mente' - la Universidad de Madrid"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 29,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que contraargumento menciona el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las palabras tienen poder",
+            "B) Algunos dicen que las palabras no importan",
+            "C) Los estudios demuestran el impacto",
+            "D) Las palabras son semillas"
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 30,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que evidencia empirica cita el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La opinion de la doctora Garcia",
+            "B) Un estudio de la Universidad de Stanford (2023)",
+            "C) El dicho 'las palabras se las lleva el viento'",
+            "D) Una comparacion con semillas"
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 31,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Un estudio demostro que...', en que tiempo verbal esta 'demostro'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Presente",
+            "B) Pasado",
+            "C) Futuro",
+            "D) Condicional"
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 32,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual de estos adjetivos del texto es valorativo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) sincero",
+            "B) segundo",
+            "C) diario",
+            "D) positivo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 33,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'pueden herir profundamente', que adverbio de modo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) pueden",
+            "B) herir",
+            "C) profundamente",
+            "D) palabras"
+          ],
+          "correcta": "C"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 34,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual de estas es una palabra clave del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) sonidos",
+            "B) poder",
+            "C) dia",
+            "D) ejemplo"
+          ],
+          "correcta": "B"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 35,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que anticipa el titulo 'La fuerza de las palabras'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que se hablara del poder de las palabras",
+            "B) Que se hablara de la Universidad de Stanford",
+            "C) Que se hablara de la doctora Garcia",
+            "D) Que se hablara de semillas"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 36,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que funcion cumple el primer parrafo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Introducir el tema del poder de las palabras",
+            "B) Dar la conclusion",
+            "C) Presentar un contraargumento",
+            "D) Describir un lugar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 37,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Las palabras son como semillas', que figura literaria aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Metafora",
+            "B) Comparacion",
+            "C) Personificacion",
+            "D) Hiperbole"
+          ],
+          "correcta": "B"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 38,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que estructura tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Introduccion + desarrollo + conclusion",
+            "B) Solo introduccion",
+            "C) Solo desarrollo",
+            "D) No tiene estructura"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 39,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que elementos del paratexto aparecen en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Subtitulos (marcados entre parentesis)",
+            "B) Imagenes",
+            "C) Tablas",
+            "D) Graficos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 40,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Lo siguiente es clave: un te quiero puede cambiar una vida', que funcion cumple 'Lo siguiente'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Anticipa lo que viene despues (referencia cataforica)",
+            "B) Remite a algo ya dicho (referencia anaforica)",
+            "C) Es un conector de contraste",
+            "D) Es un marcador de orden"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      }
+    ]
+  },
+  {
+    "titulo": "La decision de Marta",
+    "tipo": "literario",
+    "nivel_mcer": "B1",
+    "fuente": "",
+    "orden": 22,
+    "cuerpo": "Marta tenia cuarenta y cinco anos y llevaba veinte viviendo en la ciudad. Era arquitecta, tenia un buen sueldo y un apartamento con vistas. Sin embargo, cuando su madre enfermo, todo cambio.\n\nAquella manana de octubre, el telefono sono a las siete. Era su hermano. \"Mama esta peor. El medico dice que ya no puede vivir sola\". Marta colgo y se quedo mirando la ventana. Le pesaba el alma.\n\nDurante los dias siguientes, Marta no dormia. Se levantaba a las tres de la manana y miraba el techo. En el trabajo no hablaba; sus companeros la notaban ausente. Una tarde, su jefa le dijo: \"Marta, te pasa algo?\". Ella respondio: \"Nada, estoy bien\", pero sus ojos brillaban.\n\nMarta tenia que decidir. Podia quedarse en la ciudad y pagar una residencia para su madre, o volver al pueblo y dejar su carrera. La pregunta la atormentaba: \"Como se puede elegir entre dos amores?\". Su madre la habia criado sola despues de que su padre se marchara. La casa del pueblo tenia un huerto que llevaba cuarenta anos cultivandose. La casa la llamaba con su silencio.\n\n\"Menos mal que la vida es simple\", penso Marta con amargura, mientras miraba los dos caminos. Pero la vida es un rio que a veces se bifurca, y ella lo sabia.\n\nUn amigo periodista, que la conocia desde la infancia, le escribio: \"En mi ultimo articulo (publicado en 2024), hable de mujeres que toman decisiones dificiles. Quieres leerlo?\". Marta lo leyo. El articulo citaba datos de un estudio de la Universidad de Barcelona (2023) sobre el cuidado de mayores. Segun el estudio, el 70% de los cuidadores son mujeres. El periodico tambien recogia testimonios de mujeres que habian dejado sus carreras. En el articulo no aparecia ningun caso de hombres que hubieran hecho lo mismo.\n\nMarta cerro el articulo. Penso en su madre, en su carrera, en los veinte anos que llevaba fuera. Luego, sin dudar mas, cogio el telefono y llamo a su jefa. Al dia siguiente, entrego su dimision. Volvio al pueblo. Encontro a su madre sentada en el huerto, con una sonrisa. Y supo que habia tomado la decision correcta.\n\nAhora, dos anos despues, Marta regenta una pequena consulta de arquitectura en el pueblo. Es menos famosa que en la ciudad, pero es feliz. Ha aprendido que las decisiones importantes no se toman con la cabeza, sino con el corazon. Y cada manana, cuando riega el huerto de su madre, recuerda que la vida no se mide en metros cuadrados.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 41,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Le pesaba el alma', que significa esa expresion idiomatica?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que estaba muy cansada fisicamente",
+            "B) Que estaba profundamente triste y preocupada",
+            "C) Que tenia sueno",
+            "D) Que le dolia la espalda"
+          ],
+          "correcta": "B"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 42,
+        "tecnica_nivel": "B1",
+        "enunciado": "Marta no dormia, miraba el techo a las tres de la manana, estaba ausente en el trabajo y sus ojos brillaban. Que estado de animo se infiere combinando esas pistas?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Alegria",
+            "B) Enfado",
+            "C) Preocupacion y tristeza",
+            "D) Aburrimiento"
+          ],
+          "correcta": "C"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 43,
+        "tecnica_nivel": "B1",
+        "enunciado": "Por que Marta decide volver al pueblo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque no le gustaba la ciudad",
+            "B) Porque su madre enfermo y no podia vivir sola",
+            "C) Porque queria abrir un negocio",
+            "D) Porque su jefa la despidio"
+          ],
+          "correcta": "B"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 44,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que consecuencia se infiere de la decision de Marta al final del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Su carrera sigue igual en la ciudad",
+            "B) Deja su trabajo en la ciudad y abre una consulta en el pueblo",
+            "C) Se hace mas famosa que antes",
+            "D) Vuelve a la ciudad arrepentida"
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 45,
+        "tecnica_nivel": "B1",
+        "enunciado": "Como evoluciona Marta a lo largo del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) De indecisa y preocupada a decidida y feliz",
+            "B) De feliz a triste",
+            "C) De arquitecta a medica",
+            "D) No evoluciona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 46,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual es el conflicto interno de Marta?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No le gusta su trabajo",
+            "B) Debe elegir entre su carrera en la ciudad y cuidar a su madre en el pueblo",
+            "C) No se lleva bien con su hermano",
+            "D) No tiene dinero"
+          ],
+          "correcta": "B"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 47,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto menciona que Marta 'llevaba veinte viviendo en la ciudad' y cita articulos de 2023 y 2024. En que epoca se situa la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Edad Media",
+            "B) Siglo XIX",
+            "C) Epoca contemporanea (siglo XXI)",
+            "D) Futuro"
+          ],
+          "correcta": "C"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 48,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto menciona 'el pueblo', 'el huerto' y 'la residencia'. Que contexto cultural se infiere?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un contexto urbano moderno sin tradiciones",
+            "B) Un contexto rural espanol, con tradicion de vida en el pueblo",
+            "C) Un contexto asiatico",
+            "D) Un contexto nordico"
+          ],
+          "correcta": "B"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 49,
+        "tecnica_nivel": "B1",
+        "enunciado": "A que publico objetivo va dirigido el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) A ninos pequenos",
+            "B) A adultos interesados en reflexiones sobre la vida y las decisiones",
+            "C) A expertos en arquitectura",
+            "D) A deportistas"
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 50,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Como se puede elegir entre dos amores?', que intencion tiene la pregunta retorica?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pedir informacion concreta",
+            "B) Expresar que la decision es muy dificil y dolorosa",
+            "C) Hacer una broma",
+            "D) Pedir ayuda"
+          ],
+          "correcta": "B"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 51,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Menos mal que la vida es simple', penso Marta con amargura. Que recurso usa el autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una ironia: la vida no es simple, es complicada",
+            "B) Una afirmacion literal",
+            "C) Una pregunta",
+            "D) Una exageracion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 52,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual es el tono general del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Comico",
+            "B) Melancolico al principio y esperanzador al final",
+            "C) Solemne todo el tiempo",
+            "D) Neutro y frio"
+          ],
+          "correcta": "B"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 53,
+        "tecnica_nivel": "B1",
+        "enunciado": "El estudio dice que el 70% de los cuidadores son mujeres y el articulo solo recoge testimonios de mujeres. Que postura del autor se infiere de esa seleccion de ejemplos?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Visibilizar la desigualdad de genero en el cuidado",
+            "B) Defender que solo las mujeres deben cuidar",
+            "C) Una postura neutral sin intencion",
+            "D) Una postura comica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 54,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'La vida es un rio que a veces se bifurca', que significa la metafora?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que la vida es siempre recta",
+            "B) Que la vida tiene caminos que se separan y hay que elegir",
+            "C) Que la vida es agua",
+            "D) Que la vida no tiene opciones"
+          ],
+          "correcta": "B"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 55,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'La casa la llamaba con su silencio', que significa la personificacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que la casa hablaba de verdad",
+            "B) Que el silencio de la casa sola la atraia y le hacia pensar en volver",
+            "C) Que la casa tenia telefono",
+            "D) Que la casa estaba embrujada"
+          ],
+          "correcta": "B"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 56,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto no detalla que pasa con la madre tras la vuelta de Marta, ni cual es el papel del hermano. Que se puede inferir de esa omision deliberada?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el autor prioriza el conflicto y la decision de Marta sobre los detalles",
+            "B) Que la madre muere",
+            "C) Que el hermano tambien vuelve",
+            "D) Que la madre se va a la ciudad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 57,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual es la intencion del autor con este texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Persuadir de que las decisiones importantes deben tomarse con el corazon y priorizar a la familia",
+            "B) Informar sobre arquitectura",
+            "C) Entretener con una comedia",
+            "D) Criticar a los arquitectos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 58,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto muestra a Marta como cuidadora y al hermano no se le ve cuidando. Que sesgo ideologico se puede inferir?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un sesgo que refleja (o critica) la expectativa social de que las mujeres cuidan",
+            "B) Un sesgo que apoya a los arquitectos",
+            "C) Un sesgo a favor de las residencias",
+            "D) No hay sesgo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 59,
+        "tecnica_nivel": "B1",
+        "enunciado": "El articulo del periodista menciona solo mujeres cuidadoras y no incluye casos de hombres. Que tipo de sesgo es?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sesgo de seleccion: elige solo un tipo de casos",
+            "B) Sesgo de confirmacion",
+            "C) Falso dilema",
+            "D) Ad hominem"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 60,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto cita 'un estudio de la Universidad de Barcelona (2023)'. Es una fuente creible?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es una institucion academica con datos verificables y fecha",
+            "B) No, es una fuente anonima",
+            "C) No, es una fuente sin fecha",
+            "D) No, es una fuente de redes sociales"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 61,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto cita articulos de 2023 y 2024. Que se puede inferir sobre su actualidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Son fuentes actuales y vigentes",
+            "B) Son fuentes obsoletas",
+            "C) No tienen fecha",
+            "D) Son del siglo XIX"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "El viaje de Santiago",
+    "tipo": "literario",
+    "nivel_mcer": "B1",
+    "fuente": "",
+    "orden": 23,
+    "cuerpo": "El viaje de Santiago\n\nSantiago llego al pueblo al atardecer. El autobus lo dejo en la plaza, frente a la iglesia de piedra. Hacia veinte anos que no volvia. El pueblo seguia igual: las mismas casas bajas, el mismo olor a pan recien hecho, la misma fuente en el centro. Solo el silencio era distinto: un silencio mas hondo, como si el tiempo se hubiera detenido.\n\nSu abuelo lo esperaba en la puerta de la casa. Tenia ochenta y siete anos y seguia cuidando el huerto como si fuera un jardin de palacio.\n\n\"Llegas tarde, muchacho\", dijo el abuelo, sin reproche. Santiago sonrio. Aquella frase la habia oido mil veces en su infancia.\n\nRecordo los veranos de nino, cuando corria por aquellos mismos caminos. Recordo el olor del tomate recien cogido, las siestas bajo la higuera, las historias del abuelo al anochecer. Habia sido feliz alli, aunque entonces no lo supiera.\n\nAquella noche, mientras cenaban, Santiago miro por la ventana. En el monte, una luz roja parpadeaba. Era un zorro. El abuelo lo miro y dijo: \"El zorro siempre vuelve a su madriguera, aunque se aleje mucho. Es listo\". Santiago entendio el mensaje.\n\nEn el salon colgaba un reloj de pared que ya no funcionaba. El abuelo lo miro: \"Tu abuela lo paro el dia que murio. Dijo que no queria que el tiempo siguiera sin ella\". El reloj era un objeto inmovil, pero pesaba como una montana.\n\nEl abuelo hablo durante horas. Le conto que el pueblo se estaba quedando vacio, que los jovenes se iban a la ciudad y no volvian. \"El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie\".\n\n\"Abuelo\", dijo Santiago, \"y si me quedo?\".\n\nEl abuelo lo miro con sorpresa, luego con alegria, luego con miedo. \"Tu tienes tu vida en la ciudad. No la tires por mi\".\n\nSantiago salio al patio. La luna iluminaba el huerto como un escenario. Penso en su trabajo, en sus amigos, en la ciudad. Penso en el abuelo, en la casa, en el reloj parado. La decision lo atravesaba como una espada. Se sentia como un arbol con dos raices: una en la ciudad, otra en el pueblo. Y las dos tiraban de el.\n\nDe repente, el abuelo aparecio en la puerta. \"Santiago\", dijo, \"yo no voy a vivir para siempre. Pero tu si. Decide lo que te haga feliz, no lo que me haga feliz a mi\".\n\nSantiago lo abrazo. Lloro. Lloro como no habia llorado en anos. Y en ese llanto, supo que la decision ya estaba tomada.\n\nAl dia siguiente, Santiago llamo a su jefe y pidio una excedencia. Volveria a la ciudad en unos meses, pero antes queria pasar un ano con el abuelo. Queria aprender a cuidar el huerto. Queria oir las historias otra vez. Queria, en definitiva, volver a sus raices.\n\nEl abuelo sonrio. \"El zorro vuelve a casa, muchacho. Siempre vuelve\".\n\nAnos despues, Santiago recordaria aquel verano como el mas importante de su vida. Y cada vez que veia un zorro en el monte, sonreia.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 62,
+        "tecnica_nivel": "B1",
+        "enunciado": "Como progresa el tema del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Lineal: presenta el regreso, luego el recuerdo, luego la decision",
+            "B) No progresa, repite lo mismo",
+            "C) Salta de tema sin conexion",
+            "D) Solo describe el pueblo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 63,
+        "tecnica_nivel": "B1",
+        "enunciado": "El titulo 'El viaje de Santiago' es coherente con el contenido porque...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Santiago viaja al pueblo y el viaje es fisico y emocional",
+            "B) Santiago se queda en la ciudad",
+            "C) Santiago es un viajero profesional",
+            "D) El texto no habla de Santiago"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 64,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie', que relacion marca 'Pero'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Contraste",
+            "B) Causa",
+            "C) Consecuencia",
+            "D) Adicion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 65,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Llegas tarde, muchacho', dicho con ironia cariñosa, que funcion cumple la ironia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Crear complicidad y mostrar el cariño entre abuelo y nieto",
+            "B) Criticar duramente a Santiago",
+            "C) Mostrar enfado",
+            "D) Ridiculizar a Santiago"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 66,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'El zorro vuelve a casa, siempre vuelve', que doble sentido tiene la expresion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Literal: el zorro vuelve a su madriguera; metaforico: Santiago vuelve a sus raices",
+            "B) Solo literal",
+            "C) Solo metaforico",
+            "D) No tiene doble sentido"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 67,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Aquella frase la habia oido mil veces', que funcion cumple el humor/la hiperbole?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Enfatizar la familiaridad cariñosa de la frase",
+            "B) Criticar al abuelo",
+            "C) Mostrar enfado",
+            "D) Crear tension"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 68,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'la habia oido mil veces', que recurso aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Hiperbole (exageracion)",
+            "B) Comparacion",
+            "C) Metafora",
+            "D) Personificacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 69,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que frase se repite en el texto para enfatizar el regreso de Santiago?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'El zorro vuelve a casa'",
+            "B) 'Llegas tarde, muchacho'",
+            "C) 'El pueblo se muere'",
+            "D) 'La decision lo atravesaba'"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 70,
+        "tecnica_nivel": "B1",
+        "enunciado": "En el texto, el zorro que aparece en el monte simboliza...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La sabiduria y el regreso a las raices",
+            "B) La muerte",
+            "C) La ciudad",
+            "D) El dinero"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 71,
+        "tecnica_nivel": "B1",
+        "enunciado": "En el texto, el monte y el pueblo simbolizan...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Las raices y la identidad de Santiago",
+            "B) El miedo",
+            "C) La ciudad moderna",
+            "D) La riqueza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 72,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que parte del texto es el nudo de la narracion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La llegada de Santiago al pueblo",
+            "B) Cuando Santiago debe decidir entre quedarse o volver a la ciudad",
+            "C) La vuelta de Santiago anos despues",
+            "D) La descripcion inicial del pueblo"
+          ],
+          "correcta": "B"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 73,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'El pueblo seguia igual: las mismas casas bajas, el mismo olor a pan recien hecho', que funcion cumple la descripcion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Situar la accion y evocar la nostalgia",
+            "B) Presentar a un personaje",
+            "C) Dar la conclusion",
+            "D) Criticar al pueblo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 74,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que funcion cumple el dialogo entre Santiago y su abuelo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Caracterizar al abuelo como sabio y cariñoso, y avanzar la trama",
+            "B) Describir el pueblo",
+            "C) Cerrar el texto",
+            "D) Presentar el monte"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 75,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que tipo de narrador tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Externo, en tercera persona",
+            "B) Interno, en primera persona (dice 'yo')",
+            "C) Dialogo puro",
+            "D) Carta personal"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 76,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Recordo los veranos de nino', que recurso narrativo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Analepsis (flashback al pasado)",
+            "B) Prolepsis (salto al futuro)",
+            "C) Dialogo",
+            "D) Descripcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 77,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Anos despues, Santiago recordaria aquel verano', que recurso narrativo aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Prolepsis (flashforward)",
+            "B) Analepsis (flashback)",
+            "C) Dialogo",
+            "D) Descripcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 78,
+        "tecnica_nivel": "B1",
+        "enunciado": "En que momento del texto esta el climax de la narracion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) En la llegada al pueblo",
+            "B) En el momento en que Santiago llora y decide quedarse",
+            "C) En la partida final",
+            "D) En la descripcion del monte"
+          ],
+          "correcta": "B"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 79,
+        "tecnica_nivel": "B1",
+        "enunciado": "En 'Se sentia como un arbol con dos raices', que funcion cumple la comparacion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Explicar la sensacion de estar dividido entre dos lugares",
+            "B) Describir el huerto",
+            "C) Presentar al abuelo",
+            "D) Cerrar el texto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 80,
+        "tecnica_nivel": "B1",
+        "enunciado": "En el texto, el reloj parado del salon simboliza...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El tiempo detenido por la muerte de la abuela y la memoria familiar",
+            "B) La riqueza del abuelo",
+            "C) La modernidad del pueblo",
+            "D) La tecnologia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      }
+    ]
+  },
+  {
+    "titulo": "Pantallas en las aulas: ayuda o distraccion",
+    "tipo": "informativo",
+    "nivel_mcer": "B1",
+    "fuente": "",
+    "orden": 24,
+    "cuerpo": "Pantallas en las aulas: ayuda o distraccion\n\nEn los ultimos anos, el uso de pantallas en las aulas ha generado un intenso debate. Algunos profesores defienden su uso, mientras que otros lo consideran una distraccion. Segun un informe del Ministerio de Educacion (2024), el 67% de los institutos espanoles utiliza tablets en clase.\n\nLos defensores senalan que las pantallas mejoran el aprendizaje. Un estudio de la Universidad de Barcelona (2023) encontro que los alumnos que usaban tablets aprendian un 20% mas rapido. \"Las pantallas son el futuro de la educacion\", afirma el profesor Juan Martinez, experto en tecnologia educativa.\n\nSin embargo, los criticos advierten de los riesgos. La profesora Ana Lopez senala que \"los alumnos se distraen con las redes sociales en clase\". En su opinion, \"los profesores que defienden las pantallas no entienden a los jovenes\".\n\nAlgunos van mas alla: \"Quieren llenar las aulas de pantallas y eliminar a los profesores\", afirma un blog educativo. Otros dicen: \"O usamos pantallas o volvemos a la educacion tradicional, no hay termino medio\". Un famoso youtuber afirma que \"las pantallas son malas\" y miles de personas lo repiten sin verificar la fuente.\n\nUn dato llamativo: segun el informe, los paises con mas pantallas en las aulas tambien tienen mejores notas en matematicas. Pero hay que tener cuidado: correlacion no implica causalidad. Puede haber otros factores, como el nivel economico de esos paises.\n\nUn articulo de resumen que circula por redes sociales afirma: \"Un estudio de Harvard demuestra que las pantallas mejoran el aprendizaje\". Sin embargo, el estudio original de Harvard matiza que solo ocurre en determinadas condiciones.\n\nEn definitiva, el debate sigue abierto. Algunos expertos proponen un uso moderado, combinando pantallas y metodos tradicionales.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 81,
+        "tecnica_nivel": "B1",
+        "enunciado": "La frase 'el 67% de los institutos espanoles utiliza tablets en clase' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un hecho verificable",
+            "B) Una opinion",
+            "C) Una pregunta",
+            "D) Un dialogo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 82,
+        "tecnica_nivel": "B1",
+        "enunciado": "El argumento 'todos los alumnos se distraen con las redes sociales, por tanto las pantallas son malas' es solido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No, porque la premisa es una generalizacion sin datos",
+            "B) Si, porque la conclusion es verdadera",
+            "C) Si, porque lo dice una profesora",
+            "D) No, porque no hay conclusion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 83,
+        "tecnica_nivel": "B1",
+        "enunciado": "La frase 'todos los alumnos se distraen con las pantallas' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una generalizacion apresurada",
+            "B) Una evidencia empirica",
+            "C) Una pregunta",
+            "D) Una definicion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 84,
+        "tecnica_nivel": "B1",
+        "enunciado": "La frase 'los profesores que defienden las pantallas no entienden a los jovenes' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un argumento valido",
+            "B) Una falacia ad hominem (ataca a la persona, no al argumento)",
+            "C) Una evidencia empirica",
+            "D) Un dato verificable"
+          ],
+          "correcta": "B"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 85,
+        "tecnica_nivel": "B1",
+        "enunciado": "La frase 'quieren llenar las aulas de pantallas y eliminar a los profesores' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una falacia del hombre de paja (distorsiona el argumento del oponente)",
+            "B) Un dato del Ministerio",
+            "C) Una cita de Harvard",
+            "D) Una conclusion logica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 86,
+        "tecnica_nivel": "B1",
+        "enunciado": "Miles de personas repiten 'las pantallas son malas' porque lo dice un youtuber famoso. Que falacia cometen?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Apelacion a la autoridad (la fama no es autoridad cientifica)",
+            "B) Falso dilema",
+            "C) Ad hominem",
+            "D) Hombre de paja"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 87,
+        "tecnica_nivel": "B1",
+        "enunciado": "La frase 'o usamos pantallas o volvemos a la educacion tradicional, no hay termino medio' es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un falso dilema (hay mas opciones, como el uso moderado)",
+            "B) Una evidencia empirica",
+            "C) Un argumento solido",
+            "D) Una pregunta retorica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 88,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual de estas fuentes del texto es de mayor calidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El informe del Ministerio de Educacion (2024)",
+            "B) El blog educativo anonimo",
+            "C) El youtuber famoso",
+            "D) Un articulo de redes sociales sin fuente"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 89,
+        "tecnica_nivel": "B1",
+        "enunciado": "El 'articulo de resumen que circula por redes sociales' que habla del estudio de Harvard es una fuente:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Primaria, porque es el estudio original",
+            "B) Secundaria, porque resume el estudio original",
+            "C) No es una fuente",
+            "D) No se puede saber"
+          ],
+          "correcta": "B"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 90,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto presenta argumentos a favor y en contra del uso de pantallas. Se puede decir que es coherente?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque presenta ambas posturas y no se contradice internamente",
+            "B) No, porque solo defiende una postura",
+            "C) No, porque se contradice varias veces",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 91,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto cita un estudio de la Universidad de Barcelona (2023). Es un ejemplo relevante para la afirmacion 'las pantallas mejoran el aprendizaje'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque el estudio aborda directamente el aprendizaje con tablets",
+            "B) No, porque la Universidad no es relevante",
+            "C) No, porque es un ejemplo muy largo",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 92,
+        "tecnica_nivel": "B1",
+        "enunciado": "Para afirmar 'todos los alumnos aprenden mas rapido con tablets', la evidencia del texto (un solo estudio) es:",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Suficiente, un estudio basta",
+            "B) Insuficiente, se necesitarian mas estudios y muestras representativas",
+            "C) Insuficiente, pero no importa",
+            "D) Suficiente, porque lo dice la Universidad"
+          ],
+          "correcta": "B"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 93,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto dice que 'los paises con mas pantallas tienen mejores notas'. Se puede concluir que las pantallas causan mejores notas?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque los datos lo demuestran",
+            "B) No, correlacion no implica causalidad; puede haber otros factores",
+            "C) No, porque los datos son falsos",
+            "D) Si, porque lo dice el informe"
+          ],
+          "correcta": "B"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 94,
+        "tecnica_nivel": "B1",
+        "enunciado": "Si un autor solo citara estudios favorables a las pantallas e ignorara los contrarios, que sesgo tendria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sesgo de confirmacion",
+            "B) Falso dilema",
+            "C) Ad hominem",
+            "D) Apelacion a la emocion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 95,
+        "tecnica_nivel": "B1",
+        "enunciado": "Cual de estos seria un buen resumen del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El texto presenta el debate sobre pantallas en las aulas, con argumentos a favor, en contra y algunos errores argumentales",
+            "B) El texto dice que las pantallas son malas",
+            "C) El texto dice que las pantallas son buenas",
+            "D) El texto habla del Ministerio de Educacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 96,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto es claro?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, usa parrafos cortos, ideas claras y ejemplos concretos",
+            "B) No, es confuso",
+            "C) No, usa palabras muy tecnicas",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 97,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto dice 'algunos expertos proponen un uso moderado' sin especificar quienes. Es preciso?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque 'algunos' es suficiente",
+            "B) No, porque no identifica a los expertos ni da nombres; es impreciso",
+            "C) Si, porque lo dice el texto",
+            "D) No, pero no importa"
+          ],
+          "correcta": "B"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 98,
+        "tecnica_nivel": "B1",
+        "enunciado": "Si compararamos este texto con otro que dijera 'las pantallas son la unica solucion educativa', que diferencia habria?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Este texto es mas equilibrado; el otro seria mas radical",
+            "B) No habria diferencia",
+            "C) Este texto seria mas radical",
+            "D) No se pueden comparar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 99,
+        "tecnica_nivel": "B1",
+        "enunciado": "Que funcion cumple el dato '67% de los institutos' en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Aportar evidencia empirica verificable sobre el uso de tablets",
+            "B) Expresar una opinion",
+            "C) Cerrar el debate",
+            "D) Criticar al Ministerio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 100,
+        "tecnica_nivel": "B1",
+        "enunciado": "El texto es de calidad global?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, es claro, coherente, cita fuentes y presenta varias posturas (aunque incluye algunas falacias para analizar)",
+            "B) No, porque es demasiado largo",
+            "C) No, porque tiene falacias",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      }
+    ]
   }
 ]
