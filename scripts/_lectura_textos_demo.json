@@ -5686,5 +5686,1325 @@
         "orden": 20
       }
     ]
+  },
+  {
+    "titulo": "La semana laboral de cuatro dias",
+    "tipo": "argumentativo",
+    "nivel_mcer": "B2",
+    "fuente": "",
+    "orden": 25,
+    "cuerpo": "La semana laboral de cuatro dias: utopia o realidad\n\nEn los ultimos anos, el debate sobre la semana laboral de cuatro dias ha llegado a las empresas y a los gobiernos. Algunos aseguran que es una utopia; otros, que es una realidad posible. Los defensores sostienen que mejora la productividad y la calidad de vida. Los criticos, en cambio, advierten de sus riesgos.\n\nUn estudio de la Universidad de Cambridge (2023) encontro que las empresas que adoptaron la semana de cuatro dias mantuvieron o aumentaron su productividad. Segun la doctora Elena Martinez, economista laboral, \"la reduccion de la jornada no implica una reduccion del rendimiento; al contrario, los trabajadores descansan mas y rinden mejor\". Este argumento de autoridad refuerza la postura favorable.\n\nSin embargo, algunos empresarios sostienen que la medida es inviable en sectores como la hosteleria o la sanidad. \"No se puede atender a los pacientes solo cuatro dias a la semana\", afirma el doctor Ruiz, director de un hospital. No obstante, los defensores replican que la organizacion por turnos permite adaptar la medida a cada sector.\n\nAlgunos van mas alla: \"Si reducimos la jornada, las empresas quebraran y el pais se hundira\". Esta afirmacion contiene una falacia: no hay evidencia de que la reduccion lleve automaticamente a la quiebra. Otros dicen: \"O trabajas cinco dias o eres un vago\", lo que constituye un falso dilema: hay muchas formas de organizar el trabajo.\n\nEn mi opinion, la semana de cuatro dias es una oportunidad que deberiamos explorar. Probablemente no sea la solucion para todos los sectores, pero sin duda puede mejorar la vida de muchos trabajadores. Quien puede negar que el descanso es necesario para rendir mejor? Como decia el poeta, \"el tiempo es oro\", y quizas deberiamos invertirlo mejor.\n\nEn definitiva, el debate sigue abierto. Lo que esta claro es que el mundo laboral esta cambiando y que las empresas que se adapten antes tendran ventaja. Como un rio que cambia de cauce, el trabajo del futuro no sera igual que el del pasado. La pregunta no es si habra cambio, sino cuando y como.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 21,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cual es la tesis implicita del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La semana de cuatro dias es una oportunidad que deberiamos explorar",
+            "B) La semana de cuatro dias es una utopia",
+            "C) El teletrabajo es mejor que la oficina",
+            "D) Los empresarios siempre tienen razon"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 22,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que presupone el autor cuando afirma que 'el mundo laboral esta cambiando'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el cambio es inevitable y hay que adaptarse",
+            "B) Que el cambio es malo",
+            "C) Que el cambio no existe",
+            "D) Que los trabajadores no quieren cambiar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 23,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que falacia contiene la frase 'Si reducimos la jornada, las empresas quebraran y el pais se hundira'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pendiente resbaladiza (afirma consecuencias catastrofistas sin justificar)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 24,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cuando el autor dice 'En mi opinion...' que recurso de persuasion usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ethos (credibilidad del autor)",
+            "B) Pathos (emocion)",
+            "C) Logos (argumento logico)",
+            "D) Ironia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 25,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Un estudio de Cambridge encontro X; por tanto, la medida es viable', cual es la conclusion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La medida es viable",
+            "B) El estudio de Cambridge",
+            "C) Los trabajadores rinden mejor",
+            "D) La productividad aumenta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 26,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que indicio de subjetividad aparece en 'sin duda puede mejorar la vida de muchos trabajadores'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El modalizador 'sin duda' y el verbo valorativo 'mejorar'",
+            "B) La palabra 'trabajadores'",
+            "C) El articulo 'la'",
+            "D) La preposicion 'de'"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 27,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que indica el modalizador 'probablemente' en 'probablemente no sea la solucion para todos los sectores'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el autor no esta completamente seguro",
+            "B) Que el autor esta completamente seguro",
+            "C) Que es una pregunta",
+            "D) Que es una orden"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 28,
+        "tecnica_nivel": "B2",
+        "enunciado": "Es solido el argumento de autoridad en 'Segun la doctora Martinez, economista laboral, la reduccion no implica menor rendimiento'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, porque es una experta en la materia y aporta un estudio",
+            "B) No, porque es una opinion personal",
+            "C) No, porque es una cita anonima",
+            "D) Si, porque es famosa"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 29,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cual es el contraargumento que reconoce el autor?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Algunos empresarios sostienen que la medida es inviable en algunos sectores",
+            "B) La medida mejora la productividad",
+            "C) Los trabajadores rinden mejor",
+            "D) El estudio de Cambridge lo demuestra"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 30,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que implica el autor al decir 'las empresas que se adapten antes tendran ventaja'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que las que no se adapten perderan ventaja",
+            "B) Que todas las empresas se adaptaran",
+            "C) Que la adaptacion es mala",
+            "D) Que no hay cambio"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 31,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que relacion marca el conector 'sin embargo' en 'Sin embargo, algunos empresarios sostienen...'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Contraste u oposicion",
+            "B) Causa",
+            "C) Consecuencia",
+            "D) Adicion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 32,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que presupuesto ideologico subyace en la idea de que 'hay que adaptarse antes'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que el cambio es inevitable y positivo, y quien no se adapta se queda atras",
+            "B) Que el cambio es negativo",
+            "C) Que las empresas no deben cambiar",
+            "D) Que los trabajadores no importan"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 33,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que topico literario aparece en la expresion 'el tiempo es oro'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El topico del tiempo como recurso valioso (carpe diem/tempus fugit)",
+            "B) El locus amoenus",
+            "C) El ubi sunt",
+            "D) La falsa modestia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 34,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que falacia causal contiene 'Desde que redujimos la jornada, las ventas bajaron, luego la reduccion causo la bajada'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Post hoc (despues de esto, por esto)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 35,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Como un rio que cambia de cauce, el trabajo del futuro no sera igual', que tipo de argumento se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Argumento por analogia",
+            "B) Argumento de autoridad",
+            "C) Reduccion al absurdo",
+            "D) Argumento por consecuencias"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 36,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que falacia de ambiguedad contiene 'El trabajo es bueno; por tanto, trabajar mucho es mejor'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Equivoco: 'bueno' cambia de sentido (util vs. moral)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Pendiente resbaladiza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 37,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que argumento por reduccion al absurdo usa el autor (o podria usar) para refutar la idea de que 'reducir la jornada arruinara el pais'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si reducir la jornada arruinara el pais, todos los paises que la han probado estarian arruinados; no lo estan",
+            "B) Todos los paises deben reducir la jornada",
+            "C) La jornada no importa",
+            "D) El estudio de Cambridge lo demuestra"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 38,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que argumento por consecuencias aparece en 'puede mejorar la vida de muchos trabajadores'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Se justifica la medida por su consecuencia positiva (mejora la vida)",
+            "B) Se justifica la medida por su tradicion",
+            "C) Se justifica la medida por autoridad",
+            "D) No es un argumento"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 39,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple la pregunta retorica 'Quien puede negar que el descanso es necesario para rendir mejor?'",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Afirmar con enfasis que el descanso es necesario",
+            "B) Pedir informacion",
+            "C) Expresar una duda",
+            "D) Hacer una broma"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 40,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Segun la doctora Martinez, \"la reduccion no implica menor rendimiento\"', que tipo de cita aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Estilo directo (comillas, palabras exactas)",
+            "B) Estilo indirecto (parafrasis)",
+            "C) No es una cita",
+            "D) Es una pregunta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 41,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'los defensores sostienen que... / los criticos, en cambio, advierten...', que procedimiento de cohesion aparece?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Elipsis y conector de contraste",
+            "B) Repeticion literal",
+            "C) Sinonimia",
+            "D) Antonimia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "El regreso de Amina",
+    "tipo": "literario",
+    "nivel_mcer": "B2",
+    "fuente": "",
+    "orden": 26,
+    "cuerpo": "El regreso de Amina\n\nAmina bajo del autobus al amanecer. El pueblo la recibio con el mismo olor a higuera y polvo que recordaba de su infancia. Habian pasado veinte anos desde que se marcho a la ciudad para estudiar medicina. Ahora volvia, no como medico famosa, sino como una mujer que habia perdido a su madre y regresaba a enterrarla.\n\nLa casa de la familia seguia alli, con su fachada blanca y sus contraventanas azules. El azul de las ventanas era el unico color que resistia al paso del tiempo. En aquel pueblo, el azul significaba proteccion: las madres lo pintaban en las puertas para alejar los malos espiritus. Amina sonrio al recordarlo. Su madre habia pintado aquellas ventanas cada primavera, sin fallar una sola vez.\n\nSu abuela, que tenia noventa anos y la memoria intacta, la esperaba en el umbral. \"Has vuelto, hija\", dijo, sin sorpresa. \"La casa te estaba llamando\". Amina la abrazo. La abuela era la memoria del pueblo: sabia quien habia vivido en cada casa, quien habia emigrado, quien habia vuelto. Su funcion en la familia habia sido siempre la de guardar las historias.\n\nDurante el entierro, Amina observo el cementerio. La mitad de las tumbas estaban vacias: los jovenes se habian ido y ya no volvian. El pueblo se moria lentamente. Los que quedaban eran ancianos que esperaban. Amina sintio una punzada: ella tambien habia formado parte de ese exodo.\n\nAquella tarde, mientras tomaban te en la cocina, la abuela le conto que el alcalde queria cerrar la escuela por falta de alumnos. \"Dicen que es por el progreso\", dijo la abuela con ironia, \"pero el progreso que se lleva a los ninos no es progreso, es desierto\".\n\nAmina paso tres dias en el pueblo. Recorrio los caminos de su infancia, hablo con los vecinos, visito la escuela abandonada. Al cuarto dia, tomo una decision: no volveria a la ciudad. Iria a la capital a pedir una subvencion para reabrir la escuela y la consulta medica del pueblo. No sabia si lo conseguiri­a. Pero algo dentro de ella le decia que valia la pena intentarlo.\n\nCuando se lo conto a la abuela, esta sonrio con malicia. \"Sabia que volverias. Las raices tiran mas que los aviones\". Amina se rio. Su abuela tenia razon: la vida era como un arbol; por muchas ramas que eche, siempre tira de la raiz.\n\nEl periodico local publico meses despues un articulo sobre el proyecto de Amina. Incluia un grafico que mostraba la evolucion de la poblacion del pueblo: una linea roja que caia vertiginosamente desde 1980. El titular decia: \"El pueblo que se muere\". El grafico, sin embargo, solo mostraba la caida de los ultimos cuarenta anos; omitia el ligero repunte de los ultimos dos, coincidiendo con la llegada de algunas familias jovenes.\n\nAmina leyo el articulo con tristeza. El progreso, penso, no es una linea recta: es un tejido con hilos de muchos colores. Y su pueblo, aunque pequeño, tenia hilos que merecia la pena seguir tejiendo. Cinco anos despues, la escuela tenia veinte alumnos. No era mucho, pero era un comienzo.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 42,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cual es la intencion comunicativa global del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Reflexionar sobre el valor de las raices y la despoblacion rural",
+            "B) Informar sobre la carrera de medicina",
+            "C) Criticar a los jovenes que emigran",
+            "D) Entretener con una comedia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 43,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que tipo de narrador tiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Narrador externo omnisciente (tercera persona, accede a pensamientos)",
+            "B) Narrador interno (primera persona)",
+            "C) Narrador testigo (personaje secundario)",
+            "D) Dialogo puro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 44,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'la vida era como un arbol; por muchas ramas que eche, siempre tira de la raiz', que metafora compleja se construye?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La vida como un arbol con raices (identidad) y ramas (experiencias)",
+            "B) La vida como un avion",
+            "C) La vida como un pueblo",
+            "D) La vida como una linea recta"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 45,
+        "tecnica_nivel": "B2",
+        "enunciado": "En el texto, el azul de las ventanas simboliza...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La proteccion y la tradicion familiar",
+            "B) La tristeza",
+            "C) La modernidad",
+            "D) La muerte"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 46,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que contexto sociohistorico se infiere de referencias como 'exodo rural', 'pueblo que se muere' y 'jovenes que se van'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La Espana rural de la segunda mitad del siglo XX y principios del XXI, con despoblacion",
+            "B) La Edad Media",
+            "C) El futuro lejano",
+            "D) Un pais nordico actual"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 47,
+        "tecnica_nivel": "B2",
+        "enunciado": "Como evoluciona el tono del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) De melancolico y triste al principio a esperanzador y decidido al final",
+            "B) De comico a tragico",
+            "C) Uniforme, sin cambios",
+            "D) De ironico a neutro"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 48,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cual es la postura del autor ante el tema de la despoblacion rural?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Critica: denuncia el abandono del mundo rural y valora las raices",
+            "B) Neutral: solo describe sin opinar",
+            "C) Favorable: apoya la desaparicion de los pueblos",
+            "D) Humoristica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 49,
+        "tecnica_nivel": "B2",
+        "enunciado": "A que publico objetivo va dirigido el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Adultos interesados en literatura y reflexiones sobre identidad y territorio",
+            "B) Ninos de primaria",
+            "C) Expertos en medicina",
+            "D) Turistas extranjeros"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 50,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple la abuela en la historia?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es un personaje secundario que guarda la memoria del pueblo y ayuda a Amina a decidir",
+            "B) Es la protagonista",
+            "C) Es la antagonista",
+            "D) Es la narradora"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 51,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que mensaje implicito transmite el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Que las raices y la comunidad importan, y que se puede construir futuro en el mundo rural",
+            "B) Que la ciudad es siempre mejor",
+            "C) Que los jovenes deben quedarse en el pueblo",
+            "D) Que la medicina es inutil en los pueblos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 52,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que ideologia se revela en el lexico del texto con terminos como 'raices', 'memoria', 'tradicion', 'comunidad'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una valoracion de la identidad rural y la memoria frente a la despersonalizacion urbana",
+            "B) Una defensa del capitalismo extremo",
+            "C) Una critica a la familia",
+            "D) Una apologia del turismo masivo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 53,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que contexto cultural se infiere de referencias como 'higuera', 'contraventanas azules', 'te en la cocina', 'subvencion'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un contexto mediterraneo y espanol rural",
+            "B) Un contexto nordico",
+            "C) Un contexto asiatico",
+            "D) Un contexto norteamericano"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 54,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple el dialogo 'Has vuelto, hija... La casa te estaba llamando'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Caracterizar a la abuela como sabia y afectuosa, y avanzar la trama",
+            "B) Describir el paisaje",
+            "C) Cerrar el texto",
+            "D) Dar informacion medica"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 55,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple la descripcion 'La casa seguia alli, con su fachada blanca y sus contraventanas azules'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Crear atmosfera de nostalgia y situar la accion en el contexto familiar",
+            "B) Presentar al alcalde",
+            "C) Dar un dato estadistico",
+            "D) Criticar al gobierno"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 56,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que relacion se infiere entre Amina y su abuela?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una relacion de confianza y complicidad, con la abuela como referente afectivo",
+            "B) Una relacion de rivalidad",
+            "C) Una relacion distante",
+            "D) Una relacion de mando"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 57,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'el progreso que se lleva a los ninos no es progreso, es desierto', que intencion tiene la metafora?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Criticar un modelo de progreso que destruye la vida rural",
+            "B) Describir un paisaje desertico",
+            "C) Elogiar la modernidad",
+            "D) Presentar un personaje"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 58,
+        "tecnica_nivel": "B2",
+        "enunciado": "En el texto, se menciona un grafico con una linea roja que cae. Que sesgo tiene ese grafico?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sesgo de seleccion: omite el repunte reciente de los ultimos dos anos",
+            "B) No tiene sesgo",
+            "C) Tiene sesgo de escala",
+            "D) Tiene sesgo de color"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 59,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que elipsis narrativa aparece al final del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) 'Cinco anos despues, la escuela tenia veinte alumnos': se omite el proceso intermedio",
+            "B) La muerte de la madre",
+            "C) La partida de Amina",
+            "D) La descripcion del pueblo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 60,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que critica social contiene el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La despoblacion rural y el abandono institucional de los pueblos",
+            "B) La medicina moderna",
+            "C) El papel de los abuelos",
+            "D) Las subvenciones"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      }
+    ]
+  },
+  {
+    "titulo": "La casa de los relojes",
+    "tipo": "literario",
+    "nivel_mcer": "B2",
+    "fuente": "",
+    "orden": 27,
+    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la unica del barrio que tenia relojes en todas las habitaciones. No era una casa grande, pero habia un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salon y hasta uno pequeno en el bano. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murio, nadie lo visitaba. Mi amigo decia que don Elias se habia vuelto loco; yo no estaba tan seguro. Habia algo en su manera de mirar los relojes que me hacia pensar que sabia exactamente lo que hacia.\n\n\"Los pare todos el mismo dia, a la misma hora\", me explico una tarde, mientras tomabamos cafe. \"A las siete y diez de la manana del 14 de abril de 1987. Ese dia, mi mujer se fue de casa. No volvio. Desde entonces, para mi, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decia, \"pero en realidad soy el unico cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenia razon en algo: la gente corria todo el dia sin saber hacia donde. Pero tambien pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el movil, en los dias que se me escapaban.\n\nUna tarde, don Elias me conto la historia de su vida. Habia sido relojero de joven, habia tenido un taller en la calle Mayor, habia arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada manana. Cuando ella se fue, don Elias dejo de darles cuerda. Y asi, poco a poco, todos se fueron parando. Primero uno, luego otro. El ultimo fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el ultimo en pararse\".\n\nUna noche, mientras volvia a casa, me di cuenta de que yo tambien vivia rodeado de relojes parados. Mi vida era una sucesion de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabia el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontre la puerta abierta. El no estaba. Sobre la mesa del recibidor habia una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvio. A veces, cuando paso por su casa, miro por la ventana. Los relojes siguen alli, parados, marcando las siete y diez. Y yo, cada manana, cuando me levanto, miro el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo unico que no se puede parar. Pero quiza se pueda vivir de otra manera.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 61,
+        "tecnica_nivel": "B2",
+        "enunciado": "Cual es la interpretacion global del texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Una reflexion sobre el tiempo, la perdida y la posibilidad de vivir de otra manera",
+            "B) Una historia de detectives",
+            "C) Un tratado sobre relojes",
+            "D) Una novela de aventuras"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 62,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que sintetiza el titulo 'La casa de los relojes'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El espacio central del relato y el tema del tiempo detenido",
+            "B) La biografia del protagonista",
+            "C) Un lugar turistico",
+            "D) La infancia del narrador"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 63,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que refleja la estructura del texto (todos los relojes parados a la misma hora) respecto al contenido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El tiempo detenido por la perdida: la estructura refleja la obsesion del personaje",
+            "B) La velocidad del tiempo",
+            "C) El caos de la vida moderna",
+            "D) La alegria de vivir"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 64,
+        "tecnica_nivel": "B2",
+        "enunciado": "En el texto, que dos versiones se ofrecen de don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La del amigo (que dice que esta loco) y la del narrador (que no esta tan seguro)",
+            "B) La del alcalde y la del cura",
+            "C) La de la madre y la del padre",
+            "D) La del propio don Elias y la de Emilia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 65,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que referencia intertextual se puede inferir del motivo literario del tiempo detenido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La tradicion literaria del tempus fugit y la nostalgia por el pasado",
+            "B) La ciencia ficcion espacial",
+            "C) La novela policiaca nordica",
+            "D) La poesia epica griega"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 66,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'La gente cree que estoy loco, pero en realidad soy el unico cuerdo', que recurso usa don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ironia: invierte la logica comun (el loco dice ser el cuerdo)",
+            "B) Una pregunta retorica",
+            "C) Una cita de autoridad",
+            "D) Una falacia de autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 67,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que simboliza el reloj del recibidor en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La memoria de Emilia y el amor detenido en el tiempo",
+            "B) La riqueza de don Elias",
+            "C) La modernidad del barrio",
+            "D) La religion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 68,
+        "tecnica_nivel": "B2",
+        "enunciado": "Como influye la voz narrativa (primera persona testigo) en la caracterizacion de don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Lo presenta con ambiguedad: no sabemos si esta loco o es un sabio, porque el narrador tampoco lo sabe",
+            "B) Lo presenta como un villano claro",
+            "C) Lo presenta como un santo",
+            "D) Lo presenta como un nino"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 69,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que ritmo narrativo predomina cuando el narrador describe las visitas de los jueves?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Ritmo lento, con escenas detalladas de los encuentros",
+            "B) Ritmo rapido, con sumarios",
+            "C) Ritmo discontinuo",
+            "D) Ritmo poetico sin accion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 70,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que se omite deliberadamente en el texto respecto al destino de don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si volvio o no: el narrador lo deja abierto",
+            "B) El nombre de Emilia",
+            "C) La profesion del narrador",
+            "D) La fecha exacta del reloj"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 71,
+        "tecnica_nivel": "B2",
+        "enunciado": "Por que el final del texto es abierto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque no se resuelve si don Elias vuelve: el lector debe imaginar",
+            "B) Porque termina con la muerte de don Elias",
+            "C) Porque termina con una boda",
+            "D) Porque termina con un viaje resuelto"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 72,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que revela el monologo interior del narrador cuando piensa en su propia vida?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Su insatisfaccion con su propia relacion con el tiempo",
+            "B) Su odio hacia don Elias",
+            "C) Su deseo de ser medico",
+            "D) Su alegria por el proximo viaje"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 73,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple el narrador testigo (primera persona que observa)?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Contar la historia desde fuera pero con implicacion afectiva",
+            "B) Ser el protagonista absoluto",
+            "C) Ser un narrador omnisciente",
+            "D) Ser un narrador objetivo sin emociones"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 74,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que contrapunto se establece en el texto entre el pasado y el presente de don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El pasado feliz con Emilia (relojero en activo) frente al presente solitario (relojes parados)",
+            "B) El pasado triste frente al presente feliz",
+            "C) El pasado en el campo y el presente en la ciudad",
+            "D) El pasado en la ciudad y el presente en el pueblo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 75,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que revela el dialogo 'Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado' sobre don Elias?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Su incertidumbre y su aceptacion del destino",
+            "B) Su enfado",
+            "C) Su soberbia",
+            "D) Su indiferencia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 76,
+        "tecnica_nivel": "B2",
+        "enunciado": "Como se refleja el tiempo subjetivo en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Para don Elias, veinte anos han pasado como un instante; el tiempo se ha detenido",
+            "B) El tiempo es siempre uniforme",
+            "C) El narrador mide cada minuto",
+            "D) El tiempo se acelera sin razon"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 77,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion tiene la casa de don Elias en la narracion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Reflejar el estado interior de don Elias: un espacio detenido en el tiempo",
+            "B) Ser un simple decorado",
+            "C) Ser un lugar publico",
+            "D) Ser una tienda"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 78,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que funcion cumple el objeto 'reloj' en la narracion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Funcion simbolica (tiempo detenido) y anticipatoria (nota final)",
+            "B) Funcion solo practica (dar la hora)",
+            "C) Funcion decorativa",
+            "D) Funcion de coleccionismo"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 79,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que ambiguedad intencionada hay en 'no sabemos si don Elias esta loco o es un sabio'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El texto sugiere dos lecturas posibles y no elige una",
+            "B) El texto aclara que esta loco",
+            "C) El texto aclara que es un sabio",
+            "D) El texto no plantea el tema"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      },
+      {
+        "tecnica_numero": 80,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que genero se subvierte o parodia en el texto?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) El relato de detectives (hay una nota, un misterio) se subvierte al ser un relato filosofico",
+            "B) El cuento de hadas",
+            "C) La novela romantica",
+            "D) La ciencia ficcion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 20
+      },
+      {
+        "tecnica_numero": 81,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que efecto estetico produce la repeticion del sonido en 'relojes', 'relojero', 'reloj'?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un efecto de insistencia tematica: el tiempo y su negacion son el centro del relato",
+            "B) Un efecto comico",
+            "C) Un efecto de rapidez",
+            "D) Un efecto de musicalidad sin sentido"
+          ],
+          "correcta": "A"
+        },
+        "orden": 21
+      }
+    ]
+  },
+  {
+    "titulo": "Moviles en los institutos: prohibir o educar",
+    "tipo": "argumentativo",
+    "nivel_mcer": "B2",
+    "fuente": "",
+    "orden": 28,
+    "cuerpo": "Moviles en los institutos: prohibir o educar\n\nEl debate sobre el uso del movil en los institutos esta de actualidad. Algunos defienden prohibirlo; otros, educar en su uso. En este texto analizamos los principales argumentos y algunas falacias que circulan en el debate.\n\nArgumentos a favor de la prohibicion\n\nQuienes defienden la prohibicion sostienen que los moviles distraen y bajan el rendimiento. Un estudio de la Universidad de Madrid (2023) encontro que los alumnos con movil en clase obtenian peores notas. Sin embargo, hay que tener cuidado: el estudio se hizo solo en dos institutos de una misma ciudad, por lo que su muestra no es representativa del conjunto del pais.\n\nAlgunos llevan el argumento mas lejos: \"Si permitimos el movil, los alumnos se distraeran, luego no estudiaran, luego fracasaran, luego no encontraran trabajo y acabaran en la marginacion\". Este argumento es una pendiente resbaladiza: afirma una cadena de consecuencias catastrofistas sin justificar cada paso.\n\nOtros dicen: \"Los profesores que defienden el movil no entienden a los jovenes\". Esto es un argumento ad hominem: ataca a la persona en lugar de refutar su argumento. Tambien se oye: \"Tu defiendes el movil porque tu hijo tiene uno\". Esto es un tu quoque: no refuta el argumento, solo senala la coherencia del que habla.\n\nArgumentos a favor de educar en el uso\n\nQuienes defienden educar en el uso senalan que el movil es una herramienta y que prohibirlo no ensena a usarlo bien. Algunos dicen: \"Es como prohibir los cuchillos porque pueden cortar; mejor ensenar a usarlos con cuidado\". Es un argumento por analogia: su solidez depende de que la comparacion sea relevante (el movil y el cuchillo son herramientas con riesgos).\n\nSin embargo, algunos criticos responden: \"Quienes defienden educar quieren llenar las aulas de pantallas y eliminar la autoridad del profesor\". Esto es un hombre de paja: distorsiona el argumento del oponente para refutarlo mas facilmente.\n\nDatos y encuestas\n\nUn dato que se repite: \"El 80% de los padres quiere prohibir el movil\". Hay que analizar la fuente: si la encuesta se hizo solo entre padres de un colegio concreto, la muestra no es representativa. Ademas, si la pregunta era \"¿No cree usted que los moviles distraen?\", la formulacion ya sugiere la respuesta y sesga el resultado.\n\nTambien se oye: \"El 70% de los alumnos con movil suspende, luego el movil causa el suspenso\". Aqui hay una falacia de falsa causa: puede haber otros factores (nivel socioeconomico, habitos de estudio) que expliquen ambos hechos. La correlacion no implica causalidad.\n\nConclusiones\n\nLa conclusion del debate no es facil. Un argumento valido podria ser: \"Todos los alumnos necesitan concentrarse para aprender. Los moviles distraen. Por tanto, en clase conviene limitar su uso\". Este argumento es valido (la forma es correcta) y podria ser solido si las premisas son verdaderas. Pero hay que distinguir validez de verdad: un argumento puede ser valido aunque sus premisas sean falsas.\n\nEn mi opinion, ni la prohibicion total ni la permisividad absoluta son buenas soluciones. Probablemente lo mejor sea una via intermedia: educar en el uso responsable y regular el movil en determinados momentos. La recomendacion final es clara: los institutos deberian elaborar normas consensuadas con alumnos y familias.\n\nEl titulo del texto, 'Moviles en los institutos: prohibir o educar', refleja bien el contenido. Podria haber sido mas sensacionalista (\"El movil destruye la educacion\"), pero habria sido menos coherente con la complejidad del debate. La calidad global del texto depende de su claridad, su coherencia, la solidez de sus argumentos y la presencia de contraargumentos.",
+    "ejercicios": [
+      {
+        "tecnica_numero": 82,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Todos los alumnos necesitan concentrarse. Los moviles distraen. Por tanto, conviene limitar su uso', el argumento es valido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, la conclusion se sigue de las premisas (forma deductiva correcta)",
+            "B) No, la conclusion no se sigue",
+            "C) No, es una falacia",
+            "D) No se puede saber"
+          ],
+          "correcta": "A"
+        },
+        "orden": 1
+      },
+      {
+        "tecnica_numero": 83,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que diferencia hay entre validez y verdad en un argumento?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La validez es de la forma; la verdad, de las premisas. Un argumento puede ser valido con premisas falsas",
+            "B) Son lo mismo",
+            "C) La validez depende de la verdad",
+            "D) La verdad depende de la validez"
+          ],
+          "correcta": "A"
+        },
+        "orden": 2
+      },
+      {
+        "tecnica_numero": 84,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'El 70% de los alumnos con movil suspende, luego el movil causa el suspenso', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa causa (confunde correlacion con causalidad)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 3
+      },
+      {
+        "tecnica_numero": 85,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Si permitimos el movil, los alumnos fracasaran y acabaran marginados', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Pendiente resbaladiza (cadena de consecuencias sin justificar)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 4
+      },
+      {
+        "tecnica_numero": 86,
+        "tecnica_nivel": "B2",
+        "enunciado": "Que es la falacia de circularidad?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Usar la conclusion como premisa para defender la conclusion",
+            "B) Atacar a la persona",
+            "C) Apelar a la emocion",
+            "D) Presentar solo dos opciones"
+          ],
+          "correcta": "A"
+        },
+        "orden": 5
+      },
+      {
+        "tecnica_numero": 87,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Tu defiendes el movil porque tu hijo tiene uno', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Tu quoque (desacredita al oponente por su coherencia, no refuta su argumento)",
+            "B) Falsa causa",
+            "C) Falso dilema",
+            "D) Pendiente resbaladiza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 6
+      },
+      {
+        "tecnica_numero": 88,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Es como prohibir los cuchillos porque pueden cortar; mejor ensenar a usarlos', el argumento por analogia es solido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Depende de que la comparacion sea relevante: ambos son herramientas con riesgos, pero su uso educativo difiere",
+            "B) Si, siempre es solido",
+            "C) No, nunca es solido",
+            "D) No se puede evaluar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 7
+      },
+      {
+        "tecnica_numero": 89,
+        "tecnica_nivel": "B2",
+        "enunciado": "Por que el estudio de la Universidad de Madrid (2023) no es del todo representativo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Porque se hizo solo en dos institutos de una misma ciudad",
+            "B) Porque es de una universidad",
+            "C) Porque lo dice el texto",
+            "D) Porque tiene muchos datos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 8
+      },
+      {
+        "tecnica_numero": 90,
+        "tecnica_nivel": "B2",
+        "enunciado": "En '¿No cree usted que los moviles distraen?', que sesgo tiene la pregunta?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Sesgo de formulacion: la pregunta sugiere la respuesta (dirigida)",
+            "B) Es neutral",
+            "C) Es una pregunta retorica",
+            "D) Es una pregunta ambigua"
+          ],
+          "correcta": "A"
+        },
+        "orden": 9
+      },
+      {
+        "tecnica_numero": 91,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'El 70% de los alumnos con movil suspende', el argumento estadistico es solido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) No del todo: falta saber la muestra y si hay otras causas; ademas, correlacion no implica causalidad",
+            "B) Si, siempre",
+            "C) No, porque las estadisticas mienten",
+            "D) No se puede evaluar"
+          ],
+          "correcta": "A"
+        },
+        "orden": 10
+      },
+      {
+        "tecnica_numero": 92,
+        "tecnica_nivel": "B2",
+        "enunciado": "Si un titular dijera 'El 30% de los alumnos no suspende con movil' frente a 'El 70% suspende con movil', que estaria ocurriendo?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Un sesgo de encuadre: la misma informacion se presenta de forma positiva o negativa",
+            "B) Una falacia ad hominem",
+            "C) Un falso dilema",
+            "D) Una falacia de autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 11
+      },
+      {
+        "tecnica_numero": 93,
+        "tecnica_nivel": "B2",
+        "enunciado": "Es coherente el titulo 'Moviles en los institutos: prohibir o educar' con el contenido?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, refleja las dos posturas del debate sin exagerar",
+            "B) No, exagera",
+            "C) No, es un titulo sensacionalista",
+            "D) No se relaciona"
+          ],
+          "correcta": "A"
+        },
+        "orden": 12
+      },
+      {
+        "tecnica_numero": 94,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Quienes defienden educar quieren llenar las aulas de pantallas y eliminar la autoridad del profesor', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Hombre de paja: distorsiona el argumento del oponente",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Apelacion a la autoridad"
+          ],
+          "correcta": "A"
+        },
+        "orden": 13
+      },
+      {
+        "tecnica_numero": 95,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Prohibir el movil mejorara la concentracion; por tanto, deberiamos prohibirlo', que tipo de argumento se usa?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Argumento por consecuencias: se justifica la medida por su resultado positivo",
+            "B) Argumento de autoridad",
+            "C) Reduccion al absurdo",
+            "D) Argumento por analogia"
+          ],
+          "correcta": "A"
+        },
+        "orden": 14
+      },
+      {
+        "tecnica_numero": 96,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'Un famoso youtuber dice que los moviles son malos, luego hay que prohibirlos', que falacia hay?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Falsa autoridad (el youtuber no es experto en educacion)",
+            "B) Ad hominem",
+            "C) Falso dilema",
+            "D) Pendiente resbaladiza"
+          ],
+          "correcta": "A"
+        },
+        "orden": 15
+      },
+      {
+        "tecnica_numero": 97,
+        "tecnica_nivel": "B2",
+        "enunciado": "El texto reconoce contraargumentos?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Si, presenta argumentos a favor y en contra, y los analiza",
+            "B) No, solo defiende una postura",
+            "C) No, solo critica",
+            "D) No, no hay argumentos"
+          ],
+          "correcta": "A"
+        },
+        "orden": 16
+      },
+      {
+        "tecnica_numero": 98,
+        "tecnica_nivel": "B2",
+        "enunciado": "En 'La conclusion es que no es facil. La recomendacion es que los institutos deberian elaborar normas consensuadas', como se distinguen?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) La conclusion sintetiza el analisis; la recomendacion propone una accion concreta",
+            "B) Son lo mismo",
+            "C) La conclusion propone accion; la recomendacion sintetiza",
+            "D) No hay ni conclusion ni recomendacion"
+          ],
+          "correcta": "A"
+        },
+        "orden": 17
+      },
+      {
+        "tecnica_numero": 99,
+        "tecnica_nivel": "B2",
+        "enunciado": "En '¡Piensa en los ninos! Si no prohibimos el movil, los ninos sufriran', que uso se hace de la emocion?",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Uso manipulador: sustituye la argumentacion por la apelacion a la emocion",
+            "B) Uso legitimo: solo informa",
+            "C) Uso ironico",
+            "D) Uso cientifico"
+          ],
+          "correcta": "A"
+        },
+        "orden": 18
+      },
+      {
+        "tecnica_numero": 100,
+        "tecnica_nivel": "B2",
+        "enunciado": "Segun el texto, un texto argumentativo es de calidad si...",
+        "tipo": "multiple_choice",
+        "payload": {
+          "opciones": [
+            "A) Es claro, coherente, presenta argumentos solidos y reconoce contraargumentos",
+            "B) Es largo y tiene muchas palabras dificiles",
+            "C) Solo defiende una postura",
+            "D) Tiene muchas falacias"
+          ],
+          "correcta": "A"
+        },
+        "orden": 19
+      }
+    ]
   }
 ]
