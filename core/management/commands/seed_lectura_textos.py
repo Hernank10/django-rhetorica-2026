@@ -1,4 +1,10 @@
-"""Seed idempotente de textos + ejercicios de lectura desde JSON."""
+"""Seed idempotente de textos + ejercicios de lectura desde JSON.
+
+Claves de unicidad (robustas ante cambios de texto):
+- Texto: (nivel_mcer, orden)       -> si cambia el titulo, actualiza sin duplicar
+- EjercicioLectura: (texto, orden) -> si cambia el enunciado, actualiza sin duplicar
+- Limpia ejercicios huerfanos (si desaparecen del JSON)
+"""
 import json
 from pathlib import Path
 
@@ -7,7 +13,7 @@ from core.models_lectura import Texto, EjercicioLectura, TecnicaLectura
 
 
 class Command(BaseCommand):
-    help = "Carga textos y ejercicios de lectura desde JSON (idempotente)"
+    help = "Carga textos y ejercicios de lectura desde JSON (idempotente por posicion)"
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -27,15 +33,17 @@ class Command(BaseCommand):
         textos_actualizados = 0
         ejercicios_creados = 0
         ejercicios_actualizados = 0
+        huerfanos_borrados = 0
 
         for t in data:
+            # Clave robusta: (nivel_mcer, orden)
             texto, created = Texto.objects.update_or_create(
-                titulo=t["titulo"],
+                nivel_mcer=t["nivel_mcer"],
+                orden=t.get("orden", 0),
                 defaults={
+                    "titulo": t["titulo"],
                     "tipo": t["tipo"],
-                    "nivel_mcer": t["nivel_mcer"],
                     "fuente": t.get("fuente", ""),
-                    "orden": t.get("orden", 0),
                     "cuerpo": t["cuerpo"],
                 },
             )
@@ -44,27 +52,31 @@ class Command(BaseCommand):
             else:
                 textos_actualizados += 1
 
+            ordenes_en_json = set()
             for e in t.get("ejercicios", []):
                 try:
-                    # Fase 0: numero ya no es unico, buscar por nivel del texto + numero
                     tecnica = TecnicaLectura.objects.get(
                         nivel_mcer=e["tecnica_nivel"],
                         numero=e["tecnica_numero"],
                     )
                 except TecnicaLectura.DoesNotExist:
                     self.stdout.write(self.style.WARNING(
-                        f"  [SKIP] ejercicio {e['orden']}: tecnica #{e['tecnica_numero']} no existe"
+                        f"  [SKIP] '{texto.titulo}': tecnica #{e['tecnica_numero']} ({e['tecnica_nivel']}) no existe"
                     ))
                     continue
 
+                orden = e.get("orden", 0)
+                ordenes_en_json.add(orden)
+
+                # Clave robusta: (texto, orden)
                 ej, created = EjercicioLectura.objects.update_or_create(
                     texto=texto,
-                    enunciado=e["enunciado"],
+                    orden=orden,
                     defaults={
+                        "enunciado": e["enunciado"],
                         "tecnica": tecnica,
                         "tipo": e["tipo"],
                         "payload": e.get("payload", {}),
-                        "orden": e.get("orden", 0),
                     },
                 )
                 if created:
@@ -72,7 +84,18 @@ class Command(BaseCommand):
                 else:
                     ejercicios_actualizados += 1
 
+            # Limpiar huerfanos
+            huerfanos = texto.ejercicios.exclude(orden__in=ordenes_en_json)
+            n = huerfanos.count()
+            if n > 0:
+                huerfanos.delete()
+                huerfanos_borrados += n
+                self.stdout.write(self.style.WARNING(
+                    f"  [CLEAN] {n} ejercicios huerfanos en '{texto.titulo}'"
+                ))
+
         self.stdout.write(self.style.SUCCESS(
             f"[OK] textos: {textos_creados} creados, {textos_actualizados} actualizados | "
-            f"ejercicios: {ejercicios_creados} creados, {ejercicios_actualizados} actualizados"
+            f"ejercicios: {ejercicios_creados} creados, {ejercicios_actualizados} actualizados | "
+            f"huerfanos borrados: {huerfanos_borrados}"
         ))
