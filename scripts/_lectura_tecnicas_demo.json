@@ -7,7 +7,7 @@
     "teoria": "En los textos informativos breves, el autor suele declarar explicitamente de que trata el texto en la primera o segunda oración. Esta idea principal explicita es la que organiza toda la información posterior. Encontrarla es el primer pasó de la comprensión lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
     "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer párrafo completo (no solo la primera oración) y preguntarse: 'de que me estan hablando?'. La respuesta suele estar en una oración que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
     "regla": "La idea principal explicita esta en la primera o segunda oración del texto; se reconoce porque contiene el tema y lo que se afirma sobre el.",
-    "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos más eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Ademas, el vidrio reciclado requiere menos energia que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
+    "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos más eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Además, el vidrio reciclado requiere menos energía que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
     "ejemplo_incorrecto": "Mismo texto. Lector que responde: 'El vidrio se puede reciclar infinitas veces.' -> Es un detalle, no la idea principal. La idea principal es la afirmación general (eficiencia), no un ejemplo que la sostiene.",
     "numero_global": 1
   },
@@ -31,7 +31,7 @@
     "teoria": "Los cuentos son ficción (historias inventadas) y las noticias son información real sobre hechos. Distinguirlos es básico para evaluar la credibilidad de un texto.",
     "explicacion": "Preguntate: los hechos podrian haber ocurrido en la realidad? Hay personajes ficticios? Si es así, es un cuento. Si narra un hecho real con fecha y lugar, es una noticia.",
     "regla": "Cuento = ficción; noticia = hecho real verificable.",
-    "ejemplo_correcto": "'Habia una vez un dragon...' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
+    "ejemplo_correcto": "'Había una vez un dragon...' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
     "ejemplo_incorrecto": "Decir que un cuento es una noticia porque tiene personajes. Los personajes de ficción no existen en la realidad.",
     "numero_global": 23
   },
@@ -64,11 +64,11 @@
     "proceso": "P2",
     "nivel_mcer": "A1",
     "titulo": "Inferir si un personaje esta contento o triste",
-    "teoria": "El estado de animó se infiere de las acciones: sonreir sugiere alegria; llorar, tristeza; saltar, emoción.",
+    "teoria": "El estado de animó se infiere de las acciones: sonreir sugiere alegría; llorar, tristeza; saltar, emoción.",
     "explicacion": "Observa lo que hace el personaje. Preguntate que emoción explica esa acción.",
-    "regla": "Las acciones revelan el estado de animó: sonreir=alegria, llorar=tristeza.",
+    "regla": "Las acciones revelan el estado de animó: sonreir=alegría, llorar=tristeza.",
     "ejemplo_correcto": "En 'Juan saltaba y reía sin parar', se infiere que esta contento.",
-    "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegria.",
+    "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegría.",
     "numero_global": 44
   },
   {
@@ -79,7 +79,7 @@
     "teoria": "Los cuentos son ficción y las noticias informan sobre hechos reales.",
     "explicacion": "Preguntate: los hechos podrian ocurrir en la realidad? Hay personajes ficticios?",
     "regla": "Cuento = ficción; noticia = hecho real verificable.",
-    "ejemplo_correcto": "'Habia una vez un dragon' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
+    "ejemplo_correcto": "'Había una vez un dragon' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
     "ejemplo_incorrecto": "Decir que un cuento es noticia porque tiene personajes.",
     "numero_global": 49
   },
@@ -100,7 +100,7 @@
     "proceso": "P2",
     "nivel_mcer": "A1",
     "titulo": "Inferir si una situación es real o imaginaria",
-    "teoria": "En los textos, las situaciones pueden ser reales (hechos verificables) o imaginarias (ficción, fantasia). Distinguirlas es básico para entender el tipo de texto y su proposito.",
+    "teoria": "En los textos, las situaciones pueden ser reales (hechos verificables) o imaginarias (ficción, fantasía). Distinguirlas es básico para entender el tipo de texto y su proposito.",
     "explicacion": "Preguntate: los hechos podrian ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, la situación es imaginaria.",
     "regla": "Una situación es imaginaria si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', la situación es imaginaria: los dragones no existen.",
@@ -127,7 +127,7 @@
     "teoria": "En los textos, la cantidad se indica con palabras como 'mucho', 'poco', 'bastante', 'varios', 'ninguno', 'algunos'. Localizarlas ayuda a comprender la magnitud de lo que se describe.",
     "explicacion": "Busca las palabras de cantidad en el texto. Preguntate: se refieren a algo contable (muchos libros) o incontable (mucha agua)? La cantidad puede ser exacta o aproximada.",
     "regla": "Las palabras de cantidad (mucho, poco, bastante, varios) indican la magnitud de lo descrito.",
-    "ejemplo_correcto": "En 'Habia muchos pajaros en el árbol', 'muchos' indica cantidad.",
+    "ejemplo_correcto": "En 'Había muchos pajaros en el árbol', 'muchos' indica cantidad.",
     "ejemplo_incorrecto": "Decir que 'muchos' es un color. 'Muchos' es una palabra de cantidad.",
     "numero_global": 79
   },
@@ -327,12 +327,12 @@
     "numero": 14,
     "proceso": "P4",
     "nivel_mcer": "A2",
-    "titulo": "Distinguir hechos de fantasia en un texto",
-    "teoria": "En los textos, los hechos (verificables, posibles) se distinguen de la fantasia (imposible, inventada). Distinguirlos es básico para saber que tipo de texto se lee.",
-    "explicacion": "Preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles (animales que hablan, magia)? Si los hay, es fantasia; si no, es un hecho.",
-    "regla": "Un hecho es posible o verificable; la fantasia incluye elementos imposibles o inventados.",
-    "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasia: los caballos no vuelan.",
-    "ejemplo_incorrecto": "Decir que todo el texto es fantasia porque hay un caballo. El caballo existe; lo fantastico es que vuele.",
+    "titulo": "Distinguir hechos de fantasía en un texto",
+    "teoria": "En los textos, los hechos (verificables, posibles) se distinguen de la fantasía (imposible, inventada). Distinguirlos es básico para saber que tipo de texto se lee.",
+    "explicacion": "Preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles (animales que hablan, magia)? Si los hay, es fantasía; si no, es un hecho.",
+    "regla": "Un hecho es posible o verificable; la fantasía incluye elementos imposibles o inventados.",
+    "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
+    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele.",
     "numero_global": 74
   },
   {
@@ -367,7 +367,7 @@
     "teoria": "Cada tipo de texto tiene características propias: el cuento narra, la noticia informa, el poema expresa emociones con ritmo, la receta instruye. Reconocerlas ayuda a comprender el texto.",
     "explicacion": "Observa la forma y el contenido. Hay narración con personajes? Es un cuento. Hay datos y fecha? Es una noticia. Hay versos y rima? Es un poema. Hay ingredientes y pasos? Es una receta.",
     "regla": "El tipo de texto se reconoce por sus características formales y de contenido.",
-    "ejemplo_correcto": "En 'Habia una vez un dragon...', el texto es un cuento por la formula inicial y la narración.",
+    "ejemplo_correcto": "En 'Había una vez un dragon...', el texto es un cuento por la formula inicial y la narración.",
     "ejemplo_incorrecto": "Decir que es una noticia porque tiene personajes. Los personajes de ficción indican cuento, no noticia.",
     "numero_global": 91
   },
@@ -388,9 +388,9 @@
     "proceso": "P1",
     "nivel_mcer": "B1",
     "titulo": "Localizar información en tablas y graficos",
-    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico segun el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoria buscada, y solo después leer el dato.",
+    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico segun el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
     "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorias) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
-    "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoria buscada, y solo entonces se lee el dato.",
+    "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
     "ejemplo_correcto": "Pregunta: 'Cuantos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
     "ejemplo_incorrecto": "El lector busca '3o ESO' en el texto que acompana la tabla, no en la tabla misma, y responde 'muchos'. La información estaba en una celda; no se localizo por no leer los encabezados.",
     "numero_global": 2
@@ -403,7 +403,7 @@
     "teoria": "La idea global (o tema) es la síntesis de todo el texto en una sola afirmación. A diferencia de la idea principal explicita (P1), que suele estar declarada, la idea global requiere integrar información de varios párrafos: el lector debe construirla. Es el proceso central de PIRLS P3.",
     "explicacion": "Para construir la idea global: (1) leer el texto completo; (2) identificar el tema (de que trata) y la tesis (que se afirma sobre el tema); (3) sintetizar en una oración que abarque todos los párrafos sin repetir detalles. Si la síntesis solo cubre un párrafo, es un resumen parcial, no la idea global.",
     "regla": "La idea global es una oración que abarca todo el texto y que no podria eliminarse sin que el texto pierda su sentido.",
-    "ejemplo_correcto": "Texto sobre el reciclaje (3 párrafos: eficiencia, energia, ejemplos). Idea global: 'El reciclaje de vidrio es eficiente porque ahorra energia y materiales.' Abarca los tres párrafos.",
+    "ejemplo_correcto": "Texto sobre el reciclaje (3 párrafos: eficiencia, energía, ejemplos). Idea global: 'El reciclaje de vidrio es eficiente porque ahorra energía y materiales.' Abarca los tres párrafos.",
     "ejemplo_incorrecto": "Lector que responde: 'El vidrio se recicla'. Es el tema, no la tesis. La idea global necesita una afirmación sobre el tema, no solo nombrarlo.",
     "numero_global": 5
   },
@@ -424,7 +424,7 @@
     "proceso": "P2",
     "nivel_mcer": "B1",
     "titulo": "Inferir la causa de una emoción a partir de una acción",
-    "teoria": "En los textos narrativos, las emociones no siempre se nombran. Se infieren de las acciones: llorar sugiere tristeza, temblar sugiere miedo, sonreir sugiere alegria.",
+    "teoria": "En los textos narrativos, las emociones no siempre se nombran. Se infieren de las acciones: llorar sugiere tristeza, temblar sugiere miedo, sonreir sugiere alegría.",
     "explicacion": "Observa la acción o reacción del personaje. Preguntate que emoción la explicaria. Verifica que el resto del texto no la contradiga.",
     "regla": "La emoción se infiere de la acción: llorar=tristeza, temblar=miedo, gritar=enojo o susto.",
     "ejemplo_correcto": "En 'Juan temblaba y no podía hablar', se infiere miedo o nerviosismo.",
@@ -439,7 +439,7 @@
     "teoria": "En un texto, los párrafos desarrollan ideas que se relacionan entre si. Reconocer la relación ayuda a construir el sentido global.",
     "explicacion": "Lee cada párrafo y resume su idea en una frase. Luego pregunta: como se relacionan? Una amplia la otra? La contradice? La ejemplifica?",
     "regla": "Dos párrafos se relacionan si comparten tema, si uno amplia al otro o si uno ejemplifica al otro.",
-    "ejemplo_correcto": "Parrafo 1: 'El ejercicio es bueno para la salud'. Parrafo 2: 'Correr 30 minutos al día reduce el riesgo cardiaco'. Relación: el segundo ejemplifica al primero.",
+    "ejemplo_correcto": "Párrafo 1: 'El ejercicio es bueno para la salud'. Párrafo 2: 'Correr 30 minutos al día reduce el riesgo cardiaco'. Relación: el segundo ejemplifica al primero.",
     "ejemplo_incorrecto": "Decir que no se relacionan porque hablan de cosas distintas. Hablan del mismo tema desde distintos niveles.",
     "numero_global": 20
   },
@@ -616,9 +616,9 @@
     "proceso": "P3",
     "nivel_mcer": "B1",
     "titulo": "Interpretar el título de un texto",
-    "teoria": "El título anticipa el tema, la tesis o una metafora del contenido. Interpretarlo ayuda a construir el sentido global del texto.",
+    "teoria": "El título anticipa el tema, la tesis o una metáfora del contenido. Interpretarlo ayuda a construir el sentido global del texto.",
     "explicacion": "Lee el título y preguntate: de que creo que va a tratar? Es literal o metaforico? Luego lee el texto y comprueba la relación.",
-    "regla": "El título puede anticipar el tema, la tesis o una metafora del texto.",
+    "regla": "El título puede anticipar el tema, la tesis o una metáfora del texto.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el título anticipa que se hablara de los costos (no monetarios) de ser famoso.",
     "ejemplo_incorrecto": "Decir que el título no tiene relación porque es metaforico. Los títulos metaforicos también se relacionan con el contenido.",
     "numero_global": 92
@@ -655,7 +655,7 @@
     "teoria": "Los textos periodisticos y argumentativos mezclan hechos (verificables, objetivos) con opiniones (valoraciones, subjetivas). Distinguirlos es un proceso de P4 (análisis y evaluación) esencial para la lectura crítica. Un hecho puede verificarse; una opinión puede discutirse.",
     "explicacion": "Para distinguir hecho de opinión: (1) preguntarse si la afirmación puede verificarse con datos externos; (2) buscar marcas de subjetividad (adjetivos valorativos, verbos de opinión como 'creo', 'considero', 'deberia'); (3) clasificar cada oración. Una oración puede contener ambos: 'El ayuntamiento aprobó la ley (hecho); fue una decisión acertada (opinión).'",
     "regla": "Un hecho se verifica; una opinión se valora. Las marcas de subjetividad (adjetivos, verbos de opinión) delatan la opinión.",
-    "ejemplo_correcto": "Texto: 'El ayuntamiento aprobó la ordenanza el martes. La medida, sin embargo, es insuficiente.' -> 'Aprobo la ordenanza' es hecho (verificable). 'Es insuficiente' es opinión (valorativa).",
+    "ejemplo_correcto": "Texto: 'El ayuntamiento aprobó la ordenanza el martes. La medida, sin embargo, es insuficiente.' -> 'Aprobó la ordenanza' es hecho (verificable). 'Es insuficiente' es opinión (valorativa).",
     "ejemplo_incorrecto": "Lector que clasifica todo como 'hecho' porque el texto es periodistico. El genero no garantiza objetividad: la segunda oración es claramente valorativa.",
     "numero_global": 7
   },
@@ -667,7 +667,7 @@
     "teoria": "Los conectores (pero, aunque, sin embargo, por tanto, porque) indican la relación lógica entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
     "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
-    "ejemplo_correcto": "En 'Estudio mucho, pero no apruebo', el conector 'pero' marca contraste.",
+    "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición.",
     "numero_global": 11
   },
@@ -676,11 +676,11 @@
     "proceso": "P2",
     "nivel_mcer": "B2",
     "titulo": "Inferir la intención de un personaje a partir de sus palabras",
-    "teoria": "Lo que un personaje dice no siempre coincide con lo que quiere. La ironia, el sarcasmo y las indirectas requieren que el lector infiera la intención real.",
-    "explicacion": "Observa el tono y el contexto. Si las palabras contradicen las acciones o el tono, puede haber ironia. Preguntate: 'que quiere lograr el personaje al decir esto?'.",
+    "teoria": "Lo que un personaje dice no siempre coincide con lo que quiere. La ironía, el sarcasmo y las indirectas requieren que el lector infiera la intención real.",
+    "explicacion": "Observa el tono y el contexto. Si las palabras contradicen las acciones o el tono, puede haber ironía. Preguntate: 'que quiere lograr el personaje al decir esto?'.",
     "regla": "La intención del personaje se infiere del tono y del contexto, no solo de las palabras literales.",
-    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', se infiere ironia: el hablante crítica la impuntualidad.",
-    "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. El contexto de 'dos horas tarde' indica ironia.",
+    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', se infiere ironía: el hablante crítica la impuntualidad.",
+    "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. El contexto de 'dos horas tarde' indica ironía.",
     "numero_global": 15
   },
   {
@@ -795,10 +795,10 @@
     "numero": 14,
     "proceso": "P2",
     "nivel_mcer": "B2",
-    "titulo": "Inferir la intención de una pregunta retorica",
-    "teoria": "Una pregunta retorica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
+    "titulo": "Inferir la intención de una pregunta retórica",
+    "teoria": "Una pregunta retórica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
     "explicacion": "Preguntate: la pregunta espera respuesta o ya la sugiere? La intención se infiere del contexto. 'Quien puede negar que...?' afirma que algo es evidente.",
-    "regla": "La pregunta retorica no espera respuesta: su intención se infiere del contexto argumentativo.",
+    "regla": "La pregunta retórica no espera respuesta: su intención se infiere del contexto argumentativo.",
     "ejemplo_correcto": "En 'Quien puede negar que el reciclaje es necesario?', la pregunta afirma que el reciclaje es necesario.",
     "ejemplo_incorrecto": "Responder 'si' o 'no' a la pregunta. Las preguntas retoricas no esperan respuesta.",
     "numero_global": 67
@@ -953,8 +953,8 @@
     "nivel_mcer": "C1",
     "titulo": "Relacionar el título con el contenido del texto",
     "teoria": "El título anticipa el tema o la tesis del texto. Relacionarlo con el contenido ayuda a construir el sentido global.",
-    "explicacion": "Lee el título y preguntate: de que creo que va a tratar? Luego lee el texto y comprueba si el título anticipa el tema, la tesis o una metafora.",
-    "regla": "El título puede anticipar el tema, la tesis o una metafora del contenido.",
+    "explicacion": "Lee el título y preguntate: de que creo que va a tratar? Luego lee el texto y comprueba si el título anticipa el tema, la tesis o una metáfora.",
+    "regla": "El título puede anticipar el tema, la tesis o una metáfora del contenido.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el título anticipa que se hablara de los costos (no monetarios) de ser famoso.",
     "ejemplo_incorrecto": "Decir que el título no tiene relación con el texto porque es metaforico. Los títulos metaforicos también se relacionan con el contenido.",
     "numero_global": 35
@@ -1016,7 +1016,7 @@
     "explicacion": "Observa el vocabulario (técnico o coloquial), los ejemplos (cotidianos o especializados), el tono (formal o cercano). Esas pistas revelan a quien va dirigido el texto.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono del texto.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
-    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningun texto se dirige a todos por igual.",
+    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningún texto se dirige a todos por igual.",
     "numero_global": 68
   },
   {
@@ -1048,9 +1048,9 @@
     "proceso": "P2",
     "nivel_mcer": "C1",
     "titulo": "Inferir el contexto histórico de un texto",
-    "teoria": "En los textos literarios e historicos, el contexto histórico (epoca, lugar, conflicto) no siempre se declara: se infiere de los detalles (vestimenta, tecnologia, costumbres, referencias).",
-    "explicacion": "Observa los detalles del texto: que tecnologia se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto histórico.",
-    "regla": "El contexto histórico se infiere de los detalles: tecnologia, costumbres, referencias.",
+    "teoria": "En los textos literarios e historicos, el contexto histórico (epoca, lugar, conflicto) no siempre se declara: se infiere de los detalles (vestimenta, tecnología, costumbres, referencias).",
+    "explicacion": "Observa los detalles del texto: que tecnología se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto histórico.",
+    "regla": "El contexto histórico se infiere de los detalles: tecnología, costumbres, referencias.",
     "ejemplo_correcto": "En un texto que menciona 'carrozas tiradas por caballos' y 'cartas escritas a mano', se infiere un contexto anterior al siglo XX.",
     "ejemplo_incorrecto": "Decir que no hay contexto histórico porque no se dice la fecha. Los detalles permiten inferirlo.",
     "numero_global": 89
@@ -1063,7 +1063,7 @@
     "teoria": "La falacia ad hominem ataca a la persona que sostiene un argumento en lugar de refutar el argumento mismo. Detectar esta falacia es esencial para la lectura crítica.",
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado, su apariencia), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
-    "ejemplo_correcto": "En 'No escuches a Juan sobre economia: es un fracasado', hay ad hominem: se ataca a Juan, no a su argumento.",
+    "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem: se ataca a Juan, no a su argumento.",
     "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento.",
     "numero_global": 99
   },
@@ -1071,12 +1071,12 @@
     "numero": 1,
     "proceso": "P2",
     "nivel_mcer": "C2",
-    "titulo": "Inferir el significado implicito de una metafora",
+    "titulo": "Inferir el significado implicito de una metáfora",
     "teoria": "Las metaforas no dicen literalmente lo que significan. Requieren que el lector infiera el sentido figurado a partir del contexto.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate que característica comparten. Verifica que la interpretación sea coherente con el resto del texto.",
-    "regla": "La metafora compara dos terminos por una característica comun; el sentido figurado se infiere de esa comparación.",
+    "regla": "La metáfora compara dos terminos por una característica comun; el sentido figurado se infiere de esa comparación.",
     "ejemplo_correcto": "En 'Sus ojos eran dos luceros', se infiere que los ojos brillaban o eran hermosos.",
-    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metafora no es literal.",
+    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metáfora no es literal.",
     "numero_global": 17
   },
   {
@@ -1119,11 +1119,11 @@
     "numero": 5,
     "proceso": "P3",
     "nivel_mcer": "C2",
-    "titulo": "Interpretar la ironia en un texto",
-    "teoria": "La ironia consiste en decir lo contrario de lo que se quiere comunicar, con un tono que permite inferir el sentido real.",
+    "titulo": "Interpretar la ironía en un texto",
+    "teoria": "La ironía consiste en decir lo contrario de lo que se quiere comunicar, con un tono que permite inferir el sentido real.",
     "explicacion": "Busca contradicciones entre lo que se dice y el contexto.",
-    "regla": "La ironia se reconoce por la contradicción entre lo dicho y el contexto.",
-    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironia se infiere del contraste.",
+    "regla": "La ironía se reconoce por la contradicción entre lo dicho y el contexto.",
+    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironía se infiere del contraste.",
     "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio.",
     "numero_global": 53
   },
@@ -1144,7 +1144,7 @@
     "proceso": "P3",
     "nivel_mcer": "C2",
     "titulo": "Interpretar la ambiguedad deliberada de un texto literario",
-    "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metafora polisemica). Interpretar esa ambiguedad es parte de la lectura literaria avanzada.",
+    "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metáfora polisemica). Interpretar esa ambiguedad es parte de la lectura literaria avanzada.",
     "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuantas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambiguedad no es un defecto: es un recurso.",
     "regla": "La ambiguedad literaria permite varias interpretaciones igualmente validas; el lector elige la más coherente.",
     "ejemplo_correcto": "En un cuento que termina con 'Y entonces desperto', el final puede ser real (desperto de un sueño) o metaforico (desperto a la realidad).",
@@ -1171,7 +1171,7 @@
     "teoria": "En los discursos argumentativos, las falacias son razonamientos incorrectos que parecen validos. Localizarlas es esencial para evaluar criticamente el discurso.",
     "explicacion": "Busca los patrones tipicos de falacia: ataque personal (ad hominem), falso dilema, generalización, apelación a la emoción. Identifica la conclusión que se quiere sostener y el razonamiento que la sostiene.",
     "regla": "La falacia se reconoce por el patron incorrecto del razonamiento: ataque personal, falso dilema, generalización.",
-    "ejemplo_correcto": "En 'No escuches a Juan sobre economia: es un fracasado', hay una falacia ad hominem: se ataca a la persona, no al argumento.",
+    "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay una falacia ad hominem: se ataca a la persona, no al argumento.",
     "ejemplo_incorrecto": "Aceptar la conclusión porque el argumento suena convincente. La falacia no se detecta por el sonido, sino por el patron.",
     "numero_global": 84
   },
@@ -1241,7 +1241,7 @@
     "explicacion": "Para localizar un nombre propio, busca palabras que empiecen con mayúscula en medio de la oración (no al principio). Esas palabras nombran a alguien o algo concreto: María, Madrid, España, Coca-Cola. Ejemplo: en 'María vive en Madrid', 'María' y 'Madrid' son nombres propios.",
     "regla": "Los nombres propios nombran a alguien o algo concreto y se escriben con mayúscula.",
     "ejemplo_correcto": "En 'Pedro y Ana viajan a París', los nombres propios son 'Pedro', 'Ana' y 'París'.",
-    "ejemplo_incorrecto": "Decir que 'niño' es un nombre propio. 'Nino' es un nombre comun (cualquier niño), no uno especifico."
+    "ejemplo_incorrecto": "Decir que 'niño' es un nombre propio. 'Niño' es un nombre comun (cualquier niño), no uno especifico."
   },
   {
     "numero": 19,
@@ -1373,7 +1373,7 @@
     "explicacion": "Para localizar un demostrativo, busca las palabras que indican a que distancia esta algo. Ejemplo: en 'Este libro es mio', el demostrativo es 'este' (libro cerca).",
     "regla": "Los demostrativos indican distancia: este, ese, aquel...",
     "ejemplo_correcto": "En 'Aquella montaña es alta', el demostrativo es 'aquella' (montaña lejos).",
-    "ejemplo_incorrecto": "Decir que 'montaña' es un demostrativo. 'Montana' es un sustantivo."
+    "ejemplo_incorrecto": "Decir que 'montaña' es un demostrativo. 'Montaña' es un sustantivo."
   },
   {
     "numero": 31,
@@ -1437,9 +1437,9 @@
     "titulo": "Inferir el estado de animó de un personaje",
     "teoria": "En los cuentos, el estado de animó de un personaje se infiere de sus acciones y expresiones: si llora, esta triste; si rie, esta contento; si tiembla, tiene miedo.",
     "explicacion": "Para inferir el estado de animó, observa lo que hace el personaje. Preguntate: que emoción explica esa acción? Ejemplo: si un personaje llora, probablemente esta triste.",
-    "regla": "El estado de animó se infiere de las acciones: llorar=tristeza, reir=alegria, temblar=miedo.",
+    "regla": "El estado de animó se infiere de las acciones: llorar=tristeza, reir=alegría, temblar=miedo.",
     "ejemplo_correcto": "En 'Juan saltaba y reía sin parar', se infiere que Juan esta contento.",
-    "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegria."
+    "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegría."
   },
   {
     "numero": 37,
@@ -1501,7 +1501,7 @@
     "nivel_mcer": "A1",
     "proceso": "P2",
     "titulo": "Inferir si un texto es real o imaginario",
-    "teoria": "Los textos pueden ser reales (hechos que pueden ocurrir) o imaginarios (ficción, fantasia). Distinguirlos es básico para comprender el tipo de texto.",
+    "teoria": "Los textos pueden ser reales (hechos que pueden ocurrir) o imaginarios (ficción, fantasía). Distinguirlos es básico para comprender el tipo de texto.",
     "explicacion": "Para inferir si un texto es real o imaginario, preguntate: los hechos podrian ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, es imaginario.",
     "regla": "Un texto es imaginario si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', se infiere que es imaginario: los dragones no existen.",
@@ -1567,7 +1567,7 @@
     "nivel_mcer": "A1",
     "proceso": "P2",
     "titulo": "Inferir el significado de un gesto",
-    "teoria": "En los cuentos, los gestos comunican emociones o intenciones: guinar un ojo sugiere complicidad, encogerse de hombros sugiere duda, sonreir sugiere alegria.",
+    "teoria": "En los cuentos, los gestos comunican emociones o intenciones: guinar un ojo sugiere complicidad, encogerse de hombros sugiere duda, sonreir sugiere alegría.",
     "explicacion": "Para inferir el significado de un gesto, observa el contexto: que situación lo provoca? Que emoción lo acompana? Ejemplo: si alguien se encoge de hombros, probablemente no sabe o no le importa.",
     "regla": "El gesto se infiere de la emoción o intención que lo motiva en el contexto.",
     "ejemplo_correcto": "En 'Le guino un ojo a su hermano', el guino sugiere complicidad.",
@@ -1710,9 +1710,9 @@
     "nivel_mcer": "A1",
     "proceso": "P3",
     "titulo": "Interpretar el título de un cuento",
-    "teoria": "El título de un cuento anticipa el tema, el personaje principal o una metafora. Interpretarlo ayuda a construir el sentido global del cuento.",
+    "teoria": "El título de un cuento anticipa el tema, el personaje principal o una metáfora. Interpretarlo ayuda a construir el sentido global del cuento.",
     "explicacion": "Lee el título y preguntate: de que creo que va a tratar? Es literal o metaforico? Luego lee el cuento y comprueba la relación.",
-    "regla": "El título puede anticipar el tema, el personaje o una metafora del cuento.",
+    "regla": "El título puede anticipar el tema, el personaje o una metáfora del cuento.",
     "ejemplo_correcto": "En un cuento titulado 'El patito feo', el título anticipa que se hablara de un patito que no encaja.",
     "ejemplo_incorrecto": "Decir que el título no tiene relación porque es metaforico."
   },
@@ -1790,7 +1790,7 @@
     "teoria": "Cada tipo de texto tiene características propias: el cuento narra, la noticia informa, el poema expresa emociones con ritmo, la receta instruye.",
     "explicacion": "Observa la forma y el contenido. Hay narración con personajes? Es un cuento. Hay datos y fecha? Es una noticia. Hay versos y rima? Es un poema. Hay ingredientes y pasos? Es una receta.",
     "regla": "El tipo de texto se reconoce por sus características formales y de contenido.",
-    "ejemplo_correcto": "En 'Habia una vez un dragon...', el texto es un cuento por la formula inicial y la narración.",
+    "ejemplo_correcto": "En 'Había una vez un dragon...', el texto es un cuento por la formula inicial y la narración.",
     "ejemplo_incorrecto": "Decir que es una noticia porque tiene personajes. Los personajes de ficción indican cuento."
   },
   {
@@ -1863,12 +1863,12 @@
     "numero": 75,
     "nivel_mcer": "A1",
     "proceso": "P3",
-    "titulo": "Reconocer la hiperbole en un texto",
-    "teoria": "La hiperbole es una exageración intencionada para enfatizar una idea. Se reconoce porque dice algo imposible o desproporcionado.",
-    "explicacion": "Para reconocer una hiperbole, busca afirmaciones exageradas: 'te lo dije mil veces', 'llore rios de lagrimas'.",
-    "regla": "La hiperbole es una exageración intencionada para enfatizar.",
-    "ejemplo_correcto": "En 'Tengo un hambre que me comeria un elefante', hay una hiperbole (exageración).",
-    "ejemplo_incorrecto": "Decir que 'tengo hambre' es una hiperbole. Es una afirmación literal."
+    "titulo": "Reconocer la hipérbole en un texto",
+    "teoria": "La hipérbole es una exageración intencionada para enfatizar una idea. Se reconoce porque dice algo imposible o desproporcionado.",
+    "explicacion": "Para reconocer una hipérbole, busca afirmaciones exageradas: 'te lo dije mil veces', 'llore rios de lagrimas'.",
+    "regla": "La hipérbole es una exageración intencionada para enfatizar.",
+    "ejemplo_correcto": "En 'Tengo un hambre que me comeria un elefante', hay una hipérbole (exageración).",
+    "ejemplo_incorrecto": "Decir que 'tengo hambre' es una hipérbole. Es una afirmación literal."
   },
   {
     "numero": 76,
@@ -1907,12 +1907,12 @@
     "numero": 79,
     "nivel_mcer": "A1",
     "proceso": "P4",
-    "titulo": "Distinguir realidad de fantasia en un texto",
-    "teoria": "La realidad incluye hechos posibles o verificables. La fantasia incluye elementos imposibles o inventados (dragones, magia, animales que hablan). Distinguirlos es básico para saber que tipo de texto se lee.",
-    "explicacion": "Para distinguir realidad de fantasia, preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles? Si los hay, es fantasia.",
-    "regla": "La realidad es posible o verificable; la fantasia incluye elementos imposibles.",
-    "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasia: los caballos no vuelan.",
-    "ejemplo_incorrecto": "Decir que todo el texto es fantasia porque hay un caballo. El caballo existe; lo fantastico es que vuele."
+    "titulo": "Distinguir realidad de fantasía en un texto",
+    "teoria": "La realidad incluye hechos posibles o verificables. La fantasía incluye elementos imposibles o inventados (dragones, magia, animales que hablan). Distinguirlos es básico para saber que tipo de texto se lee.",
+    "explicacion": "Para distinguir realidad de fantasía, preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles? Si los hay, es fantasía.",
+    "regla": "La realidad es posible o verificable; la fantasía incluye elementos imposibles.",
+    "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
+    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele."
   },
   {
     "numero": 80,
@@ -1956,7 +1956,7 @@
     "explicacion": "Para identificar el público objetivo, observa el vocabulario (técnico o sencillo), los ejemplos (cotidianos o especializados) y el tono (formal o cercano).",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
-    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningun texto se dirige a todos por igual."
+    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningún texto se dirige a todos por igual."
   },
   {
     "numero": 84,
@@ -2131,7 +2131,7 @@
     "teoria": "Un resumen condensa las ideas principales de un texto original. Un resumen no incluye ejemplos ni detalles secundarios.",
     "explicacion": "Para reconocer la diferencia, compara la extensión y el nivel de detalle. El resumen es más corto y solo incluye lo esencial.",
     "regla": "El resumen condensa las ideas principales; el original incluye todos los detalles.",
-    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energia, materiales y reduce residuos.'",
+    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energía, materiales y reduce residuos.'",
     "ejemplo_incorrecto": "Decir que un resumen debe incluir todos los ejemplos del original. El resumen omite los ejemplos."
   },
   {
@@ -2186,7 +2186,7 @@
     "teoria": "Los conectores (pero, aunque, sin embargo, por tanto, porque) indican la relación lógica entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
     "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
-    "ejemplo_correcto": "En 'Estudio mucho, pero no apruebo', el conector 'pero' marca contraste.",
+    "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición."
   },
   {
@@ -2272,7 +2272,7 @@
     "proceso": "P1",
     "titulo": "Localizar datos en una tabla",
     "teoria": "Las tablas organizan información en filas y columnas. Localizar un dato requiere identificar el título, los encabezados de fila y columna, y leer la celda en la intersección.",
-    "explicacion": "Primero identifica el título de la tabla. Luego busca la fila (categoria) y la columna (variable) que corresponden a la pregunta. El dato esta en la intersección.",
+    "explicacion": "Primero identifica el título de la tabla. Luego busca la fila (categoría) y la columna (variable) que corresponden a la pregunta. El dato esta en la intersección.",
     "regla": "En una tabla, el dato esta en la intersección de la fila y la columna buscadas.",
     "ejemplo_correcto": "En una tabla de alumnos por curso y convocatoria, para saber cuantos de 3o aprobaron en junio se busca la fila '3o' y la columna 'junio'.",
     "ejemplo_incorrecto": "Buscar '3o' en el texto que acompana la tabla, no en la tabla misma."
@@ -2283,7 +2283,7 @@
     "proceso": "P1",
     "titulo": "Localizar datos en un grafico simple",
     "teoria": "Los graficos (barras, lineas, sectores) representan datos visualmente. Localizar un dato requiere identificar los ejes, las etiquetas y el valor correspondiente.",
-    "explicacion": "Identifica los ejes (horizontal y vertical). Busca la etiqueta de la categoria. Lee el valor asociado (altura de la barra, posición en el eje).",
+    "explicacion": "Identifica los ejes (horizontal y vertical). Busca la etiqueta de la categoría. Lee el valor asociado (altura de la barra, posición en el eje).",
     "regla": "En un grafico, el dato se localiza identificando ejes, etiquetas y valor.",
     "ejemplo_correcto": "En un grafico de barras de ventas por mes, para saber las ventas de mayo se busca la barra 'mayo' y se lee su altura.",
     "ejemplo_incorrecto": "Decir que la barra más alta es siempre la respuesta. Depende de la pregunta."
@@ -2294,7 +2294,7 @@
     "proceso": "P1",
     "titulo": "Localizar los tiempos verbales (pasado, presente, futuro)",
     "teoria": "Los tiempos verbales indican cuando ocurre la acción: pasado (ayer, comio), presente (hoy, come), futuro (mañana, comera). Localizarlos ayuda a situar la acción en el tiempo.",
-    "explicacion": "Busca los verbos y fijate en su terminación. 'Canto' (pasado), 'cantó' (presente), 'cantare' (futuro).",
+    "explicacion": "Busca los verbos y fijate en su terminación. 'Cantó' (pasado), 'cantó' (presente), 'cantare' (futuro).",
     "regla": "El tiempo verbal situa la acción: pasado, presente o futuro.",
     "ejemplo_correcto": "En 'Ayer comi pizza', el verbo 'comi' indica pasado.",
     "ejemplo_incorrecto": "Decir que 'pizza' es un tiempo verbal. 'Pizza' es un sustantivo."
@@ -2318,8 +2318,8 @@
     "teoria": "Los adverbios de modo indican como se realiza la acción: 'rápidamente', 'bien', 'mal', 'lentamente', 'cuidadosamente'. Suelen terminar en '-mente'.",
     "explicacion": "Busca las palabras que indican como se hace algo. Suelen terminar en '-mente' o ser 'bien', 'mal', 'así'.",
     "regla": "El adverbio de modo indica como se realiza la acción: rápidamente, bien, mal.",
-    "ejemplo_correcto": "En 'Corrio rápidamente', 'rápidamente' es un adverbio de modo.",
-    "ejemplo_incorrecto": "Decir que 'corrió' es un adverbio. 'Corrio' es un verbo."
+    "ejemplo_correcto": "En 'Corrió rápidamente', 'rápidamente' es un adverbio de modo.",
+    "ejemplo_incorrecto": "Decir que 'corrió' es un adverbio. 'Corrió' es un verbo."
   },
   {
     "numero": 35,
@@ -2393,7 +2393,7 @@
     "proceso": "P2",
     "titulo": "Inferir el estado de animó por multiples acciones",
     "teoria": "En los cuentos, el estado de animó se infiere de varias pistas combinadas: gestos, palabras, acciones y contexto. Una sola pista no basta; el conjunto da la clave.",
-    "explicacion": "Combina varias acciones: si el personaje llora, se encierra y no habla, la tristeza es segura. Si sonrie, canta y abraza, la alegria.",
+    "explicacion": "Combina varias acciones: si el personaje llora, se encierra y no habla, la tristeza es segura. Si sonrie, canta y abraza, la alegría.",
     "regla": "El estado de animó se infiere combinando gestos, palabras, acciones y contexto.",
     "ejemplo_correcto": "En 'Juan no comía, no hablaba y miraba al suelo', se infiere tristeza por la combinación de pistas.",
     "ejemplo_incorrecto": "Decir que Juan esta contento porque mira al suelo. La combinación indica tristeza."
@@ -2446,10 +2446,10 @@
     "numero": 46,
     "nivel_mcer": "A2",
     "proceso": "P2",
-    "titulo": "Inferir la intención de una pregunta retorica",
-    "teoria": "Una pregunta retorica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
+    "titulo": "Inferir la intención de una pregunta retórica",
+    "teoria": "Una pregunta retórica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
     "explicacion": "Preguntate: la pregunta espera respuesta o ya la sugiere? 'Quien puede negar que...?' afirma que algo es evidente.",
-    "regla": "La pregunta retorica no espera respuesta: su intención se infiere del contexto argumentativo.",
+    "regla": "La pregunta retórica no espera respuesta: su intención se infiere del contexto argumentativo.",
     "ejemplo_correcto": "En '¿Quién puede negar que el reciclaje es necesario?', la pregunta afirma que el reciclaje es necesario.",
     "ejemplo_incorrecto": "Responder 'si' o 'no' a la pregunta. Las preguntas retoricas no esperan respuesta."
   },
@@ -2457,11 +2457,11 @@
     "numero": 47,
     "nivel_mcer": "A2",
     "proceso": "P2",
-    "titulo": "Inferir la ironia básica",
-    "teoria": "La ironia consiste en decir lo contrario de lo que se quiere comunicar. Se infiere del contraste entre lo dicho y el contexto o el tono.",
+    "titulo": "Inferir la ironía básica",
+    "teoria": "La ironía consiste en decir lo contrario de lo que se quiere comunicar. Se infiere del contraste entre lo dicho y el contexto o el tono.",
     "explicacion": "Busca contradicciones entre lo que se dice y el contexto. Preguntate: el autor realmente cree lo que dice, o lo dice para criticarlo?",
-    "regla": "La ironia se reconoce por la contradicción entre lo dicho y el contexto.",
-    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironia se infiere del contraste.",
+    "regla": "La ironía se reconoce por la contradicción entre lo dicho y el contexto.",
+    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironía se infiere del contraste.",
     "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. El contexto niega esa interpretación."
   },
   {
@@ -2495,16 +2495,16 @@
     "explicacion": "Observa el vocabulario (técnico o cotidiano), los ejemplos (cotidianos o especializados) y el tono. Esas pistas revelan a quien va dirigido.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
-    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningun texto se dirige a todos por igual."
+    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningún texto se dirige a todos por igual."
   },
   {
     "numero": 51,
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir el contexto histórico por los detalles",
-    "teoria": "El contexto histórico (epoca, lugar, conflicto) se infiere de los detalles del texto: tecnologia, costumbres, referencias historicas, personajes reales.",
-    "explicacion": "Observa los detalles: que tecnologia se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto.",
-    "regla": "El contexto histórico se infiere de los detalles: tecnologia, costumbres, referencias.",
+    "teoria": "El contexto histórico (epoca, lugar, conflicto) se infiere de los detalles del texto: tecnología, costumbres, referencias historicas, personajes reales.",
+    "explicacion": "Observa los detalles: que tecnología se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto.",
+    "regla": "El contexto histórico se infiere de los detalles: tecnología, costumbres, referencias.",
     "ejemplo_correcto": "En un texto que menciona 'carrozas tiradas por caballos' y 'cartas escritas a mano', se infiere un contexto anterior al siglo XX.",
     "ejemplo_incorrecto": "Decir que no hay contexto histórico porque no se dice la fecha. Los detalles permiten inferirlo."
   },
@@ -2527,7 +2527,7 @@
     "teoria": "El conflicto interno es la lucha del personaje consigo mismo: dudas, miedos, deseos contrapuestos. Se infiere de sus pensamientos, acciones contradictorias y emociones.",
     "explicacion": "Observa las contradicciones: dice una cosa y hace otra? Duda? Se arrepiente? El conflicto interno se infiere de la tensión entre sus deseos y sus acciones.",
     "regla": "El conflicto interno se infiere de las contradicciones y dudas del personaje.",
-    "ejemplo_correcto": "En 'Queria ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
+    "ejemplo_correcto": "En 'Quería ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
     "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explicitamente. La contradicción lo revela."
   },
   {
@@ -2556,12 +2556,12 @@
     "numero": 56,
     "nivel_mcer": "A2",
     "proceso": "P2",
-    "titulo": "Inferir el significado de una metafora simple",
-    "teoria": "Una metafora compara dos cosas sin usar 'como'. Su significado se infiere del contexto: 'sus ojos eran dos luceros' significa que brillaban.",
+    "titulo": "Inferir el significado de una metáfora simple",
+    "teoria": "Una metáfora compara dos cosas sin usar 'como'. Su significado se infiere del contexto: 'sus ojos eran dos luceros' significa que brillaban.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: que característica comparten? Verifica que la interpretación sea coherente con el resto del texto.",
-    "regla": "La metafora compara dos terminos por una característica comun; el sentido figurado se infiere.",
+    "regla": "La metáfora compara dos terminos por una característica comun; el sentido figurado se infiere.",
     "ejemplo_correcto": "En 'Sus ojos eran dos luceros', se infiere que los ojos brillaban o eran hermosos.",
-    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metafora no es literal."
+    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metáfora no es literal."
   },
   {
     "numero": 57,
@@ -2612,9 +2612,9 @@
     "nivel_mcer": "A2",
     "proceso": "P3",
     "titulo": "Interpretar el título en relación con el contenido",
-    "teoria": "El título anticipa el tema, la tesis o una metafora del contenido. Interpretarlo ayuda a construir el sentido global del texto.",
+    "teoria": "El título anticipa el tema, la tesis o una metáfora del contenido. Interpretarlo ayuda a construir el sentido global del texto.",
     "explicacion": "Lee el título y preguntate: de que creo que va a tratar? Es literal o metaforico? Luego lee el texto y comprueba la relación.",
-    "regla": "El título puede anticipar el tema, la tesis o una metafora del contenido.",
+    "regla": "El título puede anticipar el tema, la tesis o una metáfora del contenido.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el título anticipa que se hablara de los costos de ser famoso.",
     "ejemplo_incorrecto": "Decir que el título no tiene relación porque es metaforico. Los títulos metaforicos también se relacionan con el contenido."
   },
@@ -2769,7 +2769,7 @@
     "teoria": "La analepsis (flashback) es un saltó al pasado dentro de la narración. Se usa para explicar el presente, dar información o crear suspense.",
     "explicacion": "Busca los cambios al pasado: 'recordó que...', 'años antes...'. Preguntate: por que el autor vuelve al pasado?",
     "regla": "La analepsis es un saltó al pasado que explica el presente o da información.",
-    "ejemplo_correcto": "En un cuento que empieza 'Recordo aquel verano...', hay una analepsis.",
+    "ejemplo_correcto": "En un cuento que empieza 'Recordó aquel verano...', hay una analepsis.",
     "ejemplo_incorrecto": "Decir que todo el texto es un flashback. Solo hay flashback en las partes que vuelven al pasado."
   },
   {
@@ -2780,7 +2780,7 @@
     "teoria": "La prolepsis (flashforward) es un saltó al futuro dentro de la narración. Se usa para anticipar lo que va a pasar o crear suspense.",
     "explicacion": "Busca los cambios al futuro: 'años después...', 'tiempo después...'. Preguntate: por que el autor adelanta el futuro?",
     "regla": "La prolepsis es un saltó al futuro que anticipa lo que va a pasar.",
-    "ejemplo_correcto": "En un cuento que dice 'Anos después, ella lo entenderia', hay una prolepsis.",
+    "ejemplo_correcto": "En un cuento que dice 'Años después, ella lo entenderia', hay una prolepsis.",
     "ejemplo_incorrecto": "Decir que todo el texto es un flashforward. Solo hay prolepsis en las partes que anticipan el futuro."
   },
   {
@@ -2802,7 +2802,7 @@
     "teoria": "Cada tipo de texto tiene características formales propias: el artículo de opinión argumenta, la noticia informa, el cuento narra, el poema expresa con ritmo.",
     "explicacion": "Observa la forma y el proposito. Hay narración? Es un cuento. Hay datos y fecha? Es una noticia. Hay argumentos? Es un artículo.",
     "regla": "El tipo de texto se reconoce por sus características formales y su proposito.",
-    "ejemplo_correcto": "En 'Habia una vez...', es un cuento. En 'Ayer el alcalde inauguro...', es una noticia.",
+    "ejemplo_correcto": "En 'Había una vez...', es un cuento. En 'Ayer el alcalde inauguro...', es una noticia.",
     "ejemplo_incorrecto": "Decir que todo texto narrativo es un cuento. Una noticia también puede narrar."
   },
   {
@@ -2868,7 +2868,7 @@
     "teoria": "La falacia ad hominem ataca a la persona que sostiene un argumento en lugar de refutar el argumento mismo. Detectar esta falacia es esencial para la lectura crítica.",
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
-    "ejemplo_correcto": "En 'No escuches a Juan sobre economia: es un fracasado', hay ad hominem.",
+    "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem.",
     "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
   },
   {
@@ -3022,7 +3022,7 @@
     "teoria": "Un resumen condensa las ideas principales de un texto original. Un resumen no incluye ejemplos ni detalles secundarios.",
     "explicacion": "Compara la extensión y el nivel de detalle. El resumen es más corto y solo incluye lo esencial.",
     "regla": "El resumen condensa las ideas principales; el original incluye todos los detalles.",
-    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energia, materiales y reduce residuos.'",
+    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energía, materiales y reduce residuos.'",
     "ejemplo_incorrecto": "Decir que un resumen debe incluir todos los ejemplos del original. El resumen omite los ejemplos."
   },
   {
@@ -3055,7 +3055,7 @@
     "teoria": "Los conectores logicos (pero, aunque, sin embargo, por tanto, porque, además) indican la relación entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
     "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
-    "ejemplo_correcto": "En 'Estudio mucho, pero no apruebo', el conector 'pero' marca contraste.",
+    "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición."
   },
   {
@@ -3096,8 +3096,8 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar los hiperonimos e hiponimos",
-    "teoria": "Un hiperonimo es una palabra que engloba a otras (fruta engloba a manzana, pera, platano). Un hiponimo es una palabra especifica dentro de una categoria. Localizarlos ayuda a comprender la organización conceptual del texto.",
-    "explicacion": "Busca las relaciones de inclusión: hay una palabra que engloba a otras? Cual es la categoria y cual el elemento especifico?",
+    "teoria": "Un hiperonimo es una palabra que engloba a otras (fruta engloba a manzana, pera, platano). Un hiponimo es una palabra especifica dentro de una categoría. Localizarlos ayuda a comprender la organización conceptual del texto.",
+    "explicacion": "Busca las relaciones de inclusión: hay una palabra que engloba a otras? Cual es la categoría y cual el elemento especifico?",
     "regla": "El hiperonimo engloba al hiponimo: fruta (hiperonimo) engloba a manzana (hiponimo).",
     "ejemplo_correcto": "En 'Las frutas como la manzana y la pera son saludables', 'fruta' es hiperonimo y 'manzana'/'pera' son hiponimos.",
     "ejemplo_incorrecto": "Decir que 'manzana' es hiperonimo de 'fruta'. La relación es al reves: 'fruta' engloba a 'manzana'."
@@ -3152,7 +3152,7 @@
     "proceso": "P1",
     "titulo": "Localizar los tiempos verbales y su valor en el texto",
     "teoria": "Los tiempos verbales indican cuando ocurre la acción (pasado, presente, futuro) y su aspecto (acabado, en desarrollo). Localizarlos ayuda a situar la acción y comprender el proposito del texto.",
-    "explicacion": "Busca los verbos y fijate en su tiempo. 'Canto' (presente), 'cante' (pasado), 'cantare' (futuro). El tiempo dominante revela el proposito del texto.",
+    "explicacion": "Busca los verbos y fijate en su tiempo. 'Cantó' (presente), 'cante' (pasado), 'cantare' (futuro). El tiempo dominante revela el proposito del texto.",
     "regla": "El tiempo verbal situa la acción: pasado, presente o futuro.",
     "ejemplo_correcto": "En un texto que dice 'Ayer llovio mucho', el verbo 'llovio' indica pasado.",
     "ejemplo_incorrecto": "Decir que 'lluvia' es un tiempo verbal. 'Lluvia' es un sustantivo, no un verbo."
@@ -3176,8 +3176,8 @@
     "teoria": "Los adverbios de modo indican como se realiza la acción: 'rápidamente', 'bien', 'mal', 'lentamente'. Suelen terminar en '-mente'. Localizarlos ayuda a comprender el matiz de la acción.",
     "explicacion": "Busca las palabras que indican como se hace algo. Suelen terminar en '-mente' o ser 'bien', 'mal', 'así'.",
     "regla": "El adverbio de modo indica como se realiza la acción: rápidamente, bien, mal.",
-    "ejemplo_correcto": "En 'Corrio rápidamente', 'rápidamente' es un adverbio de modo.",
-    "ejemplo_incorrecto": "Decir que 'corrió' es un adverbio. 'Corrio' es un verbo."
+    "ejemplo_correcto": "En 'Corrió rápidamente', 'rápidamente' es un adverbio de modo.",
+    "ejemplo_incorrecto": "Decir que 'corrió' es un adverbio. 'Corrió' es un verbo."
   },
   {
     "numero": 34,
@@ -3195,7 +3195,7 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar el título y su relación con el contenido",
-    "teoria": "El título anticipa el tema, la tesis o una metafora del contenido. Localizarlo es el primer pasó para comprender el texto: permite hacerse una idea de que trata antes de leerlo.",
+    "teoria": "El título anticipa el tema, la tesis o una metáfora del contenido. Localizarlo es el primer pasó para comprender el texto: permite hacerse una idea de que trata antes de leerlo.",
     "explicacion": "Localiza la linea destacada al inicio del texto (en negrita o más grande). Lee el contenido y comprueba si el título anticipa el tema o la tesis.",
     "regla": "El título esta al inicio del texto, destacado, y anticipa el tema o la tesis.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el título anticipa que se hablara de los costos de ser famoso.",
@@ -3216,12 +3216,12 @@
     "numero": 37,
     "nivel_mcer": "B1",
     "proceso": "P1",
-    "titulo": "Localizar las figuras literarias basicas (comparación, metafora)",
-    "teoria": "Las figuras literarias embellecen o intensifican el lenguaje. La comparación usa 'como' ('corre como el viento'); la metafora identifica un terminó con otro ('sus ojos son luceros'). Localizarlas ayuda a comprender el sentido figurado.",
-    "explicacion": "Busca expresiones con 'como' (comparación) o identificaciones sin 'como' (metafora). Preguntate: se dice lo mismo de forma literal o figurada?",
-    "regla": "La comparación usa 'como'; la metafora identifica dos terminos sin 'como'.",
-    "ejemplo_correcto": "En 'Corre como el viento', hay una comparación. En 'Sus ojos son dos luceros', hay una metafora.",
-    "ejemplo_incorrecto": "Decir que 'corre rápido' es una metafora. No hay identificación, solo un adverbio."
+    "titulo": "Localizar las figuras literarias basicas (comparación, metáfora)",
+    "teoria": "Las figuras literarias embellecen o intensifican el lenguaje. La comparación usa 'como' ('corre como el viento'); la metáfora identifica un terminó con otro ('sus ojos son luceros'). Localizarlas ayuda a comprender el sentido figurado.",
+    "explicacion": "Busca expresiones con 'como' (comparación) o identificaciones sin 'como' (metáfora). Preguntate: se dice lo mismo de forma literal o figurada?",
+    "regla": "La comparación usa 'como'; la metáfora identifica dos terminos sin 'como'.",
+    "ejemplo_correcto": "En 'Corre como el viento', hay una comparación. En 'Sus ojos son dos luceros', hay una metáfora.",
+    "ejemplo_incorrecto": "Decir que 'corre rápido' es una metáfora. No hay identificación, solo un adverbio."
   },
   {
     "numero": 38,
@@ -3273,7 +3273,7 @@
     "proceso": "P2",
     "titulo": "Inferir el estado de animó por multiples pistas",
     "teoria": "El estado de animó se infiere combinando varias pistas: gestos, palabras, acciones y contexto. Una sola pista no basta; el conjunto da la clave.",
-    "explicacion": "Combina varias acciones: si el personaje llora, se encierra y no habla, la tristeza es segura. Si sonrie, canta y abraza, la alegria.",
+    "explicacion": "Combina varias acciones: si el personaje llora, se encierra y no habla, la tristeza es segura. Si sonrie, canta y abraza, la alegría.",
     "regla": "El estado de animó se infiere combinando gestos, palabras, acciones y contexto.",
     "ejemplo_correcto": "En 'Juan no comía, no hablaba y miraba al suelo', se infiere tristeza por la combinación de pistas.",
     "ejemplo_incorrecto": "Decir que Juan esta contento porque mira al suelo. La combinación indica tristeza."
@@ -3319,7 +3319,7 @@
     "teoria": "El conflicto interno es la lucha del personaje consigo mismo: dudas, miedos, deseos contrapuestos. Se infiere de sus pensamientos, acciones contradictorias y emociones.",
     "explicacion": "Observa las contradicciones: dice una cosa y hace otra? Duda? Se arrepiente? El conflicto interno se infiere de la tensión entre sus deseos y sus acciones.",
     "regla": "El conflicto interno se infiere de las contradicciones y dudas del personaje.",
-    "ejemplo_correcto": "En 'Queria ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
+    "ejemplo_correcto": "En 'Quería ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
     "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explicitamente. La contradicción lo revela."
   },
   {
@@ -3327,9 +3327,9 @@
     "nivel_mcer": "B1",
     "proceso": "P2",
     "titulo": "Inferir el contexto histórico por los detalles",
-    "teoria": "El contexto histórico (epoca, lugar, conflicto) se infiere de los detalles del texto: tecnologia, costumbres, referencias historicas, personajes reales.",
-    "explicacion": "Observa los detalles: que tecnologia se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto.",
-    "regla": "El contexto histórico se infiere de los detalles: tecnologia, costumbres, referencias.",
+    "teoria": "El contexto histórico (epoca, lugar, conflicto) se infiere de los detalles del texto: tecnología, costumbres, referencias historicas, personajes reales.",
+    "explicacion": "Observa los detalles: que tecnología se menciona? Que costumbres? Hay referencias a guerras, inventos, movimientos? Esos detalles permiten ubicar el contexto.",
+    "regla": "El contexto histórico se infiere de los detalles: tecnología, costumbres, referencias.",
     "ejemplo_correcto": "En un texto que menciona 'carrozas tiradas por caballos' y 'cartas escritas a mano', se infiere un contexto anterior al siglo XX.",
     "ejemplo_incorrecto": "Decir que no hay contexto histórico porque no se dice la fecha. Los detalles permiten inferirlo."
   },
@@ -3353,16 +3353,16 @@
     "explicacion": "Observa el vocabulario (técnico o cotidiano), los ejemplos (cotidianos o especializados) y el tono. Esas pistas revelan a quien va dirigido.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
-    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningun texto se dirige a todos por igual."
+    "ejemplo_incorrecto": "Decir que el público es 'todo el mundo'. Ningún texto se dirige a todos por igual."
   },
   {
     "numero": 50,
     "nivel_mcer": "B1",
     "proceso": "P2",
-    "titulo": "Inferir la intención de una pregunta retorica",
-    "teoria": "Una pregunta retorica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
+    "titulo": "Inferir la intención de una pregunta retórica",
+    "teoria": "Una pregunta retórica no espera respuesta: afirma algo de forma enfatica. Inferir su intención (criticar, persuadir, ironizar) es esencial para comprender textos argumentativos.",
     "explicacion": "Preguntate: la pregunta espera respuesta o ya la sugiere? 'Quien puede negar que...?' afirma que algo es evidente.",
-    "regla": "La pregunta retorica no espera respuesta: su intención se infiere del contexto argumentativo.",
+    "regla": "La pregunta retórica no espera respuesta: su intención se infiere del contexto argumentativo.",
     "ejemplo_correcto": "En '¿Quién puede negar que el reciclaje es necesario?', la pregunta afirma que el reciclaje es necesario.",
     "ejemplo_incorrecto": "Responder 'si' o 'no' a la pregunta. Las preguntas retoricas no esperan respuesta."
   },
@@ -3370,11 +3370,11 @@
     "numero": 51,
     "nivel_mcer": "B1",
     "proceso": "P2",
-    "titulo": "Inferir la ironia",
-    "teoria": "La ironia consiste en decir lo contrario de lo que se quiere comunicar. Se infiere del contraste entre lo dicho y el contexto o el tono.",
+    "titulo": "Inferir la ironía",
+    "teoria": "La ironía consiste en decir lo contrario de lo que se quiere comunicar. Se infiere del contraste entre lo dicho y el contexto o el tono.",
     "explicacion": "Busca contradicciones entre lo que se dice y el contexto. Preguntate: el autor realmente cree lo que dice, o lo dice para criticarlo?",
-    "regla": "La ironia se reconoce por la contradicción entre lo dicho y el contexto.",
-    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironia se infiere del contraste.",
+    "regla": "La ironía se reconoce por la contradicción entre lo dicho y el contexto.",
+    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironía se infiere del contraste.",
     "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. El contexto niega esa interpretación."
   },
   {
@@ -3403,12 +3403,12 @@
     "numero": 54,
     "nivel_mcer": "B1",
     "proceso": "P2",
-    "titulo": "Inferir el significado de una metafora",
-    "teoria": "Una metafora compara dos cosas sin usar 'como'. Su significado se infiere del contexto: 'sus ojos eran dos luceros' significa que brillaban.",
+    "titulo": "Inferir el significado de una metáfora",
+    "teoria": "Una metáfora compara dos cosas sin usar 'como'. Su significado se infiere del contexto: 'sus ojos eran dos luceros' significa que brillaban.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: que característica comparten? Verifica que la interpretación sea coherente con el resto del texto.",
-    "regla": "La metafora compara dos terminos por una característica comun; el sentido figurado se infiere.",
+    "regla": "La metáfora compara dos terminos por una característica comun; el sentido figurado se infiere.",
     "ejemplo_correcto": "En 'Sus ojos eran dos luceros', se infiere que los ojos brillaban o eran hermosos.",
-    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metafora no es literal."
+    "ejemplo_incorrecto": "Decir que los ojos eran literalmente estrellas. La metáfora no es literal."
   },
   {
     "numero": 55,
@@ -3484,7 +3484,7 @@
     "teoria": "La actualidad de una fuente se refiere a si la información es reciente o esta obsoleta. Se infiere de la fecha de publicación y de la vigencia de los datos.",
     "explicacion": "Busca la fecha de publicación. Preguntate: los datos siguen siendo validos? Ha cambiado el contexto desde entonces?",
     "regla": "La actualidad de una fuente se infiere de la fecha de publicación y de la vigencia de los datos.",
-    "ejemplo_correcto": "Un informe de 2024 sobre tecnologia es actual; uno de 2010 puede estar obsoleto.",
+    "ejemplo_correcto": "Un informe de 2024 sobre tecnología es actual; uno de 2010 puede estar obsoleto.",
     "ejemplo_incorrecto": "Decir que un texto de 2010 es actual porque habla de un tema vigente. Los datos pueden haber cambiado."
   },
   {
@@ -3503,7 +3503,7 @@
     "nivel_mcer": "B1",
     "proceso": "P3",
     "titulo": "Interpretar la coherencia entre título e ideas del texto",
-    "teoria": "El título debe guardar coherencia con las ideas del texto: anticipa el tema, la tesis o una metafora que se desarrolla. Interpretar esa coherencia ayuda a comprender el sentido global.",
+    "teoria": "El título debe guardar coherencia con las ideas del texto: anticipa el tema, la tesis o una metáfora que se desarrolla. Interpretar esa coherencia ayuda a comprender el sentido global.",
     "explicacion": "Lee el título y pregunta: de que trata el texto? El título anticipa ese tema? Hay coherencia o contradicción?",
     "regla": "El título debe ser coherente con las ideas desarrolladas en el texto.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama' que habla de los costes de ser famoso, hay coherencia entre título e ideas.",
@@ -3524,12 +3524,12 @@
     "numero": 65,
     "nivel_mcer": "B1",
     "proceso": "P3",
-    "titulo": "Interpretar la función de la ironia en un texto",
-    "teoria": "La ironia consiste en decir lo contrario de lo que se quiere comunicar. Su función es criticar, ridiculizar o tomar distancia. Interpretarla es esencial para no malinterpretar el texto.",
+    "titulo": "Interpretar la función de la ironía en un texto",
+    "teoria": "La ironía consiste en decir lo contrario de lo que se quiere comunicar. Su función es criticar, ridiculizar o tomar distancia. Interpretarla es esencial para no malinterpretar el texto.",
     "explicacion": "Busca contradicciones entre lo que se dice y el contexto. Preguntate: el autor realmente cree lo que dice, o lo dice para criticarlo?",
-    "regla": "La ironia crítica o ridiculiza diciendo lo contrario de lo que se quiere comunicar.",
-    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironia crítica la impuntualidad.",
-    "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. La ironia invierte el significado."
+    "regla": "La ironía crítica o ridiculiza diciendo lo contrario de lo que se quiere comunicar.",
+    "ejemplo_correcto": "En 'Mira que puntual, llegaste dos horas tarde', la ironía crítica la impuntualidad.",
+    "ejemplo_incorrecto": "Interpretar literalmente 'que puntual' como elogio. La ironía invierte el significado."
   },
   {
     "numero": 66,
@@ -3557,11 +3557,11 @@
     "numero": 68,
     "nivel_mcer": "B1",
     "proceso": "P3",
-    "titulo": "Interpretar la función de la hiperbole en un texto",
-    "teoria": "La hiperbole es una exageración intencionada. Su función es enfatizar una idea, crear humor o criticar. Interpretarla ayuda a distinguir lo literal de lo figurado.",
+    "titulo": "Interpretar la función de la hipérbole en un texto",
+    "teoria": "La hipérbole es una exageración intencionada. Su función es enfatizar una idea, crear humor o criticar. Interpretarla ayuda a distinguir lo literal de lo figurado.",
     "explicacion": "Identifica la exageración. Preguntate: que idea quiere enfatizar el autor? La exageración es humoristica o crítica?",
-    "regla": "La hiperbole exagera para enfatizar, criticar o crear humor.",
-    "ejemplo_correcto": "En 'Te lo dije mil veces', la hiperbole enfatiza la repetición.",
+    "regla": "La hipérbole exagera para enfatizar, criticar o crear humor.",
+    "ejemplo_correcto": "En 'Te lo dije mil veces', la hipérbole enfatiza la repetición.",
     "ejemplo_incorrecto": "Interpretar 'mil veces' literalmente. Es una exageración figurada."
   },
   {
@@ -3649,7 +3649,7 @@
     "teoria": "La analepsis (flashback) es un saltó al pasado dentro de la narración. Se usa para explicar el presente, dar información o crear suspense.",
     "explicacion": "Busca los cambios al pasado: 'recordó que...', 'años antes...'. Preguntate: por que el autor vuelve al pasado?",
     "regla": "La analepsis es un saltó al pasado que explica el presente o da información.",
-    "ejemplo_correcto": "En un cuento que empieza 'Recordo aquel verano...', hay una analepsis.",
+    "ejemplo_correcto": "En un cuento que empieza 'Recordó aquel verano...', hay una analepsis.",
     "ejemplo_incorrecto": "Decir que todo el texto es un flashback. Solo hay flashback en las partes que vuelven al pasado."
   },
   {
@@ -3660,7 +3660,7 @@
     "teoria": "La prolepsis (flashforward) es un saltó al futuro dentro de la narración. Se usa para anticipar lo que va a pasar o crear suspense.",
     "explicacion": "Busca los cambios al futuro: 'años después...', 'tiempo después...'. Preguntate: por que el autor adelanta el futuro?",
     "regla": "La prolepsis es un saltó al futuro que anticipa lo que va a pasar.",
-    "ejemplo_correcto": "En un cuento que dice 'Anos después, ella lo entenderia', hay una prolepsis.",
+    "ejemplo_correcto": "En un cuento que dice 'Años después, ella lo entenderia', hay una prolepsis.",
     "ejemplo_incorrecto": "Decir que todo el texto es un flashforward. Solo hay prolepsis en las partes que anticipan el futuro."
   },
   {
@@ -3737,7 +3737,7 @@
     "teoria": "La falacia ad hominem ataca a la persona que sostiene un argumento en lugar de refutar el argumento mismo. Detectar esta falacia es esencial para la lectura crítica.",
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
-    "ejemplo_correcto": "En 'No escuches a Juan sobre economia: es un fracasado', hay ad hominem.",
+    "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem.",
     "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
   },
   {
@@ -3748,7 +3748,7 @@
     "teoria": "La falacia del hombre de paja consiste en distorsionar el argumento del oponente para refutar una versión débil. Detectar esta falacia evita aceptar refutaciones enganosas.",
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura de el?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
-    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnologia', hay hombre de paja.",
+    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
     "ejemplo_incorrecto": "Aceptar la refutación como valida. Se esta refutando una caricatura, no el argumento real."
   },
   {
@@ -3858,7 +3858,7 @@
     "teoria": "Un resumen condensa las ideas principales de un texto original. Un resumen no incluye ejemplos ni detalles secundarios.",
     "explicacion": "Compara la extensión y el nivel de detalle. El resumen es más corto y solo incluye lo esencial.",
     "regla": "El resumen condensa las ideas principales; el original incluye todos los detalles.",
-    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energia, materiales y reduce residuos.'",
+    "ejemplo_correcto": "Resumen: 'El reciclaje es eficiente'. Original: 'El reciclaje de vidrio es eficiente porque ahorra energía, materiales y reduce residuos.'",
     "ejemplo_incorrecto": "Decir que un resumen debe incluir todos los ejemplos del original. El resumen omite los ejemplos."
   },
   {
@@ -3924,7 +3924,7 @@
     "teoria": "La tesis implicita es la idea que el autor defiende sin formularla explicitamente. Se localiza infiriendo la postura global a partir de los argumentos y del tono.",
     "explicacion": "Lee el texto completo. Preguntate: que quiere defender el autor? La respuesta, aunque no este escrita literalmente, es la tesis implicita.",
     "regla": "La tesis implicita se infiere del conjunto de argumentos y del tono del texto.",
-    "ejemplo_correcto": "En un texto que elogia la energia solar y crítica los combustibles fosiles, la tesis implicita es que hay que pasar a las renovables.",
+    "ejemplo_correcto": "En un texto que elogia la energía solar y crítica los combustibles fosiles, la tesis implicita es que hay que pasar a las renovables.",
     "ejemplo_incorrecto": "Decir que no hay tesis porque no aparece explicitamente. La tesis puede estar implicita."
   },
   {
@@ -3946,7 +3946,7 @@
     "teoria": "Las falacias son razonamientos invalidos que parecen validos. Localizarlas es esencial para la lectura crítica de textos persuasivos.",
     "explicacion": "Identifica cada argumento y preguntate: la conclusión se sigue de las premisas? Hay un saltó lógico? Se ataca a la persona? Se apela a la emoción?",
     "regla": "La falacia es un razonamiento invalido que parece valido.",
-    "ejemplo_correcto": "En 'No escuches a Juan sobre economia: es un fracasado', hay falacia ad hominem.",
+    "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay falacia ad hominem.",
     "ejemplo_incorrecto": "Aceptar el argumento como valido porque suena convincente. Suena convincente pero es falaz."
   },
   {
@@ -3958,7 +3958,7 @@
     "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos logicos.",
     "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razon.",
     "ejemplo_correcto": "En un anuncio, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
-    "ejemplo_incorrecto": "Decir que todo es logos. Tambien hay ethos y pathos en la mayoria de textos persuasivos."
+    "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoria de textos persuasivos."
   },
   {
     "numero": 25,
@@ -4034,7 +4034,7 @@
     "teoria": "Los conectores contraargumentativos (pero, sin embargo, no obstante, aunque, a pesar de) introducen una objeción o un contraste con lo dicho. Localizarlos permite seguir la estructura argumentativa.",
     "explicacion": "Busca los conectores que introducen contraste: 'pero', 'sin embargo', 'no obstante', 'aunque', 'a pesar de'. Cada uno marca un giro argumentativo.",
     "regla": "El conector contraargumentativo introduce una objeción o un contraste.",
-    "ejemplo_correcto": "En 'Estudio mucho, pero no apruebo', 'pero' es un conector contraargumentativo.",
+    "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', 'pero' es un conector contraargumentativo.",
     "ejemplo_incorrecto": "Decir que 'pero' es un conector de adición. 'Pero' introduce contraste."
   },
   {
@@ -4111,7 +4111,7 @@
     "teoria": "El argumento por consecuencias evalua una acción por sus resultados: si las consecuencias son buenas, la acción es buena; si malas, mala. Localizarlo permite seguir la lógica del texto.",
     "explicacion": "Preguntate: el autor justifica una acción por sus consecuencias? Cuales son esas consecuencias y como las evalua?",
     "regla": "El argumento por consecuencias evalua una acción por sus resultados.",
-    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economia', hay argumento por consecuencias.",
+    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', hay argumento por consecuencias.",
     "ejemplo_incorrecto": "Decir que las consecuencias no importan. En este tipo de argumento son la clave."
   },
   {
@@ -4121,7 +4121,7 @@
     "titulo": "Localizar las preguntas retoricas y su función",
     "teoria": "Las preguntas retoricas no esperan respuesta: afirman algo de forma enfatica. Localizarlas permite comprender la estrategia persuasiva del autor.",
     "explicacion": "Busca preguntas que no esperan respuesta. Preguntate: que afirma el autor con esa pregunta?",
-    "regla": "La pregunta retorica afirma algo de forma enfatica sin esperar respuesta.",
+    "regla": "La pregunta retórica afirma algo de forma enfatica sin esperar respuesta.",
     "ejemplo_correcto": "En 'Quien puede negar que el reciclaje es necesario?', la pregunta afirma que el reciclaje es necesario.",
     "ejemplo_incorrecto": "Responder 'si' o 'no' a la pregunta. Las preguntas retoricas no esperan respuesta."
   },
@@ -4173,12 +4173,12 @@
     "numero": 44,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir el significado de una metafora compleja",
+    "titulo": "Inferir el significado de una metáfora compleja",
     "teoria": "Las metaforas complejas (o metaforas cognitivas) estructuran un concepto entero en terminos de otro: 'la vida es un viaje', 'el tiempo es dinero'. Se infieren del contexto y de la tradición cultural.",
     "explicacion": "Identifica el concepto de origen y el concepto de destino. Preguntate: que aspectos del destino se iluminan con el origen?",
-    "regla": "La metafora compleja estructura un concepto en terminos de otro.",
+    "regla": "La metáfora compleja estructura un concepto en terminos de otro.",
     "ejemplo_correcto": "En 'la vida es un camino', la vida (destino) se entiende como camino (origen).",
-    "ejemplo_incorrecto": "Decir que 'camino' solo significa una via fisica. En la metafora, es el esquema de la vida."
+    "ejemplo_incorrecto": "Decir que 'camino' solo significa una via fisica. En la metáfora, es el esquema de la vida."
   },
   {
     "numero": 45,
@@ -4196,8 +4196,8 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir el contexto sociohistorico por referencias indirectas",
-    "teoria": "El contexto sociohistorico se infiere de referencias indirectas: objetos, costumbres, tecnologia, instituciones, nombres propios, formas de hablar.",
-    "explicacion": "Observa los detalles: que tecnologia aparece? Que instituciones se mencionan? Que costumbres? Cada uno situa el texto en una epoca.",
+    "teoria": "El contexto sociohistorico se infiere de referencias indirectas: objetos, costumbres, tecnología, instituciones, nombres propios, formas de hablar.",
+    "explicacion": "Observa los detalles: que tecnología aparece? Que instituciones se mencionan? Que costumbres? Cada uno situa el texto en una epoca.",
     "regla": "El contexto sociohistorico se infiere de referencias indirectas: objetos, instituciones, costumbres.",
     "ejemplo_correcto": "En un texto que menciona 'el telar', 'la rueca' y 'las velas de sebo', se infiere un contexto preindustrial.",
     "ejemplo_incorrecto": "Decir que no hay contexto porque no se dice la fecha. Los detalles permiten situarlo."
@@ -4207,7 +4207,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir la evolución del tono a lo largo del texto",
-    "teoria": "El tono puede cambiar a lo largo del texto (de la ironia a la seriedad, de la tristeza a la esperanza). Inferir esa evolución ayuda a comprender la progresión emocional del texto.",
+    "teoria": "El tono puede cambiar a lo largo del texto (de la ironía a la seriedad, de la tristeza a la esperanza). Inferir esa evolución ayuda a comprender la progresión emocional del texto.",
     "explicacion": "Divide el texto en partes. Para cada una, identifica el tono dominante. Observa como cambia y por que.",
     "regla": "El tono puede evolucionar a lo largo del texto; la evolución revela la progresión emocional.",
     "ejemplo_correcto": "Un texto que empieza con humor y termina con una reflexion seria tiene una evolución del tono de lo comico a lo reflexivo.",
@@ -4217,11 +4217,11 @@
     "numero": 48,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir la postura del autor ante una polemica",
-    "teoria": "La postura del autor ante una polemica (a favor, en contra, matizada, neutral) se infiere de sus elecciones linguisticas, sus argumentos y sus silencios.",
+    "titulo": "Inferir la postura del autor ante una polémica",
+    "teoria": "La postura del autor ante una polémica (a favor, en contra, matizada, neutral) se infiere de sus elecciones linguisticas, sus argumentos y sus silencios.",
     "explicacion": "Preguntate: que terminos usa para cada postura? Que argumentos destaca? Que omite? La selección revela su postura.",
     "regla": "La postura se infiere de las elecciones linguisticas, los argumentos y los silencios.",
-    "ejemplo_correcto": "En una polemica sobre la energia nuclear, si el autor solo cita accidentes y residuos, su postura es crítica.",
+    "ejemplo_correcto": "En una polémica sobre la energía nuclear, si el autor solo cita accidentes y residuos, su postura es crítica.",
     "ejemplo_incorrecto": "Decir que el autor es neutral porque no dice 'estoy a favor'. La selección revela postura."
   },
   {
@@ -4288,7 +4288,7 @@
     "explicacion": "Preguntate: que aporta este dialogo? Caracteriza a un personaje? Avanza la trama? Informa de algo? Crea tensión?",
     "regla": "El dialogo en la narración caracteriza, avanza la trama, informa o crea tensión.",
     "ejemplo_correcto": "En un dialogo donde un personaje amenaza a otro, la función es crear tensión.",
-    "ejemplo_incorrecto": "Decir que todo dialogo es solo informativo. Tambien puede caracterizar o crear tensión."
+    "ejemplo_incorrecto": "Decir que todo dialogo es solo informativo. También puede caracterizar o crear tensión."
   },
   {
     "numero": 55,
@@ -4316,12 +4316,12 @@
     "numero": 57,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir la intención de una metafora en un texto persuasivo",
+    "titulo": "Inferir la intención de una metáfora en un texto persuasivo",
     "teoria": "Las metaforas en los textos persuasivos no solo embellecen: orientan la interpretación del lector, hacen vivida una idea, la cargan de emoción. Se infiere de su contenido y contexto.",
-    "explicacion": "Identifica la metafora. Preguntate: que idea quiere hacer vivida el autor? Que emoción quiere despertar?",
-    "regla": "La metafora en un texto persuasivo orienta la interpretación y carga de emoción una idea.",
-    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metafora presenta la inmigración como algo incontrolable y amenazante.",
-    "ejemplo_incorrecto": "Decir que la metafora es solo decorativa. En persuasión, orienta la interpretación."
+    "explicacion": "Identifica la metáfora. Preguntate: que idea quiere hacer vivida el autor? Que emoción quiere despertar?",
+    "regla": "La metáfora en un texto persuasivo orienta la interpretación y carga de emoción una idea.",
+    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora presenta la inmigración como algo incontrolable y amenazante.",
+    "ejemplo_incorrecto": "Decir que la metáfora es solo decorativa. En persuasión, orienta la interpretación."
   },
   {
     "numero": 58,
@@ -4372,7 +4372,7 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar el título como síntesis del sentido",
-    "teoria": "El título puede funcionar como síntesis del sentido global del texto: anticipa el tema, la tesis o una metafora clave. Interpretarlo ayuda a comprender la intención del autor.",
+    "teoria": "El título puede funcionar como síntesis del sentido global del texto: anticipa el tema, la tesis o una metáfora clave. Interpretarlo ayuda a comprender la intención del autor.",
     "explicacion": "Lee el título y preguntate: que anticipa? Luego lee el texto y comprueba si el título sintetiza el sentido global.",
     "regla": "El título puede sintetizar el sentido global del texto.",
     "ejemplo_correcto": "En 'El precio de la fama', el título sintetiza el tema del texto: los costes de ser famoso.",
@@ -4387,7 +4387,7 @@
     "explicacion": "Observa la forma del texto: empieza y termina igual (circular)? Avanza y vuelve (espiral)? Esta fragmentado? Cada forma tiene un sentido.",
     "regla": "La estructura puede reflejar el contenido del texto.",
     "ejemplo_correcto": "Un poema que empieza y termina con el mismo verso tiene estructura circular, que refleja la idea de eterno retorno.",
-    "ejemplo_incorrecto": "Decir que la estructura es solo organización. Tambien puede tener valor significativo."
+    "ejemplo_incorrecto": "Decir que la estructura es solo organización. También puede tener valor significativo."
   },
   {
     "numero": 64,
@@ -4415,12 +4415,12 @@
     "numero": 66,
     "nivel_mcer": "B2",
     "proceso": "P3",
-    "titulo": "Interpretar la ironia sostenida (tono irónico global)",
-    "teoria": "La ironia sostenida es un tono irónico que recorre todo el texto: el autor dice lo contrario de lo que piensa de forma constante. Interpretarla es esencial para no malinterpretar el texto.",
+    "titulo": "Interpretar la ironía sostenida (tono irónico global)",
+    "teoria": "La ironía sostenida es un tono irónico que recorre todo el texto: el autor dice lo contrario de lo que piensa de forma constante. Interpretarla es esencial para no malinterpretar el texto.",
     "explicacion": "Busca contradicciones sistematicas entre lo que se dice y el contexto. Preguntate: el autor habla en serio o esta ironizando todo el texto?",
-    "regla": "La ironia sostenida recorre todo el texto y invierte su sentido literal.",
-    "ejemplo_correcto": "En un texto que elogia exageradamente la burocracia, la ironia sostenida crítica la burocracia.",
-    "ejemplo_incorrecto": "Interpretar literalmente el elogio. La ironia sostenida invierte el sentido."
+    "regla": "La ironía sostenida recorre todo el texto y invierte su sentido literal.",
+    "ejemplo_correcto": "En un texto que elogia exageradamente la burocracia, la ironía sostenida crítica la burocracia.",
+    "ejemplo_incorrecto": "Interpretar literalmente el elogio. La ironía sostenida invierte el sentido."
   },
   {
     "numero": 67,
@@ -4519,7 +4519,7 @@
     "explicacion": "Observa como habla cada personaje: culto o coloquial? Brusco o amable? Directo o evasivo? Esa forma de hablar lo caracteriza.",
     "regla": "El dialogo caracteriza indirectamente a los personajes por su forma de hablar.",
     "ejemplo_correcto": "En 'Pos yo que sé, tío', el registro coloquial caracteriza al personaje como joven o informal.",
-    "ejemplo_incorrecto": "Decir que el dialogo solo informa. Tambien caracteriza a los personajes."
+    "ejemplo_incorrecto": "Decir que el dialogo solo informa. También caracteriza a los personajes."
   },
   {
     "numero": 76,
@@ -4727,7 +4727,7 @@
     "teoria": "La falacia del hombre de paja distorsiona el argumento del oponente para refutarlo más facilmente. Detectar esta falacia es esencial para evaluar debates.",
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
-    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnologia', hay hombre de paja.",
+    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
     "ejemplo_incorrecto": "Aceptar la refutación como valida. Se esta refutando una caricatura, no el argumento real."
   },
   {
@@ -4738,7 +4738,7 @@
     "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es solido si las consecuencias estan justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
     "explicacion": "Preguntate: las consecuencias son probables? Son relevantes? Hay alternativas con mejores consecuencias?",
     "regla": "El argumento por consecuencias es solido si las consecuencias estan justificadas y no hay mejores alternativas.",
-    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economia', el argumento por consecuencias es solido si hay evidencia del efecto.",
+    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', el argumento por consecuencias es solido si hay evidencia del efecto.",
     "ejemplo_incorrecto": "Aceptar el argumento sin evidencia de que la consecuencia se vaya a producir."
   },
   {
@@ -5054,11 +5054,11 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir la intención pragmática de un enunciado irónico",
-    "teoria": "La intención pragmática de la ironia puede ser criticar, ridiculizar, distanciarse o marcar superioridad. Inferirla requiere atender al contexto, al tono y a la relación entre lo dicho y lo implicado.",
-    "explicacion": "Identifica la ironia. Preguntate: que busca el autor? Criticar? Ridiculizar? Marcar distancia?",
-    "regla": "La ironia tiene una intención pragmática (criticar, ridiculizar, distanciarse) que se infiere del contexto.",
+    "teoria": "La intención pragmática de la ironía puede ser criticar, ridiculizar, distanciarse o marcar superioridad. Inferirla requiere atender al contexto, al tono y a la relación entre lo dicho y lo implicado.",
+    "explicacion": "Identifica la ironía. Preguntate: que busca el autor? Criticar? Ridiculizar? Marcar distancia?",
+    "regla": "La ironía tiene una intención pragmática (criticar, ridiculizar, distanciarse) que se infiere del contexto.",
     "ejemplo_correcto": "En 'Que puntual, como siempre', dicho a quien llega tarde, la intención es criticar.",
-    "ejemplo_incorrecto": "Interpretar el elogio como sinceridad. La ironia invierte el significado."
+    "ejemplo_incorrecto": "Interpretar el elogio como sinceridad. La ironía invierte el significado."
   },
   {
     "numero": 41,
@@ -5079,8 +5079,8 @@
     "teoria": "Las metaforas conceptuales no son neutras: revelan una ideologia. 'La inmigración es una marea' implica amenaza; 'es un aporte' implica beneficio.",
     "explicacion": "Identifica las metaforas. Preguntate: que valoración implican? Presentan el fenomeno como amenaza, oportunidad, problema o recurso?",
     "regla": "Las metaforas conceptuales revelan una ideologia al presentar un fenomeno con una valoración determinada.",
-    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metafora revela una ideologia que la percibe como amenaza.",
-    "ejemplo_incorrecto": "Decir que la metafora es solo decorativa. Tambien orienta la valoración."
+    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora revela una ideologia que la percibe como amenaza.",
+    "ejemplo_incorrecto": "Decir que la metáfora es solo decorativa. También orienta la valoración."
   },
   {
     "numero": 43,
@@ -5197,7 +5197,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir las implicaciones de un cambió de registro",
-    "teoria": "Un cambió de registro (de formal a coloquial, de técnico a divulgativo) puede tener funciones pragmaticas: acercarse al lector, marcar ironia, simplificar o distanciarse. Inferir sus implicaciones permite comprender la estrategia comunicativa.",
+    "teoria": "Un cambió de registro (de formal a coloquial, de técnico a divulgativo) puede tener funciones pragmaticas: acercarse al lector, marcar ironía, simplificar o distanciarse. Inferir sus implicaciones permite comprender la estrategia comunicativa.",
     "explicacion": "Identifica los cambios de registro. Preguntate: por que cambia? Que busca el autor con ese cambió?",
     "regla": "El cambió de registro puede acercar, ironizar, simplificar o distanciarse.",
     "ejemplo_correcto": "En un texto técnico que de repente usa 'esto es un rollo', el cambió de registro acerca al lector.",
@@ -5221,9 +5221,9 @@
     "titulo": "Inferir la función de las preguntas retoricas en el discurso",
     "teoria": "Las preguntas retoricas en el discurso persuasivo cumplen funciones: implicar al lector, guiar su respuesta, enfatizar una idea o crear complicidad. Inferir su función permite analizar la interacción con el auditorio.",
     "explicacion": "Identifica las preguntas retoricas. Preguntate: implican al lector? Guian su respuesta? Enfatizan? Crean complicidad?",
-    "regla": "La pregunta retorica implica al lector, guia su respuesta, enfatiza o crea complicidad.",
+    "regla": "La pregunta retórica implica al lector, guia su respuesta, enfatiza o crea complicidad.",
     "ejemplo_correcto": "En '¿Quieres un futuro mejor?', la pregunta implica al lector en la respuesta.",
-    "ejemplo_incorrecto": "Decir que la pregunta retorica solo adorna. En persuasión, implica al receptor."
+    "ejemplo_incorrecto": "Decir que la pregunta retórica solo adorna. En persuasión, implica al receptor."
   },
   {
     "numero": 56,
@@ -5267,7 +5267,7 @@
     "explicacion": "Preguntate: quien habla y desde que posición de poder? A quien se silencia? Que relaciones sociales reproduce o cuestiona el texto?",
     "regla": "El texto es una práctica social que reproduce o cuestiona relaciones de poder.",
     "ejemplo_correcto": "En una noticia que llama 'disturbios' a una protesta pacifica, el discurso legitima el orden establecido y deslegitima la protesta.",
-    "ejemplo_incorrecto": "Decir que el texto solo informa. Tambien construye relaciones sociales."
+    "ejemplo_incorrecto": "Decir que el texto solo informa. También construye relaciones sociales."
   },
   {
     "numero": 60,
@@ -5329,11 +5329,11 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del monologo interior en la caracterización psicologica",
-    "teoria": "El monologo interior no solo revela pensamientos: construye la psicologia del personaje, muestra sus contradicciones y permite al lector acceder a su mundo interior de forma directa.",
+    "teoria": "El monologo interior no solo revela pensamientos: construye la psicología del personaje, muestra sus contradicciones y permite al lector acceder a su mundo interior de forma directa.",
     "explicacion": "Identifica los monologos interiores. Preguntate: que revelan del personaje? Sus contradicciones? Sus miedos? Sus deseos?",
-    "regla": "El monologo interior construye la psicologia del personaje y muestra sus contradicciones.",
+    "regla": "El monologo interior construye la psicología del personaje y muestra sus contradicciones.",
     "ejemplo_correcto": "En 'No puedo... debo... no quiero', el monologo interior muestra el conflicto del personaje.",
-    "ejemplo_incorrecto": "Decir que el monologo solo informa. Tambien caracteriza psicologicamente."
+    "ejemplo_incorrecto": "Decir que el monologo solo informa. También caracteriza psicologicamente."
   },
   {
     "numero": 66,
@@ -5366,7 +5366,7 @@
     "explicacion": "Identifica los espacios. Preguntate: que emoción o idea evocan? Como se describen? Que función cumplen en la historia?",
     "regla": "El espacio simbólico evoca ideas o emociones y cumple una función en la narración.",
     "ejemplo_correcto": "En un cuento donde el protagonista se pierde en un bosque, el bosque simboliza lo desconocido y el miedo.",
-    "ejemplo_incorrecto": "Decir que el espacio solo situa la acción. Tambien puede simbolizar."
+    "ejemplo_incorrecto": "Decir que el espacio solo situa la acción. También puede simbolizar."
   },
   {
     "numero": 69,
@@ -5377,7 +5377,7 @@
     "explicacion": "Busca momentos en que el texto reflexiona sobre si mismo: sobre la escritura, la lectura, la ficción. Que dice el texto sobre la literatura?",
     "regla": "La metaliteratura reflexiona sobre la literatura misma (escritura, lectura, ficción).",
     "ejemplo_correcto": "En 'Seis personajes en busca de autor', Pirandello reflexiona sobre la naturaleza de la ficción teatral.",
-    "ejemplo_incorrecto": "Decir que es solo una historia. Tambien reflexiona sobre si misma."
+    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre si misma."
   },
   {
     "numero": 70,
@@ -5410,7 +5410,7 @@
     "explicacion": "Busca momentos en que el texto se mira a si mismo: sobre la escritura, la lectura, el narrador.",
     "regla": "La metaficción reflexiona sobre la ficción misma (narración, lectura, representación).",
     "ejemplo_correcto": "En 'El Quijote', los personajes han leido el Quijote, hay metaficción.",
-    "ejemplo_incorrecto": "Decir que es solo una historia. Tambien reflexiona sobre si misma."
+    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre si misma."
   },
   {
     "numero": 73,
@@ -5421,7 +5421,7 @@
     "explicacion": "Identifica el viaje. Preguntate: que aprende el protagonista? Como cambia? Que pruebas supera?",
     "regla": "El viaje iniciatico es un proceso de crecimiento interior a traves de un viaje fisico.",
     "ejemplo_correcto": "En 'El viaje de Santiago', el viaje al pueblo es también un viaje hacía sus raíces.",
-    "ejemplo_incorrecto": "Decir que el viaje es solo fisico. Tambien puede ser iniciatico."
+    "ejemplo_incorrecto": "Decir que el viaje es solo fisico. También puede ser iniciatico."
   },
   {
     "numero": 74,
@@ -5449,12 +5449,12 @@
     "numero": 76,
     "nivel_mcer": "C1",
     "proceso": "P3",
-    "titulo": "Interpretar la función de la ironia dramatica (el lector sabe más que el personaje)",
-    "teoria": "La ironia dramatica ocurre cuando el lector sabe algo que el personaje desconoce, creando tensión o suspense.",
+    "titulo": "Interpretar la función de la ironía dramatica (el lector sabe más que el personaje)",
+    "teoria": "La ironía dramatica ocurre cuando el lector sabe algo que el personaje desconoce, creando tensión o suspense.",
     "explicacion": "Identifica momentos en que el lector sabe algo que el personaje no. Preguntate: que tensión crea?",
-    "regla": "La ironia dramatica crea tensión cuando el lector sabe más que el personaje.",
+    "regla": "La ironía dramatica crea tensión cuando el lector sabe más que el personaje.",
     "ejemplo_correcto": "En 'Romeo y Julieta', el lector sabe que Julieta no ha muerto, pero Romeo lo cree.",
-    "ejemplo_incorrecto": "Decir que no hay tensión. La ironia dramatica crea suspense."
+    "ejemplo_incorrecto": "Decir que no hay tensión. La ironía dramatica crea suspense."
   },
   {
     "numero": 77,
@@ -5560,7 +5560,7 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa dicotomia en el discurso político",
-    "teoria": "La falsa dicotomia presenta solo dos opciones cuando hay más. En el discurso político se usa para forzar una elección. Detectar esta falacia permite analizar criticamente la retorica política.",
+    "teoria": "La falsa dicotomia presenta solo dos opciones cuando hay más. En el discurso político se usa para forzar una elección. Detectar esta falacia permite analizar criticamente la retórica política.",
     "explicacion": "Preguntate: solo hay dos opciones? Hay alternativas intermedias? Que se oculta al presentar solo dos?",
     "regla": "La falsa dicotomia presenta solo dos opciones cuando hay más alternativas.",
     "ejemplo_correcto": "En 'O estas con nosotros o contra nosotros', hay falsa dicotomia.",
@@ -5791,7 +5791,7 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la intertextualidad segun Kristeva",
-    "teoria": "Kristeva introduce el concepto de intertextualidad: todo texto es un mosaico de citas, un cruce de textos. Ningun texto es original: todos dialogan con otros. Localizarla permite analizar la red de textos que sostiene una obra.",
+    "teoria": "Kristeva introduce el concepto de intertextualidad: todo texto es un mosaico de citas, un cruce de textos. Ningún texto es original: todos dialogan con otros. Localizarla permite analizar la red de textos que sostiene una obra.",
     "explicacion": "Identifica las citas, alusiones y ecos de otros textos. Preguntate: con que textos dialoga? Como los transforma?",
     "regla": "La intertextualidad es la red de textos que dialoga en una obra.",
     "ejemplo_correcto": "En 'El Quijote', el dialogo con las novelas de caballerias es intertextualidad.",
@@ -5938,7 +5938,7 @@
     "explicacion": "Preguntate: que ideologia se reproduce? Se hace visible o esta naturalizada? Como se sostiene en las prácticas?",
     "regla": "La ideologia, segun Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
     "ejemplo_correcto": "En un texto que presenta el consumismo como natural, la ideologia esta naturalizada.",
-    "ejemplo_incorrecto": "Decir que la ideologia es solo falsa conciencia. Tambien esta en las prácticas."
+    "ejemplo_incorrecto": "Decir que la ideologia es solo falsa conciencia. También esta en las prácticas."
   },
   {
     "numero": 32,
@@ -5982,7 +5982,7 @@
     "explicacion": "Preguntate: que ideologia se reproduce sin ser explicitada? Que se da por evidente? Como se sostiene en las prácticas del texto?",
     "regla": "El inconsciente ideologico es la ideologia que estructura las prácticas sin ser advertida.",
     "ejemplo_correcto": "En un texto que presenta el consumismo como natural, hay un inconsciente ideologico que reproduce la lógica capitalista.",
-    "ejemplo_incorrecto": "Decir que la ideologia es solo una opinión consciente. Tambien hay un inconsciente ideologico."
+    "ejemplo_incorrecto": "Decir que la ideologia es solo una opinión consciente. También hay un inconsciente ideologico."
   },
   {
     "numero": 36,
@@ -6268,7 +6268,7 @@
     "explicacion": "Preguntate: que produce rechazo? Que amenaza los limites? Que se excluye para constituir el yo?",
     "regla": "La abyección es lo que el sujeto rechaza para constituirse como sujeto.",
     "ejemplo_correcto": "En un texto que describe un cuerpo monstruoso con asco, hay abyección.",
-    "ejemplo_incorrecto": "Decir que el monstruo es solo un personaje. Tambien construye lo abyecto."
+    "ejemplo_incorrecto": "Decir que el monstruo es solo un personaje. También construye lo abyecto."
   },
   {
     "numero": 62,
@@ -6290,7 +6290,7 @@
     "explicacion": "Preguntate: hay espacios otros? Espacios al margen? Que función cumplen?",
     "regla": "La heterotopia es un espacio otro que esta fuera de todos los lugares.",
     "ejemplo_correcto": "En un texto donde un barco funciona como mundo aparte, hay heterotopia.",
-    "ejemplo_incorrecto": "Decir que el barco es solo un medio de transporte. Tambien puede ser heterotopia."
+    "ejemplo_incorrecto": "Decir que el barco es solo un medio de transporte. También puede ser heterotopia."
   },
   {
     "numero": 64,
@@ -6344,7 +6344,7 @@
     "teoria": "Barthes distingue studium (lectura cultural) y punctum (el detalle que punza, que hiere).",
     "explicacion": "Preguntate: que detalle de la imagen me punza? Que hiere? Que emociona?",
     "regla": "El punctum es el detalle de la imagen que punza y emociona.",
-    "ejemplo_correcto": "En una fotografia donde un detalle secundario conmueve, hay punctum.",
+    "ejemplo_correcto": "En una fotografía donde un detalle secundario conmueve, hay punctum.",
     "ejemplo_incorrecto": "Decir que solo importa el tema principal. El punctum esta en el detalle."
   },
   {
@@ -6366,7 +6366,7 @@
     "teoria": "El agenciamiento es una multiplicidad que conecta elementos heterogeneos (enunciados, cuerpos, territorios) en una maquina concreta. Interpretarlo permite analizar como el texto articula elementos diversos para producir efectos.",
     "explicacion": "Identifica los elementos conectados: discursos, cuerpos, territorios. Preguntate: como se articulan? Que maquina producen?",
     "regla": "El agenciamiento conecta elementos heterogeneos en una maquina concreta.",
-    "ejemplo_correcto": "En un texto que articula discurso médico, tecnologia y cuerpo, hay un agenciamiento.",
+    "ejemplo_correcto": "En un texto que articula discurso médico, tecnología y cuerpo, hay un agenciamiento.",
     "ejemplo_incorrecto": "Decir que los elementos son independientes. El agenciamiento los conecta."
   },
   {
@@ -6411,7 +6411,7 @@
     "explicacion": "Preguntate: que rostro se construye? Que régimen de subjetivación? Que rostridad?",
     "regla": "El rostro es una maquina abstracta que produce subjetividad.",
     "ejemplo_correcto": "En un texto que construye un rostro nacional, actua la rostridad.",
-    "ejemplo_incorrecto": "Decir que el rostro es solo fisico. Tambien es maquina de subjetivación."
+    "ejemplo_incorrecto": "Decir que el rostro es solo fisico. También es maquina de subjetivación."
   },
   {
     "numero": 75,
@@ -6440,10 +6440,10 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar la diferencia sexual (Irigaray)",
-    "teoria": "Irigaray muestra que la diferencia sexual ha sido pensada desde el modelo masculino, silenciando la diferencia femenina. Interpretarla permite analizar como el texto reproduce o subvierte la economia sexual dominante.",
+    "teoria": "Irigaray muestra que la diferencia sexual ha sido pensada desde el modelo masculino, silenciando la diferencia femenina. Interpretarla permite analizar como el texto reproduce o subvierte la economía sexual dominante.",
     "explicacion": "Preguntate: como se representa la diferencia sexual? Se piensa desde lo masculino? Se silencia lo femenino?",
     "regla": "La diferencia sexual ha sido pensada desde el modelo masculino, silenciando lo femenino.",
-    "ejemplo_correcto": "En un texto que representa a la mujer como 'lo otro' del hombre, hay economia sexual dominante.",
+    "ejemplo_correcto": "En un texto que representa a la mujer como 'lo otro' del hombre, hay economía sexual dominante.",
     "ejemplo_incorrecto": "Decir que el genero es neutro. La diferencia sexual estructura el texto."
   },
   {
@@ -6571,10 +6571,10 @@
     "numero": 89,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la coherencia entre teoria y práctica en un texto crítico",
-    "teoria": "Un texto crítico debe ser coherente entre su teoria y su práctica: no puede criticar en teoria lo que reproduce en la práctica.",
+    "titulo": "Evaluar la coherencia entre teoría y práctica en un texto crítico",
+    "teoria": "Un texto crítico debe ser coherente entre su teoría y su práctica: no puede criticar en teoría lo que reproduce en la práctica.",
     "explicacion": "Preguntate: el texto crítica algo que el mismo reproduce?",
-    "regla": "Un texto crítico debe ser coherente entre su teoria y su práctica.",
+    "regla": "Un texto crítico debe ser coherente entre su teoría y su práctica.",
     "ejemplo_correcto": "Un texto que crítica la dominación pero la reproduce es incoherente.",
     "ejemplo_incorrecto": "Aceptar el texto sin comprobar su coherencia."
   },
@@ -6594,9 +6594,9 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica psicoanalitica (Freud/Lacan)",
-    "teoria": "La crítica psicoanalitica interpreta el texto como sintoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoria sobre el.",
-    "explicacion": "Preguntate: la interpretación esta anclada en el texto? O proyecta la teoria sin evidencia textual?",
-    "regla": "La crítica psicoanalitica es valida si está anclada en evidencia textual y no solo en la teoria.",
+    "teoria": "La crítica psicoanalitica interpreta el texto como sintoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
+    "explicacion": "Preguntate: la interpretación esta anclada en el texto? O proyecta la teoría sin evidencia textual?",
+    "regla": "La crítica psicoanalitica es valida si está anclada en evidencia textual y no solo en la teoría.",
     "ejemplo_correcto": "En una interpretación que conecta un sintoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalitica valida.",
     "ejemplo_incorrecto": "Proyectar el complejo de Edipo sin evidencia textual."
   },
@@ -6627,7 +6627,7 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica feminista (Beauvoir, Butler)",
-    "teoria": "La crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Evaluarla requiere comprobar si la crítica esta anclada en el texto y no solo en la teoria.",
+    "teoria": "La crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Evaluarla requiere comprobar si la crítica esta anclada en el texto y no solo en la teoría.",
     "explicacion": "Preguntate: la crítica esta anclada en el texto? Demuestra la reproducción o subversión de normas de genero?",
     "regla": "La crítica feminista es valida si está anclada en el texto y demuestra sus afirmaciones.",
     "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza roles de genero con ejemplos, hay crítica feminista valida.",
