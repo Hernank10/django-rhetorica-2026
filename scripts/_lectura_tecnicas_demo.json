@@ -6,7 +6,7 @@
     "titulo": "Encontrar la idea principal explicita",
     "teoria": "En los textos informativos breves, el autor suele declarar explicitamente de que trata el texto en la primera o segunda oración. Esta idea principal explicita es la que organiza toda la información posterior. Encontrarla es el primer pasó de la comprensión lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
     "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer párrafo completo (no solo la primera oración) y preguntarse: 'de que me estan hablando?'. La respuesta suele estar en una oración que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
-    "regla": "La idea principal explicita esta en la primera o segunda oración del texto; se reconoce porque contiene el tema y lo que se afirma sobre el.",
+    "regla": "La idea principal explicita está en la primera o segunda oración del texto; se reconoce porque contiene el tema y lo que se afirma sobre él.",
     "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos más eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Además, el vidrio reciclado requiere menos energía que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
     "ejemplo_incorrecto": "Mismo texto. Lector que responde: 'El vidrio se puede reciclar infinitas veces.' -> Es un detalle, no la idea principal. La idea principal es la afirmación general (eficiencia), no un ejemplo que la sostiene.",
     "numero_global": 1
@@ -16,7 +16,7 @@
     "proceso": "P3",
     "nivel_mcer": "A1",
     "titulo": "Identificar el tema de un texto breve",
-    "teoria": "El tema es de que trata el texto en general. Se diferencia de la idea principal en que esta solo nombra el asunto, sin afirmar nada sobre el.",
+    "teoria": "El tema es de que trata el texto en general. Se diferencia de la idea principal en que esta solo nombra el asunto, sin afirmar nada sobre él.",
     "explicacion": "Lee el texto y preguntate: 'de que se habla?'. La respuesta, en una o dos palabras, es el tema. Si el texto dice 'El reciclaje es eficiente', el tema es 'el reciclaje'.",
     "regla": "El tema es de que se habla; la idea principal es que se dice sobre el tema.",
     "ejemplo_correcto": "Texto: 'Los gatos son animales independientes. Duermen mucho y cazan de noche.' -> Tema: los gatos.",
@@ -173,7 +173,7 @@
     "nivel_mcer": "A2",
     "titulo": "Deducir causa-efecto entre dos frases",
     "teoria": "Muchos textos no explicitan la relación causal entre dos hechos: la dejan implicita para no repetir conectores. El lector competente reconstruye esa relación a partir del orden de las frases y del conocimiento del mundo. Inferir causa-efecto directa es uno de los procesos basicos de la comprensión lectora (PIRLS P2): la relación no es dicha, pero el significado permanece claro.",
-    "explicacion": "Para inferir causa-efecto: (1) identificar los dos hechos mencionados; (2) preguntarse cual de ellos pudo provocar al otro; (3) usar el conocimiento previo para decidir la dirección de la causalidad. El orden de las frases suele indicar el orden temporal, pero no siempre el orden causal: 'Se apago la luz. La sala quedó a oscuras' -> la causa esta en la primera frase.",
+    "explicacion": "Para inferir causa-efecto: (1) identificar los dos hechos mencionados; (2) preguntarse cual de ellos pudo provocar al otro; (3) usar el conocimiento previo para decidir la dirección de la causalidad. El orden de las frases suele indicar el orden temporal, pero no siempre el orden causal: 'Se apago la luz. La sala quedó a oscuras' -> la causa está en la primera frase.",
     "regla": "Cuando dos hechos aparecen en frases consecutivas sin conector, el lector debe preguntarse cual de los dos pudo causar al otro y descartar la dirección imposible.",
     "ejemplo_correcto": "Texto: 'La carretera estaba mojada. El coche derrapo en la curva.' -> Inferencia: el coche derrapo porque la carretera estaba mojada. La causa es la primera; el efecto, la segunda.",
     "ejemplo_incorrecto": "El lector responde: 'La carretera se mojo porque el coche derrapo'. La dirección causal es imposible: un coche derrapando no moja una carretera. El lector no aplicó el conocimiento del mundo.",
@@ -463,7 +463,7 @@
     "teoria": "En los textos expositivos, los terminos técnicos suelen definirse al presentarse. La definición puede estar entre paréntesis, comillas o después de dos puntos.",
     "explicacion": "Busca el terminó y comprueba si va seguido de una explicación: 'X, es decir, ...', 'X (que significa ...)', 'X: ...'.",
     "regla": "La definición sigue al terminó con comas, paréntesis o dos puntos.",
-    "ejemplo_correcto": "En 'La fotosintesis (proceso por el cual las plantas producen su alimento) ocurre en las hojas', la definición esta entre paréntesis.",
+    "ejemplo_correcto": "En 'La fotosintesis (proceso por el cual las plantas producen su alimento) ocurre en las hojas', la definición está entre paréntesis.",
     "ejemplo_incorrecto": "Buscar la definición de 'fotosintesis' en otro párrafo lejano. La definición suele estar junto al terminó la primera vez que aparece.",
     "numero_global": 30
   },
@@ -534,7 +534,7 @@
     "titulo": "Identificar la idea principal de un párrafo",
     "teoria": "Cada párrafo desarrolla una idea principal, que suele estar en la primera o última oración.",
     "explicacion": "Lee el párrafo completo. Preguntate: de que trata este párrafo en concreto?",
-    "regla": "La idea principal del párrafo esta en la oración topic o de cierre.",
+    "regla": "La idea principal del párrafo está en la oración topic o de cierre.",
     "ejemplo_correcto": "En un párrafo que empieza 'El reciclaje de vidrio es eficiente', la idea principal es la eficiencia del reciclaje.",
     "ejemplo_incorrecto": "Decir que la idea principal es un dato concreto del párrafo.",
     "numero_global": 55
@@ -752,7 +752,7 @@
     "explicacion": "Identifica la acción. Preguntate: que motivo la explicaria? Que gana o pierde el personaje?",
     "regla": "El motivo se infiere de lo que el personaje gana o pierde con la acción.",
     "ejemplo_correcto": "En 'Juan mintio a sus padres sobre sus notas', se infiere que lo hizo por miedo a un castigo.",
-    "ejemplo_incorrecto": "Decir que mintio por generosidad. La mentira sobre las notas solo lo beneficia a el.",
+    "ejemplo_incorrecto": "Decir que mintio por generosidad. La mentira sobre las notas solo lo beneficia a él.",
     "numero_global": 47
   },
   {
@@ -1227,7 +1227,7 @@
     "proceso": "P1",
     "titulo": "Localizar el título del texto",
     "teoria": "El título es la primera línea o frase destacada de un texto. Anticipa el tema y ayuda al lector a saber de que trata antes de empezar a leer.",
-    "explicacion": "Para localizar el título, busca la línea que esta en negrita, más grande o separada del resto del texto. Suele estar al principio y resume el contenido. Ejemplo: en un texto sobre animales, el título puede ser 'Los animales de la granja'.",
+    "explicacion": "Para localizar el título, busca la línea que está en negrita, más grande o separada del resto del texto. Suele estar al principio y resume el contenido. Ejemplo: en un texto sobre animales, el título puede ser 'Los animales de la granja'.",
     "regla": "El título es la primera frase destacada del texto y anticipa su tema.",
     "ejemplo_correcto": "En un cuento que empieza con 'El perro perdido', ese es el título.",
     "ejemplo_incorrecto": "Decir que el título es la última frase del texto. El título va al principio, no al final."
@@ -1394,7 +1394,7 @@
     "teoria": "Las preposiciones son palabras que relacionan otras palabras: a, de, en, con, por, para, sin, sobre, entre, hasta.",
     "explicacion": "Para localizar una preposición, busca las palabras que conectan el sustantivo con otra parte de la oración. Ejemplo: en 'Voy a la playa', la preposición es 'a'.",
     "regla": "Las preposiciones relacionan palabras: a, de, en, con, por, para...",
-    "ejemplo_correcto": "En 'El libro esta sobre la mesa', la preposición es 'sobre'.",
+    "ejemplo_correcto": "En 'El libro está sobre la mesa', la preposición es 'sobre'.",
     "ejemplo_incorrecto": "Decir que 'mesa' es una preposición. 'Mesa' es un sustantivo."
   },
   {
@@ -1722,7 +1722,7 @@
     "proceso": "P3",
     "titulo": "Distinguir el diálogo de la narración en un cuento",
     "teoria": "La narración cuenta lo que pasa (con un narrador) y el diálogo reproduce lo que dicen los personajes (entre guiones o comillas).",
-    "explicacion": "Busca marcas de diálogo: guiones de raya, comillas, verbos como 'dijo', 'respondió'. Lo que esta dentro de esas marcas es diálogo; lo demas es narración.",
+    "explicacion": "Busca marcas de diálogo: guiones de raya, comillas, verbos como 'dijo', 'respondió'. Lo que está dentro de esas marcas es diálogo; lo demas es narración.",
     "regla": "Diálogo = lo que dicen los personajes (marcado con guiones o comillas); narración = lo que cuenta el narrador.",
     "ejemplo_correcto": "En 'Marta dijo: -Voy a encender la linterna-', lo entre guiones es diálogo.",
     "ejemplo_incorrecto": "Decir que todo el texto es diálogo porque hay un personaje que habla."
@@ -2152,7 +2152,7 @@
     "titulo": "Localizar la idea principal en un párrafo",
     "teoria": "Cada párrafo desarrolla una idea principal, que suele estar en la primera oración (oración topic) o en la última (oración de cierre). Identificarla ayuda a comprender la estructura del texto.",
     "explicacion": "Lee el párrafo completo. Preguntate: de que trata este párrafo en concreto? La respuesta en una oración es la idea principal. Las demas oraciones la amplian o ejemplifican.",
-    "regla": "La idea principal del párrafo esta en la oración topic (inicio) o de cierre (final).",
+    "regla": "La idea principal del párrafo está en la oración topic (inicio) o de cierre (final).",
     "ejemplo_correcto": "En un párrafo que empieza 'El reciclaje de vidrio es eficiente', la idea principal es la eficiencia del reciclaje.",
     "ejemplo_incorrecto": "Decir que la idea principal es un dato concreto del párrafo. Los datos son ejemplos, no la idea."
   },
@@ -2194,7 +2194,7 @@
     "nivel_mcer": "A2",
     "proceso": "P1",
     "titulo": "Localizar el tema del texto (no la idea, el tema)",
-    "teoria": "El tema es el asunto del que trata el texto en su conjunto. Se diferencia de la idea principal en que el tema solo nombra el asunto, sin afirmar nada sobre el.",
+    "teoria": "El tema es el asunto del que trata el texto en su conjunto. Se diferencia de la idea principal en que el tema solo nombra el asunto, sin afirmar nada sobre él.",
     "explicacion": "Lee el texto completo. Preguntate: de que se habla? La respuesta en una o dos palabras es el tema.",
     "regla": "El tema es de que se habla; la idea principal es que se dice sobre el tema.",
     "ejemplo_correcto": "En un texto sobre los gatos, el tema es 'los gatos'.",
@@ -2272,8 +2272,8 @@
     "proceso": "P1",
     "titulo": "Localizar datos en una tabla",
     "teoria": "Las tablas organizan información en filas y columnas. Localizar un dato requiere identificar el título, los encabezados de fila y columna, y leer la celda en la intersección.",
-    "explicacion": "Primero identifica el título de la tabla. Luego busca la fila (categoría) y la columna (variable) que corresponden a la pregunta. El dato esta en la intersección.",
-    "regla": "En una tabla, el dato esta en la intersección de la fila y la columna buscadas.",
+    "explicacion": "Primero identifica el título de la tabla. Luego busca la fila (categoría) y la columna (variable) que corresponden a la pregunta. El dato está en la intersección.",
+    "regla": "En una tabla, el dato está en la intersección de la fila y la columna buscadas.",
     "ejemplo_correcto": "En una tabla de alumnos por curso y convocatoria, para saber cuántos de 3o aprobaron en junio se busca la fila '3o' y la columna 'junio'.",
     "ejemplo_incorrecto": "Buscar '3o' en el texto que acompana la tabla, no en la tabla misma."
   },
@@ -2360,7 +2360,7 @@
     "proceso": "P1",
     "titulo": "Localizar los diálogos en un texto narrativo",
     "teoria": "Los diálogos son las intervenciones de los personajes. Se reconocen por los guiones de raya (—), las comillas o los verbos de habla ('dijo', 'respondió').",
-    "explicacion": "Busca los guiones de raya o comillas. Lo que esta dentro es diálogo; lo demas es narración.",
+    "explicacion": "Busca los guiones de raya o comillas. Lo que está dentro es diálogo; lo demas es narración.",
     "regla": "El diálogo se reconoce por guiones, comillas o verbos de habla.",
     "ejemplo_correcto": "En '—Hola —dijo María', lo entre guiones es diálogo.",
     "ejemplo_incorrecto": "Decir que 'dijo' es diálogo. 'Dijo' es un verbo de habla que introduce el diálogo."
@@ -2788,7 +2788,7 @@
     "nivel_mcer": "A2",
     "proceso": "P3",
     "titulo": "Interpretar el clímax de una narración",
-    "teoria": "El clímax es el momento de maxima tensión en una narración. Se reconoce porque el conflicto esta en su punto más alto y el lector no sabe como se resolvera.",
+    "teoria": "El clímax es el momento de maxima tensión en una narración. Se reconoce porque el conflicto está en su punto más alto y el lector no sabe como se resolvera.",
     "explicacion": "Busca el momento de mayor tensión. Preguntate: cuando esta el conflicto en su punto más alto?",
     "regla": "El clímax es el momento de mayor tensión de la narración.",
     "ejemplo_correcto": "En un cuento de aventuras, el clímax es la lucha final con el villano.",
@@ -3264,7 +3264,7 @@
     "teoria": "Las expresiones idiomaticas (modismos) tienen un significado figurado que no se deduce de las palabras literales: 'estar en las nubes' significa 'estar distraido'. Se infieren del contexto y del conocimiento del idioma.",
     "explicacion": "Identifica la expresión. Preguntate: su significado literal tiene sentido en el contexto? Si no, busca el significado figurado que encaje.",
     "regla": "El significado del modismo se infiere del contexto, no de las palabras literales.",
-    "ejemplo_correcto": "En 'Juan esta en las nubes', se infiere que Juan esta distraido.",
+    "ejemplo_correcto": "En 'Juan está en las nubes', se infiere que Juan esta distraido.",
     "ejemplo_incorrecto": "Decir que Juan esta fisicamente en las nubes. La expresión es figurada."
   },
   {
@@ -3668,7 +3668,7 @@
     "nivel_mcer": "B1",
     "proceso": "P3",
     "titulo": "Interpretar el climax de una narración",
-    "teoria": "El climax es el momento de maxima tensión en una narración. Se reconoce porque el conflicto esta en su punto más alto y el lector no sabe como se resolvera.",
+    "teoria": "El climax es el momento de maxima tensión en una narración. Se reconoce porque el conflicto está en su punto más alto y el lector no sabe como se resolvera.",
     "explicacion": "Busca el momento de mayor tensión. Preguntate: cuando esta el conflicto en su punto más alto?",
     "regla": "El climax es el momento de mayor tensión de la narración.",
     "ejemplo_correcto": "En un cuento de aventuras, el climax es la lucha final con el villano.",
@@ -3746,7 +3746,7 @@
     "proceso": "P4",
     "titulo": "Detectar la falacia del hombre de paja",
     "teoria": "La falacia del hombre de paja consiste en distorsionar el argumento del oponente para refutar una versión débil. Detectar esta falacia evita aceptar refutaciones enganosas.",
-    "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura de el?",
+    "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura de él?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
     "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
     "ejemplo_incorrecto": "Aceptar la refutación como válida. Se esta refutando una caricatura, no el argumento real."
@@ -5065,7 +5065,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir el modelo mental del receptor construido por el texto",
-    "teoria": "Todo texto construye una imagen de su lector ideal: sus conocimientos, valores, expectativas. Inferir ese modelo permite comprender a que lector apela y que presupone de el.",
+    "teoria": "Todo texto construye una imagen de su lector ideal: sus conocimientos, valores, expectativas. Inferir ese modelo permite comprender a que lector apela y que presupone de él.",
     "explicacion": "Preguntate: que sabe el lector ideal? Que valora? Que se le presupone? Los ejemplos y el vocabulario revelan ese modelo.",
     "regla": "El texto construye un modelo mental de su lector ideal (conocimientos, valores, expectativas).",
     "ejemplo_correcto": "En un texto con referencias culturales clasicas, se presupone un lector culto.",
@@ -5938,7 +5938,7 @@
     "explicacion": "Preguntate: que ideología se reproduce? Se hace visible o esta naturalizada? Como se sostiene en las prácticas?",
     "regla": "La ideología, según Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
     "ejemplo_correcto": "En un texto que presenta el consumismo como natural, la ideología esta naturalizada.",
-    "ejemplo_incorrecto": "Decir que la ideología es solo falsa conciencia. También esta en las prácticas."
+    "ejemplo_incorrecto": "Decir que la ideología es solo falsa conciencia. También está en las prácticas."
   },
   {
     "numero": 32,
@@ -6288,7 +6288,7 @@
     "titulo": "Interpretar la heterotopía (Foucault)",
     "teoria": "Foucault llama heterotopía a los espacios otros: lugares reales que estan fuera de todos los lugares (cementerio, barco, jardín, espejo).",
     "explicacion": "Preguntate: hay espacios otros? Espacios al margen? Que función cumplen?",
-    "regla": "La heterotopía es un espacio otro que esta fuera de todos los lugares.",
+    "regla": "La heterotopía es un espacio otro que está fuera de todos los lugares.",
     "ejemplo_correcto": "En un texto donde un barco funciona como mundo aparte, hay heterotopía.",
     "ejemplo_incorrecto": "Decir que el barco es solo un medio de transporte. También puede ser heterotopía."
   },
@@ -6345,7 +6345,7 @@
     "explicacion": "Preguntate: que detalle de la imagen me punza? Que hiere? Que emociona?",
     "regla": "El punctum es el detalle de la imagen que punza y emociona.",
     "ejemplo_correcto": "En una fotografía donde un detalle secundario conmueve, hay punctum.",
-    "ejemplo_incorrecto": "Decir que solo importa el tema principal. El punctum esta en el detalle."
+    "ejemplo_incorrecto": "Decir que solo importa el tema principal. El punctum está en el detalle."
   },
   {
     "numero": 69,
@@ -6422,7 +6422,7 @@
     "explicacion": "Preguntate: como se produce el sentido? Hay efectos de superficie? El sentido es un efecto del lenguaje?",
     "regla": "El sentido es un efecto de superficie producido por el lenguaje.",
     "ejemplo_correcto": "En un texto que juega con las superficies del lenguaje, se revela la lógica del sentido.",
-    "ejemplo_incorrecto": "Decir que el sentido esta en la profundidad. Para Deleuze, esta en la superficie."
+    "ejemplo_incorrecto": "Decir que el sentido está en la profundidad. Para Deleuze, está en la superficie."
   },
   {
     "numero": 76,
@@ -6474,7 +6474,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el subalterno (Spivak)",
     "teoria": "Spivak muestra que el subalterno no puede hablar: su voz es silenciada por las estructuras de poder. Interpretar esta imposibilidad permite analizar las condiciones de representación de los marginados.",
-    "explicacion": "Preguntate: el subalterno puede hablar en el texto? Su voz es silenciada? Quien habla por el?",
+    "explicacion": "Preguntate: el subalterno puede hablar en el texto? Su voz es silenciada? Quien habla por él?",
     "regla": "El subalterno no puede hablar: su voz es silenciada por las estructuras de poder.",
     "ejemplo_correcto": "En un texto donde los marginados son representados solo por otros, actua el silenciamiento del subalterno.",
     "ejemplo_incorrecto": "Decir que el subalterno habla libremente. Su voz esta mediada por el poder."
@@ -6594,7 +6594,7 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica psicoanalítica (Freud/Lacan)",
-    "teoria": "La crítica psicoanalítica interpreta el texto como síntoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
+    "teoria": "La crítica psicoanalítica interpreta el texto como síntoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre él.",
     "explicacion": "Preguntate: la interpretación esta anclada en el texto? O proyecta la teoría sin evidencia textual?",
     "regla": "La crítica psicoanalítica es válida si está anclada en evidencia textual y no solo en la teoría.",
     "ejemplo_correcto": "En una interpretación que conecta un síntoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalítica válida.",

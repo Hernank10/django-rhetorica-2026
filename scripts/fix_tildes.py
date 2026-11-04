@@ -557,6 +557,32 @@ REGEX_FALSE_POS_V8 = [
     (r'\bni\s+en\s+la\s+mia\b', r'ni en la mía'),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# REGEX_V9: pronombres tonicos + esta verbo + no se que + paso del
+# ══════════════════════════════════════════════════════════════════
+REGEX_V9 = [
+    # "a el." -> "a él."
+    (r'\ba\s+el\b(?=\s*[.,;:!?]|\s*$)', r'a él'),
+    # "de el." -> "de él."
+    (r'\bde\s+el\b(?=\s*[.,;:!?]|\s*$)', r'de él'),
+    # "para/por/sobre/en el." -> "...él."
+    (r'\b(para|por|sobre|en|con|sin|hacia|hasta)\s+el\b(?=\s*[.,;:!?]|\s*$)', r'\1 él'),
+    # "esta en/con/por/..." -> "está ..."
+    (r'\besta\s+(en|con|por|para|sobre|entre|dentro|fuera)\b', r'está \1'),
+    # "que esta en/..." -> "que está en/..."
+    (r'\bque\s+esta\b(?=\s+(?:en|con|por|para|sobre|entre|dentro|fuera|bien|mal|claro|listo)\b)', r'que está'),
+    # "no se que/como/cuando/donde" -> "no sé ..."
+    (r'\bno\s+se\s+que\b', r'no sé qué'),
+    (r'\bno\s+se\s+como\b', r'no sé cómo'),
+    (r'\bno\s+se\s+cuando\b', r'no sé cuándo'),
+    (r'\bno\s+se\s+donde\b', r'no sé dónde'),
+    (r'\bno\s+se\s+si\b', r'no sé si'),
+    # "El/el pasó del" -> "El/el paso del" (sustantivo)
+    (r'\b([Ee])l\s+pasó\s+del\b', r'\1l paso del'),
+    (r'\b([Uu])n\s+pasó\s+del\b', r'\1n paso del'),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -616,6 +642,10 @@ def fix_text(text):
     # 10. FALSE POSITIVES de v8 + pronombres tonicos
     for pattern, replacement in REGEX_FALSE_POS_V8:
         text = re.sub(pattern, replacement, text)
+    # 11. Residuos finales v9 (pronombres tonicos, esta verbo, paso del)
+    for pattern, replacement in REGEX_V9:
+        text = re.sub(pattern, replacement, text)
+
     return text
 
 
