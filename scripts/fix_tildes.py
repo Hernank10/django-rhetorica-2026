@@ -583,6 +583,72 @@ REGEX_V9 = [
     (r'\b([Uu])n\s+pasó\s+del\b', r'\1n paso del'),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V11: C2 "El cuerpo como mercancia"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V11 = {
+    "teorico": "teórico", "teorica": "teórica",
+    "teoricos": "teóricos", "teoricas": "teóricas",
+    "traves": "través",
+    "seras": "serás", "seran": "serán",
+    "antitesis": "antítesis",
+    "jerarquicas": "jerárquicas", "jerarquicos": "jerárquicos",
+    "alla": "allá",
+    "dialecticamente": "dialécticamente",
+    "ideologica": "ideológica", "ideologicas": "ideológicas",
+    "hegemonia": "hegemonía",
+    "terminos": "términos",
+    "tipografia": "tipografía",
+    "multiples": "múltiples",
+    "epoca": "época", "epocas": "épocas",
+    "formulas": "fórmulas",
+    "estrategica": "estratégica", "estrategicas": "estratégicas",
+    "estrategico": "estratégico", "estrategicos": "estratégicos",
+    "haran": "harán",
+    "electronico": "electrónico", "electronica": "electrónica",
+    "heterogenea": "heterogénea", "heterogeneo": "heterogéneo",
+    "habito": "hábito", "habitos": "hábitos",
+    "autobiografico": "autobiográfico", "autobiografica": "autobiográfica",
+    "actua": "actúa", "actuan": "actúan",
+    "cosmetica": "cosmética",
+}
+
+REGEX_V11_FALSE_POS = [
+    # "aplicó un marco" -> "aplico un marco" (1a persona)
+    (r"\baplicó\s+un\s+marco\b", "aplico un marco"),
+    # "primer terminó" -> "primer término"
+    (r"\bprimer\s+terminó\b", "primer término"),
+    # "el terminó 'superior'" (comillas)
+    (r"\bel\s+terminó\b(?=\s*['\u2018\u2019\u201c\u201d])", "el término"),
+    # "cada anunció" -> "cada anuncio"
+    (r"\bcada\s+anunció\b", "cada anuncio"),
+    # "el anunció se" -> "el anuncio se"
+    (r"\bel\s+anunció\b(?=\s+se\b)", "el anuncio"),
+    # "Un anunció de" / "un anunció" -> "Un anuncio de"
+    (r"\b([Uu])n\s+anunció\b", r"\1 anuncio"),
+    # "en cambió," -> "en cambio,"
+    (r"\ben\s+cambió\b", "en cambio"),
+    # "esta atravesado/mediada/..." -> "está ..."
+    (r"\besta\s+(mediada|mediado|atravesada|atravesado|construida|construido|basada|basado|anclada|anclado|marcada|marcado|insertada|insertado)\b", r"está \1"),
+    # "porque tu lo vales" -> "porque tú lo vales"
+    (r"\bporque\s+tu\s+lo\s+vales\b", "porque tú lo vales"),
+    # "tu lo mereces" -> "tú lo mereces"
+    (r"\b([Tt])u\s+lo\s+mereces\b", r"\1ú lo mereces"),
+    # "Tu vales mucho" -> "Tú vales mucho"
+    (r"\b([Tt])u\s+vales\s+mucho\b", r"\1ú vales mucho"),
+    # "determina que se" -> "determina qué se" (interrogativo indirecto)
+    (r"\bdetermina\s+que\s+se\b", "determina qué se"),
+    # "y quien puede decirlo" -> "y quién puede decirlo"
+    (r"\by\s+quien\s+puede\s+decirlo\b", "y quién puede decirlo"),
+    # "desde que posición" -> "desde qué posición"
+    (r"\bdesde\s+que\s+posición\b", "desde qué posición"),
+    # "En el se articulan" -> "En él se articulan"
+    (r"\bEn\s+el\s+se\b", "En él se"),
+    # "que estructura dialéctica" (interrogativo tras coma) -> "qué estructura"
+    (r",\s+que\s+(estructura|caracteriza|significa|es|hace|ocurre|pasa|hay|se\s+describe|se\s+produce)\b", r", qué \1"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -618,7 +684,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -644,6 +710,10 @@ def fix_text(text):
         text = re.sub(pattern, replacement, text)
     # 11. Residuos finales v9 (pronombres tonicos, esta verbo, paso del)
     for pattern, replacement in REGEX_V9:
+        text = re.sub(pattern, replacement, text)
+
+    # 12. FALSE POSITIVES v11 (reversion contextual C2 mercancia)
+    for pattern, replacement in REGEX_V11_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text
