@@ -265,6 +265,115 @@ WORDS_V5 = {
     "muda": "muda", "mudo": "mudo",
 }
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V6: verbos B1 + palabras C2 + generales
+# ══════════════════════════════════════════════════════════════════
+WORDS_V6 = {
+    # verbos B1 "La biblioteca secreta"
+    "empujo": "empujó", "descubrio": "descubrió",
+    "reabriria": "reabriría", "corazon": "corazón",
+    "volvia": "volvía", "fijo": "fijó", "dudo": "dudó",
+    "olia": "olía", "estanterias": "estanterías",
+    "subian": "subían", "levanto": "levantó",
+    "seguia": "seguía", "conto": "contó",
+    "debian": "debían", "dare": "daré", "leyo": "leyó",
+    "sonrio": "sonrió", "explico": "explicó", "sintio": "sintió",
+
+    # palabras C2 "Para que sirve la critica"
+    "valida": "válida", "validas": "válidas",
+    "valido": "válido", "validos": "válidos",
+    "hermeneutica": "hermenéutica", "hermeneutico": "hermenéutico",
+    "categorias": "categorías", "categoria": "categoría",
+    "desconfia": "desconfía",
+    "ideologia": "ideología", "ideologias": "ideologías",
+    "etica": "ética", "etico": "ético",
+    "podrian": "podrían", "podria": "podría",
+    "epistemica": "epistémica", "epistemicas": "epistémicas",
+    "epistemico": "epistémico", "epistemicos": "epistémicos",
+    "jerarquias": "jerarquías", "jerarquia": "jerarquía",
+    "genealogica": "genealógica", "genealogico": "genealógico",
+    "genealogia": "genealogía",
+    "solido": "sólido", "solida": "sólida",
+    "solidos": "sólidos", "solidas": "sólidas",
+    "psicoanalitica": "psicoanalítica",
+    "psicoanalitico": "psicoanalítico",
+    "ecologica": "ecológica", "ecologico": "ecológico",
+    "ecocritica": "ecocrítica",
+    "razon": "razón",
+    "espectaculo": "espectáculo",
+    "mercancia": "mercancía", "mercancias": "mercancías",
+    "biopolitica": "biopolítica", "biopolitico": "biopolítico",
+    "limites": "límites", "limite": "límite",
+    "condicion": "condición",
+    "trascendental": "trascendental",
+    "deduccion": "deducción",
+    "alteridad": "alteridad",
+    "traduccion": "traducción",
+    "interpretacion": "interpretación",
+    "reproduccion": "reproducción",
+    "dominacion": "dominación",
+    "esencialismo": "esencialismo",
+    "esencializar": "esencializar",
+    "deconstruccion": "deconstrucción",
+    "poscolonial": "poscolonial",
+    "postcolonial": "postcolonial",
+    "performatividad": "performatividad",
+    "binarismo": "binarismo",
+    "contemporaneas": "contemporáneas",
+    "contemporanea": "contemporánea",
+    "indiscriminado": "indiscriminado",
+    "infalible": "infalible",
+    "rigurosa": "rigurosa",
+    "saturado": "saturado",
+    "coaccion": "coacción",
+    "coacciones": "coacciones",
+    "desobediencia": "desobediencia",
+    "intercultural": "intercultural",
+    "colonialismo": "colonialismo",
+    "marxista": "marxista",
+    "produccion": "producción",
+    "ilustrada": "ilustrada",
+    "poblaciones": "poblaciones",
+    "descalificacion": "descalificación",
+}
+
+# ───── Patrones para enunciados interrogativos ─────
+INTERROG_TILDE = {
+    "que": "qué", "como": "cómo", "cuando": "cuándo",
+    "donde": "dónde", "quien": "quién", "cual": "cuál",
+    "cuanto": "cuánto", "cuanta": "cuánta",
+    "cuantos": "cuántos", "cuantas": "cuántas",
+    "por que": "por qué",
+}
+
+
+def fix_enunciado_interrogativo(text):
+    """Anade ¿ y tilda interrogativos en enunciados que son pregunta."""
+    if not isinstance(text, str) or not text.endswith("?"):
+        return text
+    if text.startswith("¿"):
+        return text
+    if text.lower().startswith("por que"):
+        if text[0].isupper():
+            return "¿Por qué" + text[len("por que"):]
+        return "¿por qué" + text[len("por que"):]
+    first_word = text.split(" ", 1)[0] if " " in text else text[:-1]
+    first_lower = first_word.lower()
+    if first_lower in INTERROG_TILDE:
+        repl = INTERROG_TILDE[first_lower]
+        if first_word[0].isupper():
+            repl = repl[0].upper() + repl[1:]
+        rest = text[len(first_word):]
+        return "¿" + repl + rest
+    return text
+
+
+# Regex: "que este" -> "que esté" (subjuntivo)
+REGEX_ESTE_SUBJ = re.compile(r'\b(que|cuando|aunque|si|ojala|ojalá)\s+este\b', re.IGNORECASE)
+# Regex: "para que sirve" -> "para qué sirve" (interrogativo implicito)
+REGEX_PARA_QUE_SIRVE = re.compile(r'\b([Pp])ara que sirve\b')
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -300,7 +409,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -314,6 +423,10 @@ def fix_text(text):
     # 6. Interrogativos
     for pattern, replacement in INTERROGATIVE_PATTERNS:
         text = re.sub(pattern, replacement, text)
+    # 7. "que este" -> "que esté" (subjuntivo)
+    text = REGEX_ESTE_SUBJ.sub(lambda m: m.group(1) + " esté", text)
+    # 8. "para que sirve" -> "para qué sirve"
+    text = REGEX_PARA_QUE_SIRVE.sub(lambda m: m.group(1) + "ara qué sirve", text)
     return text
 
 
@@ -346,6 +459,7 @@ def process_textos(path):
         for ej in t.get("ejercicios", []):
             if "enunciado" in ej:
                 new = fix_text(ej["enunciado"])
+                new = fix_enunciado_interrogativo(new)
                 if new != ej["enunciado"]:
                     ej["enunciado"] = new
                     changes += 1

@@ -29,7 +29,7 @@
     "nivel_mcer": "A1",
     "titulo": "Distinguir un cuento de una noticia",
     "teoria": "Los cuentos son ficción (historias inventadas) y las noticias son información real sobre hechos. Distinguirlos es básico para evaluar la credibilidad de un texto.",
-    "explicacion": "Preguntate: los hechos podrian haber ocurrido en la realidad? Hay personajes ficticios? Si es así, es un cuento. Si narra un hecho real con fecha y lugar, es una noticia.",
+    "explicacion": "Preguntate: los hechos podrían haber ocurrido en la realidad? Hay personajes ficticios? Si es así, es un cuento. Si narra un hecho real con fecha y lugar, es una noticia.",
     "regla": "Cuento = ficción; noticia = hecho real verificable.",
     "ejemplo_correcto": "'Había una vez un dragon...' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
     "ejemplo_incorrecto": "Decir que un cuento es una noticia porque tiene personajes. Los personajes de ficción no existen en la realidad.",
@@ -77,7 +77,7 @@
     "nivel_mcer": "A1",
     "titulo": "Reconocer si un texto es un cuento o una noticia",
     "teoria": "Los cuentos son ficción y las noticias informan sobre hechos reales.",
-    "explicacion": "Preguntate: los hechos podrian ocurrir en la realidad? Hay personajes ficticios?",
+    "explicacion": "Preguntate: los hechos podrían ocurrir en la realidad? Hay personajes ficticios?",
     "regla": "Cuento = ficción; noticia = hecho real verificable.",
     "ejemplo_correcto": "'Había una vez un dragon' es un cuento. 'El alcalde inauguro el parque el martes' es una noticia.",
     "ejemplo_incorrecto": "Decir que un cuento es noticia porque tiene personajes.",
@@ -101,7 +101,7 @@
     "nivel_mcer": "A1",
     "titulo": "Inferir si una situación es real o imaginaria",
     "teoria": "En los textos, las situaciones pueden ser reales (hechos verificables) o imaginarias (ficción, fantasía). Distinguirlas es básico para entender el tipo de texto y su proposito.",
-    "explicacion": "Preguntate: los hechos podrian ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, la situación es imaginaria.",
+    "explicacion": "Preguntate: los hechos podrían ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, la situación es imaginaria.",
     "regla": "Una situación es imaginaria si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', la situación es imaginaria: los dragones no existen.",
     "ejemplo_incorrecto": "Decir que es real porque el castillo existe. El elemento fantastico (el dragon que vuela) hace que toda la escena sea imaginaria.",
@@ -329,7 +329,7 @@
     "nivel_mcer": "A2",
     "titulo": "Distinguir hechos de fantasía en un texto",
     "teoria": "En los textos, los hechos (verificables, posibles) se distinguen de la fantasía (imposible, inventada). Distinguirlos es básico para saber que tipo de texto se lee.",
-    "explicacion": "Preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles (animales que hablan, magia)? Si los hay, es fantasía; si no, es un hecho.",
+    "explicacion": "Preguntate: esto podría ocurrir en la realidad? Hay elementos imposibles (animales que hablan, magia)? Si los hay, es fantasía; si no, es un hecho.",
     "regla": "Un hecho es posible o verificable; la fantasía incluye elementos imposibles o inventados.",
     "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
     "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele.",
@@ -389,7 +389,7 @@
     "nivel_mcer": "B1",
     "titulo": "Localizar información en tablas y graficos",
     "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico segun el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
-    "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorias) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
+    "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorías) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
     "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
     "ejemplo_correcto": "Pregunta: 'Cuantos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
     "ejemplo_incorrecto": "El lector busca '3o ESO' en el texto que acompana la tabla, no en la tabla misma, y responde 'muchos'. La información estaba en una celda; no se localizo por no leer los encabezados.",
@@ -402,7 +402,7 @@
     "titulo": "Construir la idea global de un texto",
     "teoria": "La idea global (o tema) es la síntesis de todo el texto en una sola afirmación. A diferencia de la idea principal explicita (P1), que suele estar declarada, la idea global requiere integrar información de varios párrafos: el lector debe construirla. Es el proceso central de PIRLS P3.",
     "explicacion": "Para construir la idea global: (1) leer el texto completo; (2) identificar el tema (de que trata) y la tesis (que se afirma sobre el tema); (3) sintetizar en una oración que abarque todos los párrafos sin repetir detalles. Si la síntesis solo cubre un párrafo, es un resumen parcial, no la idea global.",
-    "regla": "La idea global es una oración que abarca todo el texto y que no podria eliminarse sin que el texto pierda su sentido.",
+    "regla": "La idea global es una oración que abarca todo el texto y que no podría eliminarse sin que el texto pierda su sentido.",
     "ejemplo_correcto": "Texto sobre el reciclaje (3 párrafos: eficiencia, energía, ejemplos). Idea global: 'El reciclaje de vidrio es eficiente porque ahorra energía y materiales.' Abarca los tres párrafos.",
     "ejemplo_incorrecto": "Lector que responde: 'El vidrio se recicla'. Es el tema, no la tesis. La idea global necesita una afirmación sobre el tema, no solo nombrarlo.",
     "numero_global": 5
@@ -448,11 +448,11 @@
     "proceso": "P4",
     "nivel_mcer": "B1",
     "titulo": "Identificar argumentos y ejemplos en un texto",
-    "teoria": "Un argumento es una razon que apoya una tesis; un ejemplo es un caso concreto que ilustra el argumento. Distinguirlos ayuda a evaluar la solidez del texto.",
+    "teoria": "Un argumento es una razón que apoya una tesis; un ejemplo es un caso concreto que ilustra el argumento. Distinguirlos ayuda a evaluar la solidez del texto.",
     "explicacion": "Los argumentos suelen ser generales ('el ejercicio es bueno'); los ejemplos son casos especificos ('correr 30 minutos reduce el riesgo cardiaco').",
-    "regla": "Argumento = razon general; ejemplo = caso concreto que ilustra la razon.",
+    "regla": "Argumento = razón general; ejemplo = caso concreto que ilustra la razón.",
     "ejemplo_correcto": "En 'El deporte es sano. Por ejemplo, nadar mejora la respiración', el argumento es 'el deporte es sano' y el ejemplo es 'nadar mejora la respiración'.",
-    "ejemplo_incorrecto": "Decir que el ejemplo es el argumento. El ejemplo es una ilustración, no la razon.",
+    "ejemplo_incorrecto": "Decir que el ejemplo es el argumento. El ejemplo es una ilustración, no la razón.",
     "numero_global": 25
   },
   {
@@ -557,7 +557,7 @@
     "nivel_mcer": "B1",
     "titulo": "Inferir la causa de un problema social en un texto",
     "teoria": "En los textos informativos y de opinión, los problemas sociales (pobreza, desempleo, contaminación) tienen causas que no siempre se declaran: se infieren de los datos y del contexto.",
-    "explicacion": "Identifica el problema. Preguntate: que factores podrian explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
+    "explicacion": "Identifica el problema. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
     "regla": "La causa de un problema social se infiere de los datos y del contexto del texto.",
     "ejemplo_correcto": "En un texto que dice 'el desempleo juvenil crecio al 25% tras la crisis', se infiere que la crisis es una causa del desempleo.",
     "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explicitamente. Los datos del texto permiten inferirla.",
@@ -605,7 +605,7 @@
     "nivel_mcer": "B1",
     "titulo": "Inferir la causa de un fenomeno natural",
     "teoria": "En los textos divulgativos, las causas de los fenomenos naturales (lluvia, terremotos, eclipses) no siempre se declaran: se infieren de los datos y del conocimiento del mundo.",
-    "explicacion": "Identifica el fenomeno. Preguntate: que factores podrian explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre fenomeno y contexto.",
+    "explicacion": "Identifica el fenomeno. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre fenomeno y contexto.",
     "regla": "La causa de un fenomeno natural se infiere de los datos y del conocimiento del mundo.",
     "ejemplo_correcto": "En 'El cielo se cubrio de nubes negras y empezó a llover', se infiere que la causa de la lluvia son las nubes cargadas de agua.",
     "ejemplo_incorrecto": "Decir que la lluvia no tiene causa. Todo fenomeno natural tiene una causa fisica.",
@@ -628,11 +628,11 @@
     "proceso": "P4",
     "nivel_mcer": "B1",
     "titulo": "Identificar el argumento principal",
-    "teoria": "En los textos argumentativos, el argumento principal es la razon más fuerte que sostiene la tesis. Identificarlo permite comprender la lógica del texto.",
-    "explicacion": "Lee el texto y preguntate: cual es la razon más importante que el autor da para sostener su tesis? Suele estar desarrollada con más detalle o repetida.",
-    "regla": "El argumento principal es la razon más fuerte que sostiene la tesis.",
+    "teoria": "En los textos argumentativos, el argumento principal es la razón más fuerte que sostiene la tesis. Identificarlo permite comprender la lógica del texto.",
+    "explicacion": "Lee el texto y preguntate: cual es la razón más importante que el autor da para sostener su tesis? Suele estar desarrollada con más detalle o repetida.",
+    "regla": "El argumento principal es la razón más fuerte que sostiene la tesis.",
     "ejemplo_correcto": "En un texto que defiende el reciclaje, el argumento principal es 'el reciclaje reduce la contaminación'.",
-    "ejemplo_incorrecto": "Decir que el argumento principal es el primer dato del texto. El argumento principal es la razon central, no un dato cualquiera.",
+    "ejemplo_incorrecto": "Decir que el argumento principal es el primer dato del texto. El argumento principal es la razón central, no un dato cualquiera.",
     "numero_global": 97
   },
   {
@@ -641,7 +641,7 @@
     "nivel_mcer": "B2",
     "titulo": "Inferir el rasgo de un personaje por sus acciones",
     "teoria": "En los textos narrativos, el autor rara vez describe directamente la personalidad de un personaje. En cambió, muestra sus acciones y deja que el lector infiera el rasgo. Este proceso (PIRLS P2) requiere que el lector conecte una acción concreta con un rasgo psicologico o moral: la relación no está escrita, pero se deduce del contexto.",
-    "explicacion": "Para inferir un rasgo: (1) localizar una acción o reacción del personaje; (2) preguntarse que tipo de persona realizaria esa acción; (3) proponer un adjetivo (generoso, egoista, valiente, cobarde, prudente...) y verificar que sea coherente con el resto del texto. La inferencia es valida si el texto no la contradice.",
+    "explicacion": "Para inferir un rasgo: (1) localizar una acción o reacción del personaje; (2) preguntarse que tipo de persona realizaria esa acción; (3) proponer un adjetivo (generoso, egoista, valiente, cobarde, prudente...) y verificar que sea coherente con el resto del texto. La inferencia es válida si el texto no la contradice.",
     "regla": "El rasgo de un personaje se infiere de lo que hace, no de lo que dice ser; la acción concreta es la evidencia.",
     "ejemplo_correcto": "Texto: 'Ana vio que su compañero no tenía lapiz. Sin decir nada, partio el suyo por la mitad y le dio un trozo.' -> Rasgo inferido: generosidad / empatia. La acción de compartir sin que se lo pidan lo evidencia.",
     "ejemplo_incorrecto": "Lector que responde: 'Ana es una persona que tiene lapices'. Es una descripción literal, no una inferencia del rasgo. El lector no pasó de la acción al rasgo.",
@@ -700,11 +700,11 @@
     "proceso": "P4",
     "nivel_mcer": "B2",
     "titulo": "Detectar falacias en un texto argumentativo",
-    "teoria": "Una falacia es un razonamiento incorrecto que parece valido. Detectar falacias es esencial para la lectura crítica.",
+    "teoria": "Una falacia es un razonamiento incorrecto que parece válido. Detectar falacias es esencial para la lectura crítica.",
     "explicacion": "Busca generalizaciones apresuradas ('todos los...'), ataques a la persona en lugar del argumento, falsos dilemas ('o estas conmigo o contra mi').",
     "regla": "Falacias comunes: generalización, ataque personal, falso dilema, apelación a la emoción.",
     "ejemplo_correcto": "En 'Todos los jovenes son vagos', hay una generalización apresurada.",
-    "ejemplo_incorrecto": "Aceptar el argumento como valido porque suena convincente. La generalización no se sostiene con evidencia.",
+    "ejemplo_incorrecto": "Aceptar el argumento como válido porque suena convincente. La generalización no se sostiene con evidencia.",
     "numero_global": 26
   },
   {
@@ -772,7 +772,7 @@
     "proceso": "P4",
     "nivel_mcer": "B2",
     "titulo": "Evaluar si un argumento es lógico",
-    "teoria": "Un argumento es lógico si sus premisas sostienen la conclusión de forma valida.",
+    "teoria": "Un argumento es lógico si sus premisas sostienen la conclusión de forma válida.",
     "explicacion": "Identifica las premisas y la conclusión. Preguntate: si las premisas son verdaderas, la conclusión se sigue necesariamente?",
     "regla": "Un argumento es lógico si la conclusión se sigue necesariamente de las premisas.",
     "ejemplo_correcto": "Premisa: todos los humanos son mortales. Premisa: Socrates es humano. Conclusión: Socrates es mortal.",
@@ -834,7 +834,7 @@
     "titulo": "Localizar el contraargumento en un texto argumentativo",
     "teoria": "En los textos argumentativos, el autor presenta su tesis y también reconoce (o refuta) los contraargumentos: las razones de quien piensa distinto. Localizarlos es esencial para entender la estructura del debate.",
     "explicacion": "Busca expresiones como 'sin embargo', 'algunos sostienen que', 'por el contrario', 'no obstante'. Esas introducen el contraargumento. La refutación suele seguir.",
-    "regla": "El contraargumento es la razon del que piensa distinto, introducida por 'sin embargo', 'no obstante' o 'por el contrario'.",
+    "regla": "El contraargumento es la razón del que piensa distinto, introducida por 'sin embargo', 'no obstante' o 'por el contrario'.",
     "ejemplo_correcto": "En 'Algunos sostienen que la IA destruira empleos. Sin embargo, otros datos muestran...', el contraargumento es 'la IA destruira empleos'.",
     "ejemplo_incorrecto": "Decir que el contraargumento es la tesis del autor. El contraargumento es la postura opuesta.",
     "numero_global": 82
@@ -940,11 +940,11 @@
     "proceso": "P4",
     "nivel_mcer": "C1",
     "titulo": "Evaluar la calidad de la evidencia en un texto",
-    "teoria": "La evidencia (datos, estudios, citas) sostiene las afirmaciones. Evaluar su calidad es esencial: no toda evidencia es igual de solida.",
+    "teoria": "La evidencia (datos, estudios, citas) sostiene las afirmaciones. Evaluar su calidad es esencial: no toda evidencia es igual de sólida.",
     "explicacion": "Preguntate: la evidencia es verificable? La fuente es creible? La muestra es suficiente? Hay estudios que la contradicen?",
-    "regla": "La evidencia solida es verificable, de fuente creible, con muestra suficiente y sin contradicciones graves.",
-    "ejemplo_correcto": "Un estudió con 10.000 participantes en una revista cientifica es evidencia solida.",
-    "ejemplo_incorrecto": "Aceptar 'un amigo mio dice que...' como evidencia. Un caso anecdótico no es evidencia solida.",
+    "regla": "La evidencia sólida es verificable, de fuente creible, con muestra suficiente y sin contradicciones graves.",
+    "ejemplo_correcto": "Un estudió con 10.000 participantes en una revista cientifica es evidencia sólida.",
+    "ejemplo_incorrecto": "Aceptar 'un amigo mio dice que...' como evidencia. Un caso anecdótico no es evidencia sólida.",
     "numero_global": 27
   },
   {
@@ -975,10 +975,10 @@
     "numero": 9,
     "proceso": "P2",
     "nivel_mcer": "C1",
-    "titulo": "Inferir la ideologia a partir del vocabulario",
-    "teoria": "En los textos periodisticos, el vocabulario revela la ideologia: llamar 'terroristas' o 'luchadores' a un mismo grupo implica posturas opuestas.",
+    "titulo": "Inferir la ideología a partir del vocabulario",
+    "teoria": "En los textos periodisticos, el vocabulario revela la ideología: llamar 'terroristas' o 'luchadores' a un mismo grupo implica posturas opuestas.",
     "explicacion": "Observa los terminos valorativos. Preguntate que postura implican.",
-    "regla": "El vocabulario valorativo revela la ideologia.",
+    "regla": "El vocabulario valorativo revela la ideología.",
     "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, se infiere una postura ideologica clara.",
     "ejemplo_incorrecto": "Decir que el texto es neutral porque no menciona partidos.",
     "numero_global": 48
@@ -1064,7 +1064,7 @@
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado, su apariencia), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem: se ataca a Juan, no a su argumento.",
-    "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento.",
+    "ejemplo_incorrecto": "Decir que es una refutación válida porque Juan es fracasado. El carácter de Juan no invalida su argumento.",
     "numero_global": 99
   },
   {
@@ -1110,9 +1110,9 @@
     "titulo": "Evaluar la solidez de una analogia",
     "teoria": "Una analogia compara dos cosas para explicar o persuadir. Su solidez depende de que la comparación sea pertinente y no oculta diferencias importantes.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: en que se parecen? Esa semejanza es relevante para lo que se quiere explicar? Hay diferencias importantes que se omiten?",
-    "regla": "Una analogia es solida si la semejanza es relevante y las diferencias no invalidan la comparación.",
-    "ejemplo_correcto": "Comparar el cerebro con un ordenador es una analogia útil para explicar el procesamiento de información, aunque tiene limites (el cerebro no es binario).",
-    "ejemplo_incorrecto": "Aceptar como valida la analogia 'el universo es como un reloj' sin preguntar quien seria el relojero. La analogia oculta una diferencia clave.",
+    "regla": "Una analogia es sólida si la semejanza es relevante y las diferencias no invalidan la comparación.",
+    "ejemplo_correcto": "Comparar el cerebro con un ordenador es una analogia útil para explicar el procesamiento de información, aunque tiene límites (el cerebro no es binario).",
+    "ejemplo_incorrecto": "Aceptar como válida la analogia 'el universo es como un reloj' sin preguntar quien seria el relojero. La analogia oculta una diferencia clave.",
     "numero_global": 38
   },
   {
@@ -1146,7 +1146,7 @@
     "titulo": "Interpretar la ambiguedad deliberada de un texto literario",
     "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metáfora polisemica). Interpretar esa ambiguedad es parte de la lectura literaria avanzada.",
     "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuantas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambiguedad no es un defecto: es un recurso.",
-    "regla": "La ambiguedad literaria permite varias interpretaciones igualmente validas; el lector elige la más coherente.",
+    "regla": "La ambiguedad literaria permite varias interpretaciones igualmente válidas; el lector elige la más coherente.",
     "ejemplo_correcto": "En un cuento que termina con 'Y entonces desperto', el final puede ser real (desperto de un sueño) o metaforico (desperto a la realidad).",
     "ejemplo_incorrecto": "Decir que el final es 'malo' porque no se entiende. La ambiguedad es intencional, no un error.",
     "numero_global": 73
@@ -1156,10 +1156,10 @@
     "proceso": "P4",
     "nivel_mcer": "C2",
     "titulo": "Evaluar la solidez de una conclusión estadistica",
-    "teoria": "En los textos académicos y periodisticos, las conclusiones basadas en datos pueden ser solidas o débiles. Evaluar su solidez requiere atender a la muestra, la significación estadistica y la interpretación.",
-    "explicacion": "Preguntate: la muestra es suficiente? La diferencia observada es estadisticamente significativa? La interpretación de los datos es correcta? Una conclusión estadistica solida se apoya en evidencia robusta.",
-    "regla": "Una conclusión estadistica es solida si la muestra es suficiente, la diferencia es significativa y la interpretación es correcta.",
-    "ejemplo_correcto": "Un estudió con 10.000 participantes y significación estadistica alta permite una conclusión solida.",
+    "teoria": "En los textos académicos y periodisticos, las conclusiones basadas en datos pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la muestra, la significación estadistica y la interpretación.",
+    "explicacion": "Preguntate: la muestra es suficiente? La diferencia observada es estadisticamente significativa? La interpretación de los datos es correcta? Una conclusión estadistica sólida se apoya en evidencia robusta.",
+    "regla": "Una conclusión estadistica es sólida si la muestra es suficiente, la diferencia es significativa y la interpretación es correcta.",
+    "ejemplo_correcto": "Un estudió con 10.000 participantes y significación estadistica alta permite una conclusión sólida.",
     "ejemplo_incorrecto": "Concluir que 'el cafe cura el cáncer' a partir de un estudió con 20 personas. La muestra es insuficiente.",
     "numero_global": 78
   },
@@ -1168,7 +1168,7 @@
     "proceso": "P1",
     "nivel_mcer": "C2",
     "titulo": "Localizar la falacia en un discurso",
-    "teoria": "En los discursos argumentativos, las falacias son razonamientos incorrectos que parecen validos. Localizarlas es esencial para evaluar criticamente el discurso.",
+    "teoria": "En los discursos argumentativos, las falacias son razonamientos incorrectos que parecen válidos. Localizarlas es esencial para evaluar criticamente el discurso.",
     "explicacion": "Busca los patrones tipicos de falacia: ataque personal (ad hominem), falso dilema, generalización, apelación a la emoción. Identifica la conclusión que se quiere sostener y el razonamiento que la sostiene.",
     "regla": "La falacia se reconoce por el patron incorrecto del razonamiento: ataque personal, falso dilema, generalización.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay una falacia ad hominem: se ataca a la persona, no al argumento.",
@@ -1192,10 +1192,10 @@
     "proceso": "P4",
     "nivel_mcer": "C2",
     "titulo": "Evaluar la solidez de una definición",
-    "teoria": "En los textos académicos y filosoficos, las definiciones pueden ser solidas o débiles. Evaluar su solidez requiere atender a la claridad, la precisión y la ausencia de circularidad.",
-    "explicacion": "Preguntate: la definición es clara? Precisa? No es circular (no define el terminó con el mismo terminó)? Una definición solida delimita el concepto sin ambiguedad.",
-    "regla": "Una definición es solida si es clara, precisa y no circular.",
-    "ejemplo_correcto": "'La justicia es la virtud de dar a cada uno lo que le corresponde' es una definición solida: clara, precisa, no circular.",
+    "teoria": "En los textos académicos y filosoficos, las definiciones pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la claridad, la precisión y la ausencia de circularidad.",
+    "explicacion": "Preguntate: la definición es clara? Precisa? No es circular (no define el terminó con el mismo terminó)? Una definición sólida delimita el concepto sin ambiguedad.",
+    "regla": "Una definición es sólida si es clara, precisa y no circular.",
+    "ejemplo_correcto": "'La justicia es la virtud de dar a cada uno lo que le corresponde' es una definición sólida: clara, precisa, no circular.",
     "ejemplo_incorrecto": "'La libertad es la condición de ser libre' es una definición circular: repite el terminó sin definirlo.",
     "numero_global": 100
   },
@@ -1502,7 +1502,7 @@
     "proceso": "P2",
     "titulo": "Inferir si un texto es real o imaginario",
     "teoria": "Los textos pueden ser reales (hechos que pueden ocurrir) o imaginarios (ficción, fantasía). Distinguirlos es básico para comprender el tipo de texto.",
-    "explicacion": "Para inferir si un texto es real o imaginario, preguntate: los hechos podrian ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, es imaginario.",
+    "explicacion": "Para inferir si un texto es real o imaginario, preguntate: los hechos podrían ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, es imaginario.",
     "regla": "Un texto es imaginario si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', se infiere que es imaginario: los dragones no existen.",
     "ejemplo_incorrecto": "Decir que es real porque el castillo existe. El dragon que vuela hace que la escena sea imaginaria."
@@ -1909,7 +1909,7 @@
     "proceso": "P4",
     "titulo": "Distinguir realidad de fantasía en un texto",
     "teoria": "La realidad incluye hechos posibles o verificables. La fantasía incluye elementos imposibles o inventados (dragones, magia, animales que hablan). Distinguirlos es básico para saber que tipo de texto se lee.",
-    "explicacion": "Para distinguir realidad de fantasía, preguntate: esto podria ocurrir en la realidad? Hay elementos imposibles? Si los hay, es fantasía.",
+    "explicacion": "Para distinguir realidad de fantasía, preguntate: esto podría ocurrir en la realidad? Hay elementos imposibles? Si los hay, es fantasía.",
     "regla": "La realidad es posible o verificable; la fantasía incluye elementos imposibles.",
     "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
     "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele."
@@ -2018,11 +2018,11 @@
     "nivel_mcer": "A1",
     "proceso": "P4",
     "titulo": "Identificar el argumento principal",
-    "teoria": "En los textos argumentativos, el argumento principal es la razon más fuerte que sostiene la tesis. Identificarlo permite comprender la lógica del texto.",
-    "explicacion": "Para identificar el argumento principal, lee el texto y preguntate: cual es la razon más importante que el autor da para sostener su tesis?",
-    "regla": "El argumento principal es la razon más fuerte que sostiene la tesis.",
+    "teoria": "En los textos argumentativos, el argumento principal es la razón más fuerte que sostiene la tesis. Identificarlo permite comprender la lógica del texto.",
+    "explicacion": "Para identificar el argumento principal, lee el texto y preguntate: cual es la razón más importante que el autor da para sostener su tesis?",
+    "regla": "El argumento principal es la razón más fuerte que sostiene la tesis.",
     "ejemplo_correcto": "En un texto que defiende el reciclaje, el argumento principal es 'el reciclaje reduce la contaminación'.",
-    "ejemplo_incorrecto": "Decir que el argumento principal es el primer dato del texto. El argumento principal es la razon central."
+    "ejemplo_incorrecto": "Decir que el argumento principal es el primer dato del texto. El argumento principal es la razón central."
   },
   {
     "numero": 90,
@@ -2403,7 +2403,7 @@
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir el motivo de una acción",
-    "teoria": "El motivo es la razon interna por la que un personaje hace algo. Se infiere de lo que gana o pierde con la acción, y del contexto.",
+    "teoria": "El motivo es la razón interna por la que un personaje hace algo. Se infiere de lo que gana o pierde con la acción, y del contexto.",
     "explicacion": "Identifica la acción. Preguntate: que gana o pierde el personaje? Que busca? Ejemplo: si miente sobre sus notas, el motivo es evitar un castigo.",
     "regla": "El motivo se infiere de lo que el personaje gana o pierde con la acción.",
     "ejemplo_correcto": "En 'Ana estudió toda la noche', se infiere que su motivo es aprobar el examen.",
@@ -2425,7 +2425,7 @@
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir la relación entre dos personajes por el dialogo",
-    "teoria": "La relación entre dos personajes se infiere del trato, el lenguaje y las acciones compartidas en el dialogo: confianza, respeto, rivalidad, jerarquia.",
+    "teoria": "La relación entre dos personajes se infiere del trato, el lenguaje y las acciones compartidas en el dialogo: confianza, respeto, rivalidad, jerarquía.",
     "explicacion": "Observa el trato: se hablan con confianza? Se tratan de usted? Hay deferencia? La relación se infiere del conjunto.",
     "regla": "La relación se infiere del trato, el lenguaje y las acciones compartidas en el dialogo.",
     "ejemplo_correcto": "En 'Marta le dijo a su hermano: ¿Qué tal el examen?', se infiere una relación fraternal cercana.",
@@ -2547,7 +2547,7 @@
     "proceso": "P2",
     "titulo": "Inferir la causa de un problema social",
     "teoria": "Los problemas sociales (pobreza, desempleo, contaminación) tienen causas que no siempre se declaran: se infieren de los datos y del contexto del texto.",
-    "explicacion": "Identifica el problema. Preguntate: que factores podrian explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
+    "explicacion": "Identifica el problema. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
     "regla": "La causa de un problema social se infiere de los datos y del contexto del texto.",
     "ejemplo_correcto": "En un texto que dice 'el desempleo juvenil crecio al 25% tras la crisis', se infiere que la crisis es una causa del desempleo.",
     "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explicitamente. Los datos del texto permiten inferirla."
@@ -2854,10 +2854,10 @@
     "nivel_mcer": "A2",
     "proceso": "P4",
     "titulo": "Evaluar si un argumento es lógico",
-    "teoria": "Un argumento es lógico si sus premisas sostienen la conclusión de forma valida. Evaluar la lógica es esencial para la lectura crítica.",
-    "explicacion": "Identifica las premisas y la conclusión. Preguntate: si las premisas son verdaderas, la conclusión se sigue necesariamente? Si no, el argumento no es valido.",
+    "teoria": "Un argumento es lógico si sus premisas sostienen la conclusión de forma válida. Evaluar la lógica es esencial para la lectura crítica.",
+    "explicacion": "Identifica las premisas y la conclusión. Preguntate: si las premisas son verdaderas, la conclusión se sigue necesariamente? Si no, el argumento no es válido.",
     "regla": "Un argumento es lógico si la conclusión se sigue necesariamente de las premisas.",
-    "ejemplo_correcto": "Premisa: todos los humanos son mortales. Premisa: Socrates es humano. Conclusión: Socrates es mortal. Argumento valido.",
+    "ejemplo_correcto": "Premisa: todos los humanos son mortales. Premisa: Socrates es humano. Conclusión: Socrates es mortal. Argumento válido.",
     "ejemplo_incorrecto": "Premisa: algunos estudiantes leen. Conclusión: todos los estudiantes leen. La conclusión no se sigue."
   },
   {
@@ -2869,7 +2869,7 @@
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem.",
-    "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
+    "ejemplo_incorrecto": "Decir que es una refutación válida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
   },
   {
     "numero": 85,
@@ -2900,9 +2900,9 @@
     "titulo": "Detectar la apelación a la emoción",
     "teoria": "La apelación a la emoción sustituye la argumentación racional por una emoción (miedo, compasión, ira). Detectar esta falacia es esencial para la lectura crítica.",
     "explicacion": "Preguntate: el autor da razones o apela a la emoción? Si el argumento se sostiene solo en la emoción, hay falacia.",
-    "regla": "La apelación a la emoción sustituye la razon por el sentimiento.",
+    "regla": "La apelación a la emoción sustituye la razón por el sentimiento.",
     "ejemplo_correcto": "En 'Ayuda a este niño o sera tu culpa', se apela a la culpa, no a razones.",
-    "ejemplo_incorrecto": "Decir que cualquier emoción invalida el argumento. La emoción puede acompanar, pero no sustituir la razon."
+    "ejemplo_incorrecto": "Decir que cualquier emoción invalida el argumento. La emoción puede acompanar, pero no sustituir la razón."
   },
   {
     "numero": 88,
@@ -3129,9 +3129,9 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar el contraargumento en un texto argumentativo",
-    "teoria": "El contraargumento es la razon de quien piensa distinto. En los textos argumentativos, el autor lo reconoce (y a menudo lo refuta) para reforzar su propia tesis.",
+    "teoria": "El contraargumento es la razón de quien piensa distinto. En los textos argumentativos, el autor lo reconoce (y a menudo lo refuta) para reforzar su propia tesis.",
     "explicacion": "Busca expresiones como 'sin embargo', 'algunos sostienen que', 'por el contrario', 'no obstante'. Esas introducen el contraargumento.",
-    "regla": "El contraargumento es la razon del que piensa distinto, introducida por 'sin embargo' o 'no obstante'.",
+    "regla": "El contraargumento es la razón del que piensa distinto, introducida por 'sin embargo' o 'no obstante'.",
     "ejemplo_correcto": "En 'Algunos sostienen que la IA destruira empleos. Sin embargo, otros datos muestran...', el contraargumento es 'la IA destruira empleos'.",
     "ejemplo_incorrecto": "Decir que el contraargumento es la tesis del autor. El contraargumento es la postura opuesta."
   },
@@ -3283,7 +3283,7 @@
     "nivel_mcer": "B1",
     "proceso": "P2",
     "titulo": "Inferir el motivo de una acción",
-    "teoria": "El motivo es la razon interna por la que un personaje hace algo. Se infiere de lo que gana o pierde con la acción, y del contexto.",
+    "teoria": "El motivo es la razón interna por la que un personaje hace algo. Se infiere de lo que gana o pierde con la acción, y del contexto.",
     "explicacion": "Identifica la acción. Preguntate: que gana o pierde el personaje? Que busca? Ejemplo: si miente sobre sus notas, el motivo es evitar un castigo.",
     "regla": "El motivo se infiere de lo que el personaje gana o pierde con la acción.",
     "ejemplo_correcto": "En 'Ana estudió toda la noche', se infiere que su motivo es aprobar el examen.",
@@ -3482,7 +3482,7 @@
     "proceso": "P2",
     "titulo": "Inferir la actualidad de una fuente",
     "teoria": "La actualidad de una fuente se refiere a si la información es reciente o esta obsoleta. Se infiere de la fecha de publicación y de la vigencia de los datos.",
-    "explicacion": "Busca la fecha de publicación. Preguntate: los datos siguen siendo validos? Ha cambiado el contexto desde entonces?",
+    "explicacion": "Busca la fecha de publicación. Preguntate: los datos siguen siendo válidos? Ha cambiado el contexto desde entonces?",
     "regla": "La actualidad de una fuente se infiere de la fecha de publicación y de la vigencia de los datos.",
     "ejemplo_correcto": "Un informe de 2024 sobre tecnología es actual; uno de 2010 puede estar obsoleto.",
     "ejemplo_incorrecto": "Decir que un texto de 2010 es actual porque habla de un tema vigente. Los datos pueden haber cambiado."
@@ -3712,11 +3712,11 @@
     "nivel_mcer": "B1",
     "proceso": "P4",
     "titulo": "Evaluar la solidez de un argumento",
-    "teoria": "Un argumento es solido si sus premisas son verdaderas y sostienen la conclusión. Evaluar la solidez requiere verificar la verdad de las premisas y la validez del razonamiento.",
+    "teoria": "Un argumento es sólido si sus premisas son verdaderas y sostienen la conclusión. Evaluar la solidez requiere verificar la verdad de las premisas y la validez del razonamiento.",
     "explicacion": "Identifica las premisas y la conclusión. Verifica: (1) las premisas son verdaderas? (2) la conclusión se sigue logicamente?",
-    "regla": "Un argumento es solido si sus premisas son verdaderas y sostienen la conclusión.",
-    "ejemplo_correcto": "En 'Todos los humanos son mortales. Socrates es humano. Por tanto, Socrates es mortal', el argumento es solido.",
-    "ejemplo_incorrecto": "En 'Todos los gatos vuelan. Micifuz es un gato. Por tanto, Micifuz vuela', el argumento es valido pero no solido (premisa falsa)."
+    "regla": "Un argumento es sólido si sus premisas son verdaderas y sostienen la conclusión.",
+    "ejemplo_correcto": "En 'Todos los humanos son mortales. Socrates es humano. Por tanto, Socrates es mortal', el argumento es sólido.",
+    "ejemplo_incorrecto": "En 'Todos los gatos vuelan. Micifuz es un gato. Por tanto, Micifuz vuela', el argumento es válido pero no sólido (premisa falsa)."
   },
   {
     "numero": 83,
@@ -3738,7 +3738,7 @@
     "explicacion": "Preguntate: el autor refuta el argumento o ataca a quien lo sostiene? Si ataca a la persona (su carácter, su pasado), es ad hominem.",
     "regla": "La falacia ad hominem ataca a la persona, no al argumento.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay ad hominem.",
-    "ejemplo_incorrecto": "Decir que es una refutación valida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
+    "ejemplo_incorrecto": "Decir que es una refutación válida porque Juan es fracasado. El carácter de Juan no invalida su argumento."
   },
   {
     "numero": 85,
@@ -3749,7 +3749,7 @@
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura de el?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
     "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
-    "ejemplo_incorrecto": "Aceptar la refutación como valida. Se esta refutando una caricatura, no el argumento real."
+    "ejemplo_incorrecto": "Aceptar la refutación como válida. Se esta refutando una caricatura, no el argumento real."
   },
   {
     "numero": 86,
@@ -3943,11 +3943,11 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar las falacias en un texto argumentativo",
-    "teoria": "Las falacias son razonamientos invalidos que parecen validos. Localizarlas es esencial para la lectura crítica de textos persuasivos.",
+    "teoria": "Las falacias son razonamientos invalidos que parecen válidos. Localizarlas es esencial para la lectura crítica de textos persuasivos.",
     "explicacion": "Identifica cada argumento y preguntate: la conclusión se sigue de las premisas? Hay un saltó lógico? Se ataca a la persona? Se apela a la emoción?",
-    "regla": "La falacia es un razonamiento invalido que parece valido.",
+    "regla": "La falacia es un razonamiento invalido que parece válido.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay falacia ad hominem.",
-    "ejemplo_incorrecto": "Aceptar el argumento como valido porque suena convincente. Suena convincente pero es falaz."
+    "ejemplo_incorrecto": "Aceptar el argumento como válido porque suena convincente. Suena convincente pero es falaz."
   },
   {
     "numero": 24,
@@ -3956,7 +3956,7 @@
     "titulo": "Localizar los recursos de persuasión (ethos, pathos, logos)",
     "teoria": "Aristoteles distinguio tres recursos de persuasión: ethos (credibilidad del autor), pathos (emociones del público) y logos (argumentos logicos). Localizarlos permite analizar como persuade un texto.",
     "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos logicos.",
-    "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razon.",
+    "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razón.",
     "ejemplo_correcto": "En un anunció, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
     "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoria de textos persuasivos."
   },
@@ -3987,7 +3987,7 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar los marcadores de modalización",
-    "teoria": "Los modalizadores expresan el grado de certeza, obligación o posibilidad del autor: 'sin duda', 'quizás', 'probablemente', 'debe', 'podria'. Localizarlos permite evaluar la fuerza de las afirmaciones.",
+    "teoria": "Los modalizadores expresan el grado de certeza, obligación o posibilidad del autor: 'sin duda', 'quizás', 'probablemente', 'debe', 'podría'. Localizarlos permite evaluar la fuerza de las afirmaciones.",
     "explicacion": "Busca adverbios y expresiones que indican el grado de certeza del autor. 'Sin duda' indica alta certeza; 'quizás' indica baja certeza.",
     "regla": "El modalizador expresa el grado de certeza u obligación del autor.",
     "ejemplo_correcto": "En 'Probablemente llueva mañana', el modalizador 'probablemente' indica posibilidad.",
@@ -4000,8 +4000,8 @@
     "titulo": "Localizar los argumentos de autoridad y evaluarlos",
     "teoria": "El argumento de autoridad apoya una afirmación en la opinión de un experto. Localizarlo y evaluarlo (es realmente experto? hay consenso?) permite juzgar su solidez.",
     "explicacion": "Busca expresiones como 'segun X', 'como afirma Y'. Preguntate: el experto citado es realmente autoridad en la materia? Hay consenso cientifico?",
-    "regla": "El argumento de autoridad es solido si el experto tiene autoridad real en la materia.",
-    "ejemplo_correcto": "En 'Segun la OMS, el tabaco causa cáncer', el argumento de autoridad es solido.",
+    "regla": "El argumento de autoridad es sólido si el experto tiene autoridad real en la materia.",
+    "ejemplo_correcto": "En 'Segun la OMS, el tabaco causa cáncer', el argumento de autoridad es sólido.",
     "ejemplo_incorrecto": "En 'Segun un famoso, el tabaco no es malo', el argumento de autoridad es falaz (la fama no es autoridad cientifica)."
   },
   {
@@ -4009,9 +4009,9 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar el contraargumento y su refutación",
-    "teoria": "El contraargumento es la razon de quien piensa distinto. En los textos argumentativos, el autor lo reconoce (y a menudo lo refuta) para reforzar su propia tesis.",
+    "teoria": "El contraargumento es la razón de quien piensa distinto. En los textos argumentativos, el autor lo reconoce (y a menudo lo refuta) para reforzar su propia tesis.",
     "explicacion": "Busca expresiones como 'sin embargo', 'algunos sostienen que', 'por el contrario', 'no obstante'. Esas introducen el contraargumento. La refutación suele seguir.",
-    "regla": "El contraargumento es la razon opuesta; su refutación refuerza la tesis del autor.",
+    "regla": "El contraargumento es la razón opuesta; su refutación refuerza la tesis del autor.",
     "ejemplo_correcto": "En 'Algunos sostienen que la IA destruira empleos. Sin embargo, otros datos muestran...', el contraargumento es 'la IA destruira empleos' y la refutación es 'otros datos muestran...'.",
     "ejemplo_incorrecto": "Decir que el contraargumento es la tesis del autor. El contraargumento es la postura opuesta."
   },
@@ -4046,7 +4046,7 @@
     "explicacion": "Preguntate: que visión del mundo asume el autor como natural? Que sistema de valores se da por evidente?",
     "regla": "El presupuesto ideologico es una creencia asumida que revela el marco del autor.",
     "ejemplo_correcto": "En 'Como el mercado siempre se autorregula, hay que reducir el Estado', el presupuesto ideologico es que el mercado se autorregula.",
-    "ejemplo_incorrecto": "Decir que no hay ideologia porque el autor no la menciona. Los presupuestos revelan ideologia aunque no se nombre."
+    "ejemplo_incorrecto": "Decir que no hay ideología porque el autor no la menciona. Los presupuestos revelan ideología aunque no se nombre."
   },
   {
     "numero": 33,
@@ -4077,7 +4077,7 @@
     "titulo": "Localizar los argumentos por analogia y evaluarlos",
     "teoria": "El argumento por analogia compara dos situaciones para extraer una conclusión. Evaluarlo requiere verificar que las situaciones sean realmente comparables.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: son realmente comparables? Hay diferencias relevantes que el autor omite?",
-    "regla": "El argumento por analogia es solido si las situaciones comparadas son relevantemente similares.",
+    "regla": "El argumento por analogia es sólido si las situaciones comparadas son relevantemente similares.",
     "ejemplo_correcto": "En 'Como una empresa debe adaptarse al mercado, un país debe adaptarse al mundo', hay una analogia.",
     "ejemplo_incorrecto": "Aceptar la analogia sin comprobar diferencias relevantes. Puede haber diferencias que la invaliden."
   },
@@ -4261,12 +4261,12 @@
     "numero": 52,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir la ideologia del autor por el lexico",
-    "teoria": "La ideologia del autor se revela en el lexico: los terminos que elige para nombrar la realidad (positivos o negativos, neutros o cargados) revelan su marco de valores.",
-    "explicacion": "Observa el lexico: llama 'revolucionarios' o 'terroristas' a los mismos sujetos? Usa 'régimen' o 'gobierno'? La elección revela ideologia.",
-    "regla": "La ideologia se infiere del lexico: los terminos elegidos revelan el marco de valores.",
-    "ejemplo_correcto": "En un texto que llama 'heroes' a unos y 'terroristas' a otros, el lexico revela una ideologia clara.",
-    "ejemplo_incorrecto": "Decir que no hay ideologia porque no se mencionan partidos. El lexico ya la revela."
+    "titulo": "Inferir la ideología del autor por el lexico",
+    "teoria": "La ideología del autor se revela en el lexico: los terminos que elige para nombrar la realidad (positivos o negativos, neutros o cargados) revelan su marco de valores.",
+    "explicacion": "Observa el lexico: llama 'revolucionarios' o 'terroristas' a los mismos sujetos? Usa 'régimen' o 'gobierno'? La elección revela ideología.",
+    "regla": "La ideología se infiere del lexico: los terminos elegidos revelan el marco de valores.",
+    "ejemplo_correcto": "En un texto que llama 'heroes' a unos y 'terroristas' a otros, el lexico revela una ideología clara.",
+    "ejemplo_incorrecto": "Decir que no hay ideología porque no se mencionan partidos. El lexico ya la revela."
   },
   {
     "numero": 53,
@@ -4306,7 +4306,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir la relación entre dos personajes por sus interacciones",
-    "teoria": "La relación entre dos personajes se infiere de sus interacciones: el trato, el lenguaje, las acciones compartidas, la jerarquia, la confianza o rivalidad.",
+    "teoria": "La relación entre dos personajes se infiere de sus interacciones: el trato, el lenguaje, las acciones compartidas, la jerarquía, la confianza o rivalidad.",
     "explicacion": "Observa el trato: se hablan con confianza? Se tratan de usted? Hay deferencia? La relación se infiere del conjunto.",
     "regla": "La relación se infiere del trato, el lenguaje y las acciones compartidas.",
     "ejemplo_correcto": "En 'Marta le dijo a su hermano: ¿Qué tal el examen?', se infiere una relación fraternal cercana.",
@@ -4398,7 +4398,7 @@
     "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia segun quien la cuenta? Que se gana con esa multiplicidad?",
     "regla": "El punto de vista múltiple muestra distintas versiones de los mismos hechos.",
     "ejemplo_correcto": "En una novela contada por varios personajes, cada uno aporta una versión distinta de los mismos hechos.",
-    "ejemplo_incorrecto": "Decir que solo hay una versión valida. El punto de vista múltiple muestra la complejidad."
+    "ejemplo_incorrecto": "Decir que solo hay una versión válida. El punto de vista múltiple muestra la complejidad."
   },
   {
     "numero": 65,
@@ -4559,9 +4559,9 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar la ambiguedad literaria intencionada",
-    "teoria": "La ambiguedad literaria es la presencia de dos o más interpretaciones validas de un mismo texto. Interpretarla requiere aceptar la pluralidad de sentidos como parte de la experiencia literaria.",
-    "explicacion": "Identifica las interpretaciones posibles. Preguntate: son todas validas? El texto sugiere varias lecturas sin decidirse por una?",
-    "regla": "La ambiguedad literaria permite varias interpretaciones validas.",
+    "teoria": "La ambiguedad literaria es la presencia de dos o más interpretaciones válidas de un mismo texto. Interpretarla requiere aceptar la pluralidad de sentidos como parte de la experiencia literaria.",
+    "explicacion": "Identifica las interpretaciones posibles. Preguntate: son todas válidas? El texto sugiere varias lecturas sin decidirse por una?",
+    "regla": "La ambiguedad literaria permite varias interpretaciones válidas.",
     "ejemplo_correcto": "En un cuento que no aclara si el protagonista suena o vive lo que narra, hay ambiguedad intencionada.",
     "ejemplo_incorrecto": "Decir que solo hay una interpretación correcta. La ambiguedad permite varias."
   },
@@ -4592,22 +4592,22 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de un argumento deductivo",
-    "teoria": "Un argumento deductivo es valido si la conclusión se sigue necesariamente de las premisas. Evaluar la validez requiere analizar la forma lógica, no solo el contenido.",
-    "explicacion": "Identifica la forma: si las premisas son verdaderas, la conclusión se sigue necesariamente? Si hay un contraejemplo posible, no es valido.",
-    "regla": "Un argumento deductivo es valido si la conclusión se sigue necesariamente de las premisas.",
-    "ejemplo_correcto": "Todos los humanos son mortales. Socrates es humano. Por tanto, Socrates es mortal. Valido.",
-    "ejemplo_incorrecto": "Todos los gatos vuelan. Micifuz es un gato. Por tanto, Micifuz vuela. Valido pero no solido (premisa falsa)."
+    "teoria": "Un argumento deductivo es válido si la conclusión se sigue necesariamente de las premisas. Evaluar la validez requiere analizar la forma lógica, no solo el contenido.",
+    "explicacion": "Identifica la forma: si las premisas son verdaderas, la conclusión se sigue necesariamente? Si hay un contraejemplo posible, no es válido.",
+    "regla": "Un argumento deductivo es válido si la conclusión se sigue necesariamente de las premisas.",
+    "ejemplo_correcto": "Todos los humanos son mortales. Socrates es humano. Por tanto, Socrates es mortal. Válido.",
+    "ejemplo_incorrecto": "Todos los gatos vuelan. Micifuz es un gato. Por tanto, Micifuz vuela. Válido pero no sólido (premisa falsa)."
   },
   {
     "numero": 83,
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Distinguir validez de verdad en un argumento",
-    "teoria": "La validez es una propiedad de la forma lógica; la verdad es una propiedad de las premisas. Un argumento puede ser valido pero tener premisas falsas, o invalido pero tener premisas verdaderas.",
-    "explicacion": "Separa dos preguntas: (1) la forma es valida? (2) las premisas son verdaderas? Un argumento solido requiere ambas cosas.",
+    "teoria": "La validez es una propiedad de la forma lógica; la verdad es una propiedad de las premisas. Un argumento puede ser válido pero tener premisas falsas, o invalido pero tener premisas verdaderas.",
+    "explicacion": "Separa dos preguntas: (1) la forma es válida? (2) las premisas son verdaderas? Un argumento sólido requiere ambas cosas.",
     "regla": "Validez = forma lógica correcta; verdad = premisas verdaderas; solidez = ambas.",
-    "ejemplo_correcto": "Todos los perros vuelan. Rex es perro. Por tanto, Rex vuela. Es valido (forma correcta) pero no solido (premisa falsa).",
-    "ejemplo_incorrecto": "Decir que el argumento es solido porque es valido. Validez no implica verdad de las premisas."
+    "ejemplo_correcto": "Todos los perros vuelan. Rex es perro. Por tanto, Rex vuela. Es válido (forma correcta) pero no sólido (premisa falsa).",
+    "ejemplo_incorrecto": "Decir que el argumento es sólido porque es válido. Validez no implica verdad de las premisas."
   },
   {
     "numero": 84,
@@ -4615,7 +4615,7 @@
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa causa (non causa pro causa)",
     "teoria": "La falsa causa ocurre cuando se atribuye causalidad a algo que no la tiene: post hoc (después de esto, por esto) o cum hoc (con esto, por esto). Detectar esta falacia evita conclusiones erroneas.",
-    "explicacion": "Preguntate: hay evidencia del mecanismo causal o solo coincidencia? Que otras causas podrian explicar el fenomeno?",
+    "explicacion": "Preguntate: hay evidencia del mecanismo causal o solo coincidencia? Que otras causas podrían explicar el fenomeno?",
     "regla": "La falsa causa confunde correlación o sucesión temporal con causalidad real.",
     "ejemplo_correcto": "En 'Desde que puse esta foto, me va bien, la foto da suerte', hay falsa causa.",
     "ejemplo_incorrecto": "Aceptar que la foto causa suerte. La coincidencia no es causalidad."
@@ -4640,7 +4640,7 @@
     "explicacion": "Preguntate: la premisa presupone la conclusión? Si la conclusión es la misma que una premisa, es circular.",
     "regla": "La circularidad usa la conclusión como premisa para defender la conclusión.",
     "ejemplo_correcto": "En 'Dios existe porque la Biblia lo dice, y la Biblia es verdadera porque es palabra de Dios', hay circularidad.",
-    "ejemplo_incorrecto": "Aceptar el argumento como valido. La conclusión se presupone en la premisa."
+    "ejemplo_incorrecto": "Aceptar el argumento como válido. La conclusión se presupone en la premisa."
   },
   {
     "numero": 87,
@@ -4658,10 +4658,10 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un argumento por analogia",
-    "teoria": "El argumento por analogia es solido si las dos situaciones comparadas son relevantemente similares y las diferencias no afectan a la conclusión. Evaluarlo requiere analizar la pertinencia de la analogia.",
+    "teoria": "El argumento por analogia es sólido si las dos situaciones comparadas son relevantemente similares y las diferencias no afectan a la conclusión. Evaluarlo requiere analizar la pertinencia de la analogia.",
     "explicacion": "Identifica las dos situaciones. Preguntate: son relevantemente similares? Hay diferencias que afecten a la conclusión?",
-    "regla": "La analogia es solida si las situaciones comparadas son relevantes y las diferencias no afectan.",
-    "ejemplo_correcto": "En 'Como fumar causa cáncer, vapear podria causarlo', la analogia es relevante (ambos inhalan sustancias).",
+    "regla": "La analogia es sólida si las situaciones comparadas son relevantes y las diferencias no afectan.",
+    "ejemplo_correcto": "En 'Como fumar causa cáncer, vapear podría causarlo', la analogia es relevante (ambos inhalan sustancias).",
     "ejemplo_incorrecto": "En 'Como las casas tienen techo, los coches deberian tener techo', la analogia es irrelevante."
   },
   {
@@ -4691,9 +4691,9 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la solidez de un argumento estadistico",
-    "teoria": "Un argumento estadistico es solido si los datos son representativos, la muestra es adecuada y la conclusión no exagera lo que los datos permiten concluir. Evaluarlo evita aceptar conclusiones exageradas.",
+    "teoria": "Un argumento estadistico es sólido si los datos son representativos, la muestra es adecuada y la conclusión no exagera lo que los datos permiten concluir. Evaluarlo evita aceptar conclusiones exageradas.",
     "explicacion": "Preguntate: los datos son representativos? La conclusión va más alla de lo que los datos permiten? Se confunde correlación con causalidad?",
-    "regla": "Un argumento estadistico es solido si los datos son representativos y la conclusión no exagera.",
+    "regla": "Un argumento estadistico es sólido si los datos son representativos y la conclusión no exagera.",
     "ejemplo_correcto": "En 'El 60% de los fumadores encuestados quiere dejarlo', la conclusión es proporcional a los datos.",
     "ejemplo_incorrecto": "En 'El 60% de los fumadores quiere dejarlo, por tanto el tabaco desaparecera', hay exageración."
   },
@@ -4728,17 +4728,17 @@
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
     "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
-    "ejemplo_incorrecto": "Aceptar la refutación como valida. Se esta refutando una caricatura, no el argumento real."
+    "ejemplo_incorrecto": "Aceptar la refutación como válida. Se esta refutando una caricatura, no el argumento real."
   },
   {
     "numero": 95,
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un argumento por consecuencias",
-    "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es solido si las consecuencias estan justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
+    "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es sólido si las consecuencias estan justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
     "explicacion": "Preguntate: las consecuencias son probables? Son relevantes? Hay alternativas con mejores consecuencias?",
-    "regla": "El argumento por consecuencias es solido si las consecuencias estan justificadas y no hay mejores alternativas.",
-    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', el argumento por consecuencias es solido si hay evidencia del efecto.",
+    "regla": "El argumento por consecuencias es sólido si las consecuencias estan justificadas y no hay mejores alternativas.",
+    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', el argumento por consecuencias es sólido si hay evidencia del efecto.",
     "ejemplo_incorrecto": "Aceptar el argumento sin evidencia de que la consecuencia se vaya a producir."
   },
   {
@@ -4757,9 +4757,9 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la presencia de contraargumentos en un texto",
-    "teoria": "Un texto argumentativo solido reconoce y responde a los contraargumentos. Evaluar su presencia ayuda a juzgar la solidez del texto.",
+    "teoria": "Un texto argumentativo sólido reconoce y responde a los contraargumentos. Evaluar su presencia ayuda a juzgar la solidez del texto.",
     "explicacion": "Preguntate: el autor reconoce las objeciones? Las responde? O solo presenta su postura sin considerar otras?",
-    "regla": "Un texto argumentativo solido reconoce y responde a los contraargumentos.",
+    "regla": "Un texto argumentativo sólido reconoce y responde a los contraargumentos.",
     "ejemplo_correcto": "En 'Algunos dicen que X, pero los datos muestran Y', el autor reconoce y responde al contraargumento.",
     "ejemplo_incorrecto": "En 'Esto es así y punto', no hay contraargumento ni respuesta."
   },
@@ -4781,18 +4781,18 @@
     "titulo": "Detectar el uso manipulador de las emociones",
     "teoria": "El uso manipulador de las emociones sustituye la argumentación racional por una emoción (miedo, compasión, ira). Detectar este uso es esencial para la lectura crítica.",
     "explicacion": "Preguntate: el autor da razones o apela a la emoción? Si el argumento se sostiene solo en la emoción, hay manipulación.",
-    "regla": "El uso manipulador de las emociones sustituye la razon por el sentimiento.",
+    "regla": "El uso manipulador de las emociones sustituye la razón por el sentimiento.",
     "ejemplo_correcto": "En 'Ayuda a este niño o sera tu culpa', se apela a la culpa, no a razones.",
-    "ejemplo_incorrecto": "Decir que cualquier emoción invalida el argumento. La emoción puede acompanar, pero no sustituir la razon."
+    "ejemplo_incorrecto": "Decir que cualquier emoción invalida el argumento. La emoción puede acompanar, pero no sustituir la razón."
   },
   {
     "numero": 100,
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad global de un texto argumentativo",
-    "teoria": "Un texto argumentativo es de calidad si es claro, coherente, presenta argumentos solidos, reconoce contraargumentos y cita fuentes fiables. La evaluación global integra todos los criterios anteriores.",
-    "explicacion": "Revisa: es claro? Es coherente? Los argumentos son solidos? Reconoce contraargumentos? Cita fuentes fiables?",
-    "regla": "Un texto argumentativo es de calidad si es claro, coherente, solido y cita fuentes fiables.",
+    "teoria": "Un texto argumentativo es de calidad si es claro, coherente, presenta argumentos sólidos, reconoce contraargumentos y cita fuentes fiables. La evaluación global integra todos los criterios anteriores.",
+    "explicacion": "Revisa: es claro? Es coherente? Los argumentos son sólidos? Reconoce contraargumentos? Cita fuentes fiables?",
+    "regla": "Un texto argumentativo es de calidad si es claro, coherente, sólido y cita fuentes fiables.",
     "ejemplo_correcto": "Un texto con datos verificables, contraargumentos reconocidos y fuentes citadas es de calidad.",
     "ejemplo_incorrecto": "Decir que un texto es de calidad porque es largo. La extensión no es criterio de calidad."
   },
@@ -5075,11 +5075,11 @@
     "numero": 42,
     "nivel_mcer": "C1",
     "proceso": "P2",
-    "titulo": "Inferir la ideologia a partir de las metaforas conceptuales",
-    "teoria": "Las metaforas conceptuales no son neutras: revelan una ideologia. 'La inmigración es una marea' implica amenaza; 'es un aporte' implica beneficio.",
+    "titulo": "Inferir la ideología a partir de las metaforas conceptuales",
+    "teoria": "Las metaforas conceptuales no son neutras: revelan una ideología. 'La inmigración es una marea' implica amenaza; 'es un aporte' implica beneficio.",
     "explicacion": "Identifica las metaforas. Preguntate: que valoración implican? Presentan el fenomeno como amenaza, oportunidad, problema o recurso?",
-    "regla": "Las metaforas conceptuales revelan una ideologia al presentar un fenomeno con una valoración determinada.",
-    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora revela una ideologia que la percibe como amenaza.",
+    "regla": "Las metaforas conceptuales revelan una ideología al presentar un fenomeno con una valoración determinada.",
+    "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora revela una ideología que la percibe como amenaza.",
     "ejemplo_incorrecto": "Decir que la metáfora es solo decorativa. También orienta la valoración."
   },
   {
@@ -5130,12 +5130,12 @@
     "numero": 47,
     "nivel_mcer": "C1",
     "proceso": "P2",
-    "titulo": "Inferir el marco etico del texto (que se presenta como bueno o malo)",
-    "teoria": "Todo texto presupone un marco etico: presenta algunas acciones o valores como buenos y otras como malos, sin argumentarlo necesariamente.",
+    "titulo": "Inferir el marco ético del texto (que se presenta como bueno o malo)",
+    "teoria": "Todo texto presupone un marco ético: presenta algunas acciones o valores como buenos y otras como malos, sin argumentarlo necesariamente.",
     "explicacion": "Preguntate: que se presenta como bueno? Que como malo? Que valores se dan por evidentes?",
-    "regla": "El marco etico del texto se infiere de que se presenta como bueno o malo sin argumentarlo.",
-    "ejemplo_correcto": "En 'Es natural defender la familia', el marco etico presenta la familia como valor incuestionable.",
-    "ejemplo_incorrecto": "Decir que el texto no tiene valores. Todo texto moviliza un marco etico."
+    "regla": "El marco ético del texto se infiere de que se presenta como bueno o malo sin argumentarlo.",
+    "ejemplo_correcto": "En 'Es natural defender la familia', el marco ético presenta la familia como valor incuestionable.",
+    "ejemplo_incorrecto": "Decir que el texto no tiene valores. Todo texto moviliza un marco ético."
   },
   {
     "numero": 48,
@@ -5154,7 +5154,7 @@
     "proceso": "P2",
     "titulo": "Inferir la función pragmática de la cortesia en un texto",
     "teoria": "La cortesia no es solo un adorno: cumple funciones pragmaticas como mantener la imagen social, marcar distancia o acercamiento, o persuadir. Inferir su función permite analizar la relación entre emisor y receptor.",
-    "explicacion": "Identifica las estrategias de cortesia. Preguntate: que función cumplen? Mantener la imagen? Persuadir? Marcar jerarquia?",
+    "explicacion": "Identifica las estrategias de cortesia. Preguntate: que función cumplen? Mantener la imagen? Persuadir? Marcar jerarquía?",
     "regla": "La cortesia cumple funciones pragmaticas: mantener la imagen, marcar distancia, persuadir.",
     "ejemplo_correcto": "En '¿Seria tan amable de...?', la cortesia persuade marcando respeto.",
     "ejemplo_incorrecto": "Decir que la cortesia es solo educación. Cumple funciones pragmaticas."
@@ -5263,7 +5263,7 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar el texto como práctica social (discurso y poder)",
-    "teoria": "Desde el análisis crítico del discurso (Fairclough, Van Dijk), el texto es una práctica social que reproduce o cuestiona relaciones de poder. Interpretarlo así permite ver como el lenguaje construye jerarquias, legitima desigualdades o abre espacios de resistencia.",
+    "teoria": "Desde el análisis crítico del discurso (Fairclough, Van Dijk), el texto es una práctica social que reproduce o cuestiona relaciones de poder. Interpretarlo así permite ver como el lenguaje construye jerarquías, legitima desigualdades o abre espacios de resistencia.",
     "explicacion": "Preguntate: quien habla y desde que posición de poder? A quien se silencia? Que relaciones sociales reproduce o cuestiona el texto?",
     "regla": "El texto es una práctica social que reproduce o cuestiona relaciones de poder.",
     "ejemplo_correcto": "En una noticia que llama 'disturbios' a una protesta pacifica, el discurso legitima el orden establecido y deslegitima la protesta.",
@@ -5322,7 +5322,7 @@
     "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia segun quien la cuenta? Que se gana con la multiplicidad?",
     "regla": "El perspectivismo muestra la realidad desde multiples puntos de vista.",
     "ejemplo_correcto": "En 'Rashomon', los mismos hechos se cuentan desde cuatro perspectivas distintas.",
-    "ejemplo_incorrecto": "Decir que solo hay una versión valida. El perspectivismo muestra la relatividad."
+    "ejemplo_incorrecto": "Decir que solo hay una versión válida. El perspectivismo muestra la relatividad."
   },
   {
     "numero": 65,
@@ -5507,7 +5507,7 @@
     "titulo": "Evaluar la solidez de un argumento complejo (con premisas implicitas)",
     "teoria": "Un argumento complejo puede tener premisas implicitas que sostienen la conclusión. Evaluar su solidez requiere explicitarlas y comprobar si son verdaderas y si sostienen la conclusión.",
     "explicacion": "Explicita las premisas ocultas. Preguntate: son verdaderas? Sostienen la conclusión? Si las rechazamos, la conclusión se cae?",
-    "regla": "Un argumento complejo es solido si sus premisas explicitas e implicitas son verdaderas y sostienen la conclusión.",
+    "regla": "Un argumento complejo es sólido si sus premisas explicitas e implicitas son verdaderas y sostienen la conclusión.",
     "ejemplo_correcto": "En 'Deberiamos prohibir X; es peligroso', la premisa implicita es 'lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue.",
     "ejemplo_incorrecto": "Aceptar el argumento sin explicitar la premisa oculta. La solidez depende de ella."
   },
@@ -5527,9 +5527,9 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de la evidencia cientifica (muestra, método, replicabilidad)",
-    "teoria": "La evidencia cientifica es de calidad si la muestra es representativa, el método es solido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudió.",
-    "explicacion": "Preguntate: la muestra es representativa? El método es solido? Los resultados se han replicado? Hay conflictos de interes?",
-    "regla": "La evidencia cientifica es de calidad si la muestra es representativa, el método solido y los resultados replicables.",
+    "teoria": "La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudió.",
+    "explicacion": "Preguntate: la muestra es representativa? El método es sólido? Los resultados se han replicado? Hay conflictos de interes?",
+    "regla": "La evidencia cientifica es de calidad si la muestra es representativa, el método sólido y los resultados replicables.",
     "ejemplo_correcto": "Un estudió con muestra grande, método controlado y replicación independiente es de calidad.",
     "ejemplo_incorrecto": "Aceptar un estudió con muestra pequeña y sin replicación como evidencia definitiva."
   },
@@ -5617,7 +5617,7 @@
     "titulo": "Evaluar la solidez de un argumento estadistico complejo (tasas, base, contexto)",
     "teoria": "Un argumento estadistico complejo requiere evaluar la base de los porcentajes, la diferencia entre tasas absolutas y relativas, y el contexto de los datos. Evaluarlo permite evitar conclusiones erroneas.",
     "explicacion": "Preguntate: el porcentaje tiene base? Se confunden tasas absolutas y relativas? El contexto cambia la interpretación?",
-    "regla": "Un argumento estadistico es solido si la base es clara, las tasas se usan correctamente y el contexto se considera.",
+    "regla": "Un argumento estadistico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.",
     "ejemplo_correcto": "En 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable.",
     "ejemplo_incorrecto": "Concluir que la vacuna no funciona sin analizar la base de la población."
   },
@@ -5637,9 +5637,9 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un argumento por analogia compleja (diferencias relevantes)",
-    "teoria": "Un argumento por analogia compleja es solido si las diferencias entre las situaciones comparadas no son relevantes para la conclusión. Evaluarlo requiere identificar esas diferencias.",
+    "teoria": "Un argumento por analogia compleja es sólido si las diferencias entre las situaciones comparadas no son relevantes para la conclusión. Evaluarlo requiere identificar esas diferencias.",
     "explicacion": "Identifica las dos situaciones. Preguntate: hay diferencias relevantes que afecten a la conclusión? La analogia ilumina o engana?",
-    "regla": "La analogia compleja es solida si las diferencias no son relevantes para la conclusión.",
+    "regla": "La analogia compleja es sólida si las diferencias no son relevantes para la conclusión.",
     "ejemplo_correcto": "En 'Como el cuerpo necesita ejercicio, la mente necesita estimulación', la analogia es relevante (ambos se fortalecen con uso).",
     "ejemplo_incorrecto": "En 'Como los barcos necesitan capitan, los países necesitan rey', la analogia tiene diferencias relevantes (un país no es un barco)."
   },
@@ -5658,12 +5658,12 @@
     "numero": 95,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Evaluar la calidad etica de un argumento (respeto, justicia, dignidad)",
-    "teoria": "La calidad etica de un argumento se evalua por el respeto a las personas, la justicia y la dignidad. Un argumento puede ser logicamente valido pero eticamente rechazable (p. ej., defender la esclavitud con lógica).",
+    "titulo": "Evaluar la calidad ética de un argumento (respeto, justicia, dignidad)",
+    "teoria": "La calidad ética de un argumento se evalua por el respeto a las personas, la justicia y la dignidad. Un argumento puede ser logicamente válido pero eticamente rechazable (p. ej., defender la esclavitud con lógica).",
     "explicacion": "Preguntate: el argumento respeta la dignidad de las personas? Es justo? Trata a las personas como fines o como medios?",
-    "regla": "La calidad etica de un argumento depende del respeto a la dignidad, la justicia y las personas.",
-    "ejemplo_correcto": "Un argumento que defiende la igualdad de derechos es eticamente solido.",
-    "ejemplo_incorrecto": "Un argumento logicamente valido que defiende la esclavitud es eticamente rechazable."
+    "regla": "La calidad ética de un argumento depende del respeto a la dignidad, la justicia y las personas.",
+    "ejemplo_correcto": "Un argumento que defiende la igualdad de derechos es eticamente sólido.",
+    "ejemplo_incorrecto": "Un argumento logicamente válido que defiende la esclavitud es eticamente rechazable."
   },
   {
     "numero": 96,
@@ -5681,9 +5681,9 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la coherencia entre medios, fines y valores en un argumento político",
-    "teoria": "Un argumento político es solido si los medios propuestos son coherentes con los fines y con los valores declarados. Evaluarlo permite analizar criticamente la coherencia de las propuestas políticas.",
+    "teoria": "Un argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Evaluarlo permite analizar criticamente la coherencia de las propuestas políticas.",
     "explicacion": "Preguntate: los medios son coherentes con los fines? Los valores declarados se respetan en los medios? Hay contradicciones?",
-    "regla": "Un argumento político es solido si medios, fines y valores son coherentes.",
+    "regla": "Un argumento político es sólido si medios, fines y valores son coherentes.",
     "ejemplo_correcto": "Defender la libertad usando medios que respetan la libertad es coherente.",
     "ejemplo_incorrecto": "Defender la libertad usando censura es incoherente."
   },
@@ -5703,9 +5703,9 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un texto académico (rigor, metodologia, citas)",
-    "teoria": "Un texto académico es de calidad si tiene rigor conceptual, metodologia solida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.",
+    "teoria": "Un texto académico es de calidad si tiene rigor conceptual, metodologia sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.",
     "explicacion": "Preguntate: el texto define los conceptos? La metodologia es clara? Las citas son verificables? Hay coherencia interna?",
-    "regla": "Un texto académico es de calidad si tiene rigor, metodologia solida y citas verificables.",
+    "regla": "Un texto académico es de calidad si tiene rigor, metodologia sólida y citas verificables.",
     "ejemplo_correcto": "Un artículo con metodologia explicita, datos y citas verificables es de calidad.",
     "ejemplo_incorrecto": "Aceptar un texto sin metodologia ni citas como académico de calidad."
   },
@@ -5736,11 +5736,11 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la deconstrucción de oposiciones jerarquicas (Derrida)",
-    "teoria": "Derrida muestra que las oposiciones binarias (presencia/ausencia, habla/escritura, hombre/mujer) no son neutras: una jerarquiza sobre la otra. Deconstruir es mostrar esa jerarquia y subvertirla. Localizarla permite analizar la lógica binaria de un texto.",
-    "explicacion": "Identifica las oposiciones binarias del texto. Preguntate: cual se privilegia? Que se marginaliza? Se puede subvertir la jerarquia?",
-    "regla": "La deconstrucción muestra la jerarquia oculta en las oposiciones binarias y la subvierte.",
-    "ejemplo_correcto": "En un texto que privilegia la razon sobre la emoción, la deconstrucción mostraria esa jerarquia y la subvertiria.",
-    "ejemplo_incorrecto": "Decir que la oposición es neutra. Toda oposición binaria implica una jerarquia."
+    "teoria": "Derrida muestra que las oposiciones binarias (presencia/ausencia, habla/escritura, hombre/mujer) no son neutras: una jerarquiza sobre la otra. Deconstruir es mostrar esa jerarquía y subvertirla. Localizarla permite analizar la lógica binaria de un texto.",
+    "explicacion": "Identifica las oposiciones binarias del texto. Preguntate: cual se privilegia? Que se marginaliza? Se puede subvertir la jerarquía?",
+    "regla": "La deconstrucción muestra la jerarquía oculta en las oposiciones binarias y la subvierte.",
+    "ejemplo_correcto": "En un texto que privilegia la razón sobre la emoción, la deconstrucción mostraria esa jerarquía y la subvertiria.",
+    "ejemplo_incorrecto": "Decir que la oposición es neutra. Toda oposición binaria implica una jerarquía."
   },
   {
     "numero": 14,
@@ -5758,7 +5758,7 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la interpelación ideologica (Althusser)",
-    "teoria": "Althusser define la ideologia como un sistema de representaciones que interpela a los individuos como sujetos. La interpelación ideologica 'llama' al individuo y lo constituye como sujeto. Localizarla permite analizar como el discurso construye identidades.",
+    "teoria": "Althusser define la ideología como un sistema de representaciones que interpela a los individuos como sujetos. La interpelación ideologica 'llama' al individuo y lo constituye como sujeto. Localizarla permite analizar como el discurso construye identidades.",
     "explicacion": "Busca las formas en que el texto 'llama' al lector: 'tu', 'nosotros', 'los ciudadanos'. Preguntate: que identidad construye?",
     "regla": "La interpelación ideologica constituye al individuo como sujeto mediante el discurso.",
     "ejemplo_correcto": "En 'Como ciudadano responsable, tu deber es...', el texto interpela ideologicamente al lector.",
@@ -5879,22 +5879,22 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la formación discursiva (Foucault)",
-    "teoria": "Foucault llama formación discursiva al sistema de reglas que en una epoca y sociedad determinan lo que puede decirse, quien puede decirlo y desde que posición. Localizarla permite analizar los limites de lo decible en un texto.",
+    "teoria": "Foucault llama formación discursiva al sistema de reglas que en una epoca y sociedad determinan lo que puede decirse, quien puede decirlo y desde que posición. Localizarla permite analizar los límites de lo decible en un texto.",
     "explicacion": "Preguntate: que se puede decir en este texto? Que queda fuera de lo decible? Que reglas lo organizan?",
     "regla": "La formación discursiva es el sistema de reglas que determina lo decible en una epoca.",
     "ejemplo_correcto": "En el discurso médico del siglo XIX sobre la homosexualidad, la formación discursiva la patologizaba.",
-    "ejemplo_incorrecto": "Decir que el texto dice todo lo que quiere. Toda formación discursiva tiene limites."
+    "ejemplo_incorrecto": "Decir que el texto dice todo lo que quiere. Toda formación discursiva tiene límites."
   },
   {
     "numero": 27,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la biopolitica (Foucault/Agamben)",
-    "teoria": "La biopolitica es el conjunto de estrategias de poder que actuan sobre la vida de las poblaciones: natalidad, salud, higiene, sexualidad. Localizarla permite analizar como el poder gestiona la vida.",
+    "titulo": "Localizar la biopolítica (Foucault/Agamben)",
+    "teoria": "La biopolítica es el conjunto de estrategias de poder que actuan sobre la vida de las poblaciones: natalidad, salud, higiene, sexualidad. Localizarla permite analizar como el poder gestiona la vida.",
     "explicacion": "Busca discursos sobre la vida, la salud, la población. Preguntate: como se gestiona la vida? Que dispositivos actuan?",
-    "regla": "La biopolitica es el poder que actua sobre la vida de las poblaciones.",
-    "ejemplo_correcto": "En las campanas de salud pública, la biopolitica actua sobre los cuerpos y las poblaciones.",
-    "ejemplo_incorrecto": "Decir que el poder solo reprime. La biopolitica también produce vida."
+    "regla": "La biopolítica es el poder que actua sobre la vida de las poblaciones.",
+    "ejemplo_correcto": "En las campanas de salud pública, la biopolítica actua sobre los cuerpos y las poblaciones.",
+    "ejemplo_incorrecto": "Decir que el poder solo reprime. La biopolítica también produce vida."
   },
   {
     "numero": 28,
@@ -5911,12 +5911,12 @@
     "numero": 29,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la razon instrumental (Escuela de Frankfurt)",
-    "teoria": "La razon instrumental (Adorno, Horkheimer) es la razon que reduce todo a medios para fines, sin preguntarse por los fines mismos. Localizarla permite analizar como el pensamiento tecnologico invade todas las esferas de la vida.",
-    "explicacion": "Preguntate: el texto reduce la razon a calculo de medios? Se pregunta por los fines? Hay razon crítica o solo instrumental?",
-    "regla": "La razon instrumental reduce todo a medios para fines, sin cuestionar los fines.",
-    "ejemplo_correcto": "En un texto que solo calcula eficiencia sin preguntarse por la justicia, hay razon instrumental.",
-    "ejemplo_incorrecto": "Decir que toda razon es instrumental. La razon crítica también existe."
+    "titulo": "Localizar la razón instrumental (Escuela de Frankfurt)",
+    "teoria": "La razón instrumental (Adorno, Horkheimer) es la razón que reduce todo a medios para fines, sin preguntarse por los fines mismos. Localizarla permite analizar como el pensamiento tecnologico invade todas las esferas de la vida.",
+    "explicacion": "Preguntate: el texto reduce la razón a calculo de medios? Se pregunta por los fines? Hay razón crítica o solo instrumental?",
+    "regla": "La razón instrumental reduce todo a medios para fines, sin cuestionar los fines.",
+    "ejemplo_correcto": "En un texto que solo calcula eficiencia sin preguntarse por la justicia, hay razón instrumental.",
+    "ejemplo_incorrecto": "Decir que toda razón es instrumental. La razón crítica también existe."
   },
   {
     "numero": 30,
@@ -5933,12 +5933,12 @@
     "numero": 31,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la crítica de la ideologia (Zizek)",
-    "teoria": "Zizek muestra que la ideologia no es solo falsa conciencia, sino una práctica social que estructura la realidad. La ideologia funciona en lo que hacemos, no solo en lo que pensamos. Localizarla permite analizar como el discurso reproduce la ideologia dominante.",
-    "explicacion": "Preguntate: que ideologia se reproduce? Se hace visible o esta naturalizada? Como se sostiene en las prácticas?",
-    "regla": "La ideologia, segun Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
-    "ejemplo_correcto": "En un texto que presenta el consumismo como natural, la ideologia esta naturalizada.",
-    "ejemplo_incorrecto": "Decir que la ideologia es solo falsa conciencia. También esta en las prácticas."
+    "titulo": "Localizar la crítica de la ideología (Zizek)",
+    "teoria": "Zizek muestra que la ideología no es solo falsa conciencia, sino una práctica social que estructura la realidad. La ideología funciona en lo que hacemos, no solo en lo que pensamos. Localizarla permite analizar como el discurso reproduce la ideología dominante.",
+    "explicacion": "Preguntate: que ideología se reproduce? Se hace visible o esta naturalizada? Como se sostiene en las prácticas?",
+    "regla": "La ideología, segun Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
+    "ejemplo_correcto": "En un texto que presenta el consumismo como natural, la ideología esta naturalizada.",
+    "ejemplo_incorrecto": "Decir que la ideología es solo falsa conciencia. También esta en las prácticas."
   },
   {
     "numero": 32,
@@ -5967,22 +5967,22 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la colonialidad del saber (Quijano, Mignolo)",
-    "teoria": "La colonialidad del saber es la persistencia de jerarquias epistemicas coloniales: el conocimiento occidental se presenta como universal y se impone sobre otros saberes. Localizarla permite analizar como el discurso reproduce la lógica colonial.",
-    "explicacion": "Preguntate: el texto presenta el saber occidental como universal? Silencia otros saberes? Reproduce jerarquias epistemicas coloniales?",
+    "teoria": "La colonialidad del saber es la persistencia de jerarquías epistémicas coloniales: el conocimiento occidental se presenta como universal y se impone sobre otros saberes. Localizarla permite analizar como el discurso reproduce la lógica colonial.",
+    "explicacion": "Preguntate: el texto presenta el saber occidental como universal? Silencia otros saberes? Reproduce jerarquías epistémicas coloniales?",
     "regla": "La colonialidad del saber impone el conocimiento occidental como universal.",
-    "ejemplo_correcto": "En un texto que presenta la ciencia occidental como la única valida, se reproduce la colonialidad del saber.",
-    "ejemplo_incorrecto": "Decir que todo saber es igual. La colonialidad del saber muestra jerarquias epistemicas."
+    "ejemplo_correcto": "En un texto que presenta la ciencia occidental como la única válida, se reproduce la colonialidad del saber.",
+    "ejemplo_incorrecto": "Decir que todo saber es igual. La colonialidad del saber muestra jerarquías epistémicas."
   },
   {
     "numero": 35,
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir el inconsciente ideologico (Zizek/Althusser)",
-    "teoria": "Zizek y Althusser muestran que la ideologia no es solo un conjunto de ideas conscientes, sino un inconsciente que estructura nuestras prácticas. Inferir el inconsciente ideologico permite analizar como el discurso reproduce la ideologia dominante sin que el sujeto lo advierta.",
-    "explicacion": "Preguntate: que ideologia se reproduce sin ser explicitada? Que se da por evidente? Como se sostiene en las prácticas del texto?",
-    "regla": "El inconsciente ideologico es la ideologia que estructura las prácticas sin ser advertida.",
+    "teoria": "Zizek y Althusser muestran que la ideología no es solo un conjunto de ideas conscientes, sino un inconsciente que estructura nuestras prácticas. Inferir el inconsciente ideologico permite analizar como el discurso reproduce la ideología dominante sin que el sujeto lo advierta.",
+    "explicacion": "Preguntate: que ideología se reproduce sin ser explicitada? Que se da por evidente? Como se sostiene en las prácticas del texto?",
+    "regla": "El inconsciente ideologico es la ideología que estructura las prácticas sin ser advertida.",
     "ejemplo_correcto": "En un texto que presenta el consumismo como natural, hay un inconsciente ideologico que reproduce la lógica capitalista.",
-    "ejemplo_incorrecto": "Decir que la ideologia es solo una opinión consciente. También hay un inconsciente ideologico."
+    "ejemplo_incorrecto": "Decir que la ideología es solo una opinión consciente. También hay un inconsciente ideologico."
   },
   {
     "numero": 36,
@@ -6010,12 +6010,12 @@
     "numero": 38,
     "nivel_mcer": "C2",
     "proceso": "P2",
-    "titulo": "Inferir la sociedad del espectaculo (Debord)",
-    "teoria": "Debord sostiene que en la sociedad moderna la vida se presenta como acumulación de espectaculos: todo se convierte en imagen y mercancia visible.",
-    "explicacion": "Preguntate: el texto transforma la realidad en espectaculo? Todo se convierte en imagen o mercancia?",
-    "regla": "La sociedad del espectaculo transforma la vida en acumulación de imagenes y mercancias.",
-    "ejemplo_correcto": "En un texto que convierte un conflicto social en entretenimiento, actua la sociedad del espectaculo.",
-    "ejemplo_incorrecto": "Decir que el texto informa. En la sociedad del espectaculo, informar es espectaculizar."
+    "titulo": "Inferir la sociedad del espectáculo (Debord)",
+    "teoria": "Debord sostiene que en la sociedad moderna la vida se presenta como acumulación de espectaculos: todo se convierte en imagen y mercancía visible.",
+    "explicacion": "Preguntate: el texto transforma la realidad en espectáculo? Todo se convierte en imagen o mercancía?",
+    "regla": "La sociedad del espectáculo transforma la vida en acumulación de imagenes y mercancías.",
+    "ejemplo_correcto": "En un texto que convierte un conflicto social en entretenimiento, actua la sociedad del espectáculo.",
+    "ejemplo_incorrecto": "Decir que el texto informa. En la sociedad del espectáculo, informar es espectaculizar."
   },
   {
     "numero": 39,
@@ -6080,7 +6080,7 @@
     "teoria": "Lacan sostiene que el inconsciente esta estructurado como un lenguaje: opera mediante significantes, metaforas y metonimias.",
     "explicacion": "Preguntate: hay deseos no conscientes? El discurso revela conflictos del inconsciente?",
     "regla": "El inconsciente esta estructurado como un lenguaje: opera con significantes y deseos.",
-    "ejemplo_correcto": "En un texto donde un personaje repite una palabra sin razon, se revela la lógica del inconsciente.",
+    "ejemplo_correcto": "En un texto donde un personaje repite una palabra sin razón, se revela la lógica del inconsciente.",
     "ejemplo_incorrecto": "Decir que el inconsciente es solo emocional. Segun Lacan, esta estructurado como lenguaje."
   },
   {
@@ -6088,7 +6088,7 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la interpelación del sujeto (Althusser)",
-    "teoria": "Althusser muestra que la ideologia interpela al individuo como sujeto: lo 'llama' y lo constituye como tal.",
+    "teoria": "Althusser muestra que la ideología interpela al individuo como sujeto: lo 'llama' y lo constituye como tal.",
     "explicacion": "Preguntate: como se interpela al lector? Que identidad se le atribuye?",
     "regla": "La interpelación ideologica constituye al individuo como sujeto mediante el discurso.",
     "ejemplo_correcto": "En un texto que dice 'Como madre, entenderas...', se interpela al lector como sujeto-madre.",
@@ -6124,7 +6124,7 @@
     "teoria": "Freud muestra que lo reprimido retorna en forma de sintomas, sueños o actos fallidos. Inferir este retorno permite analizar como el discurso revela contenidos reprimidos.",
     "explicacion": "Preguntate: hay contenidos reprimidos? Retornan en forma de lapsus, sueños, obsesiones?",
     "regla": "Lo reprimido retorna en forma de sintomas, sueños o actos fallidos.",
-    "ejemplo_correcto": "En un texto donde un personaje repite un gesto sin razon, puede haber retorno de lo reprimido.",
+    "ejemplo_correcto": "En un texto donde un personaje repite un gesto sin razón, puede haber retorno de lo reprimido.",
     "ejemplo_incorrecto": "Decir que el texto es solo racional. Lo reprimido siempre retorna."
   },
   {
@@ -6179,7 +6179,7 @@
     "teoria": "El rizoma es un modelo de pensamiento que se opone al árbol: no tiene centro, crece en todas direcciones, conecta multiples puntos. Inferirlo permite analizar discursos no jerarquicos y multiples conexiones.",
     "explicacion": "Preguntate: el discurso tiene centro o se expande en multiples direcciones? Hay conexiones no jerarquicas?",
     "regla": "El rizoma es un modelo de pensamiento sin centro que crece en multiples direcciones.",
-    "ejemplo_correcto": "En una hipertexto sin jerarquia clara, actua la lógica del rizoma.",
+    "ejemplo_correcto": "En una hipertexto sin jerarquía clara, actua la lógica del rizoma.",
     "ejemplo_incorrecto": "Decir que todo texto es arbolico. Algunos funcionan como rizoma."
   },
   {
@@ -6254,9 +6254,9 @@
     "proceso": "P3",
     "titulo": "Interpretar el sintoma como formación del inconsciente (Freud/Lacan)",
     "teoria": "El sintoma es una formación del inconsciente que expresa un conflicto reprimido mediante un compromiso entre deseo y defensa. Interpretarlo permite leer en el texto lo que el autor no sabe que dice.",
-    "explicacion": "Busca repeticiones, obsesiones, gestos sin razon. Preguntate: que conflicto se expresa? Que deseo se reprime?",
+    "explicacion": "Busca repeticiones, obsesiones, gestos sin razón. Preguntate: que conflicto se expresa? Que deseo se reprime?",
     "regla": "El sintoma expresa un conflicto inconsciente mediante un compromiso entre deseo y defensa.",
-    "ejemplo_correcto": "En un personaje que repite un gesto sin razon, puede leerse un sintoma.",
+    "ejemplo_correcto": "En un personaje que repite un gesto sin razón, puede leerse un sintoma.",
     "ejemplo_incorrecto": "Decir que el gesto es solo un habito. Puede ser un sintoma."
   },
   {
@@ -6264,8 +6264,8 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar la abyección (Kristeva)",
-    "teoria": "Kristeva llama abyección a lo que el sujeto rechaza para constituirse como tal: lo que da asco, lo que amenaza los limites del yo.",
-    "explicacion": "Preguntate: que produce rechazo? Que amenaza los limites? Que se excluye para constituir el yo?",
+    "teoria": "Kristeva llama abyección a lo que el sujeto rechaza para constituirse como tal: lo que da asco, lo que amenaza los límites del yo.",
+    "explicacion": "Preguntate: que produce rechazo? Que amenaza los límites? Que se excluye para constituir el yo?",
     "regla": "La abyección es lo que el sujeto rechaza para constituirse como sujeto.",
     "ejemplo_correcto": "En un texto que describe un cuerpo monstruoso con asco, hay abyección.",
     "ejemplo_incorrecto": "Decir que el monstruo es solo un personaje. También construye lo abyecto."
@@ -6331,9 +6331,9 @@
     "proceso": "P3",
     "titulo": "Interpretar la lectura sintomatica (Althusser/Macherey)",
     "teoria": "La lectura sintomatica busca en el texto lo que no dice: sus silencios, sus ausencias, sus contradicciones.",
-    "explicacion": "Preguntate: que silencia el texto? Que omite? Que contradicciones revelan su ideologia?",
+    "explicacion": "Preguntate: que silencia el texto? Que omite? Que contradicciones revelan su ideología?",
     "regla": "La lectura sintomatica lee en el texto lo que no dice: silencios y ausencias.",
-    "ejemplo_correcto": "En un texto que omite la clase trabajadora, la lectura sintomatica revela su ideologia.",
+    "ejemplo_correcto": "En un texto que omite la clase trabajadora, la lectura sintomatica revela su ideología.",
     "ejemplo_incorrecto": "Decir que el texto dice todo. La lectura sintomatica busca lo ausente."
   },
   {
@@ -6487,52 +6487,52 @@
     "teoria": "Un argumento trascendental (Kant) deduce las condiciones de posibilidad de una experiencia: si X es posible, entonces deben darse las condiciones Y.",
     "explicacion": "Identifica la experiencia X y la condición Y. Preguntate: Y es realmente condición necesaria de X?",
     "regla": "El argumento trascendental deduce condiciones necesarias de posibilidad.",
-    "ejemplo_correcto": "En 'La experiencia requiere categorias a priori; por tanto, son condiciones de posibilidad', hay argumento trascendental.",
+    "ejemplo_correcto": "En 'La experiencia requiere categorías a priori; por tanto, son condiciones de posibilidad', hay argumento trascendental.",
     "ejemplo_incorrecto": "Aceptar la conclusión sin comprobar la necesidad de la condición."
   },
   {
     "numero": 82,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la hermeneutica de la sospecha (Ricoeur)",
-    "teoria": "Ricoeur llama hermeneutica de la sospecha a la interpretación que desconfia del sentido inmediato y busca el sentido oculto.",
+    "titulo": "Evaluar la hermenéutica de la sospecha (Ricoeur)",
+    "teoria": "Ricoeur llama hermenéutica de la sospecha a la interpretación que desconfía del sentido inmediato y busca el sentido oculto.",
     "explicacion": "Preguntate: la sospecha esta justificada? Hay razones para desconfiar del sentido inmediato?",
-    "regla": "La hermeneutica de la sospecha busca el sentido oculto tras el sentido inmediato.",
-    "ejemplo_correcto": "En una crítica que revela intereses ocultos, hay hermeneutica de la sospecha.",
+    "regla": "La hermenéutica de la sospecha busca el sentido oculto tras el sentido inmediato.",
+    "ejemplo_correcto": "En una crítica que revela intereses ocultos, hay hermenéutica de la sospecha.",
     "ejemplo_incorrecto": "Aceptar cualquier sospecha sin justificación."
   },
   {
     "numero": 83,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la crítica de la ideologia (Adorno)",
-    "teoria": "Adorno propone la crítica de la ideologia como desenmascaramiento de las contradicciones sociales que el texto oculta.",
+    "titulo": "Evaluar la crítica de la ideología (Adorno)",
+    "teoria": "Adorno propone la crítica de la ideología como desenmascaramiento de las contradicciones sociales que el texto oculta.",
     "explicacion": "Preguntate: la crítica revela contradicciones reales? Hay evidencia textual?",
-    "regla": "La crítica de la ideologia desenmascara contradicciones sociales ocultas.",
-    "ejemplo_correcto": "En una crítica que muestra contradicción entre discurso y práctica, hay crítica de la ideologia.",
+    "regla": "La crítica de la ideología desenmascara contradicciones sociales ocultas.",
+    "ejemplo_correcto": "En una crítica que muestra contradicción entre discurso y práctica, hay crítica de la ideología.",
     "ejemplo_incorrecto": "Aceptar cualquier crítica sin evidencia textual."
   },
   {
     "numero": 84,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la etica del discurso (Habermas)",
-    "teoria": "Habermas propone la etica del discurso: una norma es valida si todos los afectados podrian aceptarla en un discurso racional libre de coacciones.",
-    "explicacion": "Preguntate: se dan las condiciones del discurso ideal? Todos los afectados podrian aceptarla?",
-    "regla": "La etica del discurso valida normas aceptables por todos los afectados sin coacciones.",
-    "ejemplo_correcto": "En un debate que incluye a todos los afectados sin coacciones, hay etica del discurso.",
+    "titulo": "Evaluar la ética del discurso (Habermas)",
+    "teoria": "Habermas propone la ética del discurso: una norma es válida si todos los afectados podrían aceptarla en un discurso racional libre de coacciones.",
+    "explicacion": "Preguntate: se dan las condiciones del discurso ideal? Todos los afectados podrían aceptarla?",
+    "regla": "La ética del discurso válida normas aceptables por todos los afectados sin coacciones.",
+    "ejemplo_correcto": "En un debate que incluye a todos los afectados sin coacciones, hay ética del discurso.",
     "ejemplo_incorrecto": "Aceptar una norma sin incluir a los afectados."
   },
   {
     "numero": 85,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la desobediencia epistemica (Mignolo)",
-    "teoria": "Mignolo propone la desobediencia epistemica: cuestionar las jerarquias del saber colonial y afirmar saberes otros.",
-    "explicacion": "Preguntate: el texto cuestiona las jerarquias epistemicas coloniales? Afirma saberes otros?",
-    "regla": "La desobediencia epistemica cuestiona las jerarquias del saber colonial.",
-    "ejemplo_correcto": "En un texto que valora saberes indigenas, hay desobediencia epistemica.",
-    "ejemplo_incorrecto": "Decir que solo hay un saber valido."
+    "titulo": "Evaluar la desobediencia epistémica (Mignolo)",
+    "teoria": "Mignolo propone la desobediencia epistémica: cuestionar las jerarquías del saber colonial y afirmar saberes otros.",
+    "explicacion": "Preguntate: el texto cuestiona las jerarquías epistémicas coloniales? Afirma saberes otros?",
+    "regla": "La desobediencia epistémica cuestiona las jerarquías del saber colonial.",
+    "ejemplo_correcto": "En un texto que valora saberes indigenas, hay desobediencia epistémica.",
+    "ejemplo_incorrecto": "Decir que solo hay un saber válido."
   },
   {
     "numero": 86,
@@ -6542,7 +6542,7 @@
     "teoria": "Spivak advierte que la traducción intercultural puede reproducir la lógica colonial si no se atiende a la diferencia.",
     "explicacion": "Preguntate: la traducción respeta la alteridad? Domesticа al otro?",
     "regla": "La traducción intercultural debe respetar la alteridad sin domesticarla.",
-    "ejemplo_correcto": "En una traducción que preserva la diferencia cultural, hay traducción intercultural etica.",
+    "ejemplo_correcto": "En una traducción que preserva la diferencia cultural, hay traducción intercultural ética.",
     "ejemplo_incorrecto": "Traducir domesticando al otro."
   },
   {
@@ -6560,12 +6560,12 @@
     "numero": 88,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la validez de una crítica genealogica (Nietzsche/Foucault)",
-    "teoria": "La crítica genealogica rastrea el origen histórico de un concepto para mostrar su contingencia.",
-    "explicacion": "Preguntate: la genealogia es solida? La reconstrucción histórica es rigurosa?",
-    "regla": "La crítica genealogica rastrea el origen histórico de un concepto.",
-    "ejemplo_correcto": "En un texto que rastrea el origen de la 'normalidad', hay genealogia.",
-    "ejemplo_incorrecto": "Aceptar la genealogia sin comprobar su rigor histórico."
+    "titulo": "Evaluar la validez de una crítica genealógica (Nietzsche/Foucault)",
+    "teoria": "La crítica genealógica rastrea el origen histórico de un concepto para mostrar su contingencia.",
+    "explicacion": "Preguntate: la genealogía es sólida? La reconstrucción histórica es rigurosa?",
+    "regla": "La crítica genealógica rastrea el origen histórico de un concepto.",
+    "ejemplo_correcto": "En un texto que rastrea el origen de la 'normalidad', hay genealogía.",
+    "ejemplo_incorrecto": "Aceptar la genealogía sin comprobar su rigor histórico."
   },
   {
     "numero": 89,
@@ -6583,21 +6583,21 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un argumento descolonial",
-    "teoria": "Un argumento descolonial es solido si identifica correctamente las jerarquias epistemicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo.",
-    "explicacion": "Preguntate: identifica jerarquias epistemicas? Las cuestiona con rigor? Evita el esencialismo?",
-    "regla": "El argumento descolonial es solido si identifica y cuestiona jerarquias epistemicas sin esencialismo.",
-    "ejemplo_correcto": "En un texto que cuestiona la colonialidad sin esencializar al 'otro', hay argumento descolonial solido.",
+    "teoria": "Un argumento descolonial es sólido si identifica correctamente las jerarquías epistémicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo.",
+    "explicacion": "Preguntate: identifica jerarquías epistémicas? Las cuestiona con rigor? Evita el esencialismo?",
+    "regla": "El argumento descolonial es sólido si identifica y cuestiona jerarquías epistémicas sin esencialismo.",
+    "ejemplo_correcto": "En un texto que cuestiona la colonialidad sin esencializar al 'otro', hay argumento descolonial sólido.",
     "ejemplo_incorrecto": "Esencializar al 'otro' como puro."
   },
   {
     "numero": 91,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la validez de una crítica psicoanalitica (Freud/Lacan)",
-    "teoria": "La crítica psicoanalitica interpreta el texto como sintoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
+    "titulo": "Evaluar la validez de una crítica psicoanalítica (Freud/Lacan)",
+    "teoria": "La crítica psicoanalítica interpreta el texto como sintoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
     "explicacion": "Preguntate: la interpretación esta anclada en el texto? O proyecta la teoría sin evidencia textual?",
-    "regla": "La crítica psicoanalitica es valida si está anclada en evidencia textual y no solo en la teoría.",
-    "ejemplo_correcto": "En una interpretación que conecta un sintoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalitica valida.",
+    "regla": "La crítica psicoanalítica es válida si está anclada en evidencia textual y no solo en la teoría.",
+    "ejemplo_correcto": "En una interpretación que conecta un sintoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalítica válida.",
     "ejemplo_incorrecto": "Proyectar el complejo de Edipo sin evidencia textual."
   },
   {
@@ -6605,11 +6605,11 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una deconstrucción (Derrida)",
-    "teoria": "La deconstrucción muestra las jerarquias ocultas en las oposiciones binarias y las subvierte. Evaluarla requiere comprobar si la jerarquia identificada es realmente operativa en el texto.",
-    "explicacion": "Preguntate: la jerarquia identificada es real? La subversión esta justificada?",
-    "regla": "La deconstrucción es valida si la jerarquia identificada es realmente operativa en el texto.",
-    "ejemplo_correcto": "En una deconstrucción que muestra como el texto privilegia la razon sobre la emoción, hay deconstrucción valida.",
-    "ejemplo_incorrecto": "Identificar una jerarquia que el texto no sostiene."
+    "teoria": "La deconstrucción muestra las jerarquías ocultas en las oposiciones binarias y las subvierte. Evaluarla requiere comprobar si la jerarquía identificada es realmente operativa en el texto.",
+    "explicacion": "Preguntate: la jerarquía identificada es real? La subversión esta justificada?",
+    "regla": "La deconstrucción es válida si la jerarquía identificada es realmente operativa en el texto.",
+    "ejemplo_correcto": "En una deconstrucción que muestra como el texto privilegia la razón sobre la emoción, hay deconstrucción válida.",
+    "ejemplo_incorrecto": "Identificar una jerarquía que el texto no sostiene."
   },
   {
     "numero": 93,
@@ -6618,8 +6618,8 @@
     "titulo": "Evaluar la validez de una crítica postcolonial (Said, Spivak)",
     "teoria": "La crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Evaluarla requiere comprobar si el texto realmente reproduce esas logicas o si la crítica las proyecta.",
     "explicacion": "Preguntate: el texto reproduce logicas coloniales? La crítica lo demuestra con evidencia?",
-    "regla": "La crítica postcolonial es valida si demuestra con evidencia la reproducción de logicas coloniales.",
-    "ejemplo_correcto": "En una crítica que muestra el orientalismo de un texto con citas, hay crítica postcolonial valida.",
+    "regla": "La crítica postcolonial es válida si demuestra con evidencia la reproducción de logicas coloniales.",
+    "ejemplo_correcto": "En una crítica que muestra el orientalismo de un texto con citas, hay crítica postcolonial válida.",
     "ejemplo_incorrecto": "Acusar de colonialismo sin evidencia textual."
   },
   {
@@ -6629,8 +6629,8 @@
     "titulo": "Evaluar la validez de una crítica feminista (Beauvoir, Butler)",
     "teoria": "La crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Evaluarla requiere comprobar si la crítica esta anclada en el texto y no solo en la teoría.",
     "explicacion": "Preguntate: la crítica esta anclada en el texto? Demuestra la reproducción o subversión de normas de genero?",
-    "regla": "La crítica feminista es valida si está anclada en el texto y demuestra sus afirmaciones.",
-    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza roles de genero con ejemplos, hay crítica feminista valida.",
+    "regla": "La crítica feminista es válida si está anclada en el texto y demuestra sus afirmaciones.",
+    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza roles de genero con ejemplos, hay crítica feminista válida.",
     "ejemplo_incorrecto": "Acusar de machismo sin evidencia textual."
   },
   {
@@ -6638,21 +6638,21 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica marxista (Marx, Althusser)",
-    "teoria": "La crítica marxista analiza como el texto reproduce o cuestiona las relaciones de producción y la ideologia dominante. Evaluarla requiere comprobar si el análisis esta anclado en el texto.",
+    "teoria": "La crítica marxista analiza como el texto reproduce o cuestiona las relaciones de producción y la ideología dominante. Evaluarla requiere comprobar si el análisis esta anclado en el texto.",
     "explicacion": "Preguntate: el texto reproduce relaciones de producción? La crítica lo demuestra?",
-    "regla": "La crítica marxista es valida si demuestra la reproducción o crítica de las relaciones de producción.",
-    "ejemplo_correcto": "En una crítica que muestra la ideologia dominante en un texto publicitario, hay crítica marxista valida.",
-    "ejemplo_incorrecto": "Acusar de ideologia burguesa sin evidencia."
+    "regla": "La crítica marxista es válida si demuestra la reproducción o crítica de las relaciones de producción.",
+    "ejemplo_correcto": "En una crítica que muestra la ideología dominante en un texto publicitario, hay crítica marxista válida.",
+    "ejemplo_incorrecto": "Acusar de ideología burguesa sin evidencia."
   },
   {
     "numero": 96,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la validez de una crítica ecologica (ecocritica)",
-    "teoria": "La ecocritica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Evaluarla requiere comprobar si el texto naturaliza la explotación o propone alternativas.",
+    "titulo": "Evaluar la validez de una crítica ecológica (ecocrítica)",
+    "teoria": "La ecocrítica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Evaluarla requiere comprobar si el texto naturaliza la explotación o propone alternativas.",
     "explicacion": "Preguntate: como representa el texto la naturaleza? Naturaliza la explotación? Propone alternativas?",
-    "regla": "La ecocritica analiza la representación de la naturaleza y las relaciones humano-naturaleza.",
-    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza la explotación animal, hay ecocritica valida.",
+    "regla": "La ecocrítica analiza la representación de la naturaleza y las relaciones humano-naturaleza.",
+    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza la explotación animal, hay ecocrítica válida.",
     "ejemplo_incorrecto": "Aceptar la representación de la naturaleza sin analizarla."
   },
   {
@@ -6660,43 +6660,43 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica de la modernidad (Adorno, Bauman)",
-    "teoria": "La crítica de la modernidad analiza las contradicciones de la razon ilustrada y sus efectos (barbarie, alienación, liquidez). Evaluarla requiere comprobar si el análisis esta anclado en el texto.",
+    "teoria": "La crítica de la modernidad analiza las contradicciones de la razón ilustrada y sus efectos (barbarie, alienación, liquidez). Evaluarla requiere comprobar si el análisis esta anclado en el texto.",
     "explicacion": "Preguntate: el texto reproduce las contradicciones de la modernidad? La crítica lo demuestra?",
-    "regla": "La crítica de la modernidad es valida si demuestra las contradicciones de la razon ilustrada en el texto.",
-    "ejemplo_correcto": "En una crítica que muestra la alienación en un texto sobre el trabajó, hay crítica de la modernidad valida.",
+    "regla": "La crítica de la modernidad es válida si demuestra las contradicciones de la razón ilustrada en el texto.",
+    "ejemplo_correcto": "En una crítica que muestra la alienación en un texto sobre el trabajó, hay crítica de la modernidad válida.",
     "ejemplo_incorrecto": "Acusar de modernidad sin evidencia textual."
   },
   {
     "numero": 98,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la validez de una crítica de la sociedad del espectaculo (Debord)",
-    "teoria": "La crítica de la sociedad del espectaculo analiza como el texto convierte la vida en imagen y mercancia. Evaluarla requiere comprobar si el texto realmente espectaculiza.",
-    "explicacion": "Preguntate: el texto convierte la vida en espectaculo? La crítica lo demuestra?",
-    "regla": "La crítica del espectaculo es valida si demuestra la conversión de la vida en imagen y mercancia.",
-    "ejemplo_correcto": "En una crítica que muestra la espectaculización en un texto publicitario, hay crítica del espectaculo valida.",
-    "ejemplo_incorrecto": "Acusar de espectaculo sin evidencia."
+    "titulo": "Evaluar la validez de una crítica de la sociedad del espectáculo (Debord)",
+    "teoria": "La crítica de la sociedad del espectáculo analiza como el texto convierte la vida en imagen y mercancía. Evaluarla requiere comprobar si el texto realmente espectaculiza.",
+    "explicacion": "Preguntate: el texto convierte la vida en espectáculo? La crítica lo demuestra?",
+    "regla": "La crítica del espectáculo es válida si demuestra la conversión de la vida en imagen y mercancía.",
+    "ejemplo_correcto": "En una crítica que muestra la espectaculización en un texto publicitario, hay crítica del espectáculo válida.",
+    "ejemplo_incorrecto": "Acusar de espectáculo sin evidencia."
   },
   {
     "numero": 99,
     "nivel_mcer": "C2",
     "proceso": "P4",
-    "titulo": "Evaluar la validez de una crítica de la biopolitica (Foucault, Agamben)",
-    "teoria": "La crítica de la biopolitica analiza como el texto gestiona la vida y la muerte de las poblaciones. Evaluarla requiere comprobar si el texto realmente biopolitiza.",
+    "titulo": "Evaluar la validez de una crítica de la biopolítica (Foucault, Agamben)",
+    "teoria": "La crítica de la biopolítica analiza como el texto gestiona la vida y la muerte de las poblaciones. Evaluarla requiere comprobar si el texto realmente biopolitiza.",
     "explicacion": "Preguntate: el texto gestiona la vida y la muerte? La crítica lo demuestra?",
-    "regla": "La crítica de la biopolitica es valida si demuestra la gestion de la vida y la muerte en el texto.",
-    "ejemplo_correcto": "En una crítica que muestra la biopolitica en un texto sobre salud pública, hay crítica biopolitica valida.",
-    "ejemplo_incorrecto": "Acusar de biopolitica sin evidencia."
+    "regla": "La crítica de la biopolítica es válida si demuestra la gestion de la vida y la muerte en el texto.",
+    "ejemplo_correcto": "En una crítica que muestra la biopolítica en un texto sobre salud pública, hay crítica biopolítica válida.",
+    "ejemplo_incorrecto": "Acusar de biopolítica sin evidencia."
   },
   {
     "numero": 100,
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad global de una interpretación crítica",
-    "teoria": "Una interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus limites y aporta una lectura nueva sin forzar el texto.",
-    "explicacion": "Preguntate: esta anclada en el texto? Es coherente? Reconoce sus limites? Aporta una lectura nueva sin forzar?",
+    "teoria": "Una interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus límites y aporta una lectura nueva sin forzar el texto.",
+    "explicacion": "Preguntate: esta anclada en el texto? Es coherente? Reconoce sus límites? Aporta una lectura nueva sin forzar?",
     "regla": "Una interpretación crítica es de calidad si está anclada, es coherente y aporta una lectura nueva sin forzar.",
-    "ejemplo_correcto": "En una interpretación que reconoce sus limites y se ancla en citas, hay calidad crítica.",
+    "ejemplo_correcto": "En una interpretación que reconoce sus límites y se ancla en citas, hay calidad crítica.",
     "ejemplo_incorrecto": "Forzar el texto para que diga lo que el crítico quiere."
   }
 ]

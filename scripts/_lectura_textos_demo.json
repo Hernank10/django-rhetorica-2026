@@ -431,7 +431,7 @@
       },
       {
         "tecnica_numero": 6,
-        "enunciado": "¿Cuál de estas evidencias es más solida para sostener una afirmación política?",
+        "enunciado": "¿Cuál de estas evidencias es más sólida para sostener una afirmación política?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -576,11 +576,11 @@
       },
       {
         "tecnica_numero": 4,
-        "enunciado": "La frase 'la tecnología debe estar al servicio de las personas, no al reves' es una analogia. ¿Qué la hace solida o débil?",
+        "enunciado": "La frase 'la tecnología debe estar al servicio de las personas, no al reves' es una analogia. ¿Qué la hace sólida o débil?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Es solida porque establece una relación clara de servicio (personas = fin, tecnología = medio).",
+            "A) Es sólida porque establece una relación clara de servicio (personas = fin, tecnología = medio).",
             "B) Es débil porque no explica que es la tecnología.",
             "C) Es débil porque no cita un estudió."
           ],
@@ -945,7 +945,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, es valido: la conclusión se sigue de las premisas.",
+            "A) Si, es válido: la conclusión se sigue de las premisas.",
             "B) No, es invalido: la conclusión no se sigue de las premisas.",
             "C) No se puede evaluar."
           ],
@@ -1336,7 +1336,7 @@
       },
       {
         "tecnica_numero": 8,
-        "enunciado": "El texto dice que la producción textil 'genera 92 millones de toneladas de residuos al año, y solo el 12% se recicla' (UNESCO, 2023). ¿Qué hace que esta conclusión sea solida?",
+        "enunciado": "El texto dice que la producción textil 'genera 92 millones de toneladas de residuos al año, y solo el 12% se recicla' (UNESCO, 2023). ¿Qué hace que esta conclusión sea sólida?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1391,7 +1391,7 @@
       },
       {
         "tecnica_numero": 12,
-        "enunciado": "Cuando Sofía comparte el bizcocho con sus padres, ¿la acción es buena o mala?",
+        "enunciado": "¿Cuándo Sofía comparte el bizcocho con sus padres, ¿la acción es buena o mala?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1686,7 +1686,7 @@
       },
       {
         "tecnica_numero": 11,
-        "enunciado": "El texto cita al economista Hernandez: 'el turismo no es el enemigo: el problema es como se gestiona'. ¿Es una definición solida?",
+        "enunciado": "El texto cita al economista Hernandez: 'el turismo no es el enemigo: el problema es como se gestiona'. ¿Es una definición sólida?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2052,7 +2052,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "A1",
-        "enunciado": "Cuando los niños juegan con sus amigos, ¿la acción es buena o mala?",
+        "enunciado": "¿Cuándo los niños juegan con sus amigos, ¿la acción es buena o mala?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2202,7 +2202,7 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "A1",
-        "enunciado": "Cuando los niños salen al patio a las once, ¿qué es lo más probable que hagan?",
+        "enunciado": "¿Cuándo los niños salen al patio a las once, ¿qué es lo más probable que hagan?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2277,7 +2277,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "A1",
-        "enunciado": "El texto dice que la escuela es 'un edificio grande y blanco'. ¿De que material podria estar hecha?",
+        "enunciado": "El texto dice que la escuela es 'un edificio grande y blanco'. ¿De que material podría estar hecha?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2292,7 +2292,7 @@
       {
         "tecnica_numero": 53,
         "tecnica_nivel": "A1",
-        "enunciado": "En la clase hay una pizarra. ¿Para que sirve la pizarra?",
+        "enunciado": "En la clase hay una pizarra. ¿Para qué sirve la pizarra?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3500,7 +3500,7 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "A2",
-        "enunciado": "Cuando Luis dice 'El oceano es infinito, ¿verdad?' y Elena responde 'Claro, y por eso se esta acabando', ¿qué recurso usa Elena?",
+        "enunciado": "¿Cuándo Luis dice 'El oceano es infinito, ¿verdad?' y Elena responde 'Claro, y por eso se esta acabando', ¿qué recurso usa Elena?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4410,7 +4410,7 @@
       {
         "tecnica_numero": 23,
         "tecnica_nivel": "B1",
-        "enunciado": "Que marcador de orden aparece al inicio del segundo párrafo de desarrollo?",
+        "enunciado": "¿Qué marcador de orden aparece al inicio del segundo párrafo de desarrollo?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4442,7 +4442,7 @@
       {
         "tecnica_numero": 25,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual de estos pares de palabras del texto son antonimos?",
+        "enunciado": "¿Cuál de estos pares de palabras del texto son antonimos?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4474,7 +4474,7 @@
       {
         "tecnica_numero": 27,
         "tecnica_nivel": "B1",
-        "enunciado": "Que ejemplo usa el texto para ilustrar que las palabras positivas generan bienestar?",
+        "enunciado": "¿Qué ejemplo usa el texto para ilustrar que las palabras positivas generan bienestar?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4490,7 +4490,7 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "B1",
-        "enunciado": "Que cita textual aparece en el texto y a quien se atribuye?",
+        "enunciado": "¿Qué cita textual aparece en el texto y a quien se atribuye?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4506,7 +4506,7 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "B1",
-        "enunciado": "Que contraargumento menciona el texto?",
+        "enunciado": "¿Qué contraargumento menciona el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4522,7 +4522,7 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "B1",
-        "enunciado": "Que evidencia empirica cita el texto?",
+        "enunciado": "¿Qué evidencia empirica cita el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4554,7 +4554,7 @@
       {
         "tecnica_numero": 32,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual de estos adjetivos del texto es valorativo?",
+        "enunciado": "¿Cuál de estos adjetivos del texto es valorativo?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4586,7 +4586,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual de estas es una palabra clave del texto?",
+        "enunciado": "¿Cuál de estas es una palabra clave del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4602,7 +4602,7 @@
       {
         "tecnica_numero": 35,
         "tecnica_nivel": "B1",
-        "enunciado": "Que anticipa el título 'La fuerza de las palabras'?",
+        "enunciado": "¿Qué anticipa el título 'La fuerza de las palabras'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4618,7 +4618,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "B1",
-        "enunciado": "Que función cumple el primer párrafo del texto?",
+        "enunciado": "¿Qué función cumple el primer párrafo del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4650,7 +4650,7 @@
       {
         "tecnica_numero": 38,
         "tecnica_nivel": "B1",
-        "enunciado": "Que estructura tiene el texto?",
+        "enunciado": "¿Qué estructura tiene el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4666,7 +4666,7 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "B1",
-        "enunciado": "Que elementos del paratexto aparecen en el texto?",
+        "enunciado": "¿Qué elementos del paratexto aparecen en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4740,7 +4740,7 @@
       {
         "tecnica_numero": 43,
         "tecnica_nivel": "B1",
-        "enunciado": "Por que Marta decide volver al pueblo?",
+        "enunciado": "¿Por qué Marta decide volver al pueblo?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4756,7 +4756,7 @@
       {
         "tecnica_numero": 44,
         "tecnica_nivel": "B1",
-        "enunciado": "Que consecuencia se infiere de la decisión de Marta al final del texto?",
+        "enunciado": "¿Qué consecuencia se infiere de la decisión de Marta al final del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4772,7 +4772,7 @@
       {
         "tecnica_numero": 45,
         "tecnica_nivel": "B1",
-        "enunciado": "Como evoluciona Marta a lo largo del texto?",
+        "enunciado": "¿Cómo evoluciona Marta a lo largo del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4788,7 +4788,7 @@
       {
         "tecnica_numero": 46,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual es el conflicto interno de Marta?",
+        "enunciado": "¿Cuál es el conflicto interno de Marta?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4810,7 +4810,7 @@
           "opciones": [
             "A) Edad Media",
             "B) Siglo XIX",
-            "C) Epoca contemporanea (siglo XXI)",
+            "C) Epoca contemporánea (siglo XXI)",
             "D) Futuro"
           ],
           "correcta": "C"
@@ -4884,7 +4884,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual es el tono general del texto?",
+        "enunciado": "¿Cuál es el tono general del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4964,7 +4964,7 @@
       {
         "tecnica_numero": 57,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual es la intención del autor con este texto?",
+        "enunciado": "¿Cuál es la intención del autor con este texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5054,7 +5054,7 @@
       {
         "tecnica_numero": 62,
         "tecnica_nivel": "B1",
-        "enunciado": "Como progresa el tema del texto?",
+        "enunciado": "¿Cómo progresa el tema del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5166,7 +5166,7 @@
       {
         "tecnica_numero": 69,
         "tecnica_nivel": "B1",
-        "enunciado": "Que frase se repite en el texto para enfatizar el regreso de Santiago?",
+        "enunciado": "¿Qué frase se repite en el texto para enfatizar el regreso de Santiago?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5214,7 +5214,7 @@
       {
         "tecnica_numero": 72,
         "tecnica_nivel": "B1",
-        "enunciado": "Que parte del texto es el nudo de la narración?",
+        "enunciado": "¿Qué parte del texto es el nudo de la narración?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5246,7 +5246,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "B1",
-        "enunciado": "Que función cumple el dialogo entre Santiago y su abuelo?",
+        "enunciado": "¿Qué función cumple el dialogo entre Santiago y su abuelo?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5262,7 +5262,7 @@
       {
         "tecnica_numero": 75,
         "tecnica_nivel": "B1",
-        "enunciado": "Que tipo de narrador tiene el texto?",
+        "enunciado": "¿Qué tipo de narrador tiene el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5384,7 +5384,7 @@
       {
         "tecnica_numero": 82,
         "tecnica_nivel": "B1",
-        "enunciado": "El argumento 'todos los alumnos se distraen con las redes sociales, por tanto las pantallas son malas' es solido?",
+        "enunciado": "El argumento 'todos los alumnos se distraen con las redes sociales, por tanto las pantallas son malas' es sólido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5420,7 +5420,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Un argumento valido",
+            "A) Un argumento válido",
             "B) Una falacia ad hominem (ataca a la persona, no al argumento)",
             "C) Una evidencia empirica",
             "D) Un dato verificable"
@@ -5470,7 +5470,7 @@
           "opciones": [
             "A) Un falso dilema (hay más opciones, como el uso moderado)",
             "B) Una evidencia empirica",
-            "C) Un argumento solido",
+            "C) Un argumento sólido",
             "D) Una pregunta retórica"
           ],
           "correcta": "A"
@@ -5480,7 +5480,7 @@
       {
         "tecnica_numero": 88,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual de estas fuentes del texto es de mayor calidad?",
+        "enunciado": "¿Cuál de estas fuentes del texto es de mayor calidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5592,7 +5592,7 @@
       {
         "tecnica_numero": 95,
         "tecnica_nivel": "B1",
-        "enunciado": "Cual de estos seria un buen resumen del texto?",
+        "enunciado": "¿Cuál de estos seria un buen resumen del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5656,7 +5656,7 @@
       {
         "tecnica_numero": 99,
         "tecnica_nivel": "B1",
-        "enunciado": "Que función cumple el dato '67% de los institutos' en el texto?",
+        "enunciado": "¿Qué función cumple el dato '67% de los institutos' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5698,14 +5698,14 @@
       {
         "tecnica_numero": 21,
         "tecnica_nivel": "B2",
-        "enunciado": "Cual es la tesis implicita del texto?",
+        "enunciado": "¿Cuál es la tesis implicita del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) La semana de cuatro días es una oportunidad que deberiamos explorar",
             "B) La semana de cuatro días es una utopia",
             "C) El teletrabajo es mejor que la oficina",
-            "D) Los empresarios siempre tienen razon"
+            "D) Los empresarios siempre tienen razón"
           ],
           "correcta": "A"
         },
@@ -5714,7 +5714,7 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "B2",
-        "enunciado": "Que presupone el autor cuando afirma que 'el mundo laboral esta cambiando'?",
+        "enunciado": "¿Qué presupone el autor cuando afirma que 'el mundo laboral esta cambiando'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5730,7 +5730,7 @@
       {
         "tecnica_numero": 23,
         "tecnica_nivel": "B2",
-        "enunciado": "Que falacia contiene la frase 'Si reducimos la jornada, las empresas quebraran y el país se hundira'?",
+        "enunciado": "¿Qué falacia contiene la frase 'Si reducimos la jornada, las empresas quebraran y el país se hundira'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5746,7 +5746,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "B2",
-        "enunciado": "Cuando el autor dice 'En mi opinión...' que recurso de persuasión usa?",
+        "enunciado": "¿Cuándo el autor dice 'En mi opinión...' que recurso de persuasión usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5778,7 +5778,7 @@
       {
         "tecnica_numero": 26,
         "tecnica_nivel": "B2",
-        "enunciado": "Que indicio de subjetividad aparece en 'sin duda puede mejorar la vida de muchos trabajadores'?",
+        "enunciado": "¿Qué indicio de subjetividad aparece en 'sin duda puede mejorar la vida de muchos trabajadores'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5794,7 +5794,7 @@
       {
         "tecnica_numero": 27,
         "tecnica_nivel": "B2",
-        "enunciado": "Que indica el modalizador 'probablemente' en 'probablemente no sea la solución para todos los sectores'?",
+        "enunciado": "¿Qué indica el modalizador 'probablemente' en 'probablemente no sea la solución para todos los sectores'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5810,7 +5810,7 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "B2",
-        "enunciado": "Es solido el argumento de autoridad en 'Segun la doctora Martínez, economista laboral, la reducción no implica menor rendimiento'?",
+        "enunciado": "Es sólido el argumento de autoridad en 'Segun la doctora Martínez, economista laboral, la reducción no implica menor rendimiento'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5826,7 +5826,7 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "B2",
-        "enunciado": "Cual es el contraargumento que reconoce el autor?",
+        "enunciado": "¿Cuál es el contraargumento que reconoce el autor?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5842,7 +5842,7 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "B2",
-        "enunciado": "Que implica el autor al decir 'las empresas que se adapten antes tendran ventaja'?",
+        "enunciado": "¿Qué implica el autor al decir 'las empresas que se adapten antes tendran ventaja'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5858,7 +5858,7 @@
       {
         "tecnica_numero": 31,
         "tecnica_nivel": "B2",
-        "enunciado": "Que relación marca el conector 'sin embargo' en 'Sin embargo, algunos empresarios sostienen...'?",
+        "enunciado": "¿Qué relación marca el conector 'sin embargo' en 'Sin embargo, algunos empresarios sostienen...'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5874,7 +5874,7 @@
       {
         "tecnica_numero": 32,
         "tecnica_nivel": "B2",
-        "enunciado": "Que presupuesto ideologico subyace en la idea de que 'hay que adaptarse antes'?",
+        "enunciado": "¿Qué presupuesto ideologico subyace en la idea de que 'hay que adaptarse antes'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5890,7 +5890,7 @@
       {
         "tecnica_numero": 33,
         "tecnica_nivel": "B2",
-        "enunciado": "Que topico literario aparece en la expresión 'el tiempo es oro'?",
+        "enunciado": "¿Qué topico literario aparece en la expresión 'el tiempo es oro'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5906,7 +5906,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "B2",
-        "enunciado": "Que falacia causal contiene 'Desde que redujimos la jornada, las ventas bajaron, luego la reducción causo la bajada'?",
+        "enunciado": "¿Qué falacia causal contiene 'Desde que redujimos la jornada, las ventas bajaron, luego la reducción causo la bajada'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5938,7 +5938,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "B2",
-        "enunciado": "Que falacia de ambiguedad contiene 'El trabajó es bueno; por tanto, trabajar mucho es mejor'?",
+        "enunciado": "¿Qué falacia de ambiguedad contiene 'El trabajó es bueno; por tanto, trabajar mucho es mejor'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5954,7 +5954,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "B2",
-        "enunciado": "Que argumento por reducción al absurdo usa el autor (o podria usar) para refutar la idea de que 'reducir la jornada arruinara el país'?",
+        "enunciado": "¿Qué argumento por reducción al absurdo usa el autor (o podría usar) para refutar la idea de que 'reducir la jornada arruinara el país'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5970,7 +5970,7 @@
       {
         "tecnica_numero": 38,
         "tecnica_nivel": "B2",
-        "enunciado": "Que argumento por consecuencias aparece en 'puede mejorar la vida de muchos trabajadores'?",
+        "enunciado": "¿Qué argumento por consecuencias aparece en 'puede mejorar la vida de muchos trabajadores'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6039,12 +6039,12 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 26,
-    "cuerpo": "El regreso de Amina\n\nAmina bajo del autobus al amanecer. El pueblo la recibió con el mismo olor a higuera y polvo que recordaba de su infancia. Habían pasado veinte años desde que se marcho a la ciudad para estudiar medicina. Ahora volvía, no como médico famosa, sino como una mujer que había perdido a su madre y regresaba a enterrarla.\n\nLa casa de la familia seguía allí, con su fachada blanca y sus contraventanas azules. El azul de las ventanas era el único color que resistía al pasó del tiempo. En aquel pueblo, el azul significaba protección: las madres lo pintaban en las puertas para alejar los malos espiritus. Amina sonrió al recordarlo. Su madre había pintado aquellas ventanas cada primavera, sin fallar una sola vez.\n\nSu abuela, que tenía noventa años y la memoria intacta, la esperaba en el umbral. \"Has vuelto, hija\", dijo, sin sorpresa. \"La casa te estaba llamando\". Amina la abrazó. La abuela era la memoria del pueblo: sabía quien había vivido en cada casa, quien había emigrado, quien había vuelto. Su función en la familia había sido siempre la de guardar las historias.\n\nDurante el entierro, Amina observo el cementerio. La mitad de las tumbas estaban vacias: los jovenes se habían ido y ya no volvian. El pueblo se moria lentamente. Los que quedaban eran ancianos que esperaban. Amina sintió una punzada: ella también había formado parte de ese exodo.\n\nAquella tarde, mientras tomaban te en la cocina, la abuela le contó que el alcalde quería cerrar la escuela por falta de alumnos. \"Dicen que es por el progreso\", dijo la abuela con ironía, \"pero el progreso que se lleva a los niños no es progreso, es desierto\".\n\nAmina pasó tres días en el pueblo. Recorrio los caminos de su infancia, habló con los vecinos, visito la escuela abandonada. Al cuarto día, tomó una decisión: no volveria a la ciudad. Iria a la capital a pedir una subvención para reabrir la escuela y la consulta médica del pueblo. No sabía si lo conseguiri­a. Pero algo dentro de ella le decía que valia la pena intentarlo.\n\nCuando se lo contó a la abuela, esta sonrió con malicia. \"Sabía que volverias. Las raíces tiran más que los aviones\". Amina se rió. Su abuela tenía razon: la vida era como un árbol; por muchas ramas que eche, siempre tira de la raíz.\n\nEl periodico local público meses después un artículo sobre el proyecto de Amina. Incluia un grafico que mostraba la evolución de la población del pueblo: una linea roja que caía vertiginosamente desde 1980. El titular decía: \"El pueblo que se muere\". El grafico, sin embargo, solo mostraba la caida de los últimos cuarenta años; omitia el ligero repunte de los últimos dos, coincidiendo con la llegada de algunas familias jovenes.\n\nAmina leyó el artículo con tristeza. El progreso, pensó, no es una linea recta: es un tejido con hilos de muchos colores. Y su pueblo, aunque pequeño, tenía hilos que merecia la pena seguir tejiendo. Cinco años después, la escuela tenía veinte alumnos. No era mucho, pero era un comienzo.",
+    "cuerpo": "El regreso de Amina\n\nAmina bajo del autobus al amanecer. El pueblo la recibió con el mismo olor a higuera y polvo que recordaba de su infancia. Habían pasado veinte años desde que se marcho a la ciudad para estudiar medicina. Ahora volvía, no como médico famosa, sino como una mujer que había perdido a su madre y regresaba a enterrarla.\n\nLa casa de la familia seguía allí, con su fachada blanca y sus contraventanas azules. El azul de las ventanas era el único color que resistía al pasó del tiempo. En aquel pueblo, el azul significaba protección: las madres lo pintaban en las puertas para alejar los malos espiritus. Amina sonrió al recordarlo. Su madre había pintado aquellas ventanas cada primavera, sin fallar una sola vez.\n\nSu abuela, que tenía noventa años y la memoria intacta, la esperaba en el umbral. \"Has vuelto, hija\", dijo, sin sorpresa. \"La casa te estaba llamando\". Amina la abrazó. La abuela era la memoria del pueblo: sabía quien había vivido en cada casa, quien había emigrado, quien había vuelto. Su función en la familia había sido siempre la de guardar las historias.\n\nDurante el entierro, Amina observo el cementerio. La mitad de las tumbas estaban vacias: los jovenes se habían ido y ya no volvian. El pueblo se moria lentamente. Los que quedaban eran ancianos que esperaban. Amina sintió una punzada: ella también había formado parte de ese exodo.\n\nAquella tarde, mientras tomaban te en la cocina, la abuela le contó que el alcalde quería cerrar la escuela por falta de alumnos. \"Dicen que es por el progreso\", dijo la abuela con ironía, \"pero el progreso que se lleva a los niños no es progreso, es desierto\".\n\nAmina pasó tres días en el pueblo. Recorrio los caminos de su infancia, habló con los vecinos, visito la escuela abandonada. Al cuarto día, tomó una decisión: no volveria a la ciudad. Iria a la capital a pedir una subvención para reabrir la escuela y la consulta médica del pueblo. No sabía si lo conseguiri­a. Pero algo dentro de ella le decía que valia la pena intentarlo.\n\nCuando se lo contó a la abuela, esta sonrió con malicia. \"Sabía que volverias. Las raíces tiran más que los aviones\". Amina se rió. Su abuela tenía razón: la vida era como un árbol; por muchas ramas que eche, siempre tira de la raíz.\n\nEl periodico local público meses después un artículo sobre el proyecto de Amina. Incluia un grafico que mostraba la evolución de la población del pueblo: una linea roja que caía vertiginosamente desde 1980. El titular decía: \"El pueblo que se muere\". El grafico, sin embargo, solo mostraba la caida de los últimos cuarenta años; omitia el ligero repunte de los últimos dos, coincidiendo con la llegada de algunas familias jovenes.\n\nAmina leyó el artículo con tristeza. El progreso, pensó, no es una linea recta: es un tejido con hilos de muchos colores. Y su pueblo, aunque pequeño, tenía hilos que merecia la pena seguir tejiendo. Cinco años después, la escuela tenía veinte alumnos. No era mucho, pero era un comienzo.",
     "ejercicios": [
       {
         "tecnica_numero": 42,
         "tecnica_nivel": "B2",
-        "enunciado": "Cual es la intención comunicativa global del texto?",
+        "enunciado": "¿Cuál es la intención comunicativa global del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6060,7 +6060,7 @@
       {
         "tecnica_numero": 43,
         "tecnica_nivel": "B2",
-        "enunciado": "Que tipo de narrador tiene el texto?",
+        "enunciado": "¿Qué tipo de narrador tiene el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6108,7 +6108,7 @@
       {
         "tecnica_numero": 46,
         "tecnica_nivel": "B2",
-        "enunciado": "Que contexto sociohistorico se infiere de referencias como 'exodo rural', 'pueblo que se muere' y 'jovenes que se van'?",
+        "enunciado": "¿Qué contexto sociohistorico se infiere de referencias como 'exodo rural', 'pueblo que se muere' y 'jovenes que se van'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6124,7 +6124,7 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "B2",
-        "enunciado": "Como evoluciona el tono del texto?",
+        "enunciado": "¿Cómo evoluciona el tono del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6140,7 +6140,7 @@
       {
         "tecnica_numero": 48,
         "tecnica_nivel": "B2",
-        "enunciado": "Cual es la postura del autor ante el tema de la despoblación rural?",
+        "enunciado": "¿Cuál es la postura del autor ante el tema de la despoblación rural?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6172,7 +6172,7 @@
       {
         "tecnica_numero": 50,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple la abuela en la historia?",
+        "enunciado": "¿Qué función cumple la abuela en la historia?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6188,7 +6188,7 @@
       {
         "tecnica_numero": 51,
         "tecnica_nivel": "B2",
-        "enunciado": "Que mensaje implicito transmite el texto?",
+        "enunciado": "¿Qué mensaje implicito transmite el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6204,7 +6204,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "B2",
-        "enunciado": "Que ideologia se revela en el lexico del texto con terminos como 'raíces', 'memoria', 'tradición', 'comunidad'?",
+        "enunciado": "¿Qué ideología se revela en el lexico del texto con terminos como 'raíces', 'memoria', 'tradición', 'comunidad'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6220,7 +6220,7 @@
       {
         "tecnica_numero": 53,
         "tecnica_nivel": "B2",
-        "enunciado": "Que contexto cultural se infiere de referencias como 'higuera', 'contraventanas azules', 'te en la cocina', 'subvención'?",
+        "enunciado": "¿Qué contexto cultural se infiere de referencias como 'higuera', 'contraventanas azules', 'te en la cocina', 'subvención'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6236,7 +6236,7 @@
       {
         "tecnica_numero": 54,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple el dialogo 'Has vuelto, hija... La casa te estaba llamando'?",
+        "enunciado": "¿Qué función cumple el dialogo 'Has vuelto, hija... La casa te estaba llamando'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6252,7 +6252,7 @@
       {
         "tecnica_numero": 55,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple la descripción 'La casa seguía allí, con su fachada blanca y sus contraventanas azules'?",
+        "enunciado": "¿Qué función cumple la descripción 'La casa seguía allí, con su fachada blanca y sus contraventanas azules'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6268,7 +6268,7 @@
       {
         "tecnica_numero": 56,
         "tecnica_nivel": "B2",
-        "enunciado": "Que relación se infiere entre Amina y su abuela?",
+        "enunciado": "¿Qué relación se infiere entre Amina y su abuela?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6316,7 +6316,7 @@
       {
         "tecnica_numero": 59,
         "tecnica_nivel": "B2",
-        "enunciado": "Que elipsis narrativa aparece al final del texto?",
+        "enunciado": "¿Qué elipsis narrativa aparece al final del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6332,7 +6332,7 @@
       {
         "tecnica_numero": 60,
         "tecnica_nivel": "B2",
-        "enunciado": "Que crítica social contiene el texto?",
+        "enunciado": "¿Qué crítica social contiene el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6353,12 +6353,12 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 27,
-    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salon y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elias se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los pare todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomabamos cafe. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mi, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenía razon en algo: la gente corría todo el día sin saber hacía donde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elias me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elias dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabía el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontre la puerta abierta. El no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvió. A veces, cuando pasó por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levantó, miró el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
+    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salon y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elias se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los pare todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomabamos cafe. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mi, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenía razón en algo: la gente corría todo el día sin saber hacía donde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elias me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elias dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabía el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontre la puerta abierta. El no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvió. A veces, cuando pasó por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levantó, miró el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
     "ejercicios": [
       {
         "tecnica_numero": 61,
         "tecnica_nivel": "B2",
-        "enunciado": "Cual es la interpretación global del texto?",
+        "enunciado": "¿Cuál es la interpretación global del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6374,7 +6374,7 @@
       {
         "tecnica_numero": 62,
         "tecnica_nivel": "B2",
-        "enunciado": "Que sintetiza el título 'La casa de los relojes'?",
+        "enunciado": "¿Qué sintetiza el título 'La casa de los relojes'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6390,7 +6390,7 @@
       {
         "tecnica_numero": 63,
         "tecnica_nivel": "B2",
-        "enunciado": "Que refleja la estructura del texto (todos los relojes parados a la misma hora) respecto al contenido?",
+        "enunciado": "¿Qué refleja la estructura del texto (todos los relojes parados a la misma hora) respecto al contenido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6422,7 +6422,7 @@
       {
         "tecnica_numero": 65,
         "tecnica_nivel": "B2",
-        "enunciado": "Que referencia intertextual se puede inferir del motivo literario del tiempo detenido?",
+        "enunciado": "¿Qué referencia intertextual se puede inferir del motivo literario del tiempo detenido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6454,7 +6454,7 @@
       {
         "tecnica_numero": 67,
         "tecnica_nivel": "B2",
-        "enunciado": "Que simboliza el reloj del recibidor en el texto?",
+        "enunciado": "¿Qué simboliza el reloj del recibidor en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6470,7 +6470,7 @@
       {
         "tecnica_numero": 68,
         "tecnica_nivel": "B2",
-        "enunciado": "Como influye la voz narrativa (primera persona testigo) en la caracterización de don Elias?",
+        "enunciado": "¿Cómo influye la voz narrativa (primera persona testigo) en la caracterización de don Elias?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6486,7 +6486,7 @@
       {
         "tecnica_numero": 69,
         "tecnica_nivel": "B2",
-        "enunciado": "Que ritmo narrativo predomina cuando el narrador describe las visitas de los jueves?",
+        "enunciado": "¿Qué ritmo narrativo predomina cuando el narrador describe las visitas de los jueves?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6502,7 +6502,7 @@
       {
         "tecnica_numero": 70,
         "tecnica_nivel": "B2",
-        "enunciado": "Que se omite deliberadamente en el texto respecto al destino de don Elias?",
+        "enunciado": "¿Qué se omite deliberadamente en el texto respecto al destino de don Elias?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6518,7 +6518,7 @@
       {
         "tecnica_numero": 71,
         "tecnica_nivel": "B2",
-        "enunciado": "Por que el final del texto es abierto?",
+        "enunciado": "¿Por qué el final del texto es abierto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6534,7 +6534,7 @@
       {
         "tecnica_numero": 72,
         "tecnica_nivel": "B2",
-        "enunciado": "Que revela el monologo interior del narrador cuando piensa en su propia vida?",
+        "enunciado": "¿Qué revela el monologo interior del narrador cuando piensa en su propia vida?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6550,7 +6550,7 @@
       {
         "tecnica_numero": 73,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple el narrador testigo (primera persona que observa)?",
+        "enunciado": "¿Qué función cumple el narrador testigo (primera persona que observa)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6566,7 +6566,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "B2",
-        "enunciado": "Que contrapunto se establece en el texto entre el pasado y el presente de don Elias?",
+        "enunciado": "¿Qué contrapunto se establece en el texto entre el pasado y el presente de don Elias?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6582,7 +6582,7 @@
       {
         "tecnica_numero": 75,
         "tecnica_nivel": "B2",
-        "enunciado": "Que revela el dialogo 'Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado' sobre don Elias?",
+        "enunciado": "¿Qué revela el dialogo 'Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado' sobre don Elias?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6598,14 +6598,14 @@
       {
         "tecnica_numero": 76,
         "tecnica_nivel": "B2",
-        "enunciado": "Como se refleja el tiempo subjetivo en el texto?",
+        "enunciado": "¿Cómo se refleja el tiempo subjetivo en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Para don Elias, veinte años han pasado como un instante; el tiempo se ha detenido",
             "B) El tiempo es siempre uniforme",
             "C) El narrador mide cada minuto",
-            "D) El tiempo se acelera sin razon"
+            "D) El tiempo se acelera sin razón"
           ],
           "correcta": "A"
         },
@@ -6614,7 +6614,7 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función tiene la casa de don Elias en la narración?",
+        "enunciado": "¿Qué función tiene la casa de don Elias en la narración?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6630,7 +6630,7 @@
       {
         "tecnica_numero": 78,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple el objeto 'reloj' en la narración?",
+        "enunciado": "¿Qué función cumple el objeto 'reloj' en la narración?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6646,7 +6646,7 @@
       {
         "tecnica_numero": 79,
         "tecnica_nivel": "B2",
-        "enunciado": "Que ambiguedad intencionada hay en 'no sabemos si don Elias esta loco o es un sabio'?",
+        "enunciado": "¿Qué ambiguedad intencionada hay en 'no sabemos si don Elias esta loco o es un sabio'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6662,7 +6662,7 @@
       {
         "tecnica_numero": 80,
         "tecnica_nivel": "B2",
-        "enunciado": "Que genero se subvierte o parodia en el texto?",
+        "enunciado": "¿Qué genero se subvierte o parodia en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6678,7 +6678,7 @@
       {
         "tecnica_numero": 81,
         "tecnica_nivel": "B2",
-        "enunciado": "Que efecto estético produce la repetición del sonido en 'relojes', 'relojero', 'reloj'?",
+        "enunciado": "¿Qué efecto estético produce la repetición del sonido en 'relojes', 'relojero', 'reloj'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6699,12 +6699,12 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 28,
-    "cuerpo": "Moviles en los institutos: prohibir o educar\n\nEl debate sobre el uso del móvil en los institutos esta de actualidad. Algunos defienden prohibirlo; otros, educar en su uso. En este texto analizamos los principales argumentos y algunas falacias que circulan en el debate.\n\nArgumentos a favor de la prohibición\n\nQuienes defienden la prohibición sostienen que los móviles distraen y bajan el rendimiento. Un estudió de la Universidad de Madrid (2023) encontró que los alumnos con móvil en clase obtenian peores notas. Sin embargo, hay que tener cuidado: el estudió se hizo solo en dos institutos de una misma ciudad, por lo que su muestra no es representativa del conjunto del país.\n\nAlgunos llevan el argumento más lejos: \"Si permitimos el móvil, los alumnos se distraeran, luego no estudiaran, luego fracasaran, luego no encontraran trabajó y acabaran en la marginación\". Este argumento es una pendiente resbaladiza: afirma una cadena de consecuencias catastrofistas sin justificar cada pasó.\n\nOtros dicen: \"Los profesores que defienden el móvil no entienden a los jovenes\". Esto es un argumento ad hominem: ataca a la persona en lugar de refutar su argumento. También se oye: \"Tu defiendes el móvil porque tu hijo tiene uno\". Esto es un tu quoque: no refuta el argumento, solo senala la coherencia del que habla.\n\nArgumentos a favor de educar en el uso\n\nQuienes defienden educar en el uso senalan que el móvil es una herramienta y que prohibirlo no ensena a usarlo bien. Algunos dicen: \"Es como prohibir los cuchillos porque pueden cortar; mejor enseñar a usarlos con cuidado\". Es un argumento por analogia: su solidez depende de que la comparación sea relevante (el móvil y el cuchillo son herramientas con riesgos).\n\nSin embargo, algunos críticos responden: \"Quienes defienden educar quieren llenar las aulas de pantallas y eliminar la autoridad del profesor\". Esto es un hombre de paja: distorsiona el argumento del oponente para refutarlo más facilmente.\n\nDatos y encuestas\n\nUn dato que se repite: \"El 80% de los padres quiere prohibir el móvil\". Hay que analizar la fuente: si la encuesta se hizo solo entre padres de un colegio concreto, la muestra no es representativa. Además, si la pregunta era \"¿No cree usted que los móviles distraen?\", la formulación ya sugiere la respuesta y sesga el resultado.\n\nTambién se oye: \"El 70% de los alumnos con móvil suspende, luego el móvil causa el suspenso\". Aquí hay una falacia de falsa causa: puede haber otros factores (nivel socioeconomico, habitos de estudió) que expliquen ambos hechos. La correlación no implica causalidad.\n\nConclusiones\n\nLa conclusión del debate no es fácil. Un argumento valido podria ser: \"Todos los alumnos necesitan concentrarse para aprender. Los móviles distraen. Por tanto, en clase conviene limitar su uso\". Este argumento es valido (la forma es correcta) y podria ser solido si las premisas son verdaderas. Pero hay que distinguir validez de verdad: un argumento puede ser valido aunque sus premisas sean falsas.\n\nEn mi opinión, ni la prohibición total ni la permisividad absoluta son buenas soluciones. Probablemente lo mejor sea una via intermedia: educar en el uso responsable y regular el móvil en determinados momentos. La recomendación final es clara: los institutos deberian elaborar normas consensuadas con alumnos y familias.\n\nEl título del texto, 'Moviles en los institutos: prohibir o educar', refleja bien el contenido. Podria haber sido más sensacionalista (\"El móvil destruye la educación\"), pero habria sido menos coherente con la complejidad del debate. La calidad global del texto depende de su claridad, su coherencia, la solidez de sus argumentos y la presencia de contraargumentos.",
+    "cuerpo": "Moviles en los institutos: prohibir o educar\n\nEl debate sobre el uso del móvil en los institutos esta de actualidad. Algunos defienden prohibirlo; otros, educar en su uso. En este texto analizamos los principales argumentos y algunas falacias que circulan en el debate.\n\nArgumentos a favor de la prohibición\n\nQuienes defienden la prohibición sostienen que los móviles distraen y bajan el rendimiento. Un estudió de la Universidad de Madrid (2023) encontró que los alumnos con móvil en clase obtenian peores notas. Sin embargo, hay que tener cuidado: el estudió se hizo solo en dos institutos de una misma ciudad, por lo que su muestra no es representativa del conjunto del país.\n\nAlgunos llevan el argumento más lejos: \"Si permitimos el móvil, los alumnos se distraeran, luego no estudiaran, luego fracasaran, luego no encontraran trabajó y acabaran en la marginación\". Este argumento es una pendiente resbaladiza: afirma una cadena de consecuencias catastrofistas sin justificar cada pasó.\n\nOtros dicen: \"Los profesores que defienden el móvil no entienden a los jovenes\". Esto es un argumento ad hominem: ataca a la persona en lugar de refutar su argumento. También se oye: \"Tu defiendes el móvil porque tu hijo tiene uno\". Esto es un tu quoque: no refuta el argumento, solo senala la coherencia del que habla.\n\nArgumentos a favor de educar en el uso\n\nQuienes defienden educar en el uso senalan que el móvil es una herramienta y que prohibirlo no ensena a usarlo bien. Algunos dicen: \"Es como prohibir los cuchillos porque pueden cortar; mejor enseñar a usarlos con cuidado\". Es un argumento por analogia: su solidez depende de que la comparación sea relevante (el móvil y el cuchillo son herramientas con riesgos).\n\nSin embargo, algunos críticos responden: \"Quienes defienden educar quieren llenar las aulas de pantallas y eliminar la autoridad del profesor\". Esto es un hombre de paja: distorsiona el argumento del oponente para refutarlo más facilmente.\n\nDatos y encuestas\n\nUn dato que se repite: \"El 80% de los padres quiere prohibir el móvil\". Hay que analizar la fuente: si la encuesta se hizo solo entre padres de un colegio concreto, la muestra no es representativa. Además, si la pregunta era \"¿No cree usted que los móviles distraen?\", la formulación ya sugiere la respuesta y sesga el resultado.\n\nTambién se oye: \"El 70% de los alumnos con móvil suspende, luego el móvil causa el suspenso\". Aquí hay una falacia de falsa causa: puede haber otros factores (nivel socioeconomico, habitos de estudió) que expliquen ambos hechos. La correlación no implica causalidad.\n\nConclusiones\n\nLa conclusión del debate no es fácil. Un argumento válido podría ser: \"Todos los alumnos necesitan concentrarse para aprender. Los móviles distraen. Por tanto, en clase conviene limitar su uso\". Este argumento es válido (la forma es correcta) y podría ser sólido si las premisas son verdaderas. Pero hay que distinguir validez de verdad: un argumento puede ser válido aunque sus premisas sean falsas.\n\nEn mi opinión, ni la prohibición total ni la permisividad absoluta son buenas soluciones. Probablemente lo mejor sea una via intermedia: educar en el uso responsable y regular el móvil en determinados momentos. La recomendación final es clara: los institutos deberian elaborar normas consensuadas con alumnos y familias.\n\nEl título del texto, 'Moviles en los institutos: prohibir o educar', refleja bien el contenido. Podría haber sido más sensacionalista (\"El móvil destruye la educación\"), pero habria sido menos coherente con la complejidad del debate. La calidad global del texto depende de su claridad, su coherencia, la solidez de sus argumentos y la presencia de contraargumentos.",
     "ejercicios": [
       {
         "tecnica_numero": 82,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Todos los alumnos necesitan concentrarse. Los móviles distraen. Por tanto, conviene limitar su uso', el argumento es valido?",
+        "enunciado": "En 'Todos los alumnos necesitan concentrarse. Los móviles distraen. Por tanto, conviene limitar su uso', el argumento es válido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6720,11 +6720,11 @@
       {
         "tecnica_numero": 83,
         "tecnica_nivel": "B2",
-        "enunciado": "Que diferencia hay entre validez y verdad en un argumento?",
+        "enunciado": "¿Qué diferencia hay entre validez y verdad en un argumento?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La validez es de la forma; la verdad, de las premisas. Un argumento puede ser valido con premisas falsas",
+            "A) La validez es de la forma; la verdad, de las premisas. Un argumento puede ser válido con premisas falsas",
             "B) Son lo mismo",
             "C) La validez depende de la verdad",
             "D) La verdad depende de la validez"
@@ -6768,7 +6768,7 @@
       {
         "tecnica_numero": 86,
         "tecnica_nivel": "B2",
-        "enunciado": "Que es la falacia de circularidad?",
+        "enunciado": "¿Qué es la falacia de circularidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6800,13 +6800,13 @@
       {
         "tecnica_numero": 88,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Es como prohibir los cuchillos porque pueden cortar; mejor enseñar a usarlos', el argumento por analogia es solido?",
+        "enunciado": "En 'Es como prohibir los cuchillos porque pueden cortar; mejor enseñar a usarlos', el argumento por analogia es sólido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Depende de que la comparación sea relevante: ambos son herramientas con riesgos, pero su uso educativo difiere",
-            "B) Si, siempre es solido",
-            "C) No, nunca es solido",
+            "B) Si, siempre es sólido",
+            "C) No, nunca es sólido",
             "D) No se puede evaluar"
           ],
           "correcta": "A"
@@ -6816,7 +6816,7 @@
       {
         "tecnica_numero": 89,
         "tecnica_nivel": "B2",
-        "enunciado": "Por que el estudió de la Universidad de Madrid (2023) no es del todo representativo?",
+        "enunciado": "¿Por qué el estudió de la Universidad de Madrid (2023) no es del todo representativo?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6848,7 +6848,7 @@
       {
         "tecnica_numero": 91,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'El 70% de los alumnos con móvil suspende', el argumento estadistico es solido?",
+        "enunciado": "En 'El 70% de los alumnos con móvil suspende', el argumento estadistico es sólido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6996,7 +6996,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Es claro, coherente, presenta argumentos solidos y reconoce contraargumentos",
+            "A) Es claro, coherente, presenta argumentos sólidos y reconoce contraargumentos",
             "B) Es largo y tiene muchas palabras difíciles",
             "C) Solo defiende una postura",
             "D) Tiene muchas falacias"
@@ -7013,7 +7013,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 29,
-    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anunció de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anunció (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmaticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anunció usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmaticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deicticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesia son escasas: el discurso es directo y asertivo. La cohesión lexica se construye mediante sinonimos (\"reforma\", \"cambió\", \"transformación\") y antonimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los terminos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinecdoque). Las figuras de dicción incluyen anaforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implicita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podria\", \"en cierta medida\"), aunque en general el discurso es asertivo y categorico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnostico\", \"tratamiento\"), juridico (\"normativa\", \"derecho\") y economico (\"inversión\", \"rentabilidad\"). El lexico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostalgicos\".\n\nLa polifonia textual es limitada: se citan voces favorables (\"segun los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"segun el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metaforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora economica), \"la reforma es una guerra\" (metáfora belica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clasica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anunció construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstaculos.",
+    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anunció de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anunció (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmaticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anunció usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmaticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deicticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesia son escasas: el discurso es directo y asertivo. La cohesión lexica se construye mediante sinonimos (\"reforma\", \"cambió\", \"transformación\") y antonimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los terminos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinecdoque). Las figuras de dicción incluyen anaforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implicita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podría\", \"en cierta medida\"), aunque en general el discurso es asertivo y categorico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnostico\", \"tratamiento\"), juridico (\"normativa\", \"derecho\") y economico (\"inversión\", \"rentabilidad\"). El lexico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostalgicos\".\n\nLa polifonia textual es limitada: se citan voces favorables (\"segun los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"segun el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metaforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora economica), \"la reforma es una guerra\" (metáfora belica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clasica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anunció construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstaculos.",
     "ejercicios": [
       {
         "tecnica_numero": 17,
@@ -7066,7 +7066,7 @@
       {
         "tecnica_numero": 20,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumplen los deicticos 'nosotros' y 'ellos' en el texto?",
+        "enunciado": "¿Qué función cumplen los deicticos 'nosotros' y 'ellos' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7082,7 +7082,7 @@
       {
         "tecnica_numero": 21,
         "tecnica_nivel": "C1",
-        "enunciado": "Como se describe la cortesia verbal en el discurso analizado?",
+        "enunciado": "¿Cómo se describe la cortesia verbal en el discurso analizado?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7098,7 +7098,7 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "C1",
-        "enunciado": "Que mecanismos de cohesión lexica se identifican en el texto?",
+        "enunciado": "¿Qué mecanismos de cohesión lexica se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7114,7 +7114,7 @@
       {
         "tecnica_numero": 23,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumplen 'esto es' y 'en otras palabras' en el texto?",
+        "enunciado": "¿Qué función cumplen 'esto es' y 'en otras palabras' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7146,7 +7146,7 @@
       {
         "tecnica_numero": 25,
         "tecnica_nivel": "C1",
-        "enunciado": "Que figuras de dicción se identifican en el texto?",
+        "enunciado": "¿Qué figuras de dicción se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7162,7 +7162,7 @@
       {
         "tecnica_numero": 26,
         "tecnica_nivel": "C1",
-        "enunciado": "Que sección del IMRAD corresponde a 'Método'?",
+        "enunciado": "¿Qué sección del IMRAD corresponde a 'Método'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7178,11 +7178,11 @@
       {
         "tecnica_numero": 27,
         "tecnica_nivel": "C1",
-        "enunciado": "Que son los mecanismos de atenuación (hedging) que aparecen en el texto?",
+        "enunciado": "¿Qué son los mecanismos de atenuación (hedging) que aparecen en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Expresiones que reducen la certeza ('probablemente', 'podria', 'en cierta medida')",
+            "A) Expresiones que reducen la certeza ('probablemente', 'podría', 'en cierta medida')",
             "B) Expresiones que aumentan la certeza ('sin duda', 'es evidente')",
             "C) Preguntas retoricas",
             "D) Metaforas"
@@ -7194,7 +7194,7 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "C1",
-        "enunciado": "Que estrategias de legitimación del discurso se identifican en el texto?",
+        "enunciado": "¿Qué estrategias de legitimación del discurso se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7226,7 +7226,7 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "C1",
-        "enunciado": "Que revela el lexico valorativo del texto ('necesaria', 'urgente', 'inmovilistas')?",
+        "enunciado": "¿Qué revela el lexico valorativo del texto ('necesaria', 'urgente', 'inmovilistas')?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7242,7 +7242,7 @@
       {
         "tecnica_numero": 31,
         "tecnica_nivel": "C1",
-        "enunciado": "Como se describe la polifonia textual del discurso analizado?",
+        "enunciado": "¿Cómo se describe la polifonia textual del discurso analizado?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7258,7 +7258,7 @@
       {
         "tecnica_numero": 32,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumplen 'segun el informe' y 'de acuerdo con los datos' en el texto?",
+        "enunciado": "¿Qué función cumplen 'segun el informe' y 'de acuerdo con los datos' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7274,7 +7274,7 @@
       {
         "tecnica_numero": 33,
         "tecnica_nivel": "C1",
-        "enunciado": "Que metaforas conceptuales estructuran el discurso segun el análisis?",
+        "enunciado": "¿Qué metaforas conceptuales estructuran el discurso segun el análisis?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7290,7 +7290,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "C1",
-        "enunciado": "Que partes de la estructura retórica clasica se identifican en el texto?",
+        "enunciado": "¿Qué partes de la estructura retórica clasica se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7322,7 +7322,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "C1",
-        "enunciado": "Como se describe la argumentación por el ejemplo en el texto analizado?",
+        "enunciado": "¿Cómo se describe la argumentación por el ejemplo en el texto analizado?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7338,7 +7338,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumplen 'en cuanto a' y 'respecto a' en el texto?",
+        "enunciado": "¿Qué función cumplen 'en cuanto a' y 'respecto a' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7359,12 +7359,12 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 30,
-    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora economica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una linea recta entre el trabajó y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razon.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
+    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora economica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una linea recta entre el trabajó y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
     "ejercicios": [
       {
         "tecnica_numero": 38,
         "tecnica_nivel": "C1",
-        "enunciado": "Que frame o marco conceptual activa la expresión 'el tiempo es oro'?",
+        "enunciado": "¿Qué frame o marco conceptual activa la expresión 'el tiempo es oro'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7380,7 +7380,7 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "C1",
-        "enunciado": "Cual es el subtexto del párrafo sobre el vecino ('linea recta entre el trabajó y la cama')?",
+        "enunciado": "¿Cuál es el subtexto del párrafo sobre el vecino ('linea recta entre el trabajó y la cama')?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7412,11 +7412,11 @@
       {
         "tecnica_numero": 41,
         "tecnica_nivel": "C1",
-        "enunciado": "Que modelo mental de receptor construye el texto?",
+        "enunciado": "¿Qué modelo mental de receptor construye el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Un lector crítico, culto, que valora la reflexion y desconfia de la velocidad",
+            "A) Un lector crítico, culto, que valora la reflexion y desconfía de la velocidad",
             "B) Un lector que solo busca entretenimiento rápido",
             "C) Un experto en economía",
             "D) Un niño"
@@ -7428,14 +7428,14 @@
       {
         "tecnica_numero": 42,
         "tecnica_nivel": "C1",
-        "enunciado": "Que ideologia revela la metáfora 'la tecnología se ha convertido en esclavitud'?",
+        "enunciado": "¿Qué ideología revela la metáfora 'la tecnología se ha convertido en esclavitud'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Una ideologia crítica con el capitalismo tecnologico y la vigilancia digital",
-            "B) Una ideologia favorable a las grandes corporaciones",
-            "C) Una ideologia neutral",
-            "D) Una ideologia religiosa"
+            "A) Una ideología crítica con el capitalismo tecnologico y la vigilancia digital",
+            "B) Una ideología favorable a las grandes corporaciones",
+            "C) Una ideología neutral",
+            "D) Una ideología religiosa"
           ],
           "correcta": "A"
         },
@@ -7444,11 +7444,11 @@
       {
         "tecnica_numero": 43,
         "tecnica_nivel": "C1",
-        "enunciado": "Que posición tiene el autor sobre la fiabilidad de la cita de Kundera?",
+        "enunciado": "¿Qué posición tiene el autor sobre la fiabilidad de la cita de Kundera?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La presenta como autoridad y la apoya ('tenía razon')",
+            "A) La presenta como autoridad y la apoya ('tenía razón')",
             "B) La presenta con distancia irónica",
             "C) La refuta",
             "D) La ignora"
@@ -7460,7 +7460,7 @@
       {
         "tecnica_numero": 44,
         "tecnica_nivel": "C1",
-        "enunciado": "Que consecuencia no deseada se sigue de aceptar 'la lentitud es un privilegio de ricos'?",
+        "enunciado": "¿Qué consecuencia no deseada se sigue de aceptar 'la lentitud es un privilegio de ricos'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7476,7 +7476,7 @@
       {
         "tecnica_numero": 45,
         "tecnica_nivel": "C1",
-        "enunciado": "Que punto de vista implicito revela el uso de 'agotado', 'sobrevivir', 'mentira'?",
+        "enunciado": "¿Qué punto de vista implicito revela el uso de 'agotado', 'sobrevivir', 'mentira'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7492,7 +7492,7 @@
       {
         "tecnica_numero": 46,
         "tecnica_nivel": "C1",
-        "enunciado": "Cual es la estructura profunda del argumento del texto?",
+        "enunciado": "¿Cuál es la estructura profunda del argumento del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7508,14 +7508,14 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "C1",
-        "enunciado": "Que marco etico moviliza el texto?",
+        "enunciado": "¿Qué marco ético moviliza el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Presenta como bueno el tiempo, la atención y la reflexion, y como malo la velocidad y la productividad como único valor",
             "B) Presenta como bueno el dinero",
             "C) Presenta como bueno el consumo",
-            "D) No hay marco etico"
+            "D) No hay marco ético"
           ],
           "correcta": "A"
         },
@@ -7524,7 +7524,7 @@
       {
         "tecnica_numero": 48,
         "tecnica_nivel": "C1",
-        "enunciado": "Que se omite deliberadamente en el texto sobre la lentitud?",
+        "enunciado": "¿Qué se omite deliberadamente en el texto sobre la lentitud?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7540,7 +7540,7 @@
       {
         "tecnica_numero": 49,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función pragmática cumple la cortesia en 'Algunos me diran...'?",
+        "enunciado": "¿Qué función pragmática cumple la cortesia en 'Algunos me diran...'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7556,7 +7556,7 @@
       {
         "tecnica_numero": 50,
         "tecnica_nivel": "C1",
-        "enunciado": "Que estrategia de construcción del ethos usa el autor?",
+        "enunciado": "¿Qué estrategia de construcción del ethos usa el autor?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7572,7 +7572,7 @@
       {
         "tecnica_numero": 51,
         "tecnica_nivel": "C1",
-        "enunciado": "Que estrategia de deslegitimación usa el autor contra las grandes corporaciones?",
+        "enunciado": "¿Qué estrategia de deslegitimación usa el autor contra las grandes corporaciones?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7588,7 +7588,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la cita de Kundera en la argumentación?",
+        "enunciado": "¿Qué función cumple la cita de Kundera en la argumentación?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7604,7 +7604,7 @@
       {
         "tecnica_numero": 53,
         "tecnica_nivel": "C1",
-        "enunciado": "Que implica el cambió de registro en 'Y no me vengan con que la tecnología...'?",
+        "enunciado": "¿Qué implica el cambió de registro en 'Y no me vengan con que la tecnología...'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7620,7 +7620,7 @@
       {
         "tecnica_numero": 54,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la repetición 'Nos prometieron... nos dieron... Nos prometieron... nos dieron...'?",
+        "enunciado": "¿Qué función cumple la repetición 'Nos prometieron... nos dieron... Nos prometieron... nos dieron...'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7636,7 +7636,7 @@
       {
         "tecnica_numero": 55,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumplen las preguntas retoricas '¿Es eso vivir? ¿O es solo sobrevivir?'?",
+        "enunciado": "¿Qué función cumplen las preguntas retoricas '¿Es eso vivir? ¿O es solo sobrevivir?'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7652,7 +7652,7 @@
       {
         "tecnica_numero": 56,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple el ejemplo del vecino en la argumentación?",
+        "enunciado": "¿Qué función cumple el ejemplo del vecino en la argumentación?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7668,7 +7668,7 @@
       {
         "tecnica_numero": 57,
         "tecnica_nivel": "C1",
-        "enunciado": "Que estrategia de construcción del consenso usa el autor en 'todo el mundo lo repite'?",
+        "enunciado": "¿Qué estrategia de construcción del consenso usa el autor en 'todo el mundo lo repite'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7684,7 +7684,7 @@
       {
         "tecnica_numero": 58,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple el discurso referido 'dicen' en 'El tiempo es oro, dicen'?",
+        "enunciado": "¿Qué función cumple el discurso referido 'dicen' en 'El tiempo es oro, dicen'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7710,7 +7710,7 @@
       {
         "tecnica_numero": 59,
         "tecnica_nivel": "C1",
-        "enunciado": "Que práctica social refleja el texto?",
+        "enunciado": "¿Qué práctica social refleja el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7742,7 +7742,7 @@
       {
         "tecnica_numero": 61,
         "tecnica_nivel": "C1",
-        "enunciado": "Quien es el enunciador del texto?",
+        "enunciado": "¿Quién es el enunciador del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7758,7 +7758,7 @@
       {
         "tecnica_numero": 62,
         "tecnica_nivel": "C1",
-        "enunciado": "Que relación hay entre el texto y la imagen mental que evoca?",
+        "enunciado": "¿Qué relación hay entre el texto y la imagen mental que evoca?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7774,7 +7774,7 @@
       {
         "tecnica_numero": 63,
         "tecnica_nivel": "C1",
-        "enunciado": "Que referencias intertextuales aparecen en el texto?",
+        "enunciado": "¿Qué referencias intertextuales aparecen en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7790,7 +7790,7 @@
       {
         "tecnica_numero": 64,
         "tecnica_nivel": "C1",
-        "enunciado": "Que perspectivismo narrativo construye el texto?",
+        "enunciado": "¿Qué perspectivismo narrativo construye el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7806,7 +7806,7 @@
       {
         "tecnica_numero": 65,
         "tecnica_nivel": "C1",
-        "enunciado": "Que revela el monologo interior de Aurelio al final?",
+        "enunciado": "¿Qué revela el monologo interior de Aurelio al final?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7822,7 +7822,7 @@
       {
         "tecnica_numero": 66,
         "tecnica_nivel": "C1",
-        "enunciado": "Por que el narrador puede considerarse no fiable?",
+        "enunciado": "¿Por qué el narrador puede considerarse no fiable?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7838,7 +7838,7 @@
       {
         "tecnica_numero": 67,
         "tecnica_nivel": "C1",
-        "enunciado": "Que estructura temporal tiene el texto?",
+        "enunciado": "¿Qué estructura temporal tiene el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7854,7 +7854,7 @@
       {
         "tecnica_numero": 68,
         "tecnica_nivel": "C1",
-        "enunciado": "Que simboliza el cuaderno?",
+        "enunciado": "¿Qué simboliza el cuaderno?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7870,7 +7870,7 @@
       {
         "tecnica_numero": 69,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la metaliteratura en el texto?",
+        "enunciado": "¿Qué función cumple la metaliteratura en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7886,7 +7886,7 @@
       {
         "tecnica_numero": 70,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la parodia de los cuentos de Borges?",
+        "enunciado": "¿Qué función cumple la parodia de los cuentos de Borges?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7902,7 +7902,7 @@
       {
         "tecnica_numero": 71,
         "tecnica_nivel": "C1",
-        "enunciado": "Que elementos de pastiche hay en el texto?",
+        "enunciado": "¿Qué elementos de pastiche hay en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7918,7 +7918,7 @@
       {
         "tecnica_numero": 72,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la metaficción en el texto?",
+        "enunciado": "¿Qué función cumple la metaficción en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7934,7 +7934,7 @@
       {
         "tecnica_numero": 73,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple el viaje iniciatico de Aurelio?",
+        "enunciado": "¿Qué función cumple el viaje iniciatico de Aurelio?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7950,7 +7950,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple el descenso a los infiernos (katabasis) en el texto?",
+        "enunciado": "¿Qué función cumple el descenso a los infiernos (katabasis) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7966,7 +7966,7 @@
       {
         "tecnica_numero": 75,
         "tecnica_nivel": "C1",
-        "enunciado": "Que función cumple la muerte y el renacimiento en el texto?",
+        "enunciado": "¿Qué función cumple la muerte y el renacimiento en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7982,7 +7982,7 @@
       {
         "tecnica_numero": 76,
         "tecnica_nivel": "C1",
-        "enunciado": "Que ironía dramatica hay en el texto?",
+        "enunciado": "¿Qué ironía dramatica hay en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7998,7 +7998,7 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "C1",
-        "enunciado": "Que tipo de focalización narrativa predomina?",
+        "enunciado": "¿Qué tipo de focalización narrativa predomina?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8014,7 +8014,7 @@
       {
         "tecnica_numero": 78,
         "tecnica_nivel": "C1",
-        "enunciado": "Donde aparece el estilo indirecto libre en el texto?",
+        "enunciado": "¿Dónde aparece el estilo indirecto libre en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8030,7 +8030,7 @@
       {
         "tecnica_numero": 79,
         "tecnica_nivel": "C1",
-        "enunciado": "Que cronotopo (Bajtin) articula el texto?",
+        "enunciado": "¿Qué cronotopo (Bajtin) articula el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8046,7 +8046,7 @@
       {
         "tecnica_numero": 80,
         "tecnica_nivel": "C1",
-        "enunciado": "Que polifonia narrativa construye el texto?",
+        "enunciado": "¿Qué polifonia narrativa construye el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8067,7 +8067,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 32,
-    "cuerpo": "Desinformación: como detectar la manipulación\n\nVivimos en la era de la desinformación. Cada día recibimos cientos de mensajes que intentan convencernos de algo. Algunos son honestos; otros, no. Este texto ofrece herramientas para detectar la manipulación y evaluar criticamente la información.\n\n1. Argumentos con premisas implicitas\n\nMuchos argumentos ocultan premisas que no se explicitan. Por ejemplo: 'Deberiamos prohibir los videojuegos violentos; son peligrosos'. Aquí la premisa implicita es 'todo lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue. Evaluar la solidez de un argumento complejo requiere explicitar esas premisas y comprobar si son verdaderas.\n\n2. Manipulación mediatica: framing y priming\n\nLos medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Una noticia que titula 'Inmigrantes ocupan la plaza' presenta el fenomeno como invasión; otra que titula 'Familias migrantes llegan a la plaza' presenta el mismo hecho de forma más neutra. El encuadre ya orienta la interpretación.\n\n3. Evidencia cientifica: muestra, método, replicabilidad\n\nUn estudió con 20 participantes no es evidencia suficiente para una conclusión general. La evidencia cientifica es de calidad si la muestra es representativa, el método es solido y los resultados son replicables. Aceptar un estudió sin estos criterios es aceptar una evidencia de baja calidad.\n\n4. Falacia de autoridad cientifica\n\nEn el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un cientifico. 'Un premio Nobel dice que X, luego X es verdad' es una falacia si no se aporta evidencia. La autoridad no sustituye a la prueba.\n\n5. Coherencia entre discurso y práctica\n\nUna empresa que declara sostenibilidad pero contamina es incoherente. Una institución que defiende la transparencia pero oculta datos es incoherente. Evaluar la coherencia entre discurso y práctica permite detectar la hipocresia institucional.\n\n6. Falsa dicotomia en el discurso político\n\nEl discurso político suele presentar solo dos opciones: 'O estas con nosotros o estas contra nosotros'. Es una falsa dicotomia: hay muchas posiciones intermedias. Detectar esta falacia permite analizar criticamente la retórica política.\n\n7. Calidad del debate público\n\nUn debate de calidad incluye contraargumentos, evita falacias y aporta evidencia. Un debate de baja calidad se basa en descalificaciones, falacias y datos sin contexto. Evaluar la calidad del debate público es esencial para una democracia sana.\n\n8. Manipulación estadistica\n\nLos graficos enganosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto son formas de manipulación estadistica. Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequeña. Un porcentaje sin base puede ocultar la verdad.\n\n9. Intención persuasiva oculta\n\nAlgunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Un reportaje que solo muestra una versión de un conflicto tiene intención persuasiva oculta, aunque no opine explicitamente.\n\n10. Falsa equivalencia\n\nLa falsa equivalencia equipara cosas que no son comparables. 'Es como comparar el cáncer con un resfriado' es una falsa equivalencia. Detectar esta falacia permite analizar criticamente comparaciones en el discurso público.\n\n11. Argumento estadistico complejo: tasas, base, contexto\n\nEn 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadistica engana. Un argumento estadistico es solido si la base es clara, las tasas se usan correctamente y el contexto se considera.\n\n12. Sesgo algoritmico\n\nLos algoritmos de selección de información (redes sociales, buscadores) crean camaras de eco: muestran solo contenido afin a nuestros intereses. Detectar este sesgo permite evaluar criticamente la información que consumimos y salir de la burbuja.\n\n13. Analogia compleja: diferencias relevantes\n\n'Como el cuerpo necesita ejercicio, la mente necesita estimulación' es una analogia relevante. 'Como los barcos necesitan capitan, los países necesitan rey' es una analogia con diferencias relevantes (un país no es un barco). Evaluar una analogia compleja requiere identificar esas diferencias.\n\n14. Falsa premisa\n\nLa falsa premisa es una premisa que se presenta como verdadera sin justificación. 'Todos los jovenes son vagos; por tanto, no hay que contratarlos' contiene una premisa falsa. Detectar esta falacia permite rechazar conclusiones basadas en premisas no sustentadas.\n\n15. Calidad etica de un argumento\n\nUn argumento puede ser logicamente valido pero eticamente rechazable. Defender la esclavitud con lógica es eticamente rechazable. La calidad etica de un argumento depende del respeto a la dignidad, la justicia y las personas.\n\n16. Falsa causa compleja: multicausalidad\n\n'La delincuencia se debe solo a la inmigración' ignora la multicausalidad (pobreza, educación, etc.). Detectar esta falacia permite analizar criticamente explicaciones simplistas de fenomenos complejos.\n\n17. Coherencia entre medios, fines y valores\n\nUn argumento político es solido si los medios propuestos son coherentes con los fines y con los valores declarados. Defender la libertad usando censura es incoherente. Evaluar esta coherencia permite analizar criticamente las propuestas políticas.\n\n18. Manipulación emocional en publicidad\n\n'Si quieres ser feliz, compra este coche' apela a la emoción sin argumentos racionales. La publicidad manipula usando emociones para persuadir. Detectar esta manipulación permite analizar criticamente los anuncios.\n\n19. Calidad de un texto académico\n\nUn texto académico es de calidad si tiene rigor conceptual, metodologia solida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.\n\n20. Falsa generalización estadistica\n\n'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del país apoya X' es una falsa generalización: la muestra no es representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.\n\nConclusión\n\nLa desinformación no se combate con más información, sino con pensamiento crítico. Las 20 herramientas de este texto son un kit básico para detectar la manipulación y evaluar criticamente la información. Aplicarlas no garantiza la verdad, pero al menos nos protege de la mentira.",
+    "cuerpo": "Desinformación: como detectar la manipulación\n\nVivimos en la era de la desinformación. Cada día recibimos cientos de mensajes que intentan convencernos de algo. Algunos son honestos; otros, no. Este texto ofrece herramientas para detectar la manipulación y evaluar criticamente la información.\n\n1. Argumentos con premisas implicitas\n\nMuchos argumentos ocultan premisas que no se explicitan. Por ejemplo: 'Deberiamos prohibir los videojuegos violentos; son peligrosos'. Aquí la premisa implicita es 'todo lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue. Evaluar la solidez de un argumento complejo requiere explicitar esas premisas y comprobar si son verdaderas.\n\n2. Manipulación mediatica: framing y priming\n\nLos medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Una noticia que titula 'Inmigrantes ocupan la plaza' presenta el fenomeno como invasión; otra que titula 'Familias migrantes llegan a la plaza' presenta el mismo hecho de forma más neutra. El encuadre ya orienta la interpretación.\n\n3. Evidencia cientifica: muestra, método, replicabilidad\n\nUn estudió con 20 participantes no es evidencia suficiente para una conclusión general. La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Aceptar un estudió sin estos criterios es aceptar una evidencia de baja calidad.\n\n4. Falacia de autoridad cientifica\n\nEn el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un cientifico. 'Un premio Nobel dice que X, luego X es verdad' es una falacia si no se aporta evidencia. La autoridad no sustituye a la prueba.\n\n5. Coherencia entre discurso y práctica\n\nUna empresa que declara sostenibilidad pero contamina es incoherente. Una institución que defiende la transparencia pero oculta datos es incoherente. Evaluar la coherencia entre discurso y práctica permite detectar la hipocresia institucional.\n\n6. Falsa dicotomia en el discurso político\n\nEl discurso político suele presentar solo dos opciones: 'O estas con nosotros o estas contra nosotros'. Es una falsa dicotomia: hay muchas posiciones intermedias. Detectar esta falacia permite analizar criticamente la retórica política.\n\n7. Calidad del debate público\n\nUn debate de calidad incluye contraargumentos, evita falacias y aporta evidencia. Un debate de baja calidad se basa en descalificaciones, falacias y datos sin contexto. Evaluar la calidad del debate público es esencial para una democracia sana.\n\n8. Manipulación estadistica\n\nLos graficos enganosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto son formas de manipulación estadistica. Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequeña. Un porcentaje sin base puede ocultar la verdad.\n\n9. Intención persuasiva oculta\n\nAlgunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Un reportaje que solo muestra una versión de un conflicto tiene intención persuasiva oculta, aunque no opine explicitamente.\n\n10. Falsa equivalencia\n\nLa falsa equivalencia equipara cosas que no son comparables. 'Es como comparar el cáncer con un resfriado' es una falsa equivalencia. Detectar esta falacia permite analizar criticamente comparaciones en el discurso público.\n\n11. Argumento estadistico complejo: tasas, base, contexto\n\nEn 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadistica engana. Un argumento estadistico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.\n\n12. Sesgo algoritmico\n\nLos algoritmos de selección de información (redes sociales, buscadores) crean camaras de eco: muestran solo contenido afin a nuestros intereses. Detectar este sesgo permite evaluar criticamente la información que consumimos y salir de la burbuja.\n\n13. Analogia compleja: diferencias relevantes\n\n'Como el cuerpo necesita ejercicio, la mente necesita estimulación' es una analogia relevante. 'Como los barcos necesitan capitan, los países necesitan rey' es una analogia con diferencias relevantes (un país no es un barco). Evaluar una analogia compleja requiere identificar esas diferencias.\n\n14. Falsa premisa\n\nLa falsa premisa es una premisa que se presenta como verdadera sin justificación. 'Todos los jovenes son vagos; por tanto, no hay que contratarlos' contiene una premisa falsa. Detectar esta falacia permite rechazar conclusiones basadas en premisas no sustentadas.\n\n15. Calidad ética de un argumento\n\nUn argumento puede ser logicamente válido pero eticamente rechazable. Defender la esclavitud con lógica es eticamente rechazable. La calidad ética de un argumento depende del respeto a la dignidad, la justicia y las personas.\n\n16. Falsa causa compleja: multicausalidad\n\n'La delincuencia se debe solo a la inmigración' ignora la multicausalidad (pobreza, educación, etc.). Detectar esta falacia permite analizar criticamente explicaciones simplistas de fenomenos complejos.\n\n17. Coherencia entre medios, fines y valores\n\nUn argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Defender la libertad usando censura es incoherente. Evaluar esta coherencia permite analizar criticamente las propuestas políticas.\n\n18. Manipulación emocional en publicidad\n\n'Si quieres ser feliz, compra este coche' apela a la emoción sin argumentos racionales. La publicidad manipula usando emociones para persuadir. Detectar esta manipulación permite analizar criticamente los anuncios.\n\n19. Calidad de un texto académico\n\nUn texto académico es de calidad si tiene rigor conceptual, metodologia sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.\n\n20. Falsa generalización estadistica\n\n'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del país apoya X' es una falsa generalización: la muestra no es representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.\n\nConclusión\n\nLa desinformación no se combate con más información, sino con pensamiento crítico. Las 20 herramientas de este texto son un kit básico para detectar la manipulación y evaluar criticamente la información. Aplicarlas no garantiza la verdad, pero al menos nos protege de la mentira.",
     "ejercicios": [
       {
         "tecnica_numero": 81,
@@ -8104,11 +8104,11 @@
       {
         "tecnica_numero": 83,
         "tecnica_nivel": "C1",
-        "enunciado": "Que criterios definen la calidad de la evidencia cientifica segun el texto?",
+        "enunciado": "¿Qué criterios definen la calidad de la evidencia cientifica segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Muestra representativa, método solido y resultados replicables",
+            "A) Muestra representativa, método sólido y resultados replicables",
             "B) Solo el prestigio del autor",
             "C) Solo el número de citas",
             "D) Solo la antiguedad"
@@ -8136,7 +8136,7 @@
       {
         "tecnica_numero": 85,
         "tecnica_nivel": "C1",
-        "enunciado": "Que revela la incoherencia entre discurso y práctica de una institución?",
+        "enunciado": "¿Qué revela la incoherencia entre discurso y práctica de una institución?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8168,7 +8168,7 @@
       {
         "tecnica_numero": 87,
         "tecnica_nivel": "C1",
-        "enunciado": "Que caracteriza un debate público de calidad?",
+        "enunciado": "¿Qué caracteriza un debate público de calidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8200,7 +8200,7 @@
       {
         "tecnica_numero": 89,
         "tecnica_nivel": "C1",
-        "enunciado": "Que revela un reportaje que solo muestra una versión de un conflicto?",
+        "enunciado": "¿Qué revela un reportaje que solo muestra una versión de un conflicto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8248,7 +8248,7 @@
       {
         "tecnica_numero": 92,
         "tecnica_nivel": "C1",
-        "enunciado": "Que es el sesgo algoritmico?",
+        "enunciado": "¿Qué es el sesgo algoritmico?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8264,7 +8264,7 @@
       {
         "tecnica_numero": 93,
         "tecnica_nivel": "C1",
-        "enunciado": "Que hace solida o débil una analogia compleja?",
+        "enunciado": "¿Qué hace sólida o débil una analogia compleja?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8296,7 +8296,7 @@
       {
         "tecnica_numero": 95,
         "tecnica_nivel": "C1",
-        "enunciado": "Que hace que un argumento sea eticamente rechazable aunque sea logicamente valido?",
+        "enunciado": "¿Qué hace que un argumento sea eticamente rechazable aunque sea logicamente válido?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8328,7 +8328,7 @@
       {
         "tecnica_numero": 97,
         "tecnica_nivel": "C1",
-        "enunciado": "Que revela defender la libertad usando censura?",
+        "enunciado": "¿Qué revela defender la libertad usando censura?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8360,11 +8360,11 @@
       {
         "tecnica_numero": 99,
         "tecnica_nivel": "C1",
-        "enunciado": "Que define la calidad de un texto académico?",
+        "enunciado": "¿Qué define la calidad de un texto académico?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Rigor conceptual, metodologia solida y citas verificables",
+            "A) Rigor conceptual, metodologia sólida y citas verificables",
             "B) Solo la extensión",
             "C) Solo el prestigio del autor",
             "D) Solo el número de palabras"
@@ -8392,12 +8392,12 @@
     ]
   },
   {
-    "titulo": "El cuerpo como mercancia: análisis crítico del discurso publicitario",
+    "titulo": "El cuerpo como mercancía: análisis crítico del discurso publicitario",
     "tipo": "academico",
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 33,
-    "cuerpo": "El cuerpo como mercancia: análisis crítico del discurso publicitario\n\nIntroducción\n\nEste artículo analiza el discurso publicitario contemporaneo desde una perspectiva crítica. Sostengo la tesis de que la publicidad no solo vende productos: produce subjetividades, cuerpos y relaciones sociales. Para demostrarlo, aplicó un marco teorico que combina el análisis crítico del discurso, la deconstrucción, la teoría foucaultiana del poder y la crítica de la ideologia.\n\n1. La dialectica del cuerpo publicitario\n\nEl discurso publicitario opera dialecticamente. Su tesis es la promesa de felicidad a traves del consumo: 'compra este producto y seras feliz'. Su antitesis es la insatisfacción que el mismo consumo produce: el producto nunca cumple del todo su promesa, y el deseo se relanza. La síntesis es el consumo perpetuo: la publicidad resuelve la contradicción manteniendo al sujeto en un ciclo infinito de deseo y compra. Esta estructura dialectica (tesis-antitesis-síntesis) revela que la publicidad no busca saciar el deseo, sino producirlo.\n\n2. La deconstrucción de las oposiciones jerarquicas\n\nEl discurso publicitario se organiza en oposiciones binarias jerarquicas: joven/viejo, bello/feo, exitoso/fracasado, delgado/gordo. En cada par, el primer terminó se privilegia y el segundo se margina. La deconstrucción (Derrida) muestra que esta jerarquia no es natural: se construye discursivamente y se impone como evidencia. Deconstruirla implica revelar que el terminó 'superior' no tiene fundamento más alla del discurso que lo sostiene.\n\n3. El saber-poder foucaultiano\n\nLa publicidad produce un saber sobre el cuerpo: que es bello, que es sano, que es deseable. Este saber no es neutral: esta atravesado por relaciones de poder. Siguiendo a Foucault, el discurso publicitario no solo describe la realidad: la produce, la regula y la normaliza. La publicidad es un dispositivo (Foucault, Agamben) que articula discursos (la belleza, la salud, el éxito), instituciones (la industria, los medios) y prácticas (el consumo) para gobernar los cuerpos.\n\n4. La interpelación ideologica\n\nLa publicidad interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye como sujeto-consumidor. 'Tu vales mucho', 'tu lo mereces', 'porque tu lo vales': estas formulas interpelan al lector y le atribuyen una identidad. La interpelación no es inocente: construye al sujeto que la publicidad necesita para funcionar.\n\n5. La hegemonia gramsciana\n\nLa publicidad ejerce una hegemonia cultural (Gramsci): no impone por la fuerza, sino por el consenso. Presenta un modelo de vida (el éxito, la belleza, el consumo) como deseable y universal, ocultando que es particular e interesado. La hegemonia publicitaria no se impone: se acepta como natural.\n\n6. El signo saussureano\n\nEn terminos saussureanos, la publicidad opera sobre el significante (la imagen, la palabra) y el significado (el concepto). Pero la relación entre ambos es arbitraria: el perfume no significa 'seducción' por naturaleza; es el discurso publicitario el que asocia ambos. Esta arbitrariedad revela que el sentido es construido, no natural.\n\n7. La intertextualidad (Kristeva)\n\nLa publicidad es intertextual (Kristeva): cada anunció dialoga con otros anuncios, con el cine, con la literatura, con la cultura popular. Un perfume que cita una pelicula, una campaña que parodia un cuadro famoso: la publicidad es un mosaico de citas. Esta intertextualidad refuerza la hegemonia: el anunció se apropia de prestigio cultural ajeno.\n\n8. El pacto autobiografico (Lejeune)\n\nAlgunos anuncios usan el pacto autobiografico (Lejeune): 'yo lo uso, yo lo recomiendo'. El famoso, el influencer o el consumidor real se presenta como autor, narrador y personaje de su propia experiencia. Este pacto genera confianza y refuerza la persuasión. Pero el pacto es frágil: la experiencia 'real' esta mediada por el contrato publicitario.\n\n9. El habitus y el campo (Bourdieu)\n\nLa publicidad reproduce el habitus (Bourdieu) de clase: los gustos, las prácticas, las formas de vestir y de hablar. El campo publicitario (Bourdieu) es un espacio de lucha por el capital simbólico: las marcas compiten por el prestigio, por la distinción. La publicidad no solo vende productos: reproduce y legitima las diferencias de clase.\n\n10. El análisis multimodal (Kress y van Leeuwen)\n\nLa publicidad es multimodal (Kress y van Leeuwen): combina imagen, texto, color, tipografia, música. El significado se construye en la interacción de todos estos modos. Un anunció de perfume no significa solo por sus palabras, sino por los colores, la iluminación, el cuerpo del modelo, la música. El análisis multimodal revela como se articulan estos elementos para producir un efecto de sentido.\n\n11. La fusión de horizontes (Gadamer)\n\nLa publicidad opera por fusión de horizontes (Gadamer): el horizonte del consumidor (sus deseos, sus valores) se fusiona con el horizonte de la marca (su propuesta). La publicidad eficaz no impone un horizonte ajeno: fusiona ambos para que el consumidor sienta que la marca 'lo entiende'.\n\n12. La différance (Derrida)\n\nEl sentido publicitario nunca se fija del todo: se difiere. La différance (Derrida) opera en la publicidad: cada anunció remite a otros anuncios, cada significante a otros significantes. El sentido es inestable, plural, diferido. La publicidad explota esta inestabilidad para producir multiples lecturas y llegar a más públicos.\n\n13. La formación discursiva (Foucault)\n\nLa publicidad es una formación discursiva (Foucault): un sistema de reglas que determina que se puede decir y mostrar, quien puede decirlo y desde que posición. La formación discursiva publicitaria excluye ciertos cuerpos, ciertas edades, ciertas etnias; y privilegia otros. Sus limites son los limites de lo visible y lo decible en una epoca.\n\n14. La biopolitica (Foucault/Agamben)\n\nLa publicidad es biopolitica (Foucault): actua sobre la vida de las poblaciones, sobre los cuerpos, la salud, la sexualidad. Los anuncios de dietas, de ejercicio, de cosmética, de medicamentos: todos gestionan la vida y normalizan los cuerpos. La biopolitica publicitaria no reprime: produce cuerpos dóciles.\n\n15. La industria cultural (Adorno/Horkheimer)\n\nLa publicidad es industria cultural (Adorno, Horkheimer): produce bienes estandarizados que adormecen la conciencia crítica. Los anuncios repiten formulas, generos, estructuras; estandarizan el deseo. La industria cultural publicitaria no solo vende productos: vende formas de vida.\n\n16. La razon instrumental (Escuela de Frankfurt)\n\nLa publicidad es razon instrumental (Adorno, Horkheimer): reduce todo a medios para fines. El cuerpo se convierte en medio para vender, la belleza en medio para el éxito, la salud en medio para la productividad. La razon instrumental no se pregunta por los fines: solo calcula los medios.\n\n17. La acción comunicativa (Habermas)\n\nFrente a la razon instrumental, Habermas propone la acción comunicativa: el dialogo libre de coacciones orientado al entendimiento. La publicidad, en cambió, es acción estrategica: busca el éxito, no el entendimiento. Pero es posible imaginar una publicidad comunicativa, que dialogue con el consumidor en lugar de manipularlo.\n\n18. La crítica de la ideologia (Zizek)\n\nLa publicidad reproduce la ideologia dominante (Zizek): no solo en lo que dice, sino en lo que hace. La ideologia no es falsa conciencia: es una práctica social. Consumimos productos que sabemos que no nos haran felices, pero actuamos como si lo hicieran. La ideologia opera en la práctica, no solo en la idea.\n\n19. La performatividad de genero (Butler)\n\nLa publicidad performa el genero (Butler): no refleja una esencia femenina o masculina, sino que la produce mediante actos repetidos. Los anuncios de cosmética 'hacen' a la mujer femenina; los de coches 'hacen' al hombre masculino. La performatividad de genero revela que el genero es una construcción discursiva, no una naturaleza.\n\n20. La interseccionalidad (Crenshaw)\n\nLa publicidad reproduce la interseccionalidad (Crenshaw): las identidades se entrecruzan y producen formas especificas de opresión. La mujer negra, la mujer mayor, la mujer pobre: cada intersección produce una experiencia distinta. La publicidad hegemónica privilegia ciertas intersecciones (joven, blanca, delgada, rica) y margina otras.\n\n21. La colonialidad del saber (Quijano, Mignolo)\n\nLa publicidad reproduce la colonialidad del saber (Quijano, Mignolo): impone un modelo estético y cultural occidental como universal. Los cuerpos no occidentales se exotizan o se silencian. La colonialidad del saber publicitaria no es un residuo del pasado: es una lógica vigente que jerarquiza los saberes y los cuerpos.\n\nConclusión\n\nEl discurso publicitario es un objeto privilegiado para el análisis crítico. En el se articulan la dialectica, la deconstrucción, el poder foucaultiano, la interpelación althusseriana, la hegemonia gramsciana, el signo saussureano, la intertextualidad, el pacto autobiografico, el habitus y el campo, la multimodalidad, la fusión de horizontes, la différance, la formación discursiva, la biopolitica, la industria cultural, la razon instrumental, la acción comunicativa, la crítica de la ideologia, la performatividad de genero, la interseccionalidad y la colonialidad del saber. Desmontar estos mecanismos es una tarea etica y política: no se trata solo de leer la publicidad, sino de resistir a ella.",
+    "cuerpo": "El cuerpo como mercancía: análisis crítico del discurso publicitario\n\nIntroducción\n\nEste artículo analiza el discurso publicitario contemporaneo desde una perspectiva crítica. Sostengo la tesis de que la publicidad no solo vende productos: produce subjetividades, cuerpos y relaciones sociales. Para demostrarlo, aplicó un marco teorico que combina el análisis crítico del discurso, la deconstrucción, la teoría foucaultiana del poder y la crítica de la ideología.\n\n1. La dialectica del cuerpo publicitario\n\nEl discurso publicitario opera dialecticamente. Su tesis es la promesa de felicidad a traves del consumo: 'compra este producto y seras feliz'. Su antitesis es la insatisfacción que el mismo consumo produce: el producto nunca cumple del todo su promesa, y el deseo se relanza. La síntesis es el consumo perpetuo: la publicidad resuelve la contradicción manteniendo al sujeto en un ciclo infinito de deseo y compra. Esta estructura dialectica (tesis-antitesis-síntesis) revela que la publicidad no busca saciar el deseo, sino producirlo.\n\n2. La deconstrucción de las oposiciones jerarquicas\n\nEl discurso publicitario se organiza en oposiciones binarias jerarquicas: joven/viejo, bello/feo, exitoso/fracasado, delgado/gordo. En cada par, el primer terminó se privilegia y el segundo se margina. La deconstrucción (Derrida) muestra que esta jerarquía no es natural: se construye discursivamente y se impone como evidencia. Deconstruirla implica revelar que el terminó 'superior' no tiene fundamento más alla del discurso que lo sostiene.\n\n3. El saber-poder foucaultiano\n\nLa publicidad produce un saber sobre el cuerpo: que es bello, que es sano, que es deseable. Este saber no es neutral: esta atravesado por relaciones de poder. Siguiendo a Foucault, el discurso publicitario no solo describe la realidad: la produce, la regula y la normaliza. La publicidad es un dispositivo (Foucault, Agamben) que articula discursos (la belleza, la salud, el éxito), instituciones (la industria, los medios) y prácticas (el consumo) para gobernar los cuerpos.\n\n4. La interpelación ideologica\n\nLa publicidad interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye como sujeto-consumidor. 'Tu vales mucho', 'tu lo mereces', 'porque tu lo vales': estas formulas interpelan al lector y le atribuyen una identidad. La interpelación no es inocente: construye al sujeto que la publicidad necesita para funcionar.\n\n5. La hegemonia gramsciana\n\nLa publicidad ejerce una hegemonia cultural (Gramsci): no impone por la fuerza, sino por el consenso. Presenta un modelo de vida (el éxito, la belleza, el consumo) como deseable y universal, ocultando que es particular e interesado. La hegemonia publicitaria no se impone: se acepta como natural.\n\n6. El signo saussureano\n\nEn terminos saussureanos, la publicidad opera sobre el significante (la imagen, la palabra) y el significado (el concepto). Pero la relación entre ambos es arbitraria: el perfume no significa 'seducción' por naturaleza; es el discurso publicitario el que asocia ambos. Esta arbitrariedad revela que el sentido es construido, no natural.\n\n7. La intertextualidad (Kristeva)\n\nLa publicidad es intertextual (Kristeva): cada anunció dialoga con otros anuncios, con el cine, con la literatura, con la cultura popular. Un perfume que cita una pelicula, una campaña que parodia un cuadro famoso: la publicidad es un mosaico de citas. Esta intertextualidad refuerza la hegemonia: el anunció se apropia de prestigio cultural ajeno.\n\n8. El pacto autobiografico (Lejeune)\n\nAlgunos anuncios usan el pacto autobiografico (Lejeune): 'yo lo uso, yo lo recomiendo'. El famoso, el influencer o el consumidor real se presenta como autor, narrador y personaje de su propia experiencia. Este pacto genera confianza y refuerza la persuasión. Pero el pacto es frágil: la experiencia 'real' esta mediada por el contrato publicitario.\n\n9. El habitus y el campo (Bourdieu)\n\nLa publicidad reproduce el habitus (Bourdieu) de clase: los gustos, las prácticas, las formas de vestir y de hablar. El campo publicitario (Bourdieu) es un espacio de lucha por el capital simbólico: las marcas compiten por el prestigio, por la distinción. La publicidad no solo vende productos: reproduce y legitima las diferencias de clase.\n\n10. El análisis multimodal (Kress y van Leeuwen)\n\nLa publicidad es multimodal (Kress y van Leeuwen): combina imagen, texto, color, tipografia, música. El significado se construye en la interacción de todos estos modos. Un anunció de perfume no significa solo por sus palabras, sino por los colores, la iluminación, el cuerpo del modelo, la música. El análisis multimodal revela como se articulan estos elementos para producir un efecto de sentido.\n\n11. La fusión de horizontes (Gadamer)\n\nLa publicidad opera por fusión de horizontes (Gadamer): el horizonte del consumidor (sus deseos, sus valores) se fusiona con el horizonte de la marca (su propuesta). La publicidad eficaz no impone un horizonte ajeno: fusiona ambos para que el consumidor sienta que la marca 'lo entiende'.\n\n12. La différance (Derrida)\n\nEl sentido publicitario nunca se fija del todo: se difiere. La différance (Derrida) opera en la publicidad: cada anunció remite a otros anuncios, cada significante a otros significantes. El sentido es inestable, plural, diferido. La publicidad explota esta inestabilidad para producir multiples lecturas y llegar a más públicos.\n\n13. La formación discursiva (Foucault)\n\nLa publicidad es una formación discursiva (Foucault): un sistema de reglas que determina que se puede decir y mostrar, quien puede decirlo y desde que posición. La formación discursiva publicitaria excluye ciertos cuerpos, ciertas edades, ciertas etnias; y privilegia otros. Sus límites son los límites de lo visible y lo decible en una epoca.\n\n14. La biopolítica (Foucault/Agamben)\n\nLa publicidad es biopolítica (Foucault): actua sobre la vida de las poblaciones, sobre los cuerpos, la salud, la sexualidad. Los anuncios de dietas, de ejercicio, de cosmética, de medicamentos: todos gestionan la vida y normalizan los cuerpos. La biopolítica publicitaria no reprime: produce cuerpos dóciles.\n\n15. La industria cultural (Adorno/Horkheimer)\n\nLa publicidad es industria cultural (Adorno, Horkheimer): produce bienes estandarizados que adormecen la conciencia crítica. Los anuncios repiten formulas, generos, estructuras; estandarizan el deseo. La industria cultural publicitaria no solo vende productos: vende formas de vida.\n\n16. La razón instrumental (Escuela de Frankfurt)\n\nLa publicidad es razón instrumental (Adorno, Horkheimer): reduce todo a medios para fines. El cuerpo se convierte en medio para vender, la belleza en medio para el éxito, la salud en medio para la productividad. La razón instrumental no se pregunta por los fines: solo calcula los medios.\n\n17. La acción comunicativa (Habermas)\n\nFrente a la razón instrumental, Habermas propone la acción comunicativa: el dialogo libre de coacciones orientado al entendimiento. La publicidad, en cambió, es acción estrategica: busca el éxito, no el entendimiento. Pero es posible imaginar una publicidad comunicativa, que dialogue con el consumidor en lugar de manipularlo.\n\n18. La crítica de la ideología (Zizek)\n\nLa publicidad reproduce la ideología dominante (Zizek): no solo en lo que dice, sino en lo que hace. La ideología no es falsa conciencia: es una práctica social. Consumimos productos que sabemos que no nos haran felices, pero actuamos como si lo hicieran. La ideología opera en la práctica, no solo en la idea.\n\n19. La performatividad de genero (Butler)\n\nLa publicidad performa el genero (Butler): no refleja una esencia femenina o masculina, sino que la produce mediante actos repetidos. Los anuncios de cosmética 'hacen' a la mujer femenina; los de coches 'hacen' al hombre masculino. La performatividad de genero revela que el genero es una construcción discursiva, no una naturaleza.\n\n20. La interseccionalidad (Crenshaw)\n\nLa publicidad reproduce la interseccionalidad (Crenshaw): las identidades se entrecruzan y producen formas especificas de opresión. La mujer negra, la mujer mayor, la mujer pobre: cada intersección produce una experiencia distinta. La publicidad hegemónica privilegia ciertas intersecciones (joven, blanca, delgada, rica) y margina otras.\n\n21. La colonialidad del saber (Quijano, Mignolo)\n\nLa publicidad reproduce la colonialidad del saber (Quijano, Mignolo): impone un modelo estético y cultural occidental como universal. Los cuerpos no occidentales se exotizan o se silencian. La colonialidad del saber publicitaria no es un residuo del pasado: es una lógica vigente que jerarquiza los saberes y los cuerpos.\n\nConclusión\n\nEl discurso publicitario es un objeto privilegiado para el análisis crítico. En el se articulan la dialectica, la deconstrucción, el poder foucaultiano, la interpelación althusseriana, la hegemonia gramsciana, el signo saussureano, la intertextualidad, el pacto autobiografico, el habitus y el campo, la multimodalidad, la fusión de horizontes, la différance, la formación discursiva, la biopolítica, la industria cultural, la razón instrumental, la acción comunicativa, la crítica de la ideología, la performatividad de genero, la interseccionalidad y la colonialidad del saber. Desmontar estos mecanismos es una tarea ética y política: no se trata solo de leer la publicidad, sino de resistir a ella.",
     "ejercicios": [
       {
         "tecnica_numero": 12,
@@ -8418,12 +8418,12 @@
       {
         "tecnica_numero": 13,
         "tecnica_nivel": "C2",
-        "enunciado": "Que hace la deconstrucción (Derrida) con las oposiciones binarias de la publicidad?",
+        "enunciado": "¿Qué hace la deconstrucción (Derrida) con las oposiciones binarias de la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Revela que la jerarquia no es natural sino construida discursivamente",
-            "B) Confirma que la jerarquia es natural",
+            "A) Revela que la jerarquía no es natural sino construida discursivamente",
+            "B) Confirma que la jerarquía es natural",
             "C) Ignora las oposiciones",
             "D) Solo describe las oposiciones"
           ],
@@ -8466,7 +8466,7 @@
       {
         "tecnica_numero": 16,
         "tecnica_nivel": "C2",
-        "enunciado": "Como ejerce la publicidad la hegemonia gramsciana?",
+        "enunciado": "¿Cómo ejerce la publicidad la hegemonia gramsciana?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8498,7 +8498,7 @@
       {
         "tecnica_numero": 18,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la intertextualidad (Kristeva) en la publicidad segun el texto?",
+        "enunciado": "¿Qué es la intertextualidad (Kristeva) en la publicidad segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8514,7 +8514,7 @@
       {
         "tecnica_numero": 19,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el pacto autobiografico (Lejeune) en la publicidad?",
+        "enunciado": "¿Qué es el pacto autobiografico (Lejeune) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8530,7 +8530,7 @@
       {
         "tecnica_numero": 20,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el habitus (Bourdieu) en la publicidad?",
+        "enunciado": "¿Qué es el habitus (Bourdieu) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8546,7 +8546,7 @@
       {
         "tecnica_numero": 21,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el campo (Bourdieu) publicitario?",
+        "enunciado": "¿Qué es el campo (Bourdieu) publicitario?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8562,7 +8562,7 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "C2",
-        "enunciado": "Que analiza el análisis multimodal (Kress y van Leeuwen) en la publicidad?",
+        "enunciado": "¿Qué analiza el análisis multimodal (Kress y van Leeuwen) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8578,7 +8578,7 @@
       {
         "tecnica_numero": 23,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el dispositivo (Foucault/Agamben) en la publicidad?",
+        "enunciado": "¿Qué es el dispositivo (Foucault/Agamben) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8594,7 +8594,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "C2",
-        "enunciado": "Como opera la fusión de horizontes (Gadamer) en la publicidad?",
+        "enunciado": "¿Cómo opera la fusión de horizontes (Gadamer) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8610,7 +8610,7 @@
       {
         "tecnica_numero": 25,
         "tecnica_nivel": "C2",
-        "enunciado": "Como opera la différance (Derrida) en la publicidad?",
+        "enunciado": "¿Cómo opera la différance (Derrida) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8626,7 +8626,7 @@
       {
         "tecnica_numero": 26,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la formación discursiva (Foucault) en la publicidad?",
+        "enunciado": "¿Qué es la formación discursiva (Foucault) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8642,7 +8642,7 @@
       {
         "tecnica_numero": 27,
         "tecnica_nivel": "C2",
-        "enunciado": "Como opera la biopolitica (Foucault/Agamben) en la publicidad?",
+        "enunciado": "¿Cómo opera la biopolítica (Foucault/Agamben) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8658,7 +8658,7 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "C2",
-        "enunciado": "Como opera la industria cultural (Adorno/Horkheimer) en la publicidad?",
+        "enunciado": "¿Cómo opera la industria cultural (Adorno/Horkheimer) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8674,13 +8674,13 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la razon instrumental (Escuela de Frankfurt) en la publicidad?",
+        "enunciado": "¿Qué es la razón instrumental (Escuela de Frankfurt) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Reduce todo a medios para fines: el cuerpo como medio, la belleza como medio",
             "B) Busca el entendimiento",
-            "C) Es una razon crítica",
+            "C) Es una razón crítica",
             "D) No calcula medios"
           ],
           "correcta": "A"
@@ -8690,7 +8690,7 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "C2",
-        "enunciado": "Que diferencia hay entre acción comunicativa (Habermas) y publicidad segun el texto?",
+        "enunciado": "¿Qué diferencia hay entre acción comunicativa (Habermas) y publicidad segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8706,14 +8706,14 @@
       {
         "tecnica_numero": 31,
         "tecnica_nivel": "C2",
-        "enunciado": "Como opera la crítica de la ideologia (Zizek) en la publicidad?",
+        "enunciado": "¿Cómo opera la crítica de la ideología (Zizek) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La ideologia opera en la práctica: consumimos sabiendo que no nos hará felices pero actuamos como si lo hiciera",
-            "B) La ideologia es solo falsa conciencia",
-            "C) No hay ideologia",
-            "D) La ideologia es solo teoría"
+            "A) La ideología opera en la práctica: consumimos sabiendo que no nos hará felices pero actuamos como si lo hiciera",
+            "B) La ideología es solo falsa conciencia",
+            "C) No hay ideología",
+            "D) La ideología es solo teoría"
           ],
           "correcta": "A"
         },
@@ -8722,7 +8722,7 @@
       {
         "tecnica_numero": 32,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la performatividad de genero (Butler) en la publicidad?",
+        "enunciado": "¿Qué es la performatividad de genero (Butler) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8738,7 +8738,7 @@
       {
         "tecnica_numero": 33,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la interseccionalidad (Crenshaw) en la publicidad?",
+        "enunciado": "¿Qué es la interseccionalidad (Crenshaw) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8754,7 +8754,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la colonialidad del saber (Quijano, Mignolo) en la publicidad?",
+        "enunciado": "¿Qué es la colonialidad del saber (Quijano, Mignolo) en la publicidad?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8775,16 +8775,16 @@
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 34,
-    "cuerpo": "El sujeto atrapado: poder, deseo y resistencia\n\nEl sujeto contemporaneo vive atrapado entre dos fuerzas: el poder que lo moldea y el deseo que lo empuja. Este ensayo explora, desde la teoría crítica, el psicoanalisis y la filosofía política, los mecanismos por los que el poder produce subjetividad, y las formas de resistencia que el deseo abre.\n\n1. El inconsciente ideologico\n\nLa ideologia no es solo un conjunto de ideas conscientes: es un inconsciente que estructura nuestras prácticas (Zizek, Althusser). Consumimos, trabajamos, amamos de ciertas maneras porque hemos interiorizado un inconsciente ideologico que no advertimos. El sujeto cree ser libre, pero sus prácticas reproducen la ideologia dominante.\n\n2. El dispositivo de sexualidad\n\nLa sexualidad no es un hecho natural: es un dispositivo histórico de poder que regula los cuerpos y las poblaciones (Foucault). El discurso médico, la psicología, la educación sexual: todos participan en la producción de la sexualidad 'normal' y la patologización de la 'anormal'.\n\n3. El simulacro\n\nVivimos en la era del simulacro (Baudrillard): las imagenes sustituyen a la realidad y la producen. La hiperrealidad es el mundo en que las representaciones ya no remiten a un referente, sino que se remiten a si mismas. El sujeto contemporaneo habita un mundo de simulacros donde la realidad es un efecto de la representación.\n\n4. La sociedad del espectaculo\n\nDebord mostró que la vida moderna se presenta como una acumulación de espectaculos. Todo se convierte en imagen, en mercancia visible. El sujeto ya no vive, contempla su vida como un espectaculo: las redes sociales son el último grado de esta lógica.\n\n5. La gubernamentalidad\n\nEl poder no solo reprime: conduce las conductas. La gubernamentalidad (Foucault) es el conjunto de técnicas que orientan a los individuos sin necesidad de coerción directa. El autocuidado, la autoayuda, las campanas de salud: todas son formas de gubernamentalidad que hacen que el sujeto se gobierne a si mismo.\n\n6. El capital simbólico\n\nEl capital simbólico (Bourdieu) es el reconocimiento social: prestigio, honor, autoridad. El sujeto contemporaneo acumula capital simbólico en las redes sociales (likes, seguidores, reputación). La lógica del capital simbólico reproduce la lógica del capital economico.\n\n7. La violencia simbólica\n\nLa violencia simbólica (Bourdieu) es la violencia que se ejerce con la complicidad del dominado. El sujeto acepta como natural la dominación que lo oprime. La mujer que se cree inferior, el trabajador que se cree culpable de su precariedad: son ejemplos de violencia simbólica internalizada.\n\n8. La lógica del don\n\nEl don no es gratuito (Mauss): implica la obligación de dar, recibir y devolver. Las relaciones sociales se construyen mediante intercambios simbolicos. En la era digital, el 'like' es una nueva forma de don: doy reconocimiento y espero reconocimiento a cambió.\n\n9. La estructura del mito\n\nLos mitos se estructuran en oposiciones binarias que se resuelven por mediación (Levi-Strauss). El relato del éxito, del emprendedor que se hace a si mismo, es un mito contemporaneo: opone fracaso y éxito, y resuelve la tensión mediante la mediación del 'merito'.\n\n10. La lógica del inconsciente\n\nEl inconsciente esta estructurado como un lenguaje (Lacan): opera mediante significantes, metaforas y metonimias. El deseo del sujeto se articula en el lenguaje y se revela en los sintomas, los sueños y los lapsus. El inconsciente no es un deposito de pulsiones: es una lógica que produce sentido.\n\n11. La interpelación del sujeto\n\nLa ideologia interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye. 'Tu eres emprendedor', 'tu eres madre', 'tu eres ciudadano': cada interpelación construye una identidad. El sujeto no preexiste a la interpelación: se constituye en ella.\n\n12. El biopoder\n\nEl biopoder (Foucault) se ejerce sobre la vida de las poblaciones: salud, natalidad, mortalidad, higiene. Las políticas públicas, la medicina, la demografia: todos son dispositivos de biopoder que gestionan la vida. El cuerpo ya no es solo individual: es población.\n\n13. La sublimación\n\nLa sublimación (Freud) desvia la pulsión sexual hacía fines culturales o artisticos. El arte, la ciencia, la religion: todas son formas de sublimación. El sujeto transforma el deseo en producción cultural, y en esa transformación encuentra una forma de placer.\n\n14. El retorno de lo reprimido\n\nLo reprimido retorna (Freud): en los sintomas, en los sueños, en los actos fallidos. El sujeto que reprime un deseo lo ve reaparecer disfrazado. El retorno de lo reprimido es la prueba de que la represión nunca es total.\n\n15. La dialectica del amo y el esclavo\n\nHegel mostró que en la lucha por el reconocimiento, el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajó. El amo se vuelve dependiente del esclavo; el esclavo se libera mediante la transformación del mundo. La dialectica del amo y el esclavo sigue operando en las relaciones laborales contemporaneas.\n\n16. La lógica del resentimiento\n\nNietzsche mostró que el resentimiento invierte los valores de los fuertes desde la moral de los débiles. El sujeto resentido condena la excelencia como 'privilegio', la fuerza como 'violencia', la belleza como 'superficialidad'. La lógica del resentimiento es una moral reactiva.\n\n17. La voluntad de poder\n\nLa voluntad de poder (Nietzsche) es el impulso fundamental de la vida: crecer, dominar, superarse. No es solo dominación sobre otros: es afirmación de la propia potencia. El sujeto que crea, que innova, que se supera, expresa la voluntad de poder.\n\n18. La desterritorialización\n\nLa desterritorialización (Deleuze, Guattari) es el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Las migraciones, las redes digitales, las identidades nómadas: todos son procesos de desterritorialización.\n\n19. El rizoma\n\nEl rizoma (Deleuze, Guattari) es un modelo de pensamiento sin centro que crece en multiples direcciones. Frente al árbol jerarquico, el rizoma conecta puntos sin jerarquia. Internet es el ejemplo contemporaneo del rizoma.\n\n20. La sociedad disciplinaria\n\nLa sociedad disciplinaria (Foucault) organiza los cuerpos en espacios cerrados (escuela, fabrica, hospital, cárcel) para vigilarlos y normalizarlos. El examen, la fila, el horario: todos son dispositivos disciplinarios. La sociedad disciplinaria produce cuerpos dociles.\n\n21. La sociedad de control\n\nLa sociedad de control (Deleuze) sucede a la sociedad disciplinaria: ya no hay espacios cerrados, sino redes abiertas, modulación continua, deuda. El control ya no se ejerce en lugares especificos: se ejerce en todas partes y en ningún lugar. La evaluación continua, el rendimiento, la deuda: todos son dispositivos de control.\n\n22. El panoptico\n\nEl panoptico (Bentham, Foucault) es una arquitectura carcelaria en la que el vigilante ve sin ser visto. El preso internaliza la mirada y se vigila a si mismo. La sociedad contemporanea es panoptica: nos autocensuramos por miedo a la mirada del otro.\n\n23. La comunidad que viene\n\nAgamben propone una comunidad que viene: una comunidad sin identidad fija, sin pertenencia, basada en la singularidad cualquiera. Frente a las comunidades nacionales o identitarias, la comunidad que viene afirma la singularidad sin esencia.\n\n24. La vida desnuda\n\nAgamben llama vida desnuda a la vida reducida a mera existencia biologica, sin derechos ni significado político. El refugiado, el excluido, el que no tiene papeles: son vidas desnudas. La biopolitica contemporanea produce vidas desnudas como su reverso.\n\nConclusión\n\nEl sujeto contemporaneo no es libre ni determinado: es el lugar donde el poder y el deseo se articulan. Desmontar los mecanismos del poder (inconsciente ideologico, dispositivo, simulacro, espectaculo, gubernamentalidad, capital simbólico, violencia simbólica, don, mito, inconsciente, interpelación, biopoder, sublimación, represión, amo-esclavo, resentimiento, voluntad de poder, desterritorialización, rizoma, disciplina, control, panoptico, comunidad, vida desnuda) es la tarea de una política emancipadora.",
+    "cuerpo": "El sujeto atrapado: poder, deseo y resistencia\n\nEl sujeto contemporaneo vive atrapado entre dos fuerzas: el poder que lo moldea y el deseo que lo empuja. Este ensayo explora, desde la teoría crítica, el psicoanalisis y la filosofía política, los mecanismos por los que el poder produce subjetividad, y las formas de resistencia que el deseo abre.\n\n1. El inconsciente ideologico\n\nLa ideología no es solo un conjunto de ideas conscientes: es un inconsciente que estructura nuestras prácticas (Zizek, Althusser). Consumimos, trabajamos, amamos de ciertas maneras porque hemos interiorizado un inconsciente ideologico que no advertimos. El sujeto cree ser libre, pero sus prácticas reproducen la ideología dominante.\n\n2. El dispositivo de sexualidad\n\nLa sexualidad no es un hecho natural: es un dispositivo histórico de poder que regula los cuerpos y las poblaciones (Foucault). El discurso médico, la psicología, la educación sexual: todos participan en la producción de la sexualidad 'normal' y la patologización de la 'anormal'.\n\n3. El simulacro\n\nVivimos en la era del simulacro (Baudrillard): las imagenes sustituyen a la realidad y la producen. La hiperrealidad es el mundo en que las representaciones ya no remiten a un referente, sino que se remiten a si mismas. El sujeto contemporaneo habita un mundo de simulacros donde la realidad es un efecto de la representación.\n\n4. La sociedad del espectáculo\n\nDebord mostró que la vida moderna se presenta como una acumulación de espectaculos. Todo se convierte en imagen, en mercancía visible. El sujeto ya no vive, contempla su vida como un espectáculo: las redes sociales son el último grado de esta lógica.\n\n5. La gubernamentalidad\n\nEl poder no solo reprime: conduce las conductas. La gubernamentalidad (Foucault) es el conjunto de técnicas que orientan a los individuos sin necesidad de coerción directa. El autocuidado, la autoayuda, las campanas de salud: todas son formas de gubernamentalidad que hacen que el sujeto se gobierne a si mismo.\n\n6. El capital simbólico\n\nEl capital simbólico (Bourdieu) es el reconocimiento social: prestigio, honor, autoridad. El sujeto contemporaneo acumula capital simbólico en las redes sociales (likes, seguidores, reputación). La lógica del capital simbólico reproduce la lógica del capital economico.\n\n7. La violencia simbólica\n\nLa violencia simbólica (Bourdieu) es la violencia que se ejerce con la complicidad del dominado. El sujeto acepta como natural la dominación que lo oprime. La mujer que se cree inferior, el trabajador que se cree culpable de su precariedad: son ejemplos de violencia simbólica internalizada.\n\n8. La lógica del don\n\nEl don no es gratuito (Mauss): implica la obligación de dar, recibir y devolver. Las relaciones sociales se construyen mediante intercambios simbolicos. En la era digital, el 'like' es una nueva forma de don: doy reconocimiento y espero reconocimiento a cambió.\n\n9. La estructura del mito\n\nLos mitos se estructuran en oposiciones binarias que se resuelven por mediación (Levi-Strauss). El relato del éxito, del emprendedor que se hace a si mismo, es un mito contemporaneo: opone fracaso y éxito, y resuelve la tensión mediante la mediación del 'merito'.\n\n10. La lógica del inconsciente\n\nEl inconsciente esta estructurado como un lenguaje (Lacan): opera mediante significantes, metaforas y metonimias. El deseo del sujeto se articula en el lenguaje y se revela en los sintomas, los sueños y los lapsus. El inconsciente no es un deposito de pulsiones: es una lógica que produce sentido.\n\n11. La interpelación del sujeto\n\nLa ideología interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye. 'Tu eres emprendedor', 'tu eres madre', 'tu eres ciudadano': cada interpelación construye una identidad. El sujeto no preexiste a la interpelación: se constituye en ella.\n\n12. El biopoder\n\nEl biopoder (Foucault) se ejerce sobre la vida de las poblaciones: salud, natalidad, mortalidad, higiene. Las políticas públicas, la medicina, la demografia: todos son dispositivos de biopoder que gestionan la vida. El cuerpo ya no es solo individual: es población.\n\n13. La sublimación\n\nLa sublimación (Freud) desvia la pulsión sexual hacía fines culturales o artisticos. El arte, la ciencia, la religion: todas son formas de sublimación. El sujeto transforma el deseo en producción cultural, y en esa transformación encuentra una forma de placer.\n\n14. El retorno de lo reprimido\n\nLo reprimido retorna (Freud): en los sintomas, en los sueños, en los actos fallidos. El sujeto que reprime un deseo lo ve reaparecer disfrazado. El retorno de lo reprimido es la prueba de que la represión nunca es total.\n\n15. La dialectica del amo y el esclavo\n\nHegel mostró que en la lucha por el reconocimiento, el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajó. El amo se vuelve dependiente del esclavo; el esclavo se libera mediante la transformación del mundo. La dialectica del amo y el esclavo sigue operando en las relaciones laborales contemporáneas.\n\n16. La lógica del resentimiento\n\nNietzsche mostró que el resentimiento invierte los valores de los fuertes desde la moral de los débiles. El sujeto resentido condena la excelencia como 'privilegio', la fuerza como 'violencia', la belleza como 'superficialidad'. La lógica del resentimiento es una moral reactiva.\n\n17. La voluntad de poder\n\nLa voluntad de poder (Nietzsche) es el impulso fundamental de la vida: crecer, dominar, superarse. No es solo dominación sobre otros: es afirmación de la propia potencia. El sujeto que crea, que innova, que se supera, expresa la voluntad de poder.\n\n18. La desterritorialización\n\nLa desterritorialización (Deleuze, Guattari) es el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Las migraciones, las redes digitales, las identidades nómadas: todos son procesos de desterritorialización.\n\n19. El rizoma\n\nEl rizoma (Deleuze, Guattari) es un modelo de pensamiento sin centro que crece en multiples direcciones. Frente al árbol jerarquico, el rizoma conecta puntos sin jerarquía. Internet es el ejemplo contemporaneo del rizoma.\n\n20. La sociedad disciplinaria\n\nLa sociedad disciplinaria (Foucault) organiza los cuerpos en espacios cerrados (escuela, fabrica, hospital, cárcel) para vigilarlos y normalizarlos. El examen, la fila, el horario: todos son dispositivos disciplinarios. La sociedad disciplinaria produce cuerpos dociles.\n\n21. La sociedad de control\n\nLa sociedad de control (Deleuze) sucede a la sociedad disciplinaria: ya no hay espacios cerrados, sino redes abiertas, modulación continua, deuda. El control ya no se ejerce en lugares especificos: se ejerce en todas partes y en ningún lugar. La evaluación continua, el rendimiento, la deuda: todos son dispositivos de control.\n\n22. El panoptico\n\nEl panoptico (Bentham, Foucault) es una arquitectura carcelaria en la que el vigilante ve sin ser visto. El preso internaliza la mirada y se vigila a si mismo. La sociedad contemporánea es panoptica: nos autocensuramos por miedo a la mirada del otro.\n\n23. La comunidad que viene\n\nAgamben propone una comunidad que viene: una comunidad sin identidad fija, sin pertenencia, basada en la singularidad cualquiera. Frente a las comunidades nacionales o identitarias, la comunidad que viene afirma la singularidad sin esencia.\n\n24. La vida desnuda\n\nAgamben llama vida desnuda a la vida reducida a mera existencia biologica, sin derechos ni significado político. El refugiado, el excluido, el que no tiene papeles: son vidas desnudas. La biopolítica contemporánea produce vidas desnudas como su reverso.\n\nConclusión\n\nEl sujeto contemporaneo no es libre ni determinado: es el lugar donde el poder y el deseo se articulan. Desmontar los mecanismos del poder (inconsciente ideologico, dispositivo, simulacro, espectáculo, gubernamentalidad, capital simbólico, violencia simbólica, don, mito, inconsciente, interpelación, biopoder, sublimación, represión, amo-esclavo, resentimiento, voluntad de poder, desterritorialización, rizoma, disciplina, control, panoptico, comunidad, vida desnuda) es la tarea de una política emancipadora.",
     "ejercicios": [
       {
         "tecnica_numero": 35,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el inconsciente ideologico segun el texto?",
+        "enunciado": "¿Qué es el inconsciente ideologico segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La ideologia que estructura las prácticas sin ser advertida",
+            "A) La ideología que estructura las prácticas sin ser advertida",
             "B) Una idea consciente",
             "C) Una emoción",
             "D) Una creencia religiosa"
@@ -8796,7 +8796,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el dispositivo de sexualidad (Foucault) segun el texto?",
+        "enunciado": "¿Qué es el dispositivo de sexualidad (Foucault) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8812,7 +8812,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el simulacro (Baudrillard) segun el texto?",
+        "enunciado": "¿Qué es el simulacro (Baudrillard) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8828,14 +8828,14 @@
       {
         "tecnica_numero": 38,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la sociedad del espectaculo (Debord) segun el texto?",
+        "enunciado": "¿Qué es la sociedad del espectáculo (Debord) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La vida convertida en acumulación de imagenes y mercancias",
+            "A) La vida convertida en acumulación de imagenes y mercancías",
             "B) Una sociedad sin imagenes",
             "C) Una sociedad teatral",
-            "D) Una sociedad sin mercancias"
+            "D) Una sociedad sin mercancías"
           ],
           "correcta": "A"
         },
@@ -8844,7 +8844,7 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la gubernamentalidad (Foucault) segun el texto?",
+        "enunciado": "¿Qué es la gubernamentalidad (Foucault) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8860,7 +8860,7 @@
       {
         "tecnica_numero": 40,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el capital simbólico (Bourdieu) segun el texto?",
+        "enunciado": "¿Qué es el capital simbólico (Bourdieu) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8876,7 +8876,7 @@
       {
         "tecnica_numero": 41,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la violencia simbólica (Bourdieu) segun el texto?",
+        "enunciado": "¿Qué es la violencia simbólica (Bourdieu) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8892,7 +8892,7 @@
       {
         "tecnica_numero": 42,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la lógica del don (Mauss) segun el texto?",
+        "enunciado": "¿Qué es la lógica del don (Mauss) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8908,7 +8908,7 @@
       {
         "tecnica_numero": 43,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la estructura del mito (Levi-Strauss) segun el texto?",
+        "enunciado": "¿Qué es la estructura del mito (Levi-Strauss) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8924,7 +8924,7 @@
       {
         "tecnica_numero": 44,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la lógica del inconsciente (Lacan) segun el texto?",
+        "enunciado": "¿Qué es la lógica del inconsciente (Lacan) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8940,11 +8940,11 @@
       {
         "tecnica_numero": 45,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la interpelación del sujeto (Althusser) segun el texto?",
+        "enunciado": "¿Qué es la interpelación del sujeto (Althusser) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La ideologia 'llama' al individuo y lo constituye como sujeto",
+            "A) La ideología 'llama' al individuo y lo constituye como sujeto",
             "B) El sujeto preexiste a la interpelación",
             "C) La interpelación es solo linguistica",
             "D) No hay interpelación"
@@ -8956,7 +8956,7 @@
       {
         "tecnica_numero": 46,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el biopoder (Foucault) segun el texto?",
+        "enunciado": "¿Qué es el biopoder (Foucault) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8972,7 +8972,7 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la sublimación (Freud) segun el texto?",
+        "enunciado": "¿Qué es la sublimación (Freud) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8988,7 +8988,7 @@
       {
         "tecnica_numero": 48,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el retorno de lo reprimido (Freud) segun el texto?",
+        "enunciado": "¿Qué es el retorno de lo reprimido (Freud) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9004,7 +9004,7 @@
       {
         "tecnica_numero": 49,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la dialectica del amo y el esclavo (Hegel) segun el texto?",
+        "enunciado": "¿Qué es la dialectica del amo y el esclavo (Hegel) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9020,7 +9020,7 @@
       {
         "tecnica_numero": 50,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la lógica del resentimiento (Nietzsche) segun el texto?",
+        "enunciado": "¿Qué es la lógica del resentimiento (Nietzsche) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9036,7 +9036,7 @@
       {
         "tecnica_numero": 51,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la voluntad de poder (Nietzsche) segun el texto?",
+        "enunciado": "¿Qué es la voluntad de poder (Nietzsche) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9052,7 +9052,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la desterritorialización (Deleuze/Guattari) segun el texto?",
+        "enunciado": "¿Qué es la desterritorialización (Deleuze/Guattari) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9068,7 +9068,7 @@
       {
         "tecnica_numero": 53,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el rizoma (Deleuze/Guattari) segun el texto?",
+        "enunciado": "¿Qué es el rizoma (Deleuze/Guattari) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9084,7 +9084,7 @@
       {
         "tecnica_numero": 54,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la sociedad disciplinaria (Foucault) segun el texto?",
+        "enunciado": "¿Qué es la sociedad disciplinaria (Foucault) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9100,7 +9100,7 @@
       {
         "tecnica_numero": 55,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la sociedad de control (Deleuze) segun el texto?",
+        "enunciado": "¿Qué es la sociedad de control (Deleuze) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9116,7 +9116,7 @@
       {
         "tecnica_numero": 56,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el panoptico (Bentham/Foucault) segun el texto?",
+        "enunciado": "¿Qué es el panoptico (Bentham/Foucault) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9132,7 +9132,7 @@
       {
         "tecnica_numero": 57,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la comunidad que viene (Agamben) segun el texto?",
+        "enunciado": "¿Qué es la comunidad que viene (Agamben) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9148,7 +9148,7 @@
       {
         "tecnica_numero": 58,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la vida desnuda (Agamben) segun el texto?",
+        "enunciado": "¿Qué es la vida desnuda (Agamben) segun el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9174,7 +9174,7 @@
       {
         "tecnica_numero": 59,
         "tecnica_nivel": "C2",
-        "enunciado": "Que muestra la différance (Derrida) en el texto?",
+        "enunciado": "¿Qué muestra la différance (Derrida) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9190,7 +9190,7 @@
       {
         "tecnica_numero": 60,
         "tecnica_nivel": "C2",
-        "enunciado": "Por que el padre es un sintoma en el texto?",
+        "enunciado": "¿Por qué el padre es un sintoma en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9206,7 +9206,7 @@
       {
         "tecnica_numero": 61,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la abyección (Kristeva) en el texto?",
+        "enunciado": "¿Qué es la abyección (Kristeva) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9222,7 +9222,7 @@
       {
         "tecnica_numero": 62,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el panoptico interno (Foucault) en el texto?",
+        "enunciado": "¿Qué es el panoptico interno (Foucault) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9238,7 +9238,7 @@
       {
         "tecnica_numero": 63,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la heterotopia (Foucault) en el texto?",
+        "enunciado": "¿Qué es la heterotopia (Foucault) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9254,7 +9254,7 @@
       {
         "tecnica_numero": 64,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el simulacro (Baudrillard) en el texto?",
+        "enunciado": "¿Qué es el simulacro (Baudrillard) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9270,7 +9270,7 @@
       {
         "tecnica_numero": 65,
         "tecnica_nivel": "C2",
-        "enunciado": "Que revela la deconstrucción del sujeto (Derrida/Nietzsche) en el texto?",
+        "enunciado": "¿Qué revela la deconstrucción del sujeto (Derrida/Nietzsche) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9286,7 +9286,7 @@
       {
         "tecnica_numero": 66,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la interpelación del lector (Althusser) en el texto?",
+        "enunciado": "¿Qué es la interpelación del lector (Althusser) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9302,7 +9302,7 @@
       {
         "tecnica_numero": 67,
         "tecnica_nivel": "C2",
-        "enunciado": "Que revela la lectura sintomatica (Althusser/Macherey) en el texto?",
+        "enunciado": "¿Qué revela la lectura sintomatica (Althusser/Macherey) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9318,7 +9318,7 @@
       {
         "tecnica_numero": 68,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el punctum (Barthes) en el texto?",
+        "enunciado": "¿Qué es el punctum (Barthes) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9334,7 +9334,7 @@
       {
         "tecnica_numero": 69,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el studium (Barthes) en el texto?",
+        "enunciado": "¿Qué es el studium (Barthes) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9350,7 +9350,7 @@
       {
         "tecnica_numero": 70,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el agenciamiento (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es el agenciamiento (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9366,7 +9366,7 @@
       {
         "tecnica_numero": 71,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la linea de fuga (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es la linea de fuga (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9382,7 +9382,7 @@
       {
         "tecnica_numero": 72,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el devenir (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es el devenir (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9398,7 +9398,7 @@
       {
         "tecnica_numero": 73,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la maquina de guerra (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es la maquina de guerra (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9414,7 +9414,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el rostro (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es el rostro (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9430,7 +9430,7 @@
       {
         "tecnica_numero": 75,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la lógica del sentido (Deleuze) en el texto?",
+        "enunciado": "¿Qué es la lógica del sentido (Deleuze) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9446,7 +9446,7 @@
       {
         "tecnica_numero": 76,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el simulacro segun Deleuze en el texto?",
+        "enunciado": "¿Qué es el simulacro segun Deleuze en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9462,7 +9462,7 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la diferencia sexual (Irigaray) en el texto?",
+        "enunciado": "¿Qué es la diferencia sexual (Irigaray) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9478,7 +9478,7 @@
       {
         "tecnica_numero": 78,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la escritura femenina (Cixous) en el texto?",
+        "enunciado": "¿Qué es la escritura femenina (Cixous) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9494,7 +9494,7 @@
       {
         "tecnica_numero": 79,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es la crítica postcolonial (Said, Spivak) en el texto?",
+        "enunciado": "¿Qué es la crítica postcolonial (Said, Spivak) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9510,7 +9510,7 @@
       {
         "tecnica_numero": 80,
         "tecnica_nivel": "C2",
-        "enunciado": "Que es el subalterno (Spivak) en el texto?",
+        "enunciado": "¿Qué es el subalterno (Spivak) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9526,17 +9526,17 @@
     ]
   },
   {
-    "titulo": "Para que sirve la crítica",
+    "titulo": "Para qué sirve la crítica",
     "tipo": "academico",
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 36,
-    "cuerpo": "Para que sirve la crítica: veinte criterios de evaluación\n\nLa crítica es una herramienta, no un fin. Pero no toda crítica es valida. Este ensayo ofrece veinte criterios para evaluar la calidad de una interpretación crítica, desde la hermeneutica de la sospecha hasta la crítica descolonial.\n\n1. Argumentos trascendentales (Kant)\n\nUn argumento trascendental deduce las condiciones de posibilidad de una experiencia: 'si X es posible, entonces Y debe darse'. Su validez depende de que Y sea realmente condición necesaria de X. Ejemplo correcto: 'La experiencia requiere categorias a priori; por tanto, las categorias son condiciones de posibilidad'. Ejemplo incorrecto: deducir la existencia de Dios a partir de la moral sin demostrar la necesidad de esa condición.\n\n2. Hermeneutica de la sospecha (Ricoeur)\n\nLa hermeneutica de la sospecha desconfia del sentido inmediato y busca el sentido oculto. Su validez depende de que la sospecha este fundamentada en el texto. Una sospecha paranoica, que ve conspiraciones en todas partes, no es una crítica valida.\n\n3. Crítica de la ideologia (Adorno)\n\nLa crítica de la ideologia desenmascara las contradicciones sociales que el texto oculta. Su validez depende de que la contradicción sea real y demostrable. Acusar de ideologia sin evidencia textual no es crítica: es descalificación.\n\n4. Etica del discurso (Habermas)\n\nLa etica del discurso valida normas que todos los afectados podrian aceptar en un discurso libre de coacciones. Su validez depende de que se den las condiciones del discurso ideal: libertad, igualdad, ausencia de coacciones. Una crítica que excluye a los afectados no es una crítica valida.\n\n5. Desobediencia epistemica (Mignolo)\n\nLa desobediencia epistemica cuestiona las jerarquias del saber colonial y afirma saberes otros. Su validez depende de que identifique correctamente las jerarquias epistemicas y no caiga en un relativismo absoluto.\n\n6. Traducción intercultural (Spivak)\n\nLa traducción intercultural es valida si respeta la alteridad sin domesticarla. Una traducción que asimila al otro a la cultura dominante reproduce la lógica colonial. La traducción etica preserva la diferencia.\n\n7. Crítica feminista (Beauvoir, Butler)\n\nLa crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Su validez depende de que este anclada en el texto. Acusar de machismo sin evidencia es una crítica fallida.\n\n8. Crítica genealogica (Nietzsche, Foucault)\n\nLa crítica genealogica rastrea el origen histórico de un concepto para mostrar su contingencia. Su validez depende del rigor de la reconstrucción histórica. Una genealogia que simplifica el pasado para legitimar una tesis no es valida.\n\n9. Coherencia entre teoría y práctica\n\nUn texto crítico debe ser coherente entre su teoría y su práctica: no puede criticar en teoría lo que reproduce en la práctica. Un texto que crítica la dominación pero la ejerce en su propio lenguaje es incoherente.\n\n10. Argumento descolonial\n\nUn argumento descolonial es solido si identifica correctamente las jerarquias epistemicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo. Esencializar al 'otro' como puro es una forma de reproducir la lógica colonial.\n\n11. Crítica psicoanalitica (Freud, Lacan)\n\nLa crítica psicoanalitica interpreta el texto como sintoma del inconsciente. Su validez depende de que la interpretación este anclada en evidencia textual y no solo en la teoría. Proyectar el complejo de Edipo sin evidencia no es crítica valida.\n\n12. Deconstrucción (Derrida)\n\nLa deconstrucción muestra las jerarquias ocultas en las oposiciones binarias. Su validez depende de que la jerarquia identificada sea realmente operativa en el texto. Identificar una jerarquia que el texto no sostiene es una deconstrucción fallida.\n\n13. Crítica postcolonial (Said, Spivak)\n\nLa crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Su validez depende de que el texto realmente reproduzca esas logicas. Acusar de colonialismo sin evidencia es una descalificación.\n\n14. Crítica feminista (Butler)\n\nLa crítica feminista de Butler analiza como el discurso performa el genero. Su validez depende de que la crítica este anclada en el texto y demuestre la performatividad. Acusar de binarismo sin análisis es una crítica superficial.\n\n15. Crítica marxista (Marx, Althusser)\n\nLa crítica marxista analiza como el texto reproduce las relaciones de producción y la ideologia dominante. Su validez depende de que el análisis este anclado en el texto y no se reduzca a un dogma.\n\n16. Crítica ecologica (ecocritica)\n\nLa ecocritica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Su validez depende de que el análisis este anclado en el texto y no se limite a proyectar preocupaciones ecologicas contemporaneas sobre textos antiguos.\n\n17. Crítica de la modernidad (Adorno, Bauman)\n\nLa crítica de la modernidad analiza las contradicciones de la razon ilustrada. Su validez depende de que el análisis este anclado en el texto y no caiga en un pesimismo indiscriminado.\n\n18. Crítica de la sociedad del espectaculo (Debord)\n\nLa crítica del espectaculo analiza como el texto convierte la vida en imagen y mercancia. Su validez depende de que el texto realmente espectaculice, no de que el crítico lo diga.\n\n19. Crítica de la biopolitica (Foucault, Agamben)\n\nLa crítica de la biopolitica analiza como el texto gestiona la vida y la muerte de las poblaciones. Su validez depende de que el texto realmente biopolitice, no de que el crítico lo proyecte.\n\n20. Calidad global de una interpretación crítica\n\nUna interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus limites y aporta una lectura nueva sin forzar el texto. Forzar el texto para que diga lo que el crítico quiere no es crítica: es imposición.\n\nConclusión\n\nLa crítica es una herramienta poderosa, pero no infalible. Estos veinte criterios no garantizan la verdad, pero al menos permiten distinguir la crítica rigurosa de la descalificación. En un mundo saturado de discursos críticos, aprender a evaluarlos es una tarea urgente.",
+    "cuerpo": "Para qué sirve la crítica: veinte criterios de evaluación\n\nLa crítica es una herramienta, no un fin. Pero no toda crítica es válida. Este ensayo ofrece veinte criterios para evaluar la calidad de una interpretación crítica, desde la hermenéutica de la sospecha hasta la crítica descolonial.\n\n1. Argumentos trascendentales (Kant)\n\nUn argumento trascendental deduce las condiciones de posibilidad de una experiencia: 'si X es posible, entonces Y debe darse'. Su validez depende de que Y sea realmente condición necesaria de X. Ejemplo correcto: 'La experiencia requiere categorías a priori; por tanto, las categorías son condiciones de posibilidad'. Ejemplo incorrecto: deducir la existencia de Dios a partir de la moral sin demostrar la necesidad de esa condición.\n\n2. Hermenéutica de la sospecha (Ricoeur)\n\nLa hermenéutica de la sospecha desconfía del sentido inmediato y busca el sentido oculto. Su validez depende de que la sospecha este fundamentada en el texto. Una sospecha paranoica, que ve conspiraciones en todas partes, no es una crítica válida.\n\n3. Crítica de la ideología (Adorno)\n\nLa crítica de la ideología desenmascara las contradicciones sociales que el texto oculta. Su validez depende de que la contradicción sea real y demostrable. Acusar de ideología sin evidencia textual no es crítica: es descalificación.\n\n4. Ética del discurso (Habermas)\n\nLa ética del discurso válida normas que todos los afectados podrían aceptar en un discurso libre de coacciones. Su validez depende de que se den las condiciones del discurso ideal: libertad, igualdad, ausencia de coacciones. Una crítica que excluye a los afectados no es una crítica válida.\n\n5. Desobediencia epistémica (Mignolo)\n\nLa desobediencia epistémica cuestiona las jerarquías del saber colonial y afirma saberes otros. Su validez depende de que identifique correctamente las jerarquías epistémicas y no caiga en un relativismo absoluto.\n\n6. Traducción intercultural (Spivak)\n\nLa traducción intercultural es válida si respeta la alteridad sin domesticarla. Una traducción que asimila al otro a la cultura dominante reproduce la lógica colonial. La traducción ética preserva la diferencia.\n\n7. Crítica feminista (Beauvoir, Butler)\n\nLa crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Su validez depende de que esté anclada en el texto. Acusar de machismo sin evidencia es una crítica fallida.\n\n8. Crítica genealógica (Nietzsche, Foucault)\n\nLa crítica genealógica rastrea el origen histórico de un concepto para mostrar su contingencia. Su validez depende del rigor de la reconstrucción histórica. Una genealogía que simplifica el pasado para legitimar una tesis no es válida.\n\n9. Coherencia entre teoría y práctica\n\nUn texto crítico debe ser coherente entre su teoría y su práctica: no puede criticar en teoría lo que reproduce en la práctica. Un texto que crítica la dominación pero la ejerce en su propio lenguaje es incoherente.\n\n10. Argumento descolonial\n\nUn argumento descolonial es sólido si identifica correctamente las jerarquías epistémicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo. Esencializar al 'otro' como puro es una forma de reproducir la lógica colonial.\n\n11. Crítica psicoanalítica (Freud, Lacan)\n\nLa crítica psicoanalítica interpreta el texto como sintoma del inconsciente. Su validez depende de que la interpretación este anclada en evidencia textual y no solo en la teoría. Proyectar el complejo de Edipo sin evidencia no es crítica válida.\n\n12. Deconstrucción (Derrida)\n\nLa deconstrucción muestra las jerarquías ocultas en las oposiciones binarias. Su validez depende de que la jerarquía identificada sea realmente operativa en el texto. Identificar una jerarquía que el texto no sostiene es una deconstrucción fallida.\n\n13. Crítica postcolonial (Said, Spivak)\n\nLa crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Su validez depende de que el texto realmente reproduzca esas logicas. Acusar de colonialismo sin evidencia es una descalificación.\n\n14. Crítica feminista (Butler)\n\nLa crítica feminista de Butler analiza como el discurso performa el genero. Su validez depende de que la crítica este anclada en el texto y demuestre la performatividad. Acusar de binarismo sin análisis es una crítica superficial.\n\n15. Crítica marxista (Marx, Althusser)\n\nLa crítica marxista analiza como el texto reproduce las relaciones de producción y la ideología dominante. Su validez depende de que el análisis este anclado en el texto y no se reduzca a un dogma.\n\n16. Crítica ecológica (ecocrítica)\n\nLa ecocrítica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Su validez depende de que el análisis este anclado en el texto y no se límite a proyectar preocupaciones ecologicas contemporáneas sobre textos antiguos.\n\n17. Crítica de la modernidad (Adorno, Bauman)\n\nLa crítica de la modernidad analiza las contradicciones de la razón ilustrada. Su validez depende de que el análisis este anclado en el texto y no caiga en un pesimismo indiscriminado.\n\n18. Crítica de la sociedad del espectáculo (Debord)\n\nLa crítica del espectáculo analiza como el texto convierte la vida en imagen y mercancía. Su validez depende de que el texto realmente espectaculice, no de que el crítico lo diga.\n\n19. Crítica de la biopolítica (Foucault, Agamben)\n\nLa crítica de la biopolítica analiza como el texto gestiona la vida y la muerte de las poblaciones. Su validez depende de que el texto realmente biopolitice, no de que el crítico lo proyecte.\n\n20. Calidad global de una interpretación crítica\n\nUna interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus límites y aporta una lectura nueva sin forzar el texto. Forzar el texto para que diga lo que el crítico quiere no es crítica: es imposición.\n\nConclusión\n\nLa crítica es una herramienta poderosa, pero no infalible. Estos veinte criterios no garantizan la verdad, pero al menos permiten distinguir la crítica rigurosa de la descalificación. En un mundo saturado de discursos críticos, aprender a evaluarlos es una tarea urgente.",
     "ejercicios": [
       {
         "tecnica_numero": 81,
         "tecnica_nivel": "C2",
-        "enunciado": "Que caracteriza a un argumento trascendental (Kant)?",
+        "enunciado": "¿Qué caracteriza a un argumento trascendental (Kant)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9552,7 +9552,7 @@
       {
         "tecnica_numero": 82,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la hermeneutica de la sospecha (Ricoeur)?",
+        "enunciado": "¿Cuándo es válida la hermenéutica de la sospecha (Ricoeur)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9568,7 +9568,7 @@
       {
         "tecnica_numero": 83,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica de la ideologia (Adorno)?",
+        "enunciado": "¿Cuándo es válida la crítica de la ideología (Adorno)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9584,11 +9584,11 @@
       {
         "tecnica_numero": 84,
         "tecnica_nivel": "C2",
-        "enunciado": "Que exige la etica del discurso (Habermas)?",
+        "enunciado": "¿Qué exige la ética del discurso (Habermas)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que todos los afectados podrian aceptar la norma en un discurso libre de coacciones",
+            "A) Que todos los afectados podrían aceptar la norma en un discurso libre de coacciones",
             "B) Que la norma la imponga una autoridad",
             "C) Que la norma sea tradicional",
             "D) Que la norma sea útil"
@@ -9600,11 +9600,11 @@
       {
         "tecnica_numero": 85,
         "tecnica_nivel": "C2",
-        "enunciado": "Que cuestiona la desobediencia epistemica (Mignolo)?",
+        "enunciado": "¿Qué cuestiona la desobediencia epistémica (Mignolo)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Las jerarquias del saber colonial, afirmando saberes otros",
+            "A) Las jerarquías del saber colonial, afirmando saberes otros",
             "B) Solo el saber cientifico",
             "C) Solo el saber religioso",
             "D) Solo el saber popular"
@@ -9616,7 +9616,7 @@
       {
         "tecnica_numero": 86,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la traducción intercultural (Spivak)?",
+        "enunciado": "¿Cuándo es válida la traducción intercultural (Spivak)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9632,7 +9632,7 @@
       {
         "tecnica_numero": 87,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica feminista del discurso (Butler)?",
+        "enunciado": "¿Cuándo es válida la crítica feminista del discurso (Butler)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9648,11 +9648,11 @@
       {
         "tecnica_numero": 88,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida una crítica genealogica (Nietzsche, Foucault)?",
+        "enunciado": "¿Cuándo es válida una crítica genealógica (Nietzsche, Foucault)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando el rigor de la reconstrucción histórica es solido",
+            "A) Cuando el rigor de la reconstrucción histórica es sólido",
             "B) Cuando simplifica el pasado",
             "C) Cuando inventa la historia",
             "D) Cuando ignora el contexto"
@@ -9664,7 +9664,7 @@
       {
         "tecnica_numero": 89,
         "tecnica_nivel": "C2",
-        "enunciado": "Que problema tiene un texto crítico que crítica la dominación pero la ejerce?",
+        "enunciado": "¿Qué problema tiene un texto crítico que crítica la dominación pero la ejerce?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9680,14 +9680,14 @@
       {
         "tecnica_numero": 90,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es solido un argumento descolonial?",
+        "enunciado": "¿Cuándo es sólido un argumento descolonial?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando identifica y cuestiona las jerarquias epistemicas sin esencialismo",
+            "A) Cuando identifica y cuestiona las jerarquías epistémicas sin esencialismo",
             "B) Cuando esencializa al 'otro'",
             "C) Cuando reproduce la lógica colonial",
-            "D) Cuando ignora las jerarquias"
+            "D) Cuando ignora las jerarquías"
           ],
           "correcta": "A"
         },
@@ -9696,7 +9696,7 @@
       {
         "tecnica_numero": 91,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica psicoanalitica (Freud, Lacan)?",
+        "enunciado": "¿Cuándo es válida la crítica psicoanalítica (Freud, Lacan)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9712,12 +9712,12 @@
       {
         "tecnica_numero": 92,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida una deconstrucción (Derrida)?",
+        "enunciado": "¿Cuándo es válida una deconstrucción (Derrida)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando la jerarquia identificada es realmente operativa en el texto",
-            "B) Cuando inventa jerarquias",
+            "A) Cuando la jerarquía identificada es realmente operativa en el texto",
+            "B) Cuando inventa jerarquías",
             "C) Cuando ignora el texto",
             "D) Cuando es pura especulación"
           ],
@@ -9728,7 +9728,7 @@
       {
         "tecnica_numero": 93,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica postcolonial (Said, Spivak)?",
+        "enunciado": "¿Cuándo es válida la crítica postcolonial (Said, Spivak)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9744,7 +9744,7 @@
       {
         "tecnica_numero": 94,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica feminista de Butler?",
+        "enunciado": "¿Cuándo es válida la crítica feminista de Butler?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9760,7 +9760,7 @@
       {
         "tecnica_numero": 95,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica marxista (Marx, Althusser)?",
+        "enunciado": "¿Cuándo es válida la crítica marxista (Marx, Althusser)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9776,11 +9776,11 @@
       {
         "tecnica_numero": 96,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica ecologica (ecocritica)?",
+        "enunciado": "¿Cuándo es válida la crítica ecológica (ecocrítica)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando el análisis esta anclado en el texto y no proyecta preocupaciones contemporaneas",
+            "A) Cuando el análisis esta anclado en el texto y no proyecta preocupaciones contemporáneas",
             "B) Cuando proyecta sin análisis",
             "C) Cuando ignora el texto",
             "D) Cuando es pura especulación"
@@ -9792,7 +9792,7 @@
       {
         "tecnica_numero": 97,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica de la modernidad (Adorno, Bauman)?",
+        "enunciado": "¿Cuándo es válida la crítica de la modernidad (Adorno, Bauman)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9808,7 +9808,7 @@
       {
         "tecnica_numero": 98,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica de la sociedad del espectaculo (Debord)?",
+        "enunciado": "¿Cuándo es válida la crítica de la sociedad del espectáculo (Debord)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9824,7 +9824,7 @@
       {
         "tecnica_numero": 99,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es valida la crítica de la biopolitica (Foucault, Agamben)?",
+        "enunciado": "¿Cuándo es válida la crítica de la biopolítica (Foucault, Agamben)?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9840,11 +9840,11 @@
       {
         "tecnica_numero": 100,
         "tecnica_nivel": "C2",
-        "enunciado": "Cuando es de calidad global una interpretación crítica?",
+        "enunciado": "¿Cuándo es de calidad global una interpretación crítica?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando esta anclada en el texto, es coherente, reconoce sus limites y aporta una lectura nueva sin forzar",
+            "A) Cuando esta anclada en el texto, es coherente, reconoce sus límites y aporta una lectura nueva sin forzar",
             "B) Cuando fuerza el texto para que diga lo que el crítico quiere",
             "C) Cuando ignora el texto",
             "D) Cuando es pura especulación"
