@@ -374,6 +374,120 @@ REGEX_ESTE_SUBJ = re.compile(r'\b(que|cuando|aunque|si|ojala|ojalá)\s+este\b', 
 # Regex: "para que sirve" -> "para qué sirve" (interrogativo implicito)
 REGEX_PARA_QUE_SIRVE = re.compile(r'\b([Pp])ara que sirve\b')
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V7: C2 "El sujeto atrapado" + ejercicios
+# ══════════════════════════════════════════════════════════════════
+WORDS_V7 = {
+    # texto C2
+    "contemporaneo": "contemporáneo",
+    "contemporanea": "contemporánea",
+    "contemporaneos": "contemporáneos",
+    "psicoanalisis": "psicoanálisis",
+    "ideologico": "ideológico",
+    "ideologicos": "ideológicos",
+    "practicas": "prácticas",
+    "practicos": "prácticos",
+    "imagenes": "imágenes",
+    "espectaculos": "espectáculos",
+    "campanas": "campañas",
+    "economico": "económico",
+    "economica": "económica",
+    "simbolicos": "simbólicos",
+    "simbolicas": "simbólicas",
+    "merito": "mérito",
+    "metaforas": "metáforas",
+    "sintomas": "síntomas",
+    "deposito": "depósito",
+    "demografia": "demografía",
+    "desvia": "desvía",
+    "artisticos": "artísticos",
+    "artisticas": "artísticas",
+    "religion": "religión",
+    "religiones": "religiones",
+    "dialectica": "dialéctica",
+    "dialectico": "dialéctico",
+    "jerarquico": "jerárquico",
+    "jerarquicos": "jerárquicos",
+    "fabrica": "fábrica",
+    "dociles": "dóciles",
+    "especificos": "específicos",
+    "especificas": "específicas",
+    "panoptico": "panóptico",
+    "panoptica": "panóptica",
+    "biologica": "biológica",
+    "biologicas": "biológicas",
+    "biopolitica": "biopolítica",
+    "biopolitico": "biopolítico",
+
+    # ejercicios C2
+    "segun": "según",
+    "emocion": "emoción",
+    "eleccion": "elección",
+    "biologico": "biológico",
+    "linguistica": "lingüística",
+    "busqueda": "búsqueda",
+    "perdida": "pérdida",
+    "division": "división",
+    "fabula": "fábula",
+    "desvio": "desvío",
+    "alucinacion": "alucinación",
+    "narrración": "narración",
+    "narracion": "narración",
+
+    # generales sueltos
+    "dialogo": "diálogo",
+    "dialogos": "diálogos",
+    "estructura": "estructura",
+    "estructuras": "estructuras",
+    "escenario": "escenario",
+    "misterio": "misterio",
+    "genero": "género",
+    "generos": "géneros",
+    "poetico": "poético",
+    "narrativo": "narrativo",
+    "desenlace": "desenlace",
+    "personajes": "personajes",
+    "argumento": "argumento",
+    "argumentos": "argumentos",
+    "parrafo": "párrafo",
+    "parrafos": "párrafos",
+    "muletillas": "muletillas",
+    "formal": "formal",
+    "informal": "informal",
+    "registro": "registro",
+    "sintesis": "síntesis",
+    "analogia": "analogía",
+    "ejemplos": "ejemplos",
+    "evidencia": "evidencia",
+    "autoridad": "autoridad",
+}
+
+# ───── FALSE POSITIVES de v6: reversion con contexto ─────
+REGEX_FALSE_POSITIVES = [
+    # "a cambió" → "a cambio" (sustantivo)
+    (r'\b([Aa])\s+cambió\b', r'\1 cambio'),
+    (r'\b([Ee])l\s+cambió\b', r'\1l cambio'),
+    (r'\b([Uu]n)\s+cambió\b', r'\1 cambio'),
+    (r'\b([Dd])el\s+cambió\b', r'\1el cambio'),
+    (r'\b([Ee]ste)\s+cambió\b', r'\1 cambio'),
+    (r'\b([Ee]se)\s+cambió\b', r'\1 cambio'),
+    # "hacía fines/el/la/los/las" → "hacia ..." (preposicion)
+    (r'\bhacía\s+(fines|objetivos?|el|la|los|las|un|una|del|de)\b', r'hacia \1'),
+    # "el trabajó" → "el trabajo" (sustantivo)
+    (r'\b([Ee])l\s+trabajó\b', r'\1l trabajo'),
+    (r'\b([Uu]n)\s+trabajó\b', r'\1 trabajo'),
+    (r'\b([Dd])el\s+trabajó\b', r'\1el trabajo'),
+    (r'\b([Pp])or\s+el\s+trabajó\b', r'\1or el trabajo'),
+    (r'\bmediante\s+el\s+trabajó\b', r'mediante el trabajo'),
+    (r'\b([Ee])n\s+el\s+trabajó\b', r'\1n el trabajo'),
+    # "el estudio" → "el estudio" (sustantivo, si aparece)
+    (r'\b([Ee])l\s+estudió\b', r'\1l estudio'),
+    (r'\b([Uu]n)\s+estudió\b', r'\1 estudio'),
+    # "el publico" → "el público" (sustantivo/adjetivo) - mas ambiguo
+    # lo dejamos como publicó (verbo) porque es menos frecuente como sustantivo
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -409,7 +523,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -427,6 +541,9 @@ def fix_text(text):
     text = REGEX_ESTE_SUBJ.sub(lambda m: m.group(1) + " esté", text)
     # 8. "para que sirve" -> "para qué sirve"
     text = REGEX_PARA_QUE_SIRVE.sub(lambda m: m.group(1) + "ara qué sirve", text)
+    # 9. FALSE POSITIVES de v6 (reversion contextual)
+    for pattern, replacement in REGEX_FALSE_POSITIVES:
+        text = re.sub(pattern, replacement, text)
     return text
 
 

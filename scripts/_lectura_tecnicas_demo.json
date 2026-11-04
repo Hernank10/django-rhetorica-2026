@@ -136,7 +136,7 @@
     "proceso": "P2",
     "nivel_mcer": "A1",
     "titulo": "Inferir si una acción es buena o mala",
-    "teoria": "En los textos narrativos, las acciones de los personajes pueden ser buenas o malas segun su efecto en los demas. Inferir su valoración es básico para comprender la historia.",
+    "teoria": "En los textos narrativos, las acciones de los personajes pueden ser buenas o malas según su efecto en los demas. Inferir su valoración es básico para comprender la historia.",
     "explicacion": "Observa la acción del personaje. Preguntate: ayuda o daña a otros? Respeta o viola las normas? La valoración se infiere del contexto y de las consecuencias.",
     "regla": "Una acción es buena si ayuda a otros; es mala si les daña sin justificación.",
     "ejemplo_correcto": "En 'Ana compartio su almuerzo con su amigo', la acción es buena: ayuda a otro.",
@@ -147,12 +147,12 @@
     "numero": 13,
     "proceso": "P3",
     "nivel_mcer": "A1",
-    "titulo": "Reconocer el personaje que habla en un dialogo",
-    "teoria": "En los dialogos, los personajes alternan turnos de palabra. Reconocer quien habla en cada momento es básico para comprender la conversación.",
-    "explicacion": "Fijate en los verbos de habla ('dijo', 'respondió', 'preguntó') y en los guiones de dialogo. Cada intervención pertenece a un personaje. Si no está claro, el contexto lo indica.",
-    "regla": "El personaje que habla se reconoce por los verbos de habla y los guiones de dialogo.",
+    "titulo": "Reconocer el personaje que habla en un diálogo",
+    "teoria": "En los diálogos, los personajes alternan turnos de palabra. Reconocer quien habla en cada momento es básico para comprender la conversación.",
+    "explicacion": "Fijate en los verbos de habla ('dijo', 'respondió', 'preguntó') y en los guiones de diálogo. Cada intervención pertenece a un personaje. Si no está claro, el contexto lo indica.",
+    "regla": "El personaje que habla se reconoce por los verbos de habla y los guiones de diálogo.",
     "ejemplo_correcto": "En 'Marta dijo: -Voy a la playa. -Yo también -respondió Juan', Marta habla primero; Juan responde.",
-    "ejemplo_incorrecto": "Decir que todo el dialogo es de Marta. El verbo 'respondió' indica que Juan es el segundo hablante.",
+    "ejemplo_incorrecto": "Decir que todo el diálogo es de Marta. El verbo 'respondió' indica que Juan es el segundo hablante.",
     "numero_global": 90
   },
   {
@@ -279,12 +279,12 @@
     "numero": 10,
     "proceso": "P4",
     "nivel_mcer": "A2",
-    "titulo": "Distinguir el dialogo de la narración",
-    "teoria": "La narración cuenta lo que pasa; el dialogo reproduce lo que dicen los personajes.",
-    "explicacion": "Busca marcas de dialogo: guiones de raya, comillas, verbos como 'dijo'.",
-    "regla": "Dialogo = lo que dicen los personajes; narración = lo que cuenta el narrador.",
-    "ejemplo_correcto": "En 'Marta dijo: -Voy a encender la linterna-', lo entre guiones es dialogo.",
-    "ejemplo_incorrecto": "Decir que todo el texto es dialogo porque hay un personaje que habla.",
+    "titulo": "Distinguir el diálogo de la narración",
+    "teoria": "La narración cuenta lo que pasa; el diálogo reproduce lo que dicen los personajes.",
+    "explicacion": "Busca marcas de diálogo: guiones de raya, comillas, verbos como 'dijo'.",
+    "regla": "Diálogo = lo que dicen los personajes; narración = lo que cuenta el narrador.",
+    "ejemplo_correcto": "En 'Marta dijo: -Voy a encender la linterna-', lo entre guiones es diálogo.",
+    "ejemplo_incorrecto": "Decir que todo el texto es diálogo porque hay un personaje que habla.",
     "numero_global": 54
   },
   {
@@ -388,7 +388,7 @@
     "proceso": "P1",
     "nivel_mcer": "B1",
     "titulo": "Localizar información en tablas y graficos",
-    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico segun el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
+    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico según el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
     "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorías) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
     "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
     "ejemplo_correcto": "Pregunta: 'Cuantos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
@@ -449,7 +449,7 @@
     "nivel_mcer": "B1",
     "titulo": "Identificar argumentos y ejemplos en un texto",
     "teoria": "Un argumento es una razón que apoya una tesis; un ejemplo es un caso concreto que ilustra el argumento. Distinguirlos ayuda a evaluar la solidez del texto.",
-    "explicacion": "Los argumentos suelen ser generales ('el ejercicio es bueno'); los ejemplos son casos especificos ('correr 30 minutos reduce el riesgo cardiaco').",
+    "explicacion": "Los argumentos suelen ser generales ('el ejercicio es bueno'); los ejemplos son casos específicos ('correr 30 minutos reduce el riesgo cardiaco').",
     "regla": "Argumento = razón general; ejemplo = caso concreto que ilustra la razón.",
     "ejemplo_correcto": "En 'El deporte es sano. Por ejemplo, nadar mejora la respiración', el argumento es 'el deporte es sano' y el ejemplo es 'nadar mejora la respiración'.",
     "ejemplo_incorrecto": "Decir que el ejemplo es el argumento. El ejemplo es una ilustración, no la razón.",
@@ -487,7 +487,7 @@
     "teoria": "No toda la información de un texto es igual de importante. Distinguir lo relevante de lo accesorio ayuda a comprender y resumir.",
     "explicacion": "Preguntate: si quitó esta información, el texto pierde sentido? Si la respuesta es si, es relevante. Si la respuesta es no, es accesoria.",
     "regla": "La información relevante es la que, si se elimina, el texto pierde sentido.",
-    "ejemplo_correcto": "En un texto sobre el cambió climatico, la causa principal (emisiones de CO2) es relevante; el nombre del autor del estudió, accesorio.",
+    "ejemplo_correcto": "En un texto sobre el cambio climatico, la causa principal (emisiones de CO2) es relevante; el nombre del autor del estudió, accesorio.",
     "ejemplo_incorrecto": "Decir que todos los datos son igual de relevantes. Algunos son ejemplos o detalles que se pueden omitir.",
     "numero_global": 36
   },
@@ -567,11 +567,11 @@
     "numero": 16,
     "proceso": "P3",
     "nivel_mcer": "B1",
-    "titulo": "Reconocer la moraleja de una fabula",
-    "teoria": "La moraleja es la enseñanza que se extrae de una fabula o cuento. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
+    "titulo": "Reconocer la moraleja de una fábula",
+    "teoria": "La moraleja es la enseñanza que se extrae de una fábula o cuento. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
     "explicacion": "Lee el final de la historia. Preguntate: que enseñanza deja? Si no está explicita, se infiere del comportamiento de los personajes y sus consecuencias.",
     "regla": "La moraleja es la enseñanza que se extrae de la historia, a menudo al final.",
-    "ejemplo_correcto": "En la fabula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
+    "ejemplo_correcto": "En la fábula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
     "ejemplo_incorrecto": "Decir que la moraleja es el argumento de la historia. La moraleja es la enseñanza, no el relato.",
     "numero_global": 71
   },
@@ -656,7 +656,7 @@
     "explicacion": "Para distinguir hecho de opinión: (1) preguntarse si la afirmación puede verificarse con datos externos; (2) buscar marcas de subjetividad (adjetivos valorativos, verbos de opinión como 'creo', 'considero', 'deberia'); (3) clasificar cada oración. Una oración puede contener ambos: 'El ayuntamiento aprobó la ley (hecho); fue una decisión acertada (opinión).'",
     "regla": "Un hecho se verifica; una opinión se valora. Las marcas de subjetividad (adjetivos, verbos de opinión) delatan la opinión.",
     "ejemplo_correcto": "Texto: 'El ayuntamiento aprobó la ordenanza el martes. La medida, sin embargo, es insuficiente.' -> 'Aprobó la ordenanza' es hecho (verificable). 'Es insuficiente' es opinión (valorativa).",
-    "ejemplo_incorrecto": "Lector que clasifica todo como 'hecho' porque el texto es periodistico. El genero no garantiza objetividad: la segunda oración es claramente valorativa.",
+    "ejemplo_incorrecto": "Lector que clasifica todo como 'hecho' porque el texto es periodistico. El género no garantiza objetividad: la segunda oración es claramente valorativa.",
     "numero_global": 7
   },
   {
@@ -737,9 +737,9 @@
     "nivel_mcer": "B2",
     "titulo": "Localizar la cita textual que apoya una afirmación",
     "teoria": "En los textos argumentativos, las citas textuales (entre comillas) apoyan las afirmaciones del autor.",
-    "explicacion": "Busca las comillas o el estilo indirecto ('segun X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
-    "regla": "La cita textual se reconoce por comillas o por 'segun X'.",
-    "ejemplo_correcto": "En 'Segun la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
+    "explicacion": "Busca las comillas o el estilo indirecto ('según X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
+    "regla": "La cita textual se reconoce por comillas o por 'según X'.",
+    "ejemplo_correcto": "En 'Según la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
     "ejemplo_incorrecto": "Aceptar 'muchos expertos dicen' sin nombre ni institución.",
     "numero_global": 42
   },
@@ -785,9 +785,9 @@
     "nivel_mcer": "B2",
     "titulo": "Localizar la evidencia empirica en un texto académico",
     "teoria": "En los textos académicos, la evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadisticas. Localizarla permite verificar la solidez del texto.",
-    "explicacion": "Busca expresiones como 'un estudió de', 'segun datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
+    "explicacion": "Busca expresiones como 'un estudio de', 'según datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
     "regla": "La evidencia empirica se reconoce por datos, estudios, encuestas o experimentos citados.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudió citado.",
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudio citado.",
     "ejemplo_incorrecto": "Decir que 'la gente piensa que' es evidencia empirica. Una opinión general no es un dato verificable.",
     "numero_global": 62
   },
@@ -869,10 +869,10 @@
     "nivel_mcer": "B2",
     "titulo": "Evaluar si una fuente es primaria o secundaria",
     "teoria": "En los textos académicos, las fuentes primarias son las originales (estudios, documentos, testimonios); las secundarias interpretan o resumen las primarias. Evaluar su tipo ayuda a juzgar la credibilidad.",
-    "explicacion": "Preguntate: la fuente es el estudió original o un resumen de otro? Si cita el estudió directamente, es primaria; si lo resume, es secundaria.",
+    "explicacion": "Preguntate: la fuente es el estudio original o un resumen de otro? Si cita el estudio directamente, es primaria; si lo resume, es secundaria.",
     "regla": "La fuente primaria es la original; la secundaria interpreta o resume la primaria.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
-    "ejemplo_incorrecto": "Decir que 'segun Wikipedia' es fuente primaria. Wikipedia es secundaria.",
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
+    "ejemplo_incorrecto": "Decir que 'según Wikipedia' es fuente primaria. Wikipedia es secundaria.",
     "numero_global": 98
   },
   {
@@ -881,7 +881,7 @@
     "nivel_mcer": "C1",
     "titulo": "Interpretar la intención del autor",
     "teoria": "Todo texto es escrito con un proposito: informar, persuadir, entretener, criticar, homenajear. La intención no siempre se declara: se infiere de las elecciones del autor (vocabulario, tono, selección de hechos, uso de adjetivos). Interpretar la intención es un proceso de P3 que requiere atender al 'como se dice' tanto como al 'que se dice'.",
-    "explicacion": "Para interpretar la intención: (1) identificar el genero y el contexto; (2) observar el tono (irónico, solemne, entusiasta); (3) analizar la selección de información (que se destaca, que se omite); (4) analizar el lexico valorativo (adjetivos, adverbios); (5) proponer una intención y verificar que sea coherente con todos los indicios.",
+    "explicacion": "Para interpretar la intención: (1) identificar el género y el contexto; (2) observar el tono (irónico, solemne, entusiasta); (3) analizar la selección de información (que se destaca, que se omite); (4) analizar el lexico valorativo (adjetivos, adverbios); (5) proponer una intención y verificar que sea coherente con todos los indicios.",
     "regla": "La intención del autor se infiere del tono, del lexico valorativo y de la selección de hechos, no de una declaración explicita.",
     "ejemplo_correcto": "Texto: 'Una vez más, la empresa prometio reducir emisiones. Una vez más, los datos la desmintieron al mes siguiente.' -> Intención: crítica / desconfianza. El 'una vez más' repetido y la oposición promesa/datos lo evidencian.",
     "ejemplo_incorrecto": "Lector que responde: 'El autor informa sobre la empresa'. Si solo informara, no usaria 'una vez más' de forma repetida ni el contraste irónico. La intención es crítica, no meramente informativa.",
@@ -895,7 +895,7 @@
     "teoria": "En la lectura digital, el lector debe evaluar la fiabilidad de la fuente: quien lo dice, con que autoridad, con que interes, con que evidencia. Evaluar la credibilidad es un proceso de P4 que requiere atención a indicios extratextuales (autor, medio, fecha) y a la calidad interna del texto (evidencias, citas, equilibrio).",
     "explicacion": "Para evaluar la credibilidad: (1) identificar autor y medio; (2) preguntarse si tienen autoridad en la materia; (3) buscar si el texto cita fuentes o presenta evidencia; (4) evaluar si presenta solo una versión o reconoce otras; (5) verificar la fecha (un texto de 2010 puede estar obsoleto en 2026). Una fuente es más creible cuanto más verificable y menos interesada.",
     "regla": "Una fuente es creible si el autor tiene autoridad, si el texto cita evidencias verificables y si reconoce otras posiciones. La credibilidad no se presume: se verifica.",
-    "ejemplo_correcto": "Texto: 'Segun la OMS (2024), la contaminación del aire causo 4,2 millones de muertes prematuras.' -> Fuente: OMS, con anio. Alta credibilidad: organismo internacional, dato verificable, fecha reciente.",
+    "ejemplo_correcto": "Texto: 'Según la OMS (2024), la contaminación del aire causo 4,2 millones de muertes prematuras.' -> Fuente: OMS, con anio. Alta credibilidad: organismo internacional, dato verificable, fecha reciente.",
     "ejemplo_incorrecto": "Texto: 'Muchos expertos dicen que el aire es malo.' -> 'Muchos expertos' sin nombre ni institución. Baja credibilidad: no se puede verificar quien lo dice.",
     "numero_global": 8
   },
@@ -905,9 +905,9 @@
     "nivel_mcer": "C1",
     "titulo": "Localizar la fuente de una cita en un texto académico",
     "teoria": "En un texto académico, las citas permiten verificar la información. Localizar la fuente (autor, año, institución) es esencial para evaluar la credibilidad del texto.",
-    "explicacion": "Busca en el texto paréntesis con autor y año, notas al pie, o frases como 'segun X'. Si no hay fuente, la afirmación no es verificable.",
+    "explicacion": "Busca en el texto paréntesis con autor y año, notas al pie, o frases como 'según X'. Si no hay fuente, la afirmación no es verificable.",
     "regla": "Sin fuente verificable, la afirmación no es comprobable.",
-    "ejemplo_correcto": "En 'Segun García (2020), el 40% de los estudiantes...', la fuente es García (2020).",
+    "ejemplo_correcto": "En 'Según García (2020), el 40% de los estudiantes...', la fuente es García (2020).",
     "ejemplo_incorrecto": "Aceptar como dato 'muchos expertos dicen que...' sin preguntar quienes son esos expertos.",
     "numero_global": 12
   },
@@ -943,7 +943,7 @@
     "teoria": "La evidencia (datos, estudios, citas) sostiene las afirmaciones. Evaluar su calidad es esencial: no toda evidencia es igual de sólida.",
     "explicacion": "Preguntate: la evidencia es verificable? La fuente es creible? La muestra es suficiente? Hay estudios que la contradicen?",
     "regla": "La evidencia sólida es verificable, de fuente creible, con muestra suficiente y sin contradicciones graves.",
-    "ejemplo_correcto": "Un estudió con 10.000 participantes en una revista cientifica es evidencia sólida.",
+    "ejemplo_correcto": "Un estudio con 10.000 participantes en una revista cientifica es evidencia sólida.",
     "ejemplo_incorrecto": "Aceptar 'un amigo mio dice que...' como evidencia. Un caso anecdótico no es evidencia sólida.",
     "numero_global": 27
   },
@@ -1001,9 +1001,9 @@
     "nivel_mcer": "C1",
     "titulo": "Localizar la voz del autor en un texto con citas",
     "teoria": "En los textos académicos y periodisticos, la voz del autor se mezcla con las voces citadas (de otros autores, testigos o fuentes). Distinguirlas es esencial para saber que afirma el autor y que atribuye a otros.",
-    "explicacion": "Busca las comillas, los verbos de habla ('afirma', 'sostiene', 'segun') y los nombres propios. Lo que va entre comillas es voz citada; lo que queda fuera es voz del autor.",
+    "explicacion": "Busca las comillas, los verbos de habla ('afirma', 'sostiene', 'según') y los nombres propios. Lo que va entre comillas es voz citada; lo que queda fuera es voz del autor.",
     "regla": "La voz del autor se distingue de las citas por las comillas, los verbos de habla y los nombres de las fuentes.",
-    "ejemplo_correcto": "En 'Segun García (2020), X. Sin embargo, considero que Y', 'X' es voz citada e 'Y' es voz del autor.",
+    "ejemplo_correcto": "En 'Según García (2020), X. Sin embargo, considero que Y', 'X' es voz citada e 'Y' es voz del autor.",
     "ejemplo_incorrecto": "Atribuir al autor la frase que aparece entre comillas. Lo entrecomillado es de otro, no del autor del texto.",
     "numero_global": 63
   },
@@ -1036,11 +1036,11 @@
     "proceso": "P1",
     "nivel_mcer": "C1",
     "titulo": "Localizar la fuente primaria vs secundaria en un texto académico",
-    "teoria": "En los textos académicos, las fuentes primarias son las originales (un estudió, un documento histórico, una entrevista); las secundarias son las que interpretan las primarias (un artículo de revisión, una enciclopedia).",
-    "explicacion": "Busca como se cita la fuente: si es un estudió original ('un estudió de la Universidad X'), es primaria; si es un resumen ('segun el informe de', 'como senala el artículo'), es secundaria.",
+    "teoria": "En los textos académicos, las fuentes primarias son las originales (un estudio, un documento histórico, una entrevista); las secundarias son las que interpretan las primarias (un artículo de revisión, una enciclopedia).",
+    "explicacion": "Busca como se cita la fuente: si es un estudio original ('un estudio de la Universidad X'), es primaria; si es un resumen ('según el informe de', 'como senala el artículo'), es secundaria.",
     "regla": "Fuente primaria = original; fuente secundaria = interpreta o resume la primaria.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Lund (2023) encontró que...', la fuente es primaria (el estudió original).",
-    "ejemplo_incorrecto": "Decir que 'segun Wikipedia' es fuente primaria. Wikipedia es secundaria (resume fuentes primarias).",
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Lund (2023) encontró que...', la fuente es primaria (el estudio original).",
+    "ejemplo_incorrecto": "Decir que 'según Wikipedia' es fuente primaria. Wikipedia es secundaria (resume fuentes primarias).",
     "numero_global": 83
   },
   {
@@ -1072,7 +1072,7 @@
     "proceso": "P2",
     "nivel_mcer": "C2",
     "titulo": "Inferir el significado implicito de una metáfora",
-    "teoria": "Las metaforas no dicen literalmente lo que significan. Requieren que el lector infiera el sentido figurado a partir del contexto.",
+    "teoria": "Las metáforas no dicen literalmente lo que significan. Requieren que el lector infiera el sentido figurado a partir del contexto.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate que característica comparten. Verifica que la interpretación sea coherente con el resto del texto.",
     "regla": "La metáfora compara dos terminos por una característica comun; el sentido figurado se infiere de esa comparación.",
     "ejemplo_correcto": "En 'Sus ojos eran dos luceros', se infiere que los ojos brillaban o eran hermosos.",
@@ -1083,11 +1083,11 @@
     "numero": 2,
     "proceso": "P4",
     "nivel_mcer": "C2",
-    "titulo": "Identificar el sesgo ideologico de un texto",
-    "teoria": "Un texto puede presentar la información desde una perspectiva ideologica (política, economica, cultural). Identificarlo es esencial para una lectura crítica.",
+    "titulo": "Identificar el sesgo ideológico de un texto",
+    "teoria": "Un texto puede presentar la información desde una perspectiva ideologica (política, económica, cultural). Identificarlo es esencial para una lectura crítica.",
     "explicacion": "Observa que terminos se usan para nombrar lo mismo ('terrorista' vs 'luchador'), que fuentes se citan y cuales se omiten, que soluciones se proponen.",
-    "regla": "El sesgo ideologico se revela en el vocabulario, las fuentes citadas y las soluciones propuestas.",
-    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, hay un sesgo ideologico claro.",
+    "regla": "El sesgo ideológico se revela en el vocabulario, las fuentes citadas y las soluciones propuestas.",
+    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, hay un sesgo ideológico claro.",
     "ejemplo_incorrecto": "Decir que el texto es neutral porque no menciona partidos. El vocabulario ya revela una postura.",
     "numero_global": 28
   },
@@ -1107,12 +1107,12 @@
     "numero": 4,
     "proceso": "P4",
     "nivel_mcer": "C2",
-    "titulo": "Evaluar la solidez de una analogia",
-    "teoria": "Una analogia compara dos cosas para explicar o persuadir. Su solidez depende de que la comparación sea pertinente y no oculta diferencias importantes.",
+    "titulo": "Evaluar la solidez de una analogía",
+    "teoria": "Una analogía compara dos cosas para explicar o persuadir. Su solidez depende de que la comparación sea pertinente y no oculta diferencias importantes.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: en que se parecen? Esa semejanza es relevante para lo que se quiere explicar? Hay diferencias importantes que se omiten?",
-    "regla": "Una analogia es sólida si la semejanza es relevante y las diferencias no invalidan la comparación.",
-    "ejemplo_correcto": "Comparar el cerebro con un ordenador es una analogia útil para explicar el procesamiento de información, aunque tiene límites (el cerebro no es binario).",
-    "ejemplo_incorrecto": "Aceptar como válida la analogia 'el universo es como un reloj' sin preguntar quien seria el relojero. La analogia oculta una diferencia clave.",
+    "regla": "Una analogía es sólida si la semejanza es relevante y las diferencias no invalidan la comparación.",
+    "ejemplo_correcto": "Comparar el cerebro con un ordenador es una analogía útil para explicar el procesamiento de información, aunque tiene límites (el cerebro no es binario).",
+    "ejemplo_incorrecto": "Aceptar como válida la analogía 'el universo es como un reloj' sin preguntar quien seria el relojero. La analogía oculta una diferencia clave.",
     "numero_global": 38
   },
   {
@@ -1159,8 +1159,8 @@
     "teoria": "En los textos académicos y periodisticos, las conclusiones basadas en datos pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la muestra, la significación estadistica y la interpretación.",
     "explicacion": "Preguntate: la muestra es suficiente? La diferencia observada es estadisticamente significativa? La interpretación de los datos es correcta? Una conclusión estadistica sólida se apoya en evidencia robusta.",
     "regla": "Una conclusión estadistica es sólida si la muestra es suficiente, la diferencia es significativa y la interpretación es correcta.",
-    "ejemplo_correcto": "Un estudió con 10.000 participantes y significación estadistica alta permite una conclusión sólida.",
-    "ejemplo_incorrecto": "Concluir que 'el cafe cura el cáncer' a partir de un estudió con 20 personas. La muestra es insuficiente.",
+    "ejemplo_correcto": "Un estudio con 10.000 participantes y significación estadistica alta permite una conclusión sólida.",
+    "ejemplo_incorrecto": "Concluir que 'el cafe cura el cáncer' a partir de un estudio con 20 personas. La muestra es insuficiente.",
     "numero_global": 78
   },
   {
@@ -1183,7 +1183,7 @@
     "teoria": "En los textos literarios, los colores pueden tener un valor simbólico: el rojo puede representar pasión o peligro; el blanco, pureza o muerte; el negro, luto o misterio. Interpretarlo es parte de la lectura literaria avanzada.",
     "explicacion": "Identifica el color y observa como aparece. Preguntate: que emoción o idea evoca? Se repite? Esta asociado a un personaje o situación? El simbolismo se construye por repetición y contexto.",
     "regla": "El simbolismo del color se construye por su aparición repetida y por el contexto de la historia.",
-    "ejemplo_correcto": "En un cuento donde el vestido blanco de la novia se mancha de sangre, el blanco simboliza la pureza perdida.",
+    "ejemplo_correcto": "En un cuento donde el vestido blanco de la novia se mancha de sangre, el blanco simboliza la pureza pérdida.",
     "ejemplo_incorrecto": "Decir que el blanco solo significa 'color claro'. En literatura, los colores significan más alla de su valor cromatico.",
     "numero_global": 94
   },
@@ -1544,8 +1544,8 @@
     "numero": 46,
     "nivel_mcer": "A1",
     "proceso": "P2",
-    "titulo": "Inferir el sexo o genero de un personaje",
-    "teoria": "En los cuentos, el sexo o genero de un personaje se infiere del nombre, los pronombres (el/ella) o las descripciones (niño/niña).",
+    "titulo": "Inferir el sexo o género de un personaje",
+    "teoria": "En los cuentos, el sexo o género de un personaje se infiere del nombre, los pronombres (el/ella) o las descripciones (niño/niña).",
     "explicacion": "Para inferir el sexo, observa las pistas: el nombre (María, Juan), los artículos (el/la), los adjetivos (alto/alta). Ejemplo: si dice 'María estaba cansada', se infiere que es mujer.",
     "regla": "El sexo se infiere del nombre, los artículos y los adjetivos que acompainan al personaje.",
     "ejemplo_correcto": "En 'Pedro estaba cansado', se infiere que Pedro es hombre.",
@@ -1590,7 +1590,7 @@
     "proceso": "P2",
     "titulo": "Inferir la causa de un sentimiento",
     "teoria": "En los cuentos, los sentimientos tienen causas que no siempre se dicen. Inferir la causa ayuda a comprender por que un personaje se siente así.",
-    "explicacion": "Para inferir la causa, preguntate: por que se siente así el personaje? Que ha pasado antes? Ejemplo: si un personaje llora porque su perro se ha perdido, la causa es la perdida.",
+    "explicacion": "Para inferir la causa, preguntate: por que se siente así el personaje? Que ha pasado antes? Ejemplo: si un personaje llora porque su perro se ha perdido, la causa es la pérdida.",
     "regla": "La causa del sentimiento se infiere de lo que ha pasado antes en la historia.",
     "ejemplo_correcto": "En 'Lucía lloro cuando su abuela se marcho', se infiere que esta triste por la despedida.",
     "ejemplo_incorrecto": "Decir que Lucía llora sin motivo. El contexto de la despedida explica la tristeza."
@@ -1600,7 +1600,7 @@
     "nivel_mcer": "A1",
     "proceso": "P2",
     "titulo": "Inferir cuantos personajes hay en una escena",
-    "teoria": "En los cuentos, el número de personajes se infiere de las acciones y los dialogos: cuantas voces hablan? Cuantas acciones ocurren a la vez?",
+    "teoria": "En los cuentos, el número de personajes se infiere de las acciones y los diálogos: cuantas voces hablan? Cuantas acciones ocurren a la vez?",
     "explicacion": "Para inferir cuantos personajes hay, cuenta las voces o acciones distintas. Ejemplo: si dice 'Marta cocinaba y Juan leía', hay dos personajes.",
     "regla": "El número de personajes se infiere contando voces o acciones distintas en la escena.",
     "ejemplo_correcto": "En 'Ana cocinaba mientras Luis ponia la mesa', se infieren dos personajes.",
@@ -1720,12 +1720,12 @@
     "numero": 62,
     "nivel_mcer": "A1",
     "proceso": "P3",
-    "titulo": "Distinguir el dialogo de la narración en un cuento",
-    "teoria": "La narración cuenta lo que pasa (con un narrador) y el dialogo reproduce lo que dicen los personajes (entre guiones o comillas).",
-    "explicacion": "Busca marcas de dialogo: guiones de raya, comillas, verbos como 'dijo', 'respondió'. Lo que esta dentro de esas marcas es dialogo; lo demas es narración.",
-    "regla": "Dialogo = lo que dicen los personajes (marcado con guiones o comillas); narración = lo que cuenta el narrador.",
-    "ejemplo_correcto": "En 'Marta dijo: -Voy a encender la linterna-', lo entre guiones es dialogo.",
-    "ejemplo_incorrecto": "Decir que todo el texto es dialogo porque hay un personaje que habla."
+    "titulo": "Distinguir el diálogo de la narración en un cuento",
+    "teoria": "La narración cuenta lo que pasa (con un narrador) y el diálogo reproduce lo que dicen los personajes (entre guiones o comillas).",
+    "explicacion": "Busca marcas de diálogo: guiones de raya, comillas, verbos como 'dijo', 'respondió'. Lo que esta dentro de esas marcas es diálogo; lo demas es narración.",
+    "regla": "Diálogo = lo que dicen los personajes (marcado con guiones o comillas); narración = lo que cuenta el narrador.",
+    "ejemplo_correcto": "En 'Marta dijo: -Voy a encender la linterna-', lo entre guiones es diálogo.",
+    "ejemplo_incorrecto": "Decir que todo el texto es diálogo porque hay un personaje que habla."
   },
   {
     "numero": 63,
@@ -1742,11 +1742,11 @@
     "numero": 64,
     "nivel_mcer": "A1",
     "proceso": "P3",
-    "titulo": "Reconocer la moraleja de una fabula",
-    "teoria": "La moraleja es la enseñanza que se extrae de una fabula o cuento. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
+    "titulo": "Reconocer la moraleja de una fábula",
+    "teoria": "La moraleja es la enseñanza que se extrae de una fábula o cuento. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
     "explicacion": "Lee el final de la historia. Preguntate: que enseñanza deja? Si no está explicita, se infiere del comportamiento de los personajes y sus consecuencias.",
     "regla": "La moraleja es la enseñanza que se extrae de la historia, a menudo al final.",
-    "ejemplo_correcto": "En la fabula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
+    "ejemplo_correcto": "En la fábula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
     "ejemplo_incorrecto": "Decir que la moraleja es el argumento de la historia. La moraleja es la enseñanza, no el relato."
   },
   {
@@ -1835,7 +1835,7 @@
     "explicacion": "Para reconocer una descripción, busca las partes del texto que dicen como es algo: 'era alto', 'tenía los ojos azules', 'olía a madera'.",
     "regla": "La descripción dice como son los personajes, lugares u objetos, usando adjetivos.",
     "ejemplo_correcto": "En 'La casa era grande y tenía ventanas azules', hay una descripción.",
-    "ejemplo_incorrecto": "Decir que 'corrió hacía la puerta' es una descripción. Es una acción, no una descripción."
+    "ejemplo_incorrecto": "Decir que 'corrió hacia la puerta' es una descripción. Es una acción, no una descripción."
   },
   {
     "numero": 73,
@@ -2010,7 +2010,7 @@
     "teoria": "No toda la información de un texto es igual de importante. Distinguir lo relevante de lo accesorio ayuda a comprender y resumir.",
     "explicacion": "Para distinguir información relevante de irrelevante, preguntate: si quitó esta información, el texto pierde sentido? Si la respuesta es si, es relevante.",
     "regla": "La información relevante es la que, si se elimina, el texto pierde sentido.",
-    "ejemplo_correcto": "En un texto sobre el cambió climatico, la causa principal (emisiones de CO2) es relevante; el nombre del autor del estudió es accesorio.",
+    "ejemplo_correcto": "En un texto sobre el cambio climatico, la causa principal (emisiones de CO2) es relevante; el nombre del autor del estudió es accesorio.",
     "ejemplo_incorrecto": "Decir que todos los datos son igual de relevantes. Algunos son ejemplos o detalles."
   },
   {
@@ -2073,7 +2073,7 @@
     "nivel_mcer": "A1",
     "proceso": "P4",
     "titulo": "Detectar el sesgo en un texto",
-    "teoria": "El sesgo es una inclinación injustificada hacía una postura. Se detecta cuando el texto presenta solo una versión de los hechos o usa un lenguaje cargado.",
+    "teoria": "El sesgo es una inclinación injustificada hacia una postura. Se detecta cuando el texto presenta solo una versión de los hechos o usa un lenguaje cargado.",
     "explicacion": "Para detectar el sesgo, preguntate: el texto presenta solo una versión? Usa un lenguaje cargado (elogios o insultos)? Omite información relevante?",
     "regla": "El sesgo se detecta cuando el texto presenta solo una versión o usa un lenguaje cargado.",
     "ejemplo_correcto": "En un texto que llama 'heroes' a unos y 'terroristas' a otros sin explicar por que, hay sesgo.",
@@ -2173,9 +2173,9 @@
     "proceso": "P1",
     "titulo": "Localizar la cita textual que apoya una afirmación",
     "teoria": "En los textos argumentativos, las citas textuales (entre comillas) apoyan las afirmaciones del autor. Localizarlas permite verificar la evidencia que sostiene cada tesis.",
-    "explicacion": "Busca las comillas o el estilo indirecto ('segun X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
-    "regla": "La cita textual se reconoce por comillas o por 'segun X' y sostiene una afirmación del autor.",
-    "ejemplo_correcto": "En 'Segun la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
+    "explicacion": "Busca las comillas o el estilo indirecto ('según X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
+    "regla": "La cita textual se reconoce por comillas o por 'según X' y sostiene una afirmación del autor.",
+    "ejemplo_correcto": "En 'Según la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
     "ejemplo_incorrecto": "Aceptar como cita 'muchos expertos dicen' sin nombre ni institución. No es una cita verificable."
   },
   {
@@ -2327,10 +2327,10 @@
     "proceso": "P1",
     "titulo": "Localizar la fuente de una cita",
     "teoria": "La fuente de una cita incluye el autor, el año y la institución. Localizarla permite verificar la credibilidad de la información.",
-    "explicacion": "Busca los paréntesis con autor y año: '(García, 2020)'. Busca también 'segun X' o 'de acuerdo con Y'.",
+    "explicacion": "Busca los paréntesis con autor y año: '(García, 2020)'. Busca también 'según X' o 'de acuerdo con Y'.",
     "regla": "La fuente de una cita incluye autor, año e institución (si aplica).",
-    "ejemplo_correcto": "En 'Segun García (2020), el 40%...', la fuente es García (2020).",
-    "ejemplo_incorrecto": "Decir que 'segun' es la fuente. 'Segun' es un conector, no una fuente."
+    "ejemplo_correcto": "En 'Según García (2020), el 40%...', la fuente es García (2020).",
+    "ejemplo_incorrecto": "Decir que 'según' es la fuente. 'Según' es un conector, no una fuente."
   },
   {
     "numero": 36,
@@ -2358,12 +2358,12 @@
     "numero": 38,
     "nivel_mcer": "A2",
     "proceso": "P1",
-    "titulo": "Localizar los dialogos en un texto narrativo",
-    "teoria": "Los dialogos son las intervenciones de los personajes. Se reconocen por los guiones de raya (—), las comillas o los verbos de habla ('dijo', 'respondió').",
-    "explicacion": "Busca los guiones de raya o comillas. Lo que esta dentro es dialogo; lo demas es narración.",
-    "regla": "El dialogo se reconoce por guiones, comillas o verbos de habla.",
-    "ejemplo_correcto": "En '—Hola —dijo María', lo entre guiones es dialogo.",
-    "ejemplo_incorrecto": "Decir que 'dijo' es dialogo. 'Dijo' es un verbo de habla que introduce el dialogo."
+    "titulo": "Localizar los diálogos en un texto narrativo",
+    "teoria": "Los diálogos son las intervenciones de los personajes. Se reconocen por los guiones de raya (—), las comillas o los verbos de habla ('dijo', 'respondió').",
+    "explicacion": "Busca los guiones de raya o comillas. Lo que esta dentro es diálogo; lo demas es narración.",
+    "regla": "El diálogo se reconoce por guiones, comillas o verbos de habla.",
+    "ejemplo_correcto": "En '—Hola —dijo María', lo entre guiones es diálogo.",
+    "ejemplo_incorrecto": "Decir que 'dijo' es diálogo. 'Dijo' es un verbo de habla que introduce el diálogo."
   },
   {
     "numero": 39,
@@ -2424,10 +2424,10 @@
     "numero": 44,
     "nivel_mcer": "A2",
     "proceso": "P2",
-    "titulo": "Inferir la relación entre dos personajes por el dialogo",
-    "teoria": "La relación entre dos personajes se infiere del trato, el lenguaje y las acciones compartidas en el dialogo: confianza, respeto, rivalidad, jerarquía.",
+    "titulo": "Inferir la relación entre dos personajes por el diálogo",
+    "teoria": "La relación entre dos personajes se infiere del trato, el lenguaje y las acciones compartidas en el diálogo: confianza, respeto, rivalidad, jerarquía.",
     "explicacion": "Observa el trato: se hablan con confianza? Se tratan de usted? Hay deferencia? La relación se infiere del conjunto.",
-    "regla": "La relación se infiere del trato, el lenguaje y las acciones compartidas en el dialogo.",
+    "regla": "La relación se infiere del trato, el lenguaje y las acciones compartidas en el diálogo.",
     "ejemplo_correcto": "En 'Marta le dijo a su hermano: ¿Qué tal el examen?', se infiere una relación fraternal cercana.",
     "ejemplo_incorrecto": "Decir que son enemigos porque discuten una vez. Una discusión puntual no define la relación."
   },
@@ -2469,9 +2469,9 @@
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir el tono del texto (alegre, triste, irónico)",
-    "teoria": "El tono es la actitud del autor hacía el tema: alegre, triste, irónico, solemne, entusiasta. Se infiere del lexico, la puntuación y las imagenes.",
+    "teoria": "El tono es la actitud del autor hacia el tema: alegre, triste, irónico, solemne, entusiasta. Se infiere del lexico, la puntuación y las imágenes.",
     "explicacion": "Busca las palabras y la puntuación. Un texto con exclamaciones y palabras positivas tiene tono alegre; con puntos suspensivos y negativas, triste.",
-    "regla": "El tono se infiere del lexico, la puntuación y las imagenes del texto.",
+    "regla": "El tono se infiere del lexico, la puntuación y las imágenes del texto.",
     "ejemplo_correcto": "En un texto con '¡Qué maravilla! ¡Increible!', el tono es entusiasta.",
     "ejemplo_incorrecto": "Decir que el tono es triste porque hay una palabra negativa. Hay que ver el conjunto."
   },
@@ -2535,11 +2535,11 @@
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir la evolución de un personaje",
-    "teoria": "La evolución es el cambió que experimenta un personaje a lo largo del texto: de timido a valiente, de egoista a generoso. Se infiere comparando su comportamiento al principio y al final.",
-    "explicacion": "Compara como era el personaje al principio y como es al final. Que ha cambiado? Que ha aprendido? El cambió revela su evolución.",
+    "teoria": "La evolución es el cambio que experimenta un personaje a lo largo del texto: de timido a valiente, de egoista a generoso. Se infiere comparando su comportamiento al principio y al final.",
+    "explicacion": "Compara como era el personaje al principio y como es al final. Que ha cambiado? Que ha aprendido? El cambio revela su evolución.",
     "regla": "La evolución del personaje se infiere comparando su comportamiento al inicio y al final.",
-    "ejemplo_correcto": "En un cuento donde el personaje empieza egoista y termina compartiendo, se infiere una evolución hacía la generosidad.",
-    "ejemplo_incorrecto": "Decir que no hay evolución porque el personaje es el mismo. La comparación revela el cambió."
+    "ejemplo_correcto": "En un cuento donde el personaje empieza egoista y termina compartiendo, se infiere una evolución hacia la generosidad.",
+    "ejemplo_incorrecto": "Decir que no hay evolución porque el personaje es el mismo. La comparación revela el cambio."
   },
   {
     "numero": 55,
@@ -2670,7 +2670,7 @@
     "teoria": "Las citas apoyan, contrastan o autorizan una afirmación. Su función es dar credibilidad o profundidad al texto.",
     "explicacion": "Identifica la cita. Preguntate: que afirmación apoya? Contradice algo? Da autoridad al texto?",
     "regla": "La cita apoya, contrasta o autoriza una afirmación del texto.",
-    "ejemplo_correcto": "En 'Segun la OMS (2024), la contaminación causa 4,2 millones de muertes', la cita apoya la afirmación con datos.",
+    "ejemplo_correcto": "En 'Según la OMS (2024), la contaminación causa 4,2 millones de muertes', la cita apoya la afirmación con datos.",
     "ejemplo_incorrecto": "Decir que la cita no tiene función. Toda cita tiene una función argumentativa."
   },
   {
@@ -2703,18 +2703,18 @@
     "teoria": "En los textos literarios, los colores pueden tener un valor simbólico: el rojo puede representar pasión o peligro; el blanco, pureza o muerte; el negro, luto o misterio.",
     "explicacion": "Identifica el color. Preguntate: que emoción o idea evoca? Se repite? Esta asociado a un personaje o situación?",
     "regla": "El simbolismo del color se construye por su aparición repetida y por el contexto de la historia.",
-    "ejemplo_correcto": "En un cuento donde el vestido blanco de la novia se mancha de sangre, el blanco simboliza la pureza perdida.",
+    "ejemplo_correcto": "En un cuento donde el vestido blanco de la novia se mancha de sangre, el blanco simboliza la pureza pérdida.",
     "ejemplo_incorrecto": "Decir que el blanco solo significa 'color claro'. En literatura, los colores significan más alla de su valor cromatico."
   },
   {
     "numero": 70,
     "nivel_mcer": "A2",
     "proceso": "P3",
-    "titulo": "Interpretar la moraleja de una fabula",
-    "teoria": "La moraleja es la enseñanza que se extrae de una fabula. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
-    "explicacion": "Lee el final de la fabula. Preguntate: que enseñanza deja? Si no está explicita, se infiere del comportamiento de los personajes y sus consecuencias.",
+    "titulo": "Interpretar la moraleja de una fábula",
+    "teoria": "La moraleja es la enseñanza que se extrae de una fábula. Suele estar al final, explicita o implicita, y se expresa como una maxima o consejo.",
+    "explicacion": "Lee el final de la fábula. Preguntate: que enseñanza deja? Si no está explicita, se infiere del comportamiento de los personajes y sus consecuencias.",
     "regla": "La moraleja es la enseñanza que se extrae de la historia, a menudo al final.",
-    "ejemplo_correcto": "En la fabula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
+    "ejemplo_correcto": "En la fábula de la liebre y la tortuga, la moraleja es 'la perseverancia vence al talento'.",
     "ejemplo_incorrecto": "Decir que la moraleja es el argumento de la historia. La moraleja es la enseñanza, no el relato."
   },
   {
@@ -2743,12 +2743,12 @@
     "numero": 73,
     "nivel_mcer": "A2",
     "proceso": "P3",
-    "titulo": "Interpretar el uso del dialogo en la narración",
-    "teoria": "El dialogo en la narración cumple funciones: caracterizar a los personajes, avanzar la trama, informar al lector. Interpretar su función ayuda a comprender la historia.",
-    "explicacion": "Preguntate: que aporta este dialogo? Caracteriza a un personaje? Avanza la trama? Informa de algo?",
-    "regla": "El dialogo en la narración caracteriza, avanza la trama o informa.",
-    "ejemplo_correcto": "En un dialogo donde un personaje habla con brusquedad, la función es caracterizarlo como alguien rudo.",
-    "ejemplo_incorrecto": "Decir que el dialogo no tiene función. Todo dialogo tiene una función en la narración."
+    "titulo": "Interpretar el uso del diálogo en la narración",
+    "teoria": "El diálogo en la narración cumple funciones: caracterizar a los personajes, avanzar la trama, informar al lector. Interpretar su función ayuda a comprender la historia.",
+    "explicacion": "Preguntate: que aporta este diálogo? Caracteriza a un personaje? Avanza la trama? Informa de algo?",
+    "regla": "El diálogo en la narración caracteriza, avanza la trama o informa.",
+    "ejemplo_correcto": "En un diálogo donde un personaje habla con brusquedad, la función es caracterizarlo como alguien rudo.",
+    "ejemplo_incorrecto": "Decir que el diálogo no tiene función. Todo diálogo tiene una función en la narración."
   },
   {
     "numero": 74,
@@ -2921,10 +2921,10 @@
     "proceso": "P4",
     "titulo": "Distinguir fuente primaria de fuente secundaria",
     "teoria": "Las fuentes primarias son las originales (estudios, documentos, testimonios). Las secundarias interpretan o resumen las primarias (artículos de revisión, enciclopedias). Distinguirlas ayuda a evaluar la credibilidad.",
-    "explicacion": "Preguntate: la fuente es el estudió original o un resumen de otro? Si cita el estudió directamente, es primaria; si lo resume, es secundaria.",
+    "explicacion": "Preguntate: la fuente es el estudio original o un resumen de otro? Si cita el estudio directamente, es primaria; si lo resume, es secundaria.",
     "regla": "La fuente primaria es la original; la secundaria interpreta o resume la primaria.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
-    "ejemplo_incorrecto": "Decir que 'segun Wikipedia' es fuente primaria. Wikipedia es secundaria."
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
+    "ejemplo_incorrecto": "Decir que 'según Wikipedia' es fuente primaria. Wikipedia es secundaria."
   },
   {
     "numero": 90,
@@ -2956,7 +2956,7 @@
     "teoria": "En los textos complejos, las relaciones causales pueden estar encadenadas: A causa B, B causa C. Distinguir causa y consecuencia es esencial para comprender la lógica del texto.",
     "explicacion": "Identifica los conectores causales y consecutivos. Sigue la cadena: que provoca que? Cual es el origen y cual el resultado final?",
     "regla": "La causa responde a 'por que?'; la consecuencia a 'que pasó como resultado?'.",
-    "ejemplo_correcto": "En 'La crisis provoco desempleo. El desempleo genero pobreza', la crisis es causa del desempleo, y el desempleo causa de la pobreza.",
+    "ejemplo_correcto": "En 'La crisis provoco desempleo. El desempleo género pobreza', la crisis es causa del desempleo, y el desempleo causa de la pobreza.",
     "ejemplo_incorrecto": "Decir que la pobreza es la causa de la crisis. La cadena causal va en la dirección opuesta."
   },
   {
@@ -2974,11 +2974,11 @@
     "numero": 94,
     "nivel_mcer": "A2",
     "proceso": "P4",
-    "titulo": "Detectar el sesgo ideologico",
-    "teoria": "El sesgo ideologico es la inclinación del autor hacía una postura política, economica o cultural. Se detecta en el vocabulario cargado, las fuentes elegidas y las soluciones propuestas.",
+    "titulo": "Detectar el sesgo ideológico",
+    "teoria": "El sesgo ideológico es la inclinación del autor hacia una postura política, económica o cultural. Se detecta en el vocabulario cargado, las fuentes elegidas y las soluciones propuestas.",
     "explicacion": "Observa el vocabulario: usa terminos positivos o negativos para lo mismo? Que fuentes cita? Que soluciones propone?",
-    "regla": "El sesgo ideologico se revela en el vocabulario, las fuentes y las soluciones propuestas.",
-    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, hay un sesgo ideologico claro.",
+    "regla": "El sesgo ideológico se revela en el vocabulario, las fuentes y las soluciones propuestas.",
+    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, hay un sesgo ideológico claro.",
     "ejemplo_incorrecto": "Decir que el texto es neutral porque no menciona partidos. El vocabulario ya revela una postura."
   },
   {
@@ -3118,10 +3118,10 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar la cita textual y su fuente",
-    "teoria": "Las citas textuales van entre comillas o se introducen con 'segun X'. Localizarlas permite verificar la evidencia que sostiene cada afirmación.",
-    "explicacion": "Busca las comillas o el estilo indirecto ('segun X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
-    "regla": "La cita textual se reconoce por comillas o por 'segun X' y sostiene una afirmación del autor.",
-    "ejemplo_correcto": "En 'Segun la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
+    "teoria": "Las citas textuales van entre comillas o se introducen con 'según X'. Localizarlas permite verificar la evidencia que sostiene cada afirmación.",
+    "explicacion": "Busca las comillas o el estilo indirecto ('según X'). Identifica la afirmación que se sostiene y la cita que la respalda.",
+    "regla": "La cita textual se reconoce por comillas o por 'según X' y sostiene una afirmación del autor.",
+    "ejemplo_correcto": "En 'Según la OMS (2024), la contaminación causo 4,2 millones de muertes', la cita sostiene la afirmación.",
     "ejemplo_incorrecto": "Aceptar como cita 'muchos expertos dicen' sin nombre ni institución. No es una cita verificable."
   },
   {
@@ -3141,9 +3141,9 @@
     "proceso": "P1",
     "titulo": "Localizar la evidencia empirica en un texto académico",
     "teoria": "La evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadisticas. Localizarla permite verificar la solidez del texto.",
-    "explicacion": "Busca expresiones como 'un estudió de', 'segun datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
+    "explicacion": "Busca expresiones como 'un estudio de', 'según datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
     "regla": "La evidencia empirica se reconoce por datos, estudios, encuestas o experimentos citados.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudió citado.",
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudio citado.",
     "ejemplo_incorrecto": "Decir que 'la gente piensa que' es evidencia empirica. Una opinión general no es un dato verificable."
   },
   {
@@ -3238,10 +3238,10 @@
     "numero": 39,
     "nivel_mcer": "B1",
     "proceso": "P1",
-    "titulo": "Localizar los elementos del paratexto (subtitulos, negritas, imagenes)",
-    "teoria": "El paratexto son los elementos que acompainan al texto: título, subtitulos, negritas, cursivas, imagenes, pies de foto. Localizarlos ayuda a anticipar el contenido y a organizar la lectura.",
-    "explicacion": "Busca los elementos visuales: subtitulos, palabras en negrita o cursiva, imagenes con pie de foto. Cada uno aporta información adicional o destaca una idea.",
-    "regla": "El paratexto incluye subtitulos, negritas, cursivas, imagenes y pies de foto.",
+    "titulo": "Localizar los elementos del paratexto (subtitulos, negritas, imágenes)",
+    "teoria": "El paratexto son los elementos que acompainan al texto: título, subtitulos, negritas, cursivas, imágenes, pies de foto. Localizarlos ayuda a anticipar el contenido y a organizar la lectura.",
+    "explicacion": "Busca los elementos visuales: subtitulos, palabras en negrita o cursiva, imágenes con pie de foto. Cada uno aporta información adicional o destaca una idea.",
+    "regla": "El paratexto incluye subtitulos, negritas, cursivas, imágenes y pies de foto.",
     "ejemplo_correcto": "En un texto con subtitulos y negritas, esos elementos son paratexto y ayudan a organizar la lectura.",
     "ejemplo_incorrecto": "Decir que las negritas son solo decorativas. Las negritas destacan información importante."
   },
@@ -3305,11 +3305,11 @@
     "nivel_mcer": "B1",
     "proceso": "P2",
     "titulo": "Inferir la evolución de un personaje",
-    "teoria": "La evolución es el cambió que experimenta un personaje a lo largo del texto: de timido a valiente, de egoista a generoso. Se infiere comparando su comportamiento al principio y al final.",
-    "explicacion": "Compara como era el personaje al principio y como es al final. Que ha cambiado? Que ha aprendido? El cambió revela su evolución.",
+    "teoria": "La evolución es el cambio que experimenta un personaje a lo largo del texto: de timido a valiente, de egoista a generoso. Se infiere comparando su comportamiento al principio y al final.",
+    "explicacion": "Compara como era el personaje al principio y como es al final. Que ha cambiado? Que ha aprendido? El cambio revela su evolución.",
     "regla": "La evolución del personaje se infiere comparando su comportamiento al inicio y al final.",
-    "ejemplo_correcto": "En un cuento donde el personaje empieza egoista y termina compartiendo, se infiere una evolución hacía la generosidad.",
-    "ejemplo_incorrecto": "Decir que no hay evolución porque el personaje es el mismo. La comparación revela el cambió."
+    "ejemplo_correcto": "En un cuento donde el personaje empieza egoista y termina compartiendo, se infiere una evolución hacia la generosidad.",
+    "ejemplo_incorrecto": "Decir que no hay evolución porque el personaje es el mismo. La comparación revela el cambio."
   },
   {
     "numero": 46,
@@ -3382,9 +3382,9 @@
     "nivel_mcer": "B1",
     "proceso": "P2",
     "titulo": "Inferir el tono del texto (alegre, triste, irónico)",
-    "teoria": "El tono es la actitud del autor hacía el tema: alegre, triste, irónico, solemne, entusiasta. Se infiere del lexico, la puntuación y las imagenes.",
+    "teoria": "El tono es la actitud del autor hacia el tema: alegre, triste, irónico, solemne, entusiasta. Se infiere del lexico, la puntuación y las imágenes.",
     "explicacion": "Busca las palabras y la puntuación. Un texto con exclamaciones y palabras positivas tiene tono alegre; con puntos suspensivos y negativas, triste.",
-    "regla": "El tono se infiere del lexico, la puntuación y las imagenes del texto.",
+    "regla": "El tono se infiere del lexico, la puntuación y las imágenes del texto.",
     "ejemplo_correcto": "En un texto con '¡Qué maravilla! ¡Increible!', el tono es entusiasta.",
     "ejemplo_incorrecto": "Decir que el tono es triste porque hay una palabra negativa. Hay que ver el conjunto."
   },
@@ -3447,11 +3447,11 @@
     "numero": 58,
     "nivel_mcer": "B1",
     "proceso": "P2",
-    "titulo": "Inferir el sesgo ideologico",
-    "teoria": "El sesgo ideologico es la inclinación del autor hacía una postura política, economica o cultural. Se infiere del vocabulario cargado, las fuentes elegidas y las soluciones propuestas.",
+    "titulo": "Inferir el sesgo ideológico",
+    "teoria": "El sesgo ideológico es la inclinación del autor hacia una postura política, económica o cultural. Se infiere del vocabulario cargado, las fuentes elegidas y las soluciones propuestas.",
     "explicacion": "Observa el vocabulario: usa terminos positivos o negativos para lo mismo? Que fuentes cita? Que soluciones propone?",
-    "regla": "El sesgo ideologico se infiere del vocabulario, las fuentes y las soluciones propuestas.",
-    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, se infiere un sesgo ideologico claro.",
+    "regla": "El sesgo ideológico se infiere del vocabulario, las fuentes y las soluciones propuestas.",
+    "ejemplo_correcto": "En un texto que llama 'revolucionarios' a unos y 'terroristas' a otros, se infiere un sesgo ideológico claro.",
     "ejemplo_incorrecto": "Decir que el texto es neutral porque no menciona partidos. El vocabulario ya revela una postura."
   },
   {
@@ -3623,12 +3623,12 @@
     "numero": 74,
     "nivel_mcer": "B1",
     "proceso": "P3",
-    "titulo": "Interpretar la función del dialogo en la narración",
-    "teoria": "El dialogo en la narración cumple funciones: caracterizar a los personajes, avanzar la trama, informar al lector. Interpretar su función ayuda a comprender la historia.",
-    "explicacion": "Preguntate: que aporta este dialogo? Caracteriza a un personaje? Avanza la trama? Informa de algo?",
-    "regla": "El dialogo en la narración caracteriza, avanza la trama o informa.",
-    "ejemplo_correcto": "En un dialogo donde un personaje habla con brusquedad, la función es caracterizarlo como alguien rudo.",
-    "ejemplo_incorrecto": "Decir que el dialogo no tiene función. Todo dialogo tiene una función en la narración."
+    "titulo": "Interpretar la función del diálogo en la narración",
+    "teoria": "El diálogo en la narración cumple funciones: caracterizar a los personajes, avanzar la trama, informar al lector. Interpretar su función ayuda a comprender la historia.",
+    "explicacion": "Preguntate: que aporta este diálogo? Caracteriza a un personaje? Avanza la trama? Informa de algo?",
+    "regla": "El diálogo en la narración caracteriza, avanza la trama o informa.",
+    "ejemplo_correcto": "En un diálogo donde un personaje habla con brusquedad, la función es caracterizarlo como alguien rudo.",
+    "ejemplo_incorrecto": "Decir que el diálogo no tiene función. Todo diálogo tiene una función en la narración."
   },
   {
     "numero": 75,
@@ -3790,10 +3790,10 @@
     "proceso": "P4",
     "titulo": "Distinguir fuente primaria de fuente secundaria",
     "teoria": "Las fuentes primarias son las originales (estudios, documentos, testimonios). Las secundarias interpretan o resumen las primarias (artículos de revisión, enciclopedias). Distinguirlas ayuda a evaluar la credibilidad.",
-    "explicacion": "Preguntate: la fuente es el estudió original o un resumen de otro? Si cita el estudió directamente, es primaria; si lo resume, es secundaria.",
+    "explicacion": "Preguntate: la fuente es el estudio original o un resumen de otro? Si cita el estudio directamente, es primaria; si lo resume, es secundaria.",
     "regla": "La fuente primaria es la original; la secundaria interpreta o resume la primaria.",
-    "ejemplo_correcto": "En 'Un estudió de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
-    "ejemplo_incorrecto": "Decir que 'segun Wikipedia' es fuente primaria. Wikipedia es secundaria."
+    "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró...', la fuente es primaria.",
+    "ejemplo_incorrecto": "Decir que 'según Wikipedia' es fuente primaria. Wikipedia es secundaria."
   },
   {
     "numero": 90,
@@ -3825,7 +3825,7 @@
     "teoria": "La evidencia es suficiente si apoya la conclusión con datos representativos y abundantes. Evaluarla es esencial para juzgar la solidez de un argumento.",
     "explicacion": "Preguntate: los datos son representativos? Son suficientes para sostener la conclusión? Hay contraejemplos no considerados?",
     "regla": "La evidencia es suficiente si es representativa y apoya la conclusión.",
-    "ejemplo_correcto": "Un estudió con 10.000 participantes de varias regiones es evidencia suficiente para una conclusión general.",
+    "ejemplo_correcto": "Un estudio con 10.000 participantes de varias regiones es evidencia suficiente para una conclusión general.",
     "ejemplo_incorrecto": "Generalizar a partir de una encuesta a 5 personas. La evidencia es insuficiente."
   },
   {
@@ -3999,10 +3999,10 @@
     "proceso": "P1",
     "titulo": "Localizar los argumentos de autoridad y evaluarlos",
     "teoria": "El argumento de autoridad apoya una afirmación en la opinión de un experto. Localizarlo y evaluarlo (es realmente experto? hay consenso?) permite juzgar su solidez.",
-    "explicacion": "Busca expresiones como 'segun X', 'como afirma Y'. Preguntate: el experto citado es realmente autoridad en la materia? Hay consenso cientifico?",
+    "explicacion": "Busca expresiones como 'según X', 'como afirma Y'. Preguntate: el experto citado es realmente autoridad en la materia? Hay consenso cientifico?",
     "regla": "El argumento de autoridad es sólido si el experto tiene autoridad real en la materia.",
-    "ejemplo_correcto": "En 'Segun la OMS, el tabaco causa cáncer', el argumento de autoridad es sólido.",
-    "ejemplo_incorrecto": "En 'Segun un famoso, el tabaco no es malo', el argumento de autoridad es falaz (la fama no es autoridad cientifica)."
+    "ejemplo_correcto": "En 'Según la OMS, el tabaco causa cáncer', el argumento de autoridad es sólido.",
+    "ejemplo_incorrecto": "En 'Según un famoso, el tabaco no es malo', el argumento de autoridad es falaz (la fama no es autoridad cientifica)."
   },
   {
     "numero": 29,
@@ -4041,11 +4041,11 @@
     "numero": 32,
     "nivel_mcer": "B2",
     "proceso": "P1",
-    "titulo": "Localizar los presupuestos ideologicos del autor",
-    "teoria": "Los presupuestos ideologicos son las creencias políticas, economicas o culturales que el autor da por sentadas. Localizarlos permite comprender desde que marco interpreta el texto.",
+    "titulo": "Localizar los presupuestos ideológicos del autor",
+    "teoria": "Los presupuestos ideológicos son las creencias políticas, economicas o culturales que el autor da por sentadas. Localizarlos permite comprender desde que marco interpreta el texto.",
     "explicacion": "Preguntate: que visión del mundo asume el autor como natural? Que sistema de valores se da por evidente?",
-    "regla": "El presupuesto ideologico es una creencia asumida que revela el marco del autor.",
-    "ejemplo_correcto": "En 'Como el mercado siempre se autorregula, hay que reducir el Estado', el presupuesto ideologico es que el mercado se autorregula.",
+    "regla": "El presupuesto ideológico es una creencia asumida que revela el marco del autor.",
+    "ejemplo_correcto": "En 'Como el mercado siempre se autorregula, hay que reducir el Estado', el presupuesto ideológico es que el mercado se autorregula.",
     "ejemplo_incorrecto": "Decir que no hay ideología porque el autor no la menciona. Los presupuestos revelan ideología aunque no se nombre."
   },
   {
@@ -4053,7 +4053,7 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar los topicos literarios en un texto",
-    "teoria": "Los topicos literarios son temas recurrentes de la tradición (carpe diem, locus amoenus, ubi sunt). Localizarlos ayuda a comprender el dialogo del texto con la tradición.",
+    "teoria": "Los topicos literarios son temas recurrentes de la tradición (carpe diem, locus amoenus, ubi sunt). Localizarlos ayuda a comprender el diálogo del texto con la tradición.",
     "explicacion": "Identifica temas universales: la fugacidad de la vida (carpe diem), el lugar idealizado (locus amoenus), la nostalgia del pasado (ubi sunt).",
     "regla": "El topico literario es un tema recurrente de la tradición literaria.",
     "ejemplo_correcto": "En 'Aprovecha el día, que la juventud se va', hay un topico de carpe diem.",
@@ -4074,12 +4074,12 @@
     "numero": 35,
     "nivel_mcer": "B2",
     "proceso": "P1",
-    "titulo": "Localizar los argumentos por analogia y evaluarlos",
-    "teoria": "El argumento por analogia compara dos situaciones para extraer una conclusión. Evaluarlo requiere verificar que las situaciones sean realmente comparables.",
+    "titulo": "Localizar los argumentos por analogía y evaluarlos",
+    "teoria": "El argumento por analogía compara dos situaciones para extraer una conclusión. Evaluarlo requiere verificar que las situaciones sean realmente comparables.",
     "explicacion": "Identifica los dos terminos comparados. Preguntate: son realmente comparables? Hay diferencias relevantes que el autor omite?",
-    "regla": "El argumento por analogia es sólido si las situaciones comparadas son relevantemente similares.",
-    "ejemplo_correcto": "En 'Como una empresa debe adaptarse al mercado, un país debe adaptarse al mundo', hay una analogia.",
-    "ejemplo_incorrecto": "Aceptar la analogia sin comprobar diferencias relevantes. Puede haber diferencias que la invaliden."
+    "regla": "El argumento por analogía es sólido si las situaciones comparadas son relevantemente similares.",
+    "ejemplo_correcto": "En 'Como una empresa debe adaptarse al mercado, un país debe adaptarse al mundo', hay una analogía.",
+    "ejemplo_incorrecto": "Aceptar la analogía sin comprobar diferencias relevantes. Puede haber diferencias que la invaliden."
   },
   {
     "numero": 36,
@@ -4090,7 +4090,7 @@
     "explicacion": "Busca palabras o frases con doble interpretación. Preguntate: se esta usando el mismo terminó con dos sentidos distintos?",
     "regla": "La falacia de ambiguedad explota un terminó o frase con doble sentido.",
     "ejemplo_correcto": "En 'El perro de Juan es muy bueno; por tanto, Juan es bueno', hay equivoco con 'bueno'.",
-    "ejemplo_incorrecto": "Aceptar el argumento sin advertir el cambió de sentido. El terminó 'bueno' cambia de significado."
+    "ejemplo_incorrecto": "Aceptar el argumento sin advertir el cambio de sentido. El terminó 'bueno' cambia de significado."
   },
   {
     "numero": 37,
@@ -4174,7 +4174,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir el significado de una metáfora compleja",
-    "teoria": "Las metaforas complejas (o metaforas cognitivas) estructuran un concepto entero en terminos de otro: 'la vida es un viaje', 'el tiempo es dinero'. Se infieren del contexto y de la tradición cultural.",
+    "teoria": "Las metáforas complejas (o metáforas cognitivas) estructuran un concepto entero en terminos de otro: 'la vida es un viaje', 'el tiempo es dinero'. Se infieren del contexto y de la tradición cultural.",
     "explicacion": "Identifica el concepto de origen y el concepto de destino. Preguntate: que aspectos del destino se iluminan con el origen?",
     "regla": "La metáfora compleja estructura un concepto en terminos de otro.",
     "ejemplo_correcto": "En 'la vida es un camino', la vida (destino) se entiende como camino (origen).",
@@ -4250,12 +4250,12 @@
     "numero": 51,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir el mensaje implicito de una fabula o parabola",
+    "titulo": "Inferir el mensaje implicito de una fábula o parabola",
     "teoria": "Las fabulas y parabolas transmiten un mensaje implicito (enseñanza, crítica, reflexion) que va más alla del relato literal. Se infiere comparando la historia con la realidad.",
     "explicacion": "Lee la historia. Preguntate: que situación de la vida real refleja? Que enseñanza o crítica se desprende?",
     "regla": "El mensaje implicito se infiere comparando la historia con la realidad.",
-    "ejemplo_correcto": "En la fabula del pastor mentiroso, el mensaje implicito es que mentir tiene consecuencias.",
-    "ejemplo_incorrecto": "Decir que la fabula solo habla de ovejas. El mensaje va más alla del relato literal."
+    "ejemplo_correcto": "En la fábula del pastor mentiroso, el mensaje implicito es que mentir tiene consecuencias.",
+    "ejemplo_incorrecto": "Decir que la fábula solo habla de ovejas. El mensaje va más alla del relato literal."
   },
   {
     "numero": 52,
@@ -4283,12 +4283,12 @@
     "numero": 54,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir la intención de un dialogo en la narración",
-    "teoria": "Los dialogos en la narración cumplen funciones: caracterizar, avanzar la trama, informar, crear tensión. Se infiere de su contenido y su contexto.",
-    "explicacion": "Preguntate: que aporta este dialogo? Caracteriza a un personaje? Avanza la trama? Informa de algo? Crea tensión?",
-    "regla": "El dialogo en la narración caracteriza, avanza la trama, informa o crea tensión.",
-    "ejemplo_correcto": "En un dialogo donde un personaje amenaza a otro, la función es crear tensión.",
-    "ejemplo_incorrecto": "Decir que todo dialogo es solo informativo. También puede caracterizar o crear tensión."
+    "titulo": "Inferir la intención de un diálogo en la narración",
+    "teoria": "Los diálogos en la narración cumplen funciones: caracterizar, avanzar la trama, informar, crear tensión. Se infiere de su contenido y su contexto.",
+    "explicacion": "Preguntate: que aporta este diálogo? Caracteriza a un personaje? Avanza la trama? Informa de algo? Crea tensión?",
+    "regla": "El diálogo en la narración caracteriza, avanza la trama, informa o crea tensión.",
+    "ejemplo_correcto": "En un diálogo donde un personaje amenaza a otro, la función es crear tensión.",
+    "ejemplo_incorrecto": "Decir que todo diálogo es solo informativo. También puede caracterizar o crear tensión."
   },
   {
     "numero": 55,
@@ -4317,7 +4317,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir la intención de una metáfora en un texto persuasivo",
-    "teoria": "Las metaforas en los textos persuasivos no solo embellecen: orientan la interpretación del lector, hacen vivida una idea, la cargan de emoción. Se infiere de su contenido y contexto.",
+    "teoria": "Las metáforas en los textos persuasivos no solo embellecen: orientan la interpretación del lector, hacen vivida una idea, la cargan de emoción. Se infiere de su contenido y contexto.",
     "explicacion": "Identifica la metáfora. Preguntate: que idea quiere hacer vivida el autor? Que emoción quiere despertar?",
     "regla": "La metáfora en un texto persuasivo orienta la interpretación y carga de emoción una idea.",
     "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora presenta la inmigración como algo incontrolable y amenazante.",
@@ -4328,7 +4328,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir el sesgo de una imagen o grafico",
-    "teoria": "Las imagenes y graficos pueden tener sesgos: selección de datos, escalas enganosas, colores, encuadres. Inferir el sesgo es esencial para la lectura crítica multimodal.",
+    "teoria": "Las imágenes y graficos pueden tener sesgos: selección de datos, escalas enganosas, colores, encuadres. Inferir el sesgo es esencial para la lectura crítica multimodal.",
     "explicacion": "Observa la imagen o grafico: que datos se muestran y cuales se omiten? La escala es enganosa? Que emoción busca despertar?",
     "regla": "El sesgo de una imagen o grafico se infiere de la selección de datos, las escalas y los encuadres.",
     "ejemplo_correcto": "Un grafico que empieza el eje Y en 95 en lugar de 0 exagera una diferencia pequeña; hay sesgo visual.",
@@ -4395,7 +4395,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el punto de vista múltiple en una narración",
     "teoria": "Algunas narraciones presentan varias perspectivas sobre los mismos hechos. Interpretar ese punto de vista múltiple permite comprender la complejidad de la historia y la relatividad de la verdad.",
-    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia segun quien la cuenta? Que se gana con esa multiplicidad?",
+    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con esa multiplicidad?",
     "regla": "El punto de vista múltiple muestra distintas versiones de los mismos hechos.",
     "ejemplo_correcto": "En una novela contada por varios personajes, cada uno aporta una versión distinta de los mismos hechos.",
     "ejemplo_incorrecto": "Decir que solo hay una versión válida. El punto de vista múltiple muestra la complejidad."
@@ -4405,8 +4405,8 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar la intertextualidad (referencias a otros textos)",
-    "teoria": "La intertextualidad es la referencia explicita o implicita a otros textos. Interpretarla permite comprender el dialogo del texto con la tradición y ampliar su sentido.",
-    "explicacion": "Busca referencias a otros textos: citas, alusiones, parodias, generos. Preguntate: que aporta esa referencia al sentido del texto?",
+    "teoria": "La intertextualidad es la referencia explicita o implicita a otros textos. Interpretarla permite comprender el diálogo del texto con la tradición y ampliar su sentido.",
+    "explicacion": "Busca referencias a otros textos: citas, alusiones, parodias, géneros. Preguntate: que aporta esa referencia al sentido del texto?",
     "regla": "La intertextualidad es la referencia a otros textos, que amplia el sentido.",
     "ejemplo_correcto": "En un poema que cita a Garcilaso, la intertextualidad conecta el poema con la tradición renacentista.",
     "ejemplo_incorrecto": "Decir que la cita es casual. La intertextualidad es deliberada y significativa."
@@ -4514,21 +4514,21 @@
     "numero": 75,
     "nivel_mcer": "B2",
     "proceso": "P3",
-    "titulo": "Interpretar el uso del dialogo como caracterización indirecta",
-    "teoria": "El dialogo caracteriza indirectamente a los personajes: por su forma de hablar, su registro, sus silencios, el autor revela quien es sin decirlo. Interpretarlo enriquece la lectura.",
+    "titulo": "Interpretar el uso del diálogo como caracterización indirecta",
+    "teoria": "El diálogo caracteriza indirectamente a los personajes: por su forma de hablar, su registro, sus silencios, el autor revela quien es sin decirlo. Interpretarlo enriquece la lectura.",
     "explicacion": "Observa como habla cada personaje: culto o coloquial? Brusco o amable? Directo o evasivo? Esa forma de hablar lo caracteriza.",
-    "regla": "El dialogo caracteriza indirectamente a los personajes por su forma de hablar.",
+    "regla": "El diálogo caracteriza indirectamente a los personajes por su forma de hablar.",
     "ejemplo_correcto": "En 'Pos yo que sé, tío', el registro coloquial caracteriza al personaje como joven o informal.",
-    "ejemplo_incorrecto": "Decir que el dialogo solo informa. También caracteriza a los personajes."
+    "ejemplo_incorrecto": "Decir que el diálogo solo informa. También caracteriza a los personajes."
   },
   {
     "numero": 76,
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar el uso del tiempo subjetivo (duración psicologica)",
-    "teoria": "El tiempo narrativo puede alargarse o acortarse segun la percepción del personaje: momentos que duran páginas, años que pasan en una linea. Interpretar ese tiempo subjetivo revela el enfasis del autor.",
+    "teoria": "El tiempo narrativo puede alargarse o acortarse según la percepción del personaje: momentos que duran páginas, años que pasan en una linea. Interpretar ese tiempo subjetivo revela el enfasis del autor.",
     "explicacion": "Observa como se alarga o se acorta la narración. Preguntate: que momentos se alargan? Que se resume? Por que?",
-    "regla": "El tiempo subjetivo alarga o acorta la duración segun el enfasis del autor.",
+    "regla": "El tiempo subjetivo alarga o acorta la duración según el enfasis del autor.",
     "ejemplo_correcto": "En 'Pasaron diez años en un suspiro, pero aquella tarde duro eternamente', el tiempo subjetivo enfatiza esa tarde.",
     "ejemplo_incorrecto": "Decir que el tiempo narrativo es siempre objetivo. El tiempo narrativo es subjetivo."
   },
@@ -4549,7 +4549,7 @@
     "proceso": "P3",
     "titulo": "Interpretar la función del objeto en la narración",
     "teoria": "Los objetos en la narración pueden tener función práctica, simbólica o anticipatoria. Interpretar su función ayuda a comprender el sentido del texto.",
-    "explicacion": "Identifica los objetos que aparecen. Preguntate: que función cumplen? Son prácticos? Simbolicos? Anticipan algo?",
+    "explicacion": "Identifica los objetos que aparecen. Preguntate: que función cumplen? Son prácticos? Simbólicos? Anticipan algo?",
     "regla": "El objeto en la narración puede tener función práctica, simbólica o anticipatoria.",
     "ejemplo_correcto": "En un cuento donde un cuchillo aparece al inicio, puede anticipar un asesinato (función anticipatoria).",
     "ejemplo_incorrecto": "Decir que los objetos solo tienen función práctica. En literatura, también pueden simbolizar o anticipar."
@@ -4569,10 +4569,10 @@
     "numero": 80,
     "nivel_mcer": "B2",
     "proceso": "P3",
-    "titulo": "Interpretar la parodia y la subversión de generos",
-    "teoria": "La parodia imita un genero o texto para subvertirlo o ridiculizarlo. Interpretarla permite comprender el dialogo crítico del texto con la tradición.",
-    "explicacion": "Identifica si el texto imita un genero conocido (novela negra, cuento de hadas, épica). Preguntate: lo subvierte? Lo ridiculiza? Por que?",
-    "regla": "La parodia imita un genero para subvertirlo o ridiculizarlo.",
+    "titulo": "Interpretar la parodia y la subversión de géneros",
+    "teoria": "La parodia imita un género o texto para subvertirlo o ridiculizarlo. Interpretarla permite comprender el diálogo crítico del texto con la tradición.",
+    "explicacion": "Identifica si el texto imita un género conocido (novela negra, cuento de hadas, épica). Preguntate: lo subvierte? Lo ridiculiza? Por que?",
+    "regla": "La parodia imita un género para subvertirlo o ridiculizarlo.",
     "ejemplo_correcto": "En 'Shrek', se parodian los cuentos de hadas para subvertir sus valores tradicionales.",
     "ejemplo_incorrecto": "Decir que la parodia es una copia. La parodia transforma y crítica el original."
   },
@@ -4657,12 +4657,12 @@
     "numero": 88,
     "nivel_mcer": "B2",
     "proceso": "P4",
-    "titulo": "Evaluar la calidad de un argumento por analogia",
-    "teoria": "El argumento por analogia es sólido si las dos situaciones comparadas son relevantemente similares y las diferencias no afectan a la conclusión. Evaluarlo requiere analizar la pertinencia de la analogia.",
+    "titulo": "Evaluar la calidad de un argumento por analogía",
+    "teoria": "El argumento por analogía es sólido si las dos situaciones comparadas son relevantemente similares y las diferencias no afectan a la conclusión. Evaluarlo requiere analizar la pertinencia de la analogía.",
     "explicacion": "Identifica las dos situaciones. Preguntate: son relevantemente similares? Hay diferencias que afecten a la conclusión?",
-    "regla": "La analogia es sólida si las situaciones comparadas son relevantes y las diferencias no afectan.",
-    "ejemplo_correcto": "En 'Como fumar causa cáncer, vapear podría causarlo', la analogia es relevante (ambos inhalan sustancias).",
-    "ejemplo_incorrecto": "En 'Como las casas tienen techo, los coches deberian tener techo', la analogia es irrelevante."
+    "regla": "La analogía es sólida si las situaciones comparadas son relevantes y las diferencias no afectan.",
+    "ejemplo_correcto": "En 'Como fumar causa cáncer, vapear podría causarlo', la analogía es relevante (ambos inhalan sustancias).",
+    "ejemplo_incorrecto": "En 'Como las casas tienen techo, los coches deberian tener techo', la analogía es irrelevante."
   },
   {
     "numero": 89,
@@ -4704,7 +4704,7 @@
     "titulo": "Detectar el sesgo de encuadre (framing)",
     "teoria": "El sesgo de encuadre ocurre cuando la misma información se presenta de forma distinta para orientar la interpretación: 'el vaso medio lleno' vs. 'medio vacio'. Detectar este sesgo evita aceptar una única lectura.",
     "explicacion": "Preguntate: se presenta la información con un encuadre positivo o negativo? Cambiaria la conclusión si el encuadre fuera el opuesto?",
-    "regla": "El sesgo de encuadre orienta la interpretación segun como se presenta la información.",
+    "regla": "El sesgo de encuadre orienta la interpretación según como se presenta la información.",
     "ejemplo_correcto": "En '90% de éxito' vs. '10% de fracaso', la misma información se encuadra de forma positiva o negativa.",
     "ejemplo_incorrecto": "Decir que ambos enunciados son equivalentes sin advertir el efecto del encuadre en el lector."
   },
@@ -5032,7 +5032,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir el marco conceptual (frame) del autor",
-    "teoria": "El frame es el esquema mental desde el que se interpreta un tema. El autor lo activa con palabras clave y metaforas, y condiciona como el lector entiende la realidad (impuesto vs. inversión).",
+    "teoria": "El frame es el esquema mental desde el que se interpreta un tema. El autor lo activa con palabras clave y metáforas, y condiciona como el lector entiende la realidad (impuesto vs. inversión).",
     "explicacion": "Identifica las palabras que activan un marco. Preguntate: que marco se elige? 'Impuesto' activa coste; 'inversión' activa beneficio.",
     "regla": "El frame es el esquema mental que activa el texto y condiciona la interpretación.",
     "ejemplo_correcto": "En 'Hay que invertir en educación', el frame 'inversión' presenta el gasto como productivo.",
@@ -5075,10 +5075,10 @@
     "numero": 42,
     "nivel_mcer": "C1",
     "proceso": "P2",
-    "titulo": "Inferir la ideología a partir de las metaforas conceptuales",
-    "teoria": "Las metaforas conceptuales no son neutras: revelan una ideología. 'La inmigración es una marea' implica amenaza; 'es un aporte' implica beneficio.",
-    "explicacion": "Identifica las metaforas. Preguntate: que valoración implican? Presentan el fenomeno como amenaza, oportunidad, problema o recurso?",
-    "regla": "Las metaforas conceptuales revelan una ideología al presentar un fenomeno con una valoración determinada.",
+    "titulo": "Inferir la ideología a partir de las metáforas conceptuales",
+    "teoria": "Las metáforas conceptuales no son neutras: revelan una ideología. 'La inmigración es una marea' implica amenaza; 'es un aporte' implica beneficio.",
+    "explicacion": "Identifica las metáforas. Preguntate: que valoración implican? Presentan el fenomeno como amenaza, oportunidad, problema o recurso?",
+    "regla": "Las metáforas conceptuales revelan una ideología al presentar un fenomeno con una valoración determinada.",
     "ejemplo_correcto": "En 'la inmigración es una marea imparable', la metáfora revela una ideología que la percibe como amenaza.",
     "ejemplo_incorrecto": "Decir que la metáfora es solo decorativa. También orienta la valoración."
   },
@@ -5088,9 +5088,9 @@
     "proceso": "P2",
     "titulo": "Inferir la posición del autor sobre la fiabilidad de sus fuentes",
     "teoria": "Al citar fuentes, el autor revela su postura sobre su fiabilidad: las presenta con confianza, con matices o con distancia.",
-    "explicacion": "Observa los verbos y matices al citar: 'como demuestra' (confianza), 'segun algunos' (distancia), 'si bien es cierto' (matiz).",
+    "explicacion": "Observa los verbos y matices al citar: 'como demuestra' (confianza), 'según algunos' (distancia), 'si bien es cierto' (matiz).",
     "regla": "La posición sobre las fuentes se infiere del grado de confianza o distancia con que se citan.",
-    "ejemplo_correcto": "En 'Como demuestra la OMS', el autor confia en la fuente; en 'Segun algunos', toma distancia.",
+    "ejemplo_correcto": "En 'Como demuestra la OMS', el autor confia en la fuente; en 'Según algunos', toma distancia.",
     "ejemplo_incorrecto": "Decir que todas las citas tienen el mismo valor. El matiz revela la posición."
   },
   {
@@ -5196,12 +5196,12 @@
     "numero": 53,
     "nivel_mcer": "C1",
     "proceso": "P2",
-    "titulo": "Inferir las implicaciones de un cambió de registro",
-    "teoria": "Un cambió de registro (de formal a coloquial, de técnico a divulgativo) puede tener funciones pragmaticas: acercarse al lector, marcar ironía, simplificar o distanciarse. Inferir sus implicaciones permite comprender la estrategia comunicativa.",
-    "explicacion": "Identifica los cambios de registro. Preguntate: por que cambia? Que busca el autor con ese cambió?",
-    "regla": "El cambió de registro puede acercar, ironizar, simplificar o distanciarse.",
-    "ejemplo_correcto": "En un texto técnico que de repente usa 'esto es un rollo', el cambió de registro acerca al lector.",
-    "ejemplo_incorrecto": "Decir que el cambió de registro es un error. Puede ser una estrategia."
+    "titulo": "Inferir las implicaciones de un cambio de registro",
+    "teoria": "Un cambio de registro (de formal a coloquial, de técnico a divulgativo) puede tener funciones pragmaticas: acercarse al lector, marcar ironía, simplificar o distanciarse. Inferir sus implicaciones permite comprender la estrategia comunicativa.",
+    "explicacion": "Identifica los cambios de registro. Preguntate: por que cambia? Que busca el autor con ese cambio?",
+    "regla": "El cambio de registro puede acercar, ironizar, simplificar o distanciarse.",
+    "ejemplo_correcto": "En un texto técnico que de repente usa 'esto es un rollo', el cambio de registro acerca al lector.",
+    "ejemplo_incorrecto": "Decir que el cambio de registro es un error. Puede ser una estrategia."
   },
   {
     "numero": 54,
@@ -5273,7 +5273,7 @@
     "numero": 60,
     "nivel_mcer": "C1",
     "proceso": "P3",
-    "titulo": "Interpretar el dialogismo bajtiniano (dialogo con otros discursos)",
+    "titulo": "Interpretar el dialogismo bajtiniano (diálogo con otros discursos)",
     "teoria": "Bajtin senala que todo texto es dialogico: responde a textos anteriores y anticipa respuestas futuras. Interpretar el dialogismo permite ver como el texto se posiciona en una red de discursos sociales.",
     "explicacion": "Preguntate: a que discursos responde? Que respuestas anticipa? Con que voces polemiza?",
     "regla": "El texto es dialogico: responde a otros discursos y anticipa respuestas.",
@@ -5296,7 +5296,7 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función de la argumentación multimodal (texto + imagen)",
-    "teoria": "En los textos multimodales, el significado se construye con la interacción de palabras e imagenes. Interpretar esa interacción permite analizar como se refuerzan, complementan o contradicen los distintos modos semioticos.",
+    "teoria": "En los textos multimodales, el significado se construye con la interacción de palabras e imágenes. Interpretar esa interacción permite analizar como se refuerzan, complementan o contradicen los distintos modos semioticos.",
     "explicacion": "Analiza la relación entre texto e imagen: la imagen refuerza el texto? Lo contradice? Anade información?",
     "regla": "El significado multimodal se construye por la interacción entre texto e imagen.",
     "ejemplo_correcto": "En un anunció con imagen de niño sonriente y texto 'futuro brillante', imagen y texto se refuerzan.",
@@ -5307,10 +5307,10 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función de la intertextualidad en la literatura",
-    "teoria": "En literatura, la intertextualidad (citas, alusiones, parodias) puede homenajear, subvertir o ironizar los textos previos. Interpretarla permite comprender el dialogo de la obra con la tradición.",
+    "teoria": "En literatura, la intertextualidad (citas, alusiones, parodias) puede homenajear, subvertir o ironizar los textos previos. Interpretarla permite comprender el diálogo de la obra con la tradición.",
     "explicacion": "Identifica las referencias a otros textos. Preguntate: homenajea? Subvierte? Ironiza?",
     "regla": "La intertextualidad literaria homenajea, subvierte o ironiza los textos previos.",
-    "ejemplo_correcto": "En 'El Quijote', la parodia de las novelas de caballerias subvierte el genero.",
+    "ejemplo_correcto": "En 'El Quijote', la parodia de las novelas de caballerias subvierte el género.",
     "ejemplo_incorrecto": "Decir que la cita es solo decorativa. En literatura, dialoga con la tradición."
   },
   {
@@ -5319,7 +5319,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el perspectivismo narrativo (multiples puntos de vista)",
     "teoria": "El perspectivismo narrativo presenta la realidad desde multiples puntos de vista, mostrando su complejidad. Interpretarlo permite ver como la verdad se construye desde la pluralidad de miradas.",
-    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia segun quien la cuenta? Que se gana con la multiplicidad?",
+    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con la multiplicidad?",
     "regla": "El perspectivismo muestra la realidad desde multiples puntos de vista.",
     "ejemplo_correcto": "En 'Rashomon', los mismos hechos se cuentan desde cuatro perspectivas distintas.",
     "ejemplo_incorrecto": "Decir que solo hay una versión válida. El perspectivismo muestra la relatividad."
@@ -5384,8 +5384,8 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del intertexto en la parodia",
-    "teoria": "En la parodia, el intertexto no solo homenajea: lo subvierte para criticarlo. Interpretarla permite ver como el texto se apropia de un genero o discurso previo para desestabilizarlo.",
-    "explicacion": "Identifica el texto o genero parodiado. Preguntate: que subvierte? Que crítica? Como transforma el original?",
+    "teoria": "En la parodia, el intertexto no solo homenajea: lo subvierte para criticarlo. Interpretarla permite ver como el texto se apropia de un género o discurso previo para desestabilizarlo.",
+    "explicacion": "Identifica el texto o género parodiado. Preguntate: que subvierte? Que crítica? Como transforma el original?",
     "regla": "La parodia subvierte el intertexto para criticarlo o transformarlo.",
     "ejemplo_correcto": "En 'Shrek' se parodian los cuentos de hadas para subvertir sus valores tradicionales.",
     "ejemplo_incorrecto": "Decir que la parodia es una copia. La parodia transforma y crítica."
@@ -5395,9 +5395,9 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del pastiche (mezcla de estilos)",
-    "teoria": "El pastiche mezcla estilos o generos sin intención parodica necesariamente. Interpretarlo permite analizar como el texto se apropia de multiples tradiciones para crear un nuevo sentido.",
-    "explicacion": "Identifica los estilos o generos mezclados. Preguntate: que efecto produce la mezcla? Que nuevo sentido crea?",
-    "regla": "El pastiche mezcla estilos o generos para crear un nuevo sentido.",
+    "teoria": "El pastiche mezcla estilos o géneros sin intención parodica necesariamente. Interpretarlo permite analizar como el texto se apropia de multiples tradiciones para crear un nuevo sentido.",
+    "explicacion": "Identifica los estilos o géneros mezclados. Preguntate: que efecto produce la mezcla? Que nuevo sentido crea?",
+    "regla": "El pastiche mezcla estilos o géneros para crear un nuevo sentido.",
     "ejemplo_correcto": "En una novela que mezcla novela negra, ciencia ficción y romance, hay pastiche.",
     "ejemplo_incorrecto": "Decir que el pastiche es un error. Es una técnica deliberada."
   },
@@ -5440,7 +5440,7 @@
     "proceso": "P3",
     "titulo": "Interpretar la función del simbolismo de la muerte y el renacimiento",
     "teoria": "En muchas narraciones, la muerte (fisica o simbólica) del protagonista precede a un renacimiento o transformación.",
-    "explicacion": "Identifica las muertes (fisicas o simbolicas). Preguntate: que renace después? Que transformación se produce?",
+    "explicacion": "Identifica las muertes (fisicas o simbólicas). Preguntate: que renace después? Que transformación se produce?",
     "regla": "La muerte simbólica precede a un renacimiento o transformación.",
     "ejemplo_correcto": "En muchos cuentos, el protagonista 'muere' simbolicamente y renace transformado.",
     "ejemplo_incorrecto": "Decir que la muerte es solo fisica. En literatura, también puede ser simbólica."
@@ -5527,11 +5527,11 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de la evidencia cientifica (muestra, método, replicabilidad)",
-    "teoria": "La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudió.",
+    "teoria": "La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudio.",
     "explicacion": "Preguntate: la muestra es representativa? El método es sólido? Los resultados se han replicado? Hay conflictos de interes?",
     "regla": "La evidencia cientifica es de calidad si la muestra es representativa, el método sólido y los resultados replicables.",
-    "ejemplo_correcto": "Un estudió con muestra grande, método controlado y replicación independiente es de calidad.",
-    "ejemplo_incorrecto": "Aceptar un estudió con muestra pequeña y sin replicación como evidencia definitiva."
+    "ejemplo_correcto": "Un estudio con muestra grande, método controlado y replicación independiente es de calidad.",
+    "ejemplo_incorrecto": "Aceptar un estudio con muestra pequeña y sin replicación como evidencia definitiva."
   },
   {
     "numero": 84,
@@ -5628,7 +5628,7 @@
     "titulo": "Detectar el sesgo algoritmico en la selección de información",
     "teoria": "Los algoritmos de selección de información (redes sociales, buscadores) pueden crear sesgos al mostrar solo contenido afin a los intereses del usuario. Detectar este sesgo permite evaluar criticamente la información que consumimos.",
     "explicacion": "Preguntate: la información que veo es representativa o esta filtrada por algoritmos? Veo solo una perspectiva?",
-    "regla": "El sesgo algoritmico filtra la información mostrada segun intereses y crea camaras de eco.",
+    "regla": "El sesgo algoritmico filtra la información mostrada según intereses y crea camaras de eco.",
     "ejemplo_correcto": "Si solo veo noticias que confirman mi opinión, puedo estar en una camara de eco algoritmica.",
     "ejemplo_incorrecto": "Aceptar toda la información como representativa sin considerar los algoritmos."
   },
@@ -5636,12 +5636,12 @@
     "numero": 93,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Evaluar la calidad de un argumento por analogia compleja (diferencias relevantes)",
-    "teoria": "Un argumento por analogia compleja es sólido si las diferencias entre las situaciones comparadas no son relevantes para la conclusión. Evaluarlo requiere identificar esas diferencias.",
-    "explicacion": "Identifica las dos situaciones. Preguntate: hay diferencias relevantes que afecten a la conclusión? La analogia ilumina o engana?",
-    "regla": "La analogia compleja es sólida si las diferencias no son relevantes para la conclusión.",
-    "ejemplo_correcto": "En 'Como el cuerpo necesita ejercicio, la mente necesita estimulación', la analogia es relevante (ambos se fortalecen con uso).",
-    "ejemplo_incorrecto": "En 'Como los barcos necesitan capitan, los países necesitan rey', la analogia tiene diferencias relevantes (un país no es un barco)."
+    "titulo": "Evaluar la calidad de un argumento por analogía compleja (diferencias relevantes)",
+    "teoria": "Un argumento por analogía compleja es sólido si las diferencias entre las situaciones comparadas no son relevantes para la conclusión. Evaluarlo requiere identificar esas diferencias.",
+    "explicacion": "Identifica las dos situaciones. Preguntate: hay diferencias relevantes que afecten a la conclusión? La analogía ilumina o engana?",
+    "regla": "La analogía compleja es sólida si las diferencias no son relevantes para la conclusión.",
+    "ejemplo_correcto": "En 'Como el cuerpo necesita ejercicio, la mente necesita estimulación', la analogía es relevante (ambos se fortalecen con uso).",
+    "ejemplo_incorrecto": "En 'Como los barcos necesitan capitan, los países necesitan rey', la analogía tiene diferencias relevantes (un país no es un barco)."
   },
   {
     "numero": 94,
@@ -5724,12 +5724,12 @@
     "numero": 12,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la estructura dialectica (tesis-antitesis-síntesis)",
-    "teoria": "La dialectica hegeliana estructura el pensamiento en tres momentos: tesis (afirmación inicial), antitesis (negación o contradicción) y síntesis (superación que integra ambas). Localizarla permite analizar la lógica profunda de un texto filosófico o argumentativo.",
-    "explicacion": "Identifica la tesis inicial, la contradicción o antitesis que la niega, y la síntesis que la supera. Preguntate: hay un movimiento dialectico?",
-    "regla": "La dialectica hegeliana avanza por tesis, antitesis y síntesis.",
-    "ejemplo_correcto": "En un texto que empieza afirmando la libertad (tesis), luego reconoce la determinación social (antitesis) y termina integrando ambas (síntesis), hay dialectica.",
-    "ejemplo_incorrecto": "Decir que el texto solo afirma una idea. La dialectica requiere movimiento y superación."
+    "titulo": "Localizar la estructura dialéctica (tesis-antitesis-síntesis)",
+    "teoria": "La dialéctica hegeliana estructura el pensamiento en tres momentos: tesis (afirmación inicial), antitesis (negación o contradicción) y síntesis (superación que integra ambas). Localizarla permite analizar la lógica profunda de un texto filosófico o argumentativo.",
+    "explicacion": "Identifica la tesis inicial, la contradicción o antitesis que la niega, y la síntesis que la supera. Preguntate: hay un movimiento dialéctico?",
+    "regla": "La dialéctica hegeliana avanza por tesis, antitesis y síntesis.",
+    "ejemplo_correcto": "En un texto que empieza afirmando la libertad (tesis), luego reconoce la determinación social (antitesis) y termina integrando ambas (síntesis), hay dialéctica.",
+    "ejemplo_incorrecto": "Decir que el texto solo afirma una idea. La dialéctica requiere movimiento y superación."
   },
   {
     "numero": 13,
@@ -5749,9 +5749,9 @@
     "titulo": "Localizar el análisis foucaultiano del discurso (saber-poder)",
     "teoria": "Foucault muestra que el discurso no solo describe la realidad: la produce y la regula. Saber y poder estan entrelazados: todo saber produce efectos de poder, y todo poder se sostiene en un saber. Localizar este entrelazamiento permite analizar como el discurso construye subjetividades y normaliza conductas.",
     "explicacion": "Preguntate: que saber se produce en el texto? Que efectos de poder tiene? A quien normaliza o excluye?",
-    "regla": "El discurso, segun Foucault, produce saber y poder: describe, regula y normaliza.",
+    "regla": "El discurso, según Foucault, produce saber y poder: describe, regula y normaliza.",
     "ejemplo_correcto": "En un discurso psiquiatrico que define la 'normalidad', se produce saber y se ejerce poder sobre los 'anormales'.",
-    "ejemplo_incorrecto": "Decir que el discurso solo informa. Segun Foucault, también produce realidad y poder."
+    "ejemplo_incorrecto": "Decir que el discurso solo informa. Según Foucault, también produce realidad y poder."
   },
   {
     "numero": 15,
@@ -5790,11 +5790,11 @@
     "numero": 18,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la intertextualidad segun Kristeva",
+    "titulo": "Localizar la intertextualidad según Kristeva",
     "teoria": "Kristeva introduce el concepto de intertextualidad: todo texto es un mosaico de citas, un cruce de textos. Ningún texto es original: todos dialogan con otros. Localizarla permite analizar la red de textos que sostiene una obra.",
     "explicacion": "Identifica las citas, alusiones y ecos de otros textos. Preguntate: con que textos dialoga? Como los transforma?",
     "regla": "La intertextualidad es la red de textos que dialoga en una obra.",
-    "ejemplo_correcto": "En 'El Quijote', el dialogo con las novelas de caballerias es intertextualidad.",
+    "ejemplo_correcto": "En 'El Quijote', el diálogo con las novelas de caballerias es intertextualidad.",
     "ejemplo_incorrecto": "Decir que el texto es original. Todo texto dialoga con otros."
   },
   {
@@ -5817,14 +5817,14 @@
     "explicacion": "Busca marcas de disposiciones socialmente adquiridas: gustos, formas de hablar, gestos, formas de pensar. Preguntate: que clase social se revela?",
     "regla": "El habitus es el conjunto de disposiciones socialmente adquiridas que orientan la práctica.",
     "ejemplo_correcto": "En un texto donde el personaje rechaza ciertas comidas por 'vulgares', se revela un habitus de clase.",
-    "ejemplo_incorrecto": "Decir que los gustos son naturales. Segun Bourdieu, son socialmente construidos."
+    "ejemplo_incorrecto": "Decir que los gustos son naturales. Según Bourdieu, son socialmente construidos."
   },
   {
     "numero": 21,
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar el campo en el discurso (Bourdieu)",
-    "teoria": "Bourdieu define el campo como un espacio social relativamente autonomo donde los agentes luchan por capital (economico, cultural, social, simbólico). Localizarlo permite analizar las luchas de poder en un ambito especifico (literario, cientifico, político).",
+    "teoria": "Bourdieu define el campo como un espacio social relativamente autonomo donde los agentes luchan por capital (económico, cultural, social, simbólico). Localizarlo permite analizar las luchas de poder en un ambito especifico (literario, cientifico, político).",
     "explicacion": "Identifica el campo (literario, cientifico, político). Preguntate: que capital se disputa? Que posiciones ocupan los agentes?",
     "regla": "El campo es un espacio social autonomo donde se lucha por capital.",
     "ejemplo_correcto": "En el campo literario, los escritores luchan por capital simbólico (prestigio, reconocimiento).",
@@ -5861,7 +5861,7 @@
     "explicacion": "Preguntate: que prejuicios proyecta el interprete? Como el texto modifica esos prejuicios? Hay fusión de horizontes?",
     "regla": "La comprensión es fusión de horizontes entre interprete y texto.",
     "ejemplo_correcto": "En la interpretación de un texto clasico desde el presente, el interprete fusiona su horizonte con el del texto.",
-    "ejemplo_incorrecto": "Decir que la interpretación es objetiva. Segun Gadamer, siempre hay fusión de horizontes."
+    "ejemplo_incorrecto": "Decir que la interpretación es objetiva. Según Gadamer, siempre hay fusión de horizontes."
   },
   {
     "numero": 25,
@@ -5872,7 +5872,7 @@
     "explicacion": "Busca deslizamientos de sentido, significados que se aplazan. Preguntate: el sentido se fija o se difiere?",
     "regla": "La différance es la diferencia y el aplazamiento infinito del sentido.",
     "ejemplo_correcto": "En un texto que juega con significados multiples, la différance se manifiesta en la imposibilidad de fijar el sentido.",
-    "ejemplo_incorrecto": "Decir que el sentido esta fijado. Segun Derrida, siempre se aplaza."
+    "ejemplo_incorrecto": "Decir que el sentido esta fijado. Según Derrida, siempre se aplaza."
   },
   {
     "numero": 26,
@@ -5893,7 +5893,7 @@
     "teoria": "La biopolítica es el conjunto de estrategias de poder que actuan sobre la vida de las poblaciones: natalidad, salud, higiene, sexualidad. Localizarla permite analizar como el poder gestiona la vida.",
     "explicacion": "Busca discursos sobre la vida, la salud, la población. Preguntate: como se gestiona la vida? Que dispositivos actuan?",
     "regla": "La biopolítica es el poder que actua sobre la vida de las poblaciones.",
-    "ejemplo_correcto": "En las campanas de salud pública, la biopolítica actua sobre los cuerpos y las poblaciones.",
+    "ejemplo_correcto": "En las campañas de salud pública, la biopolítica actua sobre los cuerpos y las poblaciones.",
     "ejemplo_incorrecto": "Decir que el poder solo reprime. La biopolítica también produce vida."
   },
   {
@@ -5923,9 +5923,9 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la acción comunicativa (Habermas)",
-    "teoria": "Habermas distingue entre acción instrumental (orientada al éxito) y acción comunicativa (orientada al entendimiento). La acción comunicativa busca el consenso racional mediante el dialogo libre de coacciones. Localizarla permite analizar el potencial emancipador del discurso.",
-    "explicacion": "Preguntate: el texto busca éxito o entendimiento? Hay dialogo libre de coacciones? Se busca consenso racional?",
-    "regla": "La acción comunicativa busca el entendimiento mediante el dialogo libre de coacciones.",
+    "teoria": "Habermas distingue entre acción instrumental (orientada al éxito) y acción comunicativa (orientada al entendimiento). La acción comunicativa busca el consenso racional mediante el diálogo libre de coacciones. Localizarla permite analizar el potencial emancipador del discurso.",
+    "explicacion": "Preguntate: el texto busca éxito o entendimiento? Hay diálogo libre de coacciones? Se busca consenso racional?",
+    "regla": "La acción comunicativa busca el entendimiento mediante el diálogo libre de coacciones.",
     "ejemplo_correcto": "En un debate que busca el consenso racional, hay acción comunicativa.",
     "ejemplo_incorrecto": "Decir que toda acción es instrumental. La acción comunicativa busca entendimiento."
   },
@@ -5936,7 +5936,7 @@
     "titulo": "Localizar la crítica de la ideología (Zizek)",
     "teoria": "Zizek muestra que la ideología no es solo falsa conciencia, sino una práctica social que estructura la realidad. La ideología funciona en lo que hacemos, no solo en lo que pensamos. Localizarla permite analizar como el discurso reproduce la ideología dominante.",
     "explicacion": "Preguntate: que ideología se reproduce? Se hace visible o esta naturalizada? Como se sostiene en las prácticas?",
-    "regla": "La ideología, segun Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
+    "regla": "La ideología, según Zizek, se reproduce en las prácticas sociales, no solo en las ideas.",
     "ejemplo_correcto": "En un texto que presenta el consumismo como natural, la ideología esta naturalizada.",
     "ejemplo_incorrecto": "Decir que la ideología es solo falsa conciencia. También esta en las prácticas."
   },
@@ -5944,23 +5944,23 @@
     "numero": 32,
     "nivel_mcer": "C2",
     "proceso": "P1",
-    "titulo": "Localizar la performatividad de genero (Butler)",
-    "teoria": "Butler sostiene que el genero no es una esencia, sino una performance: se construye mediante actos repetidos que citan normas sociales. Localizarla permite analizar como el discurso construye identidades de genero.",
-    "explicacion": "Preguntate: como se construye el genero en el texto? Hay actos performativos? Se citan normas de genero?",
-    "regla": "La performatividad de genero construye la identidad mediante actos repetidos que citan normas.",
-    "ejemplo_correcto": "En un texto donde una mujer 'actua como mujer', la performatividad de genero se hace visible.",
-    "ejemplo_incorrecto": "Decir que el genero es natural. Segun Butler, es performativo."
+    "titulo": "Localizar la performatividad de género (Butler)",
+    "teoria": "Butler sostiene que el género no es una esencia, sino una performance: se construye mediante actos repetidos que citan normas sociales. Localizarla permite analizar como el discurso construye identidades de género.",
+    "explicacion": "Preguntate: como se construye el género en el texto? Hay actos performativos? Se citan normas de género?",
+    "regla": "La performatividad de género construye la identidad mediante actos repetidos que citan normas.",
+    "ejemplo_correcto": "En un texto donde una mujer 'actua como mujer', la performatividad de género se hace visible.",
+    "ejemplo_incorrecto": "Decir que el género es natural. Según Butler, es performativo."
   },
   {
     "numero": 33,
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la interseccionalidad (Crenshaw)",
-    "teoria": "Crenshaw muestra que las identidades (genero, raza, clase) se entrecruzan y producen formas especificas de opresión. Localizarla permite analizar como el discurso articula multiples ejes de desigualdad.",
-    "explicacion": "Identifica los ejes de identidad del texto: genero, raza, clase, sexualidad. Preguntate: como se entrecruzan? Que opresión especifica producen?",
+    "teoria": "Crenshaw muestra que las identidades (género, raza, clase) se entrecruzan y producen formas específicas de opresión. Localizarla permite analizar como el discurso articula multiples ejes de desigualdad.",
+    "explicacion": "Identifica los ejes de identidad del texto: género, raza, clase, sexualidad. Preguntate: como se entrecruzan? Que opresión especifica producen?",
     "regla": "La interseccionalidad articula multiples ejes de opresión.",
-    "ejemplo_correcto": "En un texto sobre mujeres negras trabajadoras, la interseccionalidad articula genero, raza y clase.",
-    "ejemplo_incorrecto": "Decir que la opresión es solo de genero. La interseccionalidad muestra multiples ejes."
+    "ejemplo_correcto": "En un texto sobre mujeres negras trabajadoras, la interseccionalidad articula género, raza y clase.",
+    "ejemplo_incorrecto": "Decir que la opresión es solo de género. La interseccionalidad muestra multiples ejes."
   },
   {
     "numero": 34,
@@ -5977,12 +5977,12 @@
     "numero": 35,
     "nivel_mcer": "C2",
     "proceso": "P2",
-    "titulo": "Inferir el inconsciente ideologico (Zizek/Althusser)",
-    "teoria": "Zizek y Althusser muestran que la ideología no es solo un conjunto de ideas conscientes, sino un inconsciente que estructura nuestras prácticas. Inferir el inconsciente ideologico permite analizar como el discurso reproduce la ideología dominante sin que el sujeto lo advierta.",
+    "titulo": "Inferir el inconsciente ideológico (Zizek/Althusser)",
+    "teoria": "Zizek y Althusser muestran que la ideología no es solo un conjunto de ideas conscientes, sino un inconsciente que estructura nuestras prácticas. Inferir el inconsciente ideológico permite analizar como el discurso reproduce la ideología dominante sin que el sujeto lo advierta.",
     "explicacion": "Preguntate: que ideología se reproduce sin ser explicitada? Que se da por evidente? Como se sostiene en las prácticas del texto?",
-    "regla": "El inconsciente ideologico es la ideología que estructura las prácticas sin ser advertida.",
-    "ejemplo_correcto": "En un texto que presenta el consumismo como natural, hay un inconsciente ideologico que reproduce la lógica capitalista.",
-    "ejemplo_incorrecto": "Decir que la ideología es solo una opinión consciente. También hay un inconsciente ideologico."
+    "regla": "El inconsciente ideológico es la ideología que estructura las prácticas sin ser advertida.",
+    "ejemplo_correcto": "En un texto que presenta el consumismo como natural, hay un inconsciente ideológico que reproduce la lógica capitalista.",
+    "ejemplo_incorrecto": "Decir que la ideología es solo una opinión consciente. También hay un inconsciente ideológico."
   },
   {
     "numero": 36,
@@ -5993,14 +5993,14 @@
     "explicacion": "Preguntate: como se habla de sexualidad? Que se normaliza? Que se patologiza?",
     "regla": "La sexualidad es un dispositivo histórico de poder que regula los cuerpos.",
     "ejemplo_correcto": "En un discurso médico que clasifica las sexualidades como 'normales' o 'anormales', actua el dispositivo de sexualidad.",
-    "ejemplo_incorrecto": "Decir que la sexualidad es natural. Segun Foucault, es construida por dispositivos."
+    "ejemplo_incorrecto": "Decir que la sexualidad es natural. Según Foucault, es construida por dispositivos."
   },
   {
     "numero": 37,
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la lógica del simulacro (Baudrillard)",
-    "teoria": "Baudrillard muestra que vivimos en la era del simulacro: las imagenes sustituyen a la realidad y la producen (hiperrealidad).",
+    "teoria": "Baudrillard muestra que vivimos en la era del simulacro: las imágenes sustituyen a la realidad y la producen (hiperrealidad).",
     "explicacion": "Preguntate: el texto presenta una imagen de la realidad? Hay simulacro? La representación sustituye al referente?",
     "regla": "El simulacro es la imagen que sustituye y produce la realidad (hiperrealidad).",
     "ejemplo_correcto": "En un texto sobre un país construido a partir de estereotipos de pelicula, hay simulacro.",
@@ -6011,9 +6011,9 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la sociedad del espectáculo (Debord)",
-    "teoria": "Debord sostiene que en la sociedad moderna la vida se presenta como acumulación de espectaculos: todo se convierte en imagen y mercancía visible.",
+    "teoria": "Debord sostiene que en la sociedad moderna la vida se presenta como acumulación de espectáculos: todo se convierte en imagen y mercancía visible.",
     "explicacion": "Preguntate: el texto transforma la realidad en espectáculo? Todo se convierte en imagen o mercancía?",
-    "regla": "La sociedad del espectáculo transforma la vida en acumulación de imagenes y mercancías.",
+    "regla": "La sociedad del espectáculo transforma la vida en acumulación de imágenes y mercancías.",
     "ejemplo_correcto": "En un texto que convierte un conflicto social en entretenimiento, actua la sociedad del espectáculo.",
     "ejemplo_incorrecto": "Decir que el texto informa. En la sociedad del espectáculo, informar es espectaculizar."
   },
@@ -6025,7 +6025,7 @@
     "teoria": "La gubernamentalidad es el conjunto de técnicas y racionalidades que gobiernan las conductas: como se conduce a los individuos sin coerción directa.",
     "explicacion": "Preguntate: como se gobiernan las conductas? Hay técnicas de autogobierno? El discurso orienta sin obligar?",
     "regla": "La gubernamentalidad es el conjunto de técnicas que conducen las conductas.",
-    "ejemplo_correcto": "En campanas que promueven el autocuidado, actua la gubernamentalidad.",
+    "ejemplo_correcto": "En campañas que promueven el autocuidado, actua la gubernamentalidad.",
     "ejemplo_incorrecto": "Decir que solo hay coerción. La gubernamentalidad conduce sin obligar."
   },
   {
@@ -6037,7 +6037,7 @@
     "explicacion": "Preguntate: a quien se reconoce? Que prestigio se otorga? Que posiciones se legitiman?",
     "regla": "El capital simbólico es el reconocimiento social que legitima posiciones.",
     "ejemplo_correcto": "En un texto que otorga prestigio a los médicos, se distribuye capital simbólico.",
-    "ejemplo_incorrecto": "Decir que solo hay capital economico. El capital simbólico también estructura el poder."
+    "ejemplo_incorrecto": "Decir que solo hay capital económico. El capital simbólico también estructura el poder."
   },
   {
     "numero": 41,
@@ -6047,7 +6047,7 @@
     "teoria": "La violencia simbólica es la violencia que se ejerce con la complicidad del dominado, que la percibe como natural o legitima.",
     "explicacion": "Preguntate: que dominación se naturaliza? El dominado la acepta como legitima?",
     "regla": "La violencia simbólica naturaliza la dominación con la complicidad del dominado.",
-    "ejemplo_correcto": "En un texto donde las mujeres aceptan como natural la desigualdad de genero, hay violencia simbólica.",
+    "ejemplo_correcto": "En un texto donde las mujeres aceptan como natural la desigualdad de género, hay violencia simbólica.",
     "ejemplo_incorrecto": "Decir que solo hay violencia fisica. La violencia simbólica también domina."
   },
   {
@@ -6059,7 +6059,7 @@
     "explicacion": "Preguntate: hay intercambios? Que se da? Que se espera recibir? Que obligaciones se crean?",
     "regla": "El don implica la obligación de dar, recibir y devolver.",
     "ejemplo_correcto": "En un texto donde un favor crea deuda moral, actua la lógica del don.",
-    "ejemplo_incorrecto": "Decir que el don es gratuito. Segun Mauss, siempre implica obligaciones."
+    "ejemplo_incorrecto": "Decir que el don es gratuito. Según Mauss, siempre implica obligaciones."
   },
   {
     "numero": 43,
@@ -6077,11 +6077,11 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la lógica del inconsciente (Lacan)",
-    "teoria": "Lacan sostiene que el inconsciente esta estructurado como un lenguaje: opera mediante significantes, metaforas y metonimias.",
+    "teoria": "Lacan sostiene que el inconsciente esta estructurado como un lenguaje: opera mediante significantes, metáforas y metonimias.",
     "explicacion": "Preguntate: hay deseos no conscientes? El discurso revela conflictos del inconsciente?",
     "regla": "El inconsciente esta estructurado como un lenguaje: opera con significantes y deseos.",
     "ejemplo_correcto": "En un texto donde un personaje repite una palabra sin razón, se revela la lógica del inconsciente.",
-    "ejemplo_incorrecto": "Decir que el inconsciente es solo emocional. Segun Lacan, esta estructurado como lenguaje."
+    "ejemplo_incorrecto": "Decir que el inconsciente es solo emocional. Según Lacan, esta estructurado como lenguaje."
   },
   {
     "numero": 45,
@@ -6110,9 +6110,9 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la sublimación estética (Freud)",
-    "teoria": "Freud define la sublimación como el desvio de la pulsión sexual hacía fines culturales o artisticos. Inferirla permite analizar como el texto transforma el deseo en producción cultural.",
-    "explicacion": "Preguntate: el texto transforma el deseo en arte, ciencia o religion? Hay sublimación de pulsiones?",
-    "regla": "La sublimación desvia la pulsión hacía fines culturales o artisticos.",
+    "teoria": "Freud define la sublimación como el desvío de la pulsión sexual hacia fines culturales o artísticos. Inferirla permite analizar como el texto transforma el deseo en producción cultural.",
+    "explicacion": "Preguntate: el texto transforma el deseo en arte, ciencia o religión? Hay sublimación de pulsiones?",
+    "regla": "La sublimación desvía la pulsión hacia fines culturales o artísticos.",
     "ejemplo_correcto": "En un poema que transforma el deseo amoroso en belleza estética, actua la sublimación.",
     "ejemplo_incorrecto": "Decir que el texto solo expresa deseo. La sublimación lo transforma."
   },
@@ -6121,9 +6121,9 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir el retorno de lo reprimido (Freud)",
-    "teoria": "Freud muestra que lo reprimido retorna en forma de sintomas, sueños o actos fallidos. Inferir este retorno permite analizar como el discurso revela contenidos reprimidos.",
+    "teoria": "Freud muestra que lo reprimido retorna en forma de síntomas, sueños o actos fallidos. Inferir este retorno permite analizar como el discurso revela contenidos reprimidos.",
     "explicacion": "Preguntate: hay contenidos reprimidos? Retornan en forma de lapsus, sueños, obsesiones?",
-    "regla": "Lo reprimido retorna en forma de sintomas, sueños o actos fallidos.",
+    "regla": "Lo reprimido retorna en forma de síntomas, sueños o actos fallidos.",
     "ejemplo_correcto": "En un texto donde un personaje repite un gesto sin razón, puede haber retorno de lo reprimido.",
     "ejemplo_incorrecto": "Decir que el texto es solo racional. Lo reprimido siempre retorna."
   },
@@ -6131,12 +6131,12 @@
     "numero": 49,
     "nivel_mcer": "C2",
     "proceso": "P2",
-    "titulo": "Inferir la dialectica del amo y el esclavo (Hegel)",
-    "teoria": "Hegel describe la lucha por el reconocimiento: el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajó. Inferir esta dialectica permite analizar las relaciones de dominación y reconocimiento.",
-    "explicacion": "Preguntate: hay relaciones de dominación? Quien busca reconocimiento? Quien alcanza autoconciencia mediante el trabajó?",
-    "regla": "La dialectica del amo y el esclavo muestra que solo el esclavo alcanza autoconciencia mediante el trabajó.",
-    "ejemplo_correcto": "En un texto donde el trabajador adquiere conciencia mediante el trabajó, actua la dialectica hegeliana.",
-    "ejemplo_incorrecto": "Decir que solo hay dominación. La dialectica también produce autoconciencia."
+    "titulo": "Inferir la dialéctica del amo y el esclavo (Hegel)",
+    "teoria": "Hegel describe la lucha por el reconocimiento: el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajo. Inferir esta dialéctica permite analizar las relaciones de dominación y reconocimiento.",
+    "explicacion": "Preguntate: hay relaciones de dominación? Quien busca reconocimiento? Quien alcanza autoconciencia mediante el trabajo?",
+    "regla": "La dialéctica del amo y el esclavo muestra que solo el esclavo alcanza autoconciencia mediante el trabajo.",
+    "ejemplo_correcto": "En un texto donde el trabajador adquiere conciencia mediante el trabajo, actua la dialéctica hegeliana.",
+    "ejemplo_incorrecto": "Decir que solo hay dominación. La dialéctica también produce autoconciencia."
   },
   {
     "numero": 50,
@@ -6168,7 +6168,7 @@
     "teoria": "Deleuze y Guattari describen la desterritorialización como el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Inferirla permite analizar como el discurso rompe y reconstruye ordenes.",
     "explicacion": "Preguntate: hay ruptura de un territorio (conceptual, social, estético)? Se reterritorializa en otro? Hay lineas de fuga?",
     "regla": "La desterritorialización abandona un territorio para reterritorializarse en otro.",
-    "ejemplo_correcto": "En un texto que mezcla generos y rompe normas, hay desterritorialización.",
+    "ejemplo_correcto": "En un texto que mezcla géneros y rompe normas, hay desterritorialización.",
     "ejemplo_incorrecto": "Decir que el texto respeta todas las normas. La desterritorialización las rompe."
   },
   {
@@ -6176,7 +6176,7 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir el rizoma (Deleuze/Guattari)",
-    "teoria": "El rizoma es un modelo de pensamiento que se opone al árbol: no tiene centro, crece en todas direcciones, conecta multiples puntos. Inferirlo permite analizar discursos no jerarquicos y multiples conexiones.",
+    "teoria": "El rizoma es un modelo de pensamiento que se opone al árbol: no tiene centro, crece en todas direcciones, conecta multiples puntos. Inferirlo permite analizar discursos no jerárquicos y multiples conexiones.",
     "explicacion": "Preguntate: el discurso tiene centro o se expande en multiples direcciones? Hay conexiones no jerarquicas?",
     "regla": "El rizoma es un modelo de pensamiento sin centro que crece en multiples direcciones.",
     "ejemplo_correcto": "En una hipertexto sin jerarquía clara, actua la lógica del rizoma.",
@@ -6187,11 +6187,11 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la sociedad disciplinaria (Foucault)",
-    "teoria": "Foucault describe la sociedad disciplinaria como aquella que organiza los cuerpos en espacios cerrados (escuela, fabrica, hospital, cárcel) para vigilarlos y normalizarlos. Inferirla permite analizar como el discurso reproduce la lógica disciplinaria.",
+    "teoria": "Foucault describe la sociedad disciplinaria como aquella que organiza los cuerpos en espacios cerrados (escuela, fábrica, hospital, cárcel) para vigilarlos y normalizarlos. Inferirla permite analizar como el discurso reproduce la lógica disciplinaria.",
     "explicacion": "Preguntate: hay espacios cerrados? Vigilancia? Normalización? El discurso organiza los cuerpos?",
     "regla": "La sociedad disciplinaria organiza los cuerpos en espacios cerrados para vigilarlos y normalizarlos.",
     "ejemplo_correcto": "En un texto sobre el examen escolar como forma de control, actua la sociedad disciplinaria.",
-    "ejemplo_incorrecto": "Decir que la escuela solo educa. Segun Foucault, también disciplina."
+    "ejemplo_incorrecto": "Decir que la escuela solo educa. Según Foucault, también disciplina."
   },
   {
     "numero": 55,
@@ -6201,19 +6201,19 @@
     "teoria": "Deleuze distingue la sociedad disciplinaria (espacios cerrados) de la sociedad de control (redes abiertas, modulación continua, deuda). Inferirla permite analizar como el discurso del control opera en la era digital.",
     "explicacion": "Preguntate: hay control continuo? Modulación? Deuda? El poder opera en redes abiertas?",
     "regla": "La sociedad de control opera mediante redes abiertas y modulación continua.",
-    "ejemplo_correcto": "En un texto sobre la evaluación continua en el trabajó, actua la sociedad de control.",
+    "ejemplo_correcto": "En un texto sobre la evaluación continua en el trabajo, actua la sociedad de control.",
     "ejemplo_incorrecto": "Decir que el control solo ocurre en espacios cerrados. La sociedad de control es más difusa."
   },
   {
     "numero": 56,
     "nivel_mcer": "C2",
     "proceso": "P2",
-    "titulo": "Inferir el panoptico (Bentham/Foucault)",
-    "teoria": "El panoptico es una arquitectura carcelaria en la que el vigilante ve sin ser visto, y el preso se vigila a si mismo. Inferirlo permite analizar como el discurso internaliza la vigilancia.",
+    "titulo": "Inferir el panóptico (Bentham/Foucault)",
+    "teoria": "El panóptico es una arquitectura carcelaria en la que el vigilante ve sin ser visto, y el preso se vigila a si mismo. Inferirlo permite analizar como el discurso internaliza la vigilancia.",
     "explicacion": "Preguntate: hay vigilancia invisible? El sujeto se vigila a si mismo? La mirada del otro esta internalizada?",
-    "regla": "El panoptico internaliza la vigilancia: el sujeto se vigila a si mismo.",
-    "ejemplo_correcto": "En un texto donde el personaje se autocensura por miedo al juicio, actua el panoptico.",
-    "ejemplo_incorrecto": "Decir que solo hay vigilancia externa. El panoptico internaliza la mirada."
+    "regla": "El panóptico internaliza la vigilancia: el sujeto se vigila a si mismo.",
+    "ejemplo_correcto": "En un texto donde el personaje se autocensura por miedo al juicio, actua el panóptico.",
+    "ejemplo_incorrecto": "Decir que solo hay vigilancia externa. El panóptico internaliza la mirada."
   },
   {
     "numero": 57,
@@ -6231,9 +6231,9 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la vida desnuda (Agamben)",
-    "teoria": "Agamben llama vida desnuda (nuda vida) a la vida reducida a su mera existencia biologica, despojada de derechos y significado político. Inferirla permite analizar como el discurso reduce a algunas vidas a simple supervivencia.",
-    "explicacion": "Preguntate: hay vidas reducidas a mera existencia? Despojadas de derechos? Reducidas a lo biologico?",
-    "regla": "La vida desnuda es la vida reducida a mera existencia biologica, sin derechos.",
+    "teoria": "Agamben llama vida desnuda (nuda vida) a la vida reducida a su mera existencia biológica, despojada de derechos y significado político. Inferirla permite analizar como el discurso reduce a algunas vidas a simple supervivencia.",
+    "explicacion": "Preguntate: hay vidas reducidas a mera existencia? Despojadas de derechos? Reducidas a lo biológico?",
+    "regla": "La vida desnuda es la vida reducida a mera existencia biológica, sin derechos.",
     "ejemplo_correcto": "En un texto sobre refugiados reducidos a cifras, actua la lógica de la vida desnuda.",
     "ejemplo_incorrecto": "Decir que toda vida tiene derechos. La vida desnuda es la excepción."
   },
@@ -6246,7 +6246,7 @@
     "explicacion": "Preguntate: el sentido se fija o se aplaza? Hay deslizamientos? La lectura produce un sentido provisional?",
     "regla": "La différance implica que el sentido se difiere y nunca se fija del todo.",
     "ejemplo_correcto": "En un texto con significados que se contradicen, la lectura muestra la différance.",
-    "ejemplo_incorrecto": "Decir que el texto tiene un único sentido. Segun Derrida, se aplaza."
+    "ejemplo_incorrecto": "Decir que el texto tiene un único sentido. Según Derrida, se aplaza."
   },
   {
     "numero": 60,
@@ -6274,12 +6274,12 @@
     "numero": 62,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar el panoptico interno en el texto (Foucault)",
-    "teoria": "El panoptico interno es la internalización de la mirada vigilante: el sujeto se vigila a si mismo.",
+    "titulo": "Interpretar el panóptico interno en el texto (Foucault)",
+    "teoria": "El panóptico interno es la internalización de la mirada vigilante: el sujeto se vigila a si mismo.",
     "explicacion": "Preguntate: el personaje se autocensura? Se siente vigilado? Hay una mirada internalizada?",
-    "regla": "El panoptico interno es la internalización de la mirada vigilante en el sujeto.",
-    "ejemplo_correcto": "En un personaje que se corrige antes de hablar por miedo al juicio, actua el panoptico interno.",
-    "ejemplo_incorrecto": "Decir que solo hay vigilancia externa. El panoptico interno la internaliza."
+    "regla": "El panóptico interno es la internalización de la mirada vigilante en el sujeto.",
+    "ejemplo_correcto": "En un personaje que se corrige antes de hablar por miedo al juicio, actua el panóptico interno.",
+    "ejemplo_incorrecto": "Decir que solo hay vigilancia externa. El panóptico interno la internaliza."
   },
   {
     "numero": 63,
@@ -6352,8 +6352,8 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar el studium del texto (Barthes)",
-    "teoria": "El studium es la lectura cultural, informada, del texto: lo que el texto dice segun los codigos culturales.",
-    "explicacion": "Preguntate: que dice el texto segun los codigos culturales? Que información cultural aporta?",
+    "teoria": "El studium es la lectura cultural, informada, del texto: lo que el texto dice según los codigos culturales.",
+    "explicacion": "Preguntate: que dice el texto según los codigos culturales? Que información cultural aporta?",
     "regla": "El studium es la lectura cultural e informada del texto.",
     "ejemplo_correcto": "En un texto sobre historia, el studium es la información cultural que transmite.",
     "ejemplo_incorrecto": "Decir que el texto no tiene dimensión cultural. El studium la revela."
@@ -6377,8 +6377,8 @@
     "teoria": "La linea de fuga es el movimiento por el que un agenciamiento escapa de su territorio y se transforma. Interpretarla permite analizar los momentos de ruptura y creación del texto.",
     "explicacion": "Busca momentos de ruptura, de escape, de transformación. Preguntate: que linea de fuga se abre?",
     "regla": "La linea de fuga es el movimiento de escape y transformación de un agenciamiento.",
-    "ejemplo_correcto": "En un texto que rompe con las normas del genero, hay una linea de fuga.",
-    "ejemplo_incorrecto": "Decir que el texto solo reproduce el genero. La linea de fuga lo transforma."
+    "ejemplo_correcto": "En un texto que rompe con las normas del género, hay una linea de fuga.",
+    "ejemplo_incorrecto": "Decir que el texto solo reproduce el género. La linea de fuga lo transforma."
   },
   {
     "numero": 72,
@@ -6428,7 +6428,7 @@
     "numero": 76,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar el simulacro segun Deleuze",
+    "titulo": "Interpretar el simulacro según Deleuze",
     "teoria": "Deleuze reivindica el simulacro frente a la copia: mientras la copia remite a un original, el simulacro afirma la diferencia y la multiplicidad. Interpretarlo permite analizar las formas de subversión de la representación.",
     "explicacion": "Preguntate: hay copia o simulacro? Se subvierte la representación? Se afirma la diferencia?",
     "regla": "El simulacro afirma la diferencia frente a la copia y la representación.",
@@ -6444,7 +6444,7 @@
     "explicacion": "Preguntate: como se representa la diferencia sexual? Se piensa desde lo masculino? Se silencia lo femenino?",
     "regla": "La diferencia sexual ha sido pensada desde el modelo masculino, silenciando lo femenino.",
     "ejemplo_correcto": "En un texto que representa a la mujer como 'lo otro' del hombre, hay economía sexual dominante.",
-    "ejemplo_incorrecto": "Decir que el genero es neutro. La diferencia sexual estructura el texto."
+    "ejemplo_incorrecto": "Decir que el género es neutro. La diferencia sexual estructura el texto."
   },
   {
     "numero": 78,
@@ -6550,11 +6550,11 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la crítica feminista del discurso (Butler)",
-    "teoria": "La crítica feminista del discurso analiza como el lenguaje reproduce o subvierte las normas de genero.",
-    "explicacion": "Preguntate: el texto subvierte o reproduce la lógica de genero? Hay binariedad?",
-    "regla": "La crítica feminista analiza como el discurso reproduce o subvierte las normas de genero.",
-    "ejemplo_correcto": "En un texto que cuestiona el binarismo de genero, hay crítica feminista.",
-    "ejemplo_incorrecto": "Decir que el genero es natural."
+    "teoria": "La crítica feminista del discurso analiza como el lenguaje reproduce o subvierte las normas de género.",
+    "explicacion": "Preguntate: el texto subvierte o reproduce la lógica de género? Hay binariedad?",
+    "regla": "La crítica feminista analiza como el discurso reproduce o subvierte las normas de género.",
+    "ejemplo_correcto": "En un texto que cuestiona el binarismo de género, hay crítica feminista.",
+    "ejemplo_incorrecto": "Decir que el género es natural."
   },
   {
     "numero": 88,
@@ -6627,10 +6627,10 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica feminista (Beauvoir, Butler)",
-    "teoria": "La crítica feminista analiza como el texto reproduce o subvierte las normas de genero. Evaluarla requiere comprobar si la crítica esta anclada en el texto y no solo en la teoría.",
-    "explicacion": "Preguntate: la crítica esta anclada en el texto? Demuestra la reproducción o subversión de normas de genero?",
+    "teoria": "La crítica feminista analiza como el texto reproduce o subvierte las normas de género. Evaluarla requiere comprobar si la crítica esta anclada en el texto y no solo en la teoría.",
+    "explicacion": "Preguntate: la crítica esta anclada en el texto? Demuestra la reproducción o subversión de normas de género?",
     "regla": "La crítica feminista es válida si está anclada en el texto y demuestra sus afirmaciones.",
-    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza roles de genero con ejemplos, hay crítica feminista válida.",
+    "ejemplo_correcto": "En una crítica que muestra como el texto naturaliza roles de género con ejemplos, hay crítica feminista válida.",
     "ejemplo_incorrecto": "Acusar de machismo sin evidencia textual."
   },
   {
@@ -6663,7 +6663,7 @@
     "teoria": "La crítica de la modernidad analiza las contradicciones de la razón ilustrada y sus efectos (barbarie, alienación, liquidez). Evaluarla requiere comprobar si el análisis esta anclado en el texto.",
     "explicacion": "Preguntate: el texto reproduce las contradicciones de la modernidad? La crítica lo demuestra?",
     "regla": "La crítica de la modernidad es válida si demuestra las contradicciones de la razón ilustrada en el texto.",
-    "ejemplo_correcto": "En una crítica que muestra la alienación en un texto sobre el trabajó, hay crítica de la modernidad válida.",
+    "ejemplo_correcto": "En una crítica que muestra la alienación en un texto sobre el trabajo, hay crítica de la modernidad válida.",
     "ejemplo_incorrecto": "Acusar de modernidad sin evidencia textual."
   },
   {
