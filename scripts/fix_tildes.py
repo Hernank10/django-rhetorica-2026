@@ -869,6 +869,57 @@ REGEX_V16_FALSE_POS = [
     (r"\besta\s+(diseñad[oa]s?)\b", r"está \1"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V17: C1 "Elogio de la lentitud"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V17 = {
+    "diran": "dirán",
+    "objetaran": "objetarán",
+    "extranamente": "extrañamente",
+    "reconociendola": "reconociéndola",
+    "reconociendolo": "reconociéndolo",
+    "atribuyendole": "atribuyéndole",
+    "atribuyendola": "atribuyéndola",
+    "cafe": "café", "cafes": "cafés",
+    "ludico": "lúdico", "ludica": "lúdica",
+    "ludicos": "lúdicos", "ludicas": "lúdicas",
+    "catastrofe": "catástrofe", "catastrofes": "catástrofes",
+    "perdon": "perdón", "perdones": "perdones",
+    "tecnologico": "tecnológico", "tecnologica": "tecnológica",
+    "tecnologicos": "tecnológicos", "tecnologicas": "tecnológicas",
+    "nostalgico": "nostálgico", "nostalgica": "nostálgica",
+}
+
+REGEX_V17_FALSE_POS = [
+    # "hacía donde" -> "hacia donde" (preposicion)
+    (r"\bhacía\s+donde\b", "hacia donde"),
+    (r"\bhacía\s+allí\b", "hacia allí"),
+    (r"\bhacía\s+alli\b", "hacia allí"),
+    (r"\bhacía\s+acá\b", "hacia acá"),
+    (r"\bhacía\s+alla\b", "hacia allá"),
+    # "me preguntó:" (1a persona) -> "me pregunto:"
+    (r"\bme\s+preguntó\b", "me pregunto"),
+    # "escuchó más despacio" (1a persona) -> "escucho más despacio"
+    (r"\bescuchó\s+más\s+despacio\b", "escucho más despacio"),
+    # "el primer pasó sea" (sustantivo) -> "el primer paso sea"
+    (r"\bel\s+primer\s+pasó\b", "el primer paso"),
+    (r"\bprimer\s+pasó\s+(sea|es|fue|sera|será)\b", r"primer paso \1"),
+    # "Milán Kundera" (nombre checo) -> "Milan Kundera"
+    (r"\bMilán\s+Kundera\b", "Milan Kundera"),
+    # "esta perdiendo" -> "está perdiendo" (verbo)
+    (r"\besta\s+(perdiendo|ganando|viviendo|muriendo|corriendo|escribiendo|leyendo|pensando|haciendo|diciendo)\b", r"está \1"),
+    # "no este en" (subjuntivo) -> "no esté en"
+    (r"\b(no|que|aunque|ojala|ojalá)\s+este\s+(en|con|por|para|sobre|entre)\b", r"\1 esté \2"),
+    # "tu quieres" (pronombre) -> "tú quieres"
+    (r"\btu\s+quieres\b", "tú quieres"),
+    (r"\btu\s+eres\b", "tú eres"),
+    (r"\btu\s+puedes\b", "tú puedes"),
+    (r"\btu\s+sabes\b", "tú sabes"),
+    (r"\btu\s+vales\b", "tú vales"),
+    (r"\btu\s+mereces\b", "tú mereces"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -904,7 +955,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16, **WORDS_V17}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -954,6 +1005,10 @@ def fix_text(text):
 
     # 17. REGEX_V16 (C1 ruido redes sociales)
     for pattern, replacement in REGEX_V16_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 18. REGEX_V17 (C1 lentitud - falsos positivos + tildes)
+    for pattern, replacement in REGEX_V17_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text
