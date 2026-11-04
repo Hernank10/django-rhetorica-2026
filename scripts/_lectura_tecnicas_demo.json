@@ -1143,12 +1143,12 @@
     "numero": 7,
     "proceso": "P3",
     "nivel_mcer": "C2",
-    "titulo": "Interpretar la ambiguedad deliberada de un texto literario",
-    "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metáfora polisemica). Interpretar esa ambiguedad es parte de la lectura literaria avanzada.",
-    "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuántas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambiguedad no es un defecto: es un recurso.",
-    "regla": "La ambiguedad literaria permite varias interpretaciones igualmente válidas; el lector elige la más coherente.",
+    "titulo": "Interpretar la ambigüedad deliberada de un texto literario",
+    "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metáfora polisemica). Interpretar esa ambigüedad es parte de la lectura literaria avanzada.",
+    "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuántas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambigüedad no es un defecto: es un recurso.",
+    "regla": "La ambigüedad literaria permite varias interpretaciones igualmente válidas; el lector elige la más coherente.",
     "ejemplo_correcto": "En un cuento que termina con 'Y entonces desperto', el final puede ser real (desperto de un sueño) o metaforico (desperto a la realidad).",
-    "ejemplo_incorrecto": "Decir que el final es 'malo' porque no se entiende. La ambiguedad es intencional, no un error.",
+    "ejemplo_incorrecto": "Decir que el final es 'malo' porque no se entiende. La ambigüedad es intencional, no un error.",
     "numero_global": 73
   },
   {
@@ -1193,7 +1193,7 @@
     "nivel_mcer": "C2",
     "titulo": "Evaluar la solidez de una definición",
     "teoria": "En los textos académicos y filosoficos, las definiciones pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la claridad, la precisión y la ausencia de circularidad.",
-    "explicacion": "Preguntate: la definición es clara? Precisa? No es circular (no define el terminó con el mismo terminó)? Una definición sólida delimita el concepto sin ambiguedad.",
+    "explicacion": "Preguntate: la definición es clara? Precisa? No es circular (no define el terminó con el mismo terminó)? Una definición sólida delimita el concepto sin ambigüedad.",
     "regla": "Una definición es sólida si es clara, precisa y no circular.",
     "ejemplo_correcto": "'La justicia es la virtud de dar a cada uno lo que le corresponde' es una definición sólida: clara, precisa, no circular.",
     "ejemplo_incorrecto": "'La libertad es la condición de ser libre' es una definición circular: repite el terminó sin definirlo.",
@@ -2042,7 +2042,7 @@
     "titulo": "Evaluar la precisión de un texto",
     "teoria": "Un texto es preciso si usa las palabras exactas y no ambiguas. La imprecisión genera confusión en el lector.",
     "explicacion": "Para evaluar la precisión, preguntate: las palabras tienen un significado claro o ambiguo? Se dice exactamente lo que se quiere decir?",
-    "regla": "Un texto es preciso si usa palabras exactas y evita la ambiguedad.",
+    "regla": "Un texto es preciso si usa palabras exactas y evita la ambigüedad.",
     "ejemplo_correcto": "En 'El perro labrador de Juan ladra', el texto es preciso: se especifica el tipo de perro y el dueño.",
     "ejemplo_incorrecto": "En 'El animal hace ruido', el texto es impreciso: no se especifica que animal ni que ruido."
   },
@@ -2337,7 +2337,7 @@
     "nivel_mcer": "A2",
     "proceso": "P1",
     "titulo": "Localizar información en un indice o glosario",
-    "teoria": "Los indices y glosarios organizan la información por orden alfabetico o tematico. Localizar información en ellos requiere buscar la palabra clave y leer la definición o el número de página.",
+    "teoria": "Los indices y glosarios organizan la información por orden alfabetico o temático. Localizar información en ellos requiere buscar la palabra clave y leer la definición o el número de página.",
     "explicacion": "Busca la palabra en orden alfabetico. Lee la definición o el número de página asociado.",
     "regla": "En un indice o glosario, se busca la palabra clave y se lee su definición o referencia.",
     "ejemplo_correcto": "En un glosario, para saber que significa 'biodiversidad' se busca la B y se lee su definición.",
@@ -3010,7 +3010,7 @@
     "titulo": "Evaluar la precisión de un texto",
     "teoria": "Un texto es preciso si usa las palabras exactas y no ambiguas. La imprecisión genera confusión en el lector.",
     "explicacion": "Preguntate: las palabras tienen un significado claro o ambiguo? Se dice exactamente lo que se quiere decir?",
-    "regla": "Un texto es preciso si usa palabras exactas y evita la ambiguedad.",
+    "regla": "Un texto es preciso si usa palabras exactas y evita la ambigüedad.",
     "ejemplo_correcto": "En 'El perro labrador de Juan ladra', el texto es preciso: se especifica el tipo de perro y el dueño.",
     "ejemplo_incorrecto": "En 'El animal hace ruido', el texto es impreciso: no se especifica que animal ni que ruido."
   },
@@ -3491,11 +3491,11 @@
     "numero": 62,
     "nivel_mcer": "B1",
     "proceso": "P3",
-    "titulo": "Interpretar la progresión tematica de un texto",
-    "teoria": "La progresión tematica es la forma en que el tema avanza a lo largo del texto: cada párrafo anade información nueva sobre el tema central. Interpretarla ayuda a comprender la estructura del texto.",
+    "titulo": "Interpretar la progresión temática de un texto",
+    "teoria": "La progresión temática es la forma en que el tema avanza a lo largo del texto: cada párrafo anade información nueva sobre el tema central. Interpretarla ayuda a comprender la estructura del texto.",
     "explicacion": "Identifica el tema central. Luego observa como cada párrafo anade información nueva. La progresión puede ser lineal (tema constante) o derivada (el tema se ramifica).",
-    "regla": "La progresión tematica es el avance del tema a lo largo del texto.",
-    "ejemplo_correcto": "En un texto sobre el reciclaje, el primer párrafo lo define, el segundo explica el proceso, el tercero da ventajas. Hay progresión tematica.",
+    "regla": "La progresión temática es el avance del tema a lo largo del texto.",
+    "ejemplo_correcto": "En un texto sobre el reciclaje, el primer párrafo lo define, el segundo explica el proceso, el tercero da ventajas. Hay progresión temática.",
     "ejemplo_incorrecto": "Decir que el texto no progresa porque repite el mismo tema. La repetición es del tema, pero la información avanza."
   },
   {
@@ -3540,7 +3540,7 @@
     "explicacion": "Identifica la expresión ambigua. Preguntate: que dos interpretaciones permite? Cual encaja mejor con el contexto y la intención del autor?",
     "regla": "El doble sentido permite dos interpretaciones; el contexto revela la intención.",
     "ejemplo_correcto": "En 'Ese político es un crack', 'crack' puede ser elogio (genio) o crítica (desastre). El contexto decide.",
-    "ejemplo_incorrecto": "Decir que solo hay una interpretación literal. La ambiguedad es intencionada."
+    "ejemplo_incorrecto": "Decir que solo hay una interpretación literal. La ambigüedad es intencionada."
   },
   {
     "numero": 67,
@@ -3879,7 +3879,7 @@
     "titulo": "Evaluar la precisión de un texto",
     "teoria": "Un texto es preciso si usa las palabras exactas y no ambiguas. La imprecisión genera confusión en el lector.",
     "explicacion": "Preguntate: las palabras tienen un significado claro o ambiguo? Se dice exactamente lo que se quiere decir?",
-    "regla": "Un texto es preciso si usa palabras exactas y evita la ambiguedad.",
+    "regla": "Un texto es preciso si usa palabras exactas y evita la ambigüedad.",
     "ejemplo_correcto": "En 'El perro labrador de Juan ladra', el texto es preciso: se especifica el tipo de perro y el dueño.",
     "ejemplo_incorrecto": "En 'El animal hace ruido', el texto es impreciso: no se especifica que animal ni que ruido."
   },
@@ -4085,10 +4085,10 @@
     "numero": 36,
     "nivel_mcer": "B2",
     "proceso": "P1",
-    "titulo": "Localizar las falacias de ambiguedad (equívoco, anfibologia)",
-    "teoria": "Las falacias de ambiguedad explotan la polisemia o la ambiguedad gramatical: equivoco (una palabra con dos sentidos) y anfibologia (frase ambigua). Localizarlas evita confusiones.",
+    "titulo": "Localizar las falacias de ambigüedad (equívoco, anfibologia)",
+    "teoria": "Las falacias de ambigüedad explotan la polisemia o la ambigüedad gramatical: equivoco (una palabra con dos sentidos) y anfibologia (frase ambigua). Localizarlas evita confusiones.",
     "explicacion": "Busca palabras o frases con doble interpretación. Preguntate: se esta usando el mismo terminó con dos sentidos distintos?",
-    "regla": "La falacia de ambiguedad explota un terminó o frase con doble sentido.",
+    "regla": "La falacia de ambigüedad explota un terminó o frase con doble sentido.",
     "ejemplo_correcto": "En 'El perro de Juan es muy bueno; por tanto, Juan es bueno', hay equivoco con 'bueno'.",
     "ejemplo_incorrecto": "Aceptar el argumento sin advertir el cambio de sentido. El terminó 'bueno' cambia de significado."
   },
@@ -4210,7 +4210,7 @@
     "teoria": "El tono puede cambiar a lo largo del texto (de la ironía a la seriedad, de la tristeza a la esperanza). Inferir esa evolución ayuda a comprender la progresión emocional del texto.",
     "explicacion": "Divide el texto en partes. Para cada una, identifica el tono dominante. Observa como cambia y por que.",
     "regla": "El tono puede evolucionar a lo largo del texto; la evolución revela la progresión emocional.",
-    "ejemplo_correcto": "Un texto que empieza con humor y termina con una reflexión seria tiene una evolución del tono de lo comico a lo reflexivo.",
+    "ejemplo_correcto": "Un texto que empieza con humor y termina con una reflexión seria tiene una evolución del tono de lo cómico a lo reflexivo.",
     "ejemplo_incorrecto": "Decir que el tono es uniforme porque el autor no lo dice. El tono puede cambiar sin anunciarse."
   },
   {
@@ -4504,8 +4504,8 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar la técnica del contrapunto (varias historias entrelazadas)",
-    "teoria": "El contrapunto narrativo entrelaza dos o más historias que se iluminan mutuamente. Interpretarlo permite comprender las relaciones tematicas entre las tramas.",
-    "explicacion": "Identifica las historias entrelazadas. Preguntate: qué relación tematica hay entre ellas? Se complementan? Se contrastan?",
+    "teoria": "El contrapunto narrativo entrelaza dos o más historias que se iluminan mutuamente. Interpretarlo permite comprender las relaciones temáticas entre las tramas.",
+    "explicacion": "Identifica las historias entrelazadas. Preguntate: qué relación temática hay entre ellas? Se complementan? Se contrastan?",
     "regla": "El contrapunto entrelaza historias que se iluminan tematicamente.",
     "ejemplo_correcto": "En una novela que alterna dos historias en épocas distintas, el contrapunto revela paralelismos entre ellas.",
     "ejemplo_incorrecto": "Decir que las historias son independientes. El contrapunto las conecta tematicamente."
@@ -4558,12 +4558,12 @@
     "numero": 79,
     "nivel_mcer": "B2",
     "proceso": "P3",
-    "titulo": "Interpretar la ambiguedad literaria intencionada",
-    "teoria": "La ambiguedad literaria es la presencia de dos o más interpretaciones válidas de un mismo texto. Interpretarla requiere aceptar la pluralidad de sentidos como parte de la experiencia literaria.",
+    "titulo": "Interpretar la ambigüedad literaria intencionada",
+    "teoria": "La ambigüedad literaria es la presencia de dos o más interpretaciones válidas de un mismo texto. Interpretarla requiere aceptar la pluralidad de sentidos como parte de la experiencia literaria.",
     "explicacion": "Identifica las interpretaciones posibles. Preguntate: son todas válidas? El texto sugiere varias lecturas sin decidirse por una?",
-    "regla": "La ambiguedad literaria permite varias interpretaciones válidas.",
-    "ejemplo_correcto": "En un cuento que no aclara si el protagonista suena o vive lo que narra, hay ambiguedad intencionada.",
-    "ejemplo_incorrecto": "Decir que solo hay una interpretación correcta. La ambiguedad permite varias."
+    "regla": "La ambigüedad literaria permite varias interpretaciones válidas.",
+    "ejemplo_correcto": "En un cuento que no aclara si el protagonista suena o vive lo que narra, hay ambigüedad intencionada.",
+    "ejemplo_incorrecto": "Decir que solo hay una interpretación correcta. La ambigüedad permite varias."
   },
   {
     "numero": 80,
@@ -4703,7 +4703,7 @@
     "proceso": "P4",
     "titulo": "Detectar el sesgo de encuadre (framing)",
     "teoria": "El sesgo de encuadre ocurre cuando la misma información se presenta de forma distinta para orientar la interpretación: 'el vaso medio lleno' vs. 'medio vacio'. Detectar este sesgo evita aceptar una única lectura.",
-    "explicacion": "Preguntate: se presenta la información con un encuadre positivo o negativo? Cambiaria la conclusión si el encuadre fuera el opuesto?",
+    "explicacion": "Preguntate: se presenta la información con un encuadre positivo o negativo? Cambiaría la conclusión si el encuadre fuera el opuesto?",
     "regla": "El sesgo de encuadre orienta la interpretación según como se presenta la información.",
     "ejemplo_correcto": "En '90% de éxito' vs. '10% de fracaso', la misma información se encuadra de forma positiva o negativa.",
     "ejemplo_incorrecto": "Decir que ambos enunciados son equivalentes sin advertir el efecto del encuadre en el lector."

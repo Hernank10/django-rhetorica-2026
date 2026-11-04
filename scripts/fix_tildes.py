@@ -920,6 +920,66 @@ REGEX_V17_FALSE_POS = [
     (r"\btu\s+mereces\b", "tú mereces"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V18: B2 "La casa de los relojes"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V18 = {
+    "tomabamos": "tomábamos",
+    "hablabamos": "hablábamos",
+    "perdia": "perdía",
+    "Decidi": "Decidí",
+    "cambiaria": "cambiaría",
+    "llegue": "llegué",
+    "proximo": "próximo", "proxima": "próxima",
+    "proximos": "próximos", "proximas": "próximas",
+    "turistico": "turístico", "turisticos": "turísticos",
+    "nordico": "nórdico", "nordica": "nórdica",
+    "nordicos": "nórdicos", "nordicas": "nórdicas",
+    "ambiguedad": "ambigüedad", "ambiguedades": "ambigüedades",
+    "tematica": "temática", "tematico": "temático",
+    "tematicas": "temáticas", "tematicos": "temáticos",
+    "comico": "cómico", "comica": "cómica",
+    "comicos": "cómicos", "comicas": "cómicas",
+    "romantico": "romántico", "romantica": "romántica",
+    "romanticos": "románticos", "romanticas": "románticas",
+}
+
+REGEX_V18_FALSE_POS = [
+    # ─── Nombres propios ───
+    (r"\bdon\s+Elias\b", "don Elías"),
+    (r"\bDon\s+Elias\b", "Don Elías"),
+    # ─── Pronombres tonicos "El" -> "Él" (contextos seguros) ───
+    (r"\bEl\s+era\s+el\s+abuelo\b", "Él era el abuelo"),
+    (r"\bEl\s+no\s+estaba\b", "Él no estaba"),
+    (r"\bMientras\s+el\s+hablaba\b", "Mientras él hablaba"),
+    (r"\bMientras\s+el\s+miraba\b", "Mientras él miraba"),
+    (r"\bMientras\s+el\s+leia\b", "Mientras él leía"),
+    # ─── "Los pare" -> "Los paré" (1a persona, don Elias hablando) ───
+    (r"\bLos\s+pare\s+todos\b", "Los paré todos"),
+    # ─── "No sabia el que" -> "No sabía qué" (interrogativa indirecta) ───
+    (r"\bNo\s+sabía\s+el\s+que\b", "No sabía qué"),
+    # ─── "hacia donde" -> "hacia dónde" (interrogativa indirecta) ───
+    (r"\bsin\s+saber\s+hacia\s+donde\b", "sin saber hacia dónde"),
+    # ─── "cuando llegue" -> "cuando llegué" (1a persona) ───
+    (r"\bcuando\s+llegue\s+a\s+casa\b", "cuando llegué a casa"),
+    # ─── "dejalo parado" -> "déjalo parado" (imperativo) ───
+    (r"\bdejalo\s+parado\b", "déjalo parado"),
+    # ─── FALSOS POSITIVOS de v8 (narrador 1a persona) ───
+    (r"\bcuando\s+pasó\s+por\s+su\s+casa\b", "cuando paso por su casa"),
+    (r"\bmiró\s+por\s+la\s+ventana\b", "miro por la ventana"),
+    (r"\bcuando\s+me\s+levantó\b", "cuando me levanto"),
+    (r"\bmiró\s+el\s+reloj\s+de\s+mi\s+cocina\b", "miro el reloj de mi cocina"),
+    # ─── Falso positivo "hacía" como preposicion ───
+    (r"\bhacía\s+don\s+Elías\b", "hacia don Elías"),
+    # ─── Interrogativa "que dos versiones" -> "qué dos versiones" ───
+    (r"\bque\s+dos\s+versiones\b", "qué dos versiones"),
+    # ─── "que esta loco" -> "que está loco" (verbo estar) ───
+    (r"\bque\s+esta\s+loco\b", "que está loco"),
+    # ─── "logica comun" -> "lógica común" ───
+    (r"\blogica\s+comun\b", "lógica común"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -955,7 +1015,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16, **WORDS_V17}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16, **WORDS_V17, **WORDS_V18}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -1009,6 +1069,10 @@ def fix_text(text):
 
     # 18. REGEX_V17 (C1 lentitud - falsos positivos + tildes)
     for pattern, replacement in REGEX_V17_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 19. REGEX_V18 (B2 casa relojes - falsos positivos + tildes)
+    for pattern, replacement in REGEX_V18_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text

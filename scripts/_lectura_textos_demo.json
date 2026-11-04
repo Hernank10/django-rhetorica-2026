@@ -1296,7 +1296,7 @@
         "payload": {
           "opciones": [
             "A) Solo significa pagar más dinero por la ropa.",
-            "B) La ambiguedad es intencional: el autor senala que las consecuencias de la moda rápida son múltiples (económicas, sanitarias, ambientales).",
+            "B) La ambigüedad es intencional: el autor senala que las consecuencias de la moda rápida son múltiples (económicas, sanitarias, ambientales).",
             "C) Es un error del autor que no se entiende."
           ],
           "correcta": "B"
@@ -1502,7 +1502,7 @@
     "nivel_mcer": "B2",
     "fuente": "Revista Ciudades Sostenibles, vol. 14, 2026",
     "orden": 12,
-    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques tematicos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caido un 30% en la última decada. Sin embargo, no todos están de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose María Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambió climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turistico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios económicos y la calidad de vida de los residentes.",
+    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques temáticos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caido un 30% en la última decada. Sin embargo, no todos están de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose María Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambió climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turístico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios económicos y la calidad de vida de los residentes.",
     "ejercicios": [
       {
         "tecnica_numero": 18,
@@ -4827,7 +4827,7 @@
             "A) Un contexto urbano moderno sin tradiciones",
             "B) Un contexto rural español, con tradición de vida en el pueblo",
             "C) Un contexto asiatico",
-            "D) Un contexto nordico"
+            "D) Un contexto nórdico"
           ],
           "correcta": "B"
         },
@@ -4888,7 +4888,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Comico",
+            "A) Cómico",
             "B) Melancolico al principio y esperanzador al final",
             "C) Solemne todo el tiempo",
             "D) Neutro y frió"
@@ -4907,7 +4907,7 @@
             "A) Visibilizar la desigualdad de género en el cuidado",
             "B) Defender que solo las mujeres deben cuidar",
             "C) Una postura neutral sin intención",
-            "D) Una postura comica"
+            "D) Una postura cómica"
           ],
           "correcta": "A"
         },
@@ -5049,7 +5049,7 @@
     "nivel_mcer": "B1",
     "fuente": "",
     "orden": 23,
-    "cuerpo": "El viaje de Santiago\n\nSantiago llegó al pueblo al atardecer. El autobus lo dejó en la plaza, frente a la iglesia de piedra. Hacía veinte años que no volvía. El pueblo seguía igual: las mismas casas bajas, el mismo olor a pan recien hecho, la misma fuente en el centro. Solo el silencio era distinto: un silencio más hondo, como si el tiempo se hubiera detenido.\n\nSu abuelo lo esperaba en la puerta de la casa. Tenía ochenta y siete años y seguía cuidando el huerto como si fuera un jardín de palacio.\n\n\"Llegas tarde, muchacho\", dijo el abuelo, sin reproche. Santiago sonrió. Aquella frase la había oido mil veces en su infancia.\n\nRecordó los veranos de niño, cuando corría por aquellos mismos caminos. Recordó el olor del tomate recien cogido, las siestas bajo la higuera, las historias del abuelo al anochecer. Había sido feliz allí, aunque entonces no lo supiera.\n\nAquella noche, mientras cenaban, Santiago miró por la ventana. En el monte, una luz roja parpadeaba. Era un zorro. El abuelo lo miró y dijo: \"El zorro siempre vuelve a su madriguera, aunque se aleje mucho. Es listo\". Santiago entendio el mensaje.\n\nEn el salón colgaba un reloj de pared que ya no funcionaba. El abuelo lo miró: \"Tu abuela lo paró el día que murió. Dijo que no quería que el tiempo siguiera sin ella\". El reloj era un objeto inmovil, pero pesaba como una montaña.\n\nEl abuelo habló durante horas. Le contó que el pueblo se estaba quedando vacio, que los jóvenes se iban a la ciudad y no volvian. \"El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie\".\n\n\"Abuelo\", dijo Santiago, \"y si me quedó?\".\n\nEl abuelo lo miró con sorpresa, luego con alegría, luego con miedo. \"Tu tienes tu vida en la ciudad. No la tires por mi\".\n\nSantiago salió al patio. La luna iluminaba el huerto como un escenario. Pensó en su trabajó, en sus amigos, en la ciudad. Pensó en el abuelo, en la casa, en el reloj parado. La decisión lo atravesaba como una espada. Se sentía como un árbol con dos raíces: una en la ciudad, otra en el pueblo. Y las dos tiraban de él.\n\nDe repente, el abuelo aparecio en la puerta. \"Santiago\", dijo, \"yo no voy a vivir para siempre. Pero tu si. Decide lo que te haga feliz, no lo que me haga feliz a mi\".\n\nSantiago lo abrazó. Lloro. Lloro como no había llorado en años. Y en ese llanto, supo que la decisión ya estaba tomada.\n\nAl día siguiente, Santiago llamó a su jefe y pidió una excedencia. Volveria a la ciudad en unos meses, pero antes quería pasar un año con el abuelo. Quería aprender a cuidar el huerto. Quería oir las historias otra vez. Quería, en definitiva, volver a sus raíces.\n\nEl abuelo sonrió. \"El zorro vuelve a casa, muchacho. Siempre vuelve\".\n\nAños después, Santiago recordaria aquel verano como el más importante de su vida. Y cada vez que veía un zorro en el monte, sonreía.",
+    "cuerpo": "El viaje de Santiago\n\nSantiago llegó al pueblo al atardecer. El autobus lo dejó en la plaza, frente a la iglesia de piedra. Hacía veinte años que no volvía. El pueblo seguía igual: las mismas casas bajas, el mismo olor a pan recien hecho, la misma fuente en el centro. Solo el silencio era distinto: un silencio más hondo, como si el tiempo se hubiera detenido.\n\nSu abuelo lo esperaba en la puerta de la casa. Tenía ochenta y siete años y seguía cuidando el huerto como si fuera un jardín de palacio.\n\n\"Llegas tarde, muchacho\", dijo el abuelo, sin reproche. Santiago sonrió. Aquella frase la había oido mil veces en su infancia.\n\nRecordó los veranos de niño, cuando corría por aquellos mismos caminos. Recordó el olor del tomate recien cogido, las siestas bajo la higuera, las historias del abuelo al anochecer. Había sido feliz allí, aunque entonces no lo supiera.\n\nAquella noche, mientras cenaban, Santiago miro por la ventana. En el monte, una luz roja parpadeaba. Era un zorro. El abuelo lo miró y dijo: \"El zorro siempre vuelve a su madriguera, aunque se aleje mucho. Es listo\". Santiago entendio el mensaje.\n\nEn el salón colgaba un reloj de pared que ya no funcionaba. El abuelo lo miró: \"Tu abuela lo paró el día que murió. Dijo que no quería que el tiempo siguiera sin ella\". El reloj era un objeto inmovil, pero pesaba como una montaña.\n\nEl abuelo habló durante horas. Le contó que el pueblo se estaba quedando vacio, que los jóvenes se iban a la ciudad y no volvian. \"El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie\".\n\n\"Abuelo\", dijo Santiago, \"y si me quedó?\".\n\nEl abuelo lo miró con sorpresa, luego con alegría, luego con miedo. \"Tu tienes tu vida en la ciudad. No la tires por mi\".\n\nSantiago salió al patio. La luna iluminaba el huerto como un escenario. Pensó en su trabajó, en sus amigos, en la ciudad. Pensó en el abuelo, en la casa, en el reloj parado. La decisión lo atravesaba como una espada. Se sentía como un árbol con dos raíces: una en la ciudad, otra en el pueblo. Y las dos tiraban de él.\n\nDe repente, el abuelo aparecio en la puerta. \"Santiago\", dijo, \"yo no voy a vivir para siempre. Pero tu si. Decide lo que te haga feliz, no lo que me haga feliz a mi\".\n\nSantiago lo abrazó. Lloro. Lloro como no había llorado en años. Y en ese llanto, supo que la decisión ya estaba tomada.\n\nAl día siguiente, Santiago llamó a su jefe y pidió una excedencia. Volveria a la ciudad en unos meses, pero antes quería pasar un año con el abuelo. Quería aprender a cuidar el huerto. Quería oir las historias otra vez. Quería, en definitiva, volver a sus raíces.\n\nEl abuelo sonrió. \"El zorro vuelve a casa, muchacho. Siempre vuelve\".\n\nAños después, Santiago recordaria aquel verano como el más importante de su vida. Y cada vez que veía un zorro en el monte, sonreía.",
     "ejercicios": [
       {
         "tecnica_numero": 62,
@@ -5938,7 +5938,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué falacia de ambiguedad contiene 'El trabajo es bueno; por tanto, trabajar mucho es mejor'?",
+        "enunciado": "¿Qué falacia de ambigüedad contiene 'El trabajo es bueno; por tanto, trabajar mucho es mejor'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6115,7 +6115,7 @@
             "A) La España rural de la segunda mitad del siglo XX y principios del XXI, con despoblación",
             "B) La Edad Media",
             "C) El futuro lejano",
-            "D) Un país nordico actual"
+            "D) Un país nórdico actual"
           ],
           "correcta": "A"
         },
@@ -6129,7 +6129,7 @@
         "payload": {
           "opciones": [
             "A) De melancolico y triste al principio a esperanzador y decidido al final",
-            "B) De comico a tragico",
+            "B) De cómico a tragico",
             "C) Uniforme, sin cambios",
             "D) De irónico a neutro"
           ],
@@ -6225,7 +6225,7 @@
         "payload": {
           "opciones": [
             "A) Un contexto mediterraneo y español rural",
-            "B) Un contexto nordico",
+            "B) Un contexto nórdico",
             "C) Un contexto asiatico",
             "D) Un contexto norteamericano"
           ],
@@ -6353,7 +6353,7 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 27,
-    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salón y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elias se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los pare todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomabamos café. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mí, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenía razón en algo: la gente corría todo el día sin saber hacia donde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elias me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elias dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabía el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontré la puerta abierta. El no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvió. A veces, cuando pasó por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levantó, miró el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
+    "cuerpo": "La casa de los relojes\n\nLa casa de don Elías era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salón y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. Él era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elías se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los paré todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomábamos café. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mí, el tiempo se detuvo\".\n\nDon Elías hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablábamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elías tenía razón en algo: la gente corría todo el día sin saber hacia dónde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras él hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdía en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elías me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elías dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidí, entonces, que cambiaría algo. No sabía qué, pero algo.\n\nAl jueves siguiente, cuando llegué a casa de don Elías, encontré la puerta abierta. Él no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, déjalo parado\".\n\nNunca supe si don Elías volvió. A veces, cuando paso por su casa, miro por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levanto, miro el reloj de mi cocina y me acuerdo de don Elías. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
     "ejercicios": [
       {
         "tecnica_numero": 61,
@@ -6380,7 +6380,7 @@
           "opciones": [
             "A) El espacio central del relato y el tema del tiempo detenido",
             "B) La biografía del protagonista",
-            "C) Un lugar turistico",
+            "C) Un lugar turístico",
             "D) La infancia del narrador"
           ],
           "correcta": "A"
@@ -6406,14 +6406,14 @@
       {
         "tecnica_numero": 64,
         "tecnica_nivel": "B2",
-        "enunciado": "En el texto, que dos versiones se ofrecen de don Elias?",
+        "enunciado": "En el texto, qué dos versiones se ofrecen de don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La del amigo (que dice que esta loco) y la del narrador (que no está tan seguro)",
+            "A) La del amigo (que dice que está loco) y la del narrador (que no está tan seguro)",
             "B) La del alcalde y la del cura",
             "C) La de la madre y la del padre",
-            "D) La del propio don Elias y la de Emilia"
+            "D) La del propio don Elías y la de Emilia"
           ],
           "correcta": "A"
         },
@@ -6428,7 +6428,7 @@
           "opciones": [
             "A) La tradición literaria del tempus fugit y la nostalgia por el pasado",
             "B) La ciencia ficción espacial",
-            "C) La novela policiaca nordica",
+            "C) La novela policiaca nórdica",
             "D) La poesía épica griega"
           ],
           "correcta": "A"
@@ -6438,7 +6438,7 @@
       {
         "tecnica_numero": 66,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'La gente cree que estoy loco, pero en realidad soy el único cuerdo', qué recurso usa don Elias?",
+        "enunciado": "En 'La gente cree que estoy loco, pero en realidad soy el único cuerdo', qué recurso usa don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6459,7 +6459,7 @@
         "payload": {
           "opciones": [
             "A) La memoria de Emilia y el amor detenido en el tiempo",
-            "B) La riqueza de don Elias",
+            "B) La riqueza de don Elías",
             "C) La modernidad del barrio",
             "D) La religión"
           ],
@@ -6470,11 +6470,11 @@
       {
         "tecnica_numero": 68,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Cómo influye la voz narrativa (primera persona testigo) en la caracterización de don Elias?",
+        "enunciado": "¿Cómo influye la voz narrativa (primera persona testigo) en la caracterización de don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Lo presenta con ambiguedad: no sabemos si está loco o es un sabio, porque el narrador tampoco lo sabe",
+            "A) Lo presenta con ambigüedad: no sabemos si está loco o es un sabio, porque el narrador tampoco lo sabe",
             "B) Lo presenta como un villano claro",
             "C) Lo presenta como un santo",
             "D) Lo presenta como un niño"
@@ -6502,7 +6502,7 @@
       {
         "tecnica_numero": 70,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué se omite deliberadamente en el texto respecto al destino de don Elias?",
+        "enunciado": "¿Qué se omite deliberadamente en el texto respecto al destino de don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6522,8 +6522,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Porque no se resuelve si don Elias vuelve: el lector debe imaginar",
-            "B) Porque termina con la muerte de don Elias",
+            "A) Porque no se resuelve si don Elías vuelve: el lector debe imaginar",
+            "B) Porque termina con la muerte de don Elías",
             "C) Porque termina con una boda",
             "D) Porque termina con un viaje resuelto"
           ],
@@ -6539,9 +6539,9 @@
         "payload": {
           "opciones": [
             "A) Su insatisfacción con su propia relación con el tiempo",
-            "B) Su odio hacía don Elias",
+            "B) Su odio hacia don Elías",
             "C) Su deseo de ser médico",
-            "D) Su alegría por el proximo viaje"
+            "D) Su alegría por el próximo viaje"
           ],
           "correcta": "A"
         },
@@ -6566,7 +6566,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué contrapunto se establece en el texto entre el pasado y el presente de don Elias?",
+        "enunciado": "¿Qué contrapunto se establece en el texto entre el pasado y el presente de don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6582,7 +6582,7 @@
       {
         "tecnica_numero": 75,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué revela el diálogo 'Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado' sobre don Elias?",
+        "enunciado": "¿Qué revela el diálogo 'Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, déjalo parado' sobre don Elías?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6602,7 +6602,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Para don Elias, veinte años han pasado como un instante; el tiempo se ha detenido",
+            "A) Para don Elías, veinte años han pasado como un instante; el tiempo se ha detenido",
             "B) El tiempo es siempre uniforme",
             "C) El narrador mide cada minuto",
             "D) El tiempo se acelera sin razón"
@@ -6614,11 +6614,11 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué función tiene la casa de don Elias en la narración?",
+        "enunciado": "¿Qué función tiene la casa de don Elías en la narración?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Reflejar el estado interior de don Elias: un espacio detenido en el tiempo",
+            "A) Reflejar el estado interior de don Elías: un espacio detenido en el tiempo",
             "B) Ser un simple decorado",
             "C) Ser un lugar público",
             "D) Ser una tienda"
@@ -6646,12 +6646,12 @@
       {
         "tecnica_numero": 79,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué ambiguedad intencionada hay en 'no sabemos si don Elias esta loco o es un sabio'?",
+        "enunciado": "¿Qué ambigüedad intencionada hay en 'no sabemos si don Elías esta loco o es un sabio'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) El texto sugiere dos lecturas posibles y no elige una",
-            "B) El texto aclara que esta loco",
+            "B) El texto aclara que está loco",
             "C) El texto aclara que es un sabio",
             "D) El texto no plantea el tema"
           ],
@@ -6668,7 +6668,7 @@
           "opciones": [
             "A) El relato de detectives (hay una nota, un misterio) se subvierte al ser un relato filosófico",
             "B) El cuento de hadas",
-            "C) La novela romantica",
+            "C) La novela romántica",
             "D) La ciencia ficción"
           ],
           "correcta": "A"
@@ -6682,8 +6682,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Un efecto de insistencia tematica: el tiempo y su negación son el centro del relato",
-            "B) Un efecto comico",
+            "A) Un efecto de insistencia temática: el tiempo y su negación son el centro del relato",
+            "B) Un efecto cómico",
             "C) Un efecto de rapidez",
             "D) Un efecto de musicalidad sin sentido"
           ],
@@ -7359,7 +7359,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 30,
-    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacia donde. Pero yo me pregunto: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre está perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un café en la mano. Vuelve a las once de la noche, agotado. Su vida es una línea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me dirán que soy un nostálgico. \"Claro\", responden, \"tú quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milan Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetarán que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberíamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer paso sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociéndola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extrañamente, soy más feliz. Quizá la felicidad no esté en correr, sino en detenerse a mirar.",
+    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacia dónde. Pero yo me pregunto: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre está perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un café en la mano. Vuelve a las once de la noche, agotado. Su vida es una línea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me dirán que soy un nostálgico. \"Claro\", responden, \"tú quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milan Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetarán que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberíamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer paso sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociéndola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extrañamente, soy más feliz. Quizá la felicidad no esté en correr, sino en detenerse a mirar.",
     "ejercicios": [
       {
         "tecnica_numero": 38,
