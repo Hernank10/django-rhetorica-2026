@@ -488,6 +488,75 @@ REGEX_FALSE_POSITIVES = [
     # lo dejamos como publicó (verbo) porque es menos frecuente como sustantivo
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V8: C2 "El archivo de los espejos" + generales
+# ══════════════════════════════════════════════════════════════════
+WORDS_V8 = {
+    "salon": "salón", "sere": "seré",
+    "fotografias": "fotografías", "periodico": "periódico",
+    "sintoma": "síntoma", "sintomas": "síntomas",
+    "envejeceria": "envejecería", "moriria": "moriría",
+    "rompi": "rompí", "proposito": "propósito",
+    "heterotopia": "heterotopía", "heterotopias": "heterotopías",
+    "deberia": "debería", "parecia": "parecía",
+    "entendia": "entendía", "atras": "atrás",
+    "borro": "borró", "enseno": "enseñó",
+    "subvertia": "subvertía", "rompia": "rompía",
+    "encontre": "encontré", "senti": "sentí",
+    "linea": "línea", "lineas": "líneas",
+    "jardin": "jardín",
+    "maquina": "máquina", "maquinas": "máquinas",
+    "nomada": "nómada", "nomadas": "nómadas",
+    "devolvia": "devolvía",
+    "organos": "órganos",
+    "producian": "producían",
+    "mia": "mía", "mias": "mías",
+    "cuantos": "cuántos", "cuantas": "cuántas",
+    "sintomatica": "sintomática",
+    "panoptico": "panóptico", "panopticos": "panópticos",
+    "logicas": "lógicas",
+    "traduccion": "traducción",
+    "genetico": "genético", "genetica": "genética",
+    "fisico": "físico", "fisica": "física",
+    "fisicos": "físicos", "fisicas": "físicas",
+}
+
+# ───── FALSE POSITIVES contextuales (v8) ─────
+REGEX_FALSE_POS_V8 = [
+    # "es fijó" -> "es fijo" (adjetivo)
+    (r'\bes\s+fijó\b', r'es fijo'),
+    (r'\bsea\s+fijó\b', r'sea fijo'),
+    # "el pasó del tiempo" -> "el paso del tiempo" (sustantivo)
+    (r'\bel\s+pasó\s+del\b', r'el paso del'),
+    (r'\bun\s+pasó\s+del\b', r'un paso del'),
+    # "Te preguntó" (1a persona) -> "Te pregunto"
+    (r'\bTe\s+preguntó\b', r'Te pregunto'),
+    # "Te llamó a" (1a persona) -> "Te llamo a"
+    (r'\bTe\s+llamó\s+a\b', r'Te llamo a'),
+    # "Miró por la ventana" (1a narrativa) -> "Miro por la ventana"
+    (r'\bMiró\s+por\s+la\s+ventana\b', r'Miro por la ventana'),
+    # "No se que significa" -> "No sé qué significa"
+    (r'\bNo\s+se\s+que\s+significa\b', r'No sé qué significa'),
+    # "madre silencio" (verbo) -> "madre silenció"
+    (r'\blo\s+que\s+la\s+madre\s+silencio\b', r'lo que la madre silenció'),
+    # "porque esta" -> "porque está" (verbo)
+    (r'\b([Pp])orque\s+esta\b', r'\1orque está'),
+    # "mi misma" / "mi mismo" -> "mí misma" (pronombre reflexivo)
+    (r'\bmi\s+misma\b', r'mí misma'),
+    (r'\bmi\s+mismo\b', r'mí mismo'),
+    (r'\bmi\s+mismas\b', r'mí mismas'),
+    (r'\bmi\s+mismos\b', r'mí mismos'),
+    # "a mi," / "en mi." / "a mi?" -> "mí" (pronombre tónico)
+    (r'\b(a|en|de|para|por|sin|sobre|entre|según)\s+mi\b(?=\s*[,;:?.!]|\s*$)', r'\1 mí'),
+    # "tu, lector" -> "tú, lector"
+    (r'\btu,\s+lector\b', r'tú, lector'),
+    # "eres tu?" -> "eres tú?"
+    (r'\beres\s+tu\b(?=\s*[?.,;:]|\s*$)', r'eres tú'),
+    # "ni en la mia" -> "ni en la mía" (ya cubierto por dict mia, pero por seguridad)
+    (r'\bni\s+en\s+la\s+mia\b', r'ni en la mía'),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -523,7 +592,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -541,8 +610,11 @@ def fix_text(text):
     text = REGEX_ESTE_SUBJ.sub(lambda m: m.group(1) + " esté", text)
     # 8. "para que sirve" -> "para qué sirve"
     text = REGEX_PARA_QUE_SIRVE.sub(lambda m: m.group(1) + "ara qué sirve", text)
-    # 9. FALSE POSITIVES de v6 (reversion contextual)
+    # 9. FALSE POSITIVES de v6
     for pattern, replacement in REGEX_FALSE_POSITIVES:
+        text = re.sub(pattern, replacement, text)
+    # 10. FALSE POSITIVES de v8 + pronombres tonicos
+    for pattern, replacement in REGEX_FALSE_POS_V8:
         text = re.sub(pattern, replacement, text)
     return text
 

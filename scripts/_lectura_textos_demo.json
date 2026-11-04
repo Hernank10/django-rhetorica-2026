@@ -126,7 +126,7 @@
     "nivel_mcer": "C1",
     "fuente": "Periodico El Debate, seccion Economia, 15/10/2026",
     "orden": 3,
-    "cuerpo": "Una vez más, la empresa energetica Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez más, los datos la desmintieron al mes siguiente de la rueda de prensa: según el informe trimestral publicado por la propia compañía, las emisiones habían aumentado un 4% respecto al año anterior. El director de sostenibilidad, en declaraciones a este periodico, aseguro que 'el incremento es temporal y responde a una mayor demanda energetica'. Sin embargo, dos expertos independientes consultados por El Debate senalan que la empresa había recibido subvenciones públicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compañía no ha respondido a las preguntas de este periodico.",
+    "cuerpo": "Una vez más, la empresa energetica Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez más, los datos la desmintieron al mes siguiente de la rueda de prensa: según el informe trimestral publicado por la propia compañía, las emisiones habían aumentado un 4% respecto al año anterior. El director de sostenibilidad, en declaraciones a este periódico, aseguro que 'el incremento es temporal y responde a una mayor demanda energetica'. Sin embargo, dos expertos independientes consultados por El Debate senalan que la empresa había recibido subvenciones públicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compañía no ha respondido a las preguntas de este periódico.",
     "ejercicios": [
       {
         "tecnica_numero": 1,
@@ -467,7 +467,7 @@
     "nivel_mcer": "B2",
     "fuente": "Informe de la OCDE, 2025",
     "orden": 6,
-    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automatica. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automatica liberan a los profesores de tareas repetitivas, permitiendoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos senalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vinculo humano, que es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorias por un asistente de IA. La medida género protestas de las familias, que consideraban que la educación requiere un acompanamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atras. El debate sigue abierto. La pregunta no es si la IA estara en la educación, sino como integrarla de forma que potencie el aprendizaje sin perder lo humano. Como senala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al reves'.",
+    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automatica. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automatica liberan a los profesores de tareas repetitivas, permitiendoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos senalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vinculo humano, que es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorias por un asistente de IA. La medida género protestas de las familias, que consideraban que la educación requiere un acompanamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atrás. El debate sigue abierto. La pregunta no es si la IA estara en la educación, sino como integrarla de forma que potencie el aprendizaje sin perder lo humano. Como senala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al reves'.",
     "ejercicios": [
       {
         "tecnica_numero": 4,
@@ -531,7 +531,7 @@
       },
       {
         "tecnica_numero": 8,
-        "enunciado": "¿Cuál es el proposito comunicativo del texto?",
+        "enunciado": "¿Cuál es el propósito comunicativo del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -872,7 +872,7 @@
           "opciones": [
             "A) Como un espacio donde solo escuchamos lo que ya pensamos.",
             "B) Como una camara de fotos.",
-            "C) Como un lugar fisico."
+            "C) Como un lugar físico."
           ],
           "correcta": "A"
         },
@@ -992,7 +992,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 9,
-    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardin. El gato lo miró fijamente y dijo: -Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compañía. Pablo, después de dudar un momento, se sento en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. -Primero observo, luego decido si me acerco -explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pajaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiro, bostezo y dijo: -Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajo al jardin, el gato gris ya estaba allí, esperandolo, con los ojos brillantes y la cola levantada.",
+    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardín. El gato lo miró fijamente y dijo: -Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compañía. Pablo, después de dudar un momento, se sento en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. -Primero observo, luego decido si me acerco -explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pajaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiro, bostezo y dijo: -Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajo al jardín, el gato gris ya estaba allí, esperandolo, con los ojos brillantes y la cola levantada.",
     "ejercicios": [
       {
         "tecnica_numero": 9,
@@ -1000,7 +1000,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Real, porque hay un jardin y un gato.",
+            "A) Real, porque hay un jardín y un gato.",
             "B) Imaginaria, porque el gato habla y los gatos no hablan en la realidad.",
             "C) Real, porque Pablo es un niño real."
           ],
@@ -1091,7 +1091,7 @@
         "payload": {
           "opciones": [
             "A) Una playa en verano.",
-            "B) El jardin de Pablo y el muro, con el tejado de la casa vecina.",
+            "B) El jardín de Pablo y el muro, con el tejado de la casa vecina.",
             "C) Una escuela."
           ],
           "correcta": "B"
@@ -1106,7 +1106,7 @@
         "payload": {
           "opciones": [
             "A) Pablo se sienta en el muro junto al gato.",
-            "B) Pablo encuentra un gato gris en el muro de su jardin.",
+            "B) Pablo encuentra un gato gris en el muro de su jardín.",
             "C) El gato se va saltando del muro."
           ],
           "correcta": "B"
@@ -1156,7 +1156,7 @@
     "ejercicios": [
       {
         "tecnica_numero": 17,
-        "enunciado": "¿Cuál es el proposito del párrafo introductorio del texto?",
+        "enunciado": "¿Cuál es el propósito del párrafo introductorio del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1357,7 +1357,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 11,
-    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseno mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atención. -Si, abuela -respondió Sofía, con los ojos brillantes. La abuela saco mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego anadimos el azúcar y, por último, la harina -explicó la abuela-. Nunca lo hacemos todo a la vez. Sofía removio la mezcla con una cuchara de madera. La abuela la miraba con cariño. -Abuela, ¿por qué no usas la batidora electrica? -preguntó Sofía. -Porque con la cuchara se siente la textura -contesto la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendio. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartio con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
+    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseñó mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atención. -Si, abuela -respondió Sofía, con los ojos brillantes. La abuela saco mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego anadimos el azúcar y, por último, la harina -explicó la abuela-. Nunca lo hacemos todo a la vez. Sofía removio la mezcla con una cuchara de madera. La abuela la miraba con cariño. -Abuela, ¿por qué no usas la batidora electrica? -preguntó Sofía. -Porque con la cuchara se siente la textura -contesto la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendio. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartio con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
     "ejercicios": [
       {
         "tecnica_numero": 11,
@@ -1421,7 +1421,7 @@
       },
       {
         "tecnica_numero": 13,
-        "enunciado": "En el diálogo '-Hoy te enseno mi receta secreta -dijo la abuela-', ¿quién habla?",
+        "enunciado": "En el diálogo '-Hoy te enseñó mi receta secreta -dijo la abuela-', ¿quién habla?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2357,7 +2357,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 15,
-    "cuerpo": "Sofía cumplia ocho años el sabado. Su madre preparo una fiesta en el jardin. Había globos de colores y una tarta de chocolate. —¡Qué tarta tan grande! —exclamo Sofía, con los ojos brillantes como estrellas. Por la tarde, llegaron sus amigos. Jugaron, rieron y bailaron. El reloj corría y la tarde pasaba volando. De repente, empezó a llover. Los niños corrieron a la casa. Sofía se puso triste. —No te preocupes —dijo su madre—. La fiesta sigue dentro. Entonces, todos se sentaron en el salon. La madre trajo la tarta. Sofía soplo las velas y pidió un deseo. —¡Qué se cumpla tu deseo! —dijeron sus amigos a coro. Cuando terminó la fiesta, Sofía abrazó a su madre. —Gracias, mama. Ha sido el mejor cumpleaños de mi vida. Esa noche, Sofía durmio feliz. Había aprendido que la lluvia no arruina una fiesta.",
+    "cuerpo": "Sofía cumplia ocho años el sabado. Su madre preparo una fiesta en el jardín. Había globos de colores y una tarta de chocolate. —¡Qué tarta tan grande! —exclamo Sofía, con los ojos brillantes como estrellas. Por la tarde, llegaron sus amigos. Jugaron, rieron y bailaron. El reloj corría y la tarde pasaba volando. De repente, empezó a llover. Los niños corrieron a la casa. Sofía se puso triste. —No te preocupes —dijo su madre—. La fiesta sigue dentro. Entonces, todos se sentaron en el salón. La madre trajo la tarta. Sofía soplo las velas y pidió un deseo. —¡Qué se cumpla tu deseo! —dijeron sus amigos a coro. Cuando terminó la fiesta, Sofía abrazó a su madre. —Gracias, mama. Ha sido el mejor cumpleaños de mi vida. Esa noche, Sofía durmio feliz. Había aprendido que la lluvia no arruina una fiesta.",
     "ejercicios": [
       {
         "tecnica_numero": 57,
@@ -2396,7 +2396,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) En el jardin",
+            "A) En el jardín",
             "B) En la playa",
             "C) En el colegio"
           ],
@@ -2442,7 +2442,7 @@
         "payload": {
           "opciones": [
             "A) Las frases entre guiones (—¡Qué tarta tan grande!—)",
-            "B) La descripción del jardin",
+            "B) La descripción del jardín",
             "C) El título"
           ],
           "correcta": "A"
@@ -2747,7 +2747,7 @@
       {
         "tecnica_numero": 82,
         "tecnica_nivel": "A1",
-        "enunciado": "¿Cuál es el proposito del texto?",
+        "enunciado": "¿Cuál es el propósito del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3305,7 +3305,7 @@
             "A) El vigilante",
             "B) La guia",
             "C) El restaurador",
-            "D) El periodico"
+            "D) El periódico"
           ],
           "correcta": "A"
         },
@@ -3676,7 +3676,7 @@
       {
         "tecnica_numero": 58,
         "tecnica_nivel": "A2",
-        "enunciado": "El texto dice que hay peces que brillan pero no especifica cuantos ni de que especie. ¿Qué se puede inferir de esta información omitida?",
+        "enunciado": "El texto dice que hay peces que brillan pero no especifica cuántos ni de que especie. ¿Qué se puede inferir de esta información omitida?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3697,7 +3697,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 19,
-    "cuerpo": "En el instituto San Isidro, profesores y familias debaten sobre los deberes. Unos dicen que los deberes son necesarios. Otros creen que son excesivos. El primer argumento a favor es que los deberes refuerzan lo aprendido en clase. Según un estudio de la Universidad de Madrid (2023), los alumnos que hacen deberes regularmente obtienen mejores resultados. Además, los deberes ensenan a organizar el tiempo. Sin embargo, los críticos senalan varios problemas. El primero es que los deberes consumen el tiempo libre de los niños. 'Un niño de 12 años no deberia estudiar más de dos horas al día', afirma la profesora Ana López. El segundo es que no todos los alumnos tienen las mismas condiciones en casa: algunos no tienen un lugar tranquilo para estudiar. Un dato llamativo: según una encuesta de 2024, el 60% de las familias cree que los deberes son excesivos. Pero solo el 20% pide eliminarlos. La mayoria prefiere que se reduzcan. En el fondo, el debate no es sobre los deberes, sino sobre la equidad. Como dijo un profesor en la reunion: 'El problema no es el deber, sino las condiciones desiguales'.",
+    "cuerpo": "En el instituto San Isidro, profesores y familias debaten sobre los deberes. Unos dicen que los deberes son necesarios. Otros creen que son excesivos. El primer argumento a favor es que los deberes refuerzan lo aprendido en clase. Según un estudio de la Universidad de Madrid (2023), los alumnos que hacen deberes regularmente obtienen mejores resultados. Además, los deberes ensenan a organizar el tiempo. Sin embargo, los críticos senalan varios problemas. El primero es que los deberes consumen el tiempo libre de los niños. 'Un niño de 12 años no debería estudiar más de dos horas al día', afirma la profesora Ana López. El segundo es que no todos los alumnos tienen las mismas condiciones en casa: algunos no tienen un lugar tranquilo para estudiar. Un dato llamativo: según una encuesta de 2024, el 60% de las familias cree que los deberes son excesivos. Pero solo el 20% pide eliminarlos. La mayoria prefiere que se reduzcan. En el fondo, el debate no es sobre los deberes, sino sobre la equidad. Como dijo un profesor en la reunion: 'El problema no es el deber, sino las condiciones desiguales'.",
     "ejercicios": [
       {
         "tecnica_numero": 59,
@@ -3814,7 +3814,7 @@
       {
         "tecnica_numero": 66,
         "tecnica_nivel": "A2",
-        "enunciado": "La cita 'Un niño de 12 años no deberia estudiar más de dos horas al día' (Ana López). ¿Qué función cumple?",
+        "enunciado": "La cita 'Un niño de 12 años no debería estudiar más de dos horas al día' (Ana López). ¿Qué función cumple?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4022,7 +4022,7 @@
       {
         "tecnica_numero": 79,
         "tecnica_nivel": "A2",
-        "enunciado": "¿Cuál es el proposito comunicativo del texto?",
+        "enunciado": "¿Cuál es el propósito comunicativo del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4703,7 +4703,7 @@
     "nivel_mcer": "B1",
     "fuente": "",
     "orden": 22,
-    "cuerpo": "Marta tenía cuarenta y cinco años y llevaba veinte viviendo en la ciudad. Era arquitecta, tenía un buen sueldo y un apartamento con vistas. Sin embargo, cuando su madre enfermo, todo cambió.\n\nAquella mañana de octubre, el telefono sono a las siete. Era su hermano. \"Mama esta peor. El médico dice que ya no puede vivir sola\". Marta colgo y se quedó mirando la ventana. Le pesaba el alma.\n\nDurante los días siguientes, Marta no dormía. Se levantaba a las tres de la mañana y miraba el techo. En el trabajo no hablaba; sus compañeros la notaban ausente. Una tarde, su jefa le dijo: \"Marta, te pasa algo?\". Ella respondió: \"Nada, estoy bien\", pero sus ojos brillaban.\n\nMarta tenía que decidir. Podía quedarse en la ciudad y pagar una residencia para su madre, o volver al pueblo y dejar su carrera. La pregunta la atormentaba: \"Como se puede elegir entre dos amores?\". Su madre la había criado sola después de que su padre se marchara. La casa del pueblo tenía un huerto que llevaba cuarenta años cultivandose. La casa la llamaba con su silencio.\n\n\"Menos mal que la vida es simple\", pensó Marta con amargura, mientras miraba los dos caminos. Pero la vida es un rió que a veces se bifurca, y ella lo sabía.\n\nUn amigo periodista, que la conocia desde la infancia, le escribió: \"En mi último artículo (publicado en 2024), hable de mujeres que toman decisiones difíciles. Quieres leerlo?\". Marta lo leyó. El artículo citaba datos de un estudio de la Universidad de Barcelona (2023) sobre el cuidado de mayores. Según el estudio, el 70% de los cuidadores son mujeres. El periodico también recogía testimonios de mujeres que habían dejado sus carreras. En el artículo no aparecia ningún caso de hombres que hubieran hecho lo mismo.\n\nMarta cerró el artículo. Pensó en su madre, en su carrera, en los veinte años que llevaba fuera. Luego, sin dudar más, cogio el telefono y llamó a su jefa. Al día siguiente, entrego su dimisión. Volvió al pueblo. Encontró a su madre sentada en el huerto, con una sonrisa. Y supo que había tomado la decisión correcta.\n\nAhora, dos años después, Marta regenta una pequeña consulta de arquitectura en el pueblo. Es menos famosa que en la ciudad, pero es feliz. Ha aprendido que las decisiones importantes no se toman con la cabeza, sino con el corazón. Y cada mañana, cuando riega el huerto de su madre, recuerda que la vida no se mide en metros cuadrados.",
+    "cuerpo": "Marta tenía cuarenta y cinco años y llevaba veinte viviendo en la ciudad. Era arquitecta, tenía un buen sueldo y un apartamento con vistas. Sin embargo, cuando su madre enfermo, todo cambió.\n\nAquella mañana de octubre, el telefono sono a las siete. Era su hermano. \"Mama esta peor. El médico dice que ya no puede vivir sola\". Marta colgo y se quedó mirando la ventana. Le pesaba el alma.\n\nDurante los días siguientes, Marta no dormía. Se levantaba a las tres de la mañana y miraba el techo. En el trabajo no hablaba; sus compañeros la notaban ausente. Una tarde, su jefa le dijo: \"Marta, te pasa algo?\". Ella respondió: \"Nada, estoy bien\", pero sus ojos brillaban.\n\nMarta tenía que decidir. Podía quedarse en la ciudad y pagar una residencia para su madre, o volver al pueblo y dejar su carrera. La pregunta la atormentaba: \"Como se puede elegir entre dos amores?\". Su madre la había criado sola después de que su padre se marchara. La casa del pueblo tenía un huerto que llevaba cuarenta años cultivandose. La casa la llamaba con su silencio.\n\n\"Menos mal que la vida es simple\", pensó Marta con amargura, mientras miraba los dos caminos. Pero la vida es un rió que a veces se bifurca, y ella lo sabía.\n\nUn amigo periodista, que la conocia desde la infancia, le escribió: \"En mi último artículo (publicado en 2024), hable de mujeres que toman decisiones difíciles. Quieres leerlo?\". Marta lo leyó. El artículo citaba datos de un estudio de la Universidad de Barcelona (2023) sobre el cuidado de mayores. Según el estudio, el 70% de los cuidadores son mujeres. El periódico también recogía testimonios de mujeres que habían dejado sus carreras. En el artículo no aparecia ningún caso de hombres que hubieran hecho lo mismo.\n\nMarta cerró el artículo. Pensó en su madre, en su carrera, en los veinte años que llevaba fuera. Luego, sin dudar más, cogio el telefono y llamó a su jefa. Al día siguiente, entrego su dimisión. Volvió al pueblo. Encontró a su madre sentada en el huerto, con una sonrisa. Y supo que había tomado la decisión correcta.\n\nAhora, dos años después, Marta regenta una pequeña consulta de arquitectura en el pueblo. Es menos famosa que en la ciudad, pero es feliz. Ha aprendido que las decisiones importantes no se toman con la cabeza, sino con el corazón. Y cada mañana, cuando riega el huerto de su madre, recuerda que la vida no se mide en metros cuadrados.",
     "ejercicios": [
       {
         "tecnica_numero": 41,
@@ -5049,7 +5049,7 @@
     "nivel_mcer": "B1",
     "fuente": "",
     "orden": 23,
-    "cuerpo": "El viaje de Santiago\n\nSantiago llegó al pueblo al atardecer. El autobus lo dejó en la plaza, frente a la iglesia de piedra. Hacía veinte años que no volvía. El pueblo seguía igual: las mismas casas bajas, el mismo olor a pan recien hecho, la misma fuente en el centro. Solo el silencio era distinto: un silencio más hondo, como si el tiempo se hubiera detenido.\n\nSu abuelo lo esperaba en la puerta de la casa. Tenía ochenta y siete años y seguía cuidando el huerto como si fuera un jardin de palacio.\n\n\"Llegas tarde, muchacho\", dijo el abuelo, sin reproche. Santiago sonrió. Aquella frase la había oido mil veces en su infancia.\n\nRecordó los veranos de niño, cuando corría por aquellos mismos caminos. Recordó el olor del tomate recien cogido, las siestas bajo la higuera, las historias del abuelo al anochecer. Había sido feliz allí, aunque entonces no lo supiera.\n\nAquella noche, mientras cenaban, Santiago miró por la ventana. En el monte, una luz roja parpadeaba. Era un zorro. El abuelo lo miró y dijo: \"El zorro siempre vuelve a su madriguera, aunque se aleje mucho. Es listo\". Santiago entendio el mensaje.\n\nEn el salon colgaba un reloj de pared que ya no funcionaba. El abuelo lo miró: \"Tu abuela lo paró el día que murió. Dijo que no quería que el tiempo siguiera sin ella\". El reloj era un objeto inmovil, pero pesaba como una montaña.\n\nEl abuelo habló durante horas. Le contó que el pueblo se estaba quedando vacio, que los jovenes se iban a la ciudad y no volvian. \"El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie\".\n\n\"Abuelo\", dijo Santiago, \"y si me quedó?\".\n\nEl abuelo lo miró con sorpresa, luego con alegría, luego con miedo. \"Tu tienes tu vida en la ciudad. No la tires por mi\".\n\nSantiago salió al patio. La luna iluminaba el huerto como un escenario. Pensó en su trabajó, en sus amigos, en la ciudad. Pensó en el abuelo, en la casa, en el reloj parado. La decisión lo atravesaba como una espada. Se sentía como un árbol con dos raíces: una en la ciudad, otra en el pueblo. Y las dos tiraban de el.\n\nDe repente, el abuelo aparecio en la puerta. \"Santiago\", dijo, \"yo no voy a vivir para siempre. Pero tu si. Decide lo que te haga feliz, no lo que me haga feliz a mi\".\n\nSantiago lo abrazó. Lloro. Lloro como no había llorado en años. Y en ese llanto, supo que la decisión ya estaba tomada.\n\nAl día siguiente, Santiago llamó a su jefe y pidió una excedencia. Volveria a la ciudad en unos meses, pero antes quería pasar un año con el abuelo. Quería aprender a cuidar el huerto. Quería oir las historias otra vez. Quería, en definitiva, volver a sus raíces.\n\nEl abuelo sonrió. \"El zorro vuelve a casa, muchacho. Siempre vuelve\".\n\nAños después, Santiago recordaria aquel verano como el más importante de su vida. Y cada vez que veía un zorro en el monte, sonreía.",
+    "cuerpo": "El viaje de Santiago\n\nSantiago llegó al pueblo al atardecer. El autobus lo dejó en la plaza, frente a la iglesia de piedra. Hacía veinte años que no volvía. El pueblo seguía igual: las mismas casas bajas, el mismo olor a pan recien hecho, la misma fuente en el centro. Solo el silencio era distinto: un silencio más hondo, como si el tiempo se hubiera detenido.\n\nSu abuelo lo esperaba en la puerta de la casa. Tenía ochenta y siete años y seguía cuidando el huerto como si fuera un jardín de palacio.\n\n\"Llegas tarde, muchacho\", dijo el abuelo, sin reproche. Santiago sonrió. Aquella frase la había oido mil veces en su infancia.\n\nRecordó los veranos de niño, cuando corría por aquellos mismos caminos. Recordó el olor del tomate recien cogido, las siestas bajo la higuera, las historias del abuelo al anochecer. Había sido feliz allí, aunque entonces no lo supiera.\n\nAquella noche, mientras cenaban, Santiago miró por la ventana. En el monte, una luz roja parpadeaba. Era un zorro. El abuelo lo miró y dijo: \"El zorro siempre vuelve a su madriguera, aunque se aleje mucho. Es listo\". Santiago entendio el mensaje.\n\nEn el salón colgaba un reloj de pared que ya no funcionaba. El abuelo lo miró: \"Tu abuela lo paró el día que murió. Dijo que no quería que el tiempo siguiera sin ella\". El reloj era un objeto inmovil, pero pesaba como una montaña.\n\nEl abuelo habló durante horas. Le contó que el pueblo se estaba quedando vacio, que los jovenes se iban a la ciudad y no volvian. \"El pueblo se muere, Santiago. Pero mientras yo viva, la casa sigue en pie\".\n\n\"Abuelo\", dijo Santiago, \"y si me quedó?\".\n\nEl abuelo lo miró con sorpresa, luego con alegría, luego con miedo. \"Tu tienes tu vida en la ciudad. No la tires por mi\".\n\nSantiago salió al patio. La luna iluminaba el huerto como un escenario. Pensó en su trabajó, en sus amigos, en la ciudad. Pensó en el abuelo, en la casa, en el reloj parado. La decisión lo atravesaba como una espada. Se sentía como un árbol con dos raíces: una en la ciudad, otra en el pueblo. Y las dos tiraban de el.\n\nDe repente, el abuelo aparecio en la puerta. \"Santiago\", dijo, \"yo no voy a vivir para siempre. Pero tu si. Decide lo que te haga feliz, no lo que me haga feliz a mi\".\n\nSantiago lo abrazó. Lloro. Lloro como no había llorado en años. Y en ese llanto, supo que la decisión ya estaba tomada.\n\nAl día siguiente, Santiago llamó a su jefe y pidió una excedencia. Volveria a la ciudad en unos meses, pero antes quería pasar un año con el abuelo. Quería aprender a cuidar el huerto. Quería oir las historias otra vez. Quería, en definitiva, volver a sus raíces.\n\nEl abuelo sonrió. \"El zorro vuelve a casa, muchacho. Siempre vuelve\".\n\nAños después, Santiago recordaria aquel verano como el más importante de su vida. Y cada vez que veía un zorro en el monte, sonreía.",
     "ejercicios": [
       {
         "tecnica_numero": 62,
@@ -5074,7 +5074,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Santiago viaja al pueblo y el viaje es fisico y emocional",
+            "A) Santiago viaja al pueblo y el viaje es físico y emocional",
             "B) Santiago se queda en la ciudad",
             "C) Santiago es un viajero profesional",
             "D) El texto no habla de Santiago"
@@ -5342,7 +5342,7 @@
       {
         "tecnica_numero": 80,
         "tecnica_nivel": "B1",
-        "enunciado": "En el texto, el reloj parado del salon simboliza...",
+        "enunciado": "En el texto, el reloj parado del salón simboliza...",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5878,7 +5878,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que el cambio es inevitable y positivo, y quien no se adapta se queda atras",
+            "A) Que el cambio es inevitable y positivo, y quien no se adapta se queda atrás",
             "B) Que el cambio es negativo",
             "C) Que las empresas no deben cambiar",
             "D) Que los trabajadores no importan"
@@ -6039,7 +6039,7 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 26,
-    "cuerpo": "El regreso de Amina\n\nAmina bajo del autobus al amanecer. El pueblo la recibió con el mismo olor a higuera y polvo que recordaba de su infancia. Habían pasado veinte años desde que se marcho a la ciudad para estudiar medicina. Ahora volvía, no como médico famosa, sino como una mujer que había perdido a su madre y regresaba a enterrarla.\n\nLa casa de la familia seguía allí, con su fachada blanca y sus contraventanas azules. El azul de las ventanas era el único color que resistía al pasó del tiempo. En aquel pueblo, el azul significaba protección: las madres lo pintaban en las puertas para alejar los malos espiritus. Amina sonrió al recordarlo. Su madre había pintado aquellas ventanas cada primavera, sin fallar una sola vez.\n\nSu abuela, que tenía noventa años y la memoria intacta, la esperaba en el umbral. \"Has vuelto, hija\", dijo, sin sorpresa. \"La casa te estaba llamando\". Amina la abrazó. La abuela era la memoria del pueblo: sabía quien había vivido en cada casa, quien había emigrado, quien había vuelto. Su función en la familia había sido siempre la de guardar las historias.\n\nDurante el entierro, Amina observo el cementerio. La mitad de las tumbas estaban vacias: los jovenes se habían ido y ya no volvian. El pueblo se moria lentamente. Los que quedaban eran ancianos que esperaban. Amina sintió una punzada: ella también había formado parte de ese exodo.\n\nAquella tarde, mientras tomaban te en la cocina, la abuela le contó que el alcalde quería cerrar la escuela por falta de alumnos. \"Dicen que es por el progreso\", dijo la abuela con ironía, \"pero el progreso que se lleva a los niños no es progreso, es desierto\".\n\nAmina pasó tres días en el pueblo. Recorrio los caminos de su infancia, habló con los vecinos, visito la escuela abandonada. Al cuarto día, tomó una decisión: no volveria a la ciudad. Iria a la capital a pedir una subvención para reabrir la escuela y la consulta médica del pueblo. No sabía si lo conseguiri­a. Pero algo dentro de ella le decía que valia la pena intentarlo.\n\nCuando se lo contó a la abuela, esta sonrió con malicia. \"Sabía que volverias. Las raíces tiran más que los aviones\". Amina se rió. Su abuela tenía razón: la vida era como un árbol; por muchas ramas que eche, siempre tira de la raíz.\n\nEl periodico local público meses después un artículo sobre el proyecto de Amina. Incluia un grafico que mostraba la evolución de la población del pueblo: una linea roja que caía vertiginosamente desde 1980. El titular decía: \"El pueblo que se muere\". El grafico, sin embargo, solo mostraba la caida de los últimos cuarenta años; omitia el ligero repunte de los últimos dos, coincidiendo con la llegada de algunas familias jovenes.\n\nAmina leyó el artículo con tristeza. El progreso, pensó, no es una linea recta: es un tejido con hilos de muchos colores. Y su pueblo, aunque pequeño, tenía hilos que merecia la pena seguir tejiendo. Cinco años después, la escuela tenía veinte alumnos. No era mucho, pero era un comienzo.",
+    "cuerpo": "El regreso de Amina\n\nAmina bajo del autobus al amanecer. El pueblo la recibió con el mismo olor a higuera y polvo que recordaba de su infancia. Habían pasado veinte años desde que se marcho a la ciudad para estudiar medicina. Ahora volvía, no como médico famosa, sino como una mujer que había perdido a su madre y regresaba a enterrarla.\n\nLa casa de la familia seguía allí, con su fachada blanca y sus contraventanas azules. El azul de las ventanas era el único color que resistía al pasó del tiempo. En aquel pueblo, el azul significaba protección: las madres lo pintaban en las puertas para alejar los malos espiritus. Amina sonrió al recordarlo. Su madre había pintado aquellas ventanas cada primavera, sin fallar una sola vez.\n\nSu abuela, que tenía noventa años y la memoria intacta, la esperaba en el umbral. \"Has vuelto, hija\", dijo, sin sorpresa. \"La casa te estaba llamando\". Amina la abrazó. La abuela era la memoria del pueblo: sabía quien había vivido en cada casa, quien había emigrado, quien había vuelto. Su función en la familia había sido siempre la de guardar las historias.\n\nDurante el entierro, Amina observo el cementerio. La mitad de las tumbas estaban vacias: los jovenes se habían ido y ya no volvian. El pueblo se moria lentamente. Los que quedaban eran ancianos que esperaban. Amina sintió una punzada: ella también había formado parte de ese exodo.\n\nAquella tarde, mientras tomaban te en la cocina, la abuela le contó que el alcalde quería cerrar la escuela por falta de alumnos. \"Dicen que es por el progreso\", dijo la abuela con ironía, \"pero el progreso que se lleva a los niños no es progreso, es desierto\".\n\nAmina pasó tres días en el pueblo. Recorrio los caminos de su infancia, habló con los vecinos, visito la escuela abandonada. Al cuarto día, tomó una decisión: no volveria a la ciudad. Iria a la capital a pedir una subvención para reabrir la escuela y la consulta médica del pueblo. No sabía si lo conseguiri­a. Pero algo dentro de ella le decía que valia la pena intentarlo.\n\nCuando se lo contó a la abuela, esta sonrió con malicia. \"Sabía que volverias. Las raíces tiran más que los aviones\". Amina se rió. Su abuela tenía razón: la vida era como un árbol; por muchas ramas que eche, siempre tira de la raíz.\n\nEl periódico local público meses después un artículo sobre el proyecto de Amina. Incluia un grafico que mostraba la evolución de la población del pueblo: una línea roja que caía vertiginosamente desde 1980. El titular decía: \"El pueblo que se muere\". El grafico, sin embargo, solo mostraba la caida de los últimos cuarenta años; omitia el ligero repunte de los últimos dos, coincidiendo con la llegada de algunas familias jovenes.\n\nAmina leyó el artículo con tristeza. El progreso, pensó, no es una línea recta: es un tejido con hilos de muchos colores. Y su pueblo, aunque pequeño, tenía hilos que merecia la pena seguir tejiendo. Cinco años después, la escuela tenía veinte alumnos. No era mucho, pero era un comienzo.",
     "ejercicios": [
       {
         "tecnica_numero": 42,
@@ -6083,7 +6083,7 @@
             "A) La vida como un árbol con raíces (identidad) y ramas (experiencias)",
             "B) La vida como un avion",
             "C) La vida como un pueblo",
-            "D) La vida como una linea recta"
+            "D) La vida como una línea recta"
           ],
           "correcta": "A"
         },
@@ -6300,7 +6300,7 @@
       {
         "tecnica_numero": 58,
         "tecnica_nivel": "B2",
-        "enunciado": "En el texto, se menciona un grafico con una linea roja que cae. Que sesgo tiene ese grafico?",
+        "enunciado": "En el texto, se menciona un grafico con una línea roja que cae. Que sesgo tiene ese grafico?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6353,7 +6353,7 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 27,
-    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salon y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elias se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los pare todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomabamos cafe. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mi, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenía razón en algo: la gente corría todo el día sin saber hacía donde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elias me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elias dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabía el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontre la puerta abierta. El no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvió. A veces, cuando pasó por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levantó, miró el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
+    "cuerpo": "La casa de los relojes\n\nLa casa de don Elias era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salón y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. El era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elias se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los pare todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomabamos cafe. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mí, el tiempo se detuvo\".\n\nDon Elias hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablabamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elias tenía razón en algo: la gente corría todo el día sin saber hacía donde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras el hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdia en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elias me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elias dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidi, entonces, que cambiaria algo. No sabía el que, pero algo.\n\nAl jueves siguiente, cuando llegue a casa de don Elias, encontré la puerta abierta. El no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, dejalo parado\".\n\nNunca supe si don Elias volvió. A veces, cuando pasó por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levantó, miró el reloj de mi cocina y me acuerdo de don Elias. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
     "ejercicios": [
       {
         "tecnica_numero": 61,
@@ -7230,7 +7230,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La linea editorial favorable a la reforma y crítica con sus opositores",
+            "A) La línea editorial favorable a la reforma y crítica con sus opositores",
             "B) Una postura neutral",
             "C) Una postura contraria a la reforma",
             "D) Una postura humoristica"
@@ -7359,7 +7359,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 30,
-    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una linea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
+    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una línea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escucho más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
     "ejercicios": [
       {
         "tecnica_numero": 38,
@@ -7380,7 +7380,7 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Cuál es el subtexto del párrafo sobre el vecino ('linea recta entre el trabajo y la cama')?",
+        "enunciado": "¿Cuál es el subtexto del párrafo sobre el vecino ('línea recta entre el trabajo y la cama')?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7705,7 +7705,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 31,
-    "cuerpo": "El cuento que se escribía solo\n\nAurelio encontró el cuaderno en el fondo de un cajon, entre facturas y fotografias viejas. Era un cuaderno de tapas negras, como los que usaba de joven para escribir sus cuentos. Lo abrio con curiosidad. En la primera página, con su propia letra, había un cuento titulado 'El bibliotecario'. Lo reconocio: era un cuento que había escrito a los veinte años.\n\nLo leyó. Trataba de un bibliotecario que descubría que todos los libros de su biblioteca hablaban de el. Aurelio sonrió. Aquel cuento era un homenaje a Borges, a 'La biblioteca de Babel'. Recordó la frase de Borges: 'El universo (que otros llaman la Biblioteca) se compone de un número indefinido, y tal vez infinito, de galerias hexagonales'. Siempre le había fascinado esa idea.\n\nPasó la página. En la segunda, había otro cuento, titulado 'El espejo'. No lo recordaba. Lo leyó. Trataba de un hombre que se miraba en un espejo y descubría que su reflejo era otro hombre, que a su vez lo miraba a el. Aurelio sintió un escalofrio. No recordaba haber escrito aquel cuento, pero la letra era suya. Y el estilo también.\n\nPasó otra página. Un tercer cuento, titulado 'El sueño'. Trataba de un hombre que sonaba con un hombre que sonaba con el. El cuento terminaba con la frase: 'Y al despertar, comprendio que el era el sueño del otro'. Aurelio dejó el cuaderno sobre la mesa. Aquello era demasiado. El no había escrito esos cuentos. O quizá si, y los había olvidado. O quizá alguien los había escrito por el.\n\nAquella noche no pudo dormir. Se levantó a las tres de la mañana y volvió al cuaderno. En la última página, había un cuento nuevo, titulado 'El lector'. Lo leyó temblando. Trataba de un hombre llamado Aurelio que encontraba un cuaderno en el fondo de un cajon y leía cuentos que no recordaba haber escrito. El cuento terminaba con la frase: 'Y entonces Aurelio comprendio que el también era un personaje, y que alguien, en algún lugar, lo estaba leyendo'.\n\nCierro el cuaderno. Miró por la ventana. La ciudad dormía. Y por primera vez en su vida, Aurelio se preguntó si el también seria un personaje, y si alguien, en algún lugar, estaria leyendo su historia.\n\nAl día siguiente, Aurelio fue a ver a su amigo Bernardo, profesor de literatura. Le contó lo sucedido. Bernardo lo escucho con atención. 'Interesante', dijo. 'Es un caso de metaficción. Como en 'El Quijote', cuando los personajes han leido el Quijote. O como en Cortazar, cuando el lector es personaje. O como en Borges, cuando el sueño y la vigilia se confunden'.\n\n'Pero yo no lo escribi', dijo Aurelio. 'Yo no escribi esos cuentos'.\n\nBernardo sonrió. 'Quizá no los escribiste tu. Quizá te escribieron a ti. Quizá tu eres el personaje de un cuento que alguien esta escribiendo ahora mismo, en este instante'.\n\nAurelio sintió un vertigo. Miró sus manos. Miró la mesa. Miró a Bernardo. Todo parecia real. Pero quizá no lo era. Quizá todo era un sueño, o un cuento, o una metáfora.\n\n'Mira', dijo Bernardo, 'te voy a contar un cuento. Había una vez un hombre llamado Aurelio que descubrió que era un personaje. Y al descubrirlo, empezó a escribir su propia historia. Y al escribirla, se libero. Porque escribir es una forma de liberarse, aunque sea de la ficción'.\n\nAurelio lo miró. 'Y como termina el cuento?'\n\n'No termina', dijo Bernardo. 'Los cuentos que se escriben solos nunca terminan. Solo se interrumpen. Y luego, en algún otro lugar, alguien los retoma'.\n\nAurelio volvió a su casa. Abrio el cuaderno. En la última página, había un cuento nuevo. Titulado 'El principio'. Y en el, Aurelio se veía a si mismo escribiendo el cuento que estaba leyendo. Y así, en un bucle infinito, el cuento se escribía solo.\n\nAurelio cerró el cuaderno. Sonrió. Y por primera vez en su vida, comprendio que la literatura no es un espejo de la realidad, sino una realidad paralela. Y que el, Aurelio, era a la vez autor y personaje, lector y escrito, principio y fin.\n\nO quizá no. Quizá todo era un sueño. O quizá todo era un cuento. O quizá todo era una metáfora. Pero de algo estaba seguro: mientras alguien lo leyera, el seguiria existiendo. Y eso, después de todo, era una forma de inmortalidad.",
+    "cuerpo": "El cuento que se escribía solo\n\nAurelio encontró el cuaderno en el fondo de un cajon, entre facturas y fotografías viejas. Era un cuaderno de tapas negras, como los que usaba de joven para escribir sus cuentos. Lo abrio con curiosidad. En la primera página, con su propia letra, había un cuento titulado 'El bibliotecario'. Lo reconocio: era un cuento que había escrito a los veinte años.\n\nLo leyó. Trataba de un bibliotecario que descubría que todos los libros de su biblioteca hablaban de el. Aurelio sonrió. Aquel cuento era un homenaje a Borges, a 'La biblioteca de Babel'. Recordó la frase de Borges: 'El universo (que otros llaman la Biblioteca) se compone de un número indefinido, y tal vez infinito, de galerias hexagonales'. Siempre le había fascinado esa idea.\n\nPasó la página. En la segunda, había otro cuento, titulado 'El espejo'. No lo recordaba. Lo leyó. Trataba de un hombre que se miraba en un espejo y descubría que su reflejo era otro hombre, que a su vez lo miraba a el. Aurelio sintió un escalofrio. No recordaba haber escrito aquel cuento, pero la letra era suya. Y el estilo también.\n\nPasó otra página. Un tercer cuento, titulado 'El sueño'. Trataba de un hombre que sonaba con un hombre que sonaba con el. El cuento terminaba con la frase: 'Y al despertar, comprendio que el era el sueño del otro'. Aurelio dejó el cuaderno sobre la mesa. Aquello era demasiado. El no había escrito esos cuentos. O quizá si, y los había olvidado. O quizá alguien los había escrito por el.\n\nAquella noche no pudo dormir. Se levantó a las tres de la mañana y volvió al cuaderno. En la última página, había un cuento nuevo, titulado 'El lector'. Lo leyó temblando. Trataba de un hombre llamado Aurelio que encontraba un cuaderno en el fondo de un cajon y leía cuentos que no recordaba haber escrito. El cuento terminaba con la frase: 'Y entonces Aurelio comprendio que el también era un personaje, y que alguien, en algún lugar, lo estaba leyendo'.\n\nCierro el cuaderno. Miro por la ventana. La ciudad dormía. Y por primera vez en su vida, Aurelio se preguntó si el también seria un personaje, y si alguien, en algún lugar, estaria leyendo su historia.\n\nAl día siguiente, Aurelio fue a ver a su amigo Bernardo, profesor de literatura. Le contó lo sucedido. Bernardo lo escucho con atención. 'Interesante', dijo. 'Es un caso de metaficción. Como en 'El Quijote', cuando los personajes han leido el Quijote. O como en Cortazar, cuando el lector es personaje. O como en Borges, cuando el sueño y la vigilia se confunden'.\n\n'Pero yo no lo escribi', dijo Aurelio. 'Yo no escribi esos cuentos'.\n\nBernardo sonrió. 'Quizá no los escribiste tu. Quizá te escribieron a ti. Quizá tu eres el personaje de un cuento que alguien esta escribiendo ahora mismo, en este instante'.\n\nAurelio sintió un vertigo. Miró sus manos. Miró la mesa. Miró a Bernardo. Todo parecía real. Pero quizá no lo era. Quizá todo era un sueño, o un cuento, o una metáfora.\n\n'Mira', dijo Bernardo, 'te voy a contar un cuento. Había una vez un hombre llamado Aurelio que descubrió que era un personaje. Y al descubrirlo, empezó a escribir su propia historia. Y al escribirla, se libero. Porque escribir es una forma de liberarse, aunque sea de la ficción'.\n\nAurelio lo miró. 'Y como termina el cuento?'\n\n'No termina', dijo Bernardo. 'Los cuentos que se escriben solos nunca terminan. Solo se interrumpen. Y luego, en algún otro lugar, alguien los retoma'.\n\nAurelio volvió a su casa. Abrio el cuaderno. En la última página, había un cuento nuevo. Titulado 'El principio'. Y en el, Aurelio se veía a si mismo escribiendo el cuento que estaba leyendo. Y así, en un bucle infinito, el cuento se escribía solo.\n\nAurelio cerró el cuaderno. Sonrió. Y por primera vez en su vida, comprendio que la literatura no es un espejo de la realidad, sino una realidad paralela. Y que el, Aurelio, era a la vez autor y personaje, lector y escrito, principio y fin.\n\nO quizá no. Quizá todo era un sueño. O quizá todo era un cuento. O quizá todo era una metáfora. Pero de algo estaba seguro: mientras alguien lo leyera, el seguiria existiendo. Y eso, después de todo, era una forma de inmortalidad.",
     "ejercicios": [
       {
         "tecnica_numero": 59,
@@ -7731,7 +7731,7 @@
         "payload": {
           "opciones": [
             "A) Con Borges, Cervantes y Cortazar: dialogismo literario",
-            "B) Con la fisica cuantica",
+            "B) Con la física cuantica",
             "C) Con la economía",
             "D) Con la religión"
           ],
@@ -7829,7 +7829,7 @@
             "A) Porque no sabemos si lo que cuenta es real o es un sueño o un cuento dentro del cuento",
             "B) Porque miente siempre",
             "C) Porque es un niño",
-            "D) Porque esta loco"
+            "D) Porque está loco"
           ],
           "correcta": "A"
         },
@@ -7939,7 +7939,7 @@
         "payload": {
           "opciones": [
             "A) Es un viaje hacia el descubrimiento de su naturaleza como personaje",
-            "B) Es un viaje fisico",
+            "B) Es un viaje físico",
             "C) Es un viaje comercial",
             "D) Es un viaje político"
           ],
@@ -7955,7 +7955,7 @@
         "payload": {
           "opciones": [
             "A) El descubrimiento del cuaderno y la noche en vela son un descenso simbólico al misterio de la creación",
-            "B) Es un viaje fisico al infierno",
+            "B) Es un viaje físico al infierno",
             "C) Es una pesadilla sin sentido",
             "D) Es un viaje comercial"
           ],
@@ -7971,7 +7971,7 @@
         "payload": {
           "opciones": [
             "A) Aurelio 'muere' como autor convencional y 'renace' como personaje consciente de serlo",
-            "B) Es una muerte fisica",
+            "B) Es una muerte física",
             "C) Es una resurrección religiosa",
             "D) No hay muerte ni renacimiento"
           ],
@@ -8473,7 +8473,7 @@
             "A) Mediante el consenso, presentando un modelo de vida como deseable y universal",
             "B) Mediante la fuerza",
             "C) Mediante la ley",
-            "D) Mediante la violencia fisica"
+            "D) Mediante la violencia física"
           ],
           "correcta": "A"
         },
@@ -8536,7 +8536,7 @@
           "opciones": [
             "A) Las disposiciones socialmente adquiridas que la publicidad reproduce (gustos, prácticas, formas de vestir)",
             "B) Un habito individual",
-            "C) Una característica genetica",
+            "C) Una característica genética",
             "D) Una moda pasajera"
           ],
           "correcta": "A"
@@ -8551,7 +8551,7 @@
         "payload": {
           "opciones": [
             "A) Un espacio de lucha por el capital simbólico donde las marcas compiten por el prestigio",
-            "B) Un espacio fisico",
+            "B) Un espacio físico",
             "C) Un campo de cultivo",
             "D) Un campo de batalla"
           ],
@@ -8583,7 +8583,7 @@
         "payload": {
           "opciones": [
             "A) Una red heterogenea que articula discursos, instituciones y prácticas para gobernar los cuerpos",
-            "B) Un aparato fisico",
+            "B) Un aparato físico",
             "C) Un dispositivo electronico",
             "D) Un reglamento"
           ],
@@ -8615,7 +8615,7 @@
         "payload": {
           "opciones": [
             "A) El sentido nunca se fija del todo: se difiere, remite a otros anuncios y otros significantes",
-            "B) El sentido es fijó",
+            "B) El sentido es fijo",
             "C) No hay sentido",
             "D) Solo hay un sentido"
           ],
@@ -8729,7 +8729,7 @@
             "A) La publicidad no refleja el género sino que lo produce mediante actos repetidos",
             "B) La publicidad refleja el género natural",
             "C) No hay género",
-            "D) El género es genetico"
+            "D) El género es genético"
           ],
           "correcta": "A"
         },
@@ -8881,7 +8881,7 @@
         "payload": {
           "opciones": [
             "A) La violencia que se ejerce con la complicidad del dominado, que la percibe como natural",
-            "B) La violencia fisica",
+            "B) La violencia física",
             "C) La violencia verbal",
             "D) La violencia estatal"
           ],
@@ -9169,7 +9169,7 @@
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 35,
-    "cuerpo": "El archivo de los espejos\n\nFragmento 1. La casa\n\nLa casa de la infancia es un archivo de espejos. En cada habitación, un espejo distinto devuelve una imagen distinta. El espejo del recibidor muestra a la niña que fui. El del salon, a la mujer que soy. El del baño, a la anciana que sere. Nunca me reconozco del todo en ninguno. Siempre hay un resto, un detalle que se escapa: el color de los ojos, la forma de la boca, el gesto de la mano. Ese resto es lo que me constituye: la différance que me hace ser lo que soy sin serlo nunca del todo.\n\nFragmento 2. El padre\n\nMi padre era un hombre de silencios. Nunca hablaba del pasado. Decía que el pasado no existía. Pero yo sabía que mentía: en el fondo del armario había una caja con cartas, fotografias, recortes de periodico. Mi padre era un sintoma: su silencio decía lo que sus palabras callaban. Cada noche, a las tres, se levantaba y caminaba por el pasillo. No iba a ningún sitio. Solo caminaba. Como si buscara algo que había perdido. O como si algo lo buscara a el.\n\nFragmento 3. La abuela\n\nMi abuela era una mujer de cuerpo abyecto. Su cuerpo olía a enfermedad, a vejez, a muerte. Yo la quería y la rechazaba al mismo tiempo. Su cuerpo me recordaba que también yo era cuerpo, que también yo envejeceria, que también yo moriria. La abyección (Kristeva) no es solo repulsión: es el reconocimiento de que lo que rechazo esta en mi. Mi abuela era mi propio cuerpo futuro, y por eso la rechazaba.\n\nFragmento 4. El espejo roto\n\nUn día rompi el espejo del recibidor. No fue un accidente. Lo rompi a proposito. Quería ver que había detrás. Detrás del espejo había una pared. Y detrás de la pared, otra pared. Y detrás de la otra pared, un pasillo. Un pasillo que no había visto nunca. Un pasillo que llevaba a una habitación que no estaba en los planos. Esa habitación era una heterotopia (Foucault): un espacio otro, un espacio al margen, un espacio que no deberia existir. En esa habitación había un espejo más pequeño. Y en ese espejo, otra niña me miraba.\n\nFragmento 5. La niña del espejo\n\nLa niña del espejo no era yo. Se parecia a mi, pero no era yo. Tenía los ojos más oscuros, la boca más fina, el pelo más largo. Me miraba como yo la miraba. Levantaba la mano cuando yo levantaba la mano. Pero no era yo. Era un simulacro (Baudrillard, Deleuze): una copia sin original, una imagen que sustituye a la realidad y la produce. La niña del espejo no reflejaba: creaba.\n\nFragmento 6. La lengua\n\nMi madre hablaba una lengua que yo no entendia. Era la lengua de su pueblo, la lengua que había dejado atras cuando se caso. Esa lengua era mi herencia pérdida, mi colonialidad (Quijano, Mignolo): la lengua que el poder borro, la lengua que mi madre no me enseno porque avergonzaba. Pero en las noches, cuando creía que yo dormía, mi madre hablaba en esa lengua. Hablaba con los muertos, con los ausentes, con los que se quedaron. Esa lengua era su subalternidad (Spivak): la lengua que no puede hablar, la voz silenciada por la historia.\n\nFragmento 7. El cuerpo de la madre\n\nMi madre tenía un cuerpo que no era suyo. Era el cuerpo de su madre, y el de su abuela, y el de todas las mujeres de su linaje. Un cuerpo marcado por la diferencia sexual (Irigaray): un cuerpo que no había sido pensado desde si mismo, sino desde el cuerpo del hombre. Mi madre cocinaba, limpiaba, cuidaba. Su cuerpo era un cuerpo para otros. Pero en las noches, cuando creía que yo dormía, mi madre escribía. Escribía en esa lengua que yo no entendia. Escribía con una escritura femenina (Cixous): una escritura que subvertia la lógica binaria, que afirmaba la multiplicidad del deseo, que rompia con las normas del padre.\n\nFragmento 8. La escritura de la madre\n\nUn día encontre los cuadernos de mi madre. Estaban escondidos detrás de un mueble. Eran cuadernos de tapas negras, como los que yo usaba de niña. En ellos, mi madre escribía. Escribía en su lengua, en la lengua que yo no entendia. Pero había dibujos. Dibujos de cuerpos, de árboles, de casas. Dibujos que contaban una historia. La historia de una mujer que había cruzado el mar, que había dejado su tierra, que había perdido su lengua. La historia de una subalterna que, sin embargo, había escrito.\n\nFragmento 9. El panóptico\n\nCresci en una casa donde siempre me senti observada. Mi padre me miraba desde el silencio. Mi madre me miraba desde la lengua. Mi abuela me miraba desde la muerte. Y yo me miraba desde todos los espejos. Era un panóptico (Foucault): la mirada del otro estaba internalizada. Me vigilaba a mi misma. Me corregía antes de hablar. Me censuraba antes de escribir. La casa entera era un panóptico.\n\nFragmento 10. La linea de fuga\n\nPero había una linea de fuga (Deleuze, Guattari). En el fondo del jardin, detrás de la higuera, había un agujero en la valla. Un agujero por el que me escapaba de niña. Por ese agujero salía al campo, al monte, al mundo. Por ese agujero me convertía en otra cosa: en animal, en planta, en piedra. Era un devenir (Deleuze, Guattari): un devenir-niña, un devenir-animal, un devenir-imperceptible. La linea de fuga me salvaba del panóptico.\n\nFragmento 11. La maquina de guerra\n\nEn el monte había un campamento de gitanos. Yo me acercaba a escondidas. Los miraba desde lejos. Ellos vivían al margen de la ley, del Estado, de la casa. Eran una maquina de guerra (Deleuze, Guattari): una formación nomada que resistía al aparato de Estado. Yo quería ser como ellos. Quería vivir al margen. Quería ser nomada.\n\nFragmento 12. El rostro\n\nPero el rostro me devolvia a la casa. Mi rostro era el rostro de la familia: los mismos ojos, la misma boca, la misma frente. El rostro (Deleuze, Guattari) es una maquina que produce subjetividad: me hacía ser quien era, me ataba a la familia, a la clase, a la historia. El rostro era mi prisión.\n\nFragmento 13. El cuerpo sin organos\n\nSonaba con un cuerpo sin organos. Un cuerpo sin ojos, sin boca, sin manos. Un cuerpo que no era cuerpo, sino intensidad. Ese cuerpo sin organos (Deleuze, Guattari) era el cuerpo de la libertad: un cuerpo que no estaba organizado por el poder, un cuerpo que no estaba sujeto a la mirada.\n\nFragmento 14. La lógica del sentido\n\nLas palabras de mi madre, en su lengua, producian un sentido que yo no entendia. Pero ese sentido era un efecto de superficie (Deleuze): un sentido que no estaba en las palabras sino en su combinación, en su ritmo, en su música. La lógica del sentido era la lógica de la superficie: el sentido no estaba en la profundidad, sino en la piel del lenguaje.\n\nFragmento 15. El agenciamiento\n\nLos cuadernos de mi madre eran un agenciamiento (Deleuze, Guattari): conectaban su lengua, su cuerpo, su historia, su deseo. No eran solo cuadernos: eran una maquina de escribir la vida. En ellos, la madre se conectaba con la abuela, con la tierra, con el mar. El agenciamiento era una forma de resistencia.\n\nFragmento 16. El punctum\n\nEn uno de los cuadernos había una fotografía. Era una foto pequeña, en blanco y negro, de una mujer joven. La mujer era mi madre. Tenía veinte años. Sonreía. Detrás de ella había un mar. En la foto, mi madre no era mi madre: era una desconocida. Y sin embargo, había algo en la foto que me punzaba: un detalle, un gesto, una luz. Ese detalle era el punctum (Barthes): lo que hiere, lo que emociona, lo que no se puede explicar.\n\nFragmento 17. El studium\n\nPero la foto también tenía un studium (Barthes): un significado cultural. La foto de mi madre joven era la foto de una emigrante, de una mujer que había dejado su tierra, de una subalterna. El studium era la historia que la foto contaba: la historia de la emigración, de la pérdida, de la esperanza. El punctum era lo que la foto no contaba: el dolor, el miedo, la soledad.\n\nFragmento 18. La deconstrucción del sujeto\n\nAl leer los cuadernos de mi madre, me di cuenta de que yo no era una. Era muchas. Era la niña del espejo, la niña del monte, la niña de la casa. Era la hija de mi madre, la nieta de mi abuela, la heredera de una lengua pérdida. Era todas esas mujeres y ninguna. La deconstrucción del sujeto (Derrida, Nietzsche) me revelo que el 'yo' no era una sustancia, sino un efecto de diferencias, de fuerzas, de historias.\n\nFragmento 19. La interpelación del lector\n\nY ahora, tu, lector, que lees estas lineas, también eres interpelado (Althusser). Te preguntó: cuantos eres tu? Cuantas voces te habitan? Cuantas lenguas hablas? Cuantos espejos te miran? La interpelación no es una pregunta retórica: es una llamada. Te llamó a ti, lector, a que te reconozcas en estas lineas. A que descubras que tu también eres un archivo de espejos.\n\nFragmento 20. La lectura sintomatica\n\nPero hay algo que no he dicho. Algo que los cuadernos de mi madre no dicen. Algo que yo misma no me atrevo a decir. En los cuadernos, mi madre nunca menciona a su padre. Nunca. En todas las páginas, en todos los dibujos, no hay una sola mención de su padre. Esa ausencia es un sintoma (Althusser, Macherey): lo que el texto no dice es tan importante como lo que dice. La lectura sintomatica revela lo que la madre silencio: el padre, la violencia, el dolor. El silencio del padre es la verdad del texto.\n\nFragmento 21. El final\n\nCierro los cuadernos de mi madre. Miró por la ventana. La ciudad duerme. Y por primera vez en mi vida, comprendo que soy un archivo de espejos. Que mi vida es una cadena de diferencias, de síntomas, de abyecciones, de panopticos, de heterotopias, de simulacros, de deconstrucciones, de interpelaciones, de lecturas sintomaticas, de punctums, de studiums, de agenciamientos, de lineas de fuga, de devenires, de maquinas de guerra, de rostros, de logicas del sentido, de simulacros deleuzianos, de diferencias sexuales, de escrituras femeninas, de críticas postcoloniales, de subalternidades.\n\nFragmento 22. La última página\n\nEn la última página de los cuadernos de mi madre, hay una frase escrita en su lengua. No se que significa. Pero la he copiado en la primera página de mi propio cuaderno. Y al copiarla, he comprendido que la différance (Derrida) opera también en mi: que el sentido de esa frase no está ni en la lengua de mi madre ni en la mia, sino en el espacio entre las dos. En el espacio de la traducción, de la pérdida, de la herencia. En el espacio de los espejos.",
+    "cuerpo": "El archivo de los espejos\n\nFragmento 1. La casa\n\nLa casa de la infancia es un archivo de espejos. En cada habitación, un espejo distinto devuelve una imagen distinta. El espejo del recibidor muestra a la niña que fui. El del salón, a la mujer que soy. El del baño, a la anciana que seré. Nunca me reconozco del todo en ninguno. Siempre hay un resto, un detalle que se escapa: el color de los ojos, la forma de la boca, el gesto de la mano. Ese resto es lo que me constituye: la différance que me hace ser lo que soy sin serlo nunca del todo.\n\nFragmento 2. El padre\n\nMi padre era un hombre de silencios. Nunca hablaba del pasado. Decía que el pasado no existía. Pero yo sabía que mentía: en el fondo del armario había una caja con cartas, fotografías, recortes de periódico. Mi padre era un síntoma: su silencio decía lo que sus palabras callaban. Cada noche, a las tres, se levantaba y caminaba por el pasillo. No iba a ningún sitio. Solo caminaba. Como si buscara algo que había perdido. O como si algo lo buscara a el.\n\nFragmento 3. La abuela\n\nMi abuela era una mujer de cuerpo abyecto. Su cuerpo olía a enfermedad, a vejez, a muerte. Yo la quería y la rechazaba al mismo tiempo. Su cuerpo me recordaba que también yo era cuerpo, que también yo envejecería, que también yo moriría. La abyección (Kristeva) no es solo repulsión: es el reconocimiento de que lo que rechazo esta en mí. Mi abuela era mi propio cuerpo futuro, y por eso la rechazaba.\n\nFragmento 4. El espejo roto\n\nUn día rompí el espejo del recibidor. No fue un accidente. Lo rompí a propósito. Quería ver que había detrás. Detrás del espejo había una pared. Y detrás de la pared, otra pared. Y detrás de la otra pared, un pasillo. Un pasillo que no había visto nunca. Un pasillo que llevaba a una habitación que no estaba en los planos. Esa habitación era una heterotopía (Foucault): un espacio otro, un espacio al margen, un espacio que no debería existir. En esa habitación había un espejo más pequeño. Y en ese espejo, otra niña me miraba.\n\nFragmento 5. La niña del espejo\n\nLa niña del espejo no era yo. Se parecía a mí, pero no era yo. Tenía los ojos más oscuros, la boca más fina, el pelo más largo. Me miraba como yo la miraba. Levantaba la mano cuando yo levantaba la mano. Pero no era yo. Era un simulacro (Baudrillard, Deleuze): una copia sin original, una imagen que sustituye a la realidad y la produce. La niña del espejo no reflejaba: creaba.\n\nFragmento 6. La lengua\n\nMi madre hablaba una lengua que yo no entendía. Era la lengua de su pueblo, la lengua que había dejado atrás cuando se caso. Esa lengua era mi herencia pérdida, mi colonialidad (Quijano, Mignolo): la lengua que el poder borró, la lengua que mi madre no me enseñó porque avergonzaba. Pero en las noches, cuando creía que yo dormía, mi madre hablaba en esa lengua. Hablaba con los muertos, con los ausentes, con los que se quedaron. Esa lengua era su subalternidad (Spivak): la lengua que no puede hablar, la voz silenciada por la historia.\n\nFragmento 7. El cuerpo de la madre\n\nMi madre tenía un cuerpo que no era suyo. Era el cuerpo de su madre, y el de su abuela, y el de todas las mujeres de su linaje. Un cuerpo marcado por la diferencia sexual (Irigaray): un cuerpo que no había sido pensado desde si mismo, sino desde el cuerpo del hombre. Mi madre cocinaba, limpiaba, cuidaba. Su cuerpo era un cuerpo para otros. Pero en las noches, cuando creía que yo dormía, mi madre escribía. Escribía en esa lengua que yo no entendía. Escribía con una escritura femenina (Cixous): una escritura que subvertía la lógica binaria, que afirmaba la multiplicidad del deseo, que rompía con las normas del padre.\n\nFragmento 8. La escritura de la madre\n\nUn día encontré los cuadernos de mi madre. Estaban escondidos detrás de un mueble. Eran cuadernos de tapas negras, como los que yo usaba de niña. En ellos, mi madre escribía. Escribía en su lengua, en la lengua que yo no entendía. Pero había dibujos. Dibujos de cuerpos, de árboles, de casas. Dibujos que contaban una historia. La historia de una mujer que había cruzado el mar, que había dejado su tierra, que había perdido su lengua. La historia de una subalterna que, sin embargo, había escrito.\n\nFragmento 9. El panóptico\n\nCresci en una casa donde siempre me sentí observada. Mi padre me miraba desde el silencio. Mi madre me miraba desde la lengua. Mi abuela me miraba desde la muerte. Y yo me miraba desde todos los espejos. Era un panóptico (Foucault): la mirada del otro estaba internalizada. Me vigilaba a mí misma. Me corregía antes de hablar. Me censuraba antes de escribir. La casa entera era un panóptico.\n\nFragmento 10. La línea de fuga\n\nPero había una línea de fuga (Deleuze, Guattari). En el fondo del jardín, detrás de la higuera, había un agujero en la valla. Un agujero por el que me escapaba de niña. Por ese agujero salía al campo, al monte, al mundo. Por ese agujero me convertía en otra cosa: en animal, en planta, en piedra. Era un devenir (Deleuze, Guattari): un devenir-niña, un devenir-animal, un devenir-imperceptible. La línea de fuga me salvaba del panóptico.\n\nFragmento 11. La máquina de guerra\n\nEn el monte había un campamento de gitanos. Yo me acercaba a escondidas. Los miraba desde lejos. Ellos vivían al margen de la ley, del Estado, de la casa. Eran una máquina de guerra (Deleuze, Guattari): una formación nómada que resistía al aparato de Estado. Yo quería ser como ellos. Quería vivir al margen. Quería ser nómada.\n\nFragmento 12. El rostro\n\nPero el rostro me devolvía a la casa. Mi rostro era el rostro de la familia: los mismos ojos, la misma boca, la misma frente. El rostro (Deleuze, Guattari) es una máquina que produce subjetividad: me hacía ser quien era, me ataba a la familia, a la clase, a la historia. El rostro era mi prisión.\n\nFragmento 13. El cuerpo sin órganos\n\nSonaba con un cuerpo sin órganos. Un cuerpo sin ojos, sin boca, sin manos. Un cuerpo que no era cuerpo, sino intensidad. Ese cuerpo sin órganos (Deleuze, Guattari) era el cuerpo de la libertad: un cuerpo que no estaba organizado por el poder, un cuerpo que no estaba sujeto a la mirada.\n\nFragmento 14. La lógica del sentido\n\nLas palabras de mi madre, en su lengua, producían un sentido que yo no entendía. Pero ese sentido era un efecto de superficie (Deleuze): un sentido que no estaba en las palabras sino en su combinación, en su ritmo, en su música. La lógica del sentido era la lógica de la superficie: el sentido no estaba en la profundidad, sino en la piel del lenguaje.\n\nFragmento 15. El agenciamiento\n\nLos cuadernos de mi madre eran un agenciamiento (Deleuze, Guattari): conectaban su lengua, su cuerpo, su historia, su deseo. No eran solo cuadernos: eran una máquina de escribir la vida. En ellos, la madre se conectaba con la abuela, con la tierra, con el mar. El agenciamiento era una forma de resistencia.\n\nFragmento 16. El punctum\n\nEn uno de los cuadernos había una fotografía. Era una foto pequeña, en blanco y negro, de una mujer joven. La mujer era mi madre. Tenía veinte años. Sonreía. Detrás de ella había un mar. En la foto, mi madre no era mi madre: era una desconocida. Y sin embargo, había algo en la foto que me punzaba: un detalle, un gesto, una luz. Ese detalle era el punctum (Barthes): lo que hiere, lo que emociona, lo que no se puede explicar.\n\nFragmento 17. El studium\n\nPero la foto también tenía un studium (Barthes): un significado cultural. La foto de mi madre joven era la foto de una emigrante, de una mujer que había dejado su tierra, de una subalterna. El studium era la historia que la foto contaba: la historia de la emigración, de la pérdida, de la esperanza. El punctum era lo que la foto no contaba: el dolor, el miedo, la soledad.\n\nFragmento 18. La deconstrucción del sujeto\n\nAl leer los cuadernos de mi madre, me di cuenta de que yo no era una. Era muchas. Era la niña del espejo, la niña del monte, la niña de la casa. Era la hija de mi madre, la nieta de mi abuela, la heredera de una lengua pérdida. Era todas esas mujeres y ninguna. La deconstrucción del sujeto (Derrida, Nietzsche) me revelo que el 'yo' no era una sustancia, sino un efecto de diferencias, de fuerzas, de historias.\n\nFragmento 19. La interpelación del lector\n\nY ahora, tú, lector, que lees estas líneas, también eres interpelado (Althusser). Te pregunto: cuántos eres tú? Cuántas voces te habitan? Cuántas lenguas hablas? Cuántos espejos te miran? La interpelación no es una pregunta retórica: es una llamada. Te llamo a ti, lector, a que te reconozcas en estas líneas. A que descubras que tu también eres un archivo de espejos.\n\nFragmento 20. La lectura sintomática\n\nPero hay algo que no he dicho. Algo que los cuadernos de mi madre no dicen. Algo que yo misma no me atrevo a decir. En los cuadernos, mi madre nunca menciona a su padre. Nunca. En todas las páginas, en todos los dibujos, no hay una sola mención de su padre. Esa ausencia es un síntoma (Althusser, Macherey): lo que el texto no dice es tan importante como lo que dice. La lectura sintomática revela lo que la madre silenció: el padre, la violencia, el dolor. El silencio del padre es la verdad del texto.\n\nFragmento 21. El final\n\nCierro los cuadernos de mi madre. Miro por la ventana. La ciudad duerme. Y por primera vez en mi vida, comprendo que soy un archivo de espejos. Que mi vida es una cadena de diferencias, de síntomas, de abyecciones, de panópticos, de heterotopías, de simulacros, de deconstrucciones, de interpelaciones, de lecturas sintomaticas, de punctums, de studiums, de agenciamientos, de líneas de fuga, de devenires, de máquinas de guerra, de rostros, de lógicas del sentido, de simulacros deleuzianos, de diferencias sexuales, de escrituras femeninas, de críticas postcoloniales, de subalternidades.\n\nFragmento 22. La última página\n\nEn la última página de los cuadernos de mi madre, hay una frase escrita en su lengua. No sé qué significa. Pero la he copiado en la primera página de mi propio cuaderno. Y al copiarla, he comprendido que la différance (Derrida) opera también en mí: que el sentido de esa frase no está ni en la lengua de mi madre ni en la mía, sino en el espacio entre las dos. En el espacio de la traducción, de la pérdida, de la herencia. En el espacio de los espejos.",
     "ejercicios": [
       {
         "tecnica_numero": 59,
@@ -9179,7 +9179,7 @@
         "payload": {
           "opciones": [
             "A) Que el sentido nunca se fija del todo: siempre hay un resto que se escapa",
-            "B) Que el sentido es fijó",
+            "B) Que el sentido es fijo",
             "C) Que el sentido es natural",
             "D) Que no hay sentido"
           ],
@@ -9190,12 +9190,12 @@
       {
         "tecnica_numero": 60,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Por qué el padre es un sintoma en el texto?",
+        "enunciado": "¿Por qué el padre es un síntoma en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Porque su silencio dice lo que sus palabras callan, como un sintoma",
-            "B) Porque esta enfermo",
+            "A) Porque su silencio dice lo que sus palabras callan, como un síntoma",
+            "B) Porque está enfermo",
             "C) Porque es médico",
             "D) Porque habla mucho"
           ],
@@ -9210,7 +9210,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El rechazo del cuerpo de la abuela que es también reconocimiento de que lo rechazado esta en mi",
+            "A) El rechazo del cuerpo de la abuela que es también reconocimiento de que lo rechazado esta en mí",
             "B) El amor a la abuela",
             "C) La indiferencia hacia la abuela",
             "D) El miedo a la abuela"
@@ -9227,7 +9227,7 @@
         "payload": {
           "opciones": [
             "A) La internalización de la mirada del otro: la protagonista se autocensura",
-            "B) Una cárcel fisica",
+            "B) Una cárcel física",
             "C) Un hospital",
             "D) Una escuela"
           ],
@@ -9238,13 +9238,13 @@
       {
         "tecnica_numero": 63,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Qué es la heterotopia (Foucault) en el texto?",
+        "enunciado": "¿Qué es la heterotopía (Foucault) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) La habitación secreta detrás del espejo, un espacio otro al margen",
             "B) La casa de la infancia",
-            "C) El jardin",
+            "C) El jardín",
             "D) El monte"
           ],
           "correcta": "A"
@@ -9277,7 +9277,7 @@
             "A) Que el yo no es una sustancia sino un efecto de diferencias e historias",
             "B) Que el yo es una sustancia fija",
             "C) Que el yo no existe",
-            "D) Que el yo es genetico"
+            "D) Que el yo es genético"
           ],
           "correcta": "A"
         },
@@ -9290,7 +9290,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El texto llama al lector a reconocerse en las lineas: 'tu también eres un archivo de espejos'",
+            "A) El texto llama al lector a reconocerse en las líneas: 'tu también eres un archivo de espejos'",
             "B) El texto ignora al lector",
             "C) El texto solo informa",
             "D) El texto es neutral"
@@ -9302,7 +9302,7 @@
       {
         "tecnica_numero": 67,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Qué revela la lectura sintomatica (Althusser/Macherey) en el texto?",
+        "enunciado": "¿Qué revela la lectura sintomática (Althusser/Macherey) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9354,7 +9354,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Los cuadernos de la madre: una maquina de escribir la vida que conecta lengua, cuerpo, historia y deseo",
+            "A) Los cuadernos de la madre: una máquina de escribir la vida que conecta lengua, cuerpo, historia y deseo",
             "B) Un simple cuaderno",
             "C) Un libro",
             "D) Un diario"
@@ -9366,12 +9366,12 @@
       {
         "tecnica_numero": 71,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Qué es la linea de fuga (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es la línea de fuga (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) El agujero en la valla por el que la niña escapa al monte y se convierte en otra cosa",
-            "B) Una linea recta",
+            "B) Una línea recta",
             "C) Un camino",
             "D) Una frontera"
           ],
@@ -9388,7 +9388,7 @@
           "opciones": [
             "A) La transformación de la niña en animal, planta, piedra",
             "B) La transformación en adulta",
-            "C) El crecimiento fisico",
+            "C) El crecimiento físico",
             "D) El pasó del tiempo"
           ],
           "correcta": "A"
@@ -9398,7 +9398,7 @@
       {
         "tecnica_numero": 73,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Qué es la maquina de guerra (Deleuze/Guattari) en el texto?",
+        "enunciado": "¿Qué es la máquina de guerra (Deleuze/Guattari) en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -9418,8 +9418,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La maquina que produce subjetividad y ata a la protagonista a la familia, la clase y la historia",
-            "B) El rostro fisico",
+            "A) La máquina que produce subjetividad y ata a la protagonista a la familia, la clase y la historia",
+            "B) El rostro físico",
             "C) La cara",
             "D) El retrato"
           ],
@@ -9531,7 +9531,7 @@
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 36,
-    "cuerpo": "Para qué sirve la crítica: veinte criterios de evaluación\n\nLa crítica es una herramienta, no un fin. Pero no toda crítica es válida. Este ensayo ofrece veinte criterios para evaluar la calidad de una interpretación crítica, desde la hermenéutica de la sospecha hasta la crítica descolonial.\n\n1. Argumentos trascendentales (Kant)\n\nUn argumento trascendental deduce las condiciones de posibilidad de una experiencia: 'si X es posible, entonces Y debe darse'. Su validez depende de que Y sea realmente condición necesaria de X. Ejemplo correcto: 'La experiencia requiere categorías a priori; por tanto, las categorías son condiciones de posibilidad'. Ejemplo incorrecto: deducir la existencia de Dios a partir de la moral sin demostrar la necesidad de esa condición.\n\n2. Hermenéutica de la sospecha (Ricoeur)\n\nLa hermenéutica de la sospecha desconfía del sentido inmediato y busca el sentido oculto. Su validez depende de que la sospecha este fundamentada en el texto. Una sospecha paranoica, que ve conspiraciones en todas partes, no es una crítica válida.\n\n3. Crítica de la ideología (Adorno)\n\nLa crítica de la ideología desenmascara las contradicciones sociales que el texto oculta. Su validez depende de que la contradicción sea real y demostrable. Acusar de ideología sin evidencia textual no es crítica: es descalificación.\n\n4. Ética del discurso (Habermas)\n\nLa ética del discurso válida normas que todos los afectados podrían aceptar en un discurso libre de coacciones. Su validez depende de que se den las condiciones del discurso ideal: libertad, igualdad, ausencia de coacciones. Una crítica que excluye a los afectados no es una crítica válida.\n\n5. Desobediencia epistémica (Mignolo)\n\nLa desobediencia epistémica cuestiona las jerarquías del saber colonial y afirma saberes otros. Su validez depende de que identifique correctamente las jerarquías epistémicas y no caiga en un relativismo absoluto.\n\n6. Traducción intercultural (Spivak)\n\nLa traducción intercultural es válida si respeta la alteridad sin domesticarla. Una traducción que asimila al otro a la cultura dominante reproduce la lógica colonial. La traducción ética preserva la diferencia.\n\n7. Crítica feminista (Beauvoir, Butler)\n\nLa crítica feminista analiza como el texto reproduce o subvierte las normas de género. Su validez depende de que esté anclada en el texto. Acusar de machismo sin evidencia es una crítica fallida.\n\n8. Crítica genealógica (Nietzsche, Foucault)\n\nLa crítica genealógica rastrea el origen histórico de un concepto para mostrar su contingencia. Su validez depende del rigor de la reconstrucción histórica. Una genealogía que simplifica el pasado para legitimar una tesis no es válida.\n\n9. Coherencia entre teoría y práctica\n\nUn texto crítico debe ser coherente entre su teoría y su práctica: no puede criticar en teoría lo que reproduce en la práctica. Un texto que crítica la dominación pero la ejerce en su propio lenguaje es incoherente.\n\n10. Argumento descolonial\n\nUn argumento descolonial es sólido si identifica correctamente las jerarquías epistémicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo. Esencializar al 'otro' como puro es una forma de reproducir la lógica colonial.\n\n11. Crítica psicoanalítica (Freud, Lacan)\n\nLa crítica psicoanalítica interpreta el texto como sintoma del inconsciente. Su validez depende de que la interpretación este anclada en evidencia textual y no solo en la teoría. Proyectar el complejo de Edipo sin evidencia no es crítica válida.\n\n12. Deconstrucción (Derrida)\n\nLa deconstrucción muestra las jerarquías ocultas en las oposiciones binarias. Su validez depende de que la jerarquía identificada sea realmente operativa en el texto. Identificar una jerarquía que el texto no sostiene es una deconstrucción fallida.\n\n13. Crítica postcolonial (Said, Spivak)\n\nLa crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Su validez depende de que el texto realmente reproduzca esas logicas. Acusar de colonialismo sin evidencia es una descalificación.\n\n14. Crítica feminista (Butler)\n\nLa crítica feminista de Butler analiza como el discurso performa el género. Su validez depende de que la crítica este anclada en el texto y demuestre la performatividad. Acusar de binarismo sin análisis es una crítica superficial.\n\n15. Crítica marxista (Marx, Althusser)\n\nLa crítica marxista analiza como el texto reproduce las relaciones de producción y la ideología dominante. Su validez depende de que el análisis este anclado en el texto y no se reduzca a un dogma.\n\n16. Crítica ecológica (ecocrítica)\n\nLa ecocrítica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Su validez depende de que el análisis este anclado en el texto y no se límite a proyectar preocupaciones ecologicas contemporáneas sobre textos antiguos.\n\n17. Crítica de la modernidad (Adorno, Bauman)\n\nLa crítica de la modernidad analiza las contradicciones de la razón ilustrada. Su validez depende de que el análisis este anclado en el texto y no caiga en un pesimismo indiscriminado.\n\n18. Crítica de la sociedad del espectáculo (Debord)\n\nLa crítica del espectáculo analiza como el texto convierte la vida en imagen y mercancía. Su validez depende de que el texto realmente espectaculice, no de que el crítico lo diga.\n\n19. Crítica de la biopolítica (Foucault, Agamben)\n\nLa crítica de la biopolítica analiza como el texto gestiona la vida y la muerte de las poblaciones. Su validez depende de que el texto realmente biopolitice, no de que el crítico lo proyecte.\n\n20. Calidad global de una interpretación crítica\n\nUna interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus límites y aporta una lectura nueva sin forzar el texto. Forzar el texto para que diga lo que el crítico quiere no es crítica: es imposición.\n\nConclusión\n\nLa crítica es una herramienta poderosa, pero no infalible. Estos veinte criterios no garantizan la verdad, pero al menos permiten distinguir la crítica rigurosa de la descalificación. En un mundo saturado de discursos críticos, aprender a evaluarlos es una tarea urgente.",
+    "cuerpo": "Para qué sirve la crítica: veinte criterios de evaluación\n\nLa crítica es una herramienta, no un fin. Pero no toda crítica es válida. Este ensayo ofrece veinte criterios para evaluar la calidad de una interpretación crítica, desde la hermenéutica de la sospecha hasta la crítica descolonial.\n\n1. Argumentos trascendentales (Kant)\n\nUn argumento trascendental deduce las condiciones de posibilidad de una experiencia: 'si X es posible, entonces Y debe darse'. Su validez depende de que Y sea realmente condición necesaria de X. Ejemplo correcto: 'La experiencia requiere categorías a priori; por tanto, las categorías son condiciones de posibilidad'. Ejemplo incorrecto: deducir la existencia de Dios a partir de la moral sin demostrar la necesidad de esa condición.\n\n2. Hermenéutica de la sospecha (Ricoeur)\n\nLa hermenéutica de la sospecha desconfía del sentido inmediato y busca el sentido oculto. Su validez depende de que la sospecha este fundamentada en el texto. Una sospecha paranoica, que ve conspiraciones en todas partes, no es una crítica válida.\n\n3. Crítica de la ideología (Adorno)\n\nLa crítica de la ideología desenmascara las contradicciones sociales que el texto oculta. Su validez depende de que la contradicción sea real y demostrable. Acusar de ideología sin evidencia textual no es crítica: es descalificación.\n\n4. Ética del discurso (Habermas)\n\nLa ética del discurso válida normas que todos los afectados podrían aceptar en un discurso libre de coacciones. Su validez depende de que se den las condiciones del discurso ideal: libertad, igualdad, ausencia de coacciones. Una crítica que excluye a los afectados no es una crítica válida.\n\n5. Desobediencia epistémica (Mignolo)\n\nLa desobediencia epistémica cuestiona las jerarquías del saber colonial y afirma saberes otros. Su validez depende de que identifique correctamente las jerarquías epistémicas y no caiga en un relativismo absoluto.\n\n6. Traducción intercultural (Spivak)\n\nLa traducción intercultural es válida si respeta la alteridad sin domesticarla. Una traducción que asimila al otro a la cultura dominante reproduce la lógica colonial. La traducción ética preserva la diferencia.\n\n7. Crítica feminista (Beauvoir, Butler)\n\nLa crítica feminista analiza como el texto reproduce o subvierte las normas de género. Su validez depende de que esté anclada en el texto. Acusar de machismo sin evidencia es una crítica fallida.\n\n8. Crítica genealógica (Nietzsche, Foucault)\n\nLa crítica genealógica rastrea el origen histórico de un concepto para mostrar su contingencia. Su validez depende del rigor de la reconstrucción histórica. Una genealogía que simplifica el pasado para legitimar una tesis no es válida.\n\n9. Coherencia entre teoría y práctica\n\nUn texto crítico debe ser coherente entre su teoría y su práctica: no puede criticar en teoría lo que reproduce en la práctica. Un texto que crítica la dominación pero la ejerce en su propio lenguaje es incoherente.\n\n10. Argumento descolonial\n\nUn argumento descolonial es sólido si identifica correctamente las jerarquías epistémicas, las cuestiona con rigor y propone alternativas sin caer en el esencialismo. Esencializar al 'otro' como puro es una forma de reproducir la lógica colonial.\n\n11. Crítica psicoanalítica (Freud, Lacan)\n\nLa crítica psicoanalítica interpreta el texto como síntoma del inconsciente. Su validez depende de que la interpretación este anclada en evidencia textual y no solo en la teoría. Proyectar el complejo de Edipo sin evidencia no es crítica válida.\n\n12. Deconstrucción (Derrida)\n\nLa deconstrucción muestra las jerarquías ocultas en las oposiciones binarias. Su validez depende de que la jerarquía identificada sea realmente operativa en el texto. Identificar una jerarquía que el texto no sostiene es una deconstrucción fallida.\n\n13. Crítica postcolonial (Said, Spivak)\n\nLa crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Su validez depende de que el texto realmente reproduzca esas lógicas. Acusar de colonialismo sin evidencia es una descalificación.\n\n14. Crítica feminista (Butler)\n\nLa crítica feminista de Butler analiza como el discurso performa el género. Su validez depende de que la crítica este anclada en el texto y demuestre la performatividad. Acusar de binarismo sin análisis es una crítica superficial.\n\n15. Crítica marxista (Marx, Althusser)\n\nLa crítica marxista analiza como el texto reproduce las relaciones de producción y la ideología dominante. Su validez depende de que el análisis este anclado en el texto y no se reduzca a un dogma.\n\n16. Crítica ecológica (ecocrítica)\n\nLa ecocrítica analiza como el texto representa la naturaleza y las relaciones humano-naturaleza. Su validez depende de que el análisis este anclado en el texto y no se límite a proyectar preocupaciones ecologicas contemporáneas sobre textos antiguos.\n\n17. Crítica de la modernidad (Adorno, Bauman)\n\nLa crítica de la modernidad analiza las contradicciones de la razón ilustrada. Su validez depende de que el análisis este anclado en el texto y no caiga en un pesimismo indiscriminado.\n\n18. Crítica de la sociedad del espectáculo (Debord)\n\nLa crítica del espectáculo analiza como el texto convierte la vida en imagen y mercancía. Su validez depende de que el texto realmente espectaculice, no de que el crítico lo diga.\n\n19. Crítica de la biopolítica (Foucault, Agamben)\n\nLa crítica de la biopolítica analiza como el texto gestiona la vida y la muerte de las poblaciones. Su validez depende de que el texto realmente biopolitice, no de que el crítico lo proyecte.\n\n20. Calidad global de una interpretación crítica\n\nUna interpretación crítica es de calidad si está anclada en el texto, es coherente, reconoce sus límites y aporta una lectura nueva sin forzar el texto. Forzar el texto para que diga lo que el crítico quiere no es crítica: es imposición.\n\nConclusión\n\nLa crítica es una herramienta poderosa, pero no infalible. Estos veinte criterios no garantizan la verdad, pero al menos permiten distinguir la crítica rigurosa de la descalificación. En un mundo saturado de discursos críticos, aprender a evaluarlos es una tarea urgente.",
     "ejercicios": [
       {
         "tecnica_numero": 81,
@@ -9732,7 +9732,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Cuando demuestra con evidencia la reproducción de logicas coloniales",
+            "A) Cuando demuestra con evidencia la reproducción de lógicas coloniales",
             "B) Cuando acusa sin evidencia",
             "C) Cuando ignora el texto",
             "D) Cuando es pura especulación"

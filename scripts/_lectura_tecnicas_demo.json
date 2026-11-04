@@ -100,7 +100,7 @@
     "proceso": "P2",
     "nivel_mcer": "A1",
     "titulo": "Inferir si una situación es real o imaginaria",
-    "teoria": "En los textos, las situaciones pueden ser reales (hechos verificables) o imaginarias (ficción, fantasía). Distinguirlas es básico para entender el tipo de texto y su proposito.",
+    "teoria": "En los textos, las situaciones pueden ser reales (hechos verificables) o imaginarias (ficción, fantasía). Distinguirlas es básico para entender el tipo de texto y su propósito.",
     "explicacion": "Preguntate: los hechos podrían ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, la situación es imaginaria.",
     "regla": "Una situación es imaginaria si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', la situación es imaginaria: los dragones no existen.",
@@ -160,7 +160,7 @@
     "proceso": "P4",
     "nivel_mcer": "A1",
     "titulo": "Distinguir causa y consecuencia en una oración",
-    "teoria": "En una oración, la causa es lo que provoca un hecho; la consecuencia es lo que resulta. Distinguirlas es básico para comprender relaciones logicas.",
+    "teoria": "En una oración, la causa es lo que provoca un hecho; la consecuencia es lo que resulta. Distinguirlas es básico para comprender relaciones lógicas.",
     "explicacion": "Busca los conectores causales ('porque', 'ya que') y consecutivos ('por tanto', 'así que'). La causa va introducida por 'porque'; la consecuencia por 'por tanto'.",
     "regla": "La causa responde a 'por que?'; la consecuencia responde a 'que pasó como resultado?'.",
     "ejemplo_correcto": "En 'Llovio mucho, por tanto el suelo se mojo', la causa es la lluvia; la consecuencia, el suelo mojado.",
@@ -188,7 +188,7 @@
     "explicacion": "Para localizar el sujeto, preguntate 'quien?' o 'que?' antes del verbo. La respuesta es el sujeto. Ejemplo: 'El perro ladra' -> quien ladra? El perro.",
     "regla": "El sujeto responde a 'quien?' o 'que?' + verbo.",
     "ejemplo_correcto": "En 'María compró pan', el sujeto es María (quien compró?).",
-    "ejemplo_incorrecto": "Decir que el sujeto es 'pan' porque esta al final. El sujeto es quien realiza la acción, no el objeto.",
+    "ejemplo_incorrecto": "Decir que el sujeto es 'pan' porque está al final. El sujeto es quien realiza la acción, no el objeto.",
     "numero_global": 9
   },
   {
@@ -316,7 +316,7 @@
     "proceso": "P3",
     "nivel_mcer": "A2",
     "titulo": "Identificar el escenario de una historia",
-    "teoria": "El escenario es el lugar donde ocurre la historia. Incluye no solo el espacio fisico (ciudad, bosque, casa) sino también la atmosfera (alegre, tetrica, cotidiana).",
+    "teoria": "El escenario es el lugar donde ocurre la historia. Incluye no solo el espacio físico (ciudad, bosque, casa) sino también la atmosfera (alegre, tetrica, cotidiana).",
     "explicacion": "Busca las expresiones de lugar y las descripciones del ambiente. Preguntate: donde estan los personajes? Como es ese lugar? El escenario se construye con esos detalles.",
     "regla": "El escenario se identifica por las expresiones de lugar y las descripciones del ambiente.",
     "ejemplo_correcto": "En 'En un bosque oscuro y silencioso, el lobo acechaba', el escenario es el bosque oscuro.",
@@ -356,7 +356,7 @@
     "explicacion": "Identifica las herramientas y acciones del personaje. Preguntate: quien usa esas herramientas? Un martillo sugiere carpintero; un estetoscopio, médico; una batuta, director de orquesta.",
     "regla": "El oficio se infiere por las herramientas, el lugar y las acciones del personaje.",
     "ejemplo_correcto": "En 'Marta tomó el estetoscopio y ausculto al paciente', se infiere que Marta es médica.",
-    "ejemplo_incorrecto": "Decir que Marta es profesora porque esta en un edificio. El estetoscopio y la auscultación indican medicina.",
+    "ejemplo_incorrecto": "Decir que Marta es profesora porque está en un edificio. El estetoscopio y la auscultación indican medicina.",
     "numero_global": 86
   },
   {
@@ -391,7 +391,7 @@
     "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico según el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
     "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorías) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
     "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
-    "ejemplo_correcto": "Pregunta: 'Cuantos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
+    "ejemplo_correcto": "Pregunta: 'Cuántos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
     "ejemplo_incorrecto": "El lector busca '3o ESO' en el texto que acompana la tabla, no en la tabla misma, y responde 'muchos'. La información estaba en una celda; no se localizo por no leer los encabezados.",
     "numero_global": 2
   },
@@ -413,9 +413,9 @@
     "nivel_mcer": "B1",
     "titulo": "Identificar la tesis de un texto argumentativo",
     "teoria": "En un texto argumentativo, la tesis es la idea que el autor defiende. Suele estar al principio o al final, y se reconoce porque es la afirmación que el resto del texto intenta sostener con argumentos.",
-    "explicacion": "Busca la oración que el autor quiere que aceptes. Suele ir precedida de 'creo que', 'considero que', 'deberia'. Las demas oraciones son razones o ejemplos que la apoyan.",
+    "explicacion": "Busca la oración que el autor quiere que aceptes. Suele ir precedida de 'creo que', 'considero que', 'debería'. Las demas oraciones son razones o ejemplos que la apoyan.",
     "regla": "La tesis es la opinión central que los argumentos del texto intentan demostrar.",
-    "ejemplo_correcto": "Texto: 'El transporte público deberia ser gratuito. Primero, reduce la contaminación. Segundo, ayuda a las familias con menos recursos.' -> Tesis: el transporte público deberia ser gratuito.",
+    "ejemplo_correcto": "Texto: 'El transporte público debería ser gratuito. Primero, reduce la contaminación. Segundo, ayuda a las familias con menos recursos.' -> Tesis: el transporte público debería ser gratuito.",
     "ejemplo_incorrecto": "Decir que la tesis es 'reduce la contaminación'. Eso es un argumento, no la tesis.",
     "numero_global": 10
   },
@@ -471,12 +471,12 @@
     "numero": 8,
     "proceso": "P3",
     "nivel_mcer": "B1",
-    "titulo": "Reconocer el proposito comunicativo de un texto",
-    "teoria": "Todo texto tiene un proposito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo.",
+    "titulo": "Reconocer el propósito comunicativo de un texto",
+    "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo.",
     "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
-    "regla": "Proposito = que busca el autor: informar, persuadir, entretener o criticar.",
-    "ejemplo_correcto": "En un artículo con datos y citas, el proposito es informar.",
-    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su proposito principal es persuadir, aunque use datos.",
+    "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
+    "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
+    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir, aunque use datos.",
     "numero_global": 34
   },
   {
@@ -579,11 +579,11 @@
     "numero": 17,
     "proceso": "P4",
     "nivel_mcer": "B1",
-    "titulo": "Identificar el proposito de un párrafo introductorio",
-    "teoria": "El párrafo introductorio de un texto cumple una función: presentar el tema, contextualizar, plantear una pregunta o enganchar al lector. Identificar su proposito ayuda a comprender la estructura del texto.",
-    "explicacion": "Lee el primer párrafo. Preguntate: que busca? Presentar el tema? Dar contexto? Sorprender al lector? El proposito se reconoce por las estrategias usadas (pregunta, anecdota, dato impactante).",
-    "regla": "El proposito del párrafo introductorio se reconoce por las estrategias usadas (presentar, contextualizar, preguntar).",
-    "ejemplo_correcto": "En un texto que empieza 'Sabias que el 67% de los adultos usa redes a diario?', el proposito es enganchar con un dato.",
+    "titulo": "Identificar el propósito de un párrafo introductorio",
+    "teoria": "El párrafo introductorio de un texto cumple una función: presentar el tema, contextualizar, plantear una pregunta o enganchar al lector. Identificar su propósito ayuda a comprender la estructura del texto.",
+    "explicacion": "Lee el primer párrafo. Preguntate: que busca? Presentar el tema? Dar contexto? Sorprender al lector? El propósito se reconoce por las estrategias usadas (pregunta, anecdota, dato impactante).",
+    "regla": "El propósito del párrafo introductorio se reconoce por las estrategias usadas (presentar, contextualizar, preguntar).",
+    "ejemplo_correcto": "En un texto que empieza 'Sabias que el 67% de los adultos usa redes a diario?', el propósito es enganchar con un dato.",
     "ejemplo_incorrecto": "Decir que el párrafo introductorio 'no hace nada'. Siempre tiene una función en el texto.",
     "numero_global": 75
   },
@@ -608,7 +608,7 @@
     "explicacion": "Identifica el fenomeno. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre fenomeno y contexto.",
     "regla": "La causa de un fenomeno natural se infiere de los datos y del conocimiento del mundo.",
     "ejemplo_correcto": "En 'El cielo se cubrio de nubes negras y empezó a llover', se infiere que la causa de la lluvia son las nubes cargadas de agua.",
-    "ejemplo_incorrecto": "Decir que la lluvia no tiene causa. Todo fenomeno natural tiene una causa fisica.",
+    "ejemplo_incorrecto": "Decir que la lluvia no tiene causa. Todo fenomeno natural tiene una causa física.",
     "numero_global": 87
   },
   {
@@ -653,7 +653,7 @@
     "nivel_mcer": "B2",
     "titulo": "Distinguir hecho de opinión",
     "teoria": "Los textos periodisticos y argumentativos mezclan hechos (verificables, objetivos) con opiniones (valoraciones, subjetivas). Distinguirlos es un proceso de P4 (análisis y evaluación) esencial para la lectura crítica. Un hecho puede verificarse; una opinión puede discutirse.",
-    "explicacion": "Para distinguir hecho de opinión: (1) preguntarse si la afirmación puede verificarse con datos externos; (2) buscar marcas de subjetividad (adjetivos valorativos, verbos de opinión como 'creo', 'considero', 'deberia'); (3) clasificar cada oración. Una oración puede contener ambos: 'El ayuntamiento aprobó la ley (hecho); fue una decisión acertada (opinión).'",
+    "explicacion": "Para distinguir hecho de opinión: (1) preguntarse si la afirmación puede verificarse con datos externos; (2) buscar marcas de subjetividad (adjetivos valorativos, verbos de opinión como 'creo', 'considero', 'debería'); (3) clasificar cada oración. Una oración puede contener ambos: 'El ayuntamiento aprobó la ley (hecho); fue una decisión acertada (opinión).'",
     "regla": "Un hecho se verifica; una opinión se valora. Las marcas de subjetividad (adjetivos, verbos de opinión) delatan la opinión.",
     "ejemplo_correcto": "Texto: 'El ayuntamiento aprobó la ordenanza el martes. La medida, sin embargo, es insuficiente.' -> 'Aprobó la ordenanza' es hecho (verificable). 'Es insuficiente' es opinión (valorativa).",
     "ejemplo_incorrecto": "Lector que clasifica todo como 'hecho' porque el texto es periodistico. El género no garantiza objetividad: la segunda oración es claramente valorativa.",
@@ -808,7 +808,7 @@
     "proceso": "P3",
     "nivel_mcer": "B2",
     "titulo": "Interpretar el simbolismo de un objeto en un cuento",
-    "teoria": "En los cuentos, ciertos objetos pueden tener un significado simbólico: un reloj puede representar el pasó del tiempo, una puerta la oportunidad, un espejo la identidad.",
+    "teoria": "En los cuentos, ciertos objetos pueden tener un significado simbólico: un reloj puede representar el paso del tiempo, una puerta la oportunidad, un espejo la identidad.",
     "explicacion": "Identifica el objeto y observa como aparece en la historia. Preguntate: que representa para los personajes? Que emoción o idea evoca? El simbolismo se construye por repetición y por el contexto.",
     "regla": "El simbolismo del objeto se construye por su aparición repetida y por el contexto de la historia.",
     "ejemplo_correcto": "En un cuento donde un reloj se detiene al morir el abuelo, el reloj simboliza el tiempo y la muerte.",
@@ -880,7 +880,7 @@
     "proceso": "P3",
     "nivel_mcer": "C1",
     "titulo": "Interpretar la intención del autor",
-    "teoria": "Todo texto es escrito con un proposito: informar, persuadir, entretener, criticar, homenajear. La intención no siempre se declara: se infiere de las elecciones del autor (vocabulario, tono, selección de hechos, uso de adjetivos). Interpretar la intención es un proceso de P3 que requiere atender al 'como se dice' tanto como al 'que se dice'.",
+    "teoria": "Todo texto es escrito con un propósito: informar, persuadir, entretener, criticar, homenajear. La intención no siempre se declara: se infiere de las elecciones del autor (vocabulario, tono, selección de hechos, uso de adjetivos). Interpretar la intención es un proceso de P3 que requiere atender al 'como se dice' tanto como al 'que se dice'.",
     "explicacion": "Para interpretar la intención: (1) identificar el género y el contexto; (2) observar el tono (irónico, solemne, entusiasta); (3) analizar la selección de información (que se destaca, que se omite); (4) analizar el lexico valorativo (adjetivos, adverbios); (5) proponer una intención y verificar que sea coherente con todos los indicios.",
     "regla": "La intención del autor se infiere del tono, del lexico valorativo y de la selección de hechos, no de una declaración explicita.",
     "ejemplo_correcto": "Texto: 'Una vez más, la empresa prometio reducir emisiones. Una vez más, los datos la desmintieron al mes siguiente.' -> Intención: crítica / desconfianza. El 'una vez más' repetido y la oposición promesa/datos lo evidencian.",
@@ -1145,7 +1145,7 @@
     "nivel_mcer": "C2",
     "titulo": "Interpretar la ambiguedad deliberada de un texto literario",
     "teoria": "Algunos textos literarios dejan deliberadamente varios sentidos posibles (un final abierto, un personaje ambiguo, una metáfora polisemica). Interpretar esa ambiguedad es parte de la lectura literaria avanzada.",
-    "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuantas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambiguedad no es un defecto: es un recurso.",
+    "explicacion": "Identifica el pasaje ambiguo. Preguntate: cuántas interpretaciones razonables permite? Cual es la más coherente con el conjunto? La ambiguedad no es un defecto: es un recurso.",
     "regla": "La ambiguedad literaria permite varias interpretaciones igualmente válidas; el lector elige la más coherente.",
     "ejemplo_correcto": "En un cuento que termina con 'Y entonces desperto', el final puede ser real (desperto de un sueño) o metaforico (desperto a la realidad).",
     "ejemplo_incorrecto": "Decir que el final es 'malo' porque no se entiende. La ambiguedad es intencional, no un error.",
@@ -1226,8 +1226,8 @@
     "nivel_mcer": "A1",
     "proceso": "P1",
     "titulo": "Localizar el título del texto",
-    "teoria": "El título es la primera linea o frase destacada de un texto. Anticipa el tema y ayuda al lector a saber de que trata antes de empezar a leer.",
-    "explicacion": "Para localizar el título, busca la linea que esta en negrita, más grande o separada del resto del texto. Suele estar al principio y resume el contenido. Ejemplo: en un texto sobre animales, el título puede ser 'Los animales de la granja'.",
+    "teoria": "El título es la primera línea o frase destacada de un texto. Anticipa el tema y ayuda al lector a saber de que trata antes de empezar a leer.",
+    "explicacion": "Para localizar el título, busca la línea que esta en negrita, más grande o separada del resto del texto. Suele estar al principio y resume el contenido. Ejemplo: en un texto sobre animales, el título puede ser 'Los animales de la granja'.",
     "regla": "El título es la primera frase destacada del texto y anticipa su tema.",
     "ejemplo_correcto": "En un cuento que empieza con 'El perro perdido', ese es el título.",
     "ejemplo_incorrecto": "Decir que el título es la última frase del texto. El título va al principio, no al final."
@@ -1282,7 +1282,7 @@
     "proceso": "P1",
     "titulo": "Localizar las palabras de número",
     "teoria": "Las palabras de número son adjetivos que indican cantidad o número: uno, dos, tres, muchos, pocos, algunos, ninguno.",
-    "explicacion": "Para localizar una palabra de número, busca las palabras que indican cuantos hay de algo. Ejemplo: en 'Tengo tres manzanas', la palabra de número es 'tres'.",
+    "explicacion": "Para localizar una palabra de número, busca las palabras que indican cuántos hay de algo. Ejemplo: en 'Tengo tres manzanas', la palabra de número es 'tres'.",
     "regla": "Las palabras de número indican cantidad o número: uno, dos, tres, muchos...",
     "ejemplo_correcto": "En 'Hay muchos pajaros en el árbol', la palabra de número es 'muchos'.",
     "ejemplo_incorrecto": "Decir que 'pajaros' es una palabra de número. 'Pajaros' es un sustantivo, no una cantidad."
@@ -1461,7 +1461,7 @@
     "explicacion": "Para inferir el oficio, observa las herramientas y acciones del personaje. Preguntate: quien usa esas herramientas? Ejemplo: si alguien usa un estetoscopio, probablemente es médico.",
     "regla": "El oficio se infiere por las herramientas, el lugar y las acciones del personaje.",
     "ejemplo_correcto": "En 'Marta tomó el estetoscopio y ausculto al paciente', se infiere que Marta es médica.",
-    "ejemplo_incorrecto": "Decir que Marta es profesora porque esta en un edificio. El estetoscopio indica medicina, no docencia."
+    "ejemplo_incorrecto": "Decir que Marta es profesora porque está en un edificio. El estetoscopio indica medicina, no docencia."
   },
   {
     "numero": 39,
@@ -1599,9 +1599,9 @@
     "numero": 51,
     "nivel_mcer": "A1",
     "proceso": "P2",
-    "titulo": "Inferir cuantos personajes hay en una escena",
-    "teoria": "En los cuentos, el número de personajes se infiere de las acciones y los diálogos: cuantas voces hablan? Cuantas acciones ocurren a la vez?",
-    "explicacion": "Para inferir cuantos personajes hay, cuenta las voces o acciones distintas. Ejemplo: si dice 'Marta cocinaba y Juan leía', hay dos personajes.",
+    "titulo": "Inferir cuántos personajes hay en una escena",
+    "teoria": "En los cuentos, el número de personajes se infiere de las acciones y los diálogos: cuántas voces hablan? Cuántas acciones ocurren a la vez?",
+    "explicacion": "Para inferir cuántos personajes hay, cuenta las voces o acciones distintas. Ejemplo: si dice 'Marta cocinaba y Juan leía', hay dos personajes.",
     "regla": "El número de personajes se infiere contando voces o acciones distintas en la escena.",
     "ejemplo_correcto": "En 'Ana cocinaba mientras Luis ponia la mesa', se infieren dos personajes.",
     "ejemplo_incorrecto": "Decir que solo hay un personaje porque no se dicen sus nombres. Cada acción distinta sugiere un personaje."
@@ -1688,7 +1688,7 @@
     "nivel_mcer": "A1",
     "proceso": "P3",
     "titulo": "Identificar el escenario de una historia",
-    "teoria": "El escenario es el lugar donde ocurre la historia. Incluye el espacio fisico (ciudad, bosque, casa) y la atmosfera (alegre, tetrica).",
+    "teoria": "El escenario es el lugar donde ocurre la historia. Incluye el espacio físico (ciudad, bosque, casa) y la atmosfera (alegre, tetrica).",
     "explicacion": "Para identificar el escenario, busca las expresiones de lugar y las descripciones del ambiente: donde estan los personajes? Como es ese lugar?",
     "regla": "El escenario se identifica por las expresiones de lugar y las descripciones del ambiente.",
     "ejemplo_correcto": "En 'En un bosque oscuro y silencioso, el lobo acechaba', el escenario es el bosque oscuro.",
@@ -1776,7 +1776,7 @@
     "nivel_mcer": "A1",
     "proceso": "P3",
     "titulo": "Interpretar el simbolismo básico de un objeto",
-    "teoria": "En los cuentos, ciertos objetos pueden tener un significado simbólico: un reloj puede representar el pasó del tiempo, una puerta la oportunidad, un espejo la identidad.",
+    "teoria": "En los cuentos, ciertos objetos pueden tener un significado simbólico: un reloj puede representar el paso del tiempo, una puerta la oportunidad, un espejo la identidad.",
     "explicacion": "Identifica el objeto y observa como aparece en la historia. Preguntate: que representa para los personajes? Que emoción o idea evoca?",
     "regla": "El simbolismo del objeto se construye por su aparición repetida y por el contexto de la historia.",
     "ejemplo_correcto": "En un cuento donde un reloj se detiene al morir el abuelo, el reloj simboliza el tiempo y la muerte.",
@@ -1919,7 +1919,7 @@
     "nivel_mcer": "A1",
     "proceso": "P4",
     "titulo": "Distinguir causa de consecuencia en una oración",
-    "teoria": "La causa es lo que provoca un hecho. La consecuencia es lo que resulta. Distinguirlas es básico para comprender relaciones logicas.",
+    "teoria": "La causa es lo que provoca un hecho. La consecuencia es lo que resulta. Distinguirlas es básico para comprender relaciones lógicas.",
     "explicacion": "Para distinguir causa y consecuencia, busca los conectores causales ('porque', 'ya que') y consecutivos ('por tanto', 'así que'). La causa responde a 'por que?'; la consecuencia a 'que pasó como resultado?'.",
     "regla": "La causa responde a 'por que?'; la consecuencia responde a 'que pasó como resultado?'.",
     "ejemplo_correcto": "En 'Llovio mucho, por tanto el suelo se mojo', la causa es la lluvia; la consecuencia, el suelo mojado.",
@@ -1940,12 +1940,12 @@
     "numero": 82,
     "nivel_mcer": "A1",
     "proceso": "P4",
-    "titulo": "Identificar el proposito del texto",
-    "teoria": "Todo texto tiene un proposito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo correctamente.",
-    "explicacion": "Para identificar el proposito, preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
-    "regla": "Proposito = que busca el autor: informar, persuadir, entretener o criticar.",
-    "ejemplo_correcto": "En un artículo con datos y citas, el proposito es informar.",
-    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su proposito principal es persuadir."
+    "titulo": "Identificar el propósito del texto",
+    "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo correctamente.",
+    "explicacion": "Para identificar el propósito, preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
+    "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
+    "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
+    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir."
   },
   {
     "numero": 83,
@@ -2274,7 +2274,7 @@
     "teoria": "Las tablas organizan información en filas y columnas. Localizar un dato requiere identificar el título, los encabezados de fila y columna, y leer la celda en la intersección.",
     "explicacion": "Primero identifica el título de la tabla. Luego busca la fila (categoría) y la columna (variable) que corresponden a la pregunta. El dato esta en la intersección.",
     "regla": "En una tabla, el dato esta en la intersección de la fila y la columna buscadas.",
-    "ejemplo_correcto": "En una tabla de alumnos por curso y convocatoria, para saber cuantos de 3o aprobaron en junio se busca la fila '3o' y la columna 'junio'.",
+    "ejemplo_correcto": "En una tabla de alumnos por curso y convocatoria, para saber cuántos de 3o aprobaron en junio se busca la fila '3o' y la columna 'junio'.",
     "ejemplo_incorrecto": "Buscar '3o' en el texto que acompana la tabla, no en la tabla misma."
   },
   {
@@ -2282,7 +2282,7 @@
     "nivel_mcer": "A2",
     "proceso": "P1",
     "titulo": "Localizar datos en un grafico simple",
-    "teoria": "Los graficos (barras, lineas, sectores) representan datos visualmente. Localizar un dato requiere identificar los ejes, las etiquetas y el valor correspondiente.",
+    "teoria": "Los graficos (barras, líneas, sectores) representan datos visualmente. Localizar un dato requiere identificar los ejes, las etiquetas y el valor correspondiente.",
     "explicacion": "Identifica los ejes (horizontal y vertical). Busca la etiqueta de la categoría. Lee el valor asociado (altura de la barra, posición en el eje).",
     "regla": "En un grafico, el dato se localiza identificando ejes, etiquetas y valor.",
     "ejemplo_correcto": "En un grafico de barras de ventas por mes, para saber las ventas de mayo se busca la barra 'mayo' y se lee su altura.",
@@ -2440,7 +2440,7 @@
     "explicacion": "Combina las pistas: que herramientas usa? Donde esta? Que acciones realiza? La combinación da el oficio.",
     "regla": "El oficio se infiere combinando herramientas, lugar y acciones.",
     "ejemplo_correcto": "En 'Marta tomó el estetoscopio en su consulta y ausculto al paciente', se infiere que es médica.",
-    "ejemplo_incorrecto": "Decir que Marta es profesora porque esta en un edificio. El estetoscopio indica medicina."
+    "ejemplo_incorrecto": "Decir que Marta es profesora porque está en un edificio. El estetoscopio indica medicina."
   },
   {
     "numero": 46,
@@ -2689,7 +2689,7 @@
     "nivel_mcer": "A2",
     "proceso": "P3",
     "titulo": "Interpretar el simbolismo de un objeto en un cuento",
-    "teoria": "En los cuentos, los objetos pueden tener un valor simbólico: un reloj puede representar el pasó del tiempo; una puerta, la oportunidad; un espejo, la identidad.",
+    "teoria": "En los cuentos, los objetos pueden tener un valor simbólico: un reloj puede representar el paso del tiempo; una puerta, la oportunidad; un espejo, la identidad.",
     "explicacion": "Identifica el objeto. Preguntate: como aparece en la historia? Se repite? Que emoción o idea evoca? El simbolismo se construye por repetición y contexto.",
     "regla": "El simbolismo del objeto se construye por su aparición repetida y por el contexto de la historia.",
     "ejemplo_correcto": "En un cuento donde un reloj se detiene al morir el abuelo, el reloj simboliza el tiempo y la muerte.",
@@ -2800,8 +2800,8 @@
     "proceso": "P3",
     "titulo": "Reconocer el tipo de texto: artículo, noticia, cuento, poema",
     "teoria": "Cada tipo de texto tiene características formales propias: el artículo de opinión argumenta, la noticia informa, el cuento narra, el poema expresa con ritmo.",
-    "explicacion": "Observa la forma y el proposito. Hay narración? Es un cuento. Hay datos y fecha? Es una noticia. Hay argumentos? Es un artículo.",
-    "regla": "El tipo de texto se reconoce por sus características formales y su proposito.",
+    "explicacion": "Observa la forma y el propósito. Hay narración? Es un cuento. Hay datos y fecha? Es una noticia. Hay argumentos? Es un artículo.",
+    "regla": "El tipo de texto se reconoce por sus características formales y su propósito.",
     "ejemplo_correcto": "En 'Había una vez...', es un cuento. En 'Ayer el alcalde inauguro...', es una noticia.",
     "ejemplo_incorrecto": "Decir que todo texto narrativo es un cuento. Una noticia también puede narrar."
   },
@@ -2809,12 +2809,12 @@
     "numero": 79,
     "nivel_mcer": "A2",
     "proceso": "P3",
-    "titulo": "Interpretar el proposito comunicativo del texto",
-    "teoria": "Todo texto tiene un proposito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo.",
+    "titulo": "Interpretar el propósito comunicativo del texto",
+    "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer pasó para interpretarlo.",
     "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
-    "regla": "Proposito = que busca el autor: informar, persuadir, entretener o criticar.",
-    "ejemplo_correcto": "En un artículo con datos y citas, el proposito es informar.",
-    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su proposito principal es persuadir."
+    "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
+    "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
+    "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir."
   },
   {
     "numero": 80,
@@ -3151,8 +3151,8 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar los tiempos verbales y su valor en el texto",
-    "teoria": "Los tiempos verbales indican cuando ocurre la acción (pasado, presente, futuro) y su aspecto (acabado, en desarrollo). Localizarlos ayuda a situar la acción y comprender el proposito del texto.",
-    "explicacion": "Busca los verbos y fijate en su tiempo. 'Cantó' (presente), 'cante' (pasado), 'cantare' (futuro). El tiempo dominante revela el proposito del texto.",
+    "teoria": "Los tiempos verbales indican cuando ocurre la acción (pasado, presente, futuro) y su aspecto (acabado, en desarrollo). Localizarlos ayuda a situar la acción y comprender el propósito del texto.",
+    "explicacion": "Busca los verbos y fijate en su tiempo. 'Cantó' (presente), 'cante' (pasado), 'cantare' (futuro). El tiempo dominante revela el propósito del texto.",
     "regla": "El tiempo verbal situa la acción: pasado, presente o futuro.",
     "ejemplo_correcto": "En un texto que dice 'Ayer llovio mucho', el verbo 'llovio' indica pasado.",
     "ejemplo_incorrecto": "Decir que 'lluvia' es un tiempo verbal. 'Lluvia' es un sustantivo, no un verbo."
@@ -3196,7 +3196,7 @@
     "proceso": "P1",
     "titulo": "Localizar el título y su relación con el contenido",
     "teoria": "El título anticipa el tema, la tesis o una metáfora del contenido. Localizarlo es el primer pasó para comprender el texto: permite hacerse una idea de que trata antes de leerlo.",
-    "explicacion": "Localiza la linea destacada al inicio del texto (en negrita o más grande). Lee el contenido y comprueba si el título anticipa el tema o la tesis.",
+    "explicacion": "Localiza la línea destacada al inicio del texto (en negrita o más grande). Lee el contenido y comprueba si el título anticipa el tema o la tesis.",
     "regla": "El título esta al inicio del texto, destacado, y anticipa el tema o la tesis.",
     "ejemplo_correcto": "En un texto titulado 'El precio de la fama', el título anticipa que se hablara de los costos de ser famoso.",
     "ejemplo_incorrecto": "Decir que el título no tiene relación porque es metaforico. Los títulos metaforicos también se relacionan con el contenido."
@@ -3595,7 +3595,7 @@
     "explicacion": "Identifica el lugar. Preguntate: que emoción o idea evoca? Como se describe? Es un lugar de pasó, de refugio o de peligro?",
     "regla": "El simbolismo del lugar se construye por su descripción y por el contexto de la historia.",
     "ejemplo_correcto": "En un cuento donde el protagonista se pierde en un bosque oscuro, el bosque simboliza lo desconocido y el miedo.",
-    "ejemplo_incorrecto": "Decir que el bosque solo es un lugar fisico. En los cuentos, los lugares simbolizan estados emocionales."
+    "ejemplo_incorrecto": "Decir que el bosque solo es un lugar físico. En los cuentos, los lugares simbolizan estados emocionales."
   },
   {
     "numero": 72,
@@ -3690,7 +3690,7 @@
     "nivel_mcer": "B1",
     "proceso": "P3",
     "titulo": "Interpretar el simbolismo de un objeto en un cuento",
-    "teoria": "En los cuentos, los objetos pueden tener un valor simbólico: un reloj puede representar el pasó del tiempo; una puerta, la oportunidad; un espejo, la identidad.",
+    "teoria": "En los cuentos, los objetos pueden tener un valor simbólico: un reloj puede representar el paso del tiempo; una puerta, la oportunidad; un espejo, la identidad.",
     "explicacion": "Identifica el objeto. Preguntate: como aparece en la historia? Se repite? Que emoción o idea evoca? El simbolismo se construye por repetición y contexto.",
     "regla": "El simbolismo del objeto se construye por su aparición repetida y por el contexto de la historia.",
     "ejemplo_correcto": "En un cuento donde un reloj se detiene al morir el abuelo, el reloj simboliza el tiempo y la muerte.",
@@ -4152,7 +4152,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir la intención comunicativa global del texto",
-    "teoria": "La intención comunicativa global es el proposito último del autor: informar, persuadir, criticar, entretener, movilizar. Se infiere del conjunto del texto, no de una sola parte.",
+    "teoria": "La intención comunicativa global es el propósito último del autor: informar, persuadir, criticar, entretener, movilizar. Se infiere del conjunto del texto, no de una sola parte.",
     "explicacion": "Lee el texto completo. Preguntate: que busca el autor con este texto? Informar? Convencer? Criticar? Movilizar a la acción?",
     "regla": "La intención global se infiere del conjunto del texto y del tono dominante.",
     "ejemplo_correcto": "En un artículo que denuncia la contaminación y llama a reciclar, la intención es movilizar.",
@@ -4178,7 +4178,7 @@
     "explicacion": "Identifica el concepto de origen y el concepto de destino. Preguntate: que aspectos del destino se iluminan con el origen?",
     "regla": "La metáfora compleja estructura un concepto en terminos de otro.",
     "ejemplo_correcto": "En 'la vida es un camino', la vida (destino) se entiende como camino (origen).",
-    "ejemplo_incorrecto": "Decir que 'camino' solo significa una via fisica. En la metáfora, es el esquema de la vida."
+    "ejemplo_incorrecto": "Decir que 'camino' solo significa una via física. En la metáfora, es el esquema de la vida."
   },
   {
     "numero": 45,
@@ -4342,7 +4342,7 @@
     "teoria": "La elipsis narrativa es la omisión deliberada de información (un saltó temporal, un detalle). Su intención puede ser crear suspense, sugerir, omitir lo obvio o acelerar el ritmo.",
     "explicacion": "Preguntate: que información se omite? Por que el autor decide no contarla? La omisión sugiere una intención.",
     "regla": "La elipsis omite información deliberadamente; su intención se infiere del contexto.",
-    "ejemplo_correcto": "En un cuento que pasa de 'se despidieron' a 'años después', la elipsis acelera el ritmo y sugiere el pasó del tiempo.",
+    "ejemplo_correcto": "En un cuento que pasa de 'se despidieron' a 'años después', la elipsis acelera el ritmo y sugiere el paso del tiempo.",
     "ejemplo_incorrecto": "Decir que la elipsis es un descuido. Es una elección deliberada del autor."
   },
   {
@@ -4395,7 +4395,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el punto de vista múltiple en una narración",
     "teoria": "Algunas narraciones presentan varias perspectivas sobre los mismos hechos. Interpretar ese punto de vista múltiple permite comprender la complejidad de la historia y la relatividad de la verdad.",
-    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con esa multiplicidad?",
+    "explicacion": "Identifica cuántas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con esa multiplicidad?",
     "regla": "El punto de vista múltiple muestra distintas versiones de los mismos hechos.",
     "ejemplo_correcto": "En una novela contada por varios personajes, cada uno aporta una versión distinta de los mismos hechos.",
     "ejemplo_incorrecto": "Decir que solo hay una versión válida. El punto de vista múltiple muestra la complejidad."
@@ -4430,7 +4430,7 @@
     "teoria": "Los objetos que se repiten en un texto suelen tener valor simbólico. Interpretarlos ayuda a comprender el sentido profundo de la obra.",
     "explicacion": "Identifica el objeto que se repite. Preguntate: que representa? Como cambia su significado a lo largo del texto?",
     "regla": "El objeto recurrente adquiere valor simbólico por su repetición y contexto.",
-    "ejemplo_correcto": "En un cuento donde un reloj se repite, el reloj simboliza el pasó del tiempo o la obsesión por el control.",
+    "ejemplo_correcto": "En un cuento donde un reloj se repite, el reloj simboliza el paso del tiempo o la obsesión por el control.",
     "ejemplo_incorrecto": "Decir que el objeto solo tiene función práctica. En literatura, los objetos recurrentes simbolizan."
   },
   {
@@ -4452,7 +4452,7 @@
     "teoria": "El ritmo narrativo alterna escenas (momentos detallados) y sumarios (resumenes rápidos). Interpretar ese ritmo ayuda a comprender el enfasis del autor.",
     "explicacion": "Identifica las escenas (detalladas, lentas) y los sumarios (rápidos). Preguntate: que momentos se detallan? Por que?",
     "regla": "El ritmo narrativo alterna escenas (detalladas) y sumarios (rápidos).",
-    "ejemplo_correcto": "En un cuento que dedica diez páginas a una hora y una linea a diez años, el ritmo enfatiza esa hora clave.",
+    "ejemplo_correcto": "En un cuento que dedica diez páginas a una hora y una línea a diez años, el ritmo enfatiza esa hora clave.",
     "ejemplo_incorrecto": "Decir que el ritmo es uniforme. Todo texto narrativo alterna escenas y sumarios."
   },
   {
@@ -4526,7 +4526,7 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar el uso del tiempo subjetivo (duración psicologica)",
-    "teoria": "El tiempo narrativo puede alargarse o acortarse según la percepción del personaje: momentos que duran páginas, años que pasan en una linea. Interpretar ese tiempo subjetivo revela el enfasis del autor.",
+    "teoria": "El tiempo narrativo puede alargarse o acortarse según la percepción del personaje: momentos que duran páginas, años que pasan en una línea. Interpretar ese tiempo subjetivo revela el enfasis del autor.",
     "explicacion": "Observa como se alarga o se acorta la narración. Preguntate: que momentos se alargan? Que se resume? Por que?",
     "regla": "El tiempo subjetivo alarga o acorta la duración según el enfasis del autor.",
     "ejemplo_correcto": "En 'Pasaron diez años en un suspiro, pero aquella tarde duro eternamente', el tiempo subjetivo enfatiza esa tarde.",
@@ -4537,7 +4537,7 @@
     "nivel_mcer": "B2",
     "proceso": "P3",
     "titulo": "Interpretar la función del espacio en la narración",
-    "teoria": "El espacio en la narración no es solo un lugar fisico: puede reflejar el estado de animó de los personajes, anticipar la acción, simbolizar conflictos. Interpretarlo enriquece la lectura.",
+    "teoria": "El espacio en la narración no es solo un lugar físico: puede reflejar el estado de animó de los personajes, anticipar la acción, simbolizar conflictos. Interpretarlo enriquece la lectura.",
     "explicacion": "Observa como se describe el espacio. Preguntate: refleja el estado de animó? Anticipa lo que va a pasar? Simboliza algo?",
     "regla": "El espacio puede reflejar estados de animó, anticipar la acción o simbolizar conflictos.",
     "ejemplo_correcto": "En un cuento donde la casa se describe como oscura y silenciosa antes de la tragedia, el espacio anticipa la desgracia.",
@@ -4670,7 +4670,7 @@
     "proceso": "P4",
     "titulo": "Evaluar la representatividad de una muestra",
     "teoria": "Una muestra es representativa si refleja las características de la población. Evaluarla requiere analizar su tamaño, su selección y su diversidad.",
-    "explicacion": "Preguntate: cuantas personas o casos incluye? Como se seleccionaron? Representan a la población? Hay sesgo de selección?",
+    "explicacion": "Preguntate: cuántas personas o casos incluye? Como se seleccionaron? Representan a la población? Hay sesgo de selección?",
     "regla": "Una muestra es representativa si refleja la diversidad de la población.",
     "ejemplo_correcto": "Una encuesta con 10.000 personas de varias regiones y edades es representativa.",
     "ejemplo_incorrecto": "Generalizar a partir de 5 amigos. La muestra no es representativa."
@@ -4768,7 +4768,7 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Distinguir la conclusión de la recomendación en un texto",
-    "teoria": "La conclusión sintetiza lo argumentado; la recomendación propone una acción. Distinguirlas ayuda a comprender el proposito del texto.",
+    "teoria": "La conclusión sintetiza lo argumentado; la recomendación propone una acción. Distinguirlas ayuda a comprender el propósito del texto.",
     "explicacion": "Busca los conectores: 'por tanto' introduce conclusión; 'deberiamos' o 'hay que' introducen recomendación.",
     "regla": "La conclusión sintetiza; la recomendación propone una acción.",
     "ejemplo_correcto": "En 'Por tanto, el reciclaje es eficiente. Deberiamos reciclar más', la conclusión es 'el reciclaje es eficiente'; la recomendación, 'deberiamos reciclar más'.",
@@ -5043,7 +5043,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir el subtexto de un texto (lo implicado)",
-    "teoria": "El subtexto es el conjunto de significados implicitos que el texto sugiere sin decir. Incluye connotaciones, insinuaciones y mensajes entre lineas.",
+    "teoria": "El subtexto es el conjunto de significados implicitos que el texto sugiere sin decir. Incluye connotaciones, insinuaciones y mensajes entre líneas.",
     "explicacion": "Preguntate: que se sugiere sin afirmar? Que connotaciones tienen las palabras? Que se deja entrever?",
     "regla": "El subtexto es el significado implicito que el lector construye a partir de lo dicho y lo omitido.",
     "ejemplo_correcto": "En 'Algunos aun creen que...', el subtexto sugiere que esa creencia es minoritaria o superada.",
@@ -5285,7 +5285,7 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función de la enunciación (quien habla, para quien, desde donde)",
-    "teoria": "La enunciación es el acto de producir un texto. Interpretarla implica analizar quien habla (enunciador), a quien (enunciatario), desde que lugar social y con que proposito. Es clave en el análisis del discurso.",
+    "teoria": "La enunciación es el acto de producir un texto. Interpretarla implica analizar quien habla (enunciador), a quien (enunciatario), desde que lugar social y con que propósito. Es clave en el análisis del discurso.",
     "explicacion": "Preguntate: quien es el enunciador real? A quien se dirige? Que lugar social ocupa?",
     "regla": "La enunciación analiza quien habla, para quien y desde donde.",
     "ejemplo_correcto": "En un discurso político, el enunciador es el político, el enunciatario es la ciudadania, y el lugar social es el poder.",
@@ -5319,7 +5319,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el perspectivismo narrativo (multiples puntos de vista)",
     "teoria": "El perspectivismo narrativo presenta la realidad desde multiples puntos de vista, mostrando su complejidad. Interpretarlo permite ver como la verdad se construye desde la pluralidad de miradas.",
-    "explicacion": "Identifica cuantas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con la multiplicidad?",
+    "explicacion": "Identifica cuántas perspectivas hay. Preguntate: como cambia la historia según quien la cuenta? Que se gana con la multiplicidad?",
     "regla": "El perspectivismo muestra la realidad desde multiples puntos de vista.",
     "ejemplo_correcto": "En 'Rashomon', los mismos hechos se cuentan desde cuatro perspectivas distintas.",
     "ejemplo_incorrecto": "Decir que solo hay una versión válida. El perspectivismo muestra la relatividad."
@@ -5417,11 +5417,11 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del simbolismo del viaje iniciatico",
-    "teoria": "El viaje iniciatico es un arquetipo narrativo en que el protagonista emprende un viaje fisico que es también un proceso de crecimiento interior.",
+    "teoria": "El viaje iniciatico es un arquetipo narrativo en que el protagonista emprende un viaje físico que es también un proceso de crecimiento interior.",
     "explicacion": "Identifica el viaje. Preguntate: que aprende el protagonista? Como cambia? Que pruebas supera?",
-    "regla": "El viaje iniciatico es un proceso de crecimiento interior a traves de un viaje fisico.",
+    "regla": "El viaje iniciatico es un proceso de crecimiento interior a traves de un viaje físico.",
     "ejemplo_correcto": "En 'El viaje de Santiago', el viaje al pueblo es también un viaje hacía sus raíces.",
-    "ejemplo_incorrecto": "Decir que el viaje es solo fisico. También puede ser iniciatico."
+    "ejemplo_incorrecto": "Decir que el viaje es solo físico. También puede ser iniciatico."
   },
   {
     "numero": 74,
@@ -5439,11 +5439,11 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del simbolismo de la muerte y el renacimiento",
-    "teoria": "En muchas narraciones, la muerte (fisica o simbólica) del protagonista precede a un renacimiento o transformación.",
-    "explicacion": "Identifica las muertes (fisicas o simbólicas). Preguntate: que renace después? Que transformación se produce?",
+    "teoria": "En muchas narraciones, la muerte (física o simbólica) del protagonista precede a un renacimiento o transformación.",
+    "explicacion": "Identifica las muertes (físicas o simbólicas). Preguntate: que renace después? Que transformación se produce?",
     "regla": "La muerte simbólica precede a un renacimiento o transformación.",
     "ejemplo_correcto": "En muchos cuentos, el protagonista 'muere' simbolicamente y renace transformado.",
-    "ejemplo_incorrecto": "Decir que la muerte es solo fisica. En literatura, también puede ser simbólica."
+    "ejemplo_incorrecto": "Decir que la muerte es solo física. En literatura, también puede ser simbólica."
   },
   {
     "numero": 76,
@@ -5483,8 +5483,8 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función del cronotopo (Bajtin: tiempo-espacio)",
-    "teoria": "El cronotopo (Bajtin) es la conexión esencial entre tiempo y espacio en la narración: el camino, el salon, el umbral.",
-    "explicacion": "Identifica los cronotopos: camino, salon, umbral. Preguntate: que sentido tienen?",
+    "teoria": "El cronotopo (Bajtin) es la conexión esencial entre tiempo y espacio en la narración: el camino, el salón, el umbral.",
+    "explicacion": "Identifica los cronotopos: camino, salón, umbral. Preguntate: que sentido tienen?",
     "regla": "El cronotopo articula tiempo y espacio en la narración para dar sentido.",
     "ejemplo_correcto": "En muchas novelas, el camino es un cronotopo de encuentro y transformación.",
     "ejemplo_incorrecto": "Decir que tiempo y espacio son independientes. El cronotopo los une."
@@ -5850,7 +5850,7 @@
     "explicacion": "Identifica los elementos heterogeneos del dispositivo. Preguntate: como se articulan? Que función de poder cumplen?",
     "regla": "El dispositivo es una red heterogenea de elementos con función estrategica de poder.",
     "ejemplo_correcto": "La escuela como dispositivo articula discursos (curriculum), instituciones (edificio), prácticas (examenes) y leyes.",
-    "ejemplo_incorrecto": "Decir que el dispositivo es solo un aparato fisico. Es una red de elementos."
+    "ejemplo_incorrecto": "Decir que el dispositivo es solo un aparato físico. Es una red de elementos."
   },
   {
     "numero": 24,
@@ -6048,7 +6048,7 @@
     "explicacion": "Preguntate: que dominación se naturaliza? El dominado la acepta como legitima?",
     "regla": "La violencia simbólica naturaliza la dominación con la complicidad del dominado.",
     "ejemplo_correcto": "En un texto donde las mujeres aceptan como natural la desigualdad de género, hay violencia simbólica.",
-    "ejemplo_incorrecto": "Decir que solo hay violencia fisica. La violencia simbólica también domina."
+    "ejemplo_incorrecto": "Decir que solo hay violencia física. La violencia simbólica también domina."
   },
   {
     "numero": 42,
@@ -6166,7 +6166,7 @@
     "proceso": "P2",
     "titulo": "Inferir la desterritorialización (Deleuze/Guattari)",
     "teoria": "Deleuze y Guattari describen la desterritorialización como el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Inferirla permite analizar como el discurso rompe y reconstruye ordenes.",
-    "explicacion": "Preguntate: hay ruptura de un territorio (conceptual, social, estético)? Se reterritorializa en otro? Hay lineas de fuga?",
+    "explicacion": "Preguntate: hay ruptura de un territorio (conceptual, social, estético)? Se reterritorializa en otro? Hay líneas de fuga?",
     "regla": "La desterritorialización abandona un territorio para reterritorializarse en otro.",
     "ejemplo_correcto": "En un texto que mezcla géneros y rompe normas, hay desterritorialización.",
     "ejemplo_incorrecto": "Decir que el texto respeta todas las normas. La desterritorialización las rompe."
@@ -6252,12 +6252,12 @@
     "numero": 60,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar el sintoma como formación del inconsciente (Freud/Lacan)",
-    "teoria": "El sintoma es una formación del inconsciente que expresa un conflicto reprimido mediante un compromiso entre deseo y defensa. Interpretarlo permite leer en el texto lo que el autor no sabe que dice.",
+    "titulo": "Interpretar el síntoma como formación del inconsciente (Freud/Lacan)",
+    "teoria": "El síntoma es una formación del inconsciente que expresa un conflicto reprimido mediante un compromiso entre deseo y defensa. Interpretarlo permite leer en el texto lo que el autor no sabe que dice.",
     "explicacion": "Busca repeticiones, obsesiones, gestos sin razón. Preguntate: que conflicto se expresa? Que deseo se reprime?",
-    "regla": "El sintoma expresa un conflicto inconsciente mediante un compromiso entre deseo y defensa.",
-    "ejemplo_correcto": "En un personaje que repite un gesto sin razón, puede leerse un sintoma.",
-    "ejemplo_incorrecto": "Decir que el gesto es solo un habito. Puede ser un sintoma."
+    "regla": "El síntoma expresa un conflicto inconsciente mediante un compromiso entre deseo y defensa.",
+    "ejemplo_correcto": "En un personaje que repite un gesto sin razón, puede leerse un síntoma.",
+    "ejemplo_incorrecto": "Decir que el gesto es solo un habito. Puede ser un síntoma."
   },
   {
     "numero": 61,
@@ -6285,12 +6285,12 @@
     "numero": 63,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar la heterotopia (Foucault)",
-    "teoria": "Foucault llama heterotopia a los espacios otros: lugares reales que estan fuera de todos los lugares (cementerio, barco, jardin, espejo).",
+    "titulo": "Interpretar la heterotopía (Foucault)",
+    "teoria": "Foucault llama heterotopía a los espacios otros: lugares reales que estan fuera de todos los lugares (cementerio, barco, jardín, espejo).",
     "explicacion": "Preguntate: hay espacios otros? Espacios al margen? Que función cumplen?",
-    "regla": "La heterotopia es un espacio otro que esta fuera de todos los lugares.",
-    "ejemplo_correcto": "En un texto donde un barco funciona como mundo aparte, hay heterotopia.",
-    "ejemplo_incorrecto": "Decir que el barco es solo un medio de transporte. También puede ser heterotopia."
+    "regla": "La heterotopía es un espacio otro que esta fuera de todos los lugares.",
+    "ejemplo_correcto": "En un texto donde un barco funciona como mundo aparte, hay heterotopía.",
+    "ejemplo_incorrecto": "Decir que el barco es solo un medio de transporte. También puede ser heterotopía."
   },
   {
     "numero": 64,
@@ -6329,12 +6329,12 @@
     "numero": 67,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar la lectura sintomatica (Althusser/Macherey)",
-    "teoria": "La lectura sintomatica busca en el texto lo que no dice: sus silencios, sus ausencias, sus contradicciones.",
+    "titulo": "Interpretar la lectura sintomática (Althusser/Macherey)",
+    "teoria": "La lectura sintomática busca en el texto lo que no dice: sus silencios, sus ausencias, sus contradicciones.",
     "explicacion": "Preguntate: que silencia el texto? Que omite? Que contradicciones revelan su ideología?",
-    "regla": "La lectura sintomatica lee en el texto lo que no dice: silencios y ausencias.",
-    "ejemplo_correcto": "En un texto que omite la clase trabajadora, la lectura sintomatica revela su ideología.",
-    "ejemplo_incorrecto": "Decir que el texto dice todo. La lectura sintomatica busca lo ausente."
+    "regla": "La lectura sintomática lee en el texto lo que no dice: silencios y ausencias.",
+    "ejemplo_correcto": "En un texto que omite la clase trabajadora, la lectura sintomática revela su ideología.",
+    "ejemplo_incorrecto": "Decir que el texto dice todo. La lectura sintomática busca lo ausente."
   },
   {
     "numero": 68,
@@ -6363,9 +6363,9 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar el agenciamiento (Deleuze/Guattari)",
-    "teoria": "El agenciamiento es una multiplicidad que conecta elementos heterogeneos (enunciados, cuerpos, territorios) en una maquina concreta. Interpretarlo permite analizar como el texto articula elementos diversos para producir efectos.",
-    "explicacion": "Identifica los elementos conectados: discursos, cuerpos, territorios. Preguntate: como se articulan? Que maquina producen?",
-    "regla": "El agenciamiento conecta elementos heterogeneos en una maquina concreta.",
+    "teoria": "El agenciamiento es una multiplicidad que conecta elementos heterogeneos (enunciados, cuerpos, territorios) en una máquina concreta. Interpretarlo permite analizar como el texto articula elementos diversos para producir efectos.",
+    "explicacion": "Identifica los elementos conectados: discursos, cuerpos, territorios. Preguntate: como se articulan? Que máquina producen?",
+    "regla": "El agenciamiento conecta elementos heterogeneos en una máquina concreta.",
     "ejemplo_correcto": "En un texto que articula discurso médico, tecnología y cuerpo, hay un agenciamiento.",
     "ejemplo_incorrecto": "Decir que los elementos son independientes. El agenciamiento los conecta."
   },
@@ -6373,12 +6373,12 @@
     "numero": 71,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar la linea de fuga (Deleuze/Guattari)",
-    "teoria": "La linea de fuga es el movimiento por el que un agenciamiento escapa de su territorio y se transforma. Interpretarla permite analizar los momentos de ruptura y creación del texto.",
-    "explicacion": "Busca momentos de ruptura, de escape, de transformación. Preguntate: que linea de fuga se abre?",
-    "regla": "La linea de fuga es el movimiento de escape y transformación de un agenciamiento.",
-    "ejemplo_correcto": "En un texto que rompe con las normas del género, hay una linea de fuga.",
-    "ejemplo_incorrecto": "Decir que el texto solo reproduce el género. La linea de fuga lo transforma."
+    "titulo": "Interpretar la línea de fuga (Deleuze/Guattari)",
+    "teoria": "La línea de fuga es el movimiento por el que un agenciamiento escapa de su territorio y se transforma. Interpretarla permite analizar los momentos de ruptura y creación del texto.",
+    "explicacion": "Busca momentos de ruptura, de escape, de transformación. Preguntate: que línea de fuga se abre?",
+    "regla": "La línea de fuga es el movimiento de escape y transformación de un agenciamiento.",
+    "ejemplo_correcto": "En un texto que rompe con las normas del género, hay una línea de fuga.",
+    "ejemplo_incorrecto": "Decir que el texto solo reproduce el género. La línea de fuga lo transforma."
   },
   {
     "numero": 72,
@@ -6395,23 +6395,23 @@
     "numero": 73,
     "nivel_mcer": "C2",
     "proceso": "P3",
-    "titulo": "Interpretar la maquina de guerra (Deleuze/Guattari)",
-    "teoria": "La maquina de guerra es una formación nomada que resiste al aparato de Estado. Interpretarla permite analizar las resistencias y las formas de organización alternativas del texto.",
-    "explicacion": "Busca resistencias al poder, formas nomadas, organizaciones alternativas. Preguntate: hay maquina de guerra?",
-    "regla": "La maquina de guerra es una formación nomada que resiste al Estado.",
-    "ejemplo_correcto": "En un texto que celebra formas de organización sin Estado, hay maquina de guerra.",
-    "ejemplo_incorrecto": "Decir que solo hay Estado. La maquina de guerra lo resiste."
+    "titulo": "Interpretar la máquina de guerra (Deleuze/Guattari)",
+    "teoria": "La máquina de guerra es una formación nómada que resiste al aparato de Estado. Interpretarla permite analizar las resistencias y las formas de organización alternativas del texto.",
+    "explicacion": "Busca resistencias al poder, formas nómadas, organizaciones alternativas. Preguntate: hay máquina de guerra?",
+    "regla": "La máquina de guerra es una formación nómada que resiste al Estado.",
+    "ejemplo_correcto": "En un texto que celebra formas de organización sin Estado, hay máquina de guerra.",
+    "ejemplo_incorrecto": "Decir que solo hay Estado. La máquina de guerra lo resiste."
   },
   {
     "numero": 74,
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar el rostro (Deleuze/Guattari)",
-    "teoria": "El rostro es una maquina abstracta que produce subjetividad mediante la organización del cuerpo. Interpretarlo permite analizar como el texto construye rostros (identidades) y rostridades (regímenes de subjetivación).",
+    "teoria": "El rostro es una máquina abstracta que produce subjetividad mediante la organización del cuerpo. Interpretarlo permite analizar como el texto construye rostros (identidades) y rostridades (regímenes de subjetivación).",
     "explicacion": "Preguntate: que rostro se construye? Que régimen de subjetivación? Que rostridad?",
-    "regla": "El rostro es una maquina abstracta que produce subjetividad.",
+    "regla": "El rostro es una máquina abstracta que produce subjetividad.",
     "ejemplo_correcto": "En un texto que construye un rostro nacional, actua la rostridad.",
-    "ejemplo_incorrecto": "Decir que el rostro es solo fisico. También es maquina de subjetivación."
+    "ejemplo_incorrecto": "Decir que el rostro es solo físico. También es máquina de subjetivación."
   },
   {
     "numero": 75,
@@ -6594,10 +6594,10 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica psicoanalítica (Freud/Lacan)",
-    "teoria": "La crítica psicoanalítica interpreta el texto como sintoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
+    "teoria": "La crítica psicoanalítica interpreta el texto como síntoma del inconsciente del autor o de la cultura. Evaluarla requiere comprobar si la interpretación esta anclada en el texto o si proyecta la teoría sobre el.",
     "explicacion": "Preguntate: la interpretación esta anclada en el texto? O proyecta la teoría sin evidencia textual?",
     "regla": "La crítica psicoanalítica es válida si está anclada en evidencia textual y no solo en la teoría.",
-    "ejemplo_correcto": "En una interpretación que conecta un sintoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalítica válida.",
+    "ejemplo_correcto": "En una interpretación que conecta un síntoma textual con un conflicto inconsciente con evidencia, hay crítica psicoanalítica válida.",
     "ejemplo_incorrecto": "Proyectar el complejo de Edipo sin evidencia textual."
   },
   {
@@ -6616,9 +6616,9 @@
     "nivel_mcer": "C2",
     "proceso": "P4",
     "titulo": "Evaluar la validez de una crítica postcolonial (Said, Spivak)",
-    "teoria": "La crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Evaluarla requiere comprobar si el texto realmente reproduce esas logicas o si la crítica las proyecta.",
-    "explicacion": "Preguntate: el texto reproduce logicas coloniales? La crítica lo demuestra con evidencia?",
-    "regla": "La crítica postcolonial es válida si demuestra con evidencia la reproducción de logicas coloniales.",
+    "teoria": "La crítica postcolonial analiza como el discurso construye al 'otro' y reproduce relaciones coloniales. Evaluarla requiere comprobar si el texto realmente reproduce esas lógicas o si la crítica las proyecta.",
+    "explicacion": "Preguntate: el texto reproduce lógicas coloniales? La crítica lo demuestra con evidencia?",
+    "regla": "La crítica postcolonial es válida si demuestra con evidencia la reproducción de lógicas coloniales.",
     "ejemplo_correcto": "En una crítica que muestra el orientalismo de un texto con citas, hay crítica postcolonial válida.",
     "ejemplo_incorrecto": "Acusar de colonialismo sin evidencia textual."
   },
