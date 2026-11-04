@@ -219,10 +219,10 @@
     "numero": 5,
     "proceso": "P4",
     "nivel_mcer": "A2",
-    "titulo": "Reconocer la intención de u anuncio publicitario",
+    "titulo": "Reconocer la intención de u anunció publicitario",
     "teoria": "Los anuncios tienen una intención persuasiva: quieren que compres, votes o actues de cierta forma. Reconocerla es el primer pasó para no ser manipulado.",
     "explicacion": "Preguntate: que quiere que haga el lector? Compre? Vote? Cambie un hábito? La respuesta es la intención del anunció.",
-    "regla": "La intención de u anuncio es siempre persuasiva: busca una acción del lector.",
+    "regla": "La intención de u anunció es siempre persuasiva: busca una acción del lector.",
     "ejemplo_correcto": "En 'Compre ahora y ahorre un 50%', la intención es que el lector compre.",
     "ejemplo_incorrecto": "Decir que el anunció es informativo porque da un precio. La información del precio esta al servicio de la persuasión.",
     "numero_global": 24
@@ -3957,7 +3957,7 @@
     "teoria": "Aristoteles distinguio tres recursos de persuasión: ethos (credibilidad del autor), pathos (emociones del público) y logos (argumentos logicos). Localizarlos permite analizar como persuade un texto.",
     "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos logicos.",
     "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razón.",
-    "ejemplo_correcto": "En u anuncio, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
+    "ejemplo_correcto": "En u anunció, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
     "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoria de textos persuasivos."
   },
   {
@@ -5299,7 +5299,7 @@
     "teoria": "En los textos multimodales, el significado se construye con la interacción de palabras e imágenes. Interpretar esa interacción permite analizar como se refuerzan, complementan o contradicen los distintos modos semioticos.",
     "explicacion": "Analiza la relación entre texto e imagen: la imagen refuerza el texto? Lo contradice? Anade información?",
     "regla": "El significado multimodal se construye por la interacción entre texto e imagen.",
-    "ejemplo_correcto": "En u anuncio con imagen de niño sonriente y texto 'futuro brillante', imagen y texto se refuerzan.",
+    "ejemplo_correcto": "En u anunció con imagen de niño sonriente y texto 'futuro brillante', imagen y texto se refuerzan.",
     "ejemplo_incorrecto": "Decir que la imagen solo decora. En textos multimodales, también significa."
   },
   {
@@ -5838,7 +5838,7 @@
     "teoria": "Kress y van Leeuwen amplian el análisis crítico del discurso a los textos multimodales (imagen, diseño, color, tipografía). El significado se construye con múltiples modos semioticos. Localizarlo permite analizar como se combinan texto e imagen para producir sentido.",
     "explicacion": "Analiza la interacción entre texto e imagen, color, diseño. Preguntate: que modo domina? Como se refuerzan o contradicen?",
     "regla": "El análisis multimodal considera todos los modos semioticos del texto (imagen, color, diseño, tipografía).",
-    "ejemplo_correcto": "En u anuncio, la imagen del niño sonriente y el texto 'futuro brillante' se refuerzan mutuamente.",
+    "ejemplo_correcto": "En u anunció, la imagen del niño sonriente y el texto 'futuro brillante' se refuerzan mutuamente.",
     "ejemplo_incorrecto": "Decir que la imagen solo decora. En lo multimodal, también significa."
   },
   {

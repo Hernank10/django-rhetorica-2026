@@ -649,6 +649,25 @@ REGEX_V11_FALSE_POS = [
     (r",\s+que\s+(estructura|caracteriza|significa|es|hace|ocurre|pasa|hay|se\s+describe|se\s+produce)\b", r", qué \1"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# REGEX_V12: interrogativas indirectas + enumeraciones con qué
+# ══════════════════════════════════════════════════════════════════
+REGEX_V12 = [
+    # "que es bello, qué es sano" -> todo "qué" (unificar enumeracion)
+    (r"\bque\s+es\s+bello,\s+qué\s+es\s+sano", r"qué es bello, qué es sano"),
+    # "revela como se" -> "revela cómo se"
+    (r"\brevela\s+como\s+se\b", "revela cómo se"),
+    # "y quien puede decirlo" -> "y quién puede decirlo"
+    (r"\by\s+quien\s+puede\s+decirlo\b", "y quién puede decirlo"),
+    # "Según el texto, como opera" -> "Según el texto, cómo opera"
+    (r"\btexto,\s+como\s+opera\b", "texto, cómo opera"),
+    # "saussureanos, que relación" -> "saussureanos, qué relación"
+    (r"\bsaussureanos,\s+que\s+relación\b", "saussureanos, qué relación"),
+    # "Tú lo mereces', que interpelación" -> "...qué interpelación"
+    (r"\bmereces',\s+que\s+interpelación\b", "mereces', qué interpelación"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -714,6 +733,10 @@ def fix_text(text):
 
     # 12. FALSE POSITIVES v11 (reversion contextual C2 mercancia)
     for pattern, replacement in REGEX_V11_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 13. REGEX_V12 (interrogativas indirectas v12)
+    for pattern, replacement in REGEX_V12:
         text = re.sub(pattern, replacement, text)
 
     return text
