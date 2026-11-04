@@ -219,12 +219,12 @@
     "numero": 5,
     "proceso": "P4",
     "nivel_mcer": "A2",
-    "titulo": "Reconocer la intención de un anuncio publicitario",
+    "titulo": "Reconocer la intención de un anunció publicitario",
     "teoria": "Los anuncios tienen una intención persuasiva: quieren que compres, votes o actues de cierta forma. Reconocerla es el primer pasó para no ser manipulado.",
-    "explicacion": "Preguntate: que quiere que haga el lector? Compre? Vote? Cambie un habito? La respuesta es la intención del anuncio.",
-    "regla": "La intención de un anuncio es siempre persuasiva: busca una acción del lector.",
+    "explicacion": "Preguntate: que quiere que haga el lector? Compre? Vote? Cambie un habito? La respuesta es la intención del anunció.",
+    "regla": "La intención de un anunció es siempre persuasiva: busca una acción del lector.",
     "ejemplo_correcto": "En 'Compre ahora y ahorre un 50%', la intención es que el lector compre.",
-    "ejemplo_incorrecto": "Decir que el anuncio es informativo porque da un precio. La información del precio esta al servicio de la persuasión.",
+    "ejemplo_incorrecto": "Decir que el anunció es informativo porque da un precio. La información del precio esta al servicio de la persuasión.",
     "numero_global": 24
   },
   {
@@ -2263,7 +2263,7 @@
     "teoria": "Las referencias anaforicas son palabras (pronombres, adverbios) que remiten a algo mencionado antes en el texto: 'el', 'ella', 'esto', 'aquel', 'allí'. Localizarlas es esencial para seguir el hilo del texto.",
     "explicacion": "Busca los pronombres o adverbios que se refieren a algo ya mencionado. Preguntate: a que palabra anterior remite 'esto' o 'ella'?",
     "regla": "La referencia anaforica es una palabra que remite a algo ya mencionado en el texto.",
-    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyo esa noche', 'ella' remite a María y 'lo' al libro.",
+    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyó esa noche', 'ella' remite a María y 'lo' al libro.",
     "ejemplo_incorrecto": "Decir que 'ella' es un nombre propio. 'Ella' es un pronombre que remite a alguien ya mencionado."
   },
   {
@@ -3077,7 +3077,7 @@
     "teoria": "Las referencias anaforicas son pronombres o adverbios que remiten a algo mencionado antes en el texto: 'el', 'ella', 'esto', 'aquel', 'allí'. Localizarlas es esencial para seguir el hilo del texto.",
     "explicacion": "Busca los pronombres o adverbios que se refieren a algo ya mencionado. Preguntate: a que palabra anterior remite 'esto' o 'ella'?",
     "regla": "La referencia anaforica es una palabra que remite a algo ya mencionado en el texto.",
-    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyo esa noche', 'ella' remite a María y 'lo' al libro.",
+    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyó esa noche', 'ella' remite a María y 'lo' al libro.",
     "ejemplo_incorrecto": "Decir que 'ella' es un nombre propio. 'Ella' es un pronombre que remite a alguien ya mencionado."
   },
   {
@@ -3957,7 +3957,7 @@
     "teoria": "Aristoteles distinguio tres recursos de persuasión: ethos (credibilidad del autor), pathos (emociones del público) y logos (argumentos logicos). Localizarlos permite analizar como persuade un texto.",
     "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos logicos.",
     "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razon.",
-    "ejemplo_correcto": "En un anuncio, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
+    "ejemplo_correcto": "En un anunció, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
     "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoria de textos persuasivos."
   },
   {
@@ -4144,7 +4144,7 @@
     "teoria": "La cohesión es la union formal entre las partes del texto: pronombres, conectores, elipsis, repeticiones. Localizarla permite seguir el hilo del texto.",
     "explicacion": "Busca pronombres que remiten a algo ya dicho, conectores entre oraciones, elipsis (omisión de palabras) y repeticiones intencionadas.",
     "regla": "La cohesión une formalmente las partes del texto mediante pronombres, conectores, elipsis y repeticiones.",
-    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyo', 'ella' y 'lo' son procedimientos de cohesión.",
+    "ejemplo_correcto": "En 'María compró un libro. Ella lo leyó', 'ella' y 'lo' son procedimientos de cohesión.",
     "ejemplo_incorrecto": "Decir que la cohesión es lo mismo que la coherencia. Cohesión = union formal; coherencia = union de sentido."
   },
   {
@@ -5299,7 +5299,7 @@
     "teoria": "En los textos multimodales, el significado se construye con la interacción de palabras e imagenes. Interpretar esa interacción permite analizar como se refuerzan, complementan o contradicen los distintos modos semioticos.",
     "explicacion": "Analiza la relación entre texto e imagen: la imagen refuerza el texto? Lo contradice? Anade información?",
     "regla": "El significado multimodal se construye por la interacción entre texto e imagen.",
-    "ejemplo_correcto": "En un anuncio con imagen de niño sonriente y texto 'futuro brillante', imagen y texto se refuerzan.",
+    "ejemplo_correcto": "En un anunció con imagen de niño sonriente y texto 'futuro brillante', imagen y texto se refuerzan.",
     "ejemplo_incorrecto": "Decir que la imagen solo decora. En textos multimodales, también significa."
   },
   {
@@ -5693,7 +5693,7 @@
     "proceso": "P4",
     "titulo": "Detectar la manipulación mediante la emoción en el discurso publicitario",
     "teoria": "La publicidad usa emociones (miedo, deseo, pertenencia) para persuadir sin argumentos racionales. Detectar esta manipulación permite analizar criticamente los anuncios.",
-    "explicacion": "Preguntate: el anuncio da razones o apela a emociones? Que emoción busca despertar? Que promete?",
+    "explicacion": "Preguntate: el anunció da razones o apela a emociones? Que emoción busca despertar? Que promete?",
     "regla": "La publicidad manipula usando emociones para persuadir sin argumentos racionales.",
     "ejemplo_correcto": "En 'Si quieres ser feliz, compra este coche', se apela a la emoción (felicidad) sin razones.",
     "ejemplo_incorrecto": "Aceptar que el coche da felicidad. Es una promesa emocional sin base."
@@ -5838,7 +5838,7 @@
     "teoria": "Kress y van Leeuwen amplian el análisis crítico del discurso a los textos multimodales (imagen, diseño, color, tipografia). El significado se construye con multiples modos semioticos. Localizarlo permite analizar como se combinan texto e imagen para producir sentido.",
     "explicacion": "Analiza la interacción entre texto e imagen, color, diseño. Preguntate: que modo domina? Como se refuerzan o contradicen?",
     "regla": "El análisis multimodal considera todos los modos semioticos del texto (imagen, color, diseño, tipografia).",
-    "ejemplo_correcto": "En un anuncio, la imagen del niño sonriente y el texto 'futuro brillante' se refuerzan mutuamente.",
+    "ejemplo_correcto": "En un anunció, la imagen del niño sonriente y el texto 'futuro brillante' se refuerzan mutuamente.",
     "ejemplo_incorrecto": "Decir que la imagen solo decora. En lo multimodal, también significa."
   },
   {

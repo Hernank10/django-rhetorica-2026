@@ -187,6 +187,84 @@ WORDS = {
     "Maria": "María", "Rocio": "Rocío", "Monica": "Mónica",
 }
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V5: anadidos en v5 (verbos B1, imperfecto, -eria, futuro)
+# ══════════════════════════════════════════════════════════════════
+WORDS_V5 = {
+    # verbos pasado 3a persona nuevos
+    "empujo": "empujó", "empujaron": "empujaron",
+    "descubrio": "descubrió", "descubrieron": "descubrieron",
+    "reabriria": "reabriría", "reabririan": "reabrirían",
+    "anunciaba": "anunciaba", "anuncio": "anunció",
+    "sintio": "sintió", "sintieron": "sintieron",
+    "fijo": "fijó", "fijaron": "fijaron",
+    "dudo": "dudó", "dudaron": "dudaron",
+    "empujo": "empujó",
+    "levanto": "levantó", "levantaron": "levantaron",
+    "sonrio": "sonrió", "sonrieron": "sonrieron",
+    "explico": "explicó", "explicaron": "explicaron",
+    "conto": "contó", "contaron": "contaron",
+    "leyo": "leyó", "leyeron": "leyeron",
+    "cerro": "cerró", "cerraron": "cerraron",
+    "volvio": "volvió", "volvieron": "volvieron",
+    "oyo": "oyó", "oyeron": "oyeron",
+    "creyo": "creyó", "creyeron": "creyeron",
+    "construyo": "construyó", "destruyo": "destruyó",
+    "incluyo": "incluyó", "excluyo": "excluyó",
+    "influyo": "influyó", "sustituyo": "sustituyó",
+    "distribuyo": "distribuyó", "contribuyo": "contribuyó",
+    "huyo": "huyó", "cayo": "cayó",
+    "trajo": "trajo", "atrajo": "atrajo", "contrajo": "contrajo",
+    "mantuvo": "mantuvo", "obtuvo": "obtuvo",
+    "retuvo": "retuvo", "contuvo": "contuvo",
+    "anduvo": "anduvo", "estuvo": "estuvo",
+    "hubo": "hubo", "tuvo": "tuvo", "pudo": "pudo",
+    "puso": "puso", "supo": "supo", "quiso": "quiso",
+    "vino": "vino", "hizo": "hizo", "dijo": "dijo",
+    "fue": "fue", "vio": "vio",
+
+    # imperfecto -ia
+    "seguia": "seguía", "seguian": "seguían",
+    "salia": "salía", "salian": "salían",
+    "llevaba": "llevaba", "volvia": "volvía",
+    "olia": "olía", "olian": "olían",
+    "subian": "subían", "subia": "subía",
+    "debian": "debían", "debia": "debía",
+    "tenian": "tenían", "venian": "venían",
+    "creian": "creían", "veian": "veían",
+    "leian": "leían", "oian": "oían",
+    "reian": "reían", "caian": "caían",
+    "traian": "traían", "vivian": "vivían",
+    "comian": "comían", "escribian": "escribían",
+    "dormian": "dormían", "sentian": "sentían",
+    "preferian": "preferían", "abrian": "abrían",
+    "sufrian": "sufrían", "exigian": "exigían",
+    "sonreian": "sonreían", "reunian": "reunían",
+    "podia": "podía", "podian": "podían",
+
+    # futuro / condicional
+    "dare": "daré", "daras": "darás", "dara": "dará",
+    "hare": "haré", "haras": "harás", "hara": "hará",
+    "pondre": "pondré", "tendre": "tendré",
+    "sabre": "sabré", "podre": "podré",
+    "dire": "diré", "diras": "dirás", "dira": "dirá",
+    "pedire": "pediré", "pediras": "pedirás", "pedira": "pedirá",
+    "volvere": "volveré", "volveras": "volverás", "volvera": "volverá",
+
+    # palabras B1 del texto "La biblioteca secreta"
+    "corazon": "corazón", "corazones": "corazones",
+    "estanteria": "estantería", "estanterias": "estanterías",
+    "librero": "librero", "libreria": "librería",
+    "ferreteria": "ferretería", "panaderia": "panadería",
+    "insaciable": "insaciable",
+    "descuidada": "descuidada", "descuidado": "descuidado",
+    "dorado": "dorado", "dorada": "dorada",
+    "gastados": "gastados", "gastadas": "gastadas",
+    "apretado": "apretado", "apretada": "apretada",
+    "muda": "muda", "mudo": "mudo",
+}
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -221,8 +299,8 @@ def apply_word(text, old, new):
 def fix_text(text):
     if not isinstance(text, str):
         return text
-    # 1. Diccionario case-insensitive
-    for old, new in WORDS.items():
+    # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
+    for old, new in {**WORDS, **WORDS_V5}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
