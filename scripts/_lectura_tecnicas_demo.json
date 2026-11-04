@@ -5,7 +5,7 @@
     "nivel_mcer": "A1",
     "titulo": "Encontrar la idea principal explicita",
     "teoria": "En los textos informativos breves, el autor suele declarar explícitamente de que trata el texto en la primera o segunda oración. Esta idea principal explicita es la que organiza toda la información posterior. Encontrarla es el primer pasó de la comprensión lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
-    "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer párrafo completo (no solo la primera oración) y preguntarse: 'de que me estan hablando?'. La respuesta suele estar en una oración que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
+    "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer párrafo completo (no solo la primera oración) y preguntarse: 'de que me están hablando?'. La respuesta suele estar en una oración que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
     "regla": "La idea principal explicita está en la primera o segunda oración del texto; se reconoce porque contiene el tema y lo que se afirma sobre él.",
     "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos más eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Además, el vidrio reciclado requiere menos energía que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
     "ejemplo_incorrecto": "Mismo texto. Lector que responde: 'El vidrio se puede reciclar infinitas veces.' -> Es un detalle, no la idea principal. La idea principal es la afirmación general (eficiencia), no un ejemplo que la sostiene.",
@@ -317,7 +317,7 @@
     "nivel_mcer": "A2",
     "titulo": "Identificar el escenario de una historia",
     "teoria": "El escenario es el lugar donde ocurre la historia. Incluye no solo el espacio físico (ciudad, bosque, casa) sino también la atmosfera (alegre, tetrica, cotidiana).",
-    "explicacion": "Busca las expresiones de lugar y las descripciones del ambiente. Preguntate: donde estan los personajes? Como es ese lugar? El escenario se construye con esos detalles.",
+    "explicacion": "Busca las expresiones de lugar y las descripciones del ambiente. Preguntate: donde están los personajes? Como es ese lugar? El escenario se construye con esos detalles.",
     "regla": "El escenario se identifica por las expresiones de lugar y las descripciones del ambiente.",
     "ejemplo_correcto": "En 'En un bosque oscuro y silencioso, el lobo acechaba', el escenario es el bosque oscuro.",
     "ejemplo_incorrecto": "Decir que el escenario es 'el lobo'. El lobo es un personaje, no el lugar.",
@@ -1348,7 +1348,7 @@
     "proceso": "P1",
     "titulo": "Localizar las mayúsculas",
     "teoria": "Las letras mayúsculas son las que se escriben más grandes y se usan al inicio de una oración, después de un punto, y en los nombres propios.",
-    "explicacion": "Para localizar las mayúsculas, busca las letras grandes al inicio de oración o en medio de ella. Ejemplo: en 'María vive en Madrid.', las mayúsculas estan en 'M' de María, 'M' de Madrid, y al final 'punto' indica inicio de nueva oración.",
+    "explicacion": "Para localizar las mayúsculas, busca las letras grandes al inicio de oración o en medio de ella. Ejemplo: en 'María vive en Madrid.', las mayúsculas están en 'M' de María, 'M' de Madrid, y al final 'punto' indica inicio de nueva oración.",
     "regla": "Las mayúsculas se usan al inicio de oración y en nombres propios.",
     "ejemplo_correcto": "En 'El lunes fui al parque.', la 'E' de 'El' es mayúscula (inicio de oración).",
     "ejemplo_incorrecto": "Decir que 'lunes' lleva mayúscula. Los días de la semana no llevan mayúscula en español."
@@ -1471,8 +1471,8 @@
     "teoria": "En los cuentos, el lugar donde ocurre la acción se infiere de las pistas: si hay olas y arena, es la playa; si hay pupitres y pizarra, es un aula; si hay árboles y animales, es el bosque.",
     "explicacion": "Para inferir el lugar, observa los objetos y las acciones del texto. Preguntate: donde se encuentran esos objetos? Donde ocurren esas acciones? Ejemplo: si hay olas, es la playa.",
     "regla": "El lugar se infiere de los objetos y las acciones que aparecen en el texto.",
-    "ejemplo_correcto": "En 'Los niños corrian entre las olas y construian castillos', se infiere que estan en la playa.",
-    "ejemplo_incorrecto": "Decir que estan en el bosque porque hay niños. Las olas y los castillos de arena indican la playa."
+    "ejemplo_correcto": "En 'Los niños corrian entre las olas y construian castillos', se infiere que están en la playa.",
+    "ejemplo_incorrecto": "Decir que están en el bosque porque hay niños. Las olas y los castillos de arena indican la playa."
   },
   {
     "numero": 40,
@@ -1689,7 +1689,7 @@
     "proceso": "P3",
     "titulo": "Identificar el escenario de una historia",
     "teoria": "El escenario es el lugar donde ocurre la historia. Incluye el espacio físico (ciudad, bosque, casa) y la atmosfera (alegre, tetrica).",
-    "explicacion": "Para identificar el escenario, busca las expresiones de lugar y las descripciones del ambiente: donde estan los personajes? Como es ese lugar?",
+    "explicacion": "Para identificar el escenario, busca las expresiones de lugar y las descripciones del ambiente: donde están los personajes? Como es ese lugar?",
     "regla": "El escenario se identifica por las expresiones de lugar y las descripciones del ambiente.",
     "ejemplo_correcto": "En 'En un bosque oscuro y silencioso, el lobo acechaba', el escenario es el bosque oscuro.",
     "ejemplo_incorrecto": "Decir que el escenario es 'el lobo'. El lobo es un personaje, no el lugar."
@@ -2000,7 +2000,7 @@
     "explicacion": "Para detectar una contradicción, lee el texto completo y pregunta: hay dos afirmaciones que no pueden ser verdaderas a la vez?",
     "regla": "Dos afirmaciones se contradicen si no pueden ser verdaderas al mismo tiempo.",
     "ejemplo_correcto": "En un texto que dice 'el producto es barato' y luego 'el producto es caro', hay una contradicción.",
-    "ejemplo_incorrecto": "Decir que no hay contradicción porque las frases estan en párrafos distintos. La contradicción existe aunque esten separadas."
+    "ejemplo_incorrecto": "Decir que no hay contradicción porque las frases están en párrafos distintos. La contradicción existe aunque esten separadas."
   },
   {
     "numero": 88,
@@ -2341,7 +2341,7 @@
     "explicacion": "Busca la palabra en orden alfabetico. Lee la definición o el número de página asociado.",
     "regla": "En un indice o glosario, se busca la palabra clave y se lee su definición o referencia.",
     "ejemplo_correcto": "En un glosario, para saber que significa 'biodiversidad' se busca la B y se lee su definición.",
-    "ejemplo_incorrecto": "Buscar 'biodiversidad' al final del glosario. Los glosarios estan en orden alfabetico."
+    "ejemplo_incorrecto": "Buscar 'biodiversidad' al final del glosario. Los glosarios están en orden alfabetico."
   },
   {
     "numero": 37,
@@ -3900,7 +3900,7 @@
     "proceso": "P4",
     "titulo": "Evaluar la función de los datos numericos en un texto",
     "teoria": "Los datos numericos (porcentajes, cantidades, fechas) apoyan las afirmaciones y les dan credibilidad. Evaluar su función es esencial para juzgar la solidez del texto.",
-    "explicacion": "Identifica los datos numericos. Preguntate: que afirmación apoyan? Son verificables? Estan actualizados?",
+    "explicacion": "Identifica los datos numericos. Preguntate: que afirmación apoyan? Son verificables? Están actualizados?",
     "regla": "Los datos numericos apoyan las afirmaciones y les dan credibilidad si son verificables.",
     "ejemplo_correcto": "En 'El 67% de los adultos usa redes a diario (INE, 2024)', el dato apoya la afirmación con evidencia.",
     "ejemplo_incorrecto": "Aceptar un porcentaje sin fuente como evidencia. Sin fuente, no es verificable."
@@ -4057,7 +4057,7 @@
     "explicacion": "Identifica temas universales: la fugacidad de la vida (carpe diem), el lugar idealizado (locus amoenus), la nostalgia del pasado (ubi sunt).",
     "regla": "El topico literario es un tema recurrente de la tradición literaria.",
     "ejemplo_correcto": "En 'Aprovecha el día, que la juventud se va', hay un topico de carpe diem.",
-    "ejemplo_incorrecto": "Decir que no hay topico porque el poema es original. Los topicos estan presentes aunque se reformulen."
+    "ejemplo_incorrecto": "Decir que no hay topico porque el poema es original. Los topicos están presentes aunque se reformulen."
   },
   {
     "numero": 34,
@@ -4662,7 +4662,7 @@
     "explicacion": "Identifica las dos situaciones. Preguntate: son relevantemente similares? Hay diferencias que afecten a la conclusión?",
     "regla": "La analogía es sólida si las situaciones comparadas son relevantes y las diferencias no afectan.",
     "ejemplo_correcto": "En 'Como fumar causa cáncer, vapear podría causarlo', la analogía es relevante (ambos inhalan sustancias).",
-    "ejemplo_incorrecto": "En 'Como las casas tienen techo, los coches deberian tener techo', la analogía es irrelevante."
+    "ejemplo_incorrecto": "En 'Como las casas tienen techo, los coches deberían tener techo', la analogía es irrelevante."
   },
   {
     "numero": 89,
@@ -4735,9 +4735,9 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Evaluar la calidad de un argumento por consecuencias",
-    "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es sólido si las consecuencias estan justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
+    "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es sólido si las consecuencias están justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
     "explicacion": "Preguntate: las consecuencias son probables? Son relevantes? Hay alternativas con mejores consecuencias?",
-    "regla": "El argumento por consecuencias es sólido si las consecuencias estan justificadas y no hay mejores alternativas.",
+    "regla": "El argumento por consecuencias es sólido si las consecuencias están justificadas y no hay mejores alternativas.",
     "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', el argumento por consecuencias es sólido si hay evidencia del efecto.",
     "ejemplo_incorrecto": "Aceptar el argumento sin evidencia de que la consecuencia se vaya a producir."
   },
@@ -5649,7 +5649,7 @@
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa premisa (premisa no justificada)",
     "teoria": "La falsa premisa es una premisa que se presenta como verdadera sin justificación. Detectar esta falacia permite evaluar la solidez de un argumento y rechazar conclusiones basadas en premisas no sustentadas.",
-    "explicacion": "Identifica las premisas. Preguntate: estan justificadas? Se presentan como evidentes sin prueba?",
+    "explicacion": "Identifica las premisas. Preguntate: están justificadas? Se presentan como evidentes sin prueba?",
     "regla": "La falsa premisa se presenta como verdadera sin justificación.",
     "ejemplo_correcto": "En 'Todos los jóvenes son vagos; por tanto, no hay que contratarlos', la premisa es falsa y no justificada.",
     "ejemplo_incorrecto": "Aceptar la conclusión sin cuestionar la premisa."
@@ -5671,7 +5671,7 @@
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa causa compleja (multicausalidad)",
     "teoria": "La falsa causa compleja atribuye un fenómeno a una sola causa cuando en realidad hay múltiples factores. Detectar esta falacia permite analizar críticamente explicaciones simplistas.",
-    "explicacion": "Preguntate: el fenómeno tiene una sola causa o múltiples? Se estan ignorando otros factores?",
+    "explicacion": "Preguntate: el fenómeno tiene una sola causa o múltiples? Se están ignorando otros factores?",
     "regla": "La falsa causa compleja atribuye un fenómeno multicausal a una sola causa.",
     "ejemplo_correcto": "En 'La delincuencia se debe solo a la inmigración', se ignora la multicausalidad (pobreza, educación, etc.).",
     "ejemplo_incorrecto": "Aceptar explicaciones simplistas sin considerar múltiples factores."
@@ -5747,7 +5747,7 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar el análisis foucaultiano del discurso (saber-poder)",
-    "teoria": "Foucault muestra que el discurso no solo describe la realidad: la produce y la regula. Saber y poder estan entrelazados: todo saber produce efectos de poder, y todo poder se sostiene en un saber. Localizar este entrelazamiento permite analizar como el discurso construye subjetividades y normaliza conductas.",
+    "teoria": "Foucault muestra que el discurso no solo describe la realidad: la produce y la regula. Saber y poder están entrelazados: todo saber produce efectos de poder, y todo poder se sostiene en un saber. Localizar este entrelazamiento permite analizar como el discurso construye subjetividades y normaliza conductas.",
     "explicacion": "Preguntate: que saber se produce en el texto? Que efectos de poder tiene? A quien normaliza o excluye?",
     "regla": "El discurso, según Foucault, produce saber y poder: describe, regula y normaliza.",
     "ejemplo_correcto": "En un discurso psiquiatrico qué define la 'normalidad', se produce saber y se ejerce poder sobre los 'anormales'.",
@@ -6286,7 +6286,7 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar la heterotopía (Foucault)",
-    "teoria": "Foucault llama heterotopía a los espacios otros: lugares reales que estan fuera de todos los lugares (cementerio, barco, jardín, espejo).",
+    "teoria": "Foucault llama heterotopía a los espacios otros: lugares reales que están fuera de todos los lugares (cementerio, barco, jardín, espejo).",
     "explicacion": "Preguntate: hay espacios otros? Espacios al margen? Que función cumplen?",
     "regla": "La heterotopía es un espacio otro que está fuera de todos los lugares.",
     "ejemplo_correcto": "En un texto donde un barco funciona como mundo aparte, hay heterotopía.",

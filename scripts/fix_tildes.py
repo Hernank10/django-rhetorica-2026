@@ -846,6 +846,29 @@ REGEX_V15_FALSE_POS = [
     (r"\bDeberiamos\b", "Deberíamos"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V16: C1 "El ruido de las redes sociales"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V16 = {
+    "deberian": "deberían",
+    "estan": "están",
+    "disenadas": "diseñadas",
+    "disenado": "diseñado",
+    "disenada": "diseñada",
+    "disenados": "diseñados",
+    "implicitamente": "implícitamente",
+}
+
+REGEX_V16_FALSE_POS = [
+    (r"\bel\s+filosofo\b", "el filósofo"),
+    (r"\bla\s+repubblica\b", "la república"),
+    (r"\bpero\s+si\s+nos\s+hacen\b", "pero sí nos hacen"),
+    (r"\bcrítica\s+la\s+fe\b", "critica la fe"),
+    (r"\bSi,\s+es\b", "Sí, es"),
+    (r"\besta\s+(diseñad[oa]s?)\b", r"está \1"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -881,7 +904,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -927,6 +950,10 @@ def fix_text(text):
 
     # 16. REGEX_V15 (C1 desinformacion)
     for pattern, replacement in REGEX_V15_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 17. REGEX_V16 (C1 ruido redes sociales)
+    for pattern, replacement in REGEX_V16_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text
