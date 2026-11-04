@@ -734,6 +734,70 @@ REGEX_V13_FALSE_POS = [
     (r"\bque\s+función\b", "qué función"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V14: C1 "Analisis critico del discurso institucional"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V14 = {
+    # cuerpo
+    "pragmatica": "pragmática", "pragmaticas": "pragmáticas",
+    "pragmatico": "pragmático", "pragmaticos": "pragmáticos",
+    "deictico": "deíctico", "deicticos": "deícticos",
+    "deictica": "deíctica", "deicticas": "deícticas",
+    "cortesia": "cortesía", "cortesias": "cortesías",
+    "lexica": "léxica", "lexicas": "léxicas",
+    "lexico": "léxico", "lexicos": "léxicos",
+    "sinonimo": "sinónimo", "sinonimos": "sinónimos",
+    "antonimo": "antónimo", "antonimos": "antónimos",
+    "hiperonimo": "hiperónimo", "hiperonimos": "hiperónimos",
+    "hiponimo": "hipónimo", "hiponimos": "hipónimos",
+    "anafora": "anáfora", "anaforas": "anáforas",
+    "catafora": "catáfora", "cataforas": "catáforas",
+    "implicita": "implícita", "implicito": "implícito",
+    "implicitas": "implícitas", "implicitos": "implícitos",
+    "categorico": "categórico", "categorica": "categórica",
+    "categoricos": "categóricos", "categoricas": "categóricas",
+    "diagnostico": "diagnóstico", "diagnosticos": "diagnósticos",
+    "juridico": "jurídico", "juridica": "jurídica",
+    "juridicos": "jurídicos", "juridicas": "jurídicas",
+    "economico": "económico", "economica": "económica",
+    "economicos": "económicos", "economicas": "económicas",
+    "nostalgico": "nostálgico", "nostalgica": "nostálgica",
+    "nostalgicos": "nostálgicos", "nostalgicas": "nostálgicas",
+    "belica": "bélica", "belico": "bélico",
+    "belicas": "bélicas", "belicos": "bélicos",
+    "clasica": "clásica", "clasico": "clásico",
+    "clasicas": "clásicas", "clasicos": "clásicos",
+    "obstaculo": "obstáculo", "obstaculos": "obstáculos",
+    "humoristica": "humorística", "humoristico": "humorístico",
+    "ironia": "ironía", "ironias": "ironías",
+    "fenomeno": "fenómeno", "fenomenos": "fenómenos",
+    "retorica": "retórica", "retoricas": "retóricas",
+    "retorico": "retórico", "retoricos": "retóricos",
+    # comunes
+    "analisis": "análisis",
+    "critico": "crítico", "critica": "crítica",
+    "titulo": "título", "titulos": "títulos",
+    "articulo": "artículo",
+    "sintesis": "síntesis",
+    "hipotesis": "hipótesis",
+}
+
+REGEX_V14_FALSE_POS = [
+    # "del anunció de la reforma" -> "del anuncio de la reforma"
+    (r"\bdel\s+anunció\b", "del anuncio"),
+    # "el anunció (2.500 palabras)" -> "el anuncio (2.500..."
+    (r"\bel\s+anunció\s+\(", "el anuncio ("),
+    # "el anunció usa" -> "el anuncio usa"
+    (r"\bel\s+anunció\s+usa\b", "el anuncio usa"),
+    # "el anunció construye" -> "el anuncio construye"
+    (r"\bel\s+anunció\s+construye\b", "el anuncio construye"),
+    # "reforma, cambió, transformación" -> "reforma, cambio, transformación"
+    (r"\breforma\",\s+cambió,\s+transformación\b", "reforma, cambio, transformación"),
+    # Interrogativas en enunciados de ejercicios: "que mecanismo" -> "qué mecanismo"
+    (r"\bque\s+(mecanismo|presuposición|tipo|función|recurso|sección|estrategia)\b", r"qué \1"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -769,7 +833,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -807,6 +871,10 @@ def fix_text(text):
 
     # 14. REGEX_V13 (interrogativas indirectas y pronombres tonicos C1)
     for pattern, replacement in REGEX_V13_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 15. REGEX_V14 (anuncio/cambio sustantivo + interrogativas C1)
+    for pattern, replacement in REGEX_V14_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text

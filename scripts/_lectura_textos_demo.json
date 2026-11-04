@@ -322,7 +322,7 @@
     "nivel_mcer": "C1",
     "fuente": "Revista de Analisis Politico, vol. 12, 2026",
     "orden": 5,
-    "cuerpo": "El lenguaje político no solo transmite información: también construye realidades. Como senala el linguista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del terminó 'los ciudadanos de bien'. Detrás de esa expresión aparentemente neutra se esconde una distinción entre 'nosotros' y 'los otros': quienes no encajan en esa categoría son, implicitamente, ciudadanos de mal. El político que usa este terminó no está describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de esloganes aparentemente positivos. El famoso 'España va bien' no describe un estado de cosas: invita al oyente a compartir una visión optimista y a desconfiar de quien la critique. Detrás del eslogan hay una intención persuasiva: quien lo pone en duda es presentado como un agorero. También son comunes las falsas disyuntivas: 'o está con nosotros o esta contra España'. Esta formula, que parece ofrecer una elección, en realidad la cancela: solo hay una opción legitima. Es una falacia clasica que los analistas del discurso llevan decadas senalando. Para evaluar la calidad de un discurso político, el lector crítico debe preguntarse: ¿qué evidencia respalda cada afirmación? ¿se citan estudios o solo se apela a la emoción? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es más creible que uno que solo apela a la emoción y a las generalizaciones. El análisis del lenguaje político no es un ejercicio de cinismo: es una condición para la ciudadania. Quien no sabe leer el lenguaje del poder esta condenado a obedecerle sin darse cuenta.",
+    "cuerpo": "El lenguaje político no solo transmite información: también construye realidades. Como senala el linguista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del terminó 'los ciudadanos de bien'. Detrás de esa expresión aparentemente neutra se esconde una distinción entre 'nosotros' y 'los otros': quienes no encajan en esa categoría son, implicitamente, ciudadanos de mal. El político que usa este terminó no está describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de esloganes aparentemente positivos. El famoso 'España va bien' no describe un estado de cosas: invita al oyente a compartir una visión optimista y a desconfiar de quien la critique. Detrás del eslogan hay una intención persuasiva: quien lo pone en duda es presentado como un agorero. También son comunes las falsas disyuntivas: 'o está con nosotros o esta contra España'. Esta formula, que parece ofrecer una elección, en realidad la cancela: solo hay una opción legitima. Es una falacia clásica que los analistas del discurso llevan decadas senalando. Para evaluar la calidad de un discurso político, el lector crítico debe preguntarse: ¿qué evidencia respalda cada afirmación? ¿se citan estudios o solo se apela a la emoción? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es más creible que uno que solo apela a la emoción y a las generalizaciones. El análisis del lenguaje político no es un ejercicio de cinismo: es una condición para la ciudadania. Quien no sabe leer el lenguaje del poder esta condenado a obedecerle sin darse cuenta.",
     "ejercicios": [
       {
         "tecnica_numero": 3,
@@ -407,7 +407,7 @@
           "opciones": [
             "A) Describir objetivamente la situación del país.",
             "B) Invitar al oyente a compartir una visión optimista y a desconfiar de quien la critique.",
-            "C) Informar sobre datos economicos."
+            "C) Informar sobre datos económicos."
           ],
           "correcta": "B"
         },
@@ -550,7 +550,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El 67% de los centros usa IA (dato que muestra la magnitud del fenomeno).",
+            "A) El 67% de los centros usa IA (dato que muestra la magnitud del fenómeno).",
             "B) El nombre del instituto de Barcelona (dato accesorio).",
             "C) El año del informe de la UNESCO (dato de contexto)."
           ],
@@ -565,7 +565,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Introducción (presenta el fenomeno) + desarrollo (argumentos a favor y en contra) + conclusión (debate abierto).",
+            "A) Introducción (presenta el fenómeno) + desarrollo (argumentos a favor y en contra) + conclusión (debate abierto).",
             "B) Solo introducción y conclusión.",
             "C) No tiene estructura clara."
           ],
@@ -591,7 +591,7 @@
       },
       {
         "tecnica_numero": 3,
-        "enunciado": "¿Cuál es la tesis implicita del texto?",
+        "enunciado": "¿Cuál es la tesis implícita del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1161,7 +1161,7 @@
         "payload": {
           "opciones": [
             "A) Dar la solución al problema de la moda rápida.",
-            "B) Presentar el fenomeno de la moda rápida con datos impactantes para enganchar al lector.",
+            "B) Presentar el fenómeno de la moda rápida con datos impactantes para enganchar al lector.",
             "C) Despedirse del lector."
           ],
           "correcta": "B"
@@ -1296,7 +1296,7 @@
         "payload": {
           "opciones": [
             "A) Solo significa pagar más dinero por la ropa.",
-            "B) La ambiguedad es intencional: el autor senala que las consecuencias de la moda rápida son múltiples (economicas, sanitarias, ambientales).",
+            "B) La ambiguedad es intencional: el autor senala que las consecuencias de la moda rápida son múltiples (económicas, sanitarias, ambientales).",
             "C) Es un error del autor que no se entiende."
           ],
           "correcta": "B"
@@ -1502,7 +1502,7 @@
     "nivel_mcer": "B2",
     "fuente": "Revista Ciudades Sostenibles, vol. 14, 2026",
     "orden": 12,
-    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques tematicos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caido un 30% en la última decada. Sin embargo, no todos estan de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose María Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambió climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turistico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios economicos y la calidad de vida de los residentes.",
+    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques tematicos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caido un 30% en la última decada. Sin embargo, no todos estan de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarian y aumentaria el desempleo juvenil. Como senala el economista Jose María Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambió climatico. Un informe de la UNESCO (2024) senala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turistico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios económicos y la calidad de vida de los residentes.",
     "ejercicios": [
       {
         "tecnica_numero": 18,
@@ -3522,7 +3522,7 @@
           "opciones": [
             "A) Entusiasta al principio y preocupado al final",
             "B) Triste todo el tiempo",
-            "C) Humoristico",
+            "C) Humorístico",
             "D) Neutro"
           ],
           "correcta": "A"
@@ -3539,7 +3539,7 @@
             "A) Una postura crítica hacia la destrucción del oceano",
             "B) Una postura favorable a la contaminación",
             "C) Una postura neutral",
-            "D) Una postura humoristica"
+            "D) Una postura humorística"
           ],
           "correcta": "A"
         },
@@ -4442,7 +4442,7 @@
       {
         "tecnica_numero": 25,
         "tecnica_nivel": "B1",
-        "enunciado": "¿Cuál de estos pares de palabras del texto son antonimos?",
+        "enunciado": "¿Cuál de estos pares de palabras del texto son antónimos?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4458,7 +4458,7 @@
       {
         "tecnica_numero": 26,
         "tecnica_nivel": "B1",
-        "enunciado": "En el texto, 'elogio' e 'insulto' son hiponimos de...",
+        "enunciado": "En el texto, 'elogio' e 'insulto' son hipónimos de...",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5150,7 +5150,7 @@
       {
         "tecnica_numero": 68,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'la había oido mil veces', que recurso aparece?",
+        "enunciado": "En 'la había oido mil veces', qué recurso aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5278,7 +5278,7 @@
       {
         "tecnica_numero": 76,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'Recordó los veranos de niño', que recurso narrativo aparece?",
+        "enunciado": "En 'Recordó los veranos de niño', qué recurso narrativo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5294,7 +5294,7 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'Años después, Santiago recordaria aquel verano', que recurso narrativo aparece?",
+        "enunciado": "En 'Años después, Santiago recordaria aquel verano', qué recurso narrativo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5698,7 +5698,7 @@
       {
         "tecnica_numero": 21,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Cuál es la tesis implicita del texto?",
+        "enunciado": "¿Cuál es la tesis implícita del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5746,7 +5746,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Cuándo el autor dice 'En mi opinión...' que recurso de persuasión usa?",
+        "enunciado": "¿Cuándo el autor dice 'En mi opinión...' qué recurso de persuasión usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5922,7 +5922,7 @@
       {
         "tecnica_numero": 35,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Como un rió que cambia de cauce, el trabajo del futuro no sera igual', que tipo de argumento se usa?",
+        "enunciado": "En 'Como un rió que cambia de cauce, el trabajo del futuro no sera igual', qué tipo de argumento se usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6002,7 +6002,7 @@
       {
         "tecnica_numero": 40,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Según la doctora Martínez, \"la reducción no implica menor rendimiento\"', que tipo de cita aparece?",
+        "enunciado": "En 'Según la doctora Martínez, \"la reducción no implica menor rendimiento\"', qué tipo de cita aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6147,7 +6147,7 @@
             "A) Crítica: denuncia el abandono del mundo rural y valora las raíces",
             "B) Neutral: solo describe sin opinar",
             "C) Favorable: apoya la desaparición de los pueblos",
-            "D) Humoristica"
+            "D) Humorística"
           ],
           "correcta": "A"
         },
@@ -6188,7 +6188,7 @@
       {
         "tecnica_numero": 51,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué mensaje implicito transmite el texto?",
+        "enunciado": "¿Qué mensaje implícito transmite el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6204,7 +6204,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué ideología se revela en el lexico del texto con términos como 'raíces', 'memoria', 'tradición', 'comunidad'?",
+        "enunciado": "¿Qué ideología se revela en el léxico del texto con términos como 'raíces', 'memoria', 'tradición', 'comunidad'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6438,7 +6438,7 @@
       {
         "tecnica_numero": 66,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'La gente cree que estoy loco, pero en realidad soy el único cuerdo', que recurso usa don Elias?",
+        "enunciado": "En 'La gente cree que estoy loco, pero en realidad soy el único cuerdo', qué recurso usa don Elias?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -6912,7 +6912,7 @@
       {
         "tecnica_numero": 95,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Prohibir el móvil mejorara la concentración; por tanto, deberiamos prohibirlo', que tipo de argumento se usa?",
+        "enunciado": "En 'Prohibir el móvil mejorara la concentración; por tanto, deberiamos prohibirlo', qué tipo de argumento se usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7013,12 +7013,12 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 29,
-    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anunció de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anunció (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmaticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anunció usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmaticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deicticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesia son escasas: el discurso es directo y asertivo. La cohesión lexica se construye mediante sinonimos (\"reforma\", \"cambió\", \"transformación\") y antonimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los términos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinecdoque). Las figuras de dicción incluyen anaforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implicita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podría\", \"en cierta medida\"), aunque en general el discurso es asertivo y categorico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnostico\", \"tratamiento\"), juridico (\"normativa\", \"derecho\") y económico (\"inversión\", \"rentabilidad\"). El lexico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostalgicos\".\n\nLa polifonía textual es limitada: se citan voces favorables (\"según los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"según el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metáforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora económica), \"la reforma es una guerra\" (metáfora belica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clasica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anunció construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstaculos.",
+    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anuncio de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anuncio (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmáticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anuncio usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmáticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deícticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesía son escasas: el discurso es directo y asertivo. La cohesión léxica se construye mediante sinónimos (\"reforma\", \"cambió\", \"transformación\") y antónimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los términos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinecdoque). Las figuras de dicción incluyen anáforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implícita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podría\", \"en cierta medida\"), aunque en general el discurso es asertivo y categórico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnóstico\", \"tratamiento\"), jurídico (\"normativa\", \"derecho\") y económico (\"inversión\", \"rentabilidad\"). El léxico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostálgicos\".\n\nLa polifonía textual es limitada: se citan voces favorables (\"según los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"según el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metáforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora económica), \"la reforma es una guerra\" (metáfora bélica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clásica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anuncio construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstáculos.",
     "ejercicios": [
       {
         "tecnica_numero": 17,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'se ha decidido', 'se ha aprobado', que mecanismo discursivo aparece?",
+        "enunciado": "En 'se ha decidido', 'se ha aprobado', qué mecanismo discursivo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7034,7 +7034,7 @@
       {
         "tecnica_numero": 18,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'el actual sistema ha fracasado', que presuposición pragmática hay?",
+        "enunciado": "En 'el actual sistema ha fracasado', qué presuposición pragmática hay?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7050,7 +7050,7 @@
       {
         "tecnica_numero": 19,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'declaramos', 'afirmamos', que tipo de acto de habla se realiza?",
+        "enunciado": "En 'declaramos', 'afirmamos', qué tipo de acto de habla se realiza?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7066,14 +7066,14 @@
       {
         "tecnica_numero": 20,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué función cumplen los deicticos 'nosotros' y 'ellos' en el texto?",
+        "enunciado": "¿Qué función cumplen los deícticos 'nosotros' y 'ellos' en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Construyen la enunciación y oponen al emisor (Ministerio) frente a los críticos",
             "B) Describen el paisaje",
             "C) Indican tiempo pasado",
-            "D) Marcan cortesia"
+            "D) Marcan cortesía"
           ],
           "correcta": "A"
         },
@@ -7082,7 +7082,7 @@
       {
         "tecnica_numero": 21,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Cómo se describe la cortesia verbal en el discurso analizado?",
+        "enunciado": "¿Cómo se describe la cortesía verbal en el discurso analizado?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7098,13 +7098,13 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué mecanismos de cohesión lexica se identifican en el texto?",
+        "enunciado": "¿Qué mecanismos de cohesión léxica se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Sinonimos (reforma, cambió, transformación) y antonimos (pasado vs futuro)",
+            "A) Sinónimos (reforma, cambió, transformación) y antónimos (pasado vs futuro)",
             "B) Solo repetición literal",
-            "C) Solo hiperonimos",
+            "C) Solo hiperónimos",
             "D) No hay cohesión"
           ],
           "correcta": "A"
@@ -7121,7 +7121,7 @@
             "A) Son conectores de reformulación: aclaran o precisan lo dicho",
             "B) Son conectores de contraste",
             "C) Son marcadores de orden",
-            "D) Son deicticos"
+            "D) Son deícticos"
           ],
           "correcta": "A"
         },
@@ -7150,9 +7150,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Anaforas (ahora... ahora...) y aliteraciones (futuro firme, formación flexible)",
+            "A) Anáforas (ahora... ahora...) y aliteraciones (futuro firme, formación flexible)",
             "B) Solo metáforas",
-            "C) Solo preguntas retoricas",
+            "C) Solo preguntas retóricas",
             "D) Solo hiperboles"
           ],
           "correcta": "A"
@@ -7184,7 +7184,7 @@
           "opciones": [
             "A) Expresiones que reducen la certeza ('probablemente', 'podría', 'en cierta medida')",
             "B) Expresiones que aumentan la certeza ('sin duda', 'es evidente')",
-            "C) Preguntas retoricas",
+            "C) Preguntas retóricas",
             "D) Metáforas"
           ],
           "correcta": "A"
@@ -7210,11 +7210,11 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'diagnostico', 'normativa', 'inversión', que fenomeno discursivo aparece?",
+        "enunciado": "En 'diagnóstico', 'normativa', 'inversión', que fenómeno discursivo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Interdiscursividad: voces del discurso médico, juridico y económico",
+            "A) Interdiscursividad: voces del discurso médico, jurídico y económico",
             "B) Metáfora pura",
             "C) Ironía",
             "D) Pregunta retórica"
@@ -7226,14 +7226,14 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué revela el lexico valorativo del texto ('necesaria', 'urgente', 'inmovilistas')?",
+        "enunciado": "¿Qué revela el léxico valorativo del texto ('necesaria', 'urgente', 'inmovilistas')?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) La línea editorial favorable a la reforma y crítica con sus opositores",
             "B) Una postura neutral",
             "C) Una postura contraria a la reforma",
-            "D) Una postura humoristica"
+            "D) Una postura humorística"
           ],
           "correcta": "A"
         },
@@ -7264,8 +7264,8 @@
           "opciones": [
             "A) Son marcadores de evidencialidad: indican la fuente de la información",
             "B) Son metáforas",
-            "C) Son ironias",
-            "D) Son preguntas retoricas"
+            "C) Son ironías",
+            "D) Son preguntas retóricas"
           ],
           "correcta": "A"
         },
@@ -7278,7 +7278,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) 'La educación es una inversión' (económica) y 'la reforma es una guerra' (belica)",
+            "A) 'La educación es una inversión' (económica) y 'la reforma es una guerra' (bélica)",
             "B) 'La educación es un juego'",
             "C) 'La reforma es un viaje'",
             "D) No hay metáforas"
@@ -7290,7 +7290,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué partes de la estructura retórica clasica se identifican en el texto?",
+        "enunciado": "¿Qué partes de la estructura retórica clásica se identifican en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7306,7 +7306,7 @@
       {
         "tecnica_numero": 35,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'piensa en los niños', 'imagina el futuro', que recurso de persuasión aparece?",
+        "enunciado": "En 'piensa en los niños', 'imagina el futuro', qué recurso de persuasión aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7345,7 +7345,7 @@
             "A) Son topicalizadores: introducen un tema en el discurso",
             "B) Son focalizadores",
             "C) Son metáforas",
-            "D) Son deicticos"
+            "D) Son deícticos"
           ],
           "correcta": "A"
         },
@@ -7359,7 +7359,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 30,
-    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una línea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostalgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escuchó más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
+    "cuerpo": "Elogio de la lentitud\n\nVivimos en la era de la prisa. Todo debe ser ya, ahora, inmediato. La sociedad nos empuja a correr sin saber hacía donde. Pero yo me preguntó: ¿de verdad queremos vivir así?\n\nEl tiempo es oro, dicen. Y como todo el mundo lo repite, parece que nadie se atreve a cuestionarlo. Sin embargo, esa metáfora económica esconde una trampa: si el tiempo es dinero, entonces el que no corre esta perdiendo. Y así, todos corremos.\n\nLos defensores de la velocidad sostienen que la rapidez es progreso. \"El que no corre, vuela\", afirman, como si la vida fuera una competición. Pero detrás de esa idea se esconde una premisa que nunca se explicita: que el valor de la vida se mide en productividad. ¿Y si no fuera así? ¿Y si el valor estuviera en otra parte?\n\nMientras escribo esto, mi vecino sale corriendo a las siete de la mañana con un cafe en la mano. Vuelve a las once de la noche, agotado. Su vida es una línea recta entre el trabajo y la cama. ¿Es eso vivir? ¿O es solo sobrevivir?\n\nAlgunos me diran que soy un nostálgico. \"Claro\", responden, \"tu quieres volver al siglo XIX\". Nada más lejos de la realidad. Yo no quiero volver al pasado: quiero recuperar el presente. Y el presente exige tiempo, atención, pausa.\n\nPensemos en el arte de la conversación. Una buena conversación requiere tiempo: escuchar, pensar, responder. La velocidad la mata. Lo mismo ocurre con el amor, con la amistad, con la lectura. Todo lo valioso necesita tiempo. Lo dijo Milán Kundera: \"La lentitud es la felicidad\". Y tenía razón.\n\nAlgunos objetaran que la lentitud es un privilegio de ricos. Es cierto: no todos pueden permitirse el lujo de bajar el ritmo. Pero esa objeción, lejos de refutar mi tesis, la refuerza: precisamente porque la lentitud es un derecho, deberiamos defenderla para todos, no solo para unos pocos.\n\nY no me vengan con que la tecnología nos hará más libres. La tecnología, en manos de las grandes corporaciones, se ha convertido en una nueva forma de esclavitud: notificaciones, algoritmos, likes. Nos prometieron libertad y nos dieron vigilancia. Nos prometieron conexión y nos dieron soledad.\n\n¿Qué hacer, entonces? La respuesta no es fácil. Pero quizá el primer pasó sea reconocer que vivimos en una mentira: la mentira de la velocidad como valor. Solo reconociendola podremos empezar a desmontarla.\n\nYo, por mi parte, he decidido bajar el ritmo. Camino más despacio, leo más despacio, escuchó más despacio. Y desde entonces, extranamente, soy más feliz. Quizá la felicidad no este en correr, sino en detenerse a mirar.",
     "ejercicios": [
       {
         "tecnica_numero": 38,
@@ -7476,14 +7476,14 @@
       {
         "tecnica_numero": 45,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué punto de vista implicito revela el uso de 'agotado', 'sobrevivir', 'mentira'?",
+        "enunciado": "¿Qué punto de vista implícito revela el uso de 'agotado', 'sobrevivir', 'mentira'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Una postura crítica con la vida acelerada y reivindicativa de otra forma de vivir",
             "B) Una postura neutral",
             "C) Una postura favorable a la velocidad",
-            "D) Una postura humoristica"
+            "D) Una postura humorística"
           ],
           "correcta": "A"
         },
@@ -7496,7 +7496,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Premisa implicita: lo valioso requiere tiempo. Premisa: la vida valiosa requiere tiempo. Conclusión: deberiamos recuperar la lentitud",
+            "A) Premisa implícita: lo valioso requiere tiempo. Premisa: la vida valiosa requiere tiempo. Conclusión: deberiamos recuperar la lentitud",
             "B) Premisa: la velocidad es buena. Conclusión: deberiamos correr más",
             "C) No hay argumento",
             "D) Solo hay descripción"
@@ -7540,11 +7540,11 @@
       {
         "tecnica_numero": 49,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué función pragmática cumple la cortesia en 'Algunos me diran...'?",
+        "enunciado": "¿Qué función pragmática cumple la cortesía en 'Algunos me diran...'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Anticipar la objeción con cortesia para luego refutarla con más fuerza",
+            "A) Anticipar la objeción con cortesía para luego refutarla con más fuerza",
             "B) Expresar respeto sincero",
             "C) Pedir perdon",
             "D) Ironizar sin más"
@@ -7636,7 +7636,7 @@
       {
         "tecnica_numero": 55,
         "tecnica_nivel": "C1",
-        "enunciado": "¿Qué función cumplen las preguntas retoricas '¿Es eso vivir? ¿O es solo sobrevivir?'?",
+        "enunciado": "¿Qué función cumplen las preguntas retóricas '¿Es eso vivir? ¿O es solo sobrevivir?'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8067,12 +8067,12 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 32,
-    "cuerpo": "Desinformación: como detectar la manipulación\n\nVivimos en la era de la desinformación. Cada día recibimos cientos de mensajes que intentan convencernos de algo. Algunos son honestos; otros, no. Este texto ofrece herramientas para detectar la manipulación y evaluar criticamente la información.\n\n1. Argumentos con premisas implicitas\n\nMuchos argumentos ocultan premisas que no se explicitan. Por ejemplo: 'Deberiamos prohibir los videojuegos violentos; son peligrosos'. Aquí la premisa implicita es 'todo lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue. Evaluar la solidez de un argumento complejo requiere explicitar esas premisas y comprobar si son verdaderas.\n\n2. Manipulación mediatica: framing y priming\n\nLos medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Una noticia que titula 'Inmigrantes ocupan la plaza' presenta el fenomeno como invasión; otra que titula 'Familias migrantes llegan a la plaza' presenta el mismo hecho de forma más neutra. El encuadre ya orienta la interpretación.\n\n3. Evidencia cientifica: muestra, método, replicabilidad\n\nUn estudio con 20 participantes no es evidencia suficiente para una conclusión general. La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Aceptar un estudio sin estos criterios es aceptar una evidencia de baja calidad.\n\n4. Falacia de autoridad cientifica\n\nEn el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un cientifico. 'Un premio Nobel dice que X, luego X es verdad' es una falacia si no se aporta evidencia. La autoridad no sustituye a la prueba.\n\n5. Coherencia entre discurso y práctica\n\nUna empresa que declara sostenibilidad pero contamina es incoherente. Una institución que defiende la transparencia pero oculta datos es incoherente. Evaluar la coherencia entre discurso y práctica permite detectar la hipocresia institucional.\n\n6. Falsa dicotomia en el discurso político\n\nEl discurso político suele presentar solo dos opciones: 'O estas con nosotros o estas contra nosotros'. Es una falsa dicotomia: hay muchas posiciones intermedias. Detectar esta falacia permite analizar criticamente la retórica política.\n\n7. Calidad del debate público\n\nUn debate de calidad incluye contraargumentos, evita falacias y aporta evidencia. Un debate de baja calidad se basa en descalificaciones, falacias y datos sin contexto. Evaluar la calidad del debate público es esencial para una democracia sana.\n\n8. Manipulación estadistica\n\nLos graficos enganosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto son formas de manipulación estadistica. Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequeña. Un porcentaje sin base puede ocultar la verdad.\n\n9. Intención persuasiva oculta\n\nAlgunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Un reportaje que solo muestra una versión de un conflicto tiene intención persuasiva oculta, aunque no opine explicitamente.\n\n10. Falsa equivalencia\n\nLa falsa equivalencia equipara cosas que no son comparables. 'Es como comparar el cáncer con un resfriado' es una falsa equivalencia. Detectar esta falacia permite analizar criticamente comparaciones en el discurso público.\n\n11. Argumento estadistico complejo: tasas, base, contexto\n\nEn 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadistica engana. Un argumento estadistico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.\n\n12. Sesgo algoritmico\n\nLos algoritmos de selección de información (redes sociales, buscadores) crean camaras de eco: muestran solo contenido afin a nuestros intereses. Detectar este sesgo permite evaluar criticamente la información que consumimos y salir de la burbuja.\n\n13. Analogía compleja: diferencias relevantes\n\n'Como el cuerpo necesita ejercicio, la mente necesita estimulación' es una analogía relevante. 'Como los barcos necesitan capitan, los países necesitan rey' es una analogía con diferencias relevantes (un país no es un barco). Evaluar una analogía compleja requiere identificar esas diferencias.\n\n14. Falsa premisa\n\nLa falsa premisa es una premisa que se presenta como verdadera sin justificación. 'Todos los jovenes son vagos; por tanto, no hay que contratarlos' contiene una premisa falsa. Detectar esta falacia permite rechazar conclusiones basadas en premisas no sustentadas.\n\n15. Calidad ética de un argumento\n\nUn argumento puede ser logicamente válido pero eticamente rechazable. Defender la esclavitud con lógica es eticamente rechazable. La calidad ética de un argumento depende del respeto a la dignidad, la justicia y las personas.\n\n16. Falsa causa compleja: multicausalidad\n\n'La delincuencia se debe solo a la inmigración' ignora la multicausalidad (pobreza, educación, etc.). Detectar esta falacia permite analizar criticamente explicaciones simplistas de fenomenos complejos.\n\n17. Coherencia entre medios, fines y valores\n\nUn argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Defender la libertad usando censura es incoherente. Evaluar esta coherencia permite analizar criticamente las propuestas políticas.\n\n18. Manipulación emocional en publicidad\n\n'Si quieres ser feliz, compra este coche' apela a la emoción sin argumentos racionales. La publicidad manipula usando emociones para persuadir. Detectar esta manipulación permite analizar criticamente los anuncios.\n\n19. Calidad de un texto académico\n\nUn texto académico es de calidad si tiene rigor conceptual, metodologia sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.\n\n20. Falsa generalización estadistica\n\n'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del país apoya X' es una falsa generalización: la muestra no es representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.\n\nConclusión\n\nLa desinformación no se combate con más información, sino con pensamiento crítico. Las 20 herramientas de este texto son un kit básico para detectar la manipulación y evaluar criticamente la información. Aplicarlas no garantiza la verdad, pero al menos nos protege de la mentira.",
+    "cuerpo": "Desinformación: como detectar la manipulación\n\nVivimos en la era de la desinformación. Cada día recibimos cientos de mensajes que intentan convencernos de algo. Algunos son honestos; otros, no. Este texto ofrece herramientas para detectar la manipulación y evaluar criticamente la información.\n\n1. Argumentos con premisas implícitas\n\nMuchos argumentos ocultan premisas que no se explicitan. Por ejemplo: 'Deberiamos prohibir los videojuegos violentos; son peligrosos'. Aquí la premisa implícita es 'todo lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue. Evaluar la solidez de un argumento complejo requiere explicitar esas premisas y comprobar si son verdaderas.\n\n2. Manipulación mediatica: framing y priming\n\nLos medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Una noticia que titula 'Inmigrantes ocupan la plaza' presenta el fenómeno como invasión; otra que titula 'Familias migrantes llegan a la plaza' presenta el mismo hecho de forma más neutra. El encuadre ya orienta la interpretación.\n\n3. Evidencia cientifica: muestra, método, replicabilidad\n\nUn estudio con 20 participantes no es evidencia suficiente para una conclusión general. La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Aceptar un estudio sin estos criterios es aceptar una evidencia de baja calidad.\n\n4. Falacia de autoridad cientifica\n\nEn el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un cientifico. 'Un premio Nobel dice que X, luego X es verdad' es una falacia si no se aporta evidencia. La autoridad no sustituye a la prueba.\n\n5. Coherencia entre discurso y práctica\n\nUna empresa que declara sostenibilidad pero contamina es incoherente. Una institución que defiende la transparencia pero oculta datos es incoherente. Evaluar la coherencia entre discurso y práctica permite detectar la hipocresia institucional.\n\n6. Falsa dicotomia en el discurso político\n\nEl discurso político suele presentar solo dos opciones: 'O estas con nosotros o estas contra nosotros'. Es una falsa dicotomia: hay muchas posiciones intermedias. Detectar esta falacia permite analizar criticamente la retórica política.\n\n7. Calidad del debate público\n\nUn debate de calidad incluye contraargumentos, evita falacias y aporta evidencia. Un debate de baja calidad se basa en descalificaciones, falacias y datos sin contexto. Evaluar la calidad del debate público es esencial para una democracia sana.\n\n8. Manipulación estadistica\n\nLos graficos enganosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto son formas de manipulación estadistica. Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequeña. Un porcentaje sin base puede ocultar la verdad.\n\n9. Intención persuasiva oculta\n\nAlgunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Un reportaje que solo muestra una versión de un conflicto tiene intención persuasiva oculta, aunque no opine explicitamente.\n\n10. Falsa equivalencia\n\nLa falsa equivalencia equipara cosas que no son comparables. 'Es como comparar el cáncer con un resfriado' es una falsa equivalencia. Detectar esta falacia permite analizar criticamente comparaciones en el discurso público.\n\n11. Argumento estadistico complejo: tasas, base, contexto\n\nEn 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadistica engana. Un argumento estadistico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.\n\n12. Sesgo algoritmico\n\nLos algoritmos de selección de información (redes sociales, buscadores) crean camaras de eco: muestran solo contenido afin a nuestros intereses. Detectar este sesgo permite evaluar criticamente la información que consumimos y salir de la burbuja.\n\n13. Analogía compleja: diferencias relevantes\n\n'Como el cuerpo necesita ejercicio, la mente necesita estimulación' es una analogía relevante. 'Como los barcos necesitan capitan, los países necesitan rey' es una analogía con diferencias relevantes (un país no es un barco). Evaluar una analogía compleja requiere identificar esas diferencias.\n\n14. Falsa premisa\n\nLa falsa premisa es una premisa que se presenta como verdadera sin justificación. 'Todos los jovenes son vagos; por tanto, no hay que contratarlos' contiene una premisa falsa. Detectar esta falacia permite rechazar conclusiones basadas en premisas no sustentadas.\n\n15. Calidad ética de un argumento\n\nUn argumento puede ser logicamente válido pero eticamente rechazable. Defender la esclavitud con lógica es eticamente rechazable. La calidad ética de un argumento depende del respeto a la dignidad, la justicia y las personas.\n\n16. Falsa causa compleja: multicausalidad\n\n'La delincuencia se debe solo a la inmigración' ignora la multicausalidad (pobreza, educación, etc.). Detectar esta falacia permite analizar criticamente explicaciones simplistas de fenómenos complejos.\n\n17. Coherencia entre medios, fines y valores\n\nUn argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Defender la libertad usando censura es incoherente. Evaluar esta coherencia permite analizar criticamente las propuestas políticas.\n\n18. Manipulación emocional en publicidad\n\n'Si quieres ser feliz, compra este coche' apela a la emoción sin argumentos racionales. La publicidad manipula usando emociones para persuadir. Detectar esta manipulación permite analizar criticamente los anuncios.\n\n19. Calidad de un texto académico\n\nUn texto académico es de calidad si tiene rigor conceptual, metodologia sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.\n\n20. Falsa generalización estadistica\n\n'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del país apoya X' es una falsa generalización: la muestra no es representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.\n\nConclusión\n\nLa desinformación no se combate con más información, sino con pensamiento crítico. Las 20 herramientas de este texto son un kit básico para detectar la manipulación y evaluar criticamente la información. Aplicarlas no garantiza la verdad, pero al menos nos protege de la mentira.",
     "ejercicios": [
       {
         "tecnica_numero": 81,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'Deberiamos prohibir los videojuegos violentos; son peligrosos', que premisa implicita hay?",
+        "enunciado": "En 'Deberiamos prohibir los videojuegos violentos; son peligrosos', que premisa implícita hay?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8088,7 +8088,7 @@
       {
         "tecnica_numero": 82,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'Inmigrantes ocupan la plaza' frente a 'Familias migrantes llegan a la plaza', que estrategia mediatica se usa?",
+        "enunciado": "En 'Inmigrantes ocupan la plaza' frente a 'Familias migrantes llegan a la plaza', qué estrategia mediatica se usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
