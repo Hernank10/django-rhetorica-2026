@@ -4,7 +4,7 @@
     "proceso": "P1",
     "nivel_mcer": "A1",
     "titulo": "Encontrar la idea principal explicita",
-    "teoria": "En los textos informativos breves, el autor suele declarar explicitamente de que trata el texto en la primera o segunda oración. Esta idea principal explicita es la que organiza toda la información posterior. Encontrarla es el primer pasó de la comprensión lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
+    "teoria": "En los textos informativos breves, el autor suele declarar explícitamente de que trata el texto en la primera o segunda oración. Esta idea principal explicita es la que organiza toda la información posterior. Encontrarla es el primer pasó de la comprensión lectora: si el lector no identifica de que se habla, las oraciones siguientes le resultan inconexas.",
     "explicacion": "Para localizar la idea principal explicita, el lector debe leer el primer párrafo completo (no solo la primera oración) y preguntarse: 'de que me estan hablando?'. La respuesta suele estar en una oración que contiene un sustantivo abstracto (el tema) y un verbo que describe lo que se dice sobre ese tema. Las oraciones siguientes amplian, ejemplifican o matizan esa idea.",
     "regla": "La idea principal explicita está en la primera o segunda oración del texto; se reconoce porque contiene el tema y lo que se afirma sobre él.",
     "ejemplo_correcto": "Texto: 'El reciclaje de vidrio es uno de los procesos más eficientes de la industria moderna. Un envase de vidrio puede reciclarse infinitas veces sin perder calidad. Además, el vidrio reciclado requiere menos energía que el vidrio nuevo.' -> Idea principal: el reciclaje de vidrio es muy eficiente.",
@@ -41,7 +41,7 @@
     "nivel_mcer": "A1",
     "titulo": "Localizar el lugar donde ocurre un hecho",
     "teoria": "En los textos narrativos e informativos, el lugar donde ocurre un hecho suele estar indicado por expresiones como 'en', 'en el', 'dentro de'. Localizarlo es básico para entender la historia.",
-    "explicacion": "Busca expresiones de lugar: 'en Madrid', 'en el parque', 'dentro de la casa'. Si el texto no lo dice explicitamente, se infiere del contexto.",
+    "explicacion": "Busca expresiones de lugar: 'en Madrid', 'en el parque', 'dentro de la casa'. Si el texto no lo dice explícitamente, se infiere del contexto.",
     "regla": "El lugar se indica con preposiciones: en, dentro de, sobre, bajo.",
     "ejemplo_correcto": "En 'Ayer comimos en un restaurante italiano', el lugar es 'un restaurante italiano'.",
     "ejemplo_incorrecto": "Decir que el lugar es 'ayer' porque aparece al principio. 'Ayer' es tiempo, no lugar.",
@@ -53,7 +53,7 @@
     "nivel_mcer": "A1",
     "titulo": "Localizar el tiempo (cuando ocurre un hecho)",
     "teoria": "En los textos narrativos e informativos, el tiempo de un hecho suele estar indicado por expresiones como 'ayer', 'en 2024', 'por la mañana', 'el martes'. Localizarlo es básico para ubicar la acción en el contexto.",
-    "explicacion": "Busca expresiones de tiempo: fechas, horas, momentos del día, adverbios como 'ayer', 'mañana', 'siempre'. Si el texto no lo dice explicitamente, se infiere del contexto.",
+    "explicacion": "Busca expresiones de tiempo: fechas, horas, momentos del día, adverbios como 'ayer', 'mañana', 'siempre'. Si el texto no lo dice explícitamente, se infiere del contexto.",
     "regla": "El tiempo se indica con expresiones temporales: fechas, horas, adverbios de tiempo.",
     "ejemplo_correcto": "En 'Ayer comimos en un restaurante', el tiempo es 'ayer'.",
     "ejemplo_incorrecto": "Decir que el tiempo es 'un restaurante'. El restaurante es el lugar, no el tiempo.",
@@ -65,7 +65,7 @@
     "nivel_mcer": "A1",
     "titulo": "Inferir si un personaje esta contento o triste",
     "teoria": "El estado de animó se infiere de las acciones: sonreir sugiere alegría; llorar, tristeza; saltar, emoción.",
-    "explicacion": "Observa lo que hace el personaje. Preguntate que emoción explica esa acción.",
+    "explicacion": "Observa lo qué hace el personaje. Preguntate que emoción explica esa acción.",
     "regla": "Las acciones revelan el estado de animó: sonreir=alegría, llorar=tristeza.",
     "ejemplo_correcto": "En 'Juan saltaba y reía sin parar', se infiere que esta contento.",
     "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegría.",
@@ -380,17 +380,17 @@
     "explicacion": "Preguntate: la información se puede verificar? Hay una fuente? Contradice lo que ya sabes? Si no se puede verificar o contradice hechos conocidos, es falsa.",
     "regla": "La información verdadera es verificable; la falsa no se puede verificar o contradice hechos conocidos.",
     "ejemplo_correcto": "En 'El Sol sale por el este', la información es verdadera y verificable.",
-    "ejemplo_incorrecto": "Aceptar como verdadera 'la Tierra es plana' porque aparece en un texto. La información contradice hechos cientificos.",
+    "ejemplo_incorrecto": "Aceptar como verdadera 'la Tierra es plana' porque aparece en un texto. La información contradice hechos científicos.",
     "numero_global": 96
   },
   {
     "numero": 1,
     "proceso": "P1",
     "nivel_mcer": "B1",
-    "titulo": "Localizar información en tablas y graficos",
-    "teoria": "Los textos informativos suelen acompanarse de tablas o graficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico según el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
-    "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorías) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un grafico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
-    "regla": "En tablas y graficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
+    "titulo": "Localizar información en tablas y gráficos",
+    "teoria": "Los textos informativos suelen acompanarse de tablas o gráficos que condensan datos. Localizar información en ellos requiere una lectura diferente a la del texto continuo: no se lee de izquierda a derecha, sino que se busca una celda o un punto especifico según el objetivo de lectura. El lector debe identificar primero los ejes o encabezados, luego ubicar la categoría buscada, y solo después leer el dato.",
+    "explicacion": "Ante una tabla, el lector debe: (1) leer el título de la tabla para saber que mide; (2) identificar las filas (categorías) y columnas (variables); (3) ubicar la intersección fila-columna que corresponde a la pregunta; (4) leer el valor con su unidad. Ante un gráfico de barras, el proceso es analogo: identificar ejes, ubicar la barra buscada, leer altura.",
+    "regla": "En tablas y gráficos, primero se leen los ejes y encabezados, luego se ubica la categoría buscada, y solo entonces se lee el dato.",
     "ejemplo_correcto": "Pregunta: 'Cuántos alumnos de 3o ESO aprobaron en junio?' Tabla: Filas = cursos, Columnas = convocatorias (junio/septiembre). El lector identifica fila '3o ESO', columna 'junio', lee el valor: 24.",
     "ejemplo_incorrecto": "El lector busca '3o ESO' en el texto que acompana la tabla, no en la tabla misma, y responde 'muchos'. La información estaba en una celda; no se localizo por no leer los encabezados.",
     "numero_global": 2
@@ -560,7 +560,7 @@
     "explicacion": "Identifica el problema. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
     "regla": "La causa de un problema social se infiere de los datos y del contexto del texto.",
     "ejemplo_correcto": "En un texto que dice 'el desempleo juvenil crecio al 25% tras la crisis', se infiere que la crisis es una causa del desempleo.",
-    "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explicitamente. Los datos del texto permiten inferirla.",
+    "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explícitamente. Los datos del texto permiten inferirla.",
     "numero_global": 66
   },
   {
@@ -642,7 +642,7 @@
     "titulo": "Inferir el rasgo de un personaje por sus acciones",
     "teoria": "En los textos narrativos, el autor rara vez describe directamente la personalidad de un personaje. En cambió, muestra sus acciones y deja que el lector infiera el rasgo. Este proceso (PIRLS P2) requiere que el lector conecte una acción concreta con un rasgo psicologico o moral: la relación no está escrita, pero se deduce del contexto.",
     "explicacion": "Para inferir un rasgo: (1) localizar una acción o reacción del personaje; (2) preguntarse qué tipo de persona realizaria esa acción; (3) proponer un adjetivo (generoso, egoista, valiente, cobarde, prudente...) y verificar que sea coherente con el resto del texto. La inferencia es válida si el texto no la contradice.",
-    "regla": "El rasgo de un personaje se infiere de lo que hace, no de lo que dice ser; la acción concreta es la evidencia.",
+    "regla": "El rasgo de un personaje se infiere de lo qué hace, no de lo que dice ser; la acción concreta es la evidencia.",
     "ejemplo_correcto": "Texto: 'Ana vio que su compañero no tenía lapiz. Sin decir nada, partio el suyo por la mitad y le dio un trozo.' -> Rasgo inferido: generosidad / empatia. La acción de compartir sin que se lo pidan lo evidencia.",
     "ejemplo_incorrecto": "Lector que responde: 'Ana es una persona que tiene lapices'. Es una descripción literal, no una inferencia del rasgo. El lector no pasó de la acción al rasgo.",
     "numero_global": 4
@@ -703,7 +703,7 @@
     "teoria": "Una falacia es un razonamiento incorrecto que parece válido. Detectar falacias es esencial para la lectura crítica.",
     "explicacion": "Busca generalizaciones apresuradas ('todos los...'), ataques a la persona en lugar del argumento, falsos dilemas ('o estas conmigo o contra mi').",
     "regla": "Falacias comunes: generalización, ataque personal, falso dilema, apelación a la emoción.",
-    "ejemplo_correcto": "En 'Todos los jovenes son vagos', hay una generalización apresurada.",
+    "ejemplo_correcto": "En 'Todos los jóvenes son vagos', hay una generalización apresurada.",
     "ejemplo_incorrecto": "Aceptar el argumento como válido porque suena convincente. La generalización no se sostiene con evidencia.",
     "numero_global": 26
   },
@@ -784,7 +784,7 @@
     "proceso": "P1",
     "nivel_mcer": "B2",
     "titulo": "Localizar la evidencia empirica en un texto académico",
-    "teoria": "En los textos académicos, la evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadisticas. Localizarla permite verificar la solidez del texto.",
+    "teoria": "En los textos académicos, la evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadísticas. Localizarla permite verificar la solidez del texto.",
     "explicacion": "Busca expresiones como 'un estudio de', 'según datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
     "regla": "La evidencia empirica se reconoce por datos, estudios, encuestas o experimentos citados.",
     "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudio citado.",
@@ -845,7 +845,7 @@
     "nivel_mcer": "B2",
     "titulo": "Inferir la postura de un autor por sus ejemplos",
     "teoria": "En los textos argumentativos, la selección de ejemplos revela la postura del autor: si elige ejemplos positivos, apoya; si elige negativos, crítica.",
-    "explicacion": "Observa los ejemplos que el autor elige. Preguntate: son favorables o desfavorables al tema? La selección revela su postura, aunque no la declare explicitamente.",
+    "explicacion": "Observa los ejemplos que el autor elige. Preguntate: son favorables o desfavorables al tema? La selección revela su postura, aunque no la declare explícitamente.",
     "regla": "La postura del autor se infiere de la selección de ejemplos (favorables o desfavorables).",
     "ejemplo_correcto": "En un artículo sobre una empresa que solo cita casos de éxito, se infiere una postura favorable.",
     "ejemplo_incorrecto": "Decir que el autor es neutral porque no opina. La selección de ejemplos ya revela una postura.",
@@ -916,11 +916,11 @@
     "proceso": "P2",
     "nivel_mcer": "C1",
     "titulo": "Inferir la postura del autor a partir de la selección de información",
-    "teoria": "El autor elige que información incluir y cual omitir. Esa selección revela su postura, incluso si no la declara explicitamente.",
+    "teoria": "El autor elige que información incluir y cual omitir. Esa selección revela su postura, incluso si no la declara explícitamente.",
     "explicacion": "Preguntate: que información se destaca y cual se minimiza? Hay datos que apoyan una conclusión y no se mencionan? La selección sugiere una postura.",
     "regla": "La postura del autor se revela por lo que incluye y lo que omite.",
     "ejemplo_correcto": "En un artículo sobre una empresa que destaca solo sus logros y no menciona sus problemas, se infiere una postura favorable.",
-    "ejemplo_incorrecto": "Decir que el autor es neutral porque no toma partido explicitamente. La selección de información ya es una postura.",
+    "ejemplo_incorrecto": "Decir que el autor es neutral porque no toma partido explícitamente. La selección de información ya es una postura.",
     "numero_global": 16
   },
   {
@@ -943,7 +943,7 @@
     "teoria": "La evidencia (datos, estudios, citas) sostiene las afirmaciones. Evaluar su calidad es esencial: no toda evidencia es igual de sólida.",
     "explicacion": "Preguntate: la evidencia es verificable? La fuente es creible? La muestra es suficiente? Hay estudios que la contradicen?",
     "regla": "La evidencia sólida es verificable, de fuente creible, con muestra suficiente y sin contradicciones graves.",
-    "ejemplo_correcto": "Un estudio con 10.000 participantes en una revista cientifica es evidencia sólida.",
+    "ejemplo_correcto": "Un estudio con 10.000 participantes en una revista científica es evidencia sólida.",
     "ejemplo_incorrecto": "Aceptar 'un amigo mio dice que...' como evidencia. Un caso anecdótico no es evidencia sólida.",
     "numero_global": 27
   },
@@ -991,7 +991,7 @@
     "teoria": "Una generalización apresurada es una conclusión general a partir de pocos casos.",
     "explicacion": "Busca afirmaciones con 'todos', 'siempre', 'nunca' basadas en pocos ejemplos.",
     "regla": "Una generalización es apresurada si se basa en pocos casos o ignora contraejemplos.",
-    "ejemplo_correcto": "Decir 'todos los jovenes son vagos' a partir de dos casos es una generalización apresurada.",
+    "ejemplo_correcto": "Decir 'todos los jóvenes son vagos' a partir de dos casos es una generalización apresurada.",
     "ejemplo_incorrecto": "Aceptar la generalización porque suena convincente.",
     "numero_global": 57
   },
@@ -1012,7 +1012,7 @@
     "proceso": "P2",
     "nivel_mcer": "C1",
     "titulo": "Inferir el público objetivo de un texto",
-    "teoria": "Todo texto tiene un público objetivo (niños, jovenes, profesionales, expertos, público general). Inferirlo permite comprender las elecciones del autor (vocabulario, tono, ejemplos).",
+    "teoria": "Todo texto tiene un público objetivo (niños, jóvenes, profesionales, expertos, público general). Inferirlo permite comprender las elecciones del autor (vocabulario, tono, ejemplos).",
     "explicacion": "Observa el vocabulario (técnico o coloquial), los ejemplos (cotidianos o especializados), el tono (formal o cercano). Esas pistas revelan a quien va dirigido el texto.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono del texto.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
@@ -1155,11 +1155,11 @@
     "numero": 8,
     "proceso": "P4",
     "nivel_mcer": "C2",
-    "titulo": "Evaluar la solidez de una conclusión estadistica",
-    "teoria": "En los textos académicos y periodisticos, las conclusiones basadas en datos pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la muestra, la significación estadistica y la interpretación.",
-    "explicacion": "Preguntate: la muestra es suficiente? La diferencia observada es estadisticamente significativa? La interpretación de los datos es correcta? Una conclusión estadistica sólida se apoya en evidencia robusta.",
-    "regla": "Una conclusión estadistica es sólida si la muestra es suficiente, la diferencia es significativa y la interpretación es correcta.",
-    "ejemplo_correcto": "Un estudio con 10.000 participantes y significación estadistica alta permite una conclusión sólida.",
+    "titulo": "Evaluar la solidez de una conclusión estadística",
+    "teoria": "En los textos académicos y periodisticos, las conclusiones basadas en datos pueden ser sólidas o débiles. Evaluar su solidez requiere atender a la muestra, la significación estadística y la interpretación.",
+    "explicacion": "Preguntate: la muestra es suficiente? La diferencia observada es estadisticamente significativa? La interpretación de los datos es correcta? Una conclusión estadística sólida se apoya en evidencia robusta.",
+    "regla": "Una conclusión estadística es sólida si la muestra es suficiente, la diferencia es significativa y la interpretación es correcta.",
+    "ejemplo_correcto": "Un estudio con 10.000 participantes y significación estadística alta permite una conclusión sólida.",
     "ejemplo_incorrecto": "Concluir que 'el cafe cura el cáncer' a partir de un estudio con 20 personas. La muestra es insuficiente.",
     "numero_global": 78
   },
@@ -1168,7 +1168,7 @@
     "proceso": "P1",
     "nivel_mcer": "C2",
     "titulo": "Localizar la falacia en un discurso",
-    "teoria": "En los discursos argumentativos, las falacias son razonamientos incorrectos que parecen válidos. Localizarlas es esencial para evaluar criticamente el discurso.",
+    "teoria": "En los discursos argumentativos, las falacias son razonamientos incorrectos que parecen válidos. Localizarlas es esencial para evaluar críticamente el discurso.",
     "explicacion": "Busca los patrones tipicos de falacia: ataque personal (ad hominem), falso dilema, generalización, apelación a la emoción. Identifica la conclusión que se quiere sostener y el razonamiento que la sostiene.",
     "regla": "La falacia se reconoce por el patron incorrecto del razonamiento: ataque personal, falso dilema, generalización.",
     "ejemplo_correcto": "En 'No escuches a Juan sobre economía: es un fracasado', hay una falacia ad hominem: se ataca a la persona, no al argumento.",
@@ -1205,7 +1205,7 @@
     "proceso": "P1",
     "titulo": "Localizar el sujeto de la oración",
     "teoria": "El sujeto es la persona, animal o cosa que realiza la acción del verbo. Responde a las preguntas 'quien?' o 'que?' antes del verbo. En español, el sujeto suele ir al principio de la oración, pero puede aparecer en otros lugares.",
-    "explicacion": "Para localizar el sujeto, primero identifica el verbo (la acción). Luego pregunta 'quien hace la acción?' o 'que hace la acción?'. La respuesta es el sujeto. Ejemplo: en 'El niño come una manzana', el verbo es 'come', y quien come es 'el niño'.",
+    "explicacion": "Para localizar el sujeto, primero identifica el verbo (la acción). Luego pregunta 'quien hace la acción?' o 'qué hace la acción?'. La respuesta es el sujeto. Ejemplo: en 'El niño come una manzana', el verbo es 'come', y quien come es 'el niño'.",
     "regla": "El sujeto responde a 'quien?' o 'que?' + verbo.",
     "ejemplo_correcto": "En 'María lee un libro', el verbo es 'lee' y el sujeto es 'María' (quien lee).",
     "ejemplo_incorrecto": "Decir que el sujeto es 'un libro'. El libro recibe la acción (es el objeto), no la realiza."
@@ -1215,9 +1215,9 @@
     "nivel_mcer": "A1",
     "proceso": "P1",
     "titulo": "Localizar el verbo de la oración",
-    "teoria": "El verbo es la palabra que expresa la acción, el estado o el proceso en la oración. Es el nucleo del predicado y suele indicar que hace o como esta alguien o algo.",
-    "explicacion": "Para localizar el verbo, preguntate 'que hace?' o 'que pasa?' en la oración. El verbo es la palabra que responde a esa pregunta. Ejemplo: en 'El perro corre por el parque', la acción es 'corre', y ese es el verbo.",
-    "regla": "El verbo responde a 'que hace?' o 'que pasa?'.",
+    "teoria": "El verbo es la palabra que expresa la acción, el estado o el proceso en la oración. Es el nucleo del predicado y suele indicar qué hace o como esta alguien o algo.",
+    "explicacion": "Para localizar el verbo, preguntate 'qué hace?' o 'que pasa?' en la oración. El verbo es la palabra que responde a esa pregunta. Ejemplo: en 'El perro corre por el parque', la acción es 'corre', y ese es el verbo.",
+    "regla": "El verbo responde a 'qué hace?' o 'que pasa?'.",
     "ejemplo_correcto": "En 'Los niños juegan en el patio', el verbo es 'juegan' (que hacen los niños?).",
     "ejemplo_incorrecto": "Decir que el verbo es 'patio'. 'Patio' es un sustantivo (un lugar), no una acción."
   },
@@ -1436,7 +1436,7 @@
     "proceso": "P2",
     "titulo": "Inferir el estado de animó de un personaje",
     "teoria": "En los cuentos, el estado de animó de un personaje se infiere de sus acciones y expresiones: si llora, esta triste; si rie, esta contento; si tiembla, tiene miedo.",
-    "explicacion": "Para inferir el estado de animó, observa lo que hace el personaje. Preguntate: que emoción explica esa acción? Ejemplo: si un personaje llora, probablemente esta triste.",
+    "explicacion": "Para inferir el estado de animó, observa lo qué hace el personaje. Preguntate: que emoción explica esa acción? Ejemplo: si un personaje llora, probablemente esta triste.",
     "regla": "El estado de animó se infiere de las acciones: llorar=tristeza, reir=alegría, temblar=miedo.",
     "ejemplo_correcto": "En 'Juan saltaba y reía sin parar', se infiere que Juan esta contento.",
     "ejemplo_incorrecto": "Decir que Juan esta triste porque salta. Saltar y reir son signos de alegría."
@@ -1480,10 +1480,10 @@
     "proceso": "P2",
     "titulo": "Inferir la causa de una acción",
     "teoria": "En los cuentos, las acciones tienen causas que no siempre se dicen. Inferir la causa ayuda a comprender por que un personaje hace algo.",
-    "explicacion": "Para inferir la causa, preguntate: por que hace eso el personaje? Que gana o pierde? Ejemplo: si alguien se abriga, la causa es que tiene frió.",
+    "explicacion": "Para inferir la causa, preguntate: por qué hace eso el personaje? Que gana o pierde? Ejemplo: si alguien se abriga, la causa es que tiene frió.",
     "regla": "La causa se infiere de la acción y del contexto: por que ocurre?",
     "ejemplo_correcto": "En 'Ana se puso el abrigo antes de salir', se infiere que tiene frió.",
-    "ejemplo_incorrecto": "Decir que Ana se pone el abrigo porque quiere. El contexto (antes de salir) sugiere que hace frió."
+    "ejemplo_incorrecto": "Decir que Ana se pone el abrigo porque quiere. El contexto (antes de salir) sugiere qué hace frió."
   },
   {
     "numero": 41,
@@ -1934,7 +1934,7 @@
     "explicacion": "Para distinguir información verdadera de falsa, preguntate: la información se puede verificar? Hay una fuente? Contradice lo que ya sabes? Si no se puede verificar o contradice hechos conocidos, es falsa.",
     "regla": "La información verdadera es verificable; la falsa no se puede verificar o contradice hechos conocidos.",
     "ejemplo_correcto": "En 'El Sol sale por el este', la información es verdadera y verificable.",
-    "ejemplo_incorrecto": "Aceptar como verdadera 'la Tierra es plana' porque aparece en un texto. La información contradice hechos cientificos."
+    "ejemplo_incorrecto": "Aceptar como verdadera 'la Tierra es plana' porque aparece en un texto. La información contradice hechos científicos."
   },
   {
     "numero": 82,
@@ -1952,7 +1952,7 @@
     "nivel_mcer": "A1",
     "proceso": "P4",
     "titulo": "Identificar el público objetivo del texto",
-    "teoria": "Todo texto tiene un público objetivo (niños, jovenes, adultos, expertos). Identificarlo ayuda a comprender las elecciones del autor (vocabulario, tono, ejemplos).",
+    "teoria": "Todo texto tiene un público objetivo (niños, jóvenes, adultos, expertos). Identificarlo ayuda a comprender las elecciones del autor (vocabulario, tono, ejemplos).",
     "explicacion": "Para identificar el público objetivo, observa el vocabulario (técnico o sencillo), los ejemplos (cotidianos o especializados) y el tono (formal o cercano).",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
@@ -1977,7 +1977,7 @@
     "teoria": "Una generalización apresurada es una conclusión general a partir de pocos casos. Detectar esta falacia evita aceptar afirmaciones sin evidencia suficiente.",
     "explicacion": "Para detectar una generalización, busca afirmaciones con 'todos', 'siempre', 'nunca' basadas en pocos ejemplos. Preguntate: la muestra es suficiente?",
     "regla": "Una generalización es apresurada si se basa en pocos casos o ignora contraejemplos.",
-    "ejemplo_correcto": "Decir 'todos los jovenes son vagos' a partir de dos casos es una generalización apresurada.",
+    "ejemplo_correcto": "Decir 'todos los jóvenes son vagos' a partir de dos casos es una generalización apresurada.",
     "ejemplo_incorrecto": "Aceptar la generalización porque suena convincente. La evidencia es insuficiente."
   },
   {
@@ -2086,7 +2086,7 @@
     "titulo": "Evaluar si un texto es coherente",
     "teoria": "Un texto es coherente si sus partes se relacionan de forma lógica y no se contradicen. La coherencia es esencial para la comprensión.",
     "explicacion": "Para evaluar la coherencia, lee el texto completo. Preguntate: las ideas se conectan? Hay contradicciones? La conclusión se sigue de las premisas?",
-    "regla": "Un texto es coherente si sus partes se relacionan logicamente y no se contradicen.",
+    "regla": "Un texto es coherente si sus partes se relacionan lógicamente y no se contradicen.",
     "ejemplo_correcto": "En un texto que defiende el reciclaje y luego da tres razones, el texto es coherente.",
     "ejemplo_incorrecto": "Decir que un texto es coherente porque es largo. La extensión no garantiza coherencia."
   },
@@ -2281,11 +2281,11 @@
     "numero": 31,
     "nivel_mcer": "A2",
     "proceso": "P1",
-    "titulo": "Localizar datos en un grafico simple",
-    "teoria": "Los graficos (barras, líneas, sectores) representan datos visualmente. Localizar un dato requiere identificar los ejes, las etiquetas y el valor correspondiente.",
+    "titulo": "Localizar datos en un gráfico simple",
+    "teoria": "Los gráficos (barras, líneas, sectores) representan datos visualmente. Localizar un dato requiere identificar los ejes, las etiquetas y el valor correspondiente.",
     "explicacion": "Identifica los ejes (horizontal y vertical). Busca la etiqueta de la categoría. Lee el valor asociado (altura de la barra, posición en el eje).",
-    "regla": "En un grafico, el dato se localiza identificando ejes, etiquetas y valor.",
-    "ejemplo_correcto": "En un grafico de barras de ventas por mes, para saber las ventas de mayo se busca la barra 'mayo' y se lee su altura.",
+    "regla": "En un gráfico, el dato se localiza identificando ejes, etiquetas y valor.",
+    "ejemplo_correcto": "En un gráfico de barras de ventas por mes, para saber las ventas de mayo se busca la barra 'mayo' y se lee su altura.",
     "ejemplo_incorrecto": "Decir que la barra más alta es siempre la respuesta. Depende de la pregunta."
   },
   {
@@ -2491,7 +2491,7 @@
     "nivel_mcer": "A2",
     "proceso": "P2",
     "titulo": "Inferir el público objetivo de un texto",
-    "teoria": "Todo texto tiene un público objetivo (niños, jovenes, profesionales, expertos). Se infiere del vocabulario, los ejemplos, el tono y las referencias.",
+    "teoria": "Todo texto tiene un público objetivo (niños, jóvenes, profesionales, expertos). Se infiere del vocabulario, los ejemplos, el tono y las referencias.",
     "explicacion": "Observa el vocabulario (técnico o cotidiano), los ejemplos (cotidianos o especializados) y el tono. Esas pistas revelan a quien va dirigido.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
@@ -2528,7 +2528,7 @@
     "explicacion": "Observa las contradicciones: dice una cosa y hace otra? Duda? Se arrepiente? El conflicto interno se infiere de la tensión entre sus deseos y sus acciones.",
     "regla": "El conflicto interno se infiere de las contradicciones y dudas del personaje.",
     "ejemplo_correcto": "En 'Quería ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
-    "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explicitamente. La contradicción lo revela."
+    "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explícitamente. La contradicción lo revela."
   },
   {
     "numero": 54,
@@ -2550,7 +2550,7 @@
     "explicacion": "Identifica el problema. Preguntate: que factores podrían explicarlo? Que datos del texto apuntan a una causa? La causa se infiere de la relación entre problema y contexto.",
     "regla": "La causa de un problema social se infiere de los datos y del contexto del texto.",
     "ejemplo_correcto": "En un texto que dice 'el desempleo juvenil crecio al 25% tras la crisis', se infiere que la crisis es una causa del desempleo.",
-    "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explicitamente. Los datos del texto permiten inferirla."
+    "ejemplo_incorrecto": "Decir que no hay causa porque no se dice explícitamente. Los datos del texto permiten inferirla."
   },
   {
     "numero": 56,
@@ -2835,7 +2835,7 @@
     "teoria": "Un argumento es un conjunto de premisas que sostienen una conclusión. Identificar las premisas permite evaluar si la conclusión esta bien fundamentada.",
     "explicacion": "Busca la conclusión (lo que se quiere defender) y las premisas (las razones que la sostienen). Las premisas suelen ir introducidas por 'porque', 'ya que', 'puesto que'.",
     "regla": "Las premisas son las razones que sostienen la conclusión.",
-    "ejemplo_correcto": "En 'Deberiamos reciclar porque reduce la contaminación', la premisa es 'reduce la contaminación' y la conclusión es 'deberiamos reciclar'.",
+    "ejemplo_correcto": "En 'Deberíamos reciclar porque reduce la contaminación', la premisa es 'reduce la contaminación' y la conclusión es 'deberíamos reciclar'.",
     "ejemplo_incorrecto": "Decir que la conclusión es la primera palabra de la oración. La conclusión es lo que se defiende."
   },
   {
@@ -2879,7 +2879,7 @@
     "teoria": "Una generalización apresurada es una conclusión general a partir de pocos casos. Detectar esta falacia evita aceptar afirmaciones sin evidencia suficiente.",
     "explicacion": "Busca afirmaciones con 'todos', 'siempre', 'nunca' basadas en pocos ejemplos. Preguntate: la muestra es suficiente?",
     "regla": "Una generalización es apresurada si se basa en pocos casos o ignora contraejemplos.",
-    "ejemplo_correcto": "Decir 'todos los jovenes son vagos' a partir de dos casos es una generalización apresurada.",
+    "ejemplo_correcto": "Decir 'todos los jóvenes son vagos' a partir de dos casos es una generalización apresurada.",
     "ejemplo_incorrecto": "Aceptar la generalización porque suena convincente. La evidencia es insuficiente."
   },
   {
@@ -2934,7 +2934,7 @@
     "teoria": "La credibilidad de una fuente depende de su autoridad, su evidencia y su transparencia. Evaluarla permite juzgar si se puede confiar en la información.",
     "explicacion": "Preguntate: el autor tiene autoridad? Presenta evidencia? Reconoce otras posiciones? Hay conflictos de interes?",
     "regla": "Una fuente es creible si el autor tiene autoridad, presenta evidencia y es transparente.",
-    "ejemplo_correcto": "Un informe de la UNESCO con datos verificables y metodologia transparente es creible.",
+    "ejemplo_correcto": "Un informe de la UNESCO con datos verificables y metodología transparente es creible.",
     "ejemplo_incorrecto": "Aceptar como creible un texto que solo presenta una versión y no cita fuentes."
   },
   {
@@ -2988,7 +2988,7 @@
     "titulo": "Evaluar la coherencia interna de un texto",
     "teoria": "Un texto es coherente si sus partes se relacionan de forma lógica y no se contradicen. Evaluar la coherencia es esencial para juzgar la calidad del texto.",
     "explicacion": "Lee el texto completo. Busca contradicciones entre párrafos. Preguntate: las conclusiones se siguen de las premisas? Las partes se conectan?",
-    "regla": "Un texto es coherente si no hay contradicciones internas y las partes se relacionan logicamente.",
+    "regla": "Un texto es coherente si no hay contradicciones internas y las partes se relacionan lógicamente.",
     "ejemplo_correcto": "Un texto que defiende la libertad de expresión y luego propone censurar opiniones pacificas es incoherente.",
     "ejemplo_incorrecto": "Decir que el texto es coherente porque es largo. La extensión no garantiza coherencia."
   },
@@ -3051,8 +3051,8 @@
     "numero": 22,
     "nivel_mcer": "B1",
     "proceso": "P1",
-    "titulo": "Localizar los conectores logicos entre dos ideas",
-    "teoria": "Los conectores logicos (pero, aunque, sin embargo, por tanto, porque, además) indican la relación entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
+    "titulo": "Localizar los conectores lógicos entre dos ideas",
+    "teoria": "Los conectores lógicos (pero, aunque, sin embargo, por tanto, porque, además) indican la relación entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
     "explicacion": "Lee la oración y pregunta qué relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
     "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
@@ -3140,7 +3140,7 @@
     "nivel_mcer": "B1",
     "proceso": "P1",
     "titulo": "Localizar la evidencia empirica en un texto académico",
-    "teoria": "La evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadisticas. Localizarla permite verificar la solidez del texto.",
+    "teoria": "La evidencia empirica son los datos que sostienen las afirmaciones: estudios, encuestas, experimentos, estadísticas. Localizarla permite verificar la solidez del texto.",
     "explicacion": "Busca expresiones como 'un estudio de', 'según datos de', 'el X% de', 'la encuesta revela'. Cada una introduce una evidencia empirica que puede verificarse.",
     "regla": "La evidencia empirica se reconoce por datos, estudios, encuestas o experimentos citados.",
     "ejemplo_correcto": "En 'Un estudio de la Universidad de Oxford (2024) encontró que...', la evidencia es el estudio citado.",
@@ -3320,7 +3320,7 @@
     "explicacion": "Observa las contradicciones: dice una cosa y hace otra? Duda? Se arrepiente? El conflicto interno se infiere de la tensión entre sus deseos y sus acciones.",
     "regla": "El conflicto interno se infiere de las contradicciones y dudas del personaje.",
     "ejemplo_correcto": "En 'Quería ir a la fiesta, pero se quedó en casa estudiando', se infiere un conflicto entre el deseo y el deber.",
-    "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explicitamente. La contradicción lo revela."
+    "ejemplo_incorrecto": "Decir que no hay conflicto interno porque no lo dice explícitamente. La contradicción lo revela."
   },
   {
     "numero": 47,
@@ -3349,7 +3349,7 @@
     "nivel_mcer": "B1",
     "proceso": "P2",
     "titulo": "Inferir el público objetivo de un texto",
-    "teoria": "Todo texto tiene un público objetivo (niños, jovenes, profesionales, expertos). Se infiere del vocabulario, los ejemplos, el tono y las referencias.",
+    "teoria": "Todo texto tiene un público objetivo (niños, jóvenes, profesionales, expertos). Se infiere del vocabulario, los ejemplos, el tono y las referencias.",
     "explicacion": "Observa el vocabulario (técnico o cotidiano), los ejemplos (cotidianos o especializados) y el tono. Esas pistas revelan a quien va dirigido.",
     "regla": "El público objetivo se infiere del vocabulario, los ejemplos y el tono.",
     "ejemplo_correcto": "En un texto con vocabulario técnico y citas académicas, el público es especializado.",
@@ -3473,7 +3473,7 @@
     "teoria": "La credibilidad de una fuente depende de su autoridad, su evidencia y su transparencia. Se infiere de la presencia de datos verificables, la identificación del autor y la ausencia de conflictos de interes.",
     "explicacion": "Preguntate: el autor tiene autoridad? Presenta evidencia? Reconoce otras posiciones? Hay conflictos de interes?",
     "regla": "Una fuente es creible si el autor tiene autoridad, presenta evidencia y es transparente.",
-    "ejemplo_correcto": "Un informe de la UNESCO con datos verificables y metodologia transparente es creible.",
+    "ejemplo_correcto": "Un informe de la UNESCO con datos verificables y metodología transparente es creible.",
     "ejemplo_incorrecto": "Aceptar como creible un texto que solo presenta una versión y no cita fuentes."
   },
   {
@@ -3713,7 +3713,7 @@
     "proceso": "P4",
     "titulo": "Evaluar la solidez de un argumento",
     "teoria": "Un argumento es sólido si sus premisas son verdaderas y sostienen la conclusión. Evaluar la solidez requiere verificar la verdad de las premisas y la validez del razonamiento.",
-    "explicacion": "Identifica las premisas y la conclusión. Verifica: (1) las premisas son verdaderas? (2) la conclusión se sigue logicamente?",
+    "explicacion": "Identifica las premisas y la conclusión. Verifica: (1) las premisas son verdaderas? (2) la conclusión se sigue lógicamente?",
     "regla": "Un argumento es sólido si sus premisas son verdaderas y sostienen la conclusión.",
     "ejemplo_correcto": "En 'Todos los humanos son mortales. Socrates es humano. Por tanto, Socrates es mortal', el argumento es sólido.",
     "ejemplo_incorrecto": "En 'Todos los gatos vuelan. Micifuz es un gato. Por tanto, Micifuz vuela', el argumento es válido pero no sólido (premisa falsa)."
@@ -3726,7 +3726,7 @@
     "teoria": "Una generalización apresurada es una conclusión general a partir de pocos casos. Detectar esta falacia evita aceptar afirmaciones sin evidencia suficiente.",
     "explicacion": "Busca afirmaciones con 'todos', 'siempre', 'nunca' basadas en pocos ejemplos. Preguntate: la muestra es suficiente?",
     "regla": "Una generalización es apresurada si se basa en pocos casos o ignora contraejemplos.",
-    "ejemplo_correcto": "Decir 'todos los jovenes son vagos' a partir de dos casos es una generalización apresurada.",
+    "ejemplo_correcto": "Decir 'todos los jóvenes son vagos' a partir de dos casos es una generalización apresurada.",
     "ejemplo_incorrecto": "Aceptar la generalización porque suena convincente. La evidencia es insuficiente."
   },
   {
@@ -3745,10 +3745,10 @@
     "nivel_mcer": "B1",
     "proceso": "P4",
     "titulo": "Detectar la falacia del hombre de paja",
-    "teoria": "La falacia del hombre de paja consiste en distorsionar el argumento del oponente para refutar una versión débil. Detectar esta falacia evita aceptar refutaciones enganosas.",
+    "teoria": "La falacia del hombre de paja consiste en distorsionar el argumento del oponente para refutar una versión débil. Detectar esta falacia evita aceptar refutaciones engañosas.",
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura de él?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
-    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
+    "ejemplo_correcto": "Si alguien dice 'deberíamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
     "ejemplo_incorrecto": "Aceptar la refutación como válida. Se esta refutando una caricatura, no el argumento real."
   },
   {
@@ -3760,7 +3760,7 @@
     "explicacion": "Preguntate: la autoridad citada es experta en el tema? Presenta evidencia o solo su opinión? Aceptar algo solo porque lo dice alguien famoso es falaz.",
     "regla": "La apelación a la autoridad es falaz si la autoridad no es experta o no presenta evidencia.",
     "ejemplo_correcto": "En 'Este jarabe cura el cáncer porque lo dice un famoso', hay apelación a la autoridad.",
-    "ejemplo_incorrecto": "Aceptar el jarabe como cura. La fama no es autoridad cientifica."
+    "ejemplo_incorrecto": "Aceptar el jarabe como cura. La fama no es autoridad científica."
   },
   {
     "numero": 87,
@@ -3802,7 +3802,7 @@
     "titulo": "Evaluar la coherencia interna de un texto",
     "teoria": "Un texto es coherente si sus partes se relacionan de forma lógica y no se contradicen. Evaluar la coherencia es esencial para juzgar la calidad del texto.",
     "explicacion": "Lee el texto completo. Busca contradicciones entre párrafos. Preguntate: las conclusiones se siguen de las premisas? Las partes se conectan?",
-    "regla": "Un texto es coherente si no hay contradicciones internas y las partes se relacionan logicamente.",
+    "regla": "Un texto es coherente si no hay contradicciones internas y las partes se relacionan lógicamente.",
     "ejemplo_correcto": "Un texto que defiende la libertad de expresión y luego propone censurar opiniones pacificas es incoherente.",
     "ejemplo_incorrecto": "Decir que el texto es coherente porque es largo. La extensión no garantiza coherencia."
   },
@@ -3921,11 +3921,11 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar la tesis implícita de un texto argumentativo",
-    "teoria": "La tesis implícita es la idea que el autor defiende sin formularla explicitamente. Se localiza infiriendo la postura global a partir de los argumentos y del tono.",
+    "teoria": "La tesis implícita es la idea que el autor defiende sin formularla explícitamente. Se localiza infiriendo la postura global a partir de los argumentos y del tono.",
     "explicacion": "Lee el texto completo. Preguntate: que quiere defender el autor? La respuesta, aunque no este escrita literalmente, es la tesis implícita.",
     "regla": "La tesis implícita se infiere del conjunto de argumentos y del tono del texto.",
     "ejemplo_correcto": "En un texto que elogia la energía solar y crítica los combustibles fosiles, la tesis implícita es que hay que pasar a las renovables.",
-    "ejemplo_incorrecto": "Decir que no hay tesis porque no aparece explicitamente. La tesis puede estar implícita."
+    "ejemplo_incorrecto": "Decir que no hay tesis porque no aparece explícitamente. La tesis puede estar implícita."
   },
   {
     "numero": 22,
@@ -3954,11 +3954,11 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar los recursos de persuasión (ethos, pathos, logos)",
-    "teoria": "Aristoteles distinguio tres recursos de persuasión: ethos (credibilidad del autor), pathos (emociones del público) y logos (argumentos logicos). Localizarlos permite analizar como persuade un texto.",
-    "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos logicos.",
+    "teoria": "Aristoteles distinguio tres recursos de persuasión: ethos (credibilidad del autor), pathos (emociones del público) y logos (argumentos lógicos). Localizarlos permite analizar como persuade un texto.",
+    "explicacion": "Busca: (1) ethos: credenciales y autoridad del autor; (2) pathos: apelaciones a emociones; (3) logos: datos y razonamientos lógicos.",
     "regla": "Ethos persuade por credibilidad; pathos por emoción; logos por razón.",
     "ejemplo_correcto": "En u anunció, 'como médico, recomiendo...' es ethos; 'imagina a tu hijo sonriendo' es pathos; 'reduce el colesterol un 20%' es logos.",
-    "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoria de textos persuasivos."
+    "ejemplo_incorrecto": "Decir que todo es logos. También hay ethos y pathos en la mayoría de textos persuasivos."
   },
   {
     "numero": 25,
@@ -3968,7 +3968,7 @@
     "teoria": "Un argumento consta de premisas (razones) y una conclusión (lo que se defiende). Localizar la estructura permite evaluar la lógica del texto.",
     "explicacion": "Identifica las premisas (introducidas por 'porque', 'ya que', 'puesto que') y la conclusión (marcada por 'por tanto', 'así que', 'en consecuencia').",
     "regla": "Premisas = razones; conclusión = lo que se defiende.",
-    "ejemplo_correcto": "En 'Deberiamos reciclar porque reduce la contaminación', la premisa es 'reduce la contaminación' y la conclusión es 'deberiamos reciclar'.",
+    "ejemplo_correcto": "En 'Deberíamos reciclar porque reduce la contaminación', la premisa es 'reduce la contaminación' y la conclusión es 'deberíamos reciclar'.",
     "ejemplo_incorrecto": "Decir que la conclusión es la primera palabra. La conclusión es lo que se defiende."
   },
   {
@@ -3999,10 +3999,10 @@
     "proceso": "P1",
     "titulo": "Localizar los argumentos de autoridad y evaluarlos",
     "teoria": "El argumento de autoridad apoya una afirmación en la opinión de un experto. Localizarlo y evaluarlo (es realmente experto? hay consenso?) permite juzgar su solidez.",
-    "explicacion": "Busca expresiones como 'según X', 'como afirma Y'. Preguntate: el experto citado es realmente autoridad en la materia? Hay consenso cientifico?",
+    "explicacion": "Busca expresiones como 'según X', 'como afirma Y'. Preguntate: el experto citado es realmente autoridad en la materia? Hay consenso científico?",
     "regla": "El argumento de autoridad es sólido si el experto tiene autoridad real en la materia.",
     "ejemplo_correcto": "En 'Según la OMS, el tabaco causa cáncer', el argumento de autoridad es sólido.",
-    "ejemplo_incorrecto": "En 'Según un famoso, el tabaco no es malo', el argumento de autoridad es falaz (la fama no es autoridad cientifica)."
+    "ejemplo_incorrecto": "En 'Según un famoso, el tabaco no es malo', el argumento de autoridad es falaz (la fama no es autoridad científica)."
   },
   {
     "numero": 29,
@@ -4020,9 +4020,9 @@
     "nivel_mcer": "B2",
     "proceso": "P1",
     "titulo": "Localizar las implicaturas (información implícita)",
-    "teoria": "Las implicaturas son informaciones que el autor sugiere sin decir explicitamente. Localizarlas permite comprender el sentido profundo del texto.",
+    "teoria": "Las implicaturas son informaciones que el autor sugiere sin decir explícitamente. Localizarlas permite comprender el sentido profundo del texto.",
     "explicacion": "Preguntate: que sugiere el autor sin decirlo? Que se puede inferir de sus elecciones linguisticas?",
-    "regla": "La implicatura es una información sugerida sin decirse explicitamente.",
+    "regla": "La implicatura es una información sugerida sin decirse explícitamente.",
     "ejemplo_correcto": "En 'Algunos alumnos aprobaron', la implicatura es que no todos aprobaron.",
     "ejemplo_incorrecto": "Decir que 'algunos' significa 'todos'. 'Algunos' implica que no todos."
   },
@@ -4044,7 +4044,7 @@
     "titulo": "Localizar los presupuestos ideológicos del autor",
     "teoria": "Los presupuestos ideológicos son las creencias políticas, económicas o culturales que el autor da por sentadas. Localizarlos permite comprender desde que marco interpreta el texto.",
     "explicacion": "Preguntate: que visión del mundo asume el autor como natural? Que sistema de valores se da por evidente?",
-    "regla": "El presupuesto ideológico es una creencia asumida que revela el marco del autor.",
+    "regla": "El presupuesto ideológico es una creencia asumida qué revela el marco del autor.",
     "ejemplo_correcto": "En 'Como el mercado siempre se autorregula, hay que reducir el Estado', el presupuesto ideológico es que el mercado se autorregula.",
     "ejemplo_incorrecto": "Decir que no hay ideología porque el autor no la menciona. Los presupuestos revelan ideología aunque no se nombre."
   },
@@ -4229,7 +4229,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir el público objetivo por el registro y el léxico",
-    "teoria": "El registro (formal, coloquial, técnico) y el léxico revelan el público objetivo del texto: especialistas, público general, jovenes, niños.",
+    "teoria": "El registro (formal, coloquial, técnico) y el léxico revelan el público objetivo del texto: especialistas, público general, jóvenes, niños.",
     "explicacion": "Observa el vocabulario (técnico o cotidiano), las oraciones (complejas o sencillas), los ejemplos (especializados o cotidianos).",
     "regla": "El registro y el léxico revelan el público objetivo.",
     "ejemplo_correcto": "En un texto con 'celula', 'ADN' y 'genoma', el público es especializado o interesado en ciencia.",
@@ -4327,12 +4327,12 @@
     "numero": 58,
     "nivel_mcer": "B2",
     "proceso": "P2",
-    "titulo": "Inferir el sesgo de una imagen o grafico",
-    "teoria": "Las imágenes y graficos pueden tener sesgos: selección de datos, escalas enganosas, colores, encuadres. Inferir el sesgo es esencial para la lectura crítica multimodal.",
-    "explicacion": "Observa la imagen o grafico: que datos se muestran y cuales se omiten? La escala es enganosa? Que emoción busca despertar?",
-    "regla": "El sesgo de una imagen o grafico se infiere de la selección de datos, las escalas y los encuadres.",
-    "ejemplo_correcto": "Un grafico que empieza el eje Y en 95 en lugar de 0 exagera una diferencia pequeña; hay sesgo visual.",
-    "ejemplo_incorrecto": "Decir que los graficos son objetivos por definición. Pueden tener sesgos en la selección o la escala."
+    "titulo": "Inferir el sesgo de una imagen o gráfico",
+    "teoria": "Las imágenes y gráficos pueden tener sesgos: selección de datos, escalas engañosas, colores, encuadres. Inferir el sesgo es esencial para la lectura crítica multimodal.",
+    "explicacion": "Observa la imagen o gráfico: que datos se muestran y cuales se omiten? La escala es engañosa? Que emoción busca despertar?",
+    "regla": "El sesgo de una imagen o gráfico se infiere de la selección de datos, las escalas y los encuadres.",
+    "ejemplo_correcto": "Un gráfico que empieza el eje Y en 95 en lugar de 0 exagera una diferencia pequeña; hay sesgo visual.",
+    "ejemplo_incorrecto": "Decir que los gráficos son objetivos por definición. Pueden tener sesgos en la selección o la escala."
   },
   {
     "numero": 59,
@@ -4351,7 +4351,7 @@
     "proceso": "P2",
     "titulo": "Inferir la crítica social en un texto literario",
     "teoria": "Muchos textos literarios contienen una crítica social implícita: denuncian injusticias, desigualdades o abusos. Se infiere comparando la historia con la realidad social.",
-    "explicacion": "Preguntate: que situación de la historia refleja un problema social? Que injusticia se denuncia? Aunque no se diga explicitamente.",
+    "explicacion": "Preguntate: que situación de la historia refleja un problema social? Que injusticia se denuncia? Aunque no se diga explícitamente.",
     "regla": "La crítica social se infiere comparando la historia con la realidad social.",
     "ejemplo_correcto": "En un cuento donde un campesino es explotado por un terrateniente, se infiere una crítica a la desigualdad social.",
     "ejemplo_incorrecto": "Decir que el cuento solo cuenta una historia individual. Muchos textos literarios critican lo social."
@@ -4683,17 +4683,17 @@
     "teoria": "Las encuestas pueden estar sesgadas por la formulación de las preguntas (sugerentes, cargadas, ambiguas) o por el orden. Detectar ese sesgo es esencial para interpretar los resultados.",
     "explicacion": "Lee la pregunta: es neutral o sugiere una respuesta? Usa términos cargados? El orden influye?",
     "regla": "Una encuesta esta sesgada si la pregunta sugiere la respuesta o usa términos cargados.",
-    "ejemplo_correcto": "En 'No cree usted que deberiamos ayudar a los pobres?', la pregunta sugiere la respuesta.",
+    "ejemplo_correcto": "En 'No cree usted que deberíamos ayudar a los pobres?', la pregunta sugiere la respuesta.",
     "ejemplo_incorrecto": "Aceptar el resultado como neutral. La formulación ya introduce sesgo."
   },
   {
     "numero": 91,
     "nivel_mcer": "B2",
     "proceso": "P4",
-    "titulo": "Evaluar la solidez de un argumento estadistico",
-    "teoria": "Un argumento estadistico es sólido si los datos son representativos, la muestra es adecuada y la conclusión no exagera lo que los datos permiten concluir. Evaluarlo evita aceptar conclusiones exageradas.",
+    "titulo": "Evaluar la solidez de un argumento estadístico",
+    "teoria": "Un argumento estadístico es sólido si los datos son representativos, la muestra es adecuada y la conclusión no exagera lo que los datos permiten concluir. Evaluarlo evita aceptar conclusiones exageradas.",
     "explicacion": "Preguntate: los datos son representativos? La conclusión va más allá de lo que los datos permiten? Se confunde correlación con causalidad?",
-    "regla": "Un argumento estadistico es sólido si los datos son representativos y la conclusión no exagera.",
+    "regla": "Un argumento estadístico es sólido si los datos son representativos y la conclusión no exagera.",
     "ejemplo_correcto": "En 'El 60% de los fumadores encuestados quiere dejarlo', la conclusión es proporcional a los datos.",
     "ejemplo_incorrecto": "En 'El 60% de los fumadores quiere dejarlo, por tanto el tabaco desaparecera', hay exageración."
   },
@@ -4727,7 +4727,7 @@
     "teoria": "La falacia del hombre de paja distorsiona el argumento del oponente para refutarlo más facilmente. Detectar esta falacia es esencial para evaluar debates.",
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
-    "ejemplo_correcto": "Si alguien dice 'deberiamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
+    "ejemplo_correcto": "Si alguien dice 'deberíamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
     "ejemplo_incorrecto": "Aceptar la refutación como válida. Se esta refutando una caricatura, no el argumento real."
   },
   {
@@ -4750,7 +4750,7 @@
     "explicacion": "Preguntate: la autoridad citada es experta en el tema? Presenta evidencia o solo su opinión? Aceptar algo solo porque lo dice alguien famoso es falaz.",
     "regla": "La falsa autoridad apoya una afirmación en alguien que no es experto o no presenta evidencia.",
     "ejemplo_correcto": "En 'Este jarabe cura el cáncer porque lo dice un famoso', hay falsa autoridad.",
-    "ejemplo_incorrecto": "Aceptar el jarabe como cura. La fama no es autoridad cientifica."
+    "ejemplo_incorrecto": "Aceptar el jarabe como cura. La fama no es autoridad científica."
   },
   {
     "numero": 97,
@@ -4769,9 +4769,9 @@
     "proceso": "P4",
     "titulo": "Distinguir la conclusión de la recomendación en un texto",
     "teoria": "La conclusión sintetiza lo argumentado; la recomendación propone una acción. Distinguirlas ayuda a comprender el propósito del texto.",
-    "explicacion": "Busca los conectores: 'por tanto' introduce conclusión; 'deberiamos' o 'hay que' introducen recomendación.",
+    "explicacion": "Busca los conectores: 'por tanto' introduce conclusión; 'deberíamos' o 'hay que' introducen recomendación.",
     "regla": "La conclusión sintetiza; la recomendación propone una acción.",
-    "ejemplo_correcto": "En 'Por tanto, el reciclaje es eficiente. Deberiamos reciclar más', la conclusión es 'el reciclaje es eficiente'; la recomendación, 'deberiamos reciclar más'.",
+    "ejemplo_correcto": "En 'Por tanto, el reciclaje es eficiente. Deberíamos reciclar más', la conclusión es 'el reciclaje es eficiente'; la recomendación, 'deberíamos reciclar más'.",
     "ejemplo_incorrecto": "Decir que conclusión y recomendación son lo mismo. La primera sintetiza; la segunda propone."
   },
   {
@@ -5121,9 +5121,9 @@
     "proceso": "P2",
     "titulo": "Inferir la estructura profunda de un texto argumentativo",
     "teoria": "La estructura profunda es la red de premisas y conclusiones que sostiene un texto, más allá de su estructura superficial. Inferirla permite evaluar la lógica del conjunto y detectar premisas ocultas.",
-    "explicacion": "Identifica todas las premisas y conclusiones, incluidas las implícitas. Preguntate: que premisa oculta sostiene esta conclusión?",
+    "explicacion": "Identifica todas las premisas y conclusiones, incluidas las implícitas. Preguntate: qué premisa oculta sostiene esta conclusión?",
     "regla": "La estructura profunda es la red de premisas (explicitas e implícitas) y conclusiones.",
-    "ejemplo_correcto": "En 'Deberiamos reciclar; es lo minimo', la premisa oculta es que hay un deber moral de hacer lo minimo.",
+    "ejemplo_correcto": "En 'Deberíamos reciclar; es lo minimo', la premisa oculta es que hay un deber moral de hacer lo minimo.",
     "ejemplo_incorrecto": "Quedarse en la superficie del texto sin buscar premisas ocultas."
   },
   {
@@ -5241,8 +5241,8 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir la estrategia de construcción del consenso",
-    "teoria": "La construcción del consenso es el conjunto de estrategias mediante las que el orador presenta su postura como ampliamente compartida: 'todos sabemos', 'es de sentido comun', 'la mayoria'. Inferirla permite analizar como se construye la legitimidad.",
-    "explicacion": "Busca expresiones que presenten la postura como compartida: 'todos', 'la mayoria', 'es evidente'. Preguntate: se presenta como consenso lo que es opinión?",
+    "teoria": "La construcción del consenso es el conjunto de estrategias mediante las que el orador presenta su postura como ampliamente compartida: 'todos sabemos', 'es de sentido comun', 'la mayoría'. Inferirla permite analizar como se construye la legitimidad.",
+    "explicacion": "Busca expresiones que presenten la postura como compartida: 'todos', 'la mayoría', 'es evidente'. Preguntate: se presenta como consenso lo que es opinión?",
     "regla": "La construcción del consenso presenta la postura como ampliamente compartida.",
     "ejemplo_correcto": "En 'Es de sentido comun que...', se presenta una opinión como consenso.",
     "ejemplo_incorrecto": "Decir que es un dato objetivo. Es una estrategia de construcción de consenso."
@@ -5508,17 +5508,17 @@
     "teoria": "Un argumento complejo puede tener premisas implícitas que sostienen la conclusión. Evaluar su solidez requiere explicitarlas y comprobar si son verdaderas y si sostienen la conclusión.",
     "explicacion": "Explicita las premisas ocultas. Preguntate: son verdaderas? Sostienen la conclusión? Si las rechazamos, la conclusión se cae?",
     "regla": "Un argumento complejo es sólido si sus premisas explicitas e implícitas son verdaderas y sostienen la conclusión.",
-    "ejemplo_correcto": "En 'Deberiamos prohibir X; es peligroso', la premisa implícita es 'lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue.",
+    "ejemplo_correcto": "En 'Deberíamos prohibir X; es peligroso', la premisa implícita es 'lo peligroso debe prohibirse'. Si no la aceptamos, la conclusión no se sigue.",
     "ejemplo_incorrecto": "Aceptar el argumento sin explicitar la premisa oculta. La solidez depende de ella."
   },
   {
     "numero": 82,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar falacias de manipulación mediatica (framing, priming)",
-    "teoria": "Los medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Detectar estas estrategias permite evaluar criticamente la información periodistica.",
+    "titulo": "Detectar falacias de manipulación mediática (framing, priming)",
+    "teoria": "Los medios pueden manipular mediante el framing (encuadre) y el priming (activación de marcos mentales). Detectar estas estrategias permite evaluar críticamente la información periodistica.",
     "explicacion": "Analiza el encuadre: que aspecto se destaca? Que se omite? Que marcos mentales activa el texto?",
-    "regla": "La manipulación mediatica usa framing (encuadre) y priming (activación de marcos) para orientar la interpretación.",
+    "regla": "La manipulación mediática usa framing (encuadre) y priming (activación de marcos) para orientar la interpretación.",
     "ejemplo_correcto": "En una noticia que titula 'Inmigrantes ocupan la plaza', el framing presenta la inmigración como invasión.",
     "ejemplo_incorrecto": "Decir que la noticia es objetiva porque da datos. El framing ya orienta la interpretación."
   },
@@ -5526,10 +5526,10 @@
     "numero": 83,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Evaluar la calidad de la evidencia cientifica (muestra, método, replicabilidad)",
-    "teoria": "La evidencia cientifica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudio.",
+    "titulo": "Evaluar la calidad de la evidencia científica (muestra, método, replicabilidad)",
+    "teoria": "La evidencia científica es de calidad si la muestra es representativa, el método es sólido y los resultados son replicables. Evaluar estos criterios permite juzgar la solidez de un estudio.",
     "explicacion": "Preguntate: la muestra es representativa? El método es sólido? Los resultados se han replicado? Hay conflictos de interes?",
-    "regla": "La evidencia cientifica es de calidad si la muestra es representativa, el método sólido y los resultados replicables.",
+    "regla": "La evidencia científica es de calidad si la muestra es representativa, el método sólido y los resultados replicables.",
     "ejemplo_correcto": "Un estudio con muestra grande, método controlado y replicación independiente es de calidad.",
     "ejemplo_incorrecto": "Aceptar un estudio con muestra pequeña y sin replicación como evidencia definitiva."
   },
@@ -5537,10 +5537,10 @@
     "numero": 84,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar falacias de autoridad en el discurso cientifico",
-    "teoria": "En el discurso cientifico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un cientifico, sin evaluar la evidencia. Detectar esta falacia permite evaluar criticamente la divulgación cientifica.",
-    "explicacion": "Preguntate: la autoridad citada es experta en el tema? Presenta evidencia o solo su opinión? Hay consenso cientifico?",
-    "regla": "La falacia de autoridad cientifica acepta una afirmación sin evaluar la evidencia.",
+    "titulo": "Detectar falacias de autoridad en el discurso científico",
+    "teoria": "En el discurso científico, la falacia de autoridad ocurre cuando se acepta una afirmación solo porque la dice un científico, sin evaluar la evidencia. Detectar esta falacia permite evaluar críticamente la divulgación científica.",
+    "explicacion": "Preguntate: la autoridad citada es experta en el tema? Presenta evidencia o solo su opinión? Hay consenso científico?",
+    "regla": "La falacia de autoridad científica acepta una afirmación sin evaluar la evidencia.",
     "ejemplo_correcto": "En 'Un premio Nobel dice que X, luego X es verdad', hay falacia de autoridad si no se aporta evidencia.",
     "ejemplo_incorrecto": "Aceptar X sin evaluar la evidencia. La autoridad no sustituye a la prueba."
   },
@@ -5549,7 +5549,7 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la coherencia entre discurso y práctica de una institución",
-    "teoria": "La coherencia entre discurso y práctica de una institución se evalua comparando lo que declara con lo que hace. Detectar incoherencias permite analizar criticamente el discurso institucional.",
+    "teoria": "La coherencia entre discurso y práctica de una institución se evalua comparando lo que declara con lo qué hace. Detectar incoherencias permite analizar críticamente el discurso institucional.",
     "explicacion": "Compara el discurso con las acciones. Preguntate: hace lo que dice? Hay contradicciones entre sus valores declarados y sus prácticas?",
     "regla": "La coherencia institucional se evalua comparando el discurso con la práctica.",
     "ejemplo_correcto": "Una empresa que declara sostenibilidad pero contamina es incoherente.",
@@ -5559,11 +5559,11 @@
     "numero": 86,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar la falacia de la falsa dicotomia en el discurso político",
-    "teoria": "La falsa dicotomia presenta solo dos opciones cuando hay más. En el discurso político se usa para forzar una elección. Detectar esta falacia permite analizar criticamente la retórica política.",
+    "titulo": "Detectar la falacia de la falsa dicotomía en el discurso político",
+    "teoria": "La falsa dicotomía presenta solo dos opciones cuando hay más. En el discurso político se usa para forzar una elección. Detectar esta falacia permite analizar críticamente la retórica política.",
     "explicacion": "Preguntate: solo hay dos opciones? Hay alternativas intermedias? Que se oculta al presentar solo dos?",
-    "regla": "La falsa dicotomia presenta solo dos opciones cuando hay más alternativas.",
-    "ejemplo_correcto": "En 'O estas con nosotros o contra nosotros', hay falsa dicotomia.",
+    "regla": "La falsa dicotomía presenta solo dos opciones cuando hay más alternativas.",
+    "ejemplo_correcto": "En 'O estas con nosotros o contra nosotros', hay falsa dicotomía.",
     "ejemplo_incorrecto": "Aceptar las dos opciones como únicas. La realidad admite matices."
   },
   {
@@ -5571,7 +5571,7 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad del debate público (presencia de contraargumentos, falacias, evidencia)",
-    "teoria": "La calidad del debate público se evalua por la presencia de contraargumentos, la ausencia de falacias y el uso de evidencia. Evaluarla permite juzgar criticamente los debates mediaticos y políticos.",
+    "teoria": "La calidad del debate público se evalua por la presencia de contraargumentos, la ausencia de falacias y el uso de evidencia. Evaluarla permite juzgar críticamente los debates mediaticos y políticos.",
     "explicacion": "Preguntate: se reconocen los contraargumentos? Hay falacias? Se aporta evidencia? Se respeta al adversario?",
     "regla": "La calidad del debate público depende de contraargumentos, ausencia de falacias y uso de evidencia.",
     "ejemplo_correcto": "Un debate con contraargumentos, datos y respeto al adversario es de calidad.",
@@ -5581,30 +5581,30 @@
     "numero": 88,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar la manipulación mediante la estadistica (graficos enganosos, porcentajes sin contexto)",
-    "teoria": "La estadistica puede manipularse con graficos enganosos (escalas truncadas, 3D), porcentajes sin base, tasas sin contexto. Detectar estas manipulaciones permite evaluar criticamente la información numerica.",
-    "explicacion": "Analiza los graficos y porcentajes. Preguntate: la escala es enganosa? El porcentaje tiene base? La tasa tiene contexto?",
-    "regla": "La manipulación estadistica usa graficos enganosos, porcentajes sin base o tasas sin contexto.",
-    "ejemplo_correcto": "Un grafico que empieza en 95 en lugar de 0 exagera una diferencia pequeña.",
-    "ejemplo_incorrecto": "Aceptar el grafico sin analizar la escala. Puede ser enganoso."
+    "titulo": "Detectar la manipulación mediante la estadística (gráficos engañosos, porcentajes sin contexto)",
+    "teoria": "La estadística puede manipularse con gráficos engañosos (escalas truncadas, 3D), porcentajes sin base, tasas sin contexto. Detectar estas manipulaciones permite evaluar críticamente la información numerica.",
+    "explicacion": "Analiza los gráficos y porcentajes. Preguntate: la escala es engañosa? El porcentaje tiene base? La tasa tiene contexto?",
+    "regla": "La manipulación estadística usa gráficos engañosos, porcentajes sin base o tasas sin contexto.",
+    "ejemplo_correcto": "Un gráfico que empieza en 95 en lugar de 0 exagera una diferencia pequeña.",
+    "ejemplo_incorrecto": "Aceptar el gráfico sin analizar la escala. Puede ser engañoso."
   },
   {
     "numero": 89,
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la intención persuasiva oculta en un texto aparentemente informativo",
-    "teoria": "Algunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Evaluarla permite analizar criticamente la información.",
+    "teoria": "Algunos textos aparentemente informativos tienen una intención persuasiva oculta: selección de datos, framing, fuentes sesgadas. Evaluarla permite analizar críticamente la información.",
     "explicacion": "Preguntate: el texto se presenta como neutral? Hay selección de datos? Las fuentes son sesgadas? Hay una intención persuasiva oculta?",
     "regla": "Un texto aparentemente informativo puede tener una intención persuasiva oculta.",
     "ejemplo_correcto": "Un reportaje que solo muestra una versión de un conflicto tiene intención persuasiva oculta.",
-    "ejemplo_incorrecto": "Aceptar el texto como neutral porque no opina explicitamente."
+    "ejemplo_incorrecto": "Aceptar el texto como neutral porque no opina explícitamente."
   },
   {
     "numero": 90,
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa equivalencia (equiparar cosas desiguales)",
-    "teoria": "La falsa equivalencia equipara dos cosas que no son comparables. Detectar esta falacia permite analizar criticamente comparaciones en el discurso público.",
+    "teoria": "La falsa equivalencia equipara dos cosas que no son comparables. Detectar esta falacia permite analizar críticamente comparaciones en el discurso público.",
     "explicacion": "Preguntate: las dos cosas comparadas son realmente equivalentes? Hay diferencias relevantes? Que se oculta al equipararlas?",
     "regla": "La falsa equivalencia equipara cosas que no son comparables.",
     "ejemplo_correcto": "En 'Es como comparar el cáncer con un resfriado', hay falsa equivalencia.",
@@ -5614,22 +5614,22 @@
     "numero": 91,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Evaluar la solidez de un argumento estadistico complejo (tasas, base, contexto)",
-    "teoria": "Un argumento estadistico complejo requiere evaluar la base de los porcentajes, la diferencia entre tasas absolutas y relativas, y el contexto de los datos. Evaluarlo permite evitar conclusiones erroneas.",
+    "titulo": "Evaluar la solidez de un argumento estadístico complejo (tasas, base, contexto)",
+    "teoria": "Un argumento estadístico complejo requiere evaluar la base de los porcentajes, la diferencia entre tasas absolutas y relativas, y el contexto de los datos. Evaluarlo permite evitar conclusiones erroneas.",
     "explicacion": "Preguntate: el porcentaje tiene base? Se confunden tasas absolutas y relativas? El contexto cambia la interpretación?",
-    "regla": "Un argumento estadistico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.",
-    "ejemplo_correcto": "En 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% esta vacunado, el 50% de enfermos vacunados es esperable.",
+    "regla": "Un argumento estadístico es sólido si la base es clara, las tasas se usan correctamente y el contexto se considera.",
+    "ejemplo_correcto": "En 'El 50% de los que enferman son vacunados', hay que ver la base: si el 95% está vacunado, el 50% de enfermos vacunados es esperable.",
     "ejemplo_incorrecto": "Concluir que la vacuna no funciona sin analizar la base de la población."
   },
   {
     "numero": 92,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar el sesgo algoritmico en la selección de información",
-    "teoria": "Los algoritmos de selección de información (redes sociales, buscadores) pueden crear sesgos al mostrar solo contenido afin a los intereses del usuario. Detectar este sesgo permite evaluar criticamente la información que consumimos.",
+    "titulo": "Detectar el sesgo algorítmico en la selección de información",
+    "teoria": "Los algoritmos de selección de información (redes sociales, buscadores) pueden crear sesgos al mostrar solo contenido afin a los intereses del usuario. Detectar este sesgo permite evaluar críticamente la información que consumimos.",
     "explicacion": "Preguntate: la información que veo es representativa o esta filtrada por algoritmos? Veo solo una perspectiva?",
-    "regla": "El sesgo algoritmico filtra la información mostrada según intereses y crea camaras de eco.",
-    "ejemplo_correcto": "Si solo veo noticias que confirman mi opinión, puedo estar en una camara de eco algoritmica.",
+    "regla": "El sesgo algorítmico filtra la información mostrada según intereses y crea cámaras de eco.",
+    "ejemplo_correcto": "Si solo veo noticias que confirman mi opinión, puedo estar en una cámara de eco algorítmica.",
     "ejemplo_incorrecto": "Aceptar toda la información como representativa sin considerar los algoritmos."
   },
   {
@@ -5641,7 +5641,7 @@
     "explicacion": "Identifica las dos situaciones. Preguntate: hay diferencias relevantes que afecten a la conclusión? La analogía ilumina o engana?",
     "regla": "La analogía compleja es sólida si las diferencias no son relevantes para la conclusión.",
     "ejemplo_correcto": "En 'Como el cuerpo necesita ejercicio, la mente necesita estimulación', la analogía es relevante (ambos se fortalecen con uso).",
-    "ejemplo_incorrecto": "En 'Como los barcos necesitan capitan, los países necesitan rey', la analogía tiene diferencias relevantes (un país no es un barco)."
+    "ejemplo_incorrecto": "En 'Como los barcos necesitan capitán, los países necesitan rey', la analogía tiene diferencias relevantes (un país no es un barco)."
   },
   {
     "numero": 94,
@@ -5651,7 +5651,7 @@
     "teoria": "La falsa premisa es una premisa que se presenta como verdadera sin justificación. Detectar esta falacia permite evaluar la solidez de un argumento y rechazar conclusiones basadas en premisas no sustentadas.",
     "explicacion": "Identifica las premisas. Preguntate: estan justificadas? Se presentan como evidentes sin prueba?",
     "regla": "La falsa premisa se presenta como verdadera sin justificación.",
-    "ejemplo_correcto": "En 'Todos los jovenes son vagos; por tanto, no hay que contratarlos', la premisa es falsa y no justificada.",
+    "ejemplo_correcto": "En 'Todos los jóvenes son vagos; por tanto, no hay que contratarlos', la premisa es falsa y no justificada.",
     "ejemplo_incorrecto": "Aceptar la conclusión sin cuestionar la premisa."
   },
   {
@@ -5659,18 +5659,18 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la calidad ética de un argumento (respeto, justicia, dignidad)",
-    "teoria": "La calidad ética de un argumento se evalua por el respeto a las personas, la justicia y la dignidad. Un argumento puede ser logicamente válido pero eticamente rechazable (p. ej., defender la esclavitud con lógica).",
+    "teoria": "La calidad ética de un argumento se evalua por el respeto a las personas, la justicia y la dignidad. Un argumento puede ser lógicamente válido pero éticamente rechazable (p. ej., defender la esclavitud con lógica).",
     "explicacion": "Preguntate: el argumento respeta la dignidad de las personas? Es justo? Trata a las personas como fines o como medios?",
     "regla": "La calidad ética de un argumento depende del respeto a la dignidad, la justicia y las personas.",
-    "ejemplo_correcto": "Un argumento que defiende la igualdad de derechos es eticamente sólido.",
-    "ejemplo_incorrecto": "Un argumento logicamente válido que defiende la esclavitud es eticamente rechazable."
+    "ejemplo_correcto": "Un argumento que defiende la igualdad de derechos es éticamente sólido.",
+    "ejemplo_incorrecto": "Un argumento lógicamente válido que defiende la esclavitud es éticamente rechazable."
   },
   {
     "numero": 96,
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Detectar la falacia de la falsa causa compleja (multicausalidad)",
-    "teoria": "La falsa causa compleja atribuye un fenómeno a una sola causa cuando en realidad hay múltiples factores. Detectar esta falacia permite analizar criticamente explicaciones simplistas.",
+    "teoria": "La falsa causa compleja atribuye un fenómeno a una sola causa cuando en realidad hay múltiples factores. Detectar esta falacia permite analizar críticamente explicaciones simplistas.",
     "explicacion": "Preguntate: el fenómeno tiene una sola causa o múltiples? Se estan ignorando otros factores?",
     "regla": "La falsa causa compleja atribuye un fenómeno multicausal a una sola causa.",
     "ejemplo_correcto": "En 'La delincuencia se debe solo a la inmigración', se ignora la multicausalidad (pobreza, educación, etc.).",
@@ -5681,7 +5681,7 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Evaluar la coherencia entre medios, fines y valores en un argumento político",
-    "teoria": "Un argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Evaluarlo permite analizar criticamente la coherencia de las propuestas políticas.",
+    "teoria": "Un argumento político es sólido si los medios propuestos son coherentes con los fines y con los valores declarados. Evaluarlo permite analizar críticamente la coherencia de las propuestas políticas.",
     "explicacion": "Preguntate: los medios son coherentes con los fines? Los valores declarados se respetan en los medios? Hay contradicciones?",
     "regla": "Un argumento político es sólido si medios, fines y valores son coherentes.",
     "ejemplo_correcto": "Defender la libertad usando medios que respetan la libertad es coherente.",
@@ -5692,7 +5692,7 @@
     "nivel_mcer": "C1",
     "proceso": "P4",
     "titulo": "Detectar la manipulación mediante la emoción en el discurso publicitario",
-    "teoria": "La publicidad usa emociones (miedo, deseo, pertenencia) para persuadir sin argumentos racionales. Detectar esta manipulación permite analizar criticamente los anuncios.",
+    "teoria": "La publicidad usa emociones (miedo, deseo, pertenencia) para persuadir sin argumentos racionales. Detectar esta manipulación permite analizar críticamente los anuncios.",
     "explicacion": "Preguntate: el anunció da razones o apela a emociones? Que emoción busca despertar? Que promete?",
     "regla": "La publicidad manipula usando emociones para persuadir sin argumentos racionales.",
     "ejemplo_correcto": "En 'Si quieres ser feliz, compra este coche', se apela a la emoción (felicidad) sin razones.",
@@ -5702,22 +5702,22 @@
     "numero": 99,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Evaluar la calidad de un texto académico (rigor, metodologia, citas)",
-    "teoria": "Un texto académico es de calidad si tiene rigor conceptual, metodologia sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.",
-    "explicacion": "Preguntate: el texto define los conceptos? La metodologia es clara? Las citas son verificables? Hay coherencia interna?",
-    "regla": "Un texto académico es de calidad si tiene rigor, metodologia sólida y citas verificables.",
-    "ejemplo_correcto": "Un artículo con metodologia explicita, datos y citas verificables es de calidad.",
-    "ejemplo_incorrecto": "Aceptar un texto sin metodologia ni citas como académico de calidad."
+    "titulo": "Evaluar la calidad de un texto académico (rigor, metodología, citas)",
+    "teoria": "Un texto académico es de calidad si tiene rigor conceptual, metodología sólida y citas verificables. Evaluarlo permite juzgar la solidez del conocimiento producido.",
+    "explicacion": "Preguntate: el texto define los conceptos? La metodología es clara? Las citas son verificables? Hay coherencia interna?",
+    "regla": "Un texto académico es de calidad si tiene rigor, metodología sólida y citas verificables.",
+    "ejemplo_correcto": "Un artículo con metodología explicita, datos y citas verificables es de calidad.",
+    "ejemplo_incorrecto": "Aceptar un texto sin metodología ni citas como académico de calidad."
   },
   {
     "numero": 100,
     "nivel_mcer": "C1",
     "proceso": "P4",
-    "titulo": "Detectar la falacia de la falsa generalización estadistica",
-    "teoria": "La falsa generalización estadistica extrae conclusiones sobre una población a partir de una muestra no representativa. Detectar esta falacia permite evaluar criticamente los argumentos estadisticos.",
+    "titulo": "Detectar la falacia de la falsa generalización estadística",
+    "teoria": "La falsa generalización estadística extrae conclusiones sobre una población a partir de una muestra no representativa. Detectar esta falacia permite evaluar críticamente los argumentos estadísticos.",
     "explicacion": "Preguntate: la muestra es representativa? Se generaliza a toda la población? Hay sesgo de selección?",
-    "regla": "La falsa generalización estadistica concluye sobre una población a partir de una muestra no representativa.",
-    "ejemplo_correcto": "En 'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoria del país apoya X', hay falsa generalización.",
+    "regla": "La falsa generalización estadística concluye sobre una población a partir de una muestra no representativa.",
+    "ejemplo_correcto": "En 'El 80% de los encuestados en un barrio de lujo apoya X, luego la mayoría del país apoya X', hay falsa generalización.",
     "ejemplo_incorrecto": "Aceptar la conclusión sin analizar la representatividad de la muestra."
   },
   {
@@ -5750,7 +5750,7 @@
     "teoria": "Foucault muestra que el discurso no solo describe la realidad: la produce y la regula. Saber y poder estan entrelazados: todo saber produce efectos de poder, y todo poder se sostiene en un saber. Localizar este entrelazamiento permite analizar como el discurso construye subjetividades y normaliza conductas.",
     "explicacion": "Preguntate: que saber se produce en el texto? Que efectos de poder tiene? A quien normaliza o excluye?",
     "regla": "El discurso, según Foucault, produce saber y poder: describe, regula y normaliza.",
-    "ejemplo_correcto": "En un discurso psiquiatrico que define la 'normalidad', se produce saber y se ejerce poder sobre los 'anormales'.",
+    "ejemplo_correcto": "En un discurso psiquiatrico qué define la 'normalidad', se produce saber y se ejerce poder sobre los 'anormales'.",
     "ejemplo_incorrecto": "Decir que el discurso solo informa. Según Foucault, también produce realidad y poder."
   },
   {
@@ -5824,8 +5824,8 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar el campo en el discurso (Bourdieu)",
-    "teoria": "Bourdieu define el campo como un espacio social relativamente autonomo donde los agentes luchan por capital (económico, cultural, social, simbólico). Localizarlo permite analizar las luchas de poder en un ambito especifico (literario, cientifico, político).",
-    "explicacion": "Identifica el campo (literario, cientifico, político). Preguntate: que capital se disputa? Que posiciones ocupan los agentes?",
+    "teoria": "Bourdieu define el campo como un espacio social relativamente autonomo donde los agentes luchan por capital (económico, cultural, social, simbólico). Localizarlo permite analizar las luchas de poder en un ambito especifico (literario, científico, político).",
+    "explicacion": "Identifica el campo (literario, científico, político). Preguntate: que capital se disputa? Que posiciones ocupan los agentes?",
     "regla": "El campo es un espacio social autonomo donde se lucha por capital.",
     "ejemplo_correcto": "En el campo literario, los escritores luchan por capital simbólico (prestigio, reconocimiento).",
     "ejemplo_incorrecto": "Decir que todos los ambitos funcionan igual. Cada campo tiene sus reglas y capitales."
@@ -5913,7 +5913,7 @@
     "proceso": "P1",
     "titulo": "Localizar la razón instrumental (Escuela de Frankfurt)",
     "teoria": "La razón instrumental (Adorno, Horkheimer) es la razón que reduce todo a medios para fines, sin preguntarse por los fines mismos. Localizarla permite analizar como el pensamiento tecnologico invade todas las esferas de la vida.",
-    "explicacion": "Preguntate: el texto reduce la razón a calculo de medios? Se pregunta por los fines? Hay razón crítica o solo instrumental?",
+    "explicacion": "Preguntate: el texto reduce la razón a cálculo de medios? Se pregunta por los fines? Hay razón crítica o solo instrumental?",
     "regla": "La razón instrumental reduce todo a medios para fines, sin cuestionar los fines.",
     "ejemplo_correcto": "En un texto que solo calcula eficiencia sin preguntarse por la justicia, hay razón instrumental.",
     "ejemplo_incorrecto": "Decir que toda razón es instrumental. La razón crítica también existe."
@@ -6498,7 +6498,7 @@
     "teoria": "Ricoeur llama hermenéutica de la sospecha a la interpretación que desconfía del sentido inmediato y busca el sentido oculto.",
     "explicacion": "Preguntate: la sospecha esta justificada? Hay razones para desconfiar del sentido inmediato?",
     "regla": "La hermenéutica de la sospecha busca el sentido oculto tras el sentido inmediato.",
-    "ejemplo_correcto": "En una crítica que revela intereses ocultos, hay hermenéutica de la sospecha.",
+    "ejemplo_correcto": "En una crítica qué revela intereses ocultos, hay hermenéutica de la sospecha.",
     "ejemplo_incorrecto": "Aceptar cualquier sospecha sin justificación."
   },
   {

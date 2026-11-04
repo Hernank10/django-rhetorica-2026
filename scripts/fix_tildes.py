@@ -798,6 +798,54 @@ REGEX_V14_FALSE_POS = [
     (r"\bque\s+(mecanismo|presuposición|tipo|función|recurso|sección|estrategia)\b", r"qué \1"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V15: C1 "Desinformacion: como detectar la manipulacion"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V15 = {
+    "criticamente": "críticamente",
+    "deberiamos": "deberíamos",
+    "mediatica": "mediática", "mediatico": "mediático",
+    "cientifica": "científica", "cientifico": "científico",
+    "cientificas": "científicas", "cientificos": "científicos",
+    "hipocresia": "hipocresía",
+    "dicotomia": "dicotomía", "dicotomias": "dicotomías",
+    "estadistica": "estadística", "estadistico": "estadístico",
+    "estadisticas": "estadísticas", "estadisticos": "estadísticos",
+    "grafico": "gráfico", "graficos": "gráficos",
+    "grafica": "gráfica", "graficas": "gráficas",
+    "enganoso": "engañoso", "enganosos": "engañosos",
+    "enganosa": "engañosa", "enganosas": "engañosas",
+    "explicitamente": "explícitamente",
+    "algoritmico": "algorítmico", "algoritmica": "algorítmica",
+    "algoritmicos": "algorítmicos", "algoritmicas": "algorítmicas",
+    "camaras": "cámaras", "camara": "cámara",
+    "capitan": "capitán",
+    "jovenes": "jóvenes",
+    "logicamente": "lógicamente",
+    "logica": "lógica", "logico": "lógico",
+    "logicas": "lógicas", "logicos": "lógicos",
+    "eticamente": "éticamente",
+    "etica": "ética", "etico": "ético",
+    "eticas": "éticas", "eticos": "éticos",
+    "metodologia": "metodología", "metodologias": "metodologías",
+    "mayoria": "mayoría", "mayorias": "mayorías",
+    "antiguedad": "antigüedad",
+    "calculo": "cálculo", "calculos": "cálculos",
+    "sustentadas": "sustentadas",
+}
+
+REGEX_V15_FALSE_POS = [
+    # Título: "como detectar" -> "cómo detectar"
+    (r"\bcomo\s+detectar\b", "cómo detectar"),
+    # "esta vacunado" -> "está vacunado"
+    (r"\besta\s+vacunado\b", "está vacunado"),
+    # Interrogativas en ejercicios: "que premisa" -> "qué premisa"
+    (r"\bque\s+(premisa|estrategia|falacia|manipulación|hace|revela|define|hay\s+que\s+analizar|sección|tipo|función|recurso)\b", r"qué \1"),
+    # "En 'Deberiamos" -> "En 'Deberíamos"
+    (r"\bDeberiamos\b", "Deberíamos"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -833,7 +881,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -875,6 +923,10 @@ def fix_text(text):
 
     # 15. REGEX_V14 (anuncio/cambio sustantivo + interrogativas C1)
     for pattern, replacement in REGEX_V14_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 16. REGEX_V15 (C1 desinformacion)
+    for pattern, replacement in REGEX_V15_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text
