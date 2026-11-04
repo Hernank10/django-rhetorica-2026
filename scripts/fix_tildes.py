@@ -668,6 +668,72 @@ REGEX_V12 = [
     (r"\bmereces',\s+que\s+interpelación\b", "mereces', qué interpelación"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V13: C1 "El cuento que se escribia solo"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V13 = {
+    # cuerpo del texto
+    "cajon": "cajón", "abrio": "abrió",
+    "reconocio": "reconoció", "galerias": "galerías",
+    "escalofrio": "escalofrío",
+    "comprendio": "comprendió",
+    "escucho": "escuchó", "escucharon": "escucharon",
+    "leido": "leído", "leida": "leída",
+    "escribi": "escribí",
+    "vertigo": "vértigo",
+    "libero": "liberó",
+    "seguiria": "seguiría", "seguirian": "seguirían",
+    "Cortazar": "Cortázar",
+    "creacion": "creación", "creaciones": "creaciones",
+    # ejercicios
+    "reflexion": "reflexión", "reflexiones": "reflexiones",
+    "monologo": "monólogo", "monologos": "monólogos",
+    "cronologico": "cronológico", "cronologica": "cronológica",
+    "fantastico": "fantástico", "fantastica": "fantástica",
+    "dramatica": "dramática", "dramatico": "dramático",
+    "polifonia": "polifonía",
+    "cuantica": "cuántica", "cuantico": "cuántico",
+    "fisica": "física", "fisico": "físico",
+    "descripción": "descripción",
+    "categoria": "categoría",
+    "funcion": "función",
+}
+
+REGEX_V13_FALSE_POS = [
+    # "sonaba con un hombre" -> "soñaba con un hombre" (contexto sueño)
+    (r"\bsonaba\s+con\s+un\b", "soñaba con un"),
+    (r"\bque\s+sonaba\s+con\b", "que soñaba con"),
+    # "Bernardo lo escucho con" -> "Bernardo lo escuchó con" (3a persona)
+    (r"\b(Bernardo|Aurelio)\s+lo\s+escucho\b", r"\1 lo escuchó"),
+    # "Y como termina el cuento" -> "Y cómo termina el cuento" (interrogativa)
+    (r"\bY\s+como\s+termina\b", "Y cómo termina"),
+    # "Y el, Aurelio" -> "Y él, Aurelio" (pronombre tónico)
+    (r"\bY\s+el,\s+Aurelio\b", "Y él, Aurelio"),
+    # "Y que el, Aurelio" -> "Y que él, Aurelio"
+    (r"\bque\s+el,\s+Aurelio\b", "que él, Aurelio"),
+    # "el tambien era" -> "él también era"
+    (r"\bel\s+tambien\s+era\b", "él también era"),
+    # "quizá si, y los" -> "quizá sí, y los" (afirmación)
+    (r"\bquizá\s+si,\b", "quizá sí,"),
+    # "Quizá tu eres" -> "Quizá tú eres" (pronombre)
+    (r"\bQuizá\s+tu\s+eres\b", "Quizá tú eres"),
+    (r"\bquizá\s+tu\s+eres\b", "quizá tú eres"),
+    # "escribiste tu" -> "escribiste tú"
+    (r"\bescribiste\s+tu\b", "escribiste tú"),
+    # "a si mismo / en si mismo / de si mismo" -> "sí mismo"
+    (r"\b(a|en|de|para|por|sobre|hacia)\s+si\s+mismo\b", r"\1 sí mismo"),
+    (r"\b(a|en|de|para|por|sobre|hacia)\s+si\s+misma\b", r"\1 sí misma"),
+    # "esta escribiendo" -> "está escribiendo" (verbo)
+    (r"\besta\s+escribiendo\b", "está escribiendo"),
+    # "Con que discursos" (interrogativa) -> "Con qué discursos"
+    (r"\bCon\s+que\s+discursos\b", "¿Con qué discursos"),
+    # "que relación" (interrogativa) -> "qué relación"
+    (r"\bque\s+relación\b", "qué relación"),
+    # "que función" (interrogativa) -> "qué función"
+    (r"\bque\s+función\b", "qué función"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -703,7 +769,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -737,6 +803,10 @@ def fix_text(text):
 
     # 13. REGEX_V12 (interrogativas indirectas v12)
     for pattern, replacement in REGEX_V12:
+        text = re.sub(pattern, replacement, text)
+
+    # 14. REGEX_V13 (interrogativas indirectas y pronombres tonicos C1)
+    for pattern, replacement in REGEX_V13_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text

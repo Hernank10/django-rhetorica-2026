@@ -104,7 +104,7 @@
     "explicacion": "Preguntate: los hechos podrían ocurrir en la realidad? Hay elementos fantasticos (dragones, magia, animales que hablan)? Si los hay, la situación es imaginaria.",
     "regla": "Una situación es imaginaria si incluye elementos fantasticos o imposibles en la realidad.",
     "ejemplo_correcto": "En 'El dragon volo sobre el castillo', la situación es imaginaria: los dragones no existen.",
-    "ejemplo_incorrecto": "Decir que es real porque el castillo existe. El elemento fantastico (el dragon que vuela) hace que toda la escena sea imaginaria.",
+    "ejemplo_incorrecto": "Decir que es real porque el castillo existe. El elemento fantástico (el dragon que vuela) hace que toda la escena sea imaginaria.",
     "numero_global": 64
   },
   {
@@ -332,7 +332,7 @@
     "explicacion": "Preguntate: esto podría ocurrir en la realidad? Hay elementos imposibles (animales que hablan, magia)? Si los hay, es fantasía; si no, es un hecho.",
     "regla": "Un hecho es posible o verificable; la fantasía incluye elementos imposibles o inventados.",
     "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
-    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele.",
+    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantástico es que vuele.",
     "numero_global": 74
   },
   {
@@ -665,7 +665,7 @@
     "nivel_mcer": "B2",
     "titulo": "Localizar el conector que expresa la relación entre dos ideas",
     "teoria": "Los conectores (pero, aunque, sin embargo, por tanto, porque) indican la relación lógica entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
-    "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
+    "explicacion": "Lee la oración y pregunta qué relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
     "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición.",
@@ -1799,7 +1799,7 @@
     "proceso": "P3",
     "titulo": "Identificar la idea principal de un cuento",
     "teoria": "La idea principal de un cuento es lo que el autor quiere transmitir con la historia. Suele estar implicita y se infiere del conjunto: que aprendizaje deja? Que conflicto se resuelve?",
-    "explicacion": "Lee el cuento completo. Preguntate: que quiere decirme el autor? Que enseñanza o reflexion deja? La respuesta es la idea principal.",
+    "explicacion": "Lee el cuento completo. Preguntate: que quiere decirme el autor? Que enseñanza o reflexión deja? La respuesta es la idea principal.",
     "regla": "La idea principal de un cuento se infiere del conjunto: que quiere transmitir el autor.",
     "ejemplo_correcto": "En 'La liebre y la tortuga', la idea principal es que la perseverancia vence al talento.",
     "ejemplo_incorrecto": "Decir que la idea principal es 'había una liebre y una tortuga'. Eso es solo el inicio."
@@ -1912,7 +1912,7 @@
     "explicacion": "Para distinguir realidad de fantasía, preguntate: esto podría ocurrir en la realidad? Hay elementos imposibles? Si los hay, es fantasía.",
     "regla": "La realidad es posible o verificable; la fantasía incluye elementos imposibles.",
     "ejemplo_correcto": "En 'El caballo volo sobre la ciudad', 'el caballo volo' es fantasía: los caballos no vuelan.",
-    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantastico es que vuele."
+    "ejemplo_incorrecto": "Decir que todo el texto es fantasía porque hay un caballo. El caballo existe; lo fantástico es que vuele."
   },
   {
     "numero": 80,
@@ -2106,9 +2106,9 @@
     "nivel_mcer": "A1",
     "proceso": "P4",
     "titulo": "Reconocer la función de un párrafo de cierre",
-    "teoria": "El párrafo de cierre sintetiza, concluye o invita a la reflexion. Su función es cerrar el texto de forma significativa.",
+    "teoria": "El párrafo de cierre sintetiza, concluye o invita a la reflexión. Su función es cerrar el texto de forma significativa.",
     "explicacion": "Para reconocer la función de un párrafo de cierre, preguntate: sintetiza lo dicho? Concluye? Invita a reflexionar?",
-    "regla": "El párrafo de cierre sintetiza, concluye o invita a la reflexion.",
+    "regla": "El párrafo de cierre sintetiza, concluye o invita a la reflexión.",
     "ejemplo_correcto": "En un texto que termina 'En definitiva, el reciclaje es tarea de todos', la función es sintetizar.",
     "ejemplo_incorrecto": "Decir que el párrafo de cierre no tiene función. Todo cierre tiene una función: sintetizar, concluir o invitar."
   },
@@ -2184,7 +2184,7 @@
     "proceso": "P1",
     "titulo": "Localizar el conector que expresa la relación entre dos ideas",
     "teoria": "Los conectores (pero, aunque, sin embargo, por tanto, porque) indican la relación lógica entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
-    "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
+    "explicacion": "Lee la oración y pregunta qué relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
     "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición."
@@ -2634,9 +2634,9 @@
     "nivel_mcer": "A2",
     "proceso": "P3",
     "titulo": "Interpretar la función de la conclusión de un texto",
-    "teoria": "La conclusión sintetiza, cierra o invita a la reflexion. Su función es cerrar el texto de forma significativa.",
+    "teoria": "La conclusión sintetiza, cierra o invita a la reflexión. Su función es cerrar el texto de forma significativa.",
     "explicacion": "Preguntate: la conclusión sintetiza lo dicho? Concluye? Invita a reflexionar?",
-    "regla": "La conclusión sintetiza, cierra o invita a la reflexion.",
+    "regla": "La conclusión sintetiza, cierra o invita a la reflexión.",
     "ejemplo_correcto": "En un texto que termina 'En definitiva, el reciclaje es tarea de todos', la función es sintetizar.",
     "ejemplo_incorrecto": "Decir que la conclusión no tiene función. Toda conclusión tiene una función."
   },
@@ -3053,7 +3053,7 @@
     "proceso": "P1",
     "titulo": "Localizar los conectores logicos entre dos ideas",
     "teoria": "Los conectores logicos (pero, aunque, sin embargo, por tanto, porque, además) indican la relación entre dos ideas. Identificarlos permite entender como se conectan los argumentos.",
-    "explicacion": "Lee la oración y pregunta que relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
+    "explicacion": "Lee la oración y pregunta qué relación establece el conector: contraste (pero, aunque), causa (porque, ya que), consecuencia (por tanto, así que), adición (además, también).",
     "regla": "El conector marca la relación lógica: contraste, causa, consecuencia o adición.",
     "ejemplo_correcto": "En 'Estudió mucho, pero no apruebo', el conector 'pero' marca contraste.",
     "ejemplo_incorrecto": "Decir que 'pero' indica causa. El conector 'pero' indica contraste u oposición."
@@ -3515,7 +3515,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el papel de los conectores en la argumentación",
     "teoria": "Los conectores (pero, sin embargo, por tanto, porque) articulan los argumentos y marcan la relación lógica entre las ideas. Interpretarlos permite seguir la argumentación del autor.",
-    "explicacion": "Identifica cada conector y pregunta que relación establece: contraste, causa, consecuencia o adición. El conector revela la estructura argumentativa.",
+    "explicacion": "Identifica cada conector y pregunta qué relación establece: contraste, causa, consecuencia o adición. El conector revela la estructura argumentativa.",
     "regla": "El conector marca la relación lógica entre los argumentos: contraste, causa, consecuencia o adición.",
     "ejemplo_correcto": "En 'El reciclaje reduce residuos, por tanto es beneficioso', el conector 'por tanto' marca consecuencia.",
     "ejemplo_incorrecto": "Decir que 'por tanto' marca contraste. 'Por tanto' marca consecuencia, no contraste."
@@ -4210,7 +4210,7 @@
     "teoria": "El tono puede cambiar a lo largo del texto (de la ironía a la seriedad, de la tristeza a la esperanza). Inferir esa evolución ayuda a comprender la progresión emocional del texto.",
     "explicacion": "Divide el texto en partes. Para cada una, identifica el tono dominante. Observa como cambia y por que.",
     "regla": "El tono puede evolucionar a lo largo del texto; la evolución revela la progresión emocional.",
-    "ejemplo_correcto": "Un texto que empieza con humor y termina con una reflexion seria tiene una evolución del tono de lo comico a lo reflexivo.",
+    "ejemplo_correcto": "Un texto que empieza con humor y termina con una reflexión seria tiene una evolución del tono de lo comico a lo reflexivo.",
     "ejemplo_incorrecto": "Decir que el tono es uniforme porque el autor no lo dice. El tono puede cambiar sin anunciarse."
   },
   {
@@ -4251,7 +4251,7 @@
     "nivel_mcer": "B2",
     "proceso": "P2",
     "titulo": "Inferir el mensaje implicito de una fábula o parabola",
-    "teoria": "Las fabulas y parabolas transmiten un mensaje implicito (enseñanza, crítica, reflexion) que va más allá del relato literal. Se infiere comparando la historia con la realidad.",
+    "teoria": "Las fabulas y parabolas transmiten un mensaje implicito (enseñanza, crítica, reflexión) que va más allá del relato literal. Se infiere comparando la historia con la realidad.",
     "explicacion": "Lee la historia. Preguntate: que situación de la vida real refleja? Que enseñanza o crítica se desprende?",
     "regla": "El mensaje implicito se infiere comparando la historia con la realidad.",
     "ejemplo_correcto": "En la fábula del pastor mentiroso, el mensaje implicito es que mentir tiene consecuencias.",
@@ -4481,12 +4481,12 @@
     "numero": 72,
     "nivel_mcer": "B2",
     "proceso": "P3",
-    "titulo": "Interpretar el uso del monologo interior",
-    "teoria": "El monologo interior reproduce los pensamientos del personaje sin narrador. Interpretarlo permite acceder a su mundo interior y comprender sus motivaciones.",
+    "titulo": "Interpretar el uso del monólogo interior",
+    "teoria": "El monólogo interior reproduce los pensamientos del personaje sin narrador. Interpretarlo permite acceder a su mundo interior y comprender sus motivaciones.",
     "explicacion": "Busca fragmentos sin narrador que reproducen pensamientos. Preguntate: que revelan del personaje? Que conflicto interno muestran?",
-    "regla": "El monologo interior revela el mundo interior del personaje.",
-    "ejemplo_correcto": "En 'Debo hacerlo... no, no puedo... pero tengo que...', el monologo interior revela la duda del personaje.",
-    "ejemplo_incorrecto": "Decir que el monologo es narración. El monologo reproduce pensamientos sin narrador."
+    "regla": "El monólogo interior revela el mundo interior del personaje.",
+    "ejemplo_correcto": "En 'Debo hacerlo... no, no puedo... pero tengo que...', el monólogo interior revela la duda del personaje.",
+    "ejemplo_incorrecto": "Decir que el monólogo es narración. El monólogo reproduce pensamientos sin narrador."
   },
   {
     "numero": 73,
@@ -4505,7 +4505,7 @@
     "proceso": "P3",
     "titulo": "Interpretar la técnica del contrapunto (varias historias entrelazadas)",
     "teoria": "El contrapunto narrativo entrelaza dos o más historias que se iluminan mutuamente. Interpretarlo permite comprender las relaciones tematicas entre las tramas.",
-    "explicacion": "Identifica las historias entrelazadas. Preguntate: que relación tematica hay entre ellas? Se complementan? Se contrastan?",
+    "explicacion": "Identifica las historias entrelazadas. Preguntate: qué relación tematica hay entre ellas? Se complementan? Se contrastan?",
     "regla": "El contrapunto entrelaza historias que se iluminan tematicamente.",
     "ejemplo_correcto": "En una novela que alterna dos historias en épocas distintas, el contrapunto revela paralelismos entre ellas.",
     "ejemplo_incorrecto": "Decir que las historias son independientes. El contrapunto las conecta tematicamente."
@@ -4549,7 +4549,7 @@
     "proceso": "P3",
     "titulo": "Interpretar la función del objeto en la narración",
     "teoria": "Los objetos en la narración pueden tener función práctica, simbólica o anticipatoria. Interpretar su función ayuda a comprender el sentido del texto.",
-    "explicacion": "Identifica los objetos que aparecen. Preguntate: que función cumplen? Son prácticos? Simbólicos? Anticipan algo?",
+    "explicacion": "Identifica los objetos que aparecen. Preguntate: qué función cumplen? Son prácticos? Simbólicos? Anticipan algo?",
     "regla": "El objeto en la narración puede tener función práctica, simbólica o anticipatoria.",
     "ejemplo_correcto": "En un cuento donde un cuchillo aparece al inicio, puede anticipar un asesinato (función anticipatoria).",
     "ejemplo_incorrecto": "Decir que los objetos solo tienen función práctica. En literatura, también pueden simbolizar o anticipar."
@@ -4636,7 +4636,7 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Detectar la falacia de la circularidad (petición de principio)",
-    "teoria": "La circularidad ocurre cuando la conclusión se usa como premisa para defenderse a si misma. Detectar esta falacia evita aceptar argumentos que no aportan evidencia.",
+    "teoria": "La circularidad ocurre cuando la conclusión se usa como premisa para defenderse a sí misma. Detectar esta falacia evita aceptar argumentos que no aportan evidencia.",
     "explicacion": "Preguntate: la premisa presupone la conclusión? Si la conclusión es la misma que una premisa, es circular.",
     "regla": "La circularidad usa la conclusión como premisa para defender la conclusión.",
     "ejemplo_correcto": "En 'Dios existe porque la Biblia lo dice, y la Biblia es verdadera porque es palabra de Dios', hay circularidad.",
@@ -5099,7 +5099,7 @@
     "proceso": "P2",
     "titulo": "Inferir las consecuencias no deseadas de un argumento",
     "teoria": "Todo argumento puede tener consecuencias no previstas por su autor. Inferirlas permite evaluar su solidez y su coherencia con otros valores defendidos.",
-    "explicacion": "Preguntate: si aceptamos esta tesis, que otras cosas se seguirian? Son coherentes con otros valores del autor?",
+    "explicacion": "Preguntate: si aceptamos esta tesis, que otras cosas se seguirían? Son coherentes con otros valores del autor?",
     "regla": "Las consecuencias no deseadas se infieren de las implicaciones de la tesis.",
     "ejemplo_correcto": "Si aceptamos 'toda decisión debe ser eficiente', se sigue que podriamos sacrificar derechos si eso es eficiente.",
     "ejemplo_incorrecto": "Decir que el argumento no tiene consecuencias. Todo argumento las tiene."
@@ -5154,7 +5154,7 @@
     "proceso": "P2",
     "titulo": "Inferir la función pragmática de la cortesia en un texto",
     "teoria": "La cortesia no es solo un adorno: cumple funciones pragmaticas como mantener la imagen social, marcar distancia o acercamiento, o persuadir. Inferir su función permite analizar la relación entre emisor y receptor.",
-    "explicacion": "Identifica las estrategias de cortesia. Preguntate: que función cumplen? Mantener la imagen? Persuadir? Marcar jerarquía?",
+    "explicacion": "Identifica las estrategias de cortesia. Preguntate: qué función cumplen? Mantener la imagen? Persuadir? Marcar jerarquía?",
     "regla": "La cortesia cumple funciones pragmaticas: mantener la imagen, marcar distancia, persuadir.",
     "ejemplo_correcto": "En '¿Seria tan amable de...?', la cortesia persuade marcando respeto.",
     "ejemplo_incorrecto": "Decir que la cortesia es solo educación. Cumple funciones pragmaticas."
@@ -5164,7 +5164,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir la construcción del ethos del orador",
-    "teoria": "El ethos es la imagen que el orador proyecta de si mismo para resultar creible: autoridad, honestidad, benevolencia. Inferirlo permite analizar como el texto construye la confianza del lector.",
+    "teoria": "El ethos es la imagen que el orador proyecta de sí mismo para resultar creible: autoridad, honestidad, benevolencia. Inferirlo permite analizar como el texto construye la confianza del lector.",
     "explicacion": "Busca marcas de autoridad ('como experto'), honestidad ('reconozco que'), benevolencia ('por el bien comun'). Preguntate: que imagen proyecta el orador?",
     "regla": "El ethos es la imagen de credibilidad que el orador proyecta (autoridad, honestidad, benevolencia).",
     "ejemplo_correcto": "En 'Como médico con 20 años de experiencia...', el orador construye ethos por autoridad.",
@@ -5252,7 +5252,7 @@
     "nivel_mcer": "C1",
     "proceso": "P2",
     "titulo": "Inferir la función del discurso referido (estilo directo, indirecto, narrativizado)",
-    "teoria": "El discurso referido (citas en estilo directo, indirecto o narrativizado) puede cumplir funciones: apoyar, distanciarse, ironizar o dar voz al otro. Inferir su función permite analizar la polifonia del texto.",
+    "teoria": "El discurso referido (citas en estilo directo, indirecto o narrativizado) puede cumplir funciones: apoyar, distanciarse, ironizar o dar voz al otro. Inferir su función permite analizar la polifonía del texto.",
     "explicacion": "Identifica las citas y su estilo. Preguntate: apoyan la tesis? Se distancian? Ironizan? Dan voz al otro?",
     "regla": "El discurso referido puede apoyar, distanciarse, ironizar o dar voz al otro.",
     "ejemplo_correcto": "En 'El ministro dijo que...', el estilo indirecto permite distanciarse de lo dicho.",
@@ -5328,12 +5328,12 @@
     "numero": 65,
     "nivel_mcer": "C1",
     "proceso": "P3",
-    "titulo": "Interpretar la función del monologo interior en la caracterización psicologica",
-    "teoria": "El monologo interior no solo revela pensamientos: construye la psicología del personaje, muestra sus contradicciones y permite al lector acceder a su mundo interior de forma directa.",
-    "explicacion": "Identifica los monologos interiores. Preguntate: que revelan del personaje? Sus contradicciones? Sus miedos? Sus deseos?",
-    "regla": "El monologo interior construye la psicología del personaje y muestra sus contradicciones.",
-    "ejemplo_correcto": "En 'No puedo... debo... no quiero', el monologo interior muestra el conflicto del personaje.",
-    "ejemplo_incorrecto": "Decir que el monologo solo informa. También caracteriza psicologicamente."
+    "titulo": "Interpretar la función del monólogo interior en la caracterización psicologica",
+    "teoria": "El monólogo interior no solo revela pensamientos: construye la psicología del personaje, muestra sus contradicciones y permite al lector acceder a su mundo interior de forma directa.",
+    "explicacion": "Identifica los monólogos interiores. Preguntate: que revelan del personaje? Sus contradicciones? Sus miedos? Sus deseos?",
+    "regla": "El monólogo interior construye la psicología del personaje y muestra sus contradicciones.",
+    "ejemplo_correcto": "En 'No puedo... debo... no quiero', el monólogo interior muestra el conflicto del personaje.",
+    "ejemplo_incorrecto": "Decir que el monólogo solo informa. También caracteriza psicologicamente."
   },
   {
     "numero": 66,
@@ -5373,11 +5373,11 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función de la metaliteratura (literatura sobre literatura)",
-    "teoria": "La metaliteratura es la literatura que reflexiona sobre si misma: sobre el acto de escribir, de leer o sobre la naturaleza de la ficción. Interpretarla permite comprender la autorreferencialidad del texto.",
-    "explicacion": "Busca momentos en que el texto reflexiona sobre si mismo: sobre la escritura, la lectura, la ficción. Que dice el texto sobre la literatura?",
+    "teoria": "La metaliteratura es la literatura que reflexiona sobre sí misma: sobre el acto de escribir, de leer o sobre la naturaleza de la ficción. Interpretarla permite comprender la autorreferencialidad del texto.",
+    "explicacion": "Busca momentos en que el texto reflexiona sobre sí mismo: sobre la escritura, la lectura, la ficción. Que dice el texto sobre la literatura?",
     "regla": "La metaliteratura reflexiona sobre la literatura misma (escritura, lectura, ficción).",
     "ejemplo_correcto": "En 'Seis personajes en busca de autor', Pirandello reflexiona sobre la naturaleza de la ficción teatral.",
-    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre si misma."
+    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre sí misma."
   },
   {
     "numero": 70,
@@ -5406,11 +5406,11 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar la función de la metaficción (ficción sobre la ficción)",
-    "teoria": "La metaficción es la ficción que reflexiona sobre si misma: sobre el acto de narrar, de leer o sobre la naturaleza de la ficción.",
-    "explicacion": "Busca momentos en que el texto se mira a si mismo: sobre la escritura, la lectura, el narrador.",
+    "teoria": "La metaficción es la ficción que reflexiona sobre sí misma: sobre el acto de narrar, de leer o sobre la naturaleza de la ficción.",
+    "explicacion": "Busca momentos en que el texto se mira a sí mismo: sobre la escritura, la lectura, el narrador.",
     "regla": "La metaficción reflexiona sobre la ficción misma (narración, lectura, representación).",
-    "ejemplo_correcto": "En 'El Quijote', los personajes han leido el Quijote, hay metaficción.",
-    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre si misma."
+    "ejemplo_correcto": "En 'El Quijote', los personajes han leído el Quijote, hay metaficción.",
+    "ejemplo_incorrecto": "Decir que es solo una historia. También reflexiona sobre sí misma."
   },
   {
     "numero": 73,
@@ -5449,12 +5449,12 @@
     "numero": 76,
     "nivel_mcer": "C1",
     "proceso": "P3",
-    "titulo": "Interpretar la función de la ironía dramatica (el lector sabe más que el personaje)",
-    "teoria": "La ironía dramatica ocurre cuando el lector sabe algo que el personaje desconoce, creando tensión o suspense.",
+    "titulo": "Interpretar la función de la ironía dramática (el lector sabe más que el personaje)",
+    "teoria": "La ironía dramática ocurre cuando el lector sabe algo que el personaje desconoce, creando tensión o suspense.",
     "explicacion": "Identifica momentos en que el lector sabe algo que el personaje no. Preguntate: que tensión crea?",
-    "regla": "La ironía dramatica crea tensión cuando el lector sabe más que el personaje.",
+    "regla": "La ironía dramática crea tensión cuando el lector sabe más que el personaje.",
     "ejemplo_correcto": "En 'Romeo y Julieta', el lector sabe que Julieta no ha muerto, pero Romeo lo cree.",
-    "ejemplo_incorrecto": "Decir que no hay tensión. La ironía dramatica crea suspense."
+    "ejemplo_incorrecto": "Decir que no hay tensión. La ironía dramática crea suspense."
   },
   {
     "numero": 77,
@@ -5493,12 +5493,12 @@
     "numero": 80,
     "nivel_mcer": "C1",
     "proceso": "P3",
-    "titulo": "Interpretar la función de la polifonia narrativa (múltiples voces)",
-    "teoria": "La polifonia narrativa (Bajtin) es la presencia de múltiples voces con conciencia propia en la novela, sin que ninguna domine.",
+    "titulo": "Interpretar la función de la polifonía narrativa (múltiples voces)",
+    "teoria": "La polifonía narrativa (Bajtin) es la presencia de múltiples voces con conciencia propia en la novela, sin que ninguna domine.",
     "explicacion": "Identifica las voces. Preguntate: tienen conciencia propia? Se contradicen? Hay una voz dominante?",
-    "regla": "La polifonia narrativa presenta múltiples voces con conciencia propia.",
+    "regla": "La polifonía narrativa presenta múltiples voces con conciencia propia.",
     "ejemplo_correcto": "En 'Crimen y castigo', las voces de Raskolnikov y Sonia tienen conciencia propia.",
-    "ejemplo_incorrecto": "Decir que solo hay una voz. La polifonia muestra múltiples."
+    "ejemplo_incorrecto": "Decir que solo hay una voz. La polifonía muestra múltiples."
   },
   {
     "numero": 81,
@@ -6209,9 +6209,9 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir el panóptico (Bentham/Foucault)",
-    "teoria": "El panóptico es una arquitectura carcelaria en la que el vigilante ve sin ser visto, y el preso se vigila a si mismo. Inferirlo permite analizar como el discurso internaliza la vigilancia.",
-    "explicacion": "Preguntate: hay vigilancia invisible? El sujeto se vigila a si mismo? La mirada del otro esta internalizada?",
-    "regla": "El panóptico internaliza la vigilancia: el sujeto se vigila a si mismo.",
+    "teoria": "El panóptico es una arquitectura carcelaria en la que el vigilante ve sin ser visto, y el preso se vigila a sí mismo. Inferirlo permite analizar como el discurso internaliza la vigilancia.",
+    "explicacion": "Preguntate: hay vigilancia invisible? El sujeto se vigila a sí mismo? La mirada del otro esta internalizada?",
+    "regla": "El panóptico internaliza la vigilancia: el sujeto se vigila a sí mismo.",
     "ejemplo_correcto": "En un texto donde el personaje se autocensura por miedo al juicio, actúa el panóptico.",
     "ejemplo_incorrecto": "Decir que solo hay vigilancia externa. El panóptico internaliza la mirada."
   },
@@ -6275,7 +6275,7 @@
     "nivel_mcer": "C2",
     "proceso": "P3",
     "titulo": "Interpretar el panóptico interno en el texto (Foucault)",
-    "teoria": "El panóptico interno es la internalización de la mirada vigilante: el sujeto se vigila a si mismo.",
+    "teoria": "El panóptico interno es la internalización de la mirada vigilante: el sujeto se vigila a sí mismo.",
     "explicacion": "Preguntate: el personaje se autocensura? Se siente vigilado? Hay una mirada internalizada?",
     "regla": "El panóptico interno es la internalización de la mirada vigilante en el sujeto.",
     "ejemplo_correcto": "En un personaje que se corrige antes de hablar por miedo al juicio, actúa el panóptico interno.",
