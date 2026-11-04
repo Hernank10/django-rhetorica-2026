@@ -473,7 +473,7 @@
     "nivel_mcer": "B1",
     "titulo": "Reconocer el propósito comunicativo de un texto",
     "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer paso para interpretarlo.",
-    "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
+    "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si señala problemas, crítica.",
     "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
     "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
     "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir, aunque use datos.",
@@ -1037,7 +1037,7 @@
     "nivel_mcer": "C1",
     "titulo": "Localizar la fuente primaria vs secundaria en un texto académico",
     "teoria": "En los textos académicos, las fuentes primarias son las originales (un estudio, un documento histórico, una entrevista); las secundarias son las que interpretan las primarias (un artículo de revisión, una enciclopedia).",
-    "explicacion": "Busca como se cita la fuente: si es un estudio original ('un estudio de la Universidad X'), es primaria; si es un resumen ('según el informe de', 'como senala el artículo'), es secundaria.",
+    "explicacion": "Busca como se cita la fuente: si es un estudio original ('un estudio de la Universidad X'), es primaria; si es un resumen ('según el informe de', 'como señala el artículo'), es secundaria.",
     "regla": "Fuente primaria = original; fuente secundaria = interpreta o resume la primaria.",
     "ejemplo_correcto": "En 'Un estudio de la Universidad de Lund (2023) encontró que...', la fuente es primaria (el estudio original).",
     "ejemplo_incorrecto": "Decir que 'según Wikipedia' es fuente primaria. Wikipedia es secundaria (resume fuentes primarias).",
@@ -1887,7 +1887,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el significado de un refran",
     "teoria": "Un refran es una frase popular que transmite una enseñanza o sabiduria. Se interpreta infiriendo la enseñanza que contiene.",
-    "explicacion": "Lee el refran y preguntate: que situación describe? Que enseñanza deja? Ejemplo: 'A quien madruga, Dios le ayuda' ensena que el esfuerzo temprano da frutos.",
+    "explicacion": "Lee el refran y preguntate: que situación describe? Que enseñanza deja? Ejemplo: 'A quien madruga, Dios le ayuda' enseña que el esfuerzo temprano da frutos.",
     "regla": "El refran se interpreta infiriendo la enseñanza que contiene.",
     "ejemplo_correcto": "En 'No es oro todo lo que reluce', la enseñanza es que las apariencias enganan.",
     "ejemplo_incorrecto": "Decir que el refran es literal (que el oro brilla). El refran tiene sentido figurado."
@@ -1942,7 +1942,7 @@
     "proceso": "P4",
     "titulo": "Identificar el propósito del texto",
     "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer paso para interpretarlo correctamente.",
-    "explicacion": "Para identificar el propósito, preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
+    "explicacion": "Para identificar el propósito, preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si señala problemas, crítica.",
     "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
     "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
     "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir."
@@ -2811,7 +2811,7 @@
     "proceso": "P3",
     "titulo": "Interpretar el propósito comunicativo del texto",
     "teoria": "Todo texto tiene un propósito: informar, persuadir, entretener, criticar. Reconocerlo es el primer paso para interpretarlo.",
-    "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si senala problemas, crítica.",
+    "explicacion": "Preguntate: que busca el autor? Si da datos y hechos, informa. Si defiende una postura, persuade. Si cuenta una historia, entretiene. Si señala problemas, crítica.",
     "regla": "Propósito = que busca el autor: informar, persuadir, entretener o criticar.",
     "ejemplo_correcto": "En un artículo con datos y citas, el propósito es informar.",
     "ejemplo_incorrecto": "Decir que un artículo de opinión informa porque tiene datos. Su propósito principal es persuadir."
@@ -4067,7 +4067,7 @@
     "teoria": "Las falacias causales confunden correlación con causalidad: 'post hoc' (después de esto, por esto) y 'cum hoc' (con esto, por esto). Localizarlas evita conclusiones erroneas.",
     "explicacion": "Preguntate: hay evidencia del mecanismo causal o solo coincidencia temporal?",
     "regla": "La falacia causal confunde correlación con causalidad.",
-    "ejemplo_correcto": "En 'Desde que uso esta pulsera, no me enfermo', hay una falacia post hoc.",
+    "ejemplo_correcto": "En 'Desde qué uso esta pulsera, no me enfermo', hay una falacia post hoc.",
     "ejemplo_incorrecto": "Aceptar que la pulsera causa salud. La correlación no implica causalidad."
   },
   {
@@ -4111,7 +4111,7 @@
     "teoria": "El argumento por consecuencias evalua una acción por sus resultados: si las consecuencias son buenas, la acción es buena; si malas, mala. Localizarlo permite seguir la lógica del texto.",
     "explicacion": "Preguntate: el autor justifica una acción por sus consecuencias? Cuales son esas consecuencias y como las evalua?",
     "regla": "El argumento por consecuencias evalua una acción por sus resultados.",
-    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', hay argumento por consecuencias.",
+    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorará la economía', hay argumento por consecuencias.",
     "ejemplo_incorrecto": "Decir que las consecuencias no importan. En este tipo de argumento son la clave."
   },
   {
@@ -4178,7 +4178,7 @@
     "explicacion": "Identifica el concepto de origen y el concepto de destino. Preguntate: que aspectos del destino se iluminan con el origen?",
     "regla": "La metáfora compleja estructura un concepto en términos de otro.",
     "ejemplo_correcto": "En 'la vida es un camino', la vida (destino) se entiende como camino (origen).",
-    "ejemplo_incorrecto": "Decir que 'camino' solo significa una via física. En la metáfora, es el esquema de la vida."
+    "ejemplo_incorrecto": "Decir que 'camino' solo significa una vía física. En la metáfora, es el esquema de la vida."
   },
   {
     "numero": 45,
@@ -4625,9 +4625,9 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Detectar la falacia de la pendiente resbaladiza",
-    "teoria": "La pendiente resbaladiza afirma que una acción llevara inevitablemente a una cadena de consecuencias negativas sin justificar cada pasó. Detectar esta falacia evita aceptar predicciones catastrofistas.",
-    "explicacion": "Preguntate: hay evidencia de que cada pasó lleve al siguiente? O se asume sin justificar?",
-    "regla": "La pendiente resbaladiza afirma consecuencias catastrofistas sin justificar cada pasó.",
+    "teoria": "La pendiente resbaladiza afirma que una acción llevara inevitablemente a una cadena de consecuencias negativas sin justificar cada paso. Detectar esta falacia evita aceptar predicciones catastrofistas.",
+    "explicacion": "Preguntate: hay evidencia de que cada paso lleve al siguiente? O se asume sin justificar?",
+    "regla": "La pendiente resbaladiza afirma consecuencias catastrofistas sin justificar cada paso.",
     "ejemplo_correcto": "En 'Si permites una falta, luego todas, y al final se derrumba la sociedad', hay pendiente resbaladiza.",
     "ejemplo_incorrecto": "Aceptar que una falta lleve al colapso social. No hay evidencia de la cadena."
   },
@@ -4648,7 +4648,7 @@
     "proceso": "P4",
     "titulo": "Detectar la falacia del tu quoque",
     "teoria": "El tu quoque es una variante del ad hominem: se desacredita el argumento del oponente senalando su incoherencia con sus actos. Detectar esta falacia evita aceptar refutaciones que no refutan el argumento.",
-    "explicacion": "Preguntate: el autor refuta el argumento o solo senala que el oponente no lo cumple? Si es lo segundo, es tu quoque.",
+    "explicacion": "Preguntate: el autor refuta el argumento o solo señala que el oponente no lo cumple? Si es lo segundo, es tu quoque.",
     "regla": "El tu quoque desacredita al oponente por su incoherencia, no refuta el argumento.",
     "ejemplo_correcto": "En 'No me digas que no fume: tu fumas', hay tu quoque: no se refuta el argumento, se ataca la coherencia.",
     "ejemplo_incorrecto": "Aceptar que el argumento es malo porque el oponente fuma. La coherencia personal no invalida el argumento."
@@ -4724,7 +4724,7 @@
     "nivel_mcer": "B2",
     "proceso": "P4",
     "titulo": "Detectar la falacia del hombre de paja en un debate",
-    "teoria": "La falacia del hombre de paja distorsiona el argumento del oponente para refutarlo más facilmente. Detectar esta falacia es esencial para evaluar debates.",
+    "teoria": "La falacia del hombre de paja distorsiona el argumento del oponente para refutarlo más fácilmente. Detectar esta falacia es esencial para evaluar debates.",
     "explicacion": "Compara el argumento original con el que se refuta. Se esta refutando el argumento real o una caricatura?",
     "regla": "La falacia del hombre de paja refuta una versión distorsionada del argumento original.",
     "ejemplo_correcto": "Si alguien dice 'deberíamos regular la IA' y le responden 'quiere prohibir toda tecnología', hay hombre de paja.",
@@ -4738,7 +4738,7 @@
     "teoria": "El argumento por consecuencias evalua una acción por sus resultados. Es sólido si las consecuencias están justificadas y si no hay alternativas con mejores resultados. Evaluarlo requiere analizar la probabilidad y la magnitud de esas consecuencias.",
     "explicacion": "Preguntate: las consecuencias son probables? Son relevantes? Hay alternativas con mejores consecuencias?",
     "regla": "El argumento por consecuencias es sólido si las consecuencias están justificadas y no hay mejores alternativas.",
-    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorara la economía', el argumento por consecuencias es sólido si hay evidencia del efecto.",
+    "ejemplo_correcto": "En 'Hay que invertir en educación porque mejorará la economía', el argumento por consecuencias es sólido si hay evidencia del efecto.",
     "ejemplo_incorrecto": "Aceptar el argumento sin evidencia de que la consecuencia se vaya a producir."
   },
   {
@@ -4926,7 +4926,7 @@
     "explicacion": "Busca apelaciones a la autoridad ('como dice la ley'), a la tradición ('siempre se ha hecho así'), a la razón ('es lógico'), a la moral ('es lo justo'), a la eficacia ('funciona').",
     "regla": "La legitimación justifica el poder o una decisión mediante autoridad, tradición, razón, moral o eficacia.",
     "ejemplo_correcto": "En 'Como establece la Constitución, debemos...', la legitimación es por autoridad legal.",
-    "ejemplo_incorrecto": "Decir que el autor solo informa. La apelación a la ley legitima su posición."
+    "ejemplo_incorrecto": "Decir que el autor solo informa. La apelación a la ley legítima su posición."
   },
   {
     "numero": 29,
@@ -5263,10 +5263,10 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar el texto como práctica social (discurso y poder)",
-    "teoria": "Desde el análisis crítico del discurso (Fairclough, Van Dijk), el texto es una práctica social que reproduce o cuestiona relaciones de poder. Interpretarlo así permite ver como el lenguaje construye jerarquías, legitima desigualdades o abre espacios de resistencia.",
+    "teoria": "Desde el análisis crítico del discurso (Fairclough, Van Dijk), el texto es una práctica social que reproduce o cuestiona relaciones de poder. Interpretarlo así permite ver como el lenguaje construye jerarquías, legítima desigualdades o abre espacios de resistencia.",
     "explicacion": "Preguntate: quien habla y desde qué posición de poder? A quien se silencia? Que relaciones sociales reproduce o cuestiona el texto?",
     "regla": "El texto es una práctica social que reproduce o cuestiona relaciones de poder.",
-    "ejemplo_correcto": "En una noticia que llama 'disturbios' a una protesta pacifica, el discurso legitima el orden establecido y deslegitima la protesta.",
+    "ejemplo_correcto": "En una noticia que llama 'disturbios' a una protesta pacifica, el discurso legítima el orden establecido y deslegitima la protesta.",
     "ejemplo_incorrecto": "Decir que el texto solo informa. También construye relaciones sociales."
   },
   {
@@ -5274,7 +5274,7 @@
     "nivel_mcer": "C1",
     "proceso": "P3",
     "titulo": "Interpretar el dialogismo bajtiniano (diálogo con otros discursos)",
-    "teoria": "Bajtin senala que todo texto es dialogico: responde a textos anteriores y anticipa respuestas futuras. Interpretar el dialogismo permite ver como el texto se posiciona en una red de discursos sociales.",
+    "teoria": "Bajtin señala que todo texto es dialogico: responde a textos anteriores y anticipa respuestas futuras. Interpretar el dialogismo permite ver como el texto se posiciona en una red de discursos sociales.",
     "explicacion": "Preguntate: a que discursos responde? Que respuestas anticipa? Con que voces polemiza?",
     "regla": "El texto es dialogico: responde a otros discursos y anticipa respuestas.",
     "ejemplo_correcto": "Un ensayo feminista dialoga con el discurso patriarcal al que crítica y anticipa las objeciones de sus oponentes.",
@@ -5769,7 +5769,7 @@
     "nivel_mcer": "C2",
     "proceso": "P1",
     "titulo": "Localizar la hegemonía gramsciana en el discurso",
-    "teoria": "Gramsci distingue entre dominio (coerción) y hegemonía (consentimiento). La hegemonía es la dirección cultural e ideológica que un grupo ejerce sobre otros mediante el consenso. Localizarla permite analizar como el discurso construye consenso y legitima el poder.",
+    "teoria": "Gramsci distingue entre dominio (coerción) y hegemonía (consentimiento). La hegemonía es la dirección cultural e ideológica que un grupo ejerce sobre otros mediante el consenso. Localizarla permite analizar como el discurso construye consenso y legítima el poder.",
     "explicacion": "Preguntate: el texto busca consenso o impone? Presenta una visión del mundo como universal? Hay articulación de intereses?",
     "regla": "La hegemonía es la dirección cultural e ideológica mediante el consenso.",
     "ejemplo_correcto": "En un discurso que presenta los intereses de una clase como intereses de todos, hay hegemonía.",
@@ -6035,7 +6035,7 @@
     "titulo": "Inferir el capital simbólico (Bourdieu)",
     "teoria": "El capital simbólico es el reconocimiento social que se otorga a una persona o grupo: prestigio, honor, autoridad.",
     "explicacion": "Preguntate: a quien se reconoce? Que prestigio se otorga? Que posiciones se legitiman?",
-    "regla": "El capital simbólico es el reconocimiento social que legitima posiciones.",
+    "regla": "El capital simbólico es el reconocimiento social que legítima posiciones.",
     "ejemplo_correcto": "En un texto que otorga prestigio a los médicos, se distribuye capital simbólico.",
     "ejemplo_incorrecto": "Decir que solo hay capital económico. El capital simbólico también estructura el poder."
   },
@@ -6044,8 +6044,8 @@
     "nivel_mcer": "C2",
     "proceso": "P2",
     "titulo": "Inferir la violencia simbólica (Bourdieu)",
-    "teoria": "La violencia simbólica es la violencia que se ejerce con la complicidad del dominado, que la percibe como natural o legitima.",
-    "explicacion": "Preguntate: que dominación se naturaliza? El dominado la acepta como legitima?",
+    "teoria": "La violencia simbólica es la violencia que se ejerce con la complicidad del dominado, que la percibe como natural o legítima.",
+    "explicacion": "Preguntate: que dominación se naturaliza? El dominado la acepta como legítima?",
     "regla": "La violencia simbólica naturaliza la dominación con la complicidad del dominado.",
     "ejemplo_correcto": "En un texto donde las mujeres aceptan como natural la desigualdad de género, hay violencia simbólica.",
     "ejemplo_incorrecto": "Decir que solo hay violencia física. La violencia simbólica también domina."

@@ -980,6 +980,68 @@ REGEX_V18_FALSE_POS = [
     (r"\blogica\s+comun\b", "lógica común"),
 ]
 
+
+# ══════════════════════════════════════════════════════════════════
+# WORDS_V19: B2 "Moviles en los institutos"
+# ══════════════════════════════════════════════════════════════════
+WORDS_V19 = {
+    "obtenian": "obtenían",
+    "distraeran": "distraerán",
+    "estudiaran": "estudiarán",
+    "fracasaran": "fracasarán",
+    "encontraran": "encontrarán",
+    "acabaran": "acabarán",
+    "senala": "señala",
+    "senalan": "señalan",
+    "senalo": "señaló",
+    "ensena": "enseña",
+    "ensenar": "enseñar",
+    "facilmente": "fácilmente",
+    "socioeconomico": "socioeconómico",
+    "socioeconomica": "socioeconómica",
+    "via": "vía",
+    "habria": "habría",
+    "habrian": "habrían",
+    "valido": "válido", "valida": "válida",
+    "validos": "válidos", "validas": "válidas",
+    "legitimo": "legítimo", "legitima": "legítima",
+    "estadistico": "estadístico", "estadistica": "estadística",
+    "mejorara": "mejorará",
+    "sufriran": "sufrirán",
+}
+
+REGEX_V19_FALSE_POS = [
+    # ─── Título: "Moviles" -> "Móviles" ───
+    (r"\bMoviles\s+en\s+los\s+institutos\b", "Móviles en los institutos"),
+    (r"\bmoviles\s+en\s+los\s+institutos\b", "móviles en los institutos"),
+    # ─── "esta de actualidad" -> "está de actualidad" (verbo) ───
+    (r"\besta\s+de\s+actualidad\b", "está de actualidad"),
+    # ─── "encontraran trabajó" -> "encontrarán trabajo" (sustantivo) ───
+    (r"\bencontrarán\s+trabajó\b", "encontrarán trabajo"),
+    (r"\bencontraran\s+trabajó\b", "encontrarán trabajo"),
+    (r"\bencontraran\s+trabajo\b", "encontrarán trabajo"),
+    # ─── "hábitos de estudió" -> "hábitos de estudio" (sustantivo) ───
+    (r"\bhabitos\s+de\s+estudió\b", "hábitos de estudio"),
+    (r"\bh.?bitos\s+de\s+estudió\b", "hábitos de estudio"),
+    (r"\bde\s+estudió\b(?=\s*[)\.,;])", "de estudio"),
+    # ─── "cada pasó" -> "cada paso" (sustantivo) ───
+    (r"\bcada\s+pasó\b", "cada paso"),
+    # ─── "Tu defiendes" -> "Tú defiendes" (pronombre) ───
+    (r"\bTu\s+defiendes\b", "Tú defiendes"),
+    (r"\btu\s+defiendes\b", "tú defiendes"),
+    # ─── Interrogativas en ejercicios ───
+    (r"\bque\s+falacia\b", "qué falacia"),
+    (r"\bque\s+sesgo\b", "qué sesgo"),
+    (r"\bque\s+estaria\s+ocurriendo\b", "qué estaría ocurriendo"),
+    (r"\bque\s+tipo\b", "qué tipo"),
+    (r"\bque\s+uso\b", "qué uso"),
+    (r"\bcomo\s+se\s+distinguen\b", "cómo se distinguen"),
+    # ─── "Si," afirmativo -> "Sí," ───
+    (r"\bSi,\s+la\s+conclusión\b", "Sí, la conclusión"),
+    (r"\bSi,\s+presenta\b", "Sí, presenta"),
+    (r"\bSi,\s+refleja\b", "Sí, refleja"),
+]
+
 # ───── Patrones regex ─────
 INTERROGATIVE_PATTERNS = [
     (r'([¿¡]\s*)([Cc])omo\b', r'\1\2ómo'),
@@ -1015,7 +1077,7 @@ def fix_text(text):
     if not isinstance(text, str):
         return text
     # 1. Diccionario case-insensitive (WORDS + WORDS_V5)
-    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16, **WORDS_V17, **WORDS_V18}.items():
+    for old, new in {**WORDS, **WORDS_V5, **WORDS_V6, **WORDS_V7, **WORDS_V8, **WORDS_V11, **WORDS_V13, **WORDS_V14, **WORDS_V15, **WORDS_V16, **WORDS_V17, **WORDS_V18, **WORDS_V19}.items():
         text = apply_word(text, old, new)
     # 2. -ción / -sión singular
     text = REGEX_CION.sub(r'\1ción', text)
@@ -1073,6 +1135,10 @@ def fix_text(text):
 
     # 19. REGEX_V18 (B2 casa relojes - falsos positivos + tildes)
     for pattern, replacement in REGEX_V18_FALSE_POS:
+        text = re.sub(pattern, replacement, text)
+
+    # 20. REGEX_V19 (B2 moviles institutos - falsos positivos + tildes)
+    for pattern, replacement in REGEX_V19_FALSE_POS:
         text = re.sub(pattern, replacement, text)
 
     return text
