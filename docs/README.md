@@ -23,7 +23,7 @@ organizada por niveles MCER (A1, A2, B1, B2, C1, C2).
 | Correcciones redaccion | 151 |
 | Ejercicios reescritos | 12 |
 | Residuos reales | 0 |
-| Ultimo commit | `?` |
+| Ultimo commit | `9f78469 docs(lectura): listado completo de 36 textos con correcciones (317 tildes + 157 redacciones + 12 contenido)` |
 | Ultimo tag | `v3.4.2-lectura-v40c-completo` |
 
 ---

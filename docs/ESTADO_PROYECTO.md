@@ -32,7 +32,7 @@
 
 ## Git
 
-**Ultimo commit:** `?`
+**Ultimo commit:** `9f78469 docs(lectura): listado completo de 36 textos con correcciones (317 tildes + 157 redacciones + 12 contenido)`
 
 ### Tags v3.4*
 
