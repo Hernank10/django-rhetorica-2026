@@ -121,12 +121,12 @@
     ]
   },
   {
-    "titulo": "La promesa incumplida de la empresa energetica",
+    "titulo": "La promesa incumplida de la empresa energética",
     "tipo": "informativo",
     "nivel_mcer": "C1",
     "fuente": "Periodico El Debate, seccion Economia, 15/10/2026",
     "orden": 3,
-    "cuerpo": "Una vez más, la empresa energetica Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez más, los datos la desmintieron al mes siguiente de la rueda de prensa: según el informe trimestral publicado por la propia compañía, las emisiones habían aumentado un 4% respecto al año anterior. El director de sostenibilidad, en declaraciones a este periódico, aseguro que 'el incremento es temporal y responde a una mayor demanda energetica'. Sin embargo, dos expertos independientes consultados por El Debate señalan que la empresa había recibido subvenciones públicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compañía no ha respondido a las preguntas de este periódico.",
+    "cuerpo": "Una vez más, la empresa energética Promesas S.A. prometio reducir sus emisiones de CO2 un 30% antes de 2025. Una vez más, los datos la desmintieron al mes siguiente de la rueda de prensa: según el informe trimestral publicado por la propia compañía, las emisiones habían aumentado un 4% respecto al año anterior. El director de sostenibilidad, en declaraciones a este periódico, aseguro que 'el incremento es temporal y responde a una mayor demanda energética'. Sin embargo, dos expertos independientes consultados por El Debate señalan que la empresa había recibido subvenciones públicas para mejorar sus plantas y que no hay evidencia de que esas mejoras se hayan ejecutado. La compañía no ha respondido a las preguntas de este periódico.",
     "ejercicios": [
       {
         "tecnica_numero": 1,
@@ -145,7 +145,7 @@
       },
       {
         "tecnica_numero": 2,
-        "enunciado": "La frase 'el incremento es temporal y responde a una mayor demanda energetica' es:",
+        "enunciado": "La frase 'el incremento es temporal y responde a una mayor demanda energética' es:",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3037,7 +3037,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 17,
-    "cuerpo": "El lunes por la mañana, el detective Ramos llegó al Museo del Prado. Alguien había robado un cuadro pequeño y valioso. La sala estaba en silencio. Solo tres personas habían estado allí el domingo: el vigilante, la guía y el restaurador. —¿Quién entró primero? —preguntó Ramos al vigilante. —Yo abrí la puerta a las nueve —respondió el vigilante, nervioso—. Después llegó la guía. El detective miró la lista de sospechosos. La guía tenía 45 años. El restaurador, 60. El vigilante, 30. —¿Viste algo raro? —insistió Ramos. —Solo un ruido en la sala de restauración —dijo el vigilante—. Como un cristal roto. Ramos revisó la sala. En el suelo había un trozo de vidrio. Cerca de la ventana, una huella de zapato. —La ventana estaba abierta —observo Ramos—. Por eso el ladrón pudo escapar rápidamente. Ramos pensó: si el ladrón salió por la ventana, tuvo que ser alguien ágil. Entonces, recordó el ruido del cristal. El restaurador trabajaba con vidrio a diario. —El restaurador rompió el cristal sin querer —concluyó Ramos—. Eso lo delato. Al final, el restaurador confesó. Había robado el cuadro para venderlo. Ramos sonrió. Había resuelto el misterio en solo una mañana.",
+    "cuerpo": "El lunes por la mañana, el detective Ramos llegó al Museo del Prado. Alguien había robado un cuadro pequeño y valioso. La sala estaba en silencio. Solo tres personas habían estado allí el domingo: el vigilante, la guía y el restaurador. —¿Quién entró primero? —preguntó Ramos al vigilante. —Yo abrí la puerta a las nueve —respondió el vigilante, nervioso—. Después llegó la guía. El detective miró la lista de sospechosos. La guía tenía 45 años. El restaurador, 60. El vigilante, 30. —¿Viste algo raro? —insistió Ramos. —Solo un ruido en la sala de restauración —dijo el vigilante—. Como un cristal roto. Ramos revisó la sala. En el suelo había un trozo de vidrio. Cerca de la ventana, una huella de zapato. —La ventana estaba abierta —observó Ramos—. Por eso el ladrón pudo escapar rápidamente. Ramos pensó: si el ladrón salió por la ventana, tuvo que ser alguien ágil. Entonces, recordó el ruido del cristal. El restaurador trabajaba con vidrio a diario. —El restaurador rompió el cristal sin querer —concluyó Ramos—. Eso lo delato. Al final, el restaurador confesó. Había robado el cuadro para venderlo. Ramos sonrió. Había resuelto el misterio en solo una mañana.",
     "ejercicios": [
       {
         "tecnica_numero": 19,
