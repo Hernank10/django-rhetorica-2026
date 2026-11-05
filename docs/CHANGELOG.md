@@ -1,93 +1,91 @@
-﻿# Changelog
+# Changelog
 
-## v1.7.8 — Documentacion de certificaciones (modulo15 + guia)
-
-- `docs/modulo15_certificaciones.md` (nuevo, 12 secciones, ~11.6 KB)
-- `docs/guia_certificaciones.md` (nuevo, 7 secciones, ~12.5 KB)
-- Actualiza `docs/README.md` con links a modulo15 + guia
-
-## v1.7.7 — Otorgamiento automatico de certificaciones (1,311 certs)
-
-- `core/services/certificaciones.py`: motor (get_user_stats, cumple_requisitos, verificar_y_otorgar)
-- `core/signals_progreso.py`: signal auto_cert_al_completar
-- `core/management/commands/otorgar_certificaciones.py`: backfill con --user y --dry-run
-- `core/tests/test_certificaciones_auto.py`: 13 tests verdes
-- **1,311 certificaciones emitidas** (147 previas + 1,164 auto-otorgadas)
-- Cierra deuda tecnica: no mas emision manual obligatoria
-
-## v1.7.6 — Guia del sistema de certificaciones
-
-- `docs/guia_certificaciones.md`: 7 secciones (estudiantes, profesores, admins)
-- 49 certificaciones activas documentadas
-- 5 niveles (Bronce -> Diamante)
-
-## v1.7.5 — Seed de 45 estudiantes certificados
-
-- `scripts/seed_test_certs.py`: 85 certs para est001-est045
-- `core/admin.py`: CertificacionObtenida registrado
-- `core/views_profesor.py`: lista_certificaciones filtra por profesor_asignado
-
-## v1.7.2 — Fix tildes en presentacion de modulos
-
-- 14 reemplazos en dashboard/base/indice (Gramatica -> Gramática, tecnicas -> técnicas)
-
-## v1.7.1 — Documentacion completa modulos 11-14
-
-- `docs/modulo11_gramatica.md` (16 secciones)
-- `docs/modulo12_generativa.md` (12 secciones)
-- `docs/modulo13_a1.md` (12 secciones)
-- `docs/modulo14_b1.md` (12 secciones)
-- README actualizado
-
-## v1.7.0 — Lengua Castellana B1 completa (400 tecnicas totales)
-
-- 100 tecnicas B1 (301-400), bloques A-G
-- 100 ejercicios tipo 1
-- 400 totales (100 gram + 100 gen + 100 A1 + 100 B1)
-
-## v1.6.0 — Lengua Castellana A1 completa (300 tecnicas)
-
-- 100 tecnicas A1 (201-300), bloques A-G
-- 300 tecnicas totales
-
-## v1.5.0 — Gramatica generativa completa (200 tecnicas)
-
-- 100 tecnicas GGT (101-200)
-- Migracion 0020 (campo modulo)
-- 200 tecnicas totales
-
-## v1.4.0 — Gramatica castellana completa (100 tecnicas)
-
-- 100 tecnicas gramatica (1-100)
-- 100 tecnicas totales
-
-## v1.3.x — Modulo 10: Sintaxis del castellano (100 tecnicas)
-
-- v1.3.1: dashboards por rol
-- v1.3.0: sintaxis integrada en LMS
-- v1.2.1: 5 vistas + 3 templates + JS AJAX
-- v1.2.0: 100 tecnicas + 100 ejercicios
-
-## v1.1.x — Base del proyecto
-
-- v1.1.7: docs cierre v1.1.x
-- v1.1.5: STORAGES condicional via USE_S3
-- v1.1.4: settings split (base/dev/prod)
-- v1.1.3: requirements.txt curado
-- v1.1.2: SECRET_KEY fuera del codigo (.env)
-- v1.1.1: CRUD profesor tests + @profesor_required
-
-## v1.0.0 — Base inicial
-
-- Modelos base: Curso, Leccion, ProgresoUsuario
-- SRS, POS, redaccion, corpus, parafrasis, TTS
-- Tests iniciales
+Historial de versiones del proyecto `django-rhetorica`.
+Formato: [Keep a Changelog](https://keepachangelog.com/), versionado semantico.
 
 ---
 
-## Proximos hitos
+## [v3.4.2-lectura-v40c-completo] — 2026-11-05
 
-- **Deploy R2 + Render** (pendiente desde v1.1.5)
-- Posible fase 2: A2, B2, C1, C2
-- Posible fase 2: audio con TTS
-- Posible fase 2: mas tipos de ejercicios (4 y 5)
+### Added
+- **Documentacion completa** del proyecto (este CHANGELOG, README, ESTADO)
+- Reportes separados: `REPORTE_TILDES_v8_v40b.md/.txt` y `REPORTE_REDACCION_v8_v40b.md/.txt`
+- Sprint de integracion v8-v40c: 317 tildes + 151 redacciones + 12 reescrituras
+
+### Fixed
+- **`observo Ramos` → `observó Ramos`** en 'El misterio del cuadro robado'
+- **`energetica` → `energética`** en 'La promesa incumplida de la empresa energética'
+- `continua dentro` → `continúa dentro` en 'La fiesta de cumpleaños'
+
+### Commits
+- `e27b0d6` v40c: 2 residuos + 4 reportes
+- `0776471` reporte tildes y redaccion v8-v40b
+- `e9076a4` v40b: continua dentro
+- `26eeddd` v40 master: aplicar todos los fixes v8-v39
+
+---
+
+## [v3.4.1-lectura-v40-completo] — 2026-11-04
+
+### Added
+- **Master fix v40** que aplica TODOS los fixes v8-v39 en TODOS los textos
+- 162 correcciones en 23 textos
+
+### Fixed
+- Residuos de tildes en textos C2, C1, B2, B1, A2, A1
+- Coherencia redaccion: pronombres tonicos, concordancia, subjuntivo, signos `¿?`
+
+### Commits
+- `26eeddd` v40 master
+
+---
+
+## [v3.4.0-lectura-v8-v39-real] — 2026-11-04
+
+### Added
+- Correcciones individuales v8-v39 para los 27 textos revisados texto por texto
+- Scripts `_upgrade_v8.py` ... `_fix_master_v40.py` para trazabilidad
+
+### Fixed (muestra)
+- v8-v10: `El archivo de los espejos` (214 correcciones)
+- v11-v12: `El cuerpo como mercancia` (198 correcciones)
+- v13: `El cuento que se escribia solo` (87)
+- v14-v36: `Analisis critico del discurso institucional` (~200)
+- v15: `Desinformacion` (221)
+- v24: `Turismo masivo` (50 + 5 reescrituras)
+- v25: `Semana laboral de 4 dias` (32)
+- v26: `Viaje de Santiago` (33)
+- v37: `IA en la educacion` (30)
+- v38: `Manipulacion del lenguaje` (24)
+- v39: `Sujeto atrapado` (30)
+
+---
+
+## [v3.4.4-b2-textos] — 2026-11-03
+
+### Added
+- Textos B2 completos con ejercicios
+- Tags: `v3.4.0-b2-p1`, `v3.4.1-b2-p2`, `v3.4.2-b2-p3`, `v3.4.3-b2-completo`, `v3.4.4-b2-textos`
+
+---
+
+## [v3.3.5-lectura-b1-tecnicas-completas] — 2026-11-02
+
+### Added
+- **100 tecnicas B1** completas (P1-P4 = 25 c/u)
+- Tags: `v3.3.0-lectura-b1-p1`, `v3.3.1-lectura-b1-p2`, `v3.3.2-lectura-b1-p3`, `v3.3.3-lectura-b1-completo`, `v3.3.4-lectura-b1-textos`, `v3.3.5-lectura-b1-tecnicas-completas`
+
+---
+
+## Notas
+
+### Sobre la nomenclatura de tags
+
+- `v3.3.x-lectura-b1-*` — sprint B1 tecnicas
+- `v3.4.x-b2-*` — sprint B2 textos
+- `v3.4.x-lectura-v*-*` — sprint de tildes y redaccion
+
+### Sobre los reportes
+
+Los reportes `.md` son para leer/renderizar. Los `.txt` son para email o logs.
+Ambos se generan con `scripts/_reportes_unificados.py`.
