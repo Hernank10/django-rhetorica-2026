@@ -4212,7 +4212,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, tiene autoridad en la materia",
+            "A) Sí, tiene autoridad en la materia",
             "B) No, es una opinión sin fundamento",
             "C) No, es anonima",
             "D) No se puede saber"
@@ -4228,7 +4228,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, ilustra el ahorro de energía del reciclaje",
+            "A) Sí, ilustra el ahorro de energía del reciclaje",
             "B) No, no tiene relación",
             "C) No, es demasiado técnico",
             "D) Es irrelevante"
@@ -4292,7 +4292,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, las ideas se conectan y no hay contradicciones",
+            "A) Sí, las ideas se conectan y no hay contradicciones",
             "B) No, se contradice",
             "C) No, salta de un tema a otro",
             "D) No se puede saber"
@@ -4308,7 +4308,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, usa oraciones cortas y estructura clara",
+            "A) Sí, usa oraciones cortas y estructura clara",
             "B) No, es confuso",
             "C) No, usa palabras muy técnicas",
             "D) No se puede saber"
@@ -4324,7 +4324,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, da datos exactos",
+            "A) Sí, da datos exactos",
             "B) No, es vago",
             "C) No, se contradice",
             "D) No se puede saber"
