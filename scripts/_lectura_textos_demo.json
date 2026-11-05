@@ -2682,7 +2682,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 16,
-    "cuerpo": "En la granja de Juan hay muchos animales. Hay cinco vacas, tres cerdos y diez gallinas. Las vacas son grandes y de color blanco y negro. Dan leche cada mañana. Los cerdos son rosados y les gusta revolcarse en el barro. —Los cerdos son muy divertidos —dice Juan, riendo. Las gallinas ponen huevos todos los días. Son pequeñas y de color marrón. Los huevos son blancos y muy ricos. Un día, Juan encontró un huevo muy grande. —¡Qué huevo tan grande! —exclamó—. ¿De que gallina sera? Juan miró a las gallinas. Ninguna era más grande que las otras. Entonces, Juan entendió: el huevo era grande porque la gallina había comido mucho maíz. Juan recogió el huevo y lo llevó a la cocina. Su madre lo cocinó y toda la familia lo compartió. —Este huevo es el más rico de todos —dijo la madre—. Juan sonrió. Aquel día aprendió que las apariencias engañan: un huevo grande no siempre es mejor.",
+    "cuerpo": "En la granja de Juan hay muchos animales. Hay cinco vacas, tres cerdos y diez gallinas. Las vacas son grandes y de color blanco y negro. Dan leche cada mañana. Los cerdos son rosados y les gusta revolcarse en el barro. —Los cerdos son muy divertidos —dice Juan, riendo. Las gallinas ponen huevos todos los días. Son pequeñas y de color marrón. Los huevos son blancos y muy ricos. Un día, Juan encontró un huevo muy grande. —¡Qué huevo tan grande! —exclamó—. ¿De qué gallina será? Juan miró a las gallinas. Ninguna era más grande que las otras. Entonces, Juan entendió: el huevo era grande porque la gallina había comido mucho maíz. Juan recogió el huevo y lo llevó a la cocina. Su madre lo cocinó y toda la familia lo compartió. —Este huevo es el más rico de todos —dijo la madre—. Juan sonrió. Aquel día aprendió que las apariencias engañan: un huevo grande no siempre es mejor.",
     "ejercicios": [
       {
         "tecnica_numero": 78,
@@ -2762,7 +2762,7 @@
       {
         "tecnica_numero": 83,
         "tecnica_nivel": "A1",
-        "enunciado": "¿A que público objetivo va dirigido el texto?",
+        "enunciado": "¿A qué público objetivo va dirigido el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2827,8 +2827,8 @@
         "payload": {
           "opciones": [
             "A) No, el texto es coherente",
-            "B) Si, dice que los cerdos son rosados y grandes",
-            "C) Si, dice que hay diez gallinas y luego cinco"
+            "B) Sí, dice que los cerdos son rosados y grandes",
+            "C) Sí, dice que hay diez gallinas y luego cinco"
           ],
           "correcta": "A"
         },
@@ -2871,7 +2871,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, usa oraciones cortas y palabras sencillas",
+            "A) Sí, usa oraciones cortas y palabras sencillas",
             "B) No, usa palabras muy difíciles",
             "C) No, no se entiende"
           ],
@@ -2886,7 +2886,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, da números exactos",
+            "A) Sí, da números exactos",
             "B) No, es vago",
             "C) No, se contradice"
           ],
@@ -2916,7 +2916,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, ilustra que las apariencias engañan",
+            "A) Sí, ilustra que las apariencias engañan",
             "B) No, no tiene relación",
             "C) No, es demasiado largo"
           ],
@@ -2932,8 +2932,8 @@
         "payload": {
           "opciones": [
             "A) No, describe los animales de forma neutral",
-            "B) Si, crítica a los cerdos",
-            "C) Si, elogia solo a las vacas"
+            "B) Sí, critica a los cerdos",
+            "C) Sí, elogia solo a las vacas"
           ],
           "correcta": "A"
         },
@@ -2946,7 +2946,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, las ideas se conectan lógicamente",
+            "A) Sí, las ideas se conectan lógicamente",
             "B) No, salta de un tema a otro",
             "C) No, se contradice"
           ],
