@@ -1536,13 +1536,13 @@
       },
       {
         "tecnica_numero": 14,
-        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024) encontró que...' es una fuente primaria. ¿Cuál de las siguientes sería una fuente secundaria?",
+        "enunciado": "El autor cita datos de la OMT, la Universidad de Barcelona y la UNESCO. ¿Qué función cumplen estas fuentes en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) 'Un estudio de la Universidad de Barcelona (2024)'.",
-            "B) 'Un artículo de la revista Ciudades Sostenibles que resume el estudio de la Universidad de Barcelona'.",
-            "C) 'Una entrevista directa a un vecino del barrio Gótico'."
+            "A) Aportar datos y estudios que respaldan los argumentos sobre los efectos negativos del turismo masivo.",
+            "B) Presentar opiniones personales de los autores de esos estudios.",
+            "C) Sustituir la tesis del autor por la de organismos internacionales."
           ],
           "correcta": "B"
         },
@@ -1611,13 +1611,13 @@
       },
       {
         "tecnica_numero": 19,
-        "enunciado": "¿Cuál es el punto de vista del narrador del texto?",
+        "enunciado": "¿Cuál es el punto de vista del autor del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Narrador interno que participa en la historia y dice 'yo'.",
-            "B) Narrador externo en tercera persona con acceso a datos y al debate (punto de vista analítico).",
-            "C) Un diálogo entre dos personajes."
+            "A) Analítico y crítico: presenta datos, argumentos y propone una solución (regular el turismo).",
+            "B) Personal y subjetivo: cuenta su propia experiencia como turista.",
+            "C) Neutral: se limita a describir sin opinar."
           ],
           "correcta": "B"
         },
@@ -1626,13 +1626,13 @@
       },
       {
         "tecnica_numero": 10,
-        "enunciado": "El texto usa la 'etiqueta verde' como simbolo. ¿Qué simboliza?",
+        "enunciado": "El texto menciona la 'huella de carbono' del turismo. ¿Qué representa en el contexto del impacto ambiental?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Simboliza la ecología y el cuidado del medio ambiente.",
-            "B) Simboliza la hipocresía corporativa (greenwashing): una etiqueta que promete un mundo mejor pero no cambia las prácticas.",
-            "C) Simboliza el color favorito de los turistas."
+            "A) Los gases de efecto invernadero que generan los vuelos, cruceros y hoteles del sector turístico.",
+            "B) El número de turistas que visitan una ciudad cada año.",
+            "C) Las marcas ecológicas que llevan los productos de las tiendas de souvenirs."
           ],
           "correcta": "B"
         },
@@ -1656,13 +1656,13 @@
       },
       {
         "tecnica_numero": 20,
-        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024)' es una fuente primaria. ¿Cómo se clasificaría una encuesta realizada por el propio autor del texto?",
+        "enunciado": "El autor cita al economista José María Hernández (2025). ¿Qué función cumple esta cita en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Fuente primaria: es una investigación original.",
-            "B) Fuente secundaria: el autor solo resume otras fuentes.",
-            "C) No es una fuente, es una opinión."
+            "A) Aportar una voz experta que matiza el debate: el problema no es el turismo, sino su gestión.",
+            "B) Contradecir la tesis del autor sobre la necesidad de regular el turismo.",
+            "C) Introducir un contraargumento que el autor luego refuta."
           ],
           "correcta": "A"
         },
@@ -1686,13 +1686,13 @@
       },
       {
         "tecnica_numero": 11,
-        "enunciado": "El texto cita al economista Hernández: 'el turismo no es el enemigo: el problema es cómo se gestiona'. ¿Es una definición sólida?",
+        "enunciado": "El autor menciona la fábula de 'El perro del hortelano, que no come ni deja comer'. ¿Qué función cumple esta referencia en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Sí: es clara, precisa, no circular, y delimita el problema (la gestión) sin repetir el término.",
-            "B) No: es una definición circular que repite el término 'turismo'.",
-            "C) No: es demasiado larga para ser una definición."
+            "A) Ilustrar que el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad.",
+            "B) Demostrar que el autor conoce la literatura clásica española.",
+            "C) Introducir el tema principal del texto: la saturación turística."
           ],
           "correcta": "A"
         },
