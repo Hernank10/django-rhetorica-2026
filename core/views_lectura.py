@@ -328,3 +328,41 @@ def flashcards_verificar(request):
 
 
     return redirect("lectura:flashcards_lectura")
+
+
+# ══════════════════════════════════════════════════════════════════
+# Vista de la guia de certificados
+# ══════════════════════════════════════════════════════════════════
+from pathlib import Path as _Path
+from django.conf import settings as _settings
+from django.shortcuts import render as _render
+
+
+def guia_certificados(request):
+    """Renderiza docs/GUIA_CERTIFICADOS.md como HTML."""
+    guia_path = _Path(_settings.BASE_DIR) / "docs" / "GUIA_CERTIFICADOS.md"
+
+    if not guia_path.exists():
+        return _render(request, "core/lectura/guia_certificados.html", {
+            "titulo": "Guia no disponible",
+            "contenido_html": (
+                "<p class='text-danger'>La guia aun no esta disponible. "
+                "Contacta con el administrador.</p>"
+            ),
+        })
+
+    try:
+        import markdown
+        md_content = guia_path.read_text(encoding="utf-8")
+        contenido_html = markdown.markdown(
+            md_content,
+            extensions=["extra", "toc", "tables", "fenced_code", "sane_lists"],
+        )
+    except ImportError:
+        contenido_html = "<pre>" + guia_path.read_text(encoding="utf-8") + "</pre>"
+
+    return _render(request, "core/lectura/guia_certificados.html", {
+        "titulo": "Guia para obtener certificados",
+        "contenido_html": contenido_html,
+    })
+

@@ -1,0 +1,53 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'indice' %}">Lectura</a></li>
+            <li class="breadcrumb-item active">Guia de certificados</li>
+        </ol>
+    </nav>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0"><i class="fas fa-certificate"></i> {{ titulo }}</h2>
+        <a href="{% url 'indice' %}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Volver a lectura
+        </a>
+    </div>
+
+    <div class="guia-contenido">
+        {{ contenido_html|safe }}
+    </div>
+
+    <hr class="my-5">
+    <div class="text-center">
+        <p class="text-muted">Todo listo para obtener tu certificado?</p>
+        <a href="{% url 'indice' %}" class="btn btn-primary btn-lg">
+            Ir a los textos de lectura
+        </a>
+    </div>
+
+</div>
+
+<style>
+.guia-contenido { max-width: 900px; margin: 0 auto; line-height: 1.7; }
+.guia-contenido h1 { margin-top: 1.5rem; margin-bottom: 1rem; font-weight: 700; }
+.guia-contenido h2 { margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #dee2e6; padding-bottom: .5rem; font-weight: 600; }
+.guia-contenido h3 { margin-top: 1.5rem; margin-bottom: .75rem; font-weight: 600; }
+.guia-contenido h4 { margin-top: 1.25rem; margin-bottom: .5rem; font-weight: 600; }
+.guia-contenido table { width: 100%; margin: 1rem 0; border-collapse: collapse; font-size: .95rem; }
+.guia-contenido table th, .guia-contenido table td { border: 1px solid #dee2e6; padding: .5rem .75rem; }
+.guia-contenido table th { background: #f8f9fa; text-align: left; }
+.guia-contenido table tr:nth-child(even) { background: #fdfdfd; }
+.guia-contenido code { background: #f8f9fa; padding: .15rem .4rem; border-radius: .25rem; font-size: .9em; color: #d63384; }
+.guia-contenido pre { background: #f8f9fa; padding: 1rem; border-radius: .5rem; overflow-x: auto; border-left: 4px solid #0d6efd; }
+.guia-contenido pre code { background: transparent; padding: 0; color: inherit; }
+.guia-contenido blockquote { border-left: 4px solid #0d6efd; padding: .5rem 1rem; margin: 1rem 0; color: #495057; background: #f0f7ff; border-radius: 0 .25rem .25rem 0; }
+.guia-contenido ul, .guia-contenido ol { margin: .75rem 0; padding-left: 1.5rem; }
+.guia-contenido li { margin: .25rem 0; }
+.guia-contenido hr { margin: 2rem 0; border-top: 1px solid #dee2e6; }
+.guia-contenido a { color: #0d6efd; text-decoration: none; }
+.guia-contenido a:hover { text-decoration: underline; }
+</style>
+{% endblock %}

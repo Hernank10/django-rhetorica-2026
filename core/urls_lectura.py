@@ -11,4 +11,5 @@ urlpatterns = [
     path("<int:texto_id>/", v.texto_detalle, name="texto_detalle"),
     path('flashcards/', v.flashcards_lectura, name='flashcards_lectura'),
     path('flashcards/verificar/', v.flashcards_verificar, name='flashcards_verificar'),
+    path("guia-certificados/", v.guia_certificados, name="guia_certificados"),
 ]
