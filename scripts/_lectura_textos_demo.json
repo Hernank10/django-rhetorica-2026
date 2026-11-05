@@ -467,11 +467,11 @@
     "nivel_mcer": "B2",
     "fuente": "Informe de la OCDE, 2025",
     "orden": 6,
-    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automática. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automática liberan a los profesores de tareas repetitivas, permitiéndoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos señalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vínculo humano, qué es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorias por un asistente de IA. La medida género protestas de las familias, que consideraban que la educación requiere un acompañamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atrás. El debate sigue abierto. La pregunta no es si la IA estará en la educación, sino cómo integrarla de forma que potencie el aprendizaje sin perder lo humano. Como señala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al revés'.",
+    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automática. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automática liberan a los profesores de tareas repetitivas, permitiéndoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos señalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vínculo humano, que es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro cómo se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorías por un asistente de IA. La medida generó protestas de las familias, que consideraban que la educación requiere un acompañamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atrás. El debate sigue abierto. La pregunta no es si la IA estará en la educación, sino cómo integrarla de forma que potencie el aprendizaje sin perder lo humano. Como señala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al revés'.",
     "ejercicios": [
       {
         "tecnica_numero": 4,
-        "enunciado": "¿Dónde ocurrió el caso del instituto que sustituyó tutorias por un asistente de IA?",
+        "enunciado": "¿Dónde ocurrió el caso del instituto que sustituyó tutorías por un asistente de IA?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -626,7 +626,7 @@
         "payload": {
           "opciones": [
             "A) Estaban contentas con la medida.",
-            "B) Estaban preocupadas y en desacuerdo con la sustitución de tutorias por IA.",
+            "B) Estaban preocupadas y en desacuerdo con la sustitución de tutorías por IA.",
             "C) Eran indiferentes al cambio."
           ],
           "correcta": "B"
@@ -7102,7 +7102,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Sinónimos (reforma, cambió, transformación) y antónimos (pasado vs futuro)",
+            "A) Sinónimos (reforma, cambio, transformación) y antónimos (pasado vs futuro)",
             "B) Solo repetición literal",
             "C) Solo hiperónimos",
             "D) No hay cohesión"
