@@ -68,7 +68,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El vidrio es un material muy comun.",
+            "A) El vidrio es un material muy común.",
             "B) El reciclaje de vidrio en España es eficiente, aunque la cobertura rural es mejorable.",
             "C) Los ciudadanos españoles reciclan poco."
           ],
@@ -192,7 +192,7 @@
     "nivel_mcer": "B1",
     "fuente": "Informe del Observatorio de Adolescencia Digital, 2025",
     "orden": 4,
-    "cuerpo": "El instituto San Isidro ha prohibido los móviles durante el horario escolar. La medida, aprobada por el consejo escolar el pasado mes de septiembre, ha generado un intenso debate entre profesores, familias y alumnos. Según el informe del Observatorio de Adolescencia Digital de 2025, el 78% de los adolescentes españoles de entre 12 y 16 años usa redes sociales a diario. Sin embargo, solo el 32% de los padres considera que sus hijos hacen un uso responsable de ellas. Los defensores de la prohibición argumentan que los móviles son ubicuos en las aulas y dificultan la atención. Además, señalan que las redes sociales pueden generar ansiedad y comparaciones poco saludables. Por ejemplo, un estudio reciente de la Universidad de Valencia encontró que los adolescentes que pasan más de tres horas diarias en redes tienen un 40% más de probabilidad de mostrar síntomas de ansiedad. Los críticos, en cambio, consideran que la prohibición es una medida paternalista y que no resuelve el problema de fondo: la falta de educación digital. Argumentan que los jóvenes necesitan aprender a usar la tecnología de forma responsable, no evitarse. El debate sigue abierto. Mientras algunos institutos ya han aprobado medidas similares, otros prefieren esperar a ver los resultados del San Isidro al final del curso.",
+    "cuerpo": "El instituto San Isidro ha prohibido los móviles durante el horario escolar. La medida, aprobada por el consejo escolar el pasado mes de septiembre, ha generado un intenso debate entre profesores, familias y alumnos. Según el informe del Observatorio de Adolescencia Digital de 2025, el 78% de los adolescentes españoles de entre 12 y 16 años usa redes sociales a diario. Sin embargo, solo el 32% de los padres considera que sus hijos hacen un uso responsable de ellas. Los defensores de la prohibición argumentan que los móviles son ubicuos en las aulas y dificultan la atención. Además, señalan que las redes sociales pueden generar ansiedad y comparaciones poco saludables. Por ejemplo, un estudio reciente de la Universidad de Valencia encontró que los adolescentes que pasan más de tres horas diarias en redes tienen un 40% más de probabilidad de mostrar síntomas de ansiedad. Los críticos, en cambio, consideran que la prohibición es una medida paternalista y que no resuelve el problema de fondo: la falta de educación digital. Argumentan que los jóvenes necesitan aprender a usar la tecnología de forma responsable, no evitarla. El debate sigue abierto. Mientras algunos institutos ya han aprobado medidas similares, otros prefieren esperar a ver los resultados del San Isidro al final del curso.",
     "ejercicios": [
       {
         "tecnica_numero": 2,
@@ -320,9 +320,9 @@
     "titulo": "La manipulación del lenguaje en el discurso político",
     "tipo": "informativo",
     "nivel_mcer": "C1",
-    "fuente": "Revista de Analisis Politico, vol. 12, 2026",
+    "fuente": "Revista de Análisis Político, vol. 12, 2026",
     "orden": 5,
-    "cuerpo": "El lenguaje político no solo transmite información: también construye realidades. Como señala el linguista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del terminó 'los ciudadanos de bien'. Detrás de esa expresión aparentemente neutra se esconde una distinción entre 'nosotros' y 'los otros': quienes no encajan en esa categoría son, implícitamente, ciudadanos de mal. El político que usa este terminó no está describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de esloganes aparentemente positivos. El famoso 'España va bien' no describe un estado de cosas: invita al oyente a compartir una visión optimista y a desconfiar de quien la critique. Detrás del eslogan hay una intención persuasiva: quien lo pone en duda es presentado como un agorero. También son comunes las falsas disyuntivas: 'o está con nosotros o esta contra España'. Esta formula, que parece ofrecer una elección, en realidad la cancela: solo hay una opción legítima. Es una falacia clásica que los analistas del discurso llevan decadas senalando. Para evaluar la calidad de un discurso político, el lector crítico debe preguntarse: ¿qué evidencia respalda cada afirmación? ¿se citan estudios o solo se apela a la emoción? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es más creible que uno que solo apela a la emoción y a las generalizaciones. El análisis del lenguaje político no es un ejercicio de cinismo: es una condición para la ciudadania. Quien no sabe leer el lenguaje del poder esta condenado a obedecerle sin darse cuenta.",
+    "cuerpo": "El lenguaje político no solo transmite información: también construye realidades. Como señala el lingüista George Lakoff (2004) en su obra No pienses en un elefante, 'el lenguaje es poder'. Quien controla las palabras controla, en parte, lo que los ciudadanos pueden pensar. Un ejemplo claro es el uso del terminó 'los ciudadanos de bien'. Detrás de esa expresión aparentemente neutra se esconde una distinción entre 'nosotros' y 'los otros': quienes no encajan en esa categoría son, implícitamente, ciudadanos de mal. El político que usa este terminó no está describiendo la realidad: esta construyendo una identidad colectiva que excluye a quienes no lo votan. Otra estrategia frecuente es el uso de eslóganes aparentemente positivos. El famoso 'España va bien' no describe un estado de cosas: invita al oyente a compartir una visión optimista y a desconfiar de quien la critique. Detrás del eslogan hay una intención persuasiva: quien lo pone en duda es presentado como un agorero. También son comunes las falsas disyuntivas: 'o está con nosotros o esta contra España'. Esta fórmula, que parece ofrecer una elección, en realidad la cancela: solo hay una opción legítima. Es una falacia clásica que los analistas del discurso llevan décadas señalando. Para evaluar la calidad de un discurso político, el lector crítico debe preguntarse: ¿qué evidencia respalda cada afirmación? ¿se citan estudios o solo se apela a la emoción? ¿se presentan los datos completos o solo los que apoyan la tesis? Un discurso con estudios verificables, con datos completos y con reconocimiento de las objeciones es más creíble que uno que solo apela a la emoción y a las generalizaciones. El análisis del lenguaje político no es un ejercicio de cinismo: es una condición para la ciudadanía. Quien no sabe leer el lenguaje del poder está condenado a obedecerle sin darse cuenta.",
     "ejercicios": [
       {
         "tecnica_numero": 3,
@@ -371,7 +371,7 @@
       },
       {
         "tecnica_numero": 5,
-        "enunciado": "¿Desde que punto de vista esta escrito el texto?",
+        "enunciado": "¿Desde qué punto de vista está escrito el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -451,7 +451,7 @@
         "payload": {
           "opciones": [
             "A) 'móviles', 'instituto', 'alumnos' (son neutros).",
-            "B) 'construye realidades', 'controla las palabras', 'quien no sabe leer el lenguaje del poder esta condenado' (revelan una postura crítica).",
+            "B) 'construye realidades', 'controla las palabras', 'quien no sabe leer el lenguaje del poder está condenado' (revelan una postura crítica).",
             "C) 'el', 'la', 'de' (son artículos)."
           ],
           "correcta": "B"
@@ -467,11 +467,11 @@
     "nivel_mcer": "B2",
     "fuente": "Informe de la OCDE, 2025",
     "orden": 6,
-    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automatica. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automatica liberan a los profesores de tareas repetitivas, permitiendoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos señalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vinculo humano, qué es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorias por un asistente de IA. La medida género protestas de las familias, que consideraban que la educación requiere un acompanamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atrás. El debate sigue abierto. La pregunta no es si la IA estara en la educación, sino como integrarla de forma que potencie el aprendizaje sin perder lo humano. Como señala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al reves'.",
+    "cuerpo": "El uso de la inteligencia artificial (IA) en la educación ha crecido de forma exponencial en los últimos años. Según el informe de la OCDE de 2025, el 67% de los centros educativos de los países desarrollados utiliza alguna herramienta de IA, desde asistentes virtuales hasta sistemas de evaluación automática. En España, el 45% de los institutos ha incorporado alguna herramienta de este tipo en el último curso. Los defensores de la IA en la educación argumentan que permite personalizar el aprendizaje. Un asistente virtual, por ejemplo, puede adaptar los ejercicios al ritmo de cada estudiante y ofrecer retroalimentación inmediata. Además, los sistemas de evaluación automática liberan a los profesores de tareas repetitivas, permitiéndoles dedicar más tiempo a la enseñanza. Sin embargo, los críticos señalan varios riesgos. El primero es la desigualdad: no todos los centros tienen acceso a las mismas herramientas, lo que puede ampliar la brecha entre estudiantes. El segundo es la deshumanización: si la IA sustituye al profesor en la retroalimentación, se pierde el vínculo humano, qué es esencial en la educación. El tercero es la privacidad: los sistemas de IA recopilan datos de los estudiantes, y no siempre queda claro como se usan. Un ejemplo de esta tensión se produjo en 2024, cuando un instituto de Barcelona decidió sustituir parte de las tutorias por un asistente de IA. La medida género protestas de las familias, que consideraban que la educación requiere un acompañamiento humano que la tecnología no puede ofrecer. El instituto dio marcha atrás. El debate sigue abierto. La pregunta no es si la IA estará en la educación, sino cómo integrarla de forma que potencie el aprendizaje sin perder lo humano. Como señala un informe de la UNESCO (2023), 'la tecnología debe estar al servicio de las personas, no al revés'.",
     "ejercicios": [
       {
         "tecnica_numero": 4,
-        "enunciado": "¿Dónde ocurrio el caso del instituto que sustituyó tutorias por un asistente de IA?",
+        "enunciado": "¿Dónde ocurrió el caso del instituto que sustituyó tutorias por un asistente de IA?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -490,8 +490,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) 'Sistemas de evaluación automatica' (entre paréntesis).",
-            "B) 'Asistentes virtuales, sistemas de evaluación automatica...' (a través de ejemplos).",
+            "A) 'Sistemas de evaluación automática' (entre paréntesis).",
+            "B) 'Asistentes virtuales, sistemas de evaluación automática...' (a través de ejemplos).",
             "C) No se define explícitamente, solo se ejemplifica."
           ],
           "correcta": "C"
@@ -520,9 +520,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Todos los estudiantes aprenderan igual.",
+            "A) Todos los estudiantes aprenderán igual.",
             "B) La brecha entre estudiantes puede ampliarse.",
-            "C) Los profesores trabajaran menos."
+            "C) Los profesores trabajarán menos."
           ],
           "correcta": "B"
         },
@@ -561,7 +561,7 @@
       },
       {
         "tecnica_numero": 8,
-        "enunciado": "¿Cómo esta estructurado el texto?",
+        "enunciado": "¿Cómo está estructurado el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -576,12 +576,12 @@
       },
       {
         "tecnica_numero": 4,
-        "enunciado": "La frase 'la tecnología debe estar al servicio de las personas, no al reves' es una analogía. ¿Qué la hace sólida o débil?",
+        "enunciado": "La frase 'la tecnología debe estar al servicio de las personas, no al revés' es una analogía. ¿Qué la hace sólida o débil?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Es sólida porque establece una relación clara de servicio (personas = fin, tecnología = medio).",
-            "B) Es débil porque no explica que es la tecnología.",
+            "B) Es débil porque no explica qué es la tecnología.",
             "C) Es débil porque no cita un estudio."
           ],
           "correcta": "A"
@@ -621,13 +621,13 @@
       },
       {
         "tecnica_numero": 4,
-        "enunciado": "¿Qué se puede inferir sobre el estado de animó de las familias que protestaron en Barcelona?",
+        "enunciado": "¿Qué se puede inferir sobre el estado de ánimo de las familias que protestaron en Barcelona?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Estaban contentas con la medida.",
             "B) Estaban preocupadas y en desacuerdo con la sustitución de tutorias por IA.",
-            "C) Eran indiferentes al cambió."
+            "C) Eran indiferentes al cambio."
           ],
           "correcta": "B"
         },
@@ -636,7 +636,7 @@
       },
       {
         "tecnica_numero": 1,
-        "enunciado": "¿Qué significa la metáfora 'la tecnología debe estar al servicio de las personas, no al reves'?",
+        "enunciado": "¿Qué significa la metáfora 'la tecnología debe estar al servicio de las personas, no al revés'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -811,7 +811,7 @@
       },
       {
         "tecnica_numero": 4,
-        "enunciado": "¿Cómo esta estructurado el cuento?",
+        "enunciado": "¿Cómo está estructurado el cuento?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -992,7 +992,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 9,
-    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardín. El gato lo miró fijamente y dijo: -Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compañía. Pablo, después de dudar un momento, se sento en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. -Primero observo, luego decido si me acerco -explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pajaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiro, bostezo y dijo: -Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajo al jardín, el gato gris ya estaba allí, esperandolo, con los ojos brillantes y la cola levantada.",
+    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardín. El gato lo miró fijamente y dijo: -Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compañía. Pablo, después de dudar un momento, se sentó en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. -Primero observo, luego decido si me acerco -explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pájaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiró, bostezó y dijo: -Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajo al jardín, el gato gris ya estaba allí, esperándolo, con los ojos brillantes y la cola levantada.",
     "ejercicios": [
       {
         "tecnica_numero": 9,
@@ -1077,7 +1077,7 @@
           "opciones": [
             "A) Que el gato esta enojado y va a atacar.",
             "B) Que el gato esta contento y espera a Pablo.",
-            "C) Que el gato tiene frió."
+            "C) Que el gato tiene frío."
           ],
           "correcta": "B"
         },
@@ -1136,7 +1136,7 @@
         "payload": {
           "opciones": [
             "A) 'El gato lo miró fijamente y dijo: Buenos días, Pablo'.",
-            "B) 'Pablo se sento en el muro junto al gato'.",
+            "B) 'Pablo se sentó en el muro junto al gato'.",
             "C) 'El gato le contó que vivía en el tejado'."
           ],
           "correcta": "B"
@@ -1171,7 +1171,7 @@
       },
       {
         "tecnica_numero": 13,
-        "enunciado": "¿Cuál de estas afirmaciones del texto es evidencia empirica?",
+        "enunciado": "¿Cuál de estas afirmaciones del texto es evidencia empírica?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1357,7 +1357,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 11,
-    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseñó mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atención. -Si, abuela -respondió Sofía, con los ojos brillantes. La abuela saco mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego anadimos el azúcar y, por último, la harina -explicó la abuela-. Nunca lo hacemos todo a la vez. Sofía removio la mezcla con una cuchara de madera. La abuela la miraba con cariño. -Abuela, ¿por qué no usas la batidora electrica? -preguntó Sofía. -Porque con la cuchara se siente la textura -contesto la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendio. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartio con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
+    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseño mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atención. -Si, abuela -respondió Sofía, con los ojos brillantes. La abuela saco mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego añadimos el azúcar y, por último, la harina -explicó la abuela-. Nunca lo hacemos todo a la vez. Sofía removió la mezcla con una cuchara de madera. La abuela la miraba con cariño. -Abuela, ¿por qué no usas la batidora eléctrica? -preguntó Sofía. -Porque con la cuchara se siente la textura -contestó la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendió. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartió con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
     "ejercicios": [
       {
         "tecnica_numero": 11,
@@ -1421,7 +1421,7 @@
       },
       {
         "tecnica_numero": 13,
-        "enunciado": "En el diálogo '-Hoy te enseñó mi receta secreta -dijo la abuela-', ¿quién habla?",
+        "enunciado": "En el diálogo '-Hoy te enseño mi receta secreta -dijo la abuela-', ¿quién habla?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1455,9 +1455,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que el texto tratara sobre una receta que la abuela enseña a Sofía.",
-            "B) Que el texto tratara sobre la vida de una abuela.",
-            "C) Que el texto tratara sobre un restaurante."
+            "A) Que el texto tratará sobre una receta que la abuela enseña a Sofía.",
+            "B) Que el texto tratará sobre la vida de una abuela.",
+            "C) Que el texto tratará sobre un restaurante."
           ],
           "correcta": "A"
         },
@@ -1466,7 +1466,7 @@
       },
       {
         "tecnica_numero": 14,
-        "enunciado": "En la oración 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cuál es la causa y cual es la consecuencia?",
+        "enunciado": "En la oración 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cuál es la causa y cuál es la consecuencia?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1487,7 +1487,7 @@
           "opciones": [
             "A) La abuela usaba levadura comprada.",
             "B) La receta era de la propia abuela de la abuela, que la había aprendido de niña.",
-            "C) Sofía no compartio el bizcocho con nadie."
+            "C) Sofía no compartió el bizcocho con nadie."
           ],
           "correcta": "B"
         },
@@ -2017,7 +2017,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 14,
-    "cuerpo": "Mi escuela se llama San Isidro. Es un edificio grande y blanco, con muchas ventanas azules. Esta en el centro del pueblo. Por la mañana, los niños llegan a las nueve. La profesora, que se llama Ana, los espera en la puerta. Ana es alta y tiene el pelo negro. —Buenos días, niños —dice Ana, sonriendo. Los niños entran en clase y se sientan en sus pupitres. En la clase hay un mapa grande, una pizarra y muchos libros. A las once, los niños salen al patio. El patio tiene árboles y bancos. Allí juegan al futbol y hablan con sus amigos. —¡Qué bien lo pasamos en el patio! —dice Pablo, contento. A las dos, los niños vuelven a casa. La escuela cierra a las cinco. Por la tarde, hay clases de música y de dibujo. Me gusta mi escuela porque aprendo mucho y tengo amigos.",
+    "cuerpo": "Mi escuela se llama San Isidro. Es un edificio grande y blanco, con muchas ventanas azules. Esta en el centro del pueblo. Por la mañana, los niños llegan a las nueve. La profesora, que se llama Ana, los espera en la puerta. Ana es alta y tiene el pelo negro. —Buenos días, niños —dice Ana, sonriendo. Los niños entran en clase y se sientan en sus pupitres. En la clase hay un mapa grande, una pizarra y muchos libros. A las once, los niños salen al patio. El patio tiene árboles y bancos. Allí juegan al fútbol y hablan con sus amigos. —¡Qué bien lo pasamos en el patio! —dice Pablo, contento. A las dos, los niños vuelven a casa. La escuela cierra a las cinco. Por la tarde, hay clases de música y de dibujo. Me gusta mi escuela porque aprendo mucho y tengo amigos.",
     "ejercicios": [
       {
         "tecnica_numero": 35,
@@ -2052,7 +2052,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "A1",
-        "enunciado": "¿Cuándo los niños juegan con sus amigos, ¿la acción es buena o mala?",
+        "enunciado": "Cuando los niños juegan con sus amigos, ¿la acción es buena o mala?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2112,13 +2112,13 @@
       {
         "tecnica_numero": 41,
         "tecnica_nivel": "A1",
-        "enunciado": "Si los niños van a clase por la mañana, ¿qué pasara por la tarde?",
+        "enunciado": "Si los niños van a clase por la mañana, ¿qué pasará por la tarde?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Habra clases de música y dibujo",
-            "B) Cerraran la escuela",
-            "C) No habra clase"
+            "A) Habrá clases de música y dibujo",
+            "B) Cerrarán la escuela",
+            "C) No Habrá clase"
           ],
           "correcta": "A"
         },
@@ -2178,7 +2178,7 @@
           "opciones": [
             "A) Por la mañana",
             "B) Por la noche",
-            "C) Al mediodia"
+            "C) Al mediodía"
           ],
           "correcta": "A"
         },
@@ -2202,7 +2202,7 @@
       {
         "tecnica_numero": 47,
         "tecnica_nivel": "A1",
-        "enunciado": "¿Cuándo los niños salen al patio a las once, ¿qué es lo más probable que hagan?",
+        "enunciado": "Cuando los niños salen al patio a las once, ¿qué es lo más probable que hagan?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2357,7 +2357,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 15,
-    "cuerpo": "Sofía cumplia ocho años el sabado. Su madre preparo una fiesta en el jardín. Había globos de colores y una tarta de chocolate. —¡Qué tarta tan grande! —exclamo Sofía, con los ojos brillantes como estrellas. Por la tarde, llegaron sus amigos. Jugaron, rieron y bailaron. El reloj corría y la tarde pasaba volando. De repente, empezó a llover. Los niños corrieron a la casa. Sofía se puso triste. —No te preocupes —dijo su madre—. La fiesta sigue dentro. Entonces, todos se sentaron en el salón. La madre trajo la tarta. Sofía soplo las velas y pidió un deseo. —¡Qué se cumpla tu deseo! —dijeron sus amigos a coro. Cuando terminó la fiesta, Sofía abrazó a su madre. —Gracias, mama. Ha sido el mejor cumpleaños de mi vida. Esa noche, Sofía durmio feliz. Había aprendido que la lluvia no arruina una fiesta.",
+    "cuerpo": "Sofía cumplía ocho años el sábado. Su madre preparó una fiesta en el jardín. Había globos de colores y una tarta de chocolate. —¡Qué tarta tan grande! —exclamó Sofía, con los ojos brillantes como estrellas. Por la tarde, llegaron sus amigos. Jugaron, rieron y bailaron. El reloj corría y la tarde pasaba volando. De repente, empezó a llover. Los niños corrieron a la casa. Sofía se puso triste. —No te preocupes —dijo su madre—. La fiesta sigue dentro. Entonces, todos se sentaron en el salón. La madre trajo la tarta. Sofía sopló las velas y pidió un deseo. —¡Qué se cumpla tu deseo! —dijeron sus amigos a coro. Cuando terminó la fiesta, Sofía abrazó a su madre. —Gracias, mama. Ha sido el mejor cumpleaños de mi vida. Esa noche, Sofía durmió feliz. Había aprendido que la lluvia no arruina una fiesta.",
     "ejercicios": [
       {
         "tecnica_numero": 57,
@@ -2426,9 +2426,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que se hablara de una fiesta de cumpleaños",
-            "B) Que se hablara de la lluvia",
-            "C) Que se hablara de un viaje"
+            "A) Que se hablará de una fiesta de cumpleaños",
+            "B) Que se hablará de la lluvia",
+            "C) Que se hablará de un viaje"
           ],
           "correcta": "A"
         },
@@ -2592,7 +2592,7 @@
         "payload": {
           "opciones": [
             "A) 'Había globos de colores y una tarta de chocolate'",
-            "B) 'Sofía soplo las velas'",
+            "B) 'Sofía sopló las velas'",
             "C) 'Empezó a llover'"
           ],
           "correcta": "A"
@@ -2651,7 +2651,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Una repetición (enumeración ritmica)",
+            "A) Una repetición (enumeración rítmica)",
             "B) Una comparación",
             "C) Una pregunta"
           ],
@@ -2662,7 +2662,7 @@
       {
         "tecnica_numero": 77,
         "tecnica_nivel": "A1",
-        "enunciado": "El refran 'Al mal tiempo, buena cara' enseña que:",
+        "enunciado": "El refrán 'Al mal tiempo, buena cara' enseña que:",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2682,7 +2682,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 16,
-    "cuerpo": "En la granja de Juan hay muchos animales. Hay cinco vacas, tres cerdos y diez gallinas. Las vacas son grandes y de color blanco y negro. Dan leche cada mañana. Los cerdos son rosados y les gusta revolcarse en el barro. —Los cerdos son muy divertidos —dice Juan, riendo. Las gallinas ponen huevos todos los días. Son pequeñas y de color marrón. Los huevos son blancos y muy ricos. Un día, Juan encontró un huevo muy grande. —¡Qué huevo tan grande! —exclamo—. ¿De que gallina sera? Juan miró a las gallinas. Ninguna era más grande que las otras. Entonces, Juan entendio: el huevo era grande porque la gallina había comido mucho maiz. Juan recogio el huevo y lo llevó a la cocina. Su madre lo cocino y toda la familia lo compartio. —Este huevo es el más rico de todos —dijo la madre—. Juan sonrió. Aquel día aprendió que las apariencias enganan: un huevo grande no siempre es mejor.",
+    "cuerpo": "En la granja de Juan hay muchos animales. Hay cinco vacas, tres cerdos y diez gallinas. Las vacas son grandes y de color blanco y negro. Dan leche cada mañana. Los cerdos son rosados y les gusta revolcarse en el barro. —Los cerdos son muy divertidos —dice Juan, riendo. Las gallinas ponen huevos todos los días. Son pequeñas y de color marrón. Los huevos son blancos y muy ricos. Un día, Juan encontró un huevo muy grande. —¡Qué huevo tan grande! —exclamó—. ¿De que gallina sera? Juan miró a las gallinas. Ninguna era más grande que las otras. Entonces, Juan entendió: el huevo era grande porque la gallina había comido mucho maíz. Juan recogió el huevo y lo llevó a la cocina. Su madre lo cocinó y toda la familia lo compartió. —Este huevo es el más rico de todos —dijo la madre—. Juan sonrió. Aquel día aprendió que las apariencias engañan: un huevo grande no siempre es mejor.",
     "ejercicios": [
       {
         "tecnica_numero": 78,
@@ -2717,11 +2717,11 @@
       {
         "tecnica_numero": 80,
         "tecnica_nivel": "A1",
-        "enunciado": "En 'el huevo era grande porque la gallina había comido mucho maiz', ¿cuál es la causa?",
+        "enunciado": "En 'el huevo era grande porque la gallina había comido mucho maíz', ¿cuál es la causa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La gallina comio mucho maiz",
+            "A) La gallina comió mucho maíz",
             "B) El huevo era grande",
             "C) Juan lo encontró"
           ],
@@ -2767,7 +2767,7 @@
         "payload": {
           "opciones": [
             "A) A niños, por el vocabulario sencillo",
-            "B) A expertos en ganaderia",
+            "B) A expertos en ganadería",
             "C) A científicos"
           ],
           "correcta": "A"
@@ -2797,7 +2797,7 @@
         "payload": {
           "opciones": [
             "A) Generalización apresurada",
-            "B) Evidencia empirica",
+            "B) Evidencia empírica",
             "C) Una pregunta"
           ],
           "correcta": "A"
@@ -2807,7 +2807,7 @@
       {
         "tecnica_numero": 86,
         "tecnica_nivel": "A1",
-        "enunciado": "La frase 'un huevo grande siempre es mejor' es una:",
+        "enunciado": "La frase 'un huevo grande no siempre es mejor' es una:",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2856,7 +2856,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Las apariencias enganan: un huevo grande no siempre es mejor",
+            "A) Las apariencias engañan: un huevo grande no siempre es mejor",
             "B) Los cerdos son divertidos",
             "C) Las gallinas ponen huevos"
           ],
@@ -2901,7 +2901,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Las apariencias enganan: un huevo grande no siempre es mejor",
+            "A) Las apariencias engañan: un huevo grande no siempre es mejor",
             "B) Los animales son muchos",
             "C) La granja es grande"
           ],
@@ -2916,7 +2916,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, ilustra que las apariencias enganan",
+            "A) Si, ilustra que las apariencias engañan",
             "B) No, no tiene relación",
             "C) No, es demasiado largo"
           ],
@@ -3002,11 +3002,11 @@
       {
         "tecnica_numero": 99,
         "tecnica_nivel": "A1",
-        "enunciado": "¿Cuál de estos seria un buen resumen del texto?",
+        "enunciado": "¿Cuál de estos sería un buen resumen del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Juan tiene una granja con animales. Un día encuentra un huevo grande y aprende que las apariencias enganan.",
+            "A) Juan tiene una granja con animales. Un día encuentra un huevo grande y aprende que las apariencias engañan.",
             "B) Hay cinco vacas y tres cerdos",
             "C) Las vacas dan leche"
           ],
@@ -3037,7 +3037,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 17,
-    "cuerpo": "El lunes por la mañana, el detective Ramos llegó al Museo del Prado. Alguien había robado un cuadro pequeño y valioso. La sala estaba en silencio. Solo tres personas habían estado allí el domingo: el vigilante, la guia y el restaurador. —¿Quién entró primero? —preguntó Ramos al vigilante. —Yo abri la puerta a las nueve —respondió el vigilante, nervioso—. Después llegó la guia. El detective miró la lista de sospechosos. La guia tenía 45 años. El restaurador, 60. El vigilante, 30. —¿Viste algo raro? —insistio Ramos. —Solo un ruido en la sala de restauración —dijo el vigilante—. Como un cristal roto. Ramos reviso la sala. En el suelo había un trozo de vidrio. Cerca de la ventana, una huella de zapato. —La ventana estaba abierta —observo Ramos—. Por eso el ladron pudo escapar rápidamente. Ramos pensó: si el ladron salió por la ventana, tuvo que ser alguien ágil. Entonces, recordó el ruido del cristal. El restaurador trabajaba con vidrio a diario. —El restaurador rompio el cristal sin querer —concluyo Ramos—. Eso lo delato. Al final, el restaurador confeso. Había robado el cuadro para venderlo. Ramos sonrió. Había resuelto el misterio en solo una mañana.",
+    "cuerpo": "El lunes por la mañana, el detective Ramos llegó al Museo del Prado. Alguien había robado un cuadro pequeño y valioso. La sala estaba en silencio. Solo tres personas habían estado allí el domingo: el vigilante, la guía y el restaurador. —¿Quién entró primero? —preguntó Ramos al vigilante. —Yo abrí la puerta a las nueve —respondió el vigilante, nervioso—. Después llegó la guía. El detective miró la lista de sospechosos. La guía tenía 45 años. El restaurador, 60. El vigilante, 30. —¿Viste algo raro? —insistió Ramos. —Solo un ruido en la sala de restauración —dijo el vigilante—. Como un cristal roto. Ramos revisó la sala. En el suelo había un trozo de vidrio. Cerca de la ventana, una huella de zapato. —La ventana estaba abierta —observo Ramos—. Por eso el ladrón pudo escapar rápidamente. Ramos pensó: si el ladrón salió por la ventana, tuvo que ser alguien ágil. Entonces, recordó el ruido del cristal. El restaurador trabajaba con vidrio a diario. —El restaurador rompió el cristal sin querer —concluyó Ramos—. Eso lo delato. Al final, el restaurador confesó. Había robado el cuadro para venderlo. Ramos sonrió. Había resuelto el misterio en solo una mañana.",
     "ejercicios": [
       {
         "tecnica_numero": 19,
@@ -3062,10 +3062,10 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El restaurador confeso y Ramos resolvio el misterio",
+            "A) El restaurador confesó y Ramos resolvió el misterio",
             "B) El vigilante era el culpable",
             "C) El cuadro nunca se encontró",
-            "D) La guia era la ladrona"
+            "D) La guía era la ladrona"
           ],
           "correcta": "A"
         },
@@ -3078,10 +3078,10 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) 'Yo abri la puerta a las nueve'",
+            "A) 'Yo abrí la puerta a las nueve'",
             "B) 'El cuadro es muy bonito'",
             "C) 'Me gusta el museo'",
-            "D) 'El restaurador es simpatico'"
+            "D) 'El restaurador es simpático'"
           ],
           "correcta": "A"
         },
@@ -3090,7 +3090,7 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "A2",
-        "enunciado": "En 'el ladron salió por la ventana, por eso tuvo que ser alguien ágil', ¿qué relación marca 'por eso'?",
+        "enunciado": "En 'el ladrón salió por la ventana, por eso tuvo que ser alguien ágil', ¿qué relación marca 'por eso'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3145,7 +3145,7 @@
             "A) barato",
             "B) caro",
             "C) feo",
-            "D) comun"
+            "D) común"
           ],
           "correcta": "B"
         },
@@ -3154,11 +3154,11 @@
       {
         "tecnica_numero": 26,
         "tecnica_nivel": "A2",
-        "enunciado": "En 'El restaurador rompio el cristal, por eso lo delato', ¿cuál es la causa?",
+        "enunciado": "En 'El restaurador rompió el cristal, por eso lo delato', ¿cuál es la causa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El restaurador rompio el cristal",
+            "A) El restaurador rompió el cristal",
             "B) El restaurador fue delatado",
             "C) El detective lo descubrió",
             "D) La ventana estaba abierta"
@@ -3202,7 +3202,7 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "A2",
-        "enunciado": "En 'El detective miró la lista. La guia tenía 45 años', ¿a que se refiere 'la lista'?",
+        "enunciado": "En 'El detective miró la lista. La guía tenía 45 años', ¿a qué se refiere 'la lista'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3234,7 +3234,7 @@
       {
         "tecnica_numero": 31,
         "tecnica_nivel": "A2",
-        "enunciado": "Si el texto dijera 'el museo tiene 3 salas', ¿qué tipo de información seria?",
+        "enunciado": "Si el texto dijera 'el museo tiene 3 salas', ¿qué tipo de información sería?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3289,7 +3289,7 @@
             "A) rápidamente",
             "B) escapo",
             "C) ventana",
-            "D) ladron"
+            "D) ladrón"
           ],
           "correcta": "A"
         },
@@ -3303,7 +3303,7 @@
         "payload": {
           "opciones": [
             "A) El vigilante",
-            "B) La guia",
+            "B) La guía",
             "C) El restaurador",
             "D) El periódico"
           ],
@@ -3442,7 +3442,7 @@
           "opciones": [
             "A) El ecosistema marino se destruira",
             "B) El mar sera más bonito",
-            "C) Habra más peces",
+            "C) Habrá más peces",
             "D) Nada cambiara"
           ],
           "correcta": "A"
@@ -3697,7 +3697,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 19,
-    "cuerpo": "En el instituto San Isidro, profesores y familias debaten sobre los deberes. Unos dicen que los deberes son necesarios. Otros creen que son excesivos. El primer argumento a favor es que los deberes refuerzan lo aprendido en clase. Según un estudio de la Universidad de Madrid (2023), los alumnos que hacen deberes regularmente obtienen mejores resultados. Además, los deberes ensenan a organizar el tiempo. Sin embargo, los críticos señalan varios problemas. El primero es que los deberes consumen el tiempo libre de los niños. 'Un niño de 12 años no debería estudiar más de dos horas al día', afirma la profesora Ana López. El segundo es que no todos los alumnos tienen las mismas condiciones en casa: algunos no tienen un lugar tranquilo para estudiar. Un dato llamativo: según una encuesta de 2024, el 60% de las familias cree que los deberes son excesivos. Pero solo el 20% pide eliminarlos. La mayoría prefiere que se reduzcan. En el fondo, el debate no es sobre los deberes, sino sobre la equidad. Como dijo un profesor en la reunion: 'El problema no es el deber, sino las condiciones desiguales'.",
+    "cuerpo": "En el instituto San Isidro, profesores y familias debaten sobre los deberes. Unos dicen que los deberes son necesarios. Otros creen que son excesivos. El primer argumento a favor es que los deberes refuerzan lo aprendido en clase. Según un estudio de la Universidad de Madrid (2023), los alumnos que hacen deberes regularmente obtienen mejores resultados. Además, los deberes ensenan a organizar el tiempo. Sin embargo, los críticos señalan varios problemas. El primero es que los deberes consumen el tiempo libre de los niños. 'Un niño de 12 años no debería estudiar más de dos horas al día', afirma la profesora Ana López. El segundo es que no todos los alumnos tienen las mismas condiciones en casa: algunos no tienen un lugar tranquilo para estudiar. Un dato llamativo: según una encuesta de 2024, el 60% de las familias cree que los deberes son excesivos. Pero solo el 20% pide eliminarlos. La mayoría prefiere que se reduzcan. En el fondo, el debate no es sobre los deberes, sino sobre la equidad. Como dijo un profesor en la reunión: 'El problema no es el deber, sino las condiciones desiguales'.",
     "ejercicios": [
       {
         "tecnica_numero": 59,
@@ -3756,7 +3756,7 @@
           "opciones": [
             "A) Presentar el tema del debate",
             "B) Dar la conclusión",
-            "C) Dar datos numericos",
+            "C) Dar datos numéricos",
             "D) Cerrar el texto"
           ],
           "correcta": "A"
@@ -3894,7 +3894,7 @@
       {
         "tecnica_numero": 71,
         "tecnica_nivel": "A2",
-        "enunciado": "¿Desde que punto de vista esta escrito el texto?",
+        "enunciado": "¿Desde qué punto de vista está escrito el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -3942,7 +3942,7 @@
       {
         "tecnica_numero": 74,
         "tecnica_nivel": "A2",
-        "enunciado": "La frase 'Como dijo un profesor en la reunion' introduce una cita. ¿Qué función tiene en el texto?",
+        "enunciado": "La frase 'Como dijo un profesor en la reunión' introduce una cita. ¿Qué función tiene en el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4038,12 +4038,12 @@
     ]
   },
   {
-    "titulo": "Como funciona el reciclaje",
+    "titulo": "Cómo funciona el reciclaje",
     "tipo": "informativo",
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 20,
-    "cuerpo": "El reciclaje es un proceso que transforma los residuos en nuevos productos. Según el informe de Ecoembes (2024), en España se reciclan 1,5 millones de toneladas de envases al año. El proceso tiene tres fases: recogida, clasificación y transformación. En la primera fase, los ciudadanos separan los residuos en casa. En la segunda, las plantas clasificadoras separan el plastico, el vidrio y el papel. En la tercera, las fabricas transforman los materiales en nuevos productos. Reciclar tiene muchas ventajas. Primero, reduce la cantidad de residuos en los vertederos. Segundo, ahorra energía: reciclar aluminio consume un 95% menos de energía que producirlo desde cero. Tercero, reduce la contaminación. Sin embargo, algunos expertos señalan limitaciones. 'El reciclaje no es la solución definitiva', afirma la doctora García, experta en medio ambiente. 'Lo importante es reducir el consumo'. Además, no todos los materiales se reciclan con la misma eficacia. Algunos críticos dicen: 'Quien no recicla es un enemigo del planeta'. Pero esta afirmación es una falacia: ataca a las personas en lugar de explicar los beneficios del reciclaje. En conclusión, el reciclaje es una herramienta útil, pero no suficiente. Necesitamos reducir, reutilizar y reciclar, en ese orden.",
+    "cuerpo": "El reciclaje es un proceso que transforma los residuos en nuevos productos. Según el informe de Ecoembes (2024), en España se reciclan 1,5 millones de toneladas de envases al año. El proceso tiene tres fases: recogida, clasificación y transformación. En la primera fase, los ciudadanos separan los residuos en casa. En la segunda, las plantas clasificadoras separan el plástico, el vidrio y el papel. En la tercera, las fábricas transforman los materiales en nuevos productos. Reciclar tiene muchas ventajas. Primero, reduce la cantidad de residuos en los vertederos. Segundo, ahorra energía: reciclar aluminio consume un 95% menos de energía que producirlo desde cero. Tercero, reduce la contaminación. Sin embargo, algunos expertos señalan limitaciones. 'El reciclaje no es la solución definitiva', afirma la doctora García, experta en medio ambiente. 'Lo importante es reducir el consumo'. Además, no todos los materiales se reciclan con la misma eficacia. Algunos críticos dicen: 'Quien no recicla es un enemigo del planeta'. Pero esta afirmación es una falacia: ataca a las personas en lugar de explicar los beneficios del reciclaje. En conclusión, el reciclaje es una herramienta útil, pero no suficiente. Necesitamos reducir, reutilizar y reciclar, en ese orden.",
     "ejercicios": [
       {
         "tecnica_numero": 80,
@@ -4160,7 +4160,7 @@
       {
         "tecnica_numero": 87,
         "tecnica_nivel": "A2",
-        "enunciado": "Si u anunció dice 'Recicla o tus hijos moriran', ¿qué falacia comete?",
+        "enunciado": "Si un anuncio dice 'Recicla o tus hijos morirán', ¿qué falacia comete?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4208,7 +4208,7 @@
       {
         "tecnica_numero": 90,
         "tecnica_nivel": "A2",
-        "enunciado": "La doctora García es experta en medio ambiente y cita datos. ¿Su testimonio es creible?",
+        "enunciado": "La doctora García es experta en medio ambiente y cita datos. ¿Su testimonio es creíble?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4336,7 +4336,7 @@
       {
         "tecnica_numero": 98,
         "tecnica_nivel": "A2",
-        "enunciado": "¿Cuál de estos seria un buen resumen del texto?",
+        "enunciado": "¿Cuál de estos sería un buen resumen del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4356,9 +4356,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Este texto es más equilibrado; el otro seria más radical",
+            "A) Este texto es más equilibrado; el otro sería más radical",
             "B) No habría diferencia",
-            "C) Este texto seria más radical",
+            "C) Este texto sería más radical",
             "D) No se puede comparar"
           ],
           "correcta": "A"
@@ -4724,7 +4724,7 @@
       {
         "tecnica_numero": 42,
         "tecnica_nivel": "B1",
-        "enunciado": "Marta no dormía, miraba el techo a las tres de la mañana, estaba ausente en el trabajo y sus ojos brillaban. Que estado de animó se infiere combinando esas pistas?",
+        "enunciado": "Marta no dormía, miraba el techo a las tres de la mañana, estaba ausente en el trabajo y sus ojos brillaban. Que estado de ánimo se infiere combinando esas pistas?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4761,7 +4761,7 @@
         "payload": {
           "opciones": [
             "A) Su carrera sigue igual en la ciudad",
-            "B) Deja su trabajó en la ciudad y abre una consulta en el pueblo",
+            "B) Deja su trabajo en la ciudad y abre una consulta en el pueblo",
             "C) Se hace más famosa que antes",
             "D) Vuelve a la ciudad arrepentida"
           ],
@@ -4792,7 +4792,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) No le gusta su trabajó",
+            "A) No le gusta su trabajo",
             "B) Debe elegir entre su carrera en la ciudad y cuidar a su madre en el pueblo",
             "C) No se lleva bien con su hermano",
             "D) No tiene dinero"
@@ -5012,7 +5012,7 @@
       {
         "tecnica_numero": 60,
         "tecnica_nivel": "B1",
-        "enunciado": "El texto cita 'un estudio de la Universidad de Barcelona (2023)'. Es una fuente creible?",
+        "enunciado": "El texto cita 'un estudio de la Universidad de Barcelona (2023)'. Es una fuente creíble?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5405,7 +5405,7 @@
         "payload": {
           "opciones": [
             "A) Una generalización apresurada",
-            "B) Una evidencia empirica",
+            "B) Una evidencia empírica",
             "C) Una pregunta",
             "D) Una definición"
           ],
@@ -5422,7 +5422,7 @@
           "opciones": [
             "A) Un argumento válido",
             "B) Una falacia ad hominem (ataca a la persona, no al argumento)",
-            "C) Una evidencia empirica",
+            "C) Una evidencia empírica",
             "D) Un dato verificable"
           ],
           "correcta": "B"
@@ -5469,7 +5469,7 @@
         "payload": {
           "opciones": [
             "A) Un falso dilema (hay más opciones, como el uso moderado)",
-            "B) Una evidencia empirica",
+            "B) Una evidencia empírica",
             "C) Un argumento sólido",
             "D) Una pregunta retórica"
           ],
@@ -5592,7 +5592,7 @@
       {
         "tecnica_numero": 95,
         "tecnica_nivel": "B1",
-        "enunciado": "¿Cuál de estos seria un buen resumen del texto?",
+        "enunciado": "¿Cuál de estos sería un buen resumen del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5644,9 +5644,9 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Este texto es más equilibrado; el otro seria más radical",
+            "A) Este texto es más equilibrado; el otro sería más radical",
             "B) No habría diferencia",
-            "C) Este texto seria más radical",
+            "C) Este texto sería más radical",
             "D) No se pueden comparar"
           ],
           "correcta": "A"
@@ -5660,7 +5660,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Aportar evidencia empirica verificable sobre el uso de tablets",
+            "A) Aportar evidencia empírica verificable sobre el uso de tablets",
             "B) Expresar una opinión",
             "C) Cerrar el debate",
             "D) Criticar al Ministerio"
@@ -6353,7 +6353,7 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 27,
-    "cuerpo": "La casa de los relojes\n\nLa casa de don Elías era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salón y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. Él era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elías se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los paré todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomábamos café. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mí, el tiempo se detuvo\".\n\nDon Elías hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablábamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demas viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elías tenía razón en algo: la gente corría todo el día sin saber hacía dónde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras él hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdía en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elías me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elías dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidí, entonces, que cambiaría algo. No sabía qué, pero algo.\n\nAl jueves siguiente, cuando llegué a casa de don Elías, encontré la puerta abierta. Él no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, déjalo parado\".\n\nNunca supe si don Elías volvió. A veces, cuando paso por su casa, miro por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levanto, miro el reloj de mi cocina y me acuerdo de don Elías. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
+    "cuerpo": "La casa de los relojes\n\nLa casa de don Elías era la única del barrio que tenía relojes en todas las habitaciones. No era una casa grande, pero había un reloj en el recibidor, otro en la cocina, otro en el pasillo, dos en el salón y hasta uno pequeño en el baño. Todos estaban parados. Todos marcaban la misma hora: las siete y diez.\n\nYo iba a visitarlo todos los jueves. Él era el abuelo de mi mejor amigo, y desde que su mujer murió, nadie lo visitaba. Mi amigo decía que don Elías se había vuelto loco; yo no estaba tan seguro. Había algo en su manera de mirar los relojes que me hacía pensar que sabía exactamente lo que hacía.\n\n\"Los paré todos el mismo día, a la misma hora\", me explicó una tarde, mientras tomábamos café. \"A las siete y diez de la mañana del 14 de abril de 1987. Ese día, mi mujer se fue de casa. No volvió. Desde entonces, para mí, el tiempo se detuvo\".\n\nDon Elías hablaba con una calma que desconcertaba. Su voz era suave, casi musical. Mientras hablábamos, sus manos acariciaban el reloj del recibidor como si fuera un animal domestico. \"La gente cree que estoy loco\", decía, \"pero en realidad soy el único cuerdo de este barrio. Los demás viven esclavos del tiempo; yo lo he vencido\".\n\nYo lo escuchaba sin decir nada. Por dentro, pensaba que don Elías tenía razón en algo: la gente corría todo el día sin saber hacía dónde. Pero también pensaba que negar el tiempo era una forma de negar la vida. Mientras él hablaba, yo miraba los relojes y pensaba en mi propia vida, en las horas que perdía en el móvil, en los días que se me escapaban.\n\nUna tarde, don Elías me contó la historia de su vida. Había sido relojero de joven, había tenido un taller en la calle Mayor, había arreglado relojes para medio barrio. Su mujer, Emilia, era la que le daba cuerda a los relojes cada mañana. Cuando ella se fue, don Elías dejó de darles cuerda. Y así, poco a poco, todos se fueron parando. Primero uno, luego otro. El último fue el del recibidor. \"Ese era el favorito de Emilia\", me dijo. \"Por eso fue el último en pararse\".\n\nUna noche, mientras volvía a casa, me di cuenta de que yo también vivía rodeado de relojes parados. Mi vida era una sucesión de horas que no aprovechaba. Decidí, entonces, que cambiaría algo. No sabía qué, pero algo.\n\nAl jueves siguiente, cuando llegué a casa de don Elías, encontré la puerta abierta. Él no estaba. Sobre la mesa del recibidor había una nota: \"Me he ido a buscar a Emilia. Si vuelvo, dale cuerda al reloj del recibidor. Si no vuelvo, déjalo parado\".\n\nNunca supe si don Elías volvió. A veces, cuando paso por su casa, miró por la ventana. Los relojes siguen allí, parados, marcando las siete y diez. Y yo, cada mañana, cuando me levanto, miro el reloj de mi cocina y me acuerdo de don Elías. El tiempo, pienso, es lo único que no se puede parar. Pero quizá se pueda vivir de otra manera.",
     "ejercicios": [
       {
         "tecnica_numero": 61,
@@ -6442,7 +6442,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Ironía: invierte la lógica comun (el loco dice ser el cuerdo)",
+            "A) Ironía: invierte la lógica común (el loco dice ser el cuerdo)",
             "B) Una pregunta retórica",
             "C) Una cita de autoridad",
             "D) Una falacia de autoridad"
@@ -7013,7 +7013,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 29,
-    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anuncio de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anuncio (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmáticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anuncio usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmáticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deícticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesía son escasas: el discurso es directo y asertivo. La cohesión léxica se construye mediante sinónimos (\"reforma\", \"cambió\", \"transformación\") y antónimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los términos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinecdoque). Las figuras de dicción incluyen anáforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implícita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podría\", \"en cierta medida\"), aunque en general el discurso es asertivo y categórico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnóstico\", \"tratamiento\"), jurídico (\"normativa\", \"derecho\") y económico (\"inversión\", \"rentabilidad\"). El léxico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostálgicos\".\n\nLa polifonía textual es limitada: se citan voces favorables (\"según los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"según el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metáforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora económica), \"la reforma es una guerra\" (metáfora bélica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clásica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anuncio construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstáculos.",
+    "cuerpo": "Análisis crítico del discurso institucional: la reforma educativa\n\nIntroducción\n\nEste artículo analiza el discurso institucional del anuncio de la reforma educativa publicado por el Ministerio en 2024. El objetivo es identificar las estrategias discursivas que construyen la legitimidad de la reforma y las voces que se silencian.\n\nMétodo\n\nSe analizó el texto del anuncio (2.500 palabras) mediante el análisis crítico del discurso (Fairclough, 1992). Se identificaron los mecanismos de despersonalización, las presuposiciones pragmáticas, los actos de habla y las estrategias de legitimación.\n\nResultados\n\nEl análisis revela varios hallazgos. Primero, el anuncio usa abundantemente la despersonalización: \"se ha decidido\", \"se ha aprobado\" - el agente de las decisiones queda oculto. Segundo, hay presuposiciones pragmáticas: \"el actual sistema ha fracasado\" presupone que hay un sistema y que ha fracasado. Tercero, los actos de habla son mayoritariamente asertivos y declarativos: \"declaramos\", \"afirmamos\" - el Ministerio se posiciona como autoridad.\n\nLos deícticos construyen la enunciación: \"nosotros\" (el Ministerio) se opone a \"ellos\" (los críticos). Las estrategias de cortesía son escasas: el discurso es directo y asertivo. La cohesión léxica se construye mediante sinónimos (\"reforma\", \"cambio\", \"transformación\") y antónimos (\"pasado\" frente a \"futuro\").\n\nLos conectores de reformulación (\"esto es\", \"en otras palabras\") aclaran los términos técnicos. Los tropos son frecuentes: \"la reforma es una medicina\" (metáfora médica), \"Bruselas ha decidido\" (metonimia: la sede por la institución), \"una vela en el horizonte\" (sinécdoque). Las figuras de dicción incluyen anáforas (\"ahora... ahora... ahora...\") y aliteraciones (\"futuro firme, formación flexible\").\n\nEl texto sigue la estructura IMRAD de forma implícita. Los mecanismos de atenuación (hedging) aparecen en algunos pasajes (\"probablemente\", \"podría\", \"en cierta medida\"), aunque en general el discurso es asertivo y categórico. Las estrategias de legitimación incluyen la autoridad legal (\"la ley establece\"), la tradición (\"siempre se ha hecho así\") y la eficacia (\"funciona en otros países\").\n\nLa interdiscursividad es notable: hay voces del discurso médico (\"diagnóstico\", \"tratamiento\"), jurídico (\"normativa\", \"derecho\") y económico (\"inversión\", \"rentabilidad\"). El léxico valorativo es marcado: la reforma se presenta como \"necesaria\", \"urgente\", \"histórica\"; los críticos son \"inmovilistas\" y \"nostálgicos\".\n\nLa polifonía textual es limitada: se citan voces favorables (\"según los expertos\") pero no las críticas. Los marcadores de evidencialidad (\"según el informe\", \"de acuerdo con los datos\") refuerzan la autoridad del discurso.\n\nLas metáforas conceptuales estructuran el pensamiento: \"la educación es una inversión\" (metáfora económica), \"la reforma es una guerra\" (metáfora bélica: \"lucha\", \"batalla\", \"enemigos\"). La estructura retórica clásica se reconoce: exordio, narratio, argumentatio y peroratio.\n\nEl pathos es intenso: \"piensa en los niños\", \"imagina el futuro\", \"por el bien de todos\". La argumentación por ejemplo es escasa: \"como muestra el caso de Finlandia\". Los topicalizadores (\"en cuanto a\", \"respecto a\") organizan el discurso.\n\nDiscusión\n\nLos resultados muestran que el anuncio construye su legitimidad mediante estrategias discursivas que ocultan el agente, silencian las voces críticas y movilizan emociones. El lenguaje no es neutral: construye una realidad en la que la reforma es necesaria y sus críticos son obstáculos.",
     "ejercicios": [
       {
         "tecnica_numero": 17,
@@ -7130,7 +7130,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'Bruselas ha decidido', que tropo aparece?",
+        "enunciado": "En 'Bruselas ha decidido', ¿qué tropo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7153,7 +7153,7 @@
             "A) Anáforas (ahora... ahora...) y aliteraciones (futuro firme, formación flexible)",
             "B) Solo metáforas",
             "C) Solo preguntas retóricas",
-            "D) Solo hiperboles"
+            "D) Solo hipérboles"
           ],
           "correcta": "A"
         },
@@ -7166,7 +7166,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) La que describe como se hizo el análisis",
+            "A) La que describe cómo se hizo el análisis",
             "B) La que presenta los resultados",
             "C) La que introduce el tema",
             "D) La que discute los hallazgos"
@@ -7210,7 +7210,7 @@
       {
         "tecnica_numero": 29,
         "tecnica_nivel": "C1",
-        "enunciado": "En 'diagnóstico', 'normativa', 'inversión', que fenómeno discursivo aparece?",
+        "enunciado": "En 'diagnóstico', 'normativa', 'inversión', ¿qué fenómeno discursivo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -7705,7 +7705,7 @@
     "nivel_mcer": "C1",
     "fuente": "",
     "orden": 31,
-    "cuerpo": "El cuento que se escribía solo\n\nAurelio encontró el cuaderno en el fondo de un cajón, entre facturas y fotografías viejas. Era un cuaderno de tapas negras, como los que usaba de joven para escribir sus cuentos. Lo abrió con curiosidad. En la primera página, con su propia letra, había un cuento titulado 'El bibliotecario'. Lo reconoció: era un cuento que había escrito a los veinte años.\n\nLo leyó. Trataba de un bibliotecario que descubría que todos los libros de su biblioteca hablaban de él. Aurelio sonrió. Aquel cuento era un homenaje a Borges, a 'La biblioteca de Babel'. Recordó la frase de Borges: 'El universo (que otros llaman la Biblioteca) se compone de un número indefinido, y tal vez infinito, de galerías hexagonales'. Siempre le había fascinado esa idea.\n\nPasó la página. En la segunda, había otro cuento, titulado 'El espejo'. No lo recordaba. Lo leyó. Trataba de un hombre que se miraba en un espejo y descubría que su reflejo era otro hombre, que a su vez lo miraba a él. Aurelio sintió un escalofrío. No recordaba haber escrito aquel cuento, pero la letra era suya. Y el estilo también.\n\nPasó otra página. Un tercer cuento, titulado 'El sueño'. Trataba de un hombre que soñaba con un hombre que soñaba con él. El cuento terminaba con la frase: 'Y al despertar, comprendió que el era el sueño del otro'. Aurelio dejó el cuaderno sobre la mesa. Aquello era demasiado. El no había escrito esos cuentos. O quizá si, y los había olvidado. O quizá alguien los había escrito por él.\n\nAquella noche no pudo dormir. Se levantó a las tres de la mañana y volvió al cuaderno. En la última página, había un cuento nuevo, titulado 'El lector'. Lo leyó temblando. Trataba de un hombre llamado Aurelio que encontraba un cuaderno en el fondo de un cajón y leía cuentos que no recordaba haber escrito. El cuento terminaba con la frase: 'Y entonces Aurelio comprendió que el también era un personaje, y que alguien, en algún lugar, lo estaba leyendo'.\n\nCierro el cuaderno. Miro por la ventana. La ciudad dormía. Y por primera vez en su vida, Aurelio se preguntó si el también seria un personaje, y si alguien, en algún lugar, estaria leyendo su historia.\n\nAl día siguiente, Aurelio fue a ver a su amigo Bernardo, profesor de literatura. Le contó lo sucedido. Bernardo lo escuchó con atención. 'Interesante', dijo. 'Es un caso de metaficción. Como en 'El Quijote', cuando los personajes han leído el Quijote. O como en Cortázar, cuando el lector es personaje. O como en Borges, cuando el sueño y la vigilia se confunden'.\n\n'Pero yo no lo escribí', dijo Aurelio. 'Yo no escribí esos cuentos'.\n\nBernardo sonrió. 'Quizá no los escribiste tú. Quizá te escribieron a ti. Quizá tú eres el personaje de un cuento que alguien está escribiendo ahora mismo, en este instante'.\n\nAurelio sintió un vértigo. Miró sus manos. Miró la mesa. Miró a Bernardo. Todo parecía real. Pero quizá no lo era. Quizá todo era un sueño, o un cuento, o una metáfora.\n\n'Mira', dijo Bernardo, 'te voy a contar un cuento. Había una vez un hombre llamado Aurelio que descubrió que era un personaje. Y al descubrirlo, empezó a escribir su propia historia. Y al escribirla, se liberó. Porque escribir es una forma de liberarse, aunque sea de la ficción'.\n\nAurelio lo miró. 'Y cómo termina el cuento?'\n\n'No termina', dijo Bernardo. 'Los cuentos que se escriben solos nunca terminan. Solo se interrumpen. Y luego, en algún otro lugar, alguien los retoma'.\n\nAurelio volvió a su casa. Abrió el cuaderno. En la última página, había un cuento nuevo. Titulado 'El principio'. Y en él, Aurelio se veía a sí mismo escribiendo el cuento que estaba leyendo. Y así, en un bucle infinito, el cuento se escribía solo.\n\nAurelio cerró el cuaderno. Sonrió. Y por primera vez en su vida, comprendió que la literatura no es un espejo de la realidad, sino una realidad paralela. Y que él, Aurelio, era a la vez autor y personaje, lector y escrito, principio y fin.\n\nO quizá no. Quizá todo era un sueño. O quizá todo era un cuento. O quizá todo era una metáfora. Pero de algo estaba seguro: mientras alguien lo leyera, el seguiría existiendo. Y eso, después de todo, era una forma de inmortalidad.",
+    "cuerpo": "El cuento que se escribía solo\n\nAurelio encontró el cuaderno en el fondo de un cajón, entre facturas y fotografías viejas. Era un cuaderno de tapas negras, como los que usaba de joven para escribir sus cuentos. Lo abrió con curiosidad. En la primera página, con su propia letra, había un cuento titulado 'El bibliotecario'. Lo reconoció: era un cuento que había escrito a los veinte años.\n\nLo leyó. Trataba de un bibliotecario que descubría que todos los libros de su biblioteca hablaban de él. Aurelio sonrió. Aquel cuento era un homenaje a Borges, a 'La biblioteca de Babel'. Recordó la frase de Borges: 'El universo (que otros llaman la Biblioteca) se compone de un número indefinido, y tal vez infinito, de galerías hexagonales'. Siempre le había fascinado esa idea.\n\nPasó la página. En la segunda, había otro cuento, titulado 'El espejo'. No lo recordaba. Lo leyó. Trataba de un hombre que se miraba en un espejo y descubría que su reflejo era otro hombre, que a su vez lo miraba a él. Aurelio sintió un escalofrío. No recordaba haber escrito aquel cuento, pero la letra era suya. Y el estilo también.\n\nPasó otra página. Un tercer cuento, titulado 'El sueño'. Trataba de un hombre que soñaba con un hombre que soñaba con él. El cuento terminaba con la frase: 'Y al despertar, comprendió que el era el sueño del otro'. Aurelio dejó el cuaderno sobre la mesa. Aquello era demasiado. El no había escrito esos cuentos. O quizá si, y los había olvidado. O quizá alguien los había escrito por él.\n\nAquella noche no pudo dormir. Se levantó a las tres de la mañana y volvió al cuaderno. En la última página, había un cuento nuevo, titulado 'El lector'. Lo leyó temblando. Trataba de un hombre llamado Aurelio que encontraba un cuaderno en el fondo de un cajón y leía cuentos que no recordaba haber escrito. El cuento terminaba con la frase: 'Y entonces Aurelio comprendió que el también era un personaje, y que alguien, en algún lugar, lo estaba leyendo'.\n\nCierro el cuaderno. Miro por la ventana. La ciudad dormía. Y por primera vez en su vida, Aurelio se preguntó si el también sería un personaje, y si alguien, en algún lugar, estaria leyendo su historia.\n\nAl día siguiente, Aurelio fue a ver a su amigo Bernardo, profesor de literatura. Le contó lo sucedido. Bernardo lo escuchó con atención. 'Interesante', dijo. 'Es un caso de metaficción. Como en 'El Quijote', cuando los personajes han leído el Quijote. O como en Cortázar, cuando el lector es personaje. O como en Borges, cuando el sueño y la vigilia se confunden'.\n\n'Pero yo no lo escribí', dijo Aurelio. 'Yo no escribí esos cuentos'.\n\nBernardo sonrió. 'Quizá no los escribiste tú. Quizá te escribieron a ti. Quizá tú eres el personaje de un cuento que alguien está escribiendo ahora mismo, en este instante'.\n\nAurelio sintió un vértigo. Miró sus manos. Miró la mesa. Miró a Bernardo. Todo parecía real. Pero quizá no lo era. Quizá todo era un sueño, o un cuento, o una metáfora.\n\n'Mira', dijo Bernardo, 'te voy a contar un cuento. Había una vez un hombre llamado Aurelio que descubrió que era un personaje. Y al descubrirlo, empezó a escribir su propia historia. Y al escribirla, se liberó. Porque escribir es una forma de liberarse, aunque sea de la ficción'.\n\nAurelio lo miró. 'Y cómo termina el cuento?'\n\n'No termina', dijo Bernardo. 'Los cuentos que se escriben solos nunca terminan. Solo se interrumpen. Y luego, en algún otro lugar, alguien los retoma'.\n\nAurelio volvió a su casa. Abrió el cuaderno. En la última página, había un cuento nuevo. Titulado 'El principio'. Y en él, Aurelio se veía a sí mismo escribiendo el cuento que estaba leyendo. Y así, en un bucle infinito, el cuento se escribía solo.\n\nAurelio cerró el cuaderno. Sonrió. Y por primera vez en su vida, comprendió que la literatura no es un espejo de la realidad, sino una realidad paralela. Y que él, Aurelio, era a la vez autor y personaje, lector y escrito, principio y fin.\n\nO quizá no. Quizá todo era un sueño. O quizá todo era un cuento. O quizá todo era una metáfora. Pero de algo estaba seguro: mientras alguien lo leyera, el seguiría existiendo. Y eso, después de todo, era una forma de inmortalidad.",
     "ejercicios": [
       {
         "tecnica_numero": 59,
@@ -8775,7 +8775,7 @@
     "nivel_mcer": "C2",
     "fuente": "",
     "orden": 34,
-    "cuerpo": "El sujeto atrapado: poder, deseo y resistencia\n\nEl sujeto contemporáneo vive atrapado entre dos fuerzas: el poder que lo moldea y el deseo que lo empuja. Este ensayo explora, desde la teoría crítica, el psicoanálisis y la filosofía política, los mecanismos por los que el poder produce subjetividad, y las formas de resistencia que el deseo abre.\n\n1. El inconsciente ideológico\n\nLa ideología no es solo un conjunto de ideas conscientes: es un inconsciente que estructura nuestras prácticas (Zizek, Althusser). Consumimos, trabajamos, amamos de ciertas maneras porque hemos interiorizado un inconsciente ideológico que no advertimos. El sujeto cree ser libre, pero sus prácticas reproducen la ideología dominante.\n\n2. El dispositivo de sexualidad\n\nLa sexualidad no es un hecho natural: es un dispositivo histórico de poder que regula los cuerpos y las poblaciones (Foucault). El discurso médico, la psicología, la educación sexual: todos participan en la producción de la sexualidad 'normal' y la patologización de la 'anormal'.\n\n3. El simulacro\n\nVivimos en la era del simulacro (Baudrillard): las imágenes sustituyen a la realidad y la producen. La hiperrealidad es el mundo en que las representaciones ya no remiten a un referente, sino que se remiten a si mismas. El sujeto contemporáneo habita un mundo de simulacros donde la realidad es un efecto de la representación.\n\n4. La sociedad del espectáculo\n\nDebord mostró que la vida moderna se presenta como una acumulación de espectáculos. Todo se convierte en imagen, en mercancía visible. El sujeto ya no vive, contempla su vida como un espectáculo: las redes sociales son el último grado de esta lógica.\n\n5. La gubernamentalidad\n\nEl poder no solo reprime: conduce las conductas. La gubernamentalidad (Foucault) es el conjunto de técnicas que orientan a los individuos sin necesidad de coerción directa. El autocuidado, la autoayuda, las campañas de salud: todas son formas de gubernamentalidad que hacen que el sujeto se gobierne a sí mismo.\n\n6. El capital simbólico\n\nEl capital simbólico (Bourdieu) es el reconocimiento social: prestigio, honor, autoridad. El sujeto contemporáneo acumula capital simbólico en las redes sociales (likes, seguidores, reputación). La lógica del capital simbólico reproduce la lógica del capital económico.\n\n7. La violencia simbólica\n\nLa violencia simbólica (Bourdieu) es la violencia que se ejerce con la complicidad del dominado. El sujeto acepta como natural la dominación que lo oprime. La mujer que se cree inferior, el trabajador que se cree culpable de su precariedad: son ejemplos de violencia simbólica internalizada.\n\n8. La lógica del don\n\nEl don no es gratuito (Mauss): implica la obligación de dar, recibir y devolver. Las relaciones sociales se construyen mediante intercambios simbólicos. En la era digital, el 'like' es una nueva forma de don: doy reconocimiento y espero reconocimiento a cambio.\n\n9. La estructura del mito\n\nLos mitos se estructuran en oposiciones binarias que se resuelven por mediación (Levi-Strauss). El relato del éxito, del emprendedor que se hace a sí mismo, es un mito contemporáneo: opone fracaso y éxito, y resuelve la tensión mediante la mediación del 'mérito'.\n\n10. La lógica del inconsciente\n\nEl inconsciente esta estructurado como un lenguaje (Lacan): opera mediante significantes, metáforas y metonimias. El deseo del sujeto se articula en el lenguaje y se revela en los síntomas, los sueños y los lapsus. El inconsciente no es un depósito de pulsiones: es una lógica que produce sentido.\n\n11. La interpelación del sujeto\n\nLa ideología interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye. 'Tu eres emprendedor', 'tú eres madre', 'tú eres ciudadano': cada interpelación construye una identidad. El sujeto no preexiste a la interpelación: se constituye en ella.\n\n12. El biopoder\n\nEl biopoder (Foucault) se ejerce sobre la vida de las poblaciones: salud, natalidad, mortalidad, higiene. Las políticas públicas, la medicina, la demografía: todos son dispositivos de biopoder que gestionan la vida. El cuerpo ya no es solo individual: es población.\n\n13. La sublimación\n\nLa sublimación (Freud) desvía la pulsión sexual hacia fines culturales o artísticos. El arte, la ciencia, la religión: todas son formas de sublimación. El sujeto transforma el deseo en producción cultural, y en esa transformación encuentra una forma de placer.\n\n14. El retorno de lo reprimido\n\nLo reprimido retorna (Freud): en los síntomas, en los sueños, en los actos fallidos. El sujeto que reprime un deseo lo ve reaparecer disfrazado. El retorno de lo reprimido es la prueba de que la represión nunca es total.\n\n15. La dialéctica del amo y el esclavo\n\nHegel mostró que en la lucha por el reconocimiento, el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajo. El amo se vuelve dependiente del esclavo; el esclavo se libera mediante la transformación del mundo. La dialéctica del amo y el esclavo sigue operando en las relaciones laborales contemporáneas.\n\n16. La lógica del resentimiento\n\nNietzsche mostró que el resentimiento invierte los valores de los fuertes desde la moral de los débiles. El sujeto resentido condena la excelencia como 'privilegio', la fuerza como 'violencia', la belleza como 'superficialidad'. La lógica del resentimiento es una moral reactiva.\n\n17. La voluntad de poder\n\nLa voluntad de poder (Nietzsche) es el impulso fundamental de la vida: crecer, dominar, superarse. No es solo dominación sobre otros: es afirmación de la propia potencia. El sujeto que crea, que innova, que se supera, expresa la voluntad de poder.\n\n18. La desterritorialización\n\nLa desterritorialización (Deleuze, Guattari) es el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Las migraciones, las redes digitales, las identidades nómadas: todos son procesos de desterritorialización.\n\n19. El rizoma\n\nEl rizoma (Deleuze, Guattari) es un modelo de pensamiento sin centro que crece en múltiples direcciones. Frente al árbol jerárquico, el rizoma conecta puntos sin jerarquía. Internet es el ejemplo contemporáneo del rizoma.\n\n20. La sociedad disciplinaria\n\nLa sociedad disciplinaria (Foucault) organiza los cuerpos en espacios cerrados (escuela, fábrica, hospital, cárcel) para vigilarlos y normalizarlos. El examen, la fila, el horario: todos son dispositivos disciplinarios. La sociedad disciplinaria produce cuerpos dóciles.\n\n21. La sociedad de control\n\nLa sociedad de control (Deleuze) sucede a la sociedad disciplinaria: ya no hay espacios cerrados, sino redes abiertas, modulación continua, deuda. El control ya no se ejerce en lugares específicos: se ejerce en todas partes y en ningún lugar. La evaluación continua, el rendimiento, la deuda: todos son dispositivos de control.\n\n22. El panóptico\n\nEl panóptico (Bentham, Foucault) es una arquitectura carcelaria en la que el vigilante ve sin ser visto. El preso internaliza la mirada y se vigila a sí mismo. La sociedad contemporánea es panóptica: nos autocensuramos por miedo a la mirada del otro.\n\n23. La comunidad que viene\n\nAgamben propone una comunidad que viene: una comunidad sin identidad fija, sin pertenencia, basada en la singularidad cualquiera. Frente a las comunidades nacionales o identitarias, la comunidad que viene afirma la singularidad sin esencia.\n\n24. La vida desnuda\n\nAgamben llama vida desnuda a la vida reducida a mera existencia biológica, sin derechos ni significado político. El refugiado, el excluido, el que no tiene papeles: son vidas desnudas. La biopolítica contemporánea produce vidas desnudas como su reverso.\n\nConclusión\n\nEl sujeto contemporáneo no es libre ni determinado: es el lugar donde el poder y el deseo se articulan. Desmontar los mecanismos del poder (inconsciente ideológico, dispositivo, simulacro, espectáculo, gubernamentalidad, capital simbólico, violencia simbólica, don, mito, inconsciente, interpelación, biopoder, sublimación, represión, amo-esclavo, resentimiento, voluntad de poder, desterritorialización, rizoma, disciplina, control, panóptico, comunidad, vida desnuda) es la tarea de una política emancipadora.",
+    "cuerpo": "El sujeto atrapado: poder, deseo y resistencia\n\nEl sujeto contemporáneo vive atrapado entre dos fuerzas: el poder que lo moldea y el deseo que lo empuja. Este ensayo explora, desde la teoría crítica, el psicoanálisis y la filosofía política, los mecanismos por los que el poder produce subjetividad, y las formas de resistencia que el deseo abre.\n\n1. El inconsciente ideológico\n\nLa ideología no es solo un conjunto de ideas conscientes: es un inconsciente que estructura nuestras prácticas (Zizek, Althusser). Consumimos, trabajamos, amamos de ciertas maneras porque hemos interiorizado un inconsciente ideológico que no advertimos. El sujeto cree ser libre, pero sus prácticas reproducen la ideología dominante.\n\n2. El dispositivo de sexualidad\n\nLa sexualidad no es un hecho natural: es un dispositivo histórico de poder que regula los cuerpos y las poblaciones (Foucault). El discurso médico, la psicología, la educación sexual: todos participan en la producción de la sexualidad 'normal' y la patologización de la 'anormal'.\n\n3. El simulacro\n\nVivimos en la era del simulacro (Baudrillard): las imágenes sustituyen a la realidad y la producen. La hiperrealidad es el mundo en que las representaciones ya no remiten a un referente, sino que se remiten a sí mismas. El sujeto contemporáneo habita un mundo de simulacros donde la realidad es un efecto de la representación.\n\n4. La sociedad del espectáculo\n\nDebord mostró que la vida moderna se presenta como una acumulación de espectáculos. Todo se convierte en imagen, en mercancía visible. El sujeto ya no vive, contempla su vida como un espectáculo: las redes sociales son el último grado de esta lógica.\n\n5. La gubernamentalidad\n\nEl poder no solo reprime: conduce las conductas. La gubernamentalidad (Foucault) es el conjunto de técnicas que orientan a los individuos sin necesidad de coerción directa. El autocuidado, la autoayuda, las campañas de salud: todas son formas de gubernamentalidad que hacen que el sujeto se gobierne a sí mismo.\n\n6. El capital simbólico\n\nEl capital simbólico (Bourdieu) es el reconocimiento social: prestigio, honor, autoridad. El sujeto contemporáneo acumula capital simbólico en las redes sociales (likes, seguidores, reputación). La lógica del capital simbólico reproduce la lógica del capital económico.\n\n7. La violencia simbólica\n\nLa violencia simbólica (Bourdieu) es la violencia que se ejerce con la complicidad del dominado. El sujeto acepta como natural la dominación que lo oprime. La mujer que se cree inferior, el trabajador que se cree culpable de su precariedad: son ejemplos de violencia simbólica internalizada.\n\n8. La lógica del don\n\nEl don no es gratuito (Mauss): implica la obligación de dar, recibir y devolver. Las relaciones sociales se construyen mediante intercambios simbólicos. En la era digital, el 'like' es una nueva forma de don: doy reconocimiento y espero reconocimiento a cambio.\n\n9. La estructura del mito\n\nLos mitos se estructuran en oposiciones binarias que se resuelven por mediación (Lévi-Strauss). El relato del éxito, del emprendedor que se hace a sí mismo, es un mito contemporáneo: opone fracaso y éxito, y resuelve la tensión mediante la mediación del 'mérito'.\n\n10. La lógica del inconsciente\n\nEl inconsciente está estructurado como un lenguaje (Lacan): opera mediante significantes, metáforas y metonimias. El deseo del sujeto se articula en el lenguaje y se revela en los síntomas, los sueños y los lapsus. El inconsciente no es un depósito de pulsiones: es una lógica que produce sentido.\n\n11. La interpelación del sujeto\n\nLa ideología interpela al individuo como sujeto (Althusser): lo 'llama' y lo constituye. 'Tú eres emprendedor', 'tú eres madre', 'tú eres ciudadano': cada interpelación construye una identidad. El sujeto no preexiste a la interpelación: se constituye en ella.\n\n12. El biopoder\n\nEl biopoder (Foucault) se ejerce sobre la vida de las poblaciones: salud, natalidad, mortalidad, higiene. Las políticas públicas, la medicina, la demografía: todos son dispositivos de biopoder que gestionan la vida. El cuerpo ya no es solo individual: es población.\n\n13. La sublimación\n\nLa sublimación (Freud) desvía la pulsión sexual hacia fines culturales o artísticos. El arte, la ciencia, la religión: todas son formas de sublimación. El sujeto transforma el deseo en producción cultural, y en esa transformación encuentra una forma de placer.\n\n14. El retorno de lo reprimido\n\nLo reprimido retorna (Freud): en los síntomas, en los sueños, en los actos fallidos. El sujeto que reprime un deseo lo ve reaparecer disfrazado. El retorno de lo reprimido es la prueba de que la represión nunca es total.\n\n15. La dialéctica del amo y el esclavo\n\nHegel mostró que en la lucha por el reconocimiento, el amo domina al esclavo, pero solo el esclavo alcanza la autoconciencia mediante el trabajo. El amo se vuelve dependiente del esclavo; el esclavo se libera mediante la transformación del mundo. La dialéctica del amo y el esclavo sigue operando en las relaciones laborales contemporáneas.\n\n16. La lógica del resentimiento\n\nNietzsche mostró que el resentimiento invierte los valores de los fuertes desde la moral de los débiles. El sujeto resentido condena la excelencia como 'privilegio', la fuerza como 'violencia', la belleza como 'superficialidad'. La lógica del resentimiento es una moral reactiva.\n\n17. La voluntad de poder\n\nLa voluntad de poder (Nietzsche) es el impulso fundamental de la vida: crecer, dominar, superarse. No es solo dominación sobre otros: es afirmación de la propia potencia. El sujeto que crea, que innova, que se supera, expresa la voluntad de poder.\n\n18. La desterritorialización\n\nLa desterritorialización (Deleuze, Guattari) es el movimiento por el que un agenciamiento abandona un territorio y se reterritorializa en otro. Las migraciones, las redes digitales, las identidades nómadas: todos son procesos de desterritorialización.\n\n19. El rizoma\n\nEl rizoma (Deleuze, Guattari) es un modelo de pensamiento sin centro que crece en múltiples direcciones. Frente al árbol jerárquico, el rizoma conecta puntos sin jerarquía. Internet es el ejemplo contemporáneo del rizoma.\n\n20. La sociedad disciplinaria\n\nLa sociedad disciplinaria (Foucault) organiza los cuerpos en espacios cerrados (escuela, fábrica, hospital, cárcel) para vigilarlos y normalizarlos. El examen, la fila, el horario: todos son dispositivos disciplinarios. La sociedad disciplinaria produce cuerpos dóciles.\n\n21. La sociedad de control\n\nLa sociedad de control (Deleuze) sucede a la sociedad disciplinaria: ya no hay espacios cerrados, sino redes abiertas, modulación continua, deuda. El control ya no se ejerce en lugares específicos: se ejerce en todas partes y en ningún lugar. La evaluación continua, el rendimiento, la deuda: todos son dispositivos de control.\n\n22. El panóptico\n\nEl panóptico (Bentham, Foucault) es una arquitectura carcelaria en la que el vigilante ve sin ser visto. El preso internaliza la mirada y se vigila a sí mismo. La sociedad contemporánea es panóptica: nos autocensuramos por miedo a la mirada del otro.\n\n23. La comunidad que viene\n\nAgamben propone una comunidad que viene: una comunidad sin identidad fija, sin pertenencia, basada en la singularidad cualquiera. Frente a las comunidades nacionales o identitarias, la comunidad que viene afirma la singularidad sin esencia.\n\n24. La vida desnuda\n\nAgamben llama vida desnuda a la vida reducida a mera existencia biológica, sin derechos ni significado político. El refugiado, el excluido, el que no tiene papeles: son vidas desnudas. La biopolítica contemporánea produce vidas desnudas como su reverso.\n\nConclusión\n\nEl sujeto contemporáneo no es libre ni determinado: es el lugar donde el poder y el deseo se articulan. Desmontar los mecanismos del poder (inconsciente ideológico, dispositivo, simulacro, espectáculo, gubernamentalidad, capital simbólico, violencia simbólica, don, mito, inconsciente, interpelación, biopoder, sublimación, represión, amo-esclavo, resentimiento, voluntad de poder, desterritorialización, rizoma, disciplina, control, panóptico, comunidad, vida desnuda) es la tarea de una política emancipadora.",
     "ejercicios": [
       {
         "tecnica_numero": 35,
@@ -8908,7 +8908,7 @@
       {
         "tecnica_numero": 43,
         "tecnica_nivel": "C2",
-        "enunciado": "¿Qué es la estructura del mito (Levi-Strauss) según el texto?",
+        "enunciado": "¿Qué es la estructura del mito (Lévi-Strauss) según el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -8928,7 +8928,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El inconsciente esta estructurado como un lenguaje y opera con significantes",
+            "A) El inconsciente está estructurado como un lenguaje y opera con significantes",
             "B) El inconsciente es un depósito de pulsiones",
             "C) El inconsciente es irracional",
             "D) El inconsciente no tiene lógica"
@@ -9542,7 +9542,7 @@
           "opciones": [
             "A) Deduce las condiciones necesarias de posibilidad de una experiencia",
             "B) Deduce la existencia de Dios",
-            "C) Se basa en la experiencia empirica",
+            "C) Se basa en la experiencia empírica",
             "D) Se basa en la autoridad"
           ],
           "correcta": "A"
