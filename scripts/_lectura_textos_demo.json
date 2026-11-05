@@ -1502,7 +1502,7 @@
     "nivel_mcer": "B2",
     "fuente": "Revista Ciudades Sostenibles, vol. 14, 2026",
     "orden": 12,
-    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzo los 1.500 millones de llegadas en 2024, una cifra record. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gotico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios historicos en parques temáticos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caido un 30% en la última decada. Sin embargo, no todos están de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarian y aumentaria el desempleo juvenil. Como señala el economista Jose María Hernandez (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es como se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterranea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambió climatico. Un informe de la UNESCO (2024) señala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo esta transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopia: ciudades como Copenhague o Amsterdam ya han empezado a regular el alquiler turístico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios económicos y la calidad de vida de los residentes.",
+    "cuerpo": "Cada verano, ciudades como Barcelona, Venecia o Lisboa reciben millones de turistas. Según datos de la Organización Mundial del Turismo (OMT, 2025), el turismo internacional alcanzó los 1.500 millones de llegadas en 2024, una cifra récord. Estos datos plantean una pregunta urgente: ¿puede una ciudad sostener un turismo ilimitado sin perder su identidad? El primer problema es la saturación del espacio público. Un estudio de la Universidad de Barcelona (2024) encontró que en el barrio Gótico la densidad de turistas en verano triplica la de residentes. Esta saturación provoca un aumento del ruido, de los residuos y de los precios de la vivienda, y expulsa a los vecinos del centro. El segundo problema es la pérdida de identidad cultural. Muchos expertos sostienen que el turismo masivo convierte los barrios históricos en parques temáticos: las tiendas tradicionales cierran y son sustituidas por tiendas de souvenirs; los restaurantes locales desaparecen y son reemplazados por franquicias internacionales. Un ejemplo de ello es el barrio de Alfama, en Lisboa, donde el número de residentes ha caído un 30% en la última década. Sin embargo, no todos están de acuerdo. Algunos economistas sostienen que el turismo es una fuente esencial de ingresos y empleo para estas ciudades. Argumentan que, sin el turismo, muchos pequeños comercios quebrarían y aumentaría el desempleo juvenil. Como señala el economista José María Hernández (2025) en su libro Ciudades en venta, 'el turismo no es el enemigo: el problema es cómo se gestiona'. En este debate, algunos políticos han recurrido a falacias. Un ejemplo claro es la frase del concejal de una ciudad mediterránea: 'Quien critique el turismo es un enemigo del progreso'. Este argumento es una falacia ad hominem: no refuta la crítica, sino que ataca a quien la formula. El tercer problema es el impacto ambiental. El turismo masivo genera una huella de carbono significativa: los vuelos, los cruceros y el consumo de agua y energía de los hoteles contribuyen al cambio climático. Un informe de la UNESCO (2024) señala que el turismo es responsable del 8% de las emisiones globales de CO2. ¿Quién puede negar que el turismo masivo está transformando nuestras ciudades? La respuesta no es dejar de viajar, sino regular el turismo para que sea sostenible. Como en la fábula de El perro del hortelano, que no come ni deja comer, el turismo descontrolado termina destruyendo aquello que lo hace posible: la ciudad misma. La solución pasa por un modelo de turismo que combine el respeto al patrimonio, la protección de los vecinos y la sostenibilidad ambiental. No es una utopía: ciudades como Copenhague o Ámsterdam ya han empezado a regular el alquiler turístico y a limitar la llegada de cruceros. El reto es encontrar un equilibrio entre los beneficios económicos y la calidad de vida de los residentes.",
     "ejercicios": [
       {
         "tecnica_numero": 18,
@@ -1525,7 +1525,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El turismo es una fuente esencial de ingresos y empleo, y sin el muchos comercios quebrarian.",
+            "A) El turismo es una fuente esencial de ingresos y empleo, y sin él muchos comercios quebrarían.",
             "B) El turismo masivo satura el espacio público.",
             "C) El turismo genera una huella de carbono significativa."
           ],
@@ -1536,13 +1536,13 @@
       },
       {
         "tecnica_numero": 14,
-        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024) encontró que...' es una fuente primaria. ¿Cuál de las siguientes seria una fuente secundaria?",
+        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024) encontró que...' es una fuente primaria. ¿Cuál de las siguientes sería una fuente secundaria?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) 'Un estudio de la Universidad de Barcelona (2024)'.",
             "B) 'Un artículo de la revista Ciudades Sostenibles que resume el estudio de la Universidad de Barcelona'.",
-            "C) 'Una entrevista directa a un vecino del barrio Gotico'."
+            "C) 'Una entrevista directa a un vecino del barrio Gótico'."
           ],
           "correcta": "B"
         },
@@ -1581,12 +1581,12 @@
       },
       {
         "tecnica_numero": 18,
-        "enunciado": "El autor menciona el barrio de Alfama (Lisboa) donde 'el número de residentes ha caido un 30%'. ¿Qué revela este ejemplo sobre su postura?",
+        "enunciado": "El autor menciona el barrio de Alfama (Lisboa) donde 'el número de residentes ha caído un 30%'. ¿Qué revela este ejemplo sobre su postura?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Una postura favorable al turismo masivo.",
-            "B) Una postura crítica hacia los efectos del turismo masivo en los barrios historicos.",
+            "B) Una postura crítica hacia los efectos del turismo masivo en los barrios históricos.",
             "C) Una postura neutral: solo describe."
           ],
           "correcta": "B"
@@ -1602,7 +1602,7 @@
           "opciones": [
             "A) Un contexto medieval, por las murallas y los caballeros.",
             "B) Un contexto contemporáneo (siglo XXI), por los datos de la OMT (2024-2025), los vuelos y los cruceros.",
-            "C) Un contexto del siglo XIX, por las fabricas."
+            "C) Un contexto del siglo XIX, por las fábricas."
           ],
           "correcta": "B"
         },
@@ -1616,7 +1616,7 @@
         "payload": {
           "opciones": [
             "A) Narrador interno que participa en la historia y dice 'yo'.",
-            "B) Narrador externo en tercera persona con acceso a datos y al debate (punto de vista analitico).",
+            "B) Narrador externo en tercera persona con acceso a datos y al debate (punto de vista analítico).",
             "C) Un diálogo entre dos personajes."
           ],
           "correcta": "B"
@@ -1630,7 +1630,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Simboliza la ecologia y el cuidado del medio ambiente.",
+            "A) Simboliza la ecología y el cuidado del medio ambiente.",
             "B) Simboliza la hipocresía corporativa (greenwashing): una etiqueta que promete un mundo mejor pero no cambia las prácticas.",
             "C) Simboliza el color favorito de los turistas."
           ],
@@ -1646,7 +1646,7 @@
         "payload": {
           "opciones": [
             "A) El turismo masivo tiene efectos negativos (saturación, pérdida de identidad, impacto ambiental) que requieren regulación.",
-            "B) Barcelona es la ciudad más turistica del mundo.",
+            "B) Barcelona es la ciudad más turística del mundo.",
             "C) Los turistas gastan mucho dinero."
           ],
           "correcta": "A"
@@ -1656,7 +1656,7 @@
       },
       {
         "tecnica_numero": 20,
-        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024)' es una fuente primaria. ¿Cómo se clasificaria una encuesta realizada por el propio autor del texto?",
+        "enunciado": "En el texto, 'Un estudio de la Universidad de Barcelona (2024)' es una fuente primaria. ¿Cómo se clasificaría una encuesta realizada por el propio autor del texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -1675,7 +1675,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Porque ataca a la persona que crítica (la llama 'enemigo') en lugar de refutar su argumento.",
+            "A) Porque ataca a la persona que critica (la llama 'enemigo') en lugar de refutar su argumento.",
             "B) Porque generaliza a partir de pocos casos.",
             "C) Porque apela a una autoridad."
           ],
@@ -1686,11 +1686,11 @@
       },
       {
         "tecnica_numero": 11,
-        "enunciado": "El texto cita al economista Hernandez: 'el turismo no es el enemigo: el problema es como se gestiona'. ¿Es una definición sólida?",
+        "enunciado": "El texto cita al economista Hernández: 'el turismo no es el enemigo: el problema es cómo se gestiona'. ¿Es una definición sólida?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si: es clara, precisa, no circular, y delimita el problema (la gestion) sin repetir el terminó.",
+            "A) Sí: es clara, precisa, no circular, y delimita el problema (la gestión) sin repetir el término.",
             "B) No: es una definición circular que repite el término 'turismo'.",
             "C) No: es demasiado larga para ser una definición."
           ],
