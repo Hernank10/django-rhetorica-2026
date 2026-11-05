@@ -77,3 +77,18 @@ git log -1 --oneline
 ## Pendientes
 
 Ver `README.md` seccion 'Pendientes estructurales'.
+## Pilot seeded (2026-11-05)
+
+| Concepto | Valor |
+|---|---|
+| Usuarios pilot | 108 (3 admin + 9 prof + 96 est) |
+| Certificados pilot | 45 |
+| ProgresoTextos pilot | 135 |
+| Veredicto verify | VERDE (23 OK, 0 FAIL) |
+| Tag | `v3.4.6-lectura-pilot-seeded` |
+| Commit | `d3f0c92` |
+
+**Credenciales:** `admin_pilot_01..03`, `prof_pilot_01..09`, `est_pilot_001..096`
+**Password común:** `Test1234!`
+
+Ver `docs/PILOT_FULL_TEST.md` y `docs/PILOT_VERIFICATION.md` para el detalle completo.
