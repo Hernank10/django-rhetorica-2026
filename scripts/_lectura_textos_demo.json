@@ -2017,7 +2017,7 @@
     "nivel_mcer": "A1",
     "fuente": "",
     "orden": 14,
-    "cuerpo": "Mi escuela se llama San Isidro. Es un edificio grande y blanco, con muchas ventanas azules. Esta en el centro del pueblo. Por la mañana, los niños llegan a las nueve. La profesora, que se llama Ana, los espera en la puerta. Ana es alta y tiene el pelo negro. —Buenos días, niños —dice Ana, sonriendo. Los niños entran en clase y se sientan en sus pupitres. En la clase hay un mapa grande, una pizarra y muchos libros. A las once, los niños salen al patio. El patio tiene árboles y bancos. Allí juegan al fútbol y hablan con sus amigos. —¡Qué bien lo pasamos en el patio! —dice Pablo, contento. A las dos, los niños vuelven a casa. La escuela cierra a las cinco. Por la tarde, hay clases de música y de dibujo. Me gusta mi escuela porque aprendo mucho y tengo amigos.",
+    "cuerpo": "Mi escuela se llama San Isidro. Es un edificio grande y blanco, con muchas ventanas azules. Está en el centro del pueblo. Por la mañana, los niños llegan a las nueve. La profesora, que se llama Ana, los espera en la puerta. Ana es alta y tiene el pelo negro. —Buenos días, niños —dice Ana, sonriendo. Los niños entran en clase y se sientan en sus pupitres. En la clase hay un mapa grande, una pizarra y muchos libros. A las once, los niños salen al patio. El patio tiene árboles y bancos. Allí juegan al fútbol y hablan con sus amigos. —¡Qué bien lo pasamos en el patio! —dice Pablo, contento. A las dos, los niños vuelven a casa. La escuela cierra a las cinco. Por la tarde, hay clases de música y de dibujo. Me gusta mi escuela porque aprendo mucho y tengo amigos.",
     "ejercicios": [
       {
         "tecnica_numero": 35,
@@ -2037,7 +2037,7 @@
       {
         "tecnica_numero": 36,
         "tecnica_nivel": "A1",
-        "enunciado": "En 'Ana dice Buenos días, niños, sonriendo', ¿cómo esta Ana?",
+        "enunciado": "En 'Ana dice Buenos días, niños, sonriendo', ¿cómo está Ana?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2082,7 +2082,7 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "A1",
-        "enunciado": "¿Dónde esta la escuela?",
+        "enunciado": "¿Dónde está la escuela?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2102,7 +2102,7 @@
         "payload": {
           "opciones": [
             "A) Porque Ana los llama",
-            "B) Porque hace frió",
+            "B) Porque hace frío",
             "C) Porque quieren jugar"
           ],
           "correcta": "A"
@@ -2172,7 +2172,7 @@
       {
         "tecnica_numero": 45,
         "tecnica_nivel": "A1",
-        "enunciado": "El texto dice 'Por la mañana, los niños llegan'. ¿A que momento del día se refiere?",
+        "enunciado": "El texto dice 'Por la mañana, los niños llegan'. ¿A qué momento del día se refiere?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -2221,8 +2221,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que esta contenta y es amable",
-            "B) Que esta enfadada",
+            "A) Que está contenta y es amable",
+            "B) Que está enfadada",
             "C) Que tiene sueño"
           ],
           "correcta": "A"
@@ -2277,7 +2277,7 @@
       {
         "tecnica_numero": 52,
         "tecnica_nivel": "A1",
-        "enunciado": "El texto dice que la escuela es 'un edificio grande y blanco'. ¿De que material podría estar hecha?",
+        "enunciado": "El texto dice que la escuela es 'un edificio grande y blanco'. ¿De qué material podría estar hecha?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
