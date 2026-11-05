@@ -4389,7 +4389,7 @@
     "nivel_mcer": "B1",
     "fuente": "",
     "orden": 21,
-    "cuerpo": "La fuerza de las palabras\n\nLas palabras no son solo sonidos: tienen poder. Un estudio de la Universidad de Stanford (2023) demostro que las palabras que usamos a diario influyen directamente en como nos sentimos y en como nos relacionamos con los demas.\n\nEl poder de las palabras positivas (subtitulo)\n\nPrimero, las palabras positivas generan bienestar. Por ejemplo, un elogio sincero puede alegrar el día de una persona. Sin embargo, las palabras negativas pueden herir profundamente. Un insulto, aunque sea pequeño, deja una huella duradera.\n\nAlgunos sostienen que las palabras no importan: \"las palabras se las lleva el viento\", dicen. No obstante, la evidencia empirica contradice esta idea. Según la doctora García, psicologa de la Universidad de Madrid, \"las palabras construyen o destruyen relaciones; su impacto es real y medible\".\n\nPalabras que transforman (subtitulo)\n\nAdemás, las palabras pueden transformar la realidad. Lo siguiente es clave: un \"te quiero\" puede cambiar una vida; un \"no puedo\" puede limitarla. Las palabras son como semillas: crecen en la mente y dan fruto en las acciones. Finalmente, cuidemos lo que decimos: nuestras palabras pueden construir un mundo mejor o destruirlo.",
+    "cuerpo": "La fuerza de las palabras\n\nLas palabras no son solo sonidos: tienen poder. Un estudio de la Universidad de Stanford (2023) demostró que las palabras que usamos a diario influyen directamente en cómo nos sentimos y en cómo nos relacionamos con los demás.\n\nEl poder de las palabras positivas (subtítulo)\n\nPrimero, las palabras positivas generan bienestar. Por ejemplo, un elogio sincero puede alegrar el día de una persona. Sin embargo, las palabras negativas pueden herir profundamente. Un insulto, aunque sea pequeño, deja una huella duradera.\n\nAlgunos sostienen que las palabras no importan: \"las palabras se las lleva el viento\", dicen. No obstante, la evidencia empírica contradice esta idea. Según la doctora García, psicóloga de la Universidad de Madrid, \"las palabras construyen o destruyen relaciones; su impacto es real y medible\".\n\nPalabras que transforman (subtítulo)\n\nAdemás, las palabras pueden transformar la realidad. Lo siguiente es clave: un \"te quiero\" puede cambiar una vida; un \"no puedo\" puede limitarla. Las palabras son como semillas: crecen en la mente y dan fruto en las acciones. Finalmente, cuidemos lo que decimos: nuestras palabras pueden construir un mundo mejor o destruirlo.",
     "ejercicios": [
       {
         "tecnica_numero": 22,
@@ -4426,7 +4426,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'las palabras construyen o destruyen relaciones; su impacto es real', a que se refiere 'su'?",
+        "enunciado": "En 'las palabras construyen o destruyen relaciones; su impacto es real', a qué se refiere 'su'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4490,13 +4490,13 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "B1",
-        "enunciado": "¿Qué cita textual aparece en el texto y a quien se atribuye?",
+        "enunciado": "¿Qué cita textual aparece en el texto y a quién se atribuye?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) 'las palabras construyen o destruyen relaciones' - doctora García",
             "B) 'las palabras se las lleva el viento' - Stanford",
-            "C) 'influyen en como nos sentimos' - el autor",
+            "C) 'influyen en cómo nos sentimos' - el autor",
             "D) 'crecen en la mente' - la Universidad de Madrid"
           ],
           "correcta": "A"
@@ -4522,7 +4522,7 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "B1",
-        "enunciado": "¿Qué evidencia empirica cita el texto?",
+        "enunciado": "¿Qué evidencia empírica cita el texto?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4538,7 +4538,7 @@
       {
         "tecnica_numero": 31,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'Un estudio demostro que...', en que tiempo verbal esta 'demostro'?",
+        "enunciado": "En 'Un estudio demostró que...', en qué tiempo verbal esta 'demostró'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4570,7 +4570,7 @@
       {
         "tecnica_numero": 33,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'pueden herir profundamente', que adverbio de modo aparece?",
+        "enunciado": "En 'pueden herir profundamente', qué adverbio de modo aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4606,10 +4606,10 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que se hablara del poder de las palabras",
-            "B) Que se hablara de la Universidad de Stanford",
-            "C) Que se hablara de la doctora García",
-            "D) Que se hablara de semillas"
+            "A) Que se hablará del poder de las palabras",
+            "B) Que se hablará de la Universidad de Stanford",
+            "C) Que se hablará de la doctora García",
+            "D) Que se hablará de semillas"
           ],
           "correcta": "A"
         },
@@ -4634,7 +4634,7 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "B1",
-        "enunciado": "En 'Las palabras son como semillas', que figura literaria aparece?",
+        "enunciado": "En 'Las palabras son como semillas', qué figura literaria aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -4670,7 +4670,7 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Subtitulos (marcados entre paréntesis)",
+            "A) Subtítulos (marcados entre paréntesis)",
             "B) Imágenes",
             "C) Tablas",
             "D) Gráficos"
@@ -4686,8 +4686,8 @@
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Anticipa lo que viene después (referencia cataforica)",
-            "B) Remite a algo ya dicho (referencia anaforica)",
+            "A) Anticipa lo que viene después (referencia catafórica)",
+            "B) Remite a algo ya dicho (referencia anafórica)",
             "C) Es un conector de contraste",
             "D) Es un marcador de orden"
           ],
