@@ -5693,7 +5693,7 @@
     "nivel_mcer": "B2",
     "fuente": "",
     "orden": 25,
-    "cuerpo": "La semana laboral de cuatro días: utopia o realidad\n\nEn los últimos años, el debate sobre la semana laboral de cuatro días ha llegado a las empresas y a los gobiernos. Algunos aseguran que es una utopia; otros, qué es una realidad posible. Los defensores sostienen que mejora la productividad y la calidad de vida. Los críticos, en cambio, advierten de sus riesgos.\n\nUn estudio de la Universidad de Cambridge (2023) encontró que las empresas que adoptaron la semana de cuatro días mantuvieron o aumentaron su productividad. Según la doctora Elena Martínez, economista laboral, \"la reducción de la jornada no implica una reducción del rendimiento; al contrario, los trabajadores descansan más y rinden mejor\". Este argumento de autoridad refuerza la postura favorable.\n\nSin embargo, algunos empresarios sostienen que la medida es inviable en sectores como la hosteleria o la sanidad. \"No se puede atender a los pacientes solo cuatro días a la semana\", afirma el doctor Ruiz, director de un hospital. No obstante, los defensores replican que la organización por turnos permite adaptar la medida a cada sector.\n\nAlgunos van más allá: \"Si reducimos la jornada, las empresas quebraran y el país se hundira\". Esta afirmación contiene una falacia: no hay evidencia de que la reducción lleve automaticamente a la quiebra. Otros dicen: \"O trabajas cinco días o eres un vago\", lo que constituye un falso dilema: hay muchas formas de organizar el trabajo.\n\nEn mi opinión, la semana de cuatro días es una oportunidad que deberíamos explorar. Probablemente no sea la solución para todos los sectores, pero sin duda puede mejorar la vida de muchos trabajadores. Quien puede negar que el descanso es necesario para rendir mejor? Como decía el poeta, \"el tiempo es oro\", y quizás deberíamos invertirlo mejor.\n\nEn definitiva, el debate sigue abierto. Lo que está claro es que el mundo laboral esta cambiando y que las empresas que se adapten antes tendran ventaja. Como un rió que cambia de cauce, el trabajo del futuro no sera igual que el del pasado. La pregunta no es si habra cambió, sino cuando y como.",
+    "cuerpo": "La semana laboral de cuatro días: utopía o realidad\n\nEn los últimos años, el debate sobre la semana laboral de cuatro días ha llegado a las empresas y a los gobiernos. Algunos aseguran que es una utopía; otros, que es una realidad posible. Los defensores sostienen que mejora la productividad y la calidad de vida. Los críticos, en cambio, advierten de sus riesgos.\n\nUn estudio de la Universidad de Cambridge (2023) encontró que las empresas que adoptaron la semana de cuatro días mantuvieron o aumentaron su productividad. Según la doctora Elena Martínez, economista laboral, \"la reducción de la jornada no implica una reducción del rendimiento; al contrario, los trabajadores descansan más y rinden mejor\". Este argumento de autoridad refuerza la postura favorable.\n\nSin embargo, algunos empresarios sostienen que la medida es inviable en sectores como la hostelería o la sanidad. \"No se puede atender a los pacientes solo cuatro días a la semana\", afirma el doctor Ruiz, director de un hospital. No obstante, los defensores replican que la organización por turnos permite adaptar la medida a cada sector.\n\nAlgunos van más allá: \"Si reducimos la jornada, las empresas quebrarán y el país se hundirá\". Esta afirmación contiene una falacia: no hay evidencia de que la reducción lleve automáticamente a la quiebra. Otros dicen: \"O trabajas cinco días o eres un vago\", lo que constituye un falso dilema: hay muchas formas de organizar el trabajo.\n\nEn mi opinión, la semana de cuatro días es una oportunidad que deberíamos explorar. Probablemente no sea la solución para todos los sectores, pero sin duda puede mejorar la vida de muchos trabajadores. ¿Quién puede negar que el descanso es necesario para rendir mejor? Como decía el poeta, \"el tiempo es oro\", y quizás deberíamos invertirlo mejor.\n\nEn definitiva, el debate sigue abierto. Lo que está claro es que el mundo laboral está cambiando y que las empresas que se adapten antes tendrán ventaja. Como un río que cambia de cauce, el trabajo del futuro no será igual que el del pasado. La pregunta no es si habrá cambio, sino cuándo y cómo.",
     "ejercicios": [
       {
         "tecnica_numero": 21,
@@ -5703,7 +5703,7 @@
         "payload": {
           "opciones": [
             "A) La semana de cuatro días es una oportunidad que deberíamos explorar",
-            "B) La semana de cuatro días es una utopia",
+            "B) La semana de cuatro días es una utopía",
             "C) El teletrabajo es mejor que la oficina",
             "D) Los empresarios siempre tienen razón"
           ],
@@ -5714,7 +5714,7 @@
       {
         "tecnica_numero": 22,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué presupone el autor cuando afirma que 'el mundo laboral esta cambiando'?",
+        "enunciado": "¿Qué presupone el autor cuando afirma que 'el mundo laboral está cambiando'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5730,7 +5730,7 @@
       {
         "tecnica_numero": 23,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué falacia contiene la frase 'Si reducimos la jornada, las empresas quebraran y el país se hundira'?",
+        "enunciado": "¿Qué falacia contiene la frase 'Si reducimos la jornada, las empresas quebrarán y el país se hundirá'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5746,7 +5746,7 @@
       {
         "tecnica_numero": 24,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Cuándo el autor dice 'En mi opinión...' qué recurso de persuasión usa?",
+        "enunciado": "Cuando el autor dice 'En mi opinión...', ¿qué recurso de persuasión usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5762,7 +5762,7 @@
       {
         "tecnica_numero": 25,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Un estudio de Cambridge encontró X; por tanto, la medida es viable', cual es la conclusión?",
+        "enunciado": "En 'Un estudio de Cambridge encontró X; por tanto, la medida es viable', ¿cuál es la conclusión?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5810,14 +5810,14 @@
       {
         "tecnica_numero": 28,
         "tecnica_nivel": "B2",
-        "enunciado": "Es sólido el argumento de autoridad en 'Según la doctora Martínez, economista laboral, la reducción no implica menor rendimiento'?",
+        "enunciado": "¿Es sólido el argumento de autoridad en 'Según la doctora Martínez, economista laboral, la reducción no implica menor rendimiento'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si, porque es una experta en la materia y aporta un estudio",
+            "A) Sí, porque es una experta en la materia y aporta un estudio",
             "B) No, porque es una opinión personal",
             "C) No, porque es una cita anonima",
-            "D) Si, porque es famosa"
+            "D) Sí, porque es famosa"
           ],
           "correcta": "A"
         },
@@ -5842,14 +5842,14 @@
       {
         "tecnica_numero": 30,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué implica el autor al decir 'las empresas que se adapten antes tendran ventaja'?",
+        "enunciado": "¿¿Qué implica el autor al decir 'las empresas que se adapten antes tendrán ventaja'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que las que no se adapten perderan ventaja",
-            "B) Que todas las empresas se adaptaran",
+            "A) Que las que no se adapten perderán ventaja",
+            "B) Que todas las empresas se adaptarán",
             "C) Que la adaptación es mala",
-            "D) Que no hay cambió"
+            "D) Que no hay cambio"
           ],
           "correcta": "A"
         },
@@ -5890,11 +5890,11 @@
       {
         "tecnica_numero": 33,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué topico literario aparece en la expresión 'el tiempo es oro'?",
+        "enunciado": "¿¿Qué tópico literario aparece en la expresión 'el tiempo es oro'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) El topico del tiempo como recurso valioso (carpe diem/tempus fugit)",
+            "A) El tópico del tiempo como recurso valioso (carpe diem/tempus fugit)",
             "B) El locus amoenus",
             "C) El ubi sunt",
             "D) La falsa modestia"
@@ -5906,7 +5906,7 @@
       {
         "tecnica_numero": 34,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué falacia causal contiene 'Desde que redujimos la jornada, las ventas bajaron, luego la reducción causo la bajada'?",
+        "enunciado": "¿¿Qué falacia causal contiene 'Desde que redujimos la jornada, las ventas bajaron, luego la reducción causó la bajada'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5922,7 +5922,7 @@
       {
         "tecnica_numero": 35,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Como un rió que cambia de cauce, el trabajo del futuro no sera igual', qué tipo de argumento se usa?",
+        "enunciado": "En 'Como un río que cambia de cauce, el trabajo del futuro no será igual', ¿qué tipo de argumento se usa?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5954,11 +5954,11 @@
       {
         "tecnica_numero": 37,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué argumento por reducción al absurdo usa el autor (o podría usar) para refutar la idea de que 'reducir la jornada arruinara el país'?",
+        "enunciado": "¿¿Qué argumento por reducción al absurdo usa el autor (o podría usar) para refutar la idea de que 'reducir la jornada arruinará el país'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Si reducir la jornada arruinara el país, todos los países que la han probado estarian arruinados; no lo están",
+            "A) Si reducir la jornada arruinará el país, todos los países que la han probado estarían arruinados; no lo están",
             "B) Todos los países deben reducir la jornada",
             "C) La jornada no importa",
             "D) El estudio de Cambridge lo demuestra"
@@ -5970,7 +5970,7 @@
       {
         "tecnica_numero": 38,
         "tecnica_nivel": "B2",
-        "enunciado": "¿Qué argumento por consecuencias aparece en 'puede mejorar la vida de muchos trabajadores'?",
+        "enunciado": "¿¿Qué argumento por consecuencias aparece en 'puede mejorar la vida de muchos trabajadores'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
@@ -5986,11 +5986,11 @@
       {
         "tecnica_numero": 39,
         "tecnica_nivel": "B2",
-        "enunciado": "Que función cumple la pregunta retórica 'Quien puede negar que el descanso es necesario para rendir mejor?'",
+        "enunciado": "¿Qué función cumple la pregunta retórica '¿Quién puede negar que el descanso es necesario para rendir mejor?'",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Afirmar con enfasis que el descanso es necesario",
+            "A) Afirmar con énfasis que el descanso es necesario",
             "B) Pedir información",
             "C) Expresar una duda",
             "D) Hacer una broma"
@@ -6002,12 +6002,12 @@
       {
         "tecnica_numero": 40,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'Según la doctora Martínez, \"la reducción no implica menor rendimiento\"', qué tipo de cita aparece?",
+        "enunciado": "En 'Según la doctora Martínez, \"la reducción no implica menor rendimiento\"', ¿qué tipo de cita aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
             "A) Estilo directo (comillas, palabras exactas)",
-            "B) Estilo indirecto (parafrasis)",
+            "B) Estilo indirecto (paráfrasis)",
             "C) No es una cita",
             "D) Es una pregunta"
           ],
@@ -6018,7 +6018,7 @@
       {
         "tecnica_numero": 41,
         "tecnica_nivel": "B2",
-        "enunciado": "En 'los defensores sostienen que... / los críticos, en cambio, advierten...', que procedimiento de cohesión aparece?",
+        "enunciado": "En 'los defensores sostienen que... / los críticos, en cambio, advierten...', ¿qué procedimiento de cohesión aparece?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
