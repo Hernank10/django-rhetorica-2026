@@ -1357,7 +1357,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 11,
-    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseño mi receta secreta -dijo la abuela, sonriendo-. Pero tienes que escuchar con atención. -Si, abuela -respondió Sofía, con los ojos brillantes. La abuela saco mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. -Primero batimos los huevos, luego añadimos el azúcar y, por último, la harina -explicó la abuela-. Nunca lo hacemos todo a la vez. Sofía removió la mezcla con una cuchara de madera. La abuela la miraba con cariño. -Abuela, ¿por qué no usas la batidora eléctrica? -preguntó Sofía. -Porque con la cuchara se siente la textura -contestó la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendió. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartió con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
+    "cuerpo": "Cada domingo, Sofía iba a casa de su abuela a cocinar. A la abuela le encantaba hacer bizcochos y Sofía quería aprender. -Hoy te enseño mi receta secreta —dijo la abuela, sonriendo—. Pero tienes que escuchar con atención. —Sí, abuela -respondió Sofía, con los ojos brillantes. La abuela sacó mucha harina, bastante azúcar y un poco de sal. Nunca usaba levadura comprada: siempre preparaba la suya. —Primero batimos los huevos, luego añadimos el azúcar y, por último, la harina —explicó la abuela—. Nunca lo hacemos todo a la vez. Sofía removió la mezcla con una cuchara de madera. La abuela la miraba con cariño. —Abuela, ¿por qué no usas la batidora eléctrica? —preguntó Sofía. —Porque con la cuchara se siente la textura -contestó la abuela-. Y la textura es lo más importante. Sofía no dijo nada, pero entendió. Cuando el bizcocho estuvo en el horno, la abuela le contó que aquella receta era de su propia abuela, que la había aprendido de niña en un pueblo pequeño. Al final, el bizcocho salió perfecto. Sofía se lo llevó a casa y lo compartió con sus padres. Nunca lo olvidó: aquella tarde aprendió más que una receta.",
     "ejercicios": [
       {
         "tecnica_numero": 11,
@@ -1391,7 +1391,7 @@
       },
       {
         "tecnica_numero": 12,
-        "enunciado": "¿Cuándo Sofía comparte el bizcocho con sus padres, ¿la acción es buena o mala?",
+        "enunciado": "Cuando Sofía comparte el bizcocho con sus padres, ¿la acción es buena o mala?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
