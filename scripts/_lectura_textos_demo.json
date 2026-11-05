@@ -992,7 +992,7 @@
     "nivel_mcer": "A2",
     "fuente": "",
     "orden": 9,
-    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardín. El gato lo miró fijamente y dijo: -Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. -No tengas miedo -dijo el gato-. Solo quiero compañía. Pablo, después de dudar un momento, se sentó en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. -Primero observo, luego decido si me acerco -explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pájaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiró, bostezó y dijo: -Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajo al jardín, el gato gris ya estaba allí, esperándolo, con los ojos brillantes y la cola levantada.",
+    "cuerpo": "Una mañana de primavera, Pablo encontró un gato gris sentado en el muro de su jardín. El gato lo miró fijamente y dijo: —Buenos días, Pablo. Pablo se quedó paralizado. Los gatos no hablan. Pero aquel gato acababa de decir su nombre. —No tengas miedo —dijo el gato—. Solo quiero compañía. Pablo, después de dudar un momento, se sentó en el muro junto al gato. El gato le contó que vivía en el tejado de la casa vecina y que pasaba los días mirando a la gente. —Primero observo, luego decido si me acerco —explicó el gato. Durante toda la tarde, Pablo y el gato hablaron de todo: de los pájaros, de las nubes, de los ruidos de la calle. Al anochecer, el gato se estiró, bostezó y dijo: —Me voy. Mañana volveré. Y saltó del muro con elegancia. Pablo lo miró alejarse por el tejado. Al día siguiente, cuando bajó al jardín, el gato gris ya estaba allí, esperándolo, con los ojos brillantes y la cola levantada.",
     "ejercicios": [
       {
         "tecnica_numero": 9,
@@ -1046,7 +1046,7 @@
         "payload": {
           "opciones": [
             "A) El gato.",
-            "B) Del muro (complemento de lugar, no objeto directo).",
+            "B) Del muro (complemento de lugar).",
             "C) No hay objeto directo: 'saltar' es intransitivo."
           ],
           "correcta": "C"
@@ -1071,12 +1071,12 @@
       },
       {
         "tecnica_numero": 12,
-        "enunciado": "¿Qué sugiere que el gato este 'con los ojos brillantes y la cola levantada'?",
+        "enunciado": "¿Qué sugiere que el gato esté 'con los ojos brillantes y la cola levantada'?",
         "tipo": "multiple_choice",
         "payload": {
           "opciones": [
-            "A) Que el gato esta enojado y va a atacar.",
-            "B) Que el gato esta contento y espera a Pablo.",
+            "A) Que el gato está enojado y va a atacar.",
+            "B) Que el gato está contento y espera a Pablo.",
             "C) Que el gato tiene frío."
           ],
           "correcta": "B"
