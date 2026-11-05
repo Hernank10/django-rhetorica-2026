@@ -1,501 +1,595 @@
-# Reporte de Tildes y Redaccion - v8 a v40b
+# Reporte de Tildes - v8 a v40c
 
-**Generado:** 2026-11-05 12:18
+**Generado:** 2026-11-05 12:36
 **Total textos:** 36
-**Commit final:** 26eeddd (v40 master) + v40b (continua dentro)
-**Tag:** v3.4.1-lectura-v40-completo
+**Ultimo commit:** 0776471 + v40c
 
 ---
 
 ## 1. Resumen ejecutivo
 
-| Nivel | Textos | Ejercicios | Cambios aprox |
+| Nivel | Textos | Ejercicios | Correcc. tildes |
 |---|---|---|---|
-| A1 | 4 | 86 | 98 |
-| A2 | 7 | 104 | 168 |
-| B1 | 7 | 102 | 85 |
-| B2 | 7 | 118 | 269 |
-| C1 | 7 | 107 | 593 |
-| C2 | 4 | 89 | 443 |
-| **Total** | **36** | **606** | **1656** |
+| A1 | 4 | 86 | 27 |
+| A2 | 7 | 104 | 41 |
+| B1 | 7 | 102 | 27 |
+| B2 | 7 | 118 | 85 |
+| C1 | 7 | 107 | 75 |
+| C2 | 4 | 89 | 62 |
+| **Total** | **36** | **606** | **317** |
 
-- **Ejercicios reescritos por contenido:** 12
-- **Textos con 0 residuos:** 35/36
+- **Textos con 0 residuos:** 36/36
 
 ---
 
-## 2. Lista completa por nivel
+## 2. Lista por nivel
 
 ### A1 (4 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 13 | El perro perdido | v40 (auto) | 20 | Tildes | OK |
-| 14 | Mi escuela | v31 | 22 | Tildes + redaccion | OK |
-| 15 | La fiesta de cumpleaños | v32 + v40b | 21 | Tildes | OK |
-| 16 | Los animales de la granja | v30 | 23 | Tildes + contenido | OK |
+| 13 | El perro perdido | v40 | 20 | 2 | OK |
+| 14 | Mi escuela | v31 | 22 | 6 | OK |
+| 15 | La fiesta de cumpleaños | v32+v40b | 21 | 9 | OK |
+| 16 | Los animales de la granja | v30 | 23 | 10 | OK |
 
 ### A2 (7 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 1 | El faro y la tormenta | v40 (auto) | 3 | Tildes | OK |
-| 9 | El gato que hablaba | v29 | 10 | Tildes + redaccion + contenido | WARN 1 |
-| 11 | La receta de la abuela | v33 | 9 | Tildes + redaccion | OK |
-| 17 | El misterio del cuadro robado | v28 | 21 | Tildes + contenido | OK |
-| 18 | La vida en el fondo del mar | v21 | 19 | Tildes | OK |
-| 19 | El debate sobre los deberes | v27 | 21 | Tildes + redaccion | OK |
-| 20 | Cómo funciona el reciclaje | v34 | 21 | Tildes + typo | OK |
+| 1 | El faro y la tormenta | v40 | 3 | 0 | OK |
+| 9 | El gato que hablaba | v29 | 10 | 6 | OK |
+| 11 | La receta de la abuela | v33 | 9 | 6 | OK |
+| 17 | El misterio del cuadro robado | v28+v40c | 21 | 13 | OK |
+| 18 | La vida en el fondo del mar | v21 | 19 | 7 | OK |
+| 19 | El debate sobre los deberes | v27 | 21 | 3 | OK |
+| 20 | Cómo funciona el reciclaje | v34 | 21 | 6 | OK |
 
 ### B1 (7 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 2 | El reciclaje de vidrio en España | v40 (auto) | 4 | Tildes | OK |
-| 4 | El debate sobre las redes sociales en los institutos | v35 | 8 | Redaccion | OK |
-| 7 | La biblioteca secreta | v40 (auto) | 11 | Tildes | OK |
-| 21 | La fuerza de las palabras | v23 | 19 | Tildes | OK |
-| 22 | La decisión de Marta | v40 (auto) | 21 | Tildes | OK |
-| 23 | El viaje de Santiago | v26 | 19 | Tildes + pronombres | OK |
-| 24 | Pantallas en las aulas: ayuda o distracción | v40 (auto) | 20 | Tildes | OK |
+| 2 | El reciclaje de vidrio en España | v40 | 4 | 1 | OK |
+| 4 | El debate sobre las redes sociales en los institutos | v35 | 8 | 0 | OK |
+| 7 | La biblioteca secreta | v40 | 11 | 1 | OK |
+| 21 | La fuerza de las palabras | v23 | 19 | 7 | OK |
+| 22 | La decisión de Marta | v40 | 21 | 3 | OK |
+| 23 | El viaje de Santiago | v26 | 19 | 13 | OK |
+| 24 | Pantallas en las aulas: ayuda o distracción | v40 | 20 | 2 | OK |
 
 ### B2 (7 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 6 | La inteligencia artificial en la educación: promesas y riesgos | v37 | 12 | Tildes + ortografia + redaccion | OK |
-| 10 | La moda rápida y el costo humano | v40 (auto) | 13 | Tildes | OK |
-| 12 | El turismo masivo en las ciudades | v24 | 13 | Tildes + contenido | OK |
-| 25 | La semana laboral de cuatro días | v25 | 21 | Tildes + redaccion | OK |
-| 26 | El regreso de Amina | v20 + v21 | 19 | Tildes | OK |
-| 27 | La casa de los relojes | v18 | 21 | Tildes + falsos positivos | OK |
-| 28 | Móviles en los institutos: prohibir o educar | v19 | 19 | Tildes | OK |
+| 6 | La inteligencia artificial en la educación: promesas y riesgos | v37 | 12 | 9 | OK |
+| 10 | La moda rápida y el costo humano | v40 | 13 | 1 | OK |
+| 12 | El turismo masivo en las ciudades | v24 | 13 | 14 | OK |
+| 25 | La semana laboral de cuatro días | v25 | 21 | 13 | OK |
+| 26 | El regreso de Amina | v20+v21 | 19 | 29 | OK |
+| 27 | La casa de los relojes | v18 | 21 | 7 | OK |
+| 28 | Móviles en los institutos: prohibir o educar | v19 | 19 | 12 | OK |
 
 ### C1 (7 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 3 | La promesa incumplida de la empresa energética | v40 (auto) | 4 | Tildes | OK |
-| 5 | La manipulación del lenguaje en el discurso político | v38 | 9 | Tildes + sustantivo | OK |
-| 8 | El ruido de las redes sociales | v16 | 10 | Tildes + fuente | OK |
-| 29 | Análisis crítico del discurso institucional: la reforma educativa | v14 + v36 + v36b | 21 | Tildes + contenido | OK |
-| 30 | Elogio de la lentitud | v17 | 21 | Tildes + falsos positivos | OK |
-| 31 | El cuento que se escribía solo | v13 | 22 | Tildes + pronombres | OK |
-| 32 | Desinformación: cómo detectar la manipulación | v15 | 20 | Tildes | OK |
+| 3 | La promesa incumplida de la empresa energética | v40c | 4 | 2 | OK |
+| 5 | La manipulación del lenguaje en el discurso político | v38 | 9 | 9 | OK |
+| 8 | El ruido de las redes sociales | v16 | 10 | 4 | OK |
+| 29 | Análisis crítico del discurso institucional: la reforma educativa | v14+v36 | 21 | 19 | OK |
+| 30 | Elogio de la lentitud | v17 | 21 | 9 | OK |
+| 31 | El cuento que se escribía solo | v13 | 22 | 12 | OK |
+| 32 | Desinformación: cómo detectar la manipulación | v15 | 20 | 20 | OK |
 
 ### C2 (4 textos)
 
-| # | Titulo | Version | Ejs | Tipo | Estado |
+| # | Titulo | Version | Ejs | Tildes | Estado |
 |---|---|---|---|---|---|
-| 33 | El cuerpo como mercancía: análisis crítico del discurso publicitario | v11-v12 | 23 | Tildes + interrogativas | OK |
-| 34 | El sujeto atrapado: poder, deseo y resistencia | v39 | 24 | Tildes | OK |
-| 35 | El archivo de los espejos | v8-v10 | 22 | Tildes + falsos positivos | OK |
-| 36 | Para qué sirve la crítica | v40 (auto) | 20 | Tildes | OK |
+| 33 | El cuerpo como mercancía: análisis crítico del discurso publicitario | v11-v12 | 23 | 21 | OK |
+| 34 | El sujeto atrapado: poder, deseo y resistencia | v39 | 24 | 4 | OK |
+| 35 | El archivo de los espejos | v8-v10 | 22 | 36 | OK |
+| 36 | Para qué sirve la crítica | v40 | 20 | 1 | OK |
 
 ---
 
-## 3. Cambios por version
+## 3. Detalle de tildes por texto
 
-| Version | Texto | Tipo | Cambios |
-|---|---|---|---|
-| v11-v12 | El cuerpo como mercancía: análisis críti | Tildes + interrogativas | 198 |
-| v13 | El cuento que se escribía solo | Tildes + pronombres | 87 |
-| v14 + v36 + v36b | Análisis crítico del discurso institucio | Tildes + contenido | 200 |
-| v15 | Desinformación: cómo detectar la manipul | Tildes | 221 |
-| v16 | El ruido de las redes sociales | Tildes + fuente | 41 |
-| v17 | Elogio de la lentitud | Tildes + falsos positivos | 19 |
-| v18 | La casa de los relojes | Tildes + falsos positivos | 59 |
-| v19 | Móviles en los institutos: prohibir o ed | Tildes | 58 |
-| v20 + v21 | El regreso de Amina | Tildes | 39 |
-| v21 | La vida en el fondo del mar | Tildes | 26 |
-| v23 | La fuerza de las palabras | Tildes | 30 |
-| v24 | El turismo masivo en las ciudades | Tildes + contenido | 50 |
-| v25 | La semana laboral de cuatro días | Tildes + redaccion | 32 |
-| v26 | El viaje de Santiago | Tildes + pronombres | 33 |
-| v27 | El debate sobre los deberes | Tildes + redaccion | 26 |
-| v28 | El misterio del cuadro robado | Tildes + contenido | 28 |
-| v29 | El gato que hablaba | Tildes + redaccion + contenido | 23 |
-| v30 | Los animales de la granja | Tildes + contenido | 35 |
-| v31 | Mi escuela | Tildes + redaccion | 29 |
-| v32 + v40b | La fiesta de cumpleaños | Tildes | 33 |
-| v33 | La receta de la abuela | Tildes + redaccion | 32 |
-| v34 | Cómo funciona el reciclaje | Tildes + typo | 32 |
-| v35 | El debate sobre las redes sociales en lo | Redaccion | 9 |
-| v37 | La inteligencia artificial en la educaci | Tildes + ortografia + redaccion | 30 |
-| v38 | La manipulación del lenguaje en el discu | Tildes + sustantivo | 24 |
-| v39 | El sujeto atrapado: poder, deseo y resis | Tildes | 30 |
-| v40 (auto) | El perro perdido | Tildes | 1 |
-| v40 (auto) | El faro y la tormenta | Tildes | 1 |
-| v40 (auto) | El reciclaje de vidrio en España | Tildes | 1 |
-| v40 (auto) | La biblioteca secreta | Tildes | 1 |
-| v40 (auto) | La decisión de Marta | Tildes | 4 |
-| v40 (auto) | Pantallas en las aulas: ayuda o distracc | Tildes | 7 |
-| v40 (auto) | La moda rápida y el costo humano | Tildes | 1 |
-| v40 (auto) | La promesa incumplida de la empresa ener | Tildes | 1 |
-| v40 (auto) | Para qué sirve la crítica | Tildes | 1 |
-| v8-v10 | El archivo de los espejos | Tildes + falsos positivos | 214 |
+### A1 - El perro perdido (2 tildes, v40)
+
+```
+  también
+  después
+```
+
+### A1 - Mi escuela (6 tildes, v31)
+
+```
+  fútbol
+  mediodía
+  Habrá
+  Cerrarán
+  pasará
+  frío
+```
+
+### A1 - La fiesta de cumpleaños (9 tildes, v32+v40b)
+
+```
+  cumplía
+  sábado
+  preparó
+  exclamó
+  sopló
+  mamá
+  durmió
+  refrán
+  rítmica
+```
+
+### A1 - Los animales de la granja (10 tildes, v30)
+
+```
+  exclamó
+  maíz
+  recogió
+  cocinó
+  compartió
+  engañan
+  comió
+  ganadería
+  sería
+  entendió
+```
+
+### A2 - El gato que hablaba (6 tildes, v29)
+
+```
+  se sentó
+  pájaros
+  se estiró
+  bostezó
+  esperándolo
+  tiene frío
+```
+
+### A2 - La receta de la abuela (6 tildes, v33)
+
+```
+  añadimos
+  removió
+  eléctrica
+  contestó
+  entendió
+  compartió
+```
+
+### A2 - El misterio del cuadro robado (13 tildes, v28+v40c)
+
+```
+  guía
+  abrí
+  insistió
+  revisó
+  observó
+  ladrón
+  rompió
+  concluyó
+  confesó
+  resolvió
+  simpático
+  común
+  sería
+```
+
+### A2 - La vida en el fondo del mar (7 tildes, v21)
+
+```
+  bióloga
+  océano
+  fría
+  increíble
+  movió
+  énfasis
+  química
+```
+
+### A2 - El debate sobre los deberes (3 tildes, v27)
+
+```
+  enseñan
+  reunión
+  numéricos
+```
+
+### A2 - Cómo funciona el reciclaje (6 tildes, v34)
+
+```
+  Cómo funciona
+  plástico
+  fábricas
+  creíble
+  morirán
+  sería
+```
+
+### B1 - El reciclaje de vidrio en España (1 tildes, v40)
+
+```
+  común
+```
+
+### B1 - La biblioteca secreta (1 tildes, v40)
+
+```
+  Cómo está
+```
+
+### B1 - La fuerza de las palabras (7 tildes, v23)
+
+```
+  demostró
+  empírica
+  psicóloga
+  subtítulo
+  Subtítulos
+  catafórica
+  anafórica
+```
+
+### B1 - La decisión de Marta (3 tildes, v40)
+
+```
+  su trabajo
+  creíble
+  ánimo
+```
+
+### B1 - El viaje de Santiago (13 tildes, v26)
+
+```
+  autobús
+  recién
+  oído
+  miró
+  entendió
+  inmóvil
+  vacío
+  volvían
+  apareció
+  Volvería
+  oír
+  recordaría
+  clímax
+```
+
+### B1 - Pantallas en las aulas: ayuda o distracción (2 tildes, v40)
+
+```
+  empírica
+  sería
+```
+
+### B2 - La inteligencia artificial en la educación: promesas y riesgos (9 tildes, v37)
+
+```
+  automática
+  permitiéndoles
+  vínculo
+  acompañamiento
+  estará
+  ocurrió
+  aprenderán
+  trabajarán
+  ánimo
+```
+
+### B2 - La moda rápida y el costo humano (1 tildes, v40)
+
+```
+  empírica
+```
+
+### B2 - El turismo masivo en las ciudades (14 tildes, v24)
+
+```
+  alcanzó
+  récord
+  Gótico
+  históricos
+  caído
+  década
+  quebrarían
+  aumentaría
+  José
+  Hernández
+  mediterránea
+  utopía
+  Ámsterdam
+  sería
+```
+
+### B2 - La semana laboral de cuatro días (13 tildes, v25)
+
+```
+  utopía
+  hostelería
+  quebrarán
+  hundirá
+  automáticamente
+  tópico
+  énfasis
+  paráfrasis
+  estarían
+  perderán
+  adaptarán
+  tendrán
+  habrá
+```
+
+### B2 - El regreso de Amina (29 tildes, v20+v21)
+
+```
+  autobús
+  éxodo
+  caída
+  avión
+  subvención
+  evolución
+  recibió
+  marchó
+  sonrió
+  observó
+  sintió
+  tomó
+  Recorrió
+  visitó
+  contó
+  leyó
+  pensó
+  función
+  decisión
+  periódico
+  artículo
+  población
+  gráfico
+  línea
+  raíz
+  árbol
+  últimos
+  jóvenes
+  moría
+```
+
+### B2 - La casa de los relojes (7 tildes, v18)
+
+```
+  don Elías
+  tomábamos
+  hablábamos
+  perdía
+  Decidí
+  cambiaría
+  llegué
+```
+
+### B2 - Móviles en los institutos: prohibir o educar (12 tildes, v19)
+
+```
+  Móviles
+  obtenían
+  distraerán
+  estudiarán
+  fracasarán
+  acabarán
+  fácilmente
+  socioeconómico
+  vía
+  habría
+  válido
+  legítimo
+```
+
+### C1 - La promesa incumplida de la empresa energética (2 tildes, v40c)
+
+```
+  energética
+  energético
+```
+
+### C1 - La manipulación del lenguaje en el discurso político (9 tildes, v38)
+
+```
+  Revista de Análisis Político
+  lingüista
+  eslóganes
+  Esta fórmula
+  décadas
+  señalando
+  creíble
+  ciudadanía
+  está condenado
+```
+
+### C1 - El ruido de las redes sociales (4 tildes, v16)
+
+```
+  deberían
+  diseñadas
+  filósofo
+  república
+```
+
+### C1 - Análisis crítico del discurso institucional: la reforma educativa (19 tildes, v14+v36)
+
+```
+  pragmáticas
+  deícticos
+  cortesía
+  léxica
+  léxico
+  sinónimos
+  antónimos
+  anáforas
+  implícita
+  categórico
+  diagnóstico
+  jurídico
+  económico
+  nostálgicos
+  bélica
+  clásica
+  obstáculos
+  hipérboles
+  sinécdoque
+```
+
+### C1 - Elogio de la lentitud (9 tildes, v17)
+
+```
+  dirán
+  objetarán
+  extrañamente
+  café
+  lúdico
+  catástrofes
+  perdón
+  tecnológico
+  nostálgico
+```
+
+### C1 - El cuento que se escribía solo (12 tildes, v13)
+
+```
+  cajón
+  abrió
+  reconoció
+  galerías
+  escalofrío
+  comprendió
+  leído
+  escribí
+  vértigo
+  liberó
+  seguiría
+  Cortázar
+```
+
+### C1 - Desinformación: cómo detectar la manipulación (20 tildes, v15)
+
+```
+  críticamente
+  mediática
+  científica
+  hipocresía
+  dicotomía
+  estadística
+  gráficos
+  engañosos
+  explícitamente
+  algorítmico
+  cámaras
+  capitán
+  jóvenes
+  lógicamente
+  éticamente
+  metodología
+  mayoría
+  antigüedad
+  cálculo
+  lógica
+```
+
+### C2 - El cuerpo como mercancía: análisis crítico del discurso publicitario (21 tildes, v11-v12)
+
+```
+  teórico
+  través
+  serás
+  antítesis
+  hegemonía
+  términos
+  época
+  científica
+  jerárquicas
+  ideológica
+  tipografía
+  múltiples
+  fórmulas
+  estratégica
+  harán
+  electrónico
+  heterogénea
+  hábito
+  autobiográfico
+  actúa
+  cosmética
+```
+
+### C2 - El sujeto atrapado: poder, deseo y resistencia (4 tildes, v39)
+
+```
+  a sí mismas
+  está estructurado
+  Tú eres emprendedor
+  Lévi-Strauss
+```
+
+### C2 - El archivo de los espejos (36 tildes, v8-v10)
+
+```
+  salón
+  seré
+  fotografías
+  periódico
+  síntoma
+  síntomas
+  envejecería
+  moriría
+  rompí
+  propósito
+  heterotopía
+  debería
+  parecía
+  entendía
+  atrás
+  borró
+  enseñó
+  subvertía
+  rompía
+  encontré
+  sentí
+  línea
+  jardín
+  máquina
+  nómada
+  devolvía
+  órganos
+  producían
+  mía
+  cuántos
+  sintomática
+  panóptico
+  lógicas
+  traducción
+  genético
+  físico
+```
+
+### C2 - Para qué sirve la crítica (1 tildes, v40)
+
+```
+  empírica
+```
 
 ---
 
-## 4. Ejercicios reescritos por contenido (12)
+## 4. Verificacion de residuos
 
-| Texto | Nivel | Ej. | Version | Antes | Despues |
-|---|---|---|---|---|---|
-| Los animales de la granja | A1 | 9 | v30 | un huevo grande siempre es mejor | Que significa 'las apariencias enganan'? |
-| El misterio del cuadro robado | A2 | 16 | v28 | 'escapo rapidamente' | 'escapar rapidamente' |
-| El gato que hablaba | A2 | 4 | v29 | Del muro (complemento de lugar, no objeto dir | Del muro (complemento de lugar) |
-| El turismo masivo en las ciudades | B2 | 3 | v24 | fuente primaria/secundaria | Que funcion cumplen estas fuentes? |
-| El turismo masivo en las ciudades | B2 | 8 | v24 | punto de vista del narrador | Cual es el punto de vista del autor? |
-| El turismo masivo en las ciudades | B2 | 9 | v24 | 'etiqueta verde' (no aparece) | 'huella de carbono' (si aparece) |
-| El turismo masivo en las ciudades | B2 | 11 | v24 | fuente primaria/secundaria (repite) | Que funcion cumple la cita de Hernandez? |
-| El turismo masivo en las ciudades | B2 | 13 | v24 | 'definicion solida' (no existe) | Que funcion cumple la fabula del perro del ho |
-| Analisis critico del discurso insti | C1 | 3 | v14 | conocimiento externo (Fairclough) | Que funcion cumple la cita del metodo |
-| Analisis critico del discurso insti | C1 | 4 | v14 | pregunta ambigua | Que mecanismo de despersonalizacion |
-| Analisis critico del discurso insti | C1 | 6 | v14 | cohesion lexica confusa | Sinonimos y antonimos del texto |
-| Analisis critico del discurso insti | C1 | 10 | v14 | IMRAD sin definicion | Que seccion corresponde a 'Metodo' |
+**OK - 0 residuos reales en BD.**
 
 ---
 
-## 5. Verificacion de residuos (BD)
+## 5. Pendientes estructurales
 
-WARN - 1 textos con residuos:
-
-| Texto | Nivel | Residuos |
-|---|---|---|
-| El gato que hablaba | A2 | \bobservo\b |
-
----
-
-## 6. Detalle por texto
-
-### A1 - El perro perdido
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 20
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### A1 - Mi escuela
-
-- Version(es): v31
-- Tipo: Tildes + redaccion
-- Ejercicios: 22
-- Cambios aprox: 29
-- Notas: 'Cuando...' conjuncion temporal (ej.3, 13)
-- Estado: OK
-
-### A1 - La fiesta de cumpleaños
-
-- Version(es): v32 + v40b
-- Tipo: Tildes
-- Ejercicios: 21
-- Cambios aprox: 33
-- Notas: cumplia/sabado/preparo/soplo/mama/durmio/refran/ritmica/continua dentro
-- Estado: OK
-
-### A1 - Los animales de la granja
-
-- Version(es): v30
-- Tipo: Tildes + contenido
-- Ejercicios: 23
-- Cambios aprox: 35
-- Notas: Ej.9 reescrito: 'un huevo grande siempre es mejor' -> 'Que significa enganan?'
-- Estado: OK
-
-### A2 - El faro y la tormenta
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 3
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### A2 - El gato que hablaba
-
-- Version(es): v29
-- Tipo: Tildes + redaccion + contenido
-- Ejercicios: 10
-- Cambios aprox: 23
-- Notas: Rayas de dialogo; ej.4: 'complemento de lugar, no objeto directo'
-- Estado: 1 residuo(s)
-
-### A2 - La receta de la abuela
-
-- Version(es): v33
-- Tipo: Tildes + redaccion
-- Ejercicios: 9
-- Cambios aprox: 32
-- Notas: Rayas de dialogo; 'te enseno' (1a pers.)
-- Estado: OK
-
-### A2 - El misterio del cuadro robado
-
-- Version(es): v28
-- Tipo: Tildes + contenido
-- Ejercicios: 21
-- Cambios aprox: 28
-- Notas: Ej.16 reescrito: 'escapo' -> 'escapar'
-- Estado: OK
-
-### A2 - La vida en el fondo del mar
-
-- Version(es): v21
-- Tipo: Tildes
-- Ejercicios: 19
-- Cambios aprox: 26
-- Notas: biologa/oceano/fria/increible/movio/estaba acabando
-- Estado: OK
-
-### A2 - El debate sobre los deberes
-
-- Version(es): v27
-- Tipo: Tildes + redaccion
-- Ejercicios: 21
-- Cambios aprox: 26
-- Notas: 'Desde que punto de vista esta escrito'
-- Estado: OK
-
-### A2 - Cómo funciona el reciclaje
-
-- Version(es): v34
-- Tipo: Tildes + typo
-- Ejercicios: 21
-- Cambios aprox: 32
-- Notas: 'Si u anuncio dice' -> 'Si un anuncio dice'
-- Estado: OK
-
-### B1 - El reciclaje de vidrio en España
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 4
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### B1 - El debate sobre las redes sociales en los institutos
-
-- Version(es): v35
-- Tipo: Redaccion
-- Ejercicios: 8
-- Cambios aprox: 9
-- Notas: 'no evitarse' -> 'no evitarla'
-- Estado: OK
-
-### B1 - La biblioteca secreta
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 11
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### B1 - La fuerza de las palabras
-
-- Version(es): v23
-- Tipo: Tildes
-- Ejercicios: 19
-- Cambios aprox: 30
-- Notas: demostro/como/demas/empirica/psicologa/subtitulo/hablara
-- Estado: OK
-
-### B1 - La decisión de Marta
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 21
-- Cambios aprox: 4
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### B1 - El viaje de Santiago
-
-- Version(es): v26
-- Tipo: Tildes + pronombres
-- Ejercicios: 19
-- Cambios aprox: 33
-- Notas: autobus/recien/oido/miro/entendio/tu/mi/trabajo/Lloro/Volveria
-- Estado: OK
-
-### B1 - Pantallas en las aulas: ayuda o distracción
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 20
-- Cambios aprox: 7
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### B2 - La inteligencia artificial en la educación: promesas y riesgos
-
-- Version(es): v37
-- Tipo: Tildes + ortografia + redaccion
-- Ejercicios: 12
-- Cambios aprox: 30
-- Notas: acompanamiento; genero protestas; al cambio; reves
-- Estado: OK
-
-### B2 - La moda rápida y el costo humano
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 13
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### B2 - El turismo masivo en las ciudades
-
-- Version(es): v24
-- Tipo: Tildes + contenido
-- Ejercicios: 13
-- Cambios aprox: 50
-- Notas: 5 ejercicios reescritos (3, 8, 9, 11, 13)
-- Estado: OK
-
-### B2 - La semana laboral de cuatro días
-
-- Version(es): v25
-- Tipo: Tildes + redaccion
-- Ejercicios: 21
-- Cambios aprox: 32
-- Notas: que conjuncion/Quien?/cambio sustantivo/cuando y como/rio/refran
-- Estado: OK
-
-### B2 - El regreso de Amina
-
-- Version(es): v20 + v21
-- Tipo: Tildes
-- Ejercicios: 19
-- Cambios aprox: 39
-- Notas: autobus/exodo/caida/avion/subvencion/evolucion/recibio/marcho
-- Estado: OK
-
-### B2 - La casa de los relojes
-
-- Version(es): v18
-- Tipo: Tildes + falsos positivos
-- Ejercicios: 21
-- Cambios aprox: 59
-- Notas: don Elias/El era/tomabamos/Los pare/cuando llegue
-- Estado: OK
-
-### B2 - Móviles en los institutos: prohibir o educar
-
-- Version(es): v19
-- Tipo: Tildes
-- Ejercicios: 19
-- Cambios aprox: 58
-- Notas: Moviles/esta/obtenian/distraeran/fracasaran/encontraran trabajo
-- Estado: OK
-
-### C1 - La promesa incumplida de la empresa energética
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 4
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
-### C1 - La manipulación del lenguaje en el discurso político
-
-- Version(es): v38
-- Tipo: Tildes + sustantivo
-- Ejercicios: 9
-- Cambios aprox: 24
-- Notas: linguista/termino/esloganes/como se gestiona
-- Estado: OK
-
-### C1 - El ruido de las redes sociales
-
-- Version(es): v16
-- Tipo: Tildes + fuente
-- Ejercicios: 10
-- Cambios aprox: 41
-- Notas: filosofo/repubblica/Revista de Analisis -> Revista de Analisis (fuente)
-- Estado: OK
-
-### C1 - Análisis crítico del discurso institucional: la reforma educativa
-
-- Version(es): v14 + v36 + v36b
-- Tipo: Tildes + contenido
-- Ejercicios: 21
-- Cambios aprox: 200
-- Notas: 4 ejercicios reescritos; cambio sustantivo; sinecdoque; hiperboles
-- Estado: OK
-
-### C1 - Elogio de la lentitud
-
-- Version(es): v17
-- Tipo: Tildes + falsos positivos
-- Ejercicios: 21
-- Cambios aprox: 19
-- Notas: hacia donde/me pregunto/el primer paso/Milan Kundera
-- Estado: OK
-
-### C1 - El cuento que se escribía solo
-
-- Version(es): v13
-- Tipo: Tildes + pronombres
-- Ejercicios: 22
-- Cambios aprox: 87
-- Notas: cajon/abrio/escalofrio/Cortazar/Y el, Aurelio/a si mismo
-- Estado: OK
-
-### C1 - Desinformación: cómo detectar la manipulación
-
-- Version(es): v15
-- Tipo: Tildes
-- Ejercicios: 20
-- Cambios aprox: 221
-- Notas: criticamente/cientifica/mediatica/hipocresia/camaras/capitan
-- Estado: OK
-
-### C2 - El cuerpo como mercancía: análisis crítico del discurso publicitario
-
-- Version(es): v11-v12
-- Tipo: Tildes + interrogativas
-- Ejercicios: 23
-- Cambios aprox: 198
-- Notas: teorico/traves/seras/antitesis/aplico un marco/revela como se
-- Estado: OK
-
-### C2 - El sujeto atrapado: poder, deseo y resistencia
-
-- Version(es): v39
-- Tipo: Tildes
-- Ejercicios: 24
-- Cambios aprox: 30
-- Notas: a si mismas/esta estructurado/Tu eres/Levi-Strauss
-- Estado: OK
-
-### C2 - El archivo de los espejos
-
-- Version(es): v8-v10
-- Tipo: Tildes + falsos positivos
-- Ejercicios: 22
-- Cambios aprox: 214
-- Notas: salon/fotografias/a el/esta en mi/El paso del/Te pregunto
-- Estado: OK
-
-### C2 - Para qué sirve la crítica
-
-- Version(es): v40 (auto)
-- Tipo: Tildes
-- Ejercicios: 20
-- Cambios aprox: 1
-- Notas: Detectado en audit, corregido por master v40
-- Estado: OK
-
----
-
-## 7. Pendientes estructurales
-
-- Cobertura B1: 1 ejercicio por tecnica (faltan 2-4 por tecnica, Sprint B1.5)
-- Integracion fix_tildes.py: unificar WORDS_V8...V40b en dict global + tests
-- Tag de cierre: v3.4.1-lectura-v40-completo (crear y pushear)
+- Cobertura B1: 1 ejercicio por tecnica (falta Sprint B1.5)
+- Integracion `fix_tildes.py`: unificar WORDS_V8...V40c en dict global + tests
