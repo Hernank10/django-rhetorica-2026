@@ -1,6 +1,99 @@
 {% extends 'core/estudiante/base.html' %}
 {% block panel %}
 
+    <div class="card mb-4 shadow-sm" id="tarjeta-evaluaciones-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #0d6efd;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Sistema de evaluaciones
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-clipboard-check text-primary"></i> Como funcionan las evaluaciones
+                    </h5>
+                </div>
+                <span class="badge bg-primary rounded-0" style="font-size: 0.7rem;">
+                    Auto-evaluacion
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Las <strong>evaluaciones</strong> son pruebas autocorregidas que cierran cada
+                modulo de un curso. Puedes intentarlas varias veces: el sistema guarda
+                <strong>tu mejor puntaje</strong> y el <strong>ultimo intento</strong>.
+                Aprobarlas refuerza las tecnicas y suma puntos para tus logros.
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-primary bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-hourglass-half"></i> Pendientes
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Evaluaciones de cursos en los que estas inscrito y aun no has hecho.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-success bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-check-circle"></i> Completadas
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Evaluaciones que ya has intentado al menos una vez.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-dark bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-star"></i> Mejor puntaje
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Se guarda el mejor resultado de todos tus intentos. Mejorable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como aprovechar las evaluaciones:</strong>
+            </p>
+
+            <ol class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>Estudia el modulo primero:</strong> lee las lecciones y practica con los ejercicios.</li>
+                <li><strong>Haz la evaluacion:</strong> responde sin miedo. Puedes repetirla si no te convence el resultado.</li>
+                <li><strong>Revisa los errores:</strong> cada fallo te dice que concepto repasar.</li>
+                <li><strong>Vuelve a intentarla:</strong> si mejoras, el "mejor puntaje" se actualiza.</li>
+                <li><strong>Aprobarla suma:</strong> al superar el umbral, la evaluacion cuenta para los logros del curso.</li>
+            </ol>
+
+            <div class="alert alert-light border mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-lightbulb text-warning"></i> No tienes evaluaciones pendientes?</strong>
+                <p class="mb-0 mt-1">
+                    Eso significa que no estas inscrito en ningun curso con evaluaciones disponibles,
+                    o ya las has completado todas. Puedes explorar el catalogo de cursos para inscribirte,
+                    o practicar con la biblioteca de ejercicios.
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-graduation-cap"></i> Explorar cursos
+                    </a>
+                    <a href="{% url 'estudiante:ranking' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-trophy"></i> Ver ranking
+                    </a>
+                    <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-chart-line"></i> Mis estadisticas
+                    </a>
+            </div>
+        </div>
+    </div>
+
+
     <div class="card border-primary mb-4 shadow-sm" id="tarjeta-guia-certificados">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-2">
             <div>
