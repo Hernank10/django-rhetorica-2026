@@ -2,6 +2,36 @@
 {% load static %}
 
 {% block content %}
+
+    <div class="card border-success mb-4 shadow-sm" id="tarjeta-guia-certificaciones">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                <i class="fas fa-certificate text-success"></i> ¿Cómo funcionan las certificaciones?
+            </h5>
+            <p class="card-text text-muted small mb-2">
+                Las certificaciones reconocen tu progreso al completar módulos de aprendizaje.
+                Cada certificado incluye un <strong>código unico</strong> que cualquiera puede verificar.
+            </p>
+            <ol class="small mb-3 ps-3">
+                <li><strong>Completa el modulo:</strong> lee los textos y aprueba los ejercicios.</li>
+                <li><strong>Obten el certificado:</strong> aparece automaticamente en tu panel.</li>
+                <li><strong>Descarga el PDF:</strong> con tu nombre, fecha y codigo de verificacion.</li>
+                <li><strong>Compartelo:</strong> cualquiera puede verificar su autenticidad en la URL del codigo.</li>
+            </ol>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'estudiante:certificados' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-certificate"></i> Mis certificados
+                </a>
+                <a href="{% url 'lectura:guia_certificados' %}" class="btn btn-sm btn-outline-primary">
+                    <i class="fas fa-book"></i> Leer guia completa
+                </a>
+                <a href="/verificar/CODIGO/" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-check-circle"></i> Verificar un codigo
+                </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
