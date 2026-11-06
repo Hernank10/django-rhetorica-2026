@@ -197,14 +197,14 @@ def detalle_curso(request, curso_slug):
     import logging
     logger = logging.getLogger(__name__)
     logger.info(f"=== DETALLE CURSO: {curso_slug} ===")
-    print(f"=== DETALLE CURSO: {curso_slug} ===")
+    logger.debug("=== DETALLE CURSO: %s ===", curso_slug)
 
     try:
         curso = Curso.objects.get(slug=curso_slug)
-        print(f"✅ Curso encontrado: {curso.titulo} (ID: {curso.id})")
+        logger.debug("Curso encontrado: %s (ID: %s)", curso.titulo, curso.id)
         logger.info(f"Curso encontrado: {curso.titulo}")
     except Curso.DoesNotExist:
-        print(f"❌ Curso NO encontrado con slug: {curso_slug}")
+        logger.warning("Curso NO encontrado con slug: %s", curso_slug)
         messages.error(request, 'Curso no encontrado')
         return redirect('lista_cursos')
 
@@ -213,7 +213,7 @@ def detalle_curso(request, curso_slug):
     modulos_data = []
     for modulo in modulos:
         lecciones = modulo.lecciones.all().order_by('orden')
-        print(f"  📂 Módulo: {modulo.titulo} - {lecciones.count()} lecciones")
+        logger.debug("  Modulo: %s - %s lecciones", modulo.titulo, lecciones.count())
         modulos_data.append({
             'modulo': modulo,
             'lecciones': lecciones,
@@ -222,7 +222,7 @@ def detalle_curso(request, curso_slug):
 
     # Obtener evaluaciones del curso
     evaluaciones = EvaluacionCurso.objects.filter(curso=curso)
-    print(f"  📝 Evaluaciones: {evaluaciones.count()}")
+    logger.debug("  Evaluaciones: %s", evaluaciones.count())
 
     context = {
         'curso': curso,
