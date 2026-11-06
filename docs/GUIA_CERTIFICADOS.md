@@ -111,3 +111,143 @@ Repite el paso 2 con al menos 3 textos diferentes. Se recomienda:
 3. Comprueba que el código del PDF coincide con el de la página.
 
 ---
+## 5. Como verificar y descargar tu certificado
+
+### Descargar el PDF
+
+| Donde | Como |
+|---|---|
+| Desde el dashboard | `/estudiante/certificados/` -> boton "Descargar PDF" |
+| Desde URL directa | `/estudiante/certificados/<ID>/pdf/` |
+| Desde el email | Si el administrador lo envio (opcional) |
+
+**Ejemplo de URL directa:**
+
+### Verificar el certificado
+
+1. **Verificacion interna:** abrir la URL de verificacion y comprobar que los datos coinciden con el PDF.
+2. **Verificacion por codigo:** comparar el codigo del PDF con el de la BD (solo administradores).
+3. **Verificacion por email:** enviar el PDF a un tercero; el codigo permite comprobar su autenticidad.
+
+---
+
+## 6. Como funciona el codigo de verificacion
+
+Cada certificado tiene un **codigo unico** con el formato:
+
+**Ejemplo:** `PILOT-1447-A3F2B9C1`
+
+| Parte | Significado |
+|---|---|
+| `PILOT-` | Prefijo que indica fase de pilot |
+| `1447` | ID del usuario en la BD (4 digitos) |
+| `A3F2B9C1` | Hash de 8 caracteres (aleatorio) |
+
+**Propiedades:**
+
+- **Unico:** no hay dos certificados con el mismo codigo.
+- **Aleatorio:** el hash no se puede predecir.
+- **Verificable:** el codigo esta en la BD y en el PDF.
+
+---
+## 7. Guia para docentes y administradores
+
+### Docentes
+1. Inicia sesion como profesor.
+2. Ve a `/profesor/analytics/` para ver el progreso.
+3. Certificados: `/admin/core/certificacionobtenida/` (staff).
+
+### Administradores
+1. Inicia sesion como admin.
+2. Ve a `/admin/core/certificacionobtenida/add/`.
+3. Rellena User, Certificacion, Codigo, Fecha, URL. Guarda.
+
+### Emitir en bloque
+Usa `_pilot_full_test.py` en modo `full` (45 certificados automaticos).
+
+---
+
+## 8. Guia para programadores
+
+### Campos de CertificacionObtenida
+
+| Campo | Tipo | Descripcion |
+|---|---|---|
+| user | FK a User | Usuario |
+| certificacion | FK a Certificacion | Tipo |
+| codigo_verificacion | CharField | Codigo unico |
+| fecha_obtenida | DateField | Fecha |
+| url_verificacion | URLField | URL |
+
+### Codigo unico
+
+codigo = f"PILOT-{user.id:04d}-{secrets.token_hex(4).upper()}"
+
+### Extender certificados
+
+1. Crear certificacion en catalogo.
+2. Definir requisitos.
+3. Implementar emision automatica.
+4. Anadir vista de PDF.
+5. Anadir vista de verificacion.
+
+---
+
+## 9. Preguntas frecuentes
+
+- **Cuantos textos necesito?** Al menos 3, con acierto >= 60%.
+- **Tiene validez oficial?** No. Reconocimiento interno, no MCER.
+- **Puedo obtener de nivel especifico?** Solo "Lectura + Flashcards" en v3.4.6.
+- **Como verifico autenticidad?** Comparar codigo del PDF con BD o abrir URL de verificacion.
+- **Si pierdo el PDF?** Volver a descargarlo desde `/estudiante/certificados/`.
+- **Si no estoy en grupo Estudiante?** No puedes obtenerlo.
+- **Caduca?** No.
+- **Varios certificados?** Si, si hay varios tipos.
+
+---
+## 10. Solucion de problemas
+
+### No veo mi certificado
+Causas: no cumples requisitos, no estas en grupo Estudiante, no se emitio, error en BD.
+Solucion: verifica tu progreso y contacta con el administrador.
+
+### El PDF no se descarga
+Causas: URL incorrecta, permisos, error del servidor.
+Solucion: prueba desde `/estudiante/certificados/`.
+
+### El codigo no coincide
+Causas: PDF antiguo, error en BD.
+Solucion: contacta con el administrador con el PDF y el codigo.
+
+### No tiene mi nombre real
+Causas: no configuraste nombre, la plataforma usa username.
+Solucion: contacta con el administrador.
+
+---
+
+## 11. Contacto y soporte
+
+| Tipo de consulta | Canal |
+|---|---|
+| Problemas tecnicos | Contacta con el administrador |
+| Solicitud de certificado | Contacta con el administrador |
+| Verificacion | Contacta con el administrador |
+| Bug | github.com/Hernank10/django-rhetorica-2026/issues |
+
+---
+
+## 12. Checklist de verificacion
+
+- [ ] He iniciado sesion correctamente.
+- [ ] He completado al menos 3 textos en `/lectura/`.
+- [ ] Mi tasa de acierto media es >= 60%.
+- [ ] He repasado al menos una vez las flashcards.
+- [ ] Estoy en el grupo `Estudiante`.
+- [ ] He revisado `/estudiante/certificados/`.
+- [ ] He probado la URL directa `/estudiante/certificados/<id>/pdf/`.
+
+Si todo es "si" y sigues sin certificado, contacta con el administrador.
+
+---
+
+*Guia derivada del proyecto django-rhetorica (tag v3.4.7-lectura-guia-integrada, noviembre 2026).*
