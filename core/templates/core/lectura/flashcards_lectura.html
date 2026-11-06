@@ -1,5 +1,33 @@
 {% extends 'core/estudiante/base.html' %}
 {% block panel %}
+
+    <div class="card border-success mb-4 shadow-sm" id="tarjeta-como-repasar">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                <i class="fas fa-play-circle text-success"></i> ¿Cómo repasar con flashcards?
+            </h5>
+            <p class="card-text text-muted small mb-2">
+                Este catálogo te muestra <strong>todas las técnicas disponibles</strong>.
+                Pero para repasar de verdad, necesitas una <strong>sesión</strong>:
+            </p>
+            <ol class="small mb-3 ps-3">
+                <li>Solo aparecen las cartas que te toca repasar <strong>hoy</strong>.</li>
+                <li>Ves la <strong>teoría</strong> en el frente de la carta.</li>
+                <li>Volteas para ver la <strong>regla + ejemplos</strong>.</li>
+                <li>Calificas con <strong>No / Casi / Sí</strong>.</li>
+                <li>El sistema calcula cuándo te la volverá a mostrar (SM-2).</li>
+            </ol>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'lectura:flashcards_sesion' %}" class="btn btn-success">
+                    <i class="fas fa-play"></i> Iniciar sesión de repaso
+                </a>
+                <a href="{% url 'lectura:progreso' %}" class="btn btn-outline-secondary">
+                    <i class="fas fa-chart-line"></i> Ver mi progreso
+                </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container my-4" style="max-width: 720px;">
 
   <div class="d-flex justify-content-between align-items-center mb-3">
