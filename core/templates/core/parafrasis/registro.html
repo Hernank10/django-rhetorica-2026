@@ -1,6 +1,111 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-registro-linguistico"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #212529;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Herramienta de analisis
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Que es el registro linguistico
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem;">
+                    Balance formal / coloquial
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                El <strong>registro</strong> es el nivel de formalidad del lenguaje segun el contexto
+                y la relacion entre hablantes. Una misma idea puede expresarse en distintos registros
+                sin cambiar su significado. Esta herramienta detecta el registro de un texto y
+                evalua tu parafrasis.
+            </p>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Espectro de registro:</strong>
+            </p>
+
+            <div class="p-2 mb-3" style="background: linear-gradient(to right, #f8f9fa, #e9ecef); border-radius: 0.25rem;">
+                <div class="d-flex justify-content-between" style="font-size: 0.7rem; color: #6c757d;">
+                    <span>Muy formal</span>
+                    <span>Formal</span>
+                    <span>Neutro</span>
+                    <span>Coloquial</span>
+                    <span>Muy coloquial</span>
+                </div>
+                <div class="d-flex justify-content-between mt-1" style="font-size: 0.75rem; color: #212529;">
+                    <span><em>Usted</em></span>
+                    <span><em>Tú</em></span>
+                    <span><em>Vos</em></span>
+                    <span><em>Ché</em></span>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Marcadores que cambian el registro:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.8rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Lexico</div>
+                        <div style="color: #212529;"><em>Vehiculo / coche / carro / auto</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Pronombres</div>
+                        <div style="color: #212529;"><em>Usted / tú / vos / sumerce</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Verbos</div>
+                        <div style="color: #212529;"><em>Posee / tiene / tiene / hay</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Conectores</div>
+                        <div style="color: #212529;"><em>Sin embargo / pero / aunque</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como interpretar el balance:</strong>
+            </p>
+            <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>Balance equilibrado</strong>: parafrasis correcta (mismo nivel de formalidad).</li>
+                <li><strong>Desplazamiento leve</strong>: cambio de registro controlado (util para practicar).</li>
+                <li><strong>Desplazamiento fuerte</strong>: cambio radical de registro (cuidado con el significado).</li>
+            </ul>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.85rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>El registro no es "mejor" o "peor": es <strong>adecuado o inadecuado</strong> al contexto.
+                Un texto formal en una conversacion informal suena rigido; un texto coloquial en un informe
+                academico suena poco profesional.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'sintaxis:indice' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-sitemap"></i> Sintaxis
+                    </a>
+                    <a href="{% url 'ver_tecnicas' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-list-check"></i> Tecnicas
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0"><i class="fas fa-user-tie text-warning"></i> Paráfrasis de Registro</h2>

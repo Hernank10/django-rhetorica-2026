@@ -1,6 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-tipos-parafrasis"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #212529;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Herramienta de analisis
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Que es una parafrasis
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem;">
+                    Similitud · Transformacion
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Una <strong>parafrasis</strong> reformula un texto manteniendo su significado.
+                No es copiar ni resumir: es <strong>transformar la estructura</strong> sin alterar el contenido.
+                Esta herramienta compara el original con tu version y mide la similitud.
+            </p>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Tipos de transformacion:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.8rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Activa → Pasiva</div>
+                        <div style="color: #212529;"><em>Juan lee el libro</em> → <em>El libro es leido por Juan</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Pasiva → Activa</div>
+                        <div style="color: #212529;"><em>El libro fue escrito por Cortazar</em> → <em>Cortazar escribio el libro</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Directa → Indirecta</div>
+                        <div style="color: #212529;"><em>Ella dijo: "Voy a venir"</em> → <em>Ella dijo que vendria</em></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Sinonimia estructural</div>
+                        <div style="color: #212529;"><em>El coche es rapido</em> → <em>El automovil corre mucho</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como interpretar la similitud:</strong>
+            </p>
+            <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>80-100%</strong>: parafrasis superficial (solo cambiaste palabras).</li>
+                <li><strong>50-80%</strong>: parafrasis correcta (estructura transformada, contenido intacto).</li>
+                <li><strong>0-50%</strong>: parafrasis agresiva o posible cambio de significado.</li>
+            </ul>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.85rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>Una buena parafrasis mantiene el <strong>significado</strong> pero cambia la <strong>estructura
+                sintactica</strong>. Si la similitud es muy alta, no estas parafraseando: estas sustituyendo palabras.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'sintaxis:indice' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-sitemap"></i> Sintaxis
+                    </a>
+                    <a href="{% url 'ver_tecnicas' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-list-check"></i> Tecnicas
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0"><i class="fas fa-exchange-alt text-success"></i> Análisis de Paráfrasis</h2>

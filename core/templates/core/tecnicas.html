@@ -2,6 +2,81 @@
 {% load static %}
 
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-tecnicas-retoricas"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #212529;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Catalogo de tecnicas
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Tecnicas retoricas y linguisticas
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem; letter-spacing: 0.05em;">
+                    10 tecnicas
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Cada tecnica trabaja un aspecto del lenguaje, organizadas por area:
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-6 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Morfologia</div>
+                        <div style="color: #212529;">Estructura de palabras</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Sintaxis</div>
+                        <div style="color: #212529;">Orden de la oracion</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Lexico</div>
+                        <div style="color: #212529;">Vocabulario y sentido</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Redaccion</div>
+                        <div style="color: #212529;">Composicion escrita</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Filologia</div>
+                        <div style="color: #212529;">Origen y evolucion</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <i class="fas fa-info-circle me-1"></i>
+                <em>Cada tecnica incluye ejemplos correctos e incorrectos, reglas de uso
+                y ejercicios practicos. Puedes repasarlas con flashcards o ponerlas a prueba
+                en la biblioteca de ejercicios.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap mt-3">
+                    <a href="{% url 'lectura:flashcards_lectura' %}" class="btn btn-sm btn-outline-dark">
+                        Flashcards lectura <i class="fas fa-layer-group ms-1"></i>
+                    </a>
+                    <a href="{% url 'redaccion_tecnicas' %}" class="btn btn-sm btn-outline-dark">
+                        Tecnicas redaccion <i class="fas fa-pen-fancy ms-1"></i>
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">

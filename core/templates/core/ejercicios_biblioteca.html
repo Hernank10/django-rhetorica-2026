@@ -2,6 +2,30 @@
 {% load static %}
 
 {% block content %}
+
+    <div class="card border-info mb-4 shadow-sm" id="tarjeta-como-usar-biblioteca">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                <i class="fas fa-dumbbell text-info"></i> ¿Cómo aprovechar la biblioteca?
+            </h5>
+            <p class="card-text text-muted small mb-2">
+                Aqui tienes todos los ejercicios disponibles. Cada uno vale <strong>10 puntos</strong>.
+                Asi puedes sacarles partido:
+            </p>
+            <ul class="small mb-3 ps-3">
+                <li><strong>Filtra por categoria</strong> (antropolinguistica, gramatica, sintaxis...) para centrarte en un area.</li>
+                <li><strong>Filtra por nivel</strong> para elegir la dificultad adecuada.</li>
+                <li><strong>Busca por tema</strong> si ya sabes que quieres practicar.</li>
+                <li><strong>Revisa tus errores</strong> despues: cada fallo te dice que repasar.</li>
+            </ul>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-chart-line"></i> Mis estadisticas
+                </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <!-- Encabezado -->
     <div class="row mb-4">

@@ -2,6 +2,35 @@
 {% load static %}
 
 {% block content %}
+
+    <div class="card border-warning mb-4 shadow-sm" id="tarjeta-como-ganar-xp">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                <i class="fas fa-trophy text-warning"></i> ¿Cómo ganar más XP?
+            </h5>
+            <p class="card-text text-muted small mb-2">
+                Tu progreso se mide en puntos de experiencia. Estas son las acciones que más XP te dan:
+            </p>
+            <ul class="small mb-3 ps-3">
+                <li><strong>Leer un texto completo</strong> → +50 XP</li>
+                <li><strong>Repasar 10 flashcards</strong> → +30 XP</li>
+                <li><strong>Aprobar una evaluación</strong> → +100 XP</li>
+                <li><strong>Completar un curso</strong> → +500 XP</li>
+            </ul>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'lectura:flashcards_sesion' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-layer-group"></i> Practicar flashcards
+                </a>
+                <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-graduation-cap"></i> Explorar cursos
+                </a>
+                <a href="{% url 'estudiante:logros' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-trophy"></i> Ver logros
+                </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <!-- Encabezado -->
     <div class="row mb-4">
