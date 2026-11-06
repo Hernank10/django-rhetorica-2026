@@ -2,6 +2,73 @@
 {% load static %}
 
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-como-ganar-puntos"
+         style="border: 1px solid #dee2e6; border-top: 4px solid #ffc107;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Progresion
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-bolt text-warning"></i> Como ganar puntos y subir de nivel
+                    </h5>
+                </div>
+                <span class="badge bg-warning text-dark rounded-0" style="font-size: 0.7rem;">
+                    Nivel 1
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem;">
+                Cada accion en la plataforma suma puntos. Estas son las recompensas principales:
+            </p>
+
+            <table class="table table-sm mb-3" style="font-size: 0.85rem;">
+                <thead style="border-bottom: 2px solid #dee2e6;">
+                    <tr>
+                        <th style="font-weight: 500; color: #6c757d;">Accion</th>
+                        <th class="text-end" style="font-weight: 500; color: #6c757d;">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Completar un ejercicio</td>
+                        <td class="text-end"><span class="badge bg-dark rounded-0">+10</span></td>
+                    </tr>
+                    <tr>
+                        <td>Repasar una sesion de flashcards</td>
+                        <td class="text-end"><span class="badge bg-dark rounded-0">+5</span></td>
+                    </tr>
+                    <tr>
+                        <td>Aprobar una evaluacion</td>
+                        <td class="text-end"><span class="badge bg-dark rounded-0">+50</span></td>
+                    </tr>
+                    <tr>
+                        <td>Completar un curso</td>
+                        <td class="text-end"><span class="badge bg-dark rounded-0">+500</span></td>
+                    </tr>
+                    <tr>
+                        <td>Obtener una certificacion</td>
+                        <td class="text-end"><span class="badge bg-dark rounded-0">+200</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="text-secondary mb-3" style="font-size: 0.85rem;">
+                <i class="fas fa-info-circle me-1"></i>
+                <em>Con 100 puntos subes al Nivel 2. Desbloqueas logros cada 5 acciones completadas.
+                Con 26 logros disponibles, hay mucho por descubrir.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-graduation-cap"></i> Explorar cursos
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
