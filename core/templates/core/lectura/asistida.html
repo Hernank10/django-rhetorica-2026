@@ -1,0 +1,305 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+
+<div class="container-fluid" style="max-width: 1100px; margin: 0 auto;">
+
+  {% if modo == "lista" %}
+    {# ═══════════════════════════════════════════════════════ #}
+    {# MODO LISTA: catalogo de textos disponibles             #}
+    {# ═══════════════════════════════════════════════════════ #}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="mb-0"><i class="fas fa-headphones"></i> Lectura asistida</h2>
+      <a href="{% url 'lectura:indice' %}" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-arrow-left"></i> Volver a lectura
+      </a>
+    </div>
+
+    <div class="card border-info mb-4">
+      <div class="card-body">
+        <p class="mb-2"><strong>Textos con audio TTS + click en palabras</strong> para ver su morfologia contextual (lema, categoria gramatical, etc.).</p>
+        <p class="mb-0 text-muted small">
+          <i class="fas fa-lightbulb"></i>
+          Haz click en cualquier palabra del texto para ver su analisis. Usa el boton "Escuchar" para reproducir el texto completo con voz sintetizada.
+        </p>
+      </div>
+    </div>
+
+    {% if not servicio_ok %}
+    <div class="alert alert-warning">
+      <i class="fas fa-exclamation-triangle"></i>
+      El servicio de morfologia no esta disponible. Puedes escuchar los textos pero no ver la morfologia.
+    </div>
+    {% endif %}
+
+    <div class="row g-3">
+      {% for t in textos %}
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <span class="badge bg-secondary">{{ t.nivel_mcer }}</span>
+              <span class="text-muted small">{{ t.tipo|default:"—" }}</span>
+            </div>
+            <h5 class="card-title">{{ t.titulo }}</h5>
+            <p class="card-text text-muted small">
+              {{ t.cuerpo|truncatewords:15 }}
+            </p>
+            <a href="{% url 'lectura:lectura_asistida_detalle' t.id %}" class="btn btn-sm btn-primary">
+              <i class="fas fa-headphones"></i> Abrir con audio
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <div class="alert alert-info">No hay textos disponibles.</div>
+      </div>
+      {% endfor %}
+    </div>
+
+  {% else %}
+    {# ═══════════════════════════════════════════════════════ #}
+    {# MODO DETALLE: texto con audio + tokens clicables       #}
+    {# ═══════════════════════════════════════════════════════ #}
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <div>
+        <h2 class="mb-0">{{ texto.titulo }}</h2>
+        <small class="text-muted">
+          {{ texto.nivel_mcer }} · {{ texto.tipo|default:"—" }}
+          {% if texto.fuente %}· {{ texto.fuente }}{% endif %}
+        </small>
+      </div>
+      <a href="{% url 'lectura:lectura_asistida' %}" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-arrow-left"></i> Volver
+      </a>
+    </div>
+
+    {% if error %}
+    <div class="alert alert-warning">
+      <i class="fas fa-exclamation-triangle"></i> {{ error }}
+    </div>
+    {% endif %}
+
+    {# Panel de audio #}
+    <div class="card mb-3">
+      <div class="card-body d-flex align-items-center gap-2 flex-wrap">
+        <button id="btn-tts" class="btn btn-primary">
+          <i class="fas fa-volume-up"></i> Escuchar texto
+        </button>
+        <button id="btn-tts-stop" class="btn btn-outline-secondary" disabled>
+          <i class="fas fa-stop"></i> Detener
+        </button>
+        <span id="tts-status" class="text-muted small ms-2"></span>
+        <audio id="audio-player" class="ms-auto" style="max-width: 300px;" controls></audio>
+      </div>
+    </div>
+
+    {# Panel de morfologia (oculto hasta click en palabra) #}
+    <div id="panel-morfologia" class="card border-success mb-3 d-none">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <h6 class="mb-2"><i class="fas fa-info-circle text-success"></i> Morfologia de la palabra</h6>
+          <button type="button" class="btn-close" onclick="document.getElementById('panel-morfologia').classList.add('d-none')"></button>
+        </div>
+        <div id="morfologia-contenido">
+          <p class="text-muted small">Haz click en una palabra del texto.</p>
+        </div>
+      </div>
+    </div>
+
+    {# Texto con tokens #}
+    <div class="card mb-3">
+      <div class="card-body">
+        <div id="texto-tokens" class="texto-tokens"
+             data-texto-id="{{ texto.id }}"
+             data-morfologia-url="{% url 'lectura:lectura_asistida_morfologia' %}">
+          {% for tok in tokens %}
+            {% if tok.texto %}
+              <span class="token" data-offset="{{ tok.inicio }}" data-tipo="{{ tok.pos }}" title="{{ tok.pos }}{% if tok.lema %} · {{ tok.lema }}{% endif %}">{{ tok.texto }}</span>{% if not forloop.last %} {% endif %}
+            {% else %}
+              {{ tok.texto }}
+            {% endif %}
+          {% empty %}
+            <em class="text-muted">El servicio de segmentacion no devolvio tokens. Mostrando texto plano:</em>
+            <div class="mt-2">{{ texto.cuerpo|linebreaks }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {# Estadisticas #}
+    {% if stats %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h6 class="text-uppercase text-muted small mb-2">Estadisticas del texto</h6>
+        <div class="row g-2">
+          {% for k, v in stats.items %}
+          <div class="col-6 col-md-3">
+            <div class="p-2 border-start border-2 border-secondary">
+              <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">{{ k }}</div>
+              <div style="color: #212529;">{{ v }}</div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  {% endif %}
+
+</div>
+
+<style>
+.texto-tokens {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #212529;
+}
+.texto-tokens .token {
+  cursor: pointer;
+  padding: 1px 2px;
+  border-radius: 3px;
+  transition: background-color 0.15s;
+}
+.texto-tokens .token:hover {
+  background-color: #ffeb3b;
+}
+.texto-tokens .token.token-activo {
+  background-color: #4caf50;
+  color: white;
+}
+.token-NOUN { border-bottom: 1px dotted #0d6efd; }
+.token-VERB { border-bottom: 1px dotted #dc3545; }
+.token-ADJ  { border-bottom: 1px dotted #198754; }
+.token-ADV  { border-bottom: 1px dotted #fd7e14; }
+.token-DET  { border-bottom: 1px dotted #6c757d; }
+.token-PRON { border-bottom: 1px dotted #6f42c1; }
+.token-ADP  { border-bottom: 1px dotted #20c997; }
+.token-CCONJ{ border-bottom: 1px dotted #d63384; }
+</style>
+
+<script>
+(function() {
+  var textoId = {{ texto.id|default:"null" }};
+  if (!textoId) return;
+
+  var audioPlayer = document.getElementById('audio-player');
+  var btnTts = document.getElementById('btn-tts');
+  var btnStop = document.getElementById('btn-tts-stop');
+  var ttsStatus = document.getElementById('tts-status');
+  var panelMorf = document.getElementById('panel-morfologia');
+  var morfCont = document.getElementById('morfologia-contenido');
+  var tokensEl = document.getElementById('texto-tokens');
+
+  // ── TTS: escuchar texto completo ───────────────────────────
+  var textoCompleto = tokensEl ? tokensEl.innerText : '';
+
+  if (btnTts) {
+    btnTts.addEventListener('click', function() {
+      var txt = textoCompleto.trim();
+      if (!txt) return;
+
+      btnTts.disabled = true;
+      btnStop.disabled = false;
+      ttsStatus.textContent = 'Generando audio...';
+
+      var url = '/tts/?text=' + encodeURIComponent(txt) + '&lang=es';
+
+      fetch(url)
+        .then(function(r) {
+          if (!r.ok) {
+            return r.json().then(function(j) { throw new Error(j.error || 'TTS error ' + r.status); });
+          }
+          return r.blob();
+        })
+        .then(function(blob) {
+          var blobUrl = URL.createObjectURL(blob);
+          audioPlayer.src = blobUrl;
+          audioPlayer.play();
+          ttsStatus.textContent = 'Reproduciendo...';
+        })
+        .catch(function(e) {
+          ttsStatus.textContent = 'Error: ' + e.message;
+          btnTts.disabled = false;
+          btnStop.disabled = true;
+        });
+    });
+
+    audioPlayer.addEventListener('ended', function() {
+      btnTts.disabled = false;
+      btnStop.disabled = true;
+      ttsStatus.textContent = '';
+    });
+  }
+
+  if (btnStop) {
+    btnStop.addEventListener('click', function() {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+      btnTts.disabled = false;
+      btnStop.disabled = true;
+      ttsStatus.textContent = '';
+    });
+  }
+
+  // ── Click en palabras: mostrar morfologia ──────────────────
+  var morfologiaUrl = tokensEl ? tokensEl.dataset.morfologiaUrl : null;
+  var csrfToken = '{{ csrf_token }}';
+
+  function mostrarMorfologia(info) {
+    if (!info) {
+      morfCont.innerHTML = '<p class="text-muted">Sin informacion disponible.</p>';
+      return;
+    }
+    var html = '<dl class="row mb-0 small">';
+    for (var k in info) {
+      if (!info.hasOwnProperty(k)) continue;
+      html += '<dt class="col-sm-4 text-muted">' + k + '</dt>';
+      html += '<dd class="col-sm-8">' + (info[k] === null || info[k] === '' ? '—' : info[k]) + '</dd>';
+    }
+    html += '</dl>';
+    morfCont.innerHTML = html;
+  }
+
+  function limpiarTokensActivos() {
+    tokensEl.querySelectorAll('.token-activo').forEach(function(el) {
+      el.classList.remove('token-activo');
+    });
+  }
+
+  tokensEl.querySelectorAll('.token').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var offset = el.dataset.offset;
+      if (offset === undefined) return;
+
+      limpiarTokensActivos();
+      el.classList.add('token-activo');
+
+      panelMorf.classList.remove('d-none');
+      morfCont.innerHTML = '<p class="text-muted small">Consultando...</p>';
+
+      var fd = new FormData();
+      fd.append('texto_id', textoId);
+      fd.append('offset', offset);
+      fd.append('csrfmiddlewaretoken', csrfToken);
+
+      fetch(morfologiaUrl, { method: 'POST', body: fd, credentials: 'same-origin' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            mostrarMorfologia(data.info);
+          } else {
+            morfCont.innerHTML = '<p class="text-danger small">Error: ' + (data.error || 'desconocido') + '</p>';
+          }
+        })
+        .catch(function(e) {
+          morfCont.innerHTML = '<p class="text-danger small">Error de red: ' + e.message + '</p>';
+        });
+    });
+  });
+})();
+</script>
+
+{% endblock %}
