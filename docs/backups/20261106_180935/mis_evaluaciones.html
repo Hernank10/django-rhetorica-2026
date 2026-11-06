@@ -1,0 +1,191 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-evaluaciones-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #0d6efd;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Sistema de evaluaciones
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-clipboard-check text-primary"></i> Cómo funcionan las evaluaciones
+                    </h5>
+                </div>
+                <span class="badge bg-primary rounded-0" style="font-size: 0.7rem;">
+                    Auto-evaluación
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Las <strong>evaluaciones</strong> son pruebas autocorregidas que cierran cada
+                modulo de un curso. Puedes intentarlas varias veces: el sistema guarda
+                <strong>tu mejor puntaje</strong> y el <strong>último intento</strong>.
+                Aprobarlas refuerza las técnicas y suma puntos para tus logros.
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-primary bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-hourglass-half"></i> Pendientes
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Evaluaciones de cursos en los que estas inscrito y aun no has hecho.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-success bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-check-circle"></i> Completadas
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Evaluaciones que ya has intentado al menos una vez.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-dark bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-star"></i> Mejor puntaje
+                        </div>
+                        <p class="mb-0" style="font-size: 0.82rem;">
+                            Se guarda el mejor resultado de todos tus intentos. Mejorable.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como aprovechar las evaluaciones:</strong>
+            </p>
+
+            <ol class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>Estudia el modulo primero:</strong> lee las lecciones y práctica con los ejercicios.</li>
+                <li><strong>Haz la evaluación:</strong> responde sin miedo. Puedes repetirla si no te convence el resultado.</li>
+                <li><strong>Revisa los errores:</strong> cada fallo te dice que concepto repasar.</li>
+                <li><strong>Vuelve a intentarla:</strong> si mejoras, el "mejor puntaje" se actualiza.</li>
+                <li><strong>Aprobarla suma:</strong> al superar el umbral, la evaluación cuenta para los logros del curso.</li>
+            </ol>
+
+            <div class="alert alert-light border mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-lightbulb text-warning"></i> ¿No tienes evaluaciones pendientes?</strong>
+                <p class="mb-0 mt-1">
+                    Eso significa que no estas inscrito en ningun curso con evaluaciones disponibles,
+                    o ya las has completado todas. Puedes explorar el catálogo de cursos para inscribirte,
+                    o practicar con la biblioteca de ejercicios.
+                </p>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-graduation-cap"></i> Explorar cursos
+                    </a>
+                    <a href="{% url 'estudiante:ranking' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-trophy"></i> Ver ranking
+                    </a>
+                    <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-chart-line"></i> Mis estadísticas
+                    </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<h2 class="mb-4"><i class="fas fa-clipboard-check"></i> Mis Evaluaciones</h2>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ pendientes|length }}</div>
+        <div>Pendientes</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ completadas|length }}</div>
+        <div>Completadas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body text-center">
+        <div class="fs-2 fw-bold">{{ total }}</div>
+        <div>Total disponibles</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4><i class="fas fa-hourglass-half"></i> Pendientes ({{ pendientes|length }})</h4>
+<div class="row g-3 mb-4">
+  {% for p in pendientes %}
+  <div class="col-md-6">
+    <div class="card shadow-sm border-warning">
+      <div class="card-body">
+        <span class="badge bg-secondary">{{ p.ev.get_tipo_display|default:p.ev.tipo }}</span>
+        <h6 class="mt-2">{{ p.ev.titulo }}</h6>
+        <small class="text-muted d-block mb-2">{{ p.ev.curso.titulo }}</small>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="small text-muted">
+            <i class="fas fa-clock"></i> {{ p.ev.tiempo_limite }} min |
+            <i class="fas fa-star"></i> {{ p.ev.puntaje_maximo }} pts
+          </div>
+          <a href="{% url 'ver_evaluacion' p.ev.id %}" class="btn btn-sm btn-warning">
+            <i class="fas fa-play"></i> Empezar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12 text-muted">¡No tienes evaluaciones pendientes! 🎉</div>
+  {% endfor %}
+</div>
+
+<h4><i class="fas fa-check-circle text-success"></i> Completadas ({{ completadas|length }})</h4>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Evaluación</th>
+        <th>Curso</th>
+        <th>Intentos</th>
+        <th>Mejor puntaje</th>
+        <th>Último intento</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in completadas %}
+      <tr>
+        <td><strong>{{ c.ev.titulo }}</strong></td>
+        <td>{{ c.ev.curso.titulo }}</td>
+        <td><span class="badge bg-info text-dark">{{ c.intentos }}</span></td>
+        <td>
+          <span class="badge {% if c.mejor >= 80 %}bg-success{% elif c.mejor >= 50 %}bg-warning text-dark{% else %}bg-danger{% endif %}">
+            {{ c.mejor }}/{{ c.max }}
+          </span>
+        </td>
+        <td>{{ c.último|date:"SHORT_DATETIME_FORMAT" }}</td>
+        <td>
+          <a href="{% url 'ver_evaluacion' c.ev.id %}" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-redo"></i>
+          </a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="6" class="text-center text-muted">Sin evaluaciones completadas</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,794 @@
+{% extends 'core/estudiante/base.html' %}
+{% block panel %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-dashboard-bienvenida"
+         style="border: 1px solid #dee2e6; border-top: 4px solid #0d6efd;">
+        <div class="card-body">
+
+            <!-- Cabecera: bienvenida + nivel global -->
+            <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Panel de inicio
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-hand-sparkles text-primary"></i> Bienvenido/a a tu panel
+                    </h5>
+                </div>
+                <span class="badge bg-primary rounded-0" style="font-size: 0.7rem;">
+                    Recorrido MCER: A1 &rarr; C2
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Esta es tu <strong>central de progreso</strong>. Aquí ves tu avance global,
+                tus cursos activos, los logros desbloqueados, los certificados obtenidos
+                y las tareas pendientes. Abajo tienes el detalle de cada sección.
+            </p>
+
+            <!-- Bloque: el camino del aprendizaje -->
+            <div class="p-3 mb-3 rounded" style="background-color: #f8f9fa; border-left: 3px solid #0d6efd;">
+                <div class="text-uppercase mb-2" style="font-size: 0.7rem; color: #6c757d; letter-spacing: 0.05em;">
+                    <i class="fas fa-route"></i> El camino del aprendizaje
+                </div>
+                <div class="row g-2 text-center" style="font-size: 0.8rem;">
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-book-open text-primary"></i>
+                            <div class="mt-1">Lección</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-layer-group text-info"></i>
+                            <div class="mt-1">Modulo</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-graduation-cap text-success"></i>
+                            <div class="mt-1">Curso</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-clipboard-check text-warning"></i>
+                            <div class="mt-1">Evaluación</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-certificate text-danger"></i>
+                            <div class="mt-1">Certificado</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-2 bg-white rounded border">
+                            <i class="fas fa-medal text-warning"></i>
+                            <div class="mt-1">Logro</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque: como leer las metricas -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como leer tus métricas:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-primary bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-graduation-cap"></i> Cursos activos
+                        </div>
+                        <p class="mb-0">
+                            Cursos en los que estas inscrito. Cada uno tiene modulos, lecciones y evaluación final.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-success bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-check-circle"></i> Lecciones completadas
+                        </div>
+                        <p class="mb-0">
+                            Lecciones que has terminado. Suma a tu progreso MCER y al ranking.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-warning bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-medal"></i> Logros
+                        </div>
+                        <p class="mb-0">
+                            Hitos desbloqueados (primera técnica, aprendiz, B1, B2, C1, C2). Cada uno suma puntos.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-danger bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-certificate"></i> Certificados
+                        </div>
+                        <p class="mb-0">
+                            Certificados obtenidos al aprobar evaluaciones finales. Descargables en PDF.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-dark bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-percentage"></i> Tasa de aciertos
+                        </div>
+                        <p class="mb-0">
+                            Porcentaje de ejercicios correctos. Sube con práctica; no es una nota, es una guia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-info bg-light">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-layer-group"></i> Recorrido MCER
+                        </div>
+                        <p class="mb-0">
+                            Técnicas dominadas por nivel (A1 a C2). Es la métrica global de tu avance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bloque: por donde empezar -->
+            <div class="alert alert-primary mb-3" style="font-size: 0.85rem;">
+                <strong><i class="fas fa-rocket"></i> Si estas empezando, este es el orden recomendado:</strong>
+                <ol class="mb-0 mt-2 ps-3">
+                    <li class="mb-1">
+                        <strong>Inscribete en un curso básico.</strong>
+                        Empieza por <em>Comprension Lectora</em>, <em>Morfología</em>, <em>Ortografía</em>
+                        o <em>Sintaxis</em>. Son la base de todo lo demas.
+                    </li>
+                    <li class="mb-1">
+                        <strong>Haz la primera lección.</strong>
+                        Son cortas (10-15 min). Al completarla, tu contador de <em>lecciones completadas</em> sube.
+                    </li>
+                    <li class="mb-1">
+                        <strong>Cuando termines un modulo, haz la evaluación.</strong>
+                        Veras las <em>evaluaciones disponibles</em> aparecer aquí. Aprobarlas desbloquea el certificado.
+                    </li>
+                    <li class="mb-1">
+                        <strong>Repasa con flashcards SRS.</strong>
+                        Las técnicas que aprendas se refuerzan con repaso espaciado (SM-2). 10 min/día basta.
+                    </li>
+                    <li class="mb-0">
+                        <strong>Revisa tus logros.</strong>
+                        Cada hito (primera técnica, 50 técnicas, B1, B2...) desbloquea puntos y te sube en el ranking.
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Bloque: estado actual (compacto) -->
+            <div class="d-flex align-items-center gap-2 flex-wrap mb-3">
+                <span class="badge bg-light text-dark border" style="font-size: 0.78rem;">
+                    <i class="fas fa-graduation-cap"></i> Cursos: <strong>0</strong>
+                </span>
+                <span class="badge bg-light text-dark border" style="font-size: 0.78rem;">
+                    <i class="fas fa-check-circle"></i> Lecciones: <strong>0</strong>
+                </span>
+                <span class="badge bg-light text-dark border" style="font-size: 0.78rem;">
+                    <i class="fas fa-medal"></i> Logros: <strong>0</strong>
+                </span>
+                <span class="badge bg-light text-dark border" style="font-size: 0.78rem;">
+                    <i class="fas fa-certificate"></i> Certificados: <strong>1</strong>
+                </span>
+                <span class="badge bg-light text-dark border" style="font-size: 0.78rem;">
+                    <i class="fas fa-layer-group"></i> Técnicas MCER: <strong>0/610</strong>
+                </span>
+            </div>
+
+            <!-- Nota sobre el certificado ya obtenido -->
+            <p class="text-secondary mb-3" style="font-size: 0.82rem;">
+                <i class="fas fa-info-circle text-success me-1"></i>
+                <em>Ya tienes <strong>1 certificado</strong> (Lectura + Flashcards, 05/11/2026).
+                Revisalo en <strong>Certificados</strong>. Para conseguir mas, completa cursos y aprueba sus evaluaciones.</em>
+            </p>
+
+            <!-- CTA principal -->
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-graduation-cap"></i> Mis cursos
+                    </a>
+                    <a href="{% url 'estudiante:evaluaciones' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-clipboard-check"></i> Evaluaciones
+                    </a>
+                    <a href="{% url 'estudiante:logros' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-medal"></i> Logros
+                    </a>
+                    <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-chart-line"></i> Estadísticas
+                    </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- === PANEL MCER A1-C2 === -->
+    {% if mcer_progreso %}
+    <div class="card shadow-sm border-primary mb-4">
+      <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-graduation-cap"></i> Recorrido MCER A1?C2 ? 610 t?cnicas</span>
+        <span class="badge bg-light text-dark">{{ mcer_progreso.dominadas_mcer }}/{{ mcer_progreso.total_mcer }} ({{ mcer_progreso.pct_mcer }}%)</span>
+      </div>
+      <div class="card-body">
+        <div class="row g-2">
+          {% for nivel, datos in mcer_progreso.niveles.items %}
+          <div class="col-md-2 col-4 text-center">
+            <a href="/gramatica/{{ nivel|lower }}/" class="text-decoration-none text-reset">
+              <h5 class="mb-1">{{ nivel }}</h5>
+              <div class="progress" style="height: 8px;">
+                <div class="progress-bar bg-success" style="width: {{ datos.pct }}%"></div>
+              </div>
+              <small class="text-muted">{{ datos.dominadas }}/{{ datos.total }}</small>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- === FIN PANEL MCER === -->
+
+
+<h2 class="mb-4"><i class="fas fa-home"></i> Hola, {{ user.username }} 👋</h2>
+
+<!-- KPIs -->
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-primary text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.cursos_activos }}</div>
+        <div><i class="fas fa-book"></i> Cursos activos</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-success text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.lecciones }}</div>
+        <div><i class="fas fa-check-circle"></i> Lecciones completadas</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-warning text-dark">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.logros }}</div>
+        <div><i class="fas fa-trophy"></i> Logros</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card shadow-sm border-0 bg-info text-white">
+      <div class="card-body">
+        <div class="fs-2 fw-bold">{{ kpis.certificados }}</div>
+        <div><i class="fas fa-certificate"></i> Certificados</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPIs secundarios -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-2">Tasa de aciertos global</h6>
+        <div class="fs-1 fw-bold
+          {% if kpis.tasa >= 80 %}text-success{% elif kpis.tasa >= 50 %}text-warning{% else %}text-danger{% endif %}">
+          {{ kpis.tasa }}%
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h6 class="text-muted mb-2">Certificados obtenidos</h6>
+        <div class="fs-1 fw-bold text-primary">{{ kpis.certificados }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gráficos -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Progreso por curso</div>
+      <div class="card-body">
+        <canvas id="chartCursos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-line"></i> Actividad últimos 30 días</div>
+      <div class="card-body">
+        <canvas id="chartActividad" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-award"></i> Últimos logros</div>
+      <ul class="list-group list-group-flush">
+        {% for l in ultimos_logros %}
+          <li class="list-group-item">
+            <span class="fs-5">{{ l.logro.icono }}</span>
+            <strong class="ms-2">{{ l.logro.nombre }}</strong>
+            <small class="text-muted d-block">{{ l.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</small>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted">Sin logros todavía</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-lightbulb"></i> Próximas lecciones sugeridas</div>
+      <ul class="list-group list-group-flush">
+        {% for l in proximas %}
+          <li class="list-group-item d-flex justify-content-between">
+            <div>
+              <strong>{{ l.titulo|truncatechars:45 }}</strong><br>
+              <small class="text-muted">{{ l.modulo.curso.titulo }}</small>
+            </div>
+            <a href="{% url 'ver_leccion' l.modulo.curso.slug l.modulo.id l.id %}"
+               class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-play"></i>
+            </a>
+          </li>
+        {% empty %}
+          <li class="list-group-item text-muted">¡Felicidades, sin lecciones pendientes!</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Charts + certs (Commit 3) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-pie"></i> Ejercicios por tipo</div>
+      <div class="card-body">
+        <canvas id="chartAciertos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-chart-bar"></i> Correctas vs total por tipo</div>
+      <div class="card-body">
+        <canvas id="chartTipos" height="140"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold"><i class="fas fa-certificate"></i> Mis certificados recientes</div>
+      <div class="card-body">
+        {% if ultimos_certs %}
+          <div class="row g-2">
+            {% for cert in ultimos_certs %}
+              <div class="col-md-4">
+                <div class="card h-100 border-primary">
+                  <div class="card-body text-center">
+                    <i class="fas fa-award fa-2x text-warning mb-2"></i>
+                    <h6 class="card-title">{{ cert.certificación.nombre|truncatechars:40 }}</h6>
+                    <p class="small text-muted mb-2">{{ cert.certificación.get_nivel_display }}</p>
+                    <p class="small text-muted">{{ cert.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</p>
+                    <a href="{% url 'verificar_certificado_publico' cert.codigo_verificacion %}"
+                       class="btn btn-sm btn-outline-primary" target="_blank">
+                      <i class="fas fa-external-link-alt"></i> Verificar
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Aun no has obtenido certificados.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Notificaciones recientes (sprint #6) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-bell text-primary"></i> Notificaciones recientes</span>
+        <a href="{% url 'notificaciones:lista' %}" class="btn btn-sm btn-outline-primary">
+          Ver todas {% if notif_count %}({{ notif_count }}){% endif %}
+        </a>
+      </div>
+      <div class="card-body">
+        {% if notificaciones_recientes %}
+          <div class="list-group list-group-flush">
+            {% for n in notificaciones_recientes %}
+              <div class="list-group-item px-0 {% if not n.leida %}fw-bold{% endif %}">
+                <i class="fas fa-{{ n.icono|default:'bell' }} text-primary"></i>
+                {{ n.titulo }}
+                <small class="text-muted float-end">{{ n.creada_en|timesince }} atrás</small>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Sin notificaciones aún. Completa lecciones o evaluaciones para recibir avisos.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tareas pendientes + Evaluaciones (sprint #6) -->
+<div class="row g-3 mb-4">
+  <!-- Tareas pendientes: lecciones no completadas -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-tasks text-warning"></i> Tareas pendientes</span>
+        <span class="badge bg-warning text-dark">{{ tareas_pendientes|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if tareas_pendientes %}
+          <ul class="list-unstyled mb-0">
+            {% for t in tareas_pendientes %}
+              <li class="mb-2 pb-2 border-bottom">
+                <a href="{% url 'ver_leccion' t.modulo.curso.slug t.modulo.id t.id %}" class="text-decoration-none">
+                  <strong>{{ t.titulo|truncatechars:50 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ t.modulo.curso.titulo }} · {{ t.get_tipo_display }}
+                  </small>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-check-circle text-success"></i> ¡Sin lecciones pendientes!</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Evaluaciones disponibles ahora -->
+  <div class="col-md-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-clipboard-check text-danger"></i> Evaluaciones disponibles</span>
+        <span class="badge bg-danger">{{ evals_disponibles|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if evals_disponibles %}
+          <ul class="list-unstyled mb-0">
+            {% for e in evals_disponibles %}
+              <li class="mb-2 pb-2 border-bottom">
+                <a href="{% url 'ver_evaluacion' e.id %}" class="text-decoration-none">
+                  <strong>{{ e.titulo|truncatechars:50 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ e.curso.titulo }}
+                    {% if e.disponible_hasta %}· Vence {{ e.disponible_hasta|date:"d/m H:i" }}{% endif %}
+                  </small>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones abiertas ahora.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Evaluaciones programadas (futuro) -->
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-calendar-alt text-info"></i> Próximas evaluaciones programadas</span>
+        <span class="badge bg-info text-dark">{{ evals_programadas|length }}</span>
+      </div>
+      <div class="card-body">
+        {% if evals_programadas %}
+          <div class="row g-2">
+            {% for e in evals_programadas %}
+              <div class="col-md-6">
+                <div class="border rounded p-2 h-100">
+                  <strong>{{ e.titulo|truncatechars:60 }}</strong>
+                  <small class="text-muted d-block">
+                    <i class="fas fa-book"></i> {{ e.curso.titulo }}
+                    <br><i class="fas fa-clock"></i> Abre {{ e.disponible_desde|date:"d/m/Y H:i" }}
+                  </small>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones programadas en el futuro.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% load static %}
+<script src="{% static 'js/chart.umd.min.js' %}"></script>
+<script>
+const cLabels = [{% for c in cursos_progreso %}"{{ c.curso.titulo|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const cData = [{% for c in cursos_progreso %}{{ c.pct }}{% if not forloop.last %},{% endif %}{% endfor %}];
+const aLabels = [{% for a in actividad %}"{{ a.dia }}"{% if not forloop.last %},{% endif %}{% endfor %}];
+const aData = [{% for a in actividad %}{{ a.count }}{% if not forloop.last %},{% endif %}{% endfor %}];
+
+new Chart(document.getElementById('chartCursos'), {
+  type: 'bar',
+  data: {
+    labels: cLabels,
+    datasets: [{
+      label: '% completado',
+      data: cData,
+      backgroundColor: 'rgba(75, 192, 192, 0.6)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+});
+
+new Chart(document.getElementById('chartActividad'), {
+  type: 'line',
+  data: {
+    labels: aLabels,
+    datasets: [{
+      label: 'Lecciones',
+      data: aData,
+      borderColor: 'rgba(54, 162, 235, 1)',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      tension: 0.3,
+      fill: true,
+    }]
+  },
+  options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+});
+
+// === Charts por tipo (Commit 3) ===
+(function() {
+  const aciertos = {{ aciertos_data|safe }};
+  const canvasA = document.getElementById('chartAciertos');
+  const canvasT = document.getElementById('chartTipos');
+
+  if (aciertos && aciertos.length > 0 && canvasA && canvasT) {
+    new Chart(canvasA, {
+      type: 'doughnut',
+      data: {
+        labels: aciertos.map(a => a.tipo || '(sin tipo)'),
+        datasets: [{
+          data: aciertos.map(a => a.total),
+          backgroundColor: [
+            'rgba(54,162,235,0.7)','rgba(75,192,192,0.7)',
+            'rgba(255,205,86,0.7)','rgba(255,99,132,0.7)',
+            'rgba(153,102,255,0.7)','rgba(255,159,64,0.7)',
+          ],
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'right' } } }
+    });
+
+    new Chart(canvasT, {
+      type: 'bar',
+      data: {
+        labels: aciertos.map(a => a.tipo || '(sin tipo)'),
+        datasets: [
+          { label: 'Total', data: aciertos.map(a => a.total),
+            backgroundColor: 'rgba(54,162,235,0.4)',
+            borderColor: 'rgba(54,162,235,1)', borderWidth: 1 },
+          { label: 'Correctas', data: aciertos.map(a => a.correctas),
+            backgroundColor: 'rgba(75,192,192,0.7)',
+            borderColor: 'rgba(75,192,192,1)', borderWidth: 1 }
+        ]
+      },
+      options: { responsive: true, scales: { y: { beginAtZero: true } } }
+    });
+  } else {
+    if (canvasA) canvasA.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
+    if (canvasT) canvasT.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
+  }
+})();
+</script>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- Módulo 10: Sintaxis del castellano (100 técnicas) -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-success">
+      <div class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-pen-fancy"></i> Sintaxis del castellano — 100 técnicas</span>
+        <a href="{% url 'sintaxis:progreso' %}" class="btn btn-sm btn-light">
+          <i class="fas fa-chart-line"></i> Mi progreso
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">
+          Aprende a escribir oraciones simples y compuestas correctamente.
+          100 técnicas con teoría, ejemplo, ejercicio y retroalimentación inmediata.
+          Seguimiento SM-2 hasta dominar cada técnica.
+        </p>
+        <div class="d-flex gap-2 flex-wrap">
+          <a href="{% url 'sintaxis:indice' %}" class="btn btn-success">
+            <i class="fas fa-list"></i> Ver las 100 técnicas
+          </a>
+          <a href="{% url 'sintaxis:tecnica' 1 %}" class="btn btn-outline-success">
+            <i class="fas fa-play"></i> Empezar por la técnica 1
+          </a>
+        </div>
+        <div class="mt-3">
+          <small class="text-muted">
+            <strong>Bloques:</strong>
+            A) Oración simple · B) Concordancia y régimen · C) Coordinación ·
+            D) Subordinación sustantiva · E) Subordinación adjetiva ·
+            F) Subordinación adverbial · G) Yuxtaposición y puntuación
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-info">
+      <div class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-book"></i> Gramática castellana — 100 técnicas</span>
+        <a href="{% url 'gramatica:progreso' %}" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Historia, clases de palabras, sustantivo, adjetivo, verbo, pronombres y ortografía RAE 2010. 100 técnicas con ejercicio y retroalimentación.</p>
+        <a href="{% url 'gramatica:indice' %}" class="btn btn-info text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+        <a href="{% url 'gramatica:tecnica' 1 %}" class="btn btn-outline-info"><i class="fas fa-play"></i> Empezar por la 1</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-warning">
+      <div class="card-header bg-warning text-dark fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-sitemap"></i> Gramática generativa — 100 técnicas</span>
+        <a href="{% url 'gramatica:progreso_generativa' %}" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Modelo de Chomsky: X-barra, transformaciones, caso, ligamiento, minimalismo y aplicaciones al castellano. 100 técnicas.</p>
+        <a href="{% url 'gramatica:indice_generativa' %}" class="btn btn-warning text-dark"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+        <a href="{% url 'gramatica:tecnica' 101 %}" class="btn btn-outline-warning"><i class="fas fa-play"></i> Empezar por la 101</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-danger">
+        <div class="card-header bg-danger text-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-crown"></i> Lengua Castellana C1 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=c1" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel avanzado (MCER C1): discurso académico, registro literario, cohesión avanzada, expresiones idiomáticas, léxico especializado, sintaxis compleja y análisis crítico. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_c1' %}" class="btn btn-danger text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+          <a href="{% url 'gramatica:tecnica' 701 %}" class="btn btn-outline-danger"><i class="fas fa-play"></i> Empezar por la 701</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-dark">
+        <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-gem"></i> Lengua Castellana C2 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=c2" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel maestría (MCER C2): registro literario avanzado, ironía fina, intertextualidad, discurso especializado, variación dialectal, estilística avanzada y creación literaria. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_c2' %}" class="btn btn-dark text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+          <a href="{% url 'gramatica:tecnica' 801 %}" class="btn btn-outline-dark"><i class="fas fa-play"></i> Empezar por la 801</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-success">
+      <div class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-seedling"></i> Lengua Castellana A1 — 100 técnicas</span>
+        <a href="{% url 'gramatica:progreso' %}?modulo=a1" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Curso completo de español para principiantes (MCER A1): alfabeto, saludos, artículos, presente, vocabulario cotidiano y situaciones comunicativas. 100 técnicas con ejercicios.</p>
+        <a href="{% url 'gramatica:indice_a1' %}" class="btn btn-success text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+        <a href="{% url 'gramatica:tecnica' 201 %}" class="btn btn-outline-success"><i class="fas fa-play"></i> Empezar por la 201</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-info">
+        <div class="card-header bg-info text-white fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-graduation-cap"></i> Lengua Castellana A2 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=a2" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel básico-intermedio (MCER A2): pasados (indefinido, imperfecto, perfecto), futuro, condicional, imperativo, pronombres personales y situaciones comunicativas. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_a2' %}" class="btn btn-info text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+          <a href="{% url 'gramatica:tecnica' 501 %}" class="btn btn-outline-info"><i class="fas fa-play"></i> Empezar por la 501</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="row g-3 mb-4">
+  <div class="col-md-12">
+    <div class="card shadow-sm border-primary">
+      <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-tree"></i> Lengua Castellana B1 — 100 técnicas</span>
+        <a href="{% url 'gramatica:progreso' %}?modulo=b1" class="btn btn-sm btn-light">Mi progreso</a>
+      </div>
+      <div class="card-body">
+        <p class="text-muted mb-3">Curso intermedio de español (MCER B1): pasados, futuro, condicional, subjuntivo, estilo indirecto, oraciones compuestas y situaciones comunicativas. 100 técnicas con ejercicios.</p>
+        <a href="{% url 'gramatica:indice_b1' %}" class="btn btn-primary text-white"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+        <a href="{% url 'gramatica:tecnica' 301 %}" class="btn btn-outline-primary"><i class="fas fa-play"></i> Empezar por la 301</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-md-12">
+      <div class="card shadow-sm border-warning">
+        <div class="card-header bg-warning text-dark fw-bold d-flex justify-content-between align-items-center">
+          <span><i class="fas fa-star"></i> Lengua Castellana B2 — 100 técnicas</span>
+          <a href="{% url 'gramatica:progreso' %}?modulo=b2" class="btn btn-sm btn-light">Mi progreso</a>
+        </div>
+        <div class="card-body">
+          <p class="text-muted mb-3">Curso de español nivel avanzado (MCER B2): subjuntivo imperfecto, condicionales 2/3 y mixtos, secuencia de tiempos, pasiva, estilo indirecto avanzado, perífrasis verbales, subordinadas complejas, conectores avanzados, verbos de cambio y situaciones comunicativas formales. 100 técnicas con ejercicios.</p>
+          <a href="{% url 'gramatica:indice_b2' %}" class="btn btn-warning text-dark"><i class="fas fa-list"></i> Ver las 100 técnicas</a>
+          <a href="{% url 'gramatica:tecnica' 601 %}" class="btn btn-outline-warning"><i class="fas fa-play"></i> Empezar por la 601</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
