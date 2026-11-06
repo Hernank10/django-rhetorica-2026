@@ -2,6 +2,138 @@
 {% block title %}Corpus - Indice{% endblock %}
 
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-corpus-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #6c757d;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Linguistica de corpus
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-database text-secondary"></i> Que es un corpus linguistico
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem;">
+                    ~3900 items
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Un <strong>corpus</strong> es un conjunto estructurado de textos reales
+                (teorias, ejemplos, enunciados, flashcards) que sirve como <strong>base empirica</strong>
+                para estudiar como funciona la lengua. En lugar de preguntar
+                "como deberia decirse", el corpus responde "como se dice realmente" en miles de casos.
+            </p>
+
+            <!-- Composicion del corpus -->
+            <div class="p-3 mb-3 rounded" style="background-color: #f8f9fa; border-left: 3px solid #6c757d;">
+                <div class="text-uppercase mb-2" style="font-size: 0.7rem; color: #6c757d; letter-spacing: 0.05em;">
+                    <i class="fas fa-layer-group"></i> Composicion actual
+                </div>
+                <div class="row g-2 text-center" style="font-size: 0.8rem;">
+                    <div class="col-6 col-md-3">
+                        <div class="p-2 bg-white rounded border">
+                            <div style="font-size: 1.2rem; font-weight: 600; color: #212529;">3.915</div>
+                            <div class="text-muted">items totales</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="p-2 bg-white rounded border">
+                            <div style="font-size: 1.2rem; font-weight: 600; color: #212529;">8</div>
+                            <div class="text-muted">fuentes</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="p-2 bg-white rounded border">
+                            <div style="font-size: 1.2rem; font-weight: 600; color: #212529;">50</div>
+                            <div class="text-muted">top palabras</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="p-2 bg-white rounded border">
+                            <div style="font-size: 1.2rem; font-weight: 600; color: #212529;">2.254</div>
+                            <div class="text-muted">"de" (la + frecuente)</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mb-0 mt-2 text-muted" style="font-size: 0.78rem;">
+                    <strong>Fuentes:</strong> teoria, ejemplo, enunciado, respuesta esperada,
+                    flashcard frente, flashcard reverso, etimologia regla, etimologia ejemplo.
+                </p>
+            </div>
+
+            <!-- Herramientas disponibles -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Herramientas disponibles:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-search"></i> Concordancia (KWIC)
+                        </div>
+                        <p class="mb-1" style="font-size: 0.82rem;">
+                            <strong>K</strong>ey <strong>W</strong>ord <strong>I</strong>n <strong>C</strong>ontext:
+                            busca una palabra y muestra cada aparicion con las palabras vecinas.
+                        </p>
+                        <p class="mb-0 text-muted" style="font-size: 0.78rem;">
+                            Util para ver <em>como se usa realmente</em> una palabra: colocaciones,
+                            preposiciones que la acompanan, contextos tipicos.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-chart-bar"></i> Frecuencias
+                        </div>
+                        <p class="mb-1" style="font-size: 0.82rem;">
+                            Tabla de las palabras mas usadas y su distribucion por fuente.
+                        </p>
+                        <p class="mb-0 text-muted" style="font-size: 0.78rem;">
+                            Las palabras funcionales (<em>de, la, el, en, y, que</em>) dominan el top.
+                            Detras aparecen palabras de contenido: <em>palabras, frente, reverso, espanol, lengua</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-light border mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-info-circle text-secondary"></i> Proximamente:</strong>
+                <p class="mb-0 mt-1">
+                    Estadisticas del corpus (longitud media, riqueza lexica, hapax) y
+                    n-gramas (secuencias frecuentes de 2-3 palabras) estan en desarrollo.
+                    De momento puedes explorar el corpus con <strong>KWIC</strong> y <strong>frecuencias</strong>.
+                </p>
+            </div>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.82rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>El corpus es la <strong>base empirica</strong> de todo lo que ves en la plataforma:
+                las tecnicas, los ejercicios y las flashcards se nutren de estos ~3900 items.
+                Si quieres saber <strong>como se usa una palabra en contexto real</strong>,
+                empieza por KWIC.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'corpus_concordancia' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-search"></i> Concordancia (KWIC)
+                    </a>
+                    <a href="{% url 'corpus_frecuencias' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-chart-bar"></i> Frecuencias
+                    </a>
+                    <a href="{% url 'pos_corpus' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-tags"></i> POS del corpus
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <h1>Explorador de corpus</h1>
 <p class="meta">{{ stats.total_items }} items · {{ top_palabras|length }} palabras en top</p>
 
