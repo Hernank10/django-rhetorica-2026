@@ -4,14 +4,14 @@
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{% url 'indice' %}">Lectura</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'lectura:indice' %}">Lectura</a></li>
             <li class="breadcrumb-item active">Guia de certificados</li>
         </ol>
     </nav>
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0"><i class="fas fa-certificate"></i> {{ titulo }}</h2>
-        <a href="{% url 'indice' %}" class="btn btn-outline-secondary">
+        <a href="{% url 'lectura:indice' %}" class="btn btn-outline-secondary">
             <i class="fas fa-arrow-left"></i> Volver a lectura
         </a>
     </div>
@@ -23,7 +23,7 @@
     <hr class="my-5">
     <div class="text-center">
         <p class="text-muted">Todo listo para obtener tu certificado?</p>
-        <a href="{% url 'indice' %}" class="btn btn-primary btn-lg">
+        <a href="{% url 'lectura:indice' %}" class="btn btn-primary btn-lg">
             Ir a los textos de lectura
         </a>
     </div>
