@@ -1,6 +1,88 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-sm2-repaso"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #212529;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Algoritmo de repeticion espaciada
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Como funciona SM-2
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem;">
+                    SuperMemo 2
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                <strong>SM-2</strong> es un algoritmo de <em>repeticion espaciada</em>: decide
+                <strong>cuando</strong> volver a mostrarte cada flashcard segun lo bien que la recuerdes.
+                No es magia: es una formula que ajusta dos variables.
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Facilidad (EF)</div>
+                        <div style="color: #212529;">Cuanto te cuesta esta carta (1.3 a 2.5). Sube si aciertas, baja si fallas.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.65rem; color: #6c757d;">Intervalo (I)</div>
+                        <div style="color: #212529;">Dias hasta la proxima revision. Se multiplica por la facilidad cada vez que aciertas.</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>El flujo de cada repaso:</strong>
+            </p>
+
+            <ol class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>Frente:</strong> ves el concepto y tratas de recordarlo.</li>
+                <li><strong>Verificar:</strong> pulsas "verificar" para ver la respuesta detras.</li>
+                <li><strong>Calificar:</strong> evaluas tu desempeno honestamente (No / Casi / Si).</li>
+                <li><strong>Sistema calcula:</strong> nueva facilidad + nuevo intervalo + proxima fecha.</li>
+                <li><strong>Proxima revision:</strong> la carta reaparece cuando toca.</li>
+            </ol>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Regla de oro:</strong> calificate con honestidad.
+            </p>
+            <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li>Si dices "la sabia" sin saberla, el intervalo se alarga <strong>demasiado</strong> y la olvidas.</li>
+                <li>Si dices "no la sabia" sabiendola, la carta aparece <strong>demasiado pronto</strong> y pierdes tiempo.</li>
+                <li>SM-2 se optimiza con <strong>calificaciones honestas</strong>, no optimistas.</li>
+            </ul>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.85rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>Una sesion de SRS ideal dura <strong>10-20 minutos</strong>. Si tienes 50+ pendientes,
+                haz tandas de 20 y vuelve mas tarde. La constancia diaria importa mas que las sesiones maratonianas.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'srs_estadisticas' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-chart-bar"></i> Estadisticas SRS
+                    </a>
+                    <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-chart-line"></i> Mis estadisticas
+                    </a>
+                    <a href="{% url 'estudiante:ranking' %}" class="btn btn-sm btn-outline-dark">
+                        <i class="fas fa-trophy"></i> Ranking
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4" style="max-width:800px">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0"><i class="fas fa-brain text-primary"></i> Repaso SRS</h2>
