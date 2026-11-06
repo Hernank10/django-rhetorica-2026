@@ -89,6 +89,32 @@ Ver `README.md` seccion 'Pendientes estructurales'.
 | Commit | `d3f0c92` |
 
 **Credenciales:** `admin_pilot_01..03`, `prof_pilot_01..09`, `est_pilot_001..096`
-**Password com�n:** `Test1234!`
+**Password com�n:** `Test1234!`
 
 Ver `docs/PILOT_FULL_TEST.md` y `docs/PILOT_VERIFICATION.md` para el detalle completo.
+
+## Integración de la guía de certificados (2026-11-05)
+
+| Elemento | Valor |
+|---|---|
+| Ruta | `/lectura/guia-certificados/` |
+| Vista | `core.views_lectura.guia_certificados` |
+| Template | `core/templates/core/lectura/guia_certificados.html` |
+| Tarjeta en índice | Sí, visible en `/lectura/` |
+| Guía fuente | `docs/GUIA_CERTIFICADOS.md` |
+| Secciones | 4/12 (funcional, pendiente completar 5-12) |
+| Dependencia | `markdown>=3.5` (en `requirements.txt`) |
+| Namespace URL | `lectura:guia_certificados` |
+| Commit de integración | `d14edf3` |
+| Commit del fix de namespace | `a795f4b` |
+| Tag | `v3.4.7-lectura-guia-integrada` |
+
+### Verificación
+
+- `/lectura/` → 200
+- `/lectura/guia-certificados/` → 200
+- Tarjeta "Guía de certificados" visible en el índice
+
+### Pendiente
+
+- Completar las secciones 5-12 de `docs/GUIA_CERTIFICADOS.md`
