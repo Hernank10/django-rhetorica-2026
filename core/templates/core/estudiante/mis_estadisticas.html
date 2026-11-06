@@ -1,5 +1,34 @@
 {% extends 'core/estudiante/base.html' %}
 {% block panel %}
+
+    <div class="card border-warning mb-4 shadow-sm" id="tarjeta-acciones-estadisticas">
+        <div class="card-body">
+            <h5 class="card-title mb-2">
+                <i class="fas fa-lightbulb text-warning"></i> ¿Y ahora qué hago con estos datos?
+            </h5>
+            <p class="card-text text-muted small mb-3">
+                Tus estadísticas te dicen dónde estás. Aquí tienes ideas para mejorar:
+            </p>
+            <ul class="small mb-3 ps-3">
+                <li><strong>Retención baja:</strong> repasa con <a href="{% url 'lectura:flashcards_sesion' %}">flashcards</a> (5 min al día).</li>
+                <li><strong>Muchos errores:</strong> vuelve a leer los textos con menor acierto.</li>
+                <li><strong>Progreso estancado:</strong> prueba una técnica del siguiente nivel MCER.</li>
+                <li><strong>Tiempo alto:</strong> practica lectura rápida con textos cortos.</li>
+            </ul>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="{% url 'lectura:flashcards_sesion' %}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-layer-group"></i> Repasar ahora
+                </a>
+                <a href="{% url 'lectura:flashcards_lectura' %}" class="btn btn-sm btn-outline-primary">
+                    Ver catálogo de técnicas
+                </a>
+                <a href="{% url 'lectura:progreso' %}" class="btn btn-sm btn-outline-secondary">
+                    Mi progreso de lectura
+                </a>
+            </div>
+        </div>
+    </div>
+
 <h2 class="mb-4"><i class="fas fa-chart-line"></i> Mis Estadísticas</h2>
 
 <div class="row g-3 mb-4">
