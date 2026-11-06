@@ -3,6 +3,76 @@
 {% load custom_filters %}
 
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-programa-cursos"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #212529;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Programa academico
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Estructura de los cursos
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem; letter-spacing: 0.05em;">
+                    27 cursos
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Cada curso se organiza en <strong>4 modulos</strong> de <strong>3 lecciones</strong> cada uno,
+                con una duracion estimada de <strong>120 a 180 horas</strong> segun el nivel.
+                Los niveles siguen una progresion academica:
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.85rem;">
+                <div class="col-6 col-md-3">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Basico</div>
+                        <div style="color: #212529;">Fundamentos</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Principiante</div>
+                        <div style="color: #212529;">Introduccion</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Intermedio</div>
+                        <div style="color: #212529;">Consolidacion</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="p-2 border-start border-2 border-secondary">
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Avanzado / Experto</div>
+                        <div style="color: #212529;">Especializacion</div>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <i class="fas fa-info-circle me-1"></i>
+                <em>El progreso se guarda automaticamente al completar cada leccion.
+                Los cursos completados otorgan certificaciones verificables.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap mt-3">
+                    <a href="{% url 'estudiante:cursos' %}" class="btn btn-sm btn-outline-dark">
+                        Mis cursos <i class="fas fa-graduation-cap ms-1"></i>
+                    </a>
+                    <a href="{% url 'ver_tecnicas' %}" class="btn btn-sm btn-outline-dark">
+                        Tecnicas <i class="fas fa-list-check ms-1"></i>
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
     <div class="row mb-4">
         <div class="col-12">
