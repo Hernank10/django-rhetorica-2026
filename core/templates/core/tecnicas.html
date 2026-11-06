@@ -9,25 +9,25 @@
             <div class="d-flex justify-content-between align-items-start mb-3">
                 <div>
                     <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
-                        Catalogo de tecnicas
+                        Catálogo de técnicas
                     </p>
                     <h5 class="mb-0" style="font-weight: 400; color: #212529;">
-                        Tecnicas retoricas y linguisticas
+                        Técnicas retoricas y linguisticas
                     </h5>
                 </div>
                 <span class="badge bg-dark rounded-0" style="font-size: 0.7rem; letter-spacing: 0.05em;">
-                    10 tecnicas
+                    10 técnicas
                 </span>
             </div>
 
             <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
-                Cada tecnica trabaja un aspecto del lenguaje, organizadas por area:
+                Cada técnica trabaja un aspecto del lenguaje, organizadas por area:
             </p>
 
             <div class="row g-2 mb-3" style="font-size: 0.85rem;">
                 <div class="col-6 col-md-4">
                     <div class="p-2 border-start border-2 border-secondary">
-                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Morfologia</div>
+                        <div class="text-uppercase" style="font-size: 0.7rem; color: #6c757d;">Morfología</div>
                         <div style="color: #212529;">Estructura de palabras</div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
 
             <p class="text-secondary mb-2" style="font-size: 0.85rem;">
                 <i class="fas fa-info-circle me-1"></i>
-                <em>Cada tecnica incluye ejemplos correctos e incorrectos, reglas de uso
+                <em>Cada técnica incluye ejemplos correctos e incorrectos, reglas de uso
                 y ejercicios practicos. Puedes repasarlas con flashcards o ponerlas a prueba
                 en la biblioteca de ejercicios.</em>
             </p>
@@ -71,7 +71,7 @@
                         Flashcards lectura <i class="fas fa-layer-group ms-1"></i>
                     </a>
                     <a href="{% url 'redaccion_tecnicas' %}" class="btn btn-sm btn-outline-dark">
-                        Tecnicas redaccion <i class="fas fa-pen-fancy ms-1"></i>
+                        Técnicas redaccion <i class="fas fa-pen-fancy ms-1"></i>
                     </a>
             </div>
         </div>
@@ -88,7 +88,7 @@
                                 <i class="fas fa-lightbulb"></i> Técnicas Retóricas
                             </h1>
                             <p class="lead mb-0">
-                                <span class="badge bg-light text-dark">{{ tecnicas|length|default:"0" }}</span> técnicas disponibles
+                                <span class="badge bg-light text-dark">{{ técnicas|length|default:"0" }}</span> técnicas disponibles
                             </p>
                         </div>
                         <div>
@@ -103,18 +103,18 @@
     </div>
 
     <div class="row mt-4">
-        {% if tecnicas %}
-            {% for tecnica in tecnicas %}
+        {% if técnicas %}
+            {% for técnica in técnicas %}
             <div class="col-md-4 mb-4">
                 <div class="card shadow h-100 tecnica-card">
                     <div class="card-header bg-warning text-dark">
                         <h5 class="mb-0">
-                            <i class="fas fa-lightbulb"></i> {{ tecnica.nombre|default:"Técnica" }}
+                            <i class="fas fa-lightbulb"></i> {{ técnica.nombre|default:"Técnica" }}
                         </h5>
                     </div>
                     <div class="card-body">
-                        <p>{{ tecnica.descripcion|default:"Descripción no disponible" }}</p>
-                        <span class="badge bg-secondary">{{ tecnica.categoria|default:"General" }}</span>
+                        <p>{{ técnica.descripcion|default:"Descripción no disponible" }}</p>
+                        <span class="badge bg-secondary">{{ técnica.categoria|default:"General" }}</span>
                     </div>
                     <div class="card-footer bg-transparent">
                         <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-outline-primary btn-sm w-100">

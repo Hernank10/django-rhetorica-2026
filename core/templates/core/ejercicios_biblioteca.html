@@ -9,18 +9,18 @@
                 <i class="fas fa-dumbbell text-info"></i> ¿Cómo aprovechar la biblioteca?
             </h5>
             <p class="card-text text-muted small mb-2">
-                Aqui tienes todos los ejercicios disponibles. Cada uno vale <strong>10 puntos</strong>.
-                Asi puedes sacarles partido:
+                Aquí tienes todos los ejercicios disponibles. Cada uno vale <strong>10 puntos</strong>.
+                Así puedes sacarles partido:
             </p>
             <ul class="small mb-3 ps-3">
                 <li><strong>Filtra por categoria</strong> (antropolinguistica, gramatica, sintaxis...) para centrarte en un area.</li>
                 <li><strong>Filtra por nivel</strong> para elegir la dificultad adecuada.</li>
                 <li><strong>Busca por tema</strong> si ya sabes que quieres practicar.</li>
-                <li><strong>Revisa tus errores</strong> despues: cada fallo te dice que repasar.</li>
+                <li><strong>Revisa tus errores</strong> después: cada fallo te dice que repasar.</li>
             </ul>
             <div class="d-flex gap-2 flex-wrap">
                 <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-primary">
-                    <i class="fas fa-chart-line"></i> Mis estadisticas
+                    <i class="fas fa-chart-line"></i> Mis estadísticas
                 </a>
             </div>
         </div>
@@ -217,7 +217,7 @@ document.getElementById('filtroNivel').addEventListener('change', function() {
           <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Siguiente &raquo;</a></li>
         {% endif %}
       </ul>
-      <p class="text-center text-muted small">Pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</p>
+      <p class="text-center text-muted small">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</p>
     </nav>
     {% endif %}
 

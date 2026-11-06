@@ -27,7 +27,7 @@
 
             <!-- Metricas globales -->
             <p class="text-secondary mb-2" style="font-size: 0.85rem;">
-                <strong>Las 4 metricas globales:</strong>
+                <strong>Las 4 métricas globales:</strong>
             </p>
 
             <div class="row g-2 mb-3" style="font-size: 0.82rem;">
@@ -138,7 +138,7 @@
                             <i class="fas fa-search-location"></i> P1 - Localizacion
                         </div>
                         <p class="mb-0">
-                            <strong>Encontrar informacion explicita.</strong>
+                            <strong>Encontrar información explicita.</strong>
                             Datos que estan literalmente en el texto.
                             <em>Ej: "Cuando sucedio X?"</em>
                         </p>
@@ -152,7 +152,7 @@
                         <p class="mb-0">
                             <strong>Deducir lo no dicho.</strong>
                             Relacionar pistas del texto para sacar conclusiones.
-                            <em>Ej: "Por que el personaje actuo asi?"</em>
+                            <em>Ej: "Por que el personaje actuo así?"</em>
                         </p>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                 <div class="col-12 col-md-6">
                     <div class="p-2 border-start border-2 border-danger bg-light h-100">
                         <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
-                            <i class="fas fa-balance-scale"></i> P4 - Analisis
+                            <i class="fas fa-balance-scale"></i> P4 - Análisis
                         </div>
                         <p class="mb-0">
                             <strong>Evaluar forma y contenido.</strong>
@@ -183,11 +183,11 @@
             </div>
 
             <div class="alert alert-success mb-3" style="font-size: 0.82rem;">
-                <strong><i class="fas fa-chart-line"></i> Como interpretar tus numeros actuales:</strong>
+                <strong><i class="fas fa-chart-line"></i> Como interpretar tus números actuales:</strong>
                 <ul class="mb-0 mt-1 ps-3">
-                    <li><strong>A1 3/100, A2 4/100</strong>: dominas el nivel basico. El siguiente paso natural es B1.</li>
+                    <li><strong>A1 3/100, A2 4/100</strong>: dominas el nivel básico. El siguiente paso natural es B1.</li>
                     <li><strong>P1 (Localizacion) 3%</strong>: vas bien encontrando datos explicitos.</li>
-                    <li><strong>P2, P3, P4 al 1%</strong>: los procesos de <strong>inferencia, interpretacion y analisis</strong> son los que mas cuestan. Esto es normal en A1-A2: son procesos de nivel superior.</li>
+                    <li><strong>P2, P3, P4 al 1%</strong>: los procesos de <strong>inferencia, interpretacion y análisis</strong> son los que mas cuestan. Esto es normal en A1-A2: son procesos de nivel superior.</li>
                     <li><strong>Tasa de acierto 0%</strong>: no has respondido ejercicios aun. Al empezar, la tasa subira.</li>
                 </ul>
             </div>
@@ -198,10 +198,10 @@
 
             <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
                 <li><strong>P1 Localizacion:</strong> lee buscando datos concretos. Subraya nombres, fechas, lugares.</li>
-                <li><strong>P2 Inferencia:</strong> preguntate "por que" y "que paso despues" tras cada parrafo.</li>
+                <li><strong>P2 Inferencia:</strong> preguntate "por que" y "que paso después" tras cada parrafo.</li>
                 <li><strong>P3 Interpretacion:</strong> al terminar, resume el texto en una frase. Identifica el proposito.</li>
-                <li><strong>P4 Analisis:</strong> preguntate "es convincente?" y "que recursos usa el autor?"</li>
-                <li><strong>Consistencia:</strong> lee 1 texto por dia. La comprension mejora con la practica regular, no con maratones.</li>
+                <li><strong>P4 Análisis:</strong> preguntate "es convincente?" y "que recursos usa el autor?"</li>
+                <li><strong>Consistencia:</strong> lee 1 texto por día. La comprension mejora con la práctica regular, no con maratones.</li>
             </ul>
 
             <hr style="margin: 1rem 0;">
@@ -211,7 +211,7 @@
                 <em>El <strong>MCER</strong> mide <em>que nivel</em> tienes. El <strong>PIRLS</strong>
                 mide <em>como comprendes</em>. Los dos juntos te dan una foto completa:
                 puedes estar en A2 (MCER) pero con buen P3 (interpretacion), o al reves.
-                Trabaja el proceso mas debil para subir de nivel mas rapido.</em>
+                Trabaja el proceso mas debil para subir de nivel mas rápido.</em>
             </p>
 
             <div class="d-flex gap-2 flex-wrap">
@@ -222,7 +222,7 @@
                         <i class="fas fa-layer-group"></i> Repasar flashcards
                     </a>
                     <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-dark">
-                        <i class="fas fa-chart-line"></i> Estadisticas globales
+                        <i class="fas fa-chart-line"></i> Estadísticas globales
                     </a>
             </div>
         </div>
@@ -298,10 +298,10 @@
           {% if p == 'P1' %}P1 - Localizacion
           {% elif p == 'P2' %}P2 - Inferencia
           {% elif p == 'P3' %}P3 - Interpretacion
-          {% elif p == 'P4' %}P4 - Analisis{% endif %}
+          {% elif p == 'P4' %}P4 - Análisis{% endif %}
         </h6>
         <div class="display-6 fw-bold text-primary">{{ datos.pct }}%</div>
-        <small class="text-muted">{{ datos.dominadas }}/{{ datos.total }} tecnicas</small>
+        <small class="text-muted">{{ datos.dominadas }}/{{ datos.total }} técnicas</small>
         <div class="progress mt-2" style="height: 6px;">
           <div class="progress-bar" style="width: {{ datos.pct }}%"></div>
         </div>
