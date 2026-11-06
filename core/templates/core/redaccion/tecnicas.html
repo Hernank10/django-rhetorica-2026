@@ -1,6 +1,150 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-redaccion-tecnicas-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #6c757d;">
+        <div class="card-body" style="font-family: Georgia, 'Times New Roman', serif;">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Catalogo de tecnicas
+                    </p>
+                    <h5 class="mb-0" style="font-weight: 400; color: #212529;">
+                        Tecnicas de redaccion: como se organizan
+                    </h5>
+                </div>
+                <span class="badge bg-dark rounded-0" style="font-size: 0.7rem;">
+                    120 tecnicas
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Cada tecnica trabaja una <strong>estructura sintactica</strong> concreta:
+                una oracion, un parrafo, un argumento. El catalogo esta organizado en dos
+                dimensiones: por <strong>tipo</strong> (que construyes) y por <strong>nivel</strong>
+                (dificultad progresiva).
+            </p>
+
+            <!-- Dimension 1: oracion vs parrafo -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>1) Por tipo de construccion:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-primary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-sitemap"></i> Oraciones (tecnicas 1-12)
+                        </div>
+                        <ul class="mb-0 ps-3">
+                            <li><strong>Simple</strong> (1-2): sujeto + verbo + objeto</li>
+                            <li><strong>Coordinada</strong> (3-5): copulativa, adversativa, disyuntiva</li>
+                            <li><strong>Subordinada</strong> (6-10): causal, temporal, condicional, concesiva, final</li>
+                            <li><strong>Yuxtapuesta</strong> (11-12): con punto y coma, con comas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-success bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-paragraph"></i> Parrafos (tecnicas 13-120)
+                        </div>
+                        <ul class="mb-0 ps-3">
+                            <li><strong>Narrativo</strong> (13-14, 21-45): contar historias</li>
+                            <li><strong>Descriptivo</strong> (15-16, 46-70): pintar con palabras</li>
+                            <li><strong>Expositivo</strong> (19-20, 71-95): explicar ideas</li>
+                            <li><strong>Argumentativo</strong> (17-18, 96-120): persuadir</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dimension 2: niveles -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>2) Por nivel de dificultad:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-info bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-seedling"></i> Nivel 2 (basico)
+                        </div>
+                        <p class="mb-0">
+                            <strong>20 tecnicas.</strong> Estructuras basicas: oraciones simples,
+                            parrafos cortos, ejemplos claros. Punto de partida para quien
+                            quiere escribir con claridad.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-warning bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-tree"></i> Nivel 3 (intermedio)
+                        </div>
+                        <p class="mb-0">
+                            <strong>100 tecnicas (T001-T100).</strong> Estructuras complejas:
+                            subordinacion avanzada, figuras retoricas, tipos de argumento,
+                            exposicion especializada.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Como usar el catalogo -->
+            <div class="p-3 mb-3 rounded" style="background-color: #f8f9fa; border-left: 3px solid #6c757d;">
+                <div class="text-uppercase mb-2" style="font-size: 0.7rem; color: #6c757d; letter-spacing: 0.05em;">
+                    <i class="fas fa-compass"></i> Como usar el catalogo
+                </div>
+                <ol class="mb-0 ps-3" style="font-size: 0.82rem;">
+                    <li class="mb-1">
+                        <strong>Filtra por tipo</strong> si quieres practicar algo concreto
+                        (ej. "solo parrafos argumentativos").
+                    </li>
+                    <li class="mb-1">
+                        <strong>Filtra por nivel</strong> si estas empezando (Nivel 2) o ya
+                        tienes base (Nivel 3).
+                    </li>
+                    <li class="mb-1">
+                        <strong>Empieza por las primeras</strong> de cada tipo: van de menos
+                        a mas complejas dentro de su categoria.
+                    </li>
+                    <li class="mb-0">
+                        <strong>Alterna teoria y practica:</strong> lee la tecnica, luego
+                        practica en el taller o en la biblioteca de ejercicios.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="alert alert-light border mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-lightbulb text-warning"></i> La diferencia clave:</strong>
+                <p class="mb-0 mt-1">
+                    Una <strong>oracion</strong> es una unidad gramatical (sujeto + predicado).
+                    Un <strong>parrafo</strong> es una unidad de pensamiento (una idea + su desarrollo).
+                    Las primeras 12 tecnicas trabajan la <em>microestructura</em>; las 108 restantes,
+                    la <em>macroestructura</em> del texto.
+                </p>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.82rem;">
+                <i class="fas fa-info-circle me-1"></i>
+                <em>Estas tecnicas son la base del taller de redaccion (donde se evaluan
+                morfosintacticamente) y de la sintaxis (donde se analiza la estructura).
+                Dominar el catalogo es dominar los ladrillos de cualquier texto.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'sintaxis:indice' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-sitemap"></i> Sintaxis
+                    </a>
+                    <a href="{% url 'lectura:flashcards_lectura' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-layer-group"></i> Flashcards
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <div>
