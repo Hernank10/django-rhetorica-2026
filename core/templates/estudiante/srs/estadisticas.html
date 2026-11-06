@@ -1,6 +1,171 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-srs-estadisticas-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #0dcaf0;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Panel de analisis SRS
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-chart-bar text-info"></i> Como leer tus estadisticas SRS
+                    </h5>
+                </div>
+                <span class="badge bg-info text-dark rounded-0" style="font-size: 0.7rem;">
+                    SM-2
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Este panel te muestra el <strong>estado de tu memoria a largo plazo</strong>.
+                No mide cuanto estudias: mide <em>cuanto retienes</em>. Un SRS sano
+                tiene <strong>pocas tarjetas vencidas</strong>, <strong>facilidad creciente</strong>
+                e <strong>intervalos que se alargan</strong> con el tiempo.
+            </p>
+
+            <!-- Metricas principales -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Las 4 metricas clave:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-info bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-clone"></i> Total flashcards
+                        </div>
+                        <p class="mb-0">
+                            Cuantas tarjetas tienes creadas. Crece cuando anades vocabulario o conceptos nuevos.
+                            <strong>Objetivo:</strong> 10-20 por cada tema que estudies.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-info bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-redo"></i> Reviews
+                        </div>
+                        <p class="mb-0">
+                            Cuantas veces has repasado (en total). Es la metrica mas importante:
+                            <strong>sin reviews no hay memoria</strong>. Lo ideal es 20-50 por dia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-warning bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-hourglass-half"></i> Pendientes hoy
+                        </div>
+                        <p class="mb-0">
+                            Tarjetas vencidas (a repasar hoy). <strong>Objetivo: 0 al final del dia.</strong>
+                            Si sube constantemente, tu backlog esta creciendo.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-success bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-balance-scale"></i> Facilidad promedio
+                        </div>
+                        <p class="mb-0">
+                            Media del factor EF (1.3 a 2.5). <strong>Rango sano: 2.0-2.4.</strong>
+                            Si baja de 2.0, hay tarjetas que te cuestan demasiado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graficos -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como interpretar los graficos:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-chart-pie"></i> Madurez SM-2
+                        </div>
+                        <p class="mb-0">
+                            Distribucion por estado:
+                            <strong>nueva</strong> (nunca vista),
+                            <strong>en repaso</strong> (aprendiendo),
+                            <strong>dominada</strong> (intervalo &gt; 21 dias).
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-chart-bar"></i> Facilidad e intervalos
+                        </div>
+                        <p class="mb-0">
+                            Histograma del factor EF y de los dias hasta la proxima revision.
+                            <strong>Intervalos largos = buena senal</strong>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-chart-line"></i> Retencion (4 semanas)
+                        </div>
+                        <p class="mb-0">
+                            Porcentaje de aciertos en las ultimas 4 semanas.
+                            <strong>&gt; 85%</strong>: vas bien. <strong>&lt; 70%</strong>: hay que repasar mas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-question-circle"></i> Si todas las metricas estan a 0:</strong>
+                <p class="mb-0 mt-1">
+                    Significa que aun no has empezado a usar el SRS. Anade tu primera flashcard
+                    (desde <strong>Flashcards lectura</strong> o desde el panel de estudiante)
+                    y empieza a repasar. Con 5-10 minutos al dia, en una semana veras
+                    los primeros numeros.
+                </p>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Habitos de un SRS sano:</strong>
+            </p>
+
+            <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>Constancia &gt; cantidad.</strong> 10 min/dia es mejor que 2h los sabados.</li>
+                <li><strong>Pocas tarjetas nuevas por dia.</strong> 5-10 nuevas/dia es el ritmo saludable.</li>
+                <li><strong>Calificate honestamente.</strong> Si dices "la sabia" sin saberla, el intervalo se alarga de mas.</li>
+                <li><strong>No dejes acumular pendientes.</strong> Si un dia no puedes, al dia siguiente haz 5 min extra.</li>
+                <li><strong>Revisa cada domingo.</strong> Esta pagina te dice si vas bien o necesitas ajustar el ritmo.</li>
+            </ul>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.82rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>La <strong>facilidad promedio</strong> es tu mejor indicador global.
+                Si baja, tus tarjetas son demasiado dificiles (dividelas en dos).
+                Si sube, estas madurando: el algoritmo te muestra cada vez menos.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'srs_repaso' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-play-circle"></i> Repasar ahora
+                    </a>
+                    <a href="{% url 'estudiante:logros' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-medal"></i> Mis logros
+                    </a>
+                    <a href="{% url 'estudiante:ranking' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-trophy"></i> Ver ranking
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="container mt-4">
   <!-- Estadisticas SRS: dashboard de metricas -->
   <div class="d-flex justify-content-between align-items-center mb-3">
