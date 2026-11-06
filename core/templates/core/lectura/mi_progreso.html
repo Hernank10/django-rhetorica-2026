@@ -1,5 +1,233 @@
 {% extends 'core/estudiante/base.html' %}
 {% block panel %}
+
+    <div class="card mb-4 shadow-sm" id="tarjeta-lectura-progreso-info"
+         style="border: 1px solid #dee2e6; border-left: 4px solid #198754;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                    <p class="text-uppercase mb-1" style="font-size: 0.7rem; letter-spacing: 0.1em; color: #6c757d;">
+                        Panel de progreso lector
+                    </p>
+                    <h5 class="mb-0" style="color: #212529;">
+                        <i class="fas fa-book-open-reader text-success"></i> Como leer tu progreso de lectura
+                    </h5>
+                </div>
+                <span class="badge bg-success rounded-0" style="font-size: 0.7rem;">
+                    MCER + PIRLS
+                </span>
+            </div>
+
+            <p class="text-secondary mb-3" style="font-size: 0.9rem; line-height: 1.6;">
+                Este panel mide tu <strong>competencia lectora</strong> desde dos angulos:
+                el <strong>MCER</strong> (niveles A1 a C2) y el marco <strong>PIRLS</strong>
+                (4 procesos de comprension). No es lo mismo "haber leido mucho" que
+                "haber comprendido mucho": esto mide lo segundo.
+            </p>
+
+            <!-- Metricas globales -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Las 4 metricas globales:</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-3">
+                    <div class="p-2 border-start border-2 border-secondary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-pen"></i> Respuestas
+                        </div>
+                        <p class="mb-0">
+                            Total de ejercicios respondidos. Mide <strong>volumen</strong>.
+                            A mas respuestas, mejor estimacion de tu nivel real.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="p-2 border-start border-2 border-2 border-success bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-check"></i> Correctas
+                        </div>
+                        <p class="mb-0">
+                            Respuestas acertadas. Mide <strong>precision</strong>.
+                            Junto con "Respuestas" da la tasa de acierto.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="p-2 border-start border-2 border-success bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-percentage"></i> Tasa de acierto
+                        </div>
+                        <p class="mb-0">
+                            Correctas / Respuestas. <strong>&gt; 80%</strong>: buena
+                            comprension. <strong>&lt; 60%</strong>: revisa textos mas faciles.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="p-2 border-start border-2 border-info bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-book"></i> Textos completados
+                        </div>
+                        <p class="mb-0">
+                            Textos leidos de principio a fin. <strong>3/36</strong> significa
+                            que has completado 3 de los 36 disponibles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progreso MCER -->
+            <div class="p-3 mb-3 rounded" style="background-color: #f8f9fa; border-left: 3px solid #198754;">
+                <div class="text-uppercase mb-2" style="font-size: 0.7rem; color: #6c757d; letter-spacing: 0.05em;">
+                    <i class="fas fa-layer-group"></i> Progreso MCER (A1 a C2)
+                </div>
+                <p class="mb-2" style="font-size: 0.82rem;">
+                    Cada nivel tiene <strong>100 textos</strong>. El progreso es <strong>X/100</strong> por nivel.
+                    La barra se llena al completar textos, no al leerlos a medias.
+                </p>
+                <div class="row g-2 text-center" style="font-size: 0.78rem;">
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge bg-success rounded-0">A1</span>
+                            <div class="mt-1 text-muted">3/100</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge bg-warning text-dark rounded-0">A2</span>
+                            <div class="mt-1 text-muted">4/100</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge bg-orange rounded-0" style="background-color: #fd7e14;">B1</span>
+                            <div class="mt-1 text-muted">0/100</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge bg-danger rounded-0">B2</span>
+                            <div class="mt-1 text-muted">0/100</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge rounded-0" style="background-color: #6f42c1;">C1</span>
+                            <div class="mt-1 text-muted">0/100</div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <div class="p-1 bg-white rounded border">
+                            <span class="badge bg-dark rounded-0">C2</span>
+                            <div class="mt-1 text-muted">0/100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Procesos PIRLS -->
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Los 4 procesos PIRLS (comprension lectora):</strong>
+            </p>
+
+            <div class="row g-2 mb-3" style="font-size: 0.82rem;">
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-primary bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-search-location"></i> P1 - Localizacion
+                        </div>
+                        <p class="mb-0">
+                            <strong>Encontrar informacion explicita.</strong>
+                            Datos que estan literalmente en el texto.
+                            <em>Ej: "Cuando sucedio X?"</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-info bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-lightbulb"></i> P2 - Inferencia
+                        </div>
+                        <p class="mb-0">
+                            <strong>Deducir lo no dicho.</strong>
+                            Relacionar pistas del texto para sacar conclusiones.
+                            <em>Ej: "Por que el personaje actuo asi?"</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-warning bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-brain"></i> P3 - Interpretacion
+                        </div>
+                        <p class="mb-0">
+                            <strong>Integrar y comprender el sentido global.</strong>
+                            Idea principal, proposito del autor, genero textual.
+                            <em>Ej: "Cual es el mensaje central?"</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="p-2 border-start border-2 border-danger bg-light h-100">
+                        <div class="text-uppercase mb-1" style="font-size: 0.7rem; color: #6c757d;">
+                            <i class="fas fa-balance-scale"></i> P4 - Analisis
+                        </div>
+                        <p class="mb-0">
+                            <strong>Evaluar forma y contenido.</strong>
+                            Recursos retoricos, calidad de argumentos, sesgos.
+                            <em>Ej: "Es convincente el argumento?"</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success mb-3" style="font-size: 0.82rem;">
+                <strong><i class="fas fa-chart-line"></i> Como interpretar tus numeros actuales:</strong>
+                <ul class="mb-0 mt-1 ps-3">
+                    <li><strong>A1 3/100, A2 4/100</strong>: dominas el nivel basico. El siguiente paso natural es B1.</li>
+                    <li><strong>P1 (Localizacion) 3%</strong>: vas bien encontrando datos explicitos.</li>
+                    <li><strong>P2, P3, P4 al 1%</strong>: los procesos de <strong>inferencia, interpretacion y analisis</strong> son los que mas cuestan. Esto es normal en A1-A2: son procesos de nivel superior.</li>
+                    <li><strong>Tasa de acierto 0%</strong>: no has respondido ejercicios aun. Al empezar, la tasa subira.</li>
+                </ul>
+            </div>
+
+            <p class="text-secondary mb-2" style="font-size: 0.85rem;">
+                <strong>Como mejorar cada proceso:</strong>
+            </p>
+
+            <ul class="small mb-3 ps-3" style="font-size: 0.82rem;">
+                <li><strong>P1 Localizacion:</strong> lee buscando datos concretos. Subraya nombres, fechas, lugares.</li>
+                <li><strong>P2 Inferencia:</strong> preguntate "por que" y "que paso despues" tras cada parrafo.</li>
+                <li><strong>P3 Interpretacion:</strong> al terminar, resume el texto en una frase. Identifica el proposito.</li>
+                <li><strong>P4 Analisis:</strong> preguntate "es convincente?" y "que recursos usa el autor?"</li>
+                <li><strong>Consistencia:</strong> lee 1 texto por dia. La comprension mejora con la practica regular, no con maratones.</li>
+            </ul>
+
+            <hr style="margin: 1rem 0;">
+
+            <p class="text-secondary mb-3" style="font-size: 0.82rem;">
+                <i class="fas fa-lightbulb text-warning me-1"></i>
+                <em>El <strong>MCER</strong> mide <em>que nivel</em> tienes. El <strong>PIRLS</strong>
+                mide <em>como comprendes</em>. Los dos juntos te dan una foto completa:
+                puedes estar en A2 (MCER) pero con buen P3 (interpretacion), o al reves.
+                Trabaja el proceso mas debil para subir de nivel mas rapido.</em>
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+                    <a href="{% url 'lectura:indice' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-book-open"></i> Textos de lectura
+                    </a>
+                    <a href="{% url 'lectura:flashcards_sesion' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-layer-group"></i> Repasar flashcards
+                    </a>
+                    <a href="{% url 'estudiante:estadisticas' %}" class="btn btn-sm btn-dark">
+                        <i class="fas fa-chart-line"></i> Estadisticas globales
+                    </a>
+            </div>
+        </div>
+    </div>
+
 <div class="d-flex justify-content-between align-items-center mb-3">
   <a href="{% url 'lectura:indice' %}" class="btn btn-sm btn-outline-secondary">
     <i class="fas fa-arrow-left"></i> Volver a lectura
