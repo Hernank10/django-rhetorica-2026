@@ -190,7 +190,7 @@
           <select name="tipo" class="form-select form-select-sm">
             <option value="">Todos los tipos</option>
             {% for t in tipos_disponibles %}
-              <option value="{{ t }}" {% if filtros.tipo == t %}selected{% endif %}>{{ t }}</option>
+              <option value="{{ t }}" {% if filtros.tipo == t %}selected{% endif %}>{{ t|tipo_label }}</option>
             {% endfor %}
           </select>
         </div>
@@ -232,8 +232,8 @@
           <tr>
             <td class="text-muted">{{ forloop.counter }}</td>
             <td>{{ t.titulo }}</td>
-            <td><span class="badge bg-info text-dark">{{ t.tipo_redaccion|default:"—" }}</span></td>
-            <td class="small">{{ t.categoria|default:"—" }}</td>
+            <td><span class="badge bg-info text-dark">{{ t.tipo_redaccion|tipo_label|default:"—" }}</span></td>
+            <td class="small">{{ t.categoria|categoria_label|default:"—" }}</td>
             <td class="text-center"><span class="badge bg-secondary">{{ t.nivel|default:"?" }}</span></td>
             <td>
               <a href="{% url 'redaccion_ejercicio' t.id %}" class="btn btn-sm btn-outline-primary" title="Ver detalle">
