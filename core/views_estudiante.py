@@ -303,7 +303,11 @@ def mis_logros(request):
     obtenidos = LogroObtenido.objects.filter(user=u).select_related("logro").order_by(
         "-fecha_obtenida"
     )
-    por_obtener = Logro.objects.exclude(id__in=obtenidos_ids).order_by(
+    # Filtrar solo los 6 logros MCER (ids 31-36, no hay campo diferenciador)
+    MCER_FILTER = Q(nombre__icontains="MCER") | Q(nombre__regex=r"^(B1|B2|C1|C2) alcanzado$")
+    logros_mcer = Logro.objects.filter(MCER_FILTER)
+    obtenidos = LogroObtenido.objects.filter(user=u, logro__in=logros_mcer).select_related("logro").order_by("logro__puntos_requeridos")
+    por_obtener = logros_mcer.exclude(id__in=obtenidos_ids).order_by(
         "puntos_requeridos", "nivel_requerido"
     )
 
@@ -311,7 +315,7 @@ def mis_logros(request):
         "obtenidos": obtenidos,
         "por_obtener": por_obtener,
         "total_obtenidos": obtenidos.count(),
-        "total_logros": Logro.objects.count(),
+        "total_logros": logros_mcer.count(),
     })
 
 
