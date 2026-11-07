@@ -13,6 +13,7 @@ class Curso(models.Model):
     """Modelo principal de curso"""
 
     NIVELES = [
+        ('basico', 'Básico'),
         ('principiante', 'Principiante'),
         ('intermedio', 'Intermedio'),
         ('avanzado', 'Avanzado'),
