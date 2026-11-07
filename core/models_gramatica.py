@@ -14,7 +14,7 @@ class TecnicaGramatical(models.Model):
         ("G", "Reglas ortográficas actuales (RAE 2010)"),
     ]
     NIVELES = [
-        ("basico", "Basico"),
+        ("basico", "Básico"),
         ("intermedio", "Intermedio"),
         ("avanzado", "Avanzado"),
     ]
