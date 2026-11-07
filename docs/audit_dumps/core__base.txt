@@ -1,0 +1,5 @@
+=== core/base.html ===
+palabras: 115
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% load static %} {% block title %}Rhetorica Plus{% endblock %} Rhetorica+ {% if user.is_authenticated %} Recursos {% if user.is_staff %} Panel Profesor {% else %} Mi Panel {% endif %} Gamificación Certificaciones Ejercicios Técnicas Notif 0 Cargando... Sintaxis 0 Gramática 100 0 Generativa 100 0 A1 100 0 B1 100 0 {% if user.is_staff %} Panel {% endif %} {{ user.username }} Salir {% else %} Iniciar Sesión Registrarse {% endif %} {% if messages %} {% for message in messages %} {{ message }} {% endfor %} {% endif %} {% block content %} {% endblock %} Rhetorica Plus - Plataforma de Ejercicios Lingüísticos Administración | API Ejercicios | API Técnicas Leer Velocidad:

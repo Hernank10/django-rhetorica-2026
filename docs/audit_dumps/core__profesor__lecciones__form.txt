@@ -1,0 +1,5 @@
+=== core/profesor/lecciones/form.html ===
+palabras: 98
+ALTA: 3  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver {% if leccion %} Editar lección{% else %} Nueva lección{% endif %} {% csrf_token %} Módulo * — Selecciona un módulo — {% for m in modulos %} {{ m.curso.titulo }} → {{ m.titulo }} {% endfor %} Título * Contenido {{ leccion.contenido|default:'' }} Usa la barra de herramientas para dar formato. Acepta negritas, listas, enlaces, imagenes y tablas. Tipo {% for val, label in tipos %} {{ label }} {% endfor %} Orden Duración (min) Puntos Cancelar Guardar {% block extra_js %} {% endblock %} {% endblock %}

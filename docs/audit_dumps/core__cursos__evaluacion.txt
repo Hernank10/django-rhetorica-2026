@@ -1,0 +1,5 @@
+=== core/cursos/evaluacion.html ===
+palabras: 107
+ALTA: 7  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% block content %} {{ evaluacion.titulo }} {{ evaluacion.tiempo_limite }} min {{ evaluacion.puntaje_maximo }} pts {{ evaluacion.descripcion }} Responde todas las preguntas. Cada pregunta tiene un puntaje asignado. {% csrf_token %} {% for pregunta in preguntas %} Pregunta {{ forloop.counter }} {{ pregunta.puntaje|default:10 }} pts {{ pregunta.enunciado|default:"Sin enunciado" }} {% if pregunta.tipo == 'multiple' %} {% for opcion in pregunta.opciones|default:"" %} {{ opcion }} {% endfor %} {% elif pregunta.tipo == 'verdadero_falso' %} Verdadero Falso {% else %} {% endif %} {% empty %} No hay preguntas para esta evaluación. {% endfor %} Enviar evaluación Volver {% endblock %}

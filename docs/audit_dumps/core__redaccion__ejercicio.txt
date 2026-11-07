@@ -1,0 +1,5 @@
+=== core/redaccion/ejercicio.html ===
+palabras: 76
+ALTA: 3  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+﻿{% extends 'base.html' %} {% block content %} Volver al indice {{ ejercicio.titulo }} {{ ejercicio.tipo_redaccion }} {{ ejercicio.contenido.enunciado }} {% csrf_token %} Tu respuesta: Evaluar {% if resultado %} {{ resultado.feedback }} Tipo detectado: {{ resultado.tipo_detectado }} Verbos: {{ resultado.analisis.n_verbos }} {% if resultado.analisis.conectores %} Conectores: {% for c in resultado.analisis.conectores %}{{ c.texto }} ({{ c.tipo }}){% if not forloop.last %}, {% endif %}{% endfor %} {% endif %} {% endif %} {% endblock %}

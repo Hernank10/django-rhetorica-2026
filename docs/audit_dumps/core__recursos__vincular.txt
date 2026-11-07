@@ -1,0 +1,5 @@
+=== core/recursos/vincular.html ===
+palabras: 137
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'base.html' %} {% block content %} Volver al recurso Vincular recurso {{ recurso.nombre }} {{ recurso.categoria }} .{{ recurso.extension }} · {{ recurso.tamaño_legible }} {% csrf_token %} Curso — sin curso — {% for c in cursos %} {{ c.titulo }} {% endfor %} Módulo — sin módulo — {% for m in modulos %} {{ m.curso.titulo }} → {{ m.titulo }} {% endfor %} Lección — sin lección — {% for l in lecciones %} {{ l.modulo.curso.titulo }} → {{ l.titulo }} {% endfor %} Evaluación de curso — sin evaluación — {% for e in evaluaciones %} {{ e.curso.titulo }} → {{ e.titulo }} {% endfor %} Ejercicio (práctica) — sin ejercicio — {% for e in ejercicios %} {{ e.titulo }} {% endfor %} Orden Destacado Cancelar Guardar vínculos {% endblock %}

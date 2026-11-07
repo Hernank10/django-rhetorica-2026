@@ -1,0 +1,5 @@
+=== core/cursos/detalle.html ===
+palabras: 124
+ALTA: 11  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% block content %} {{ curso.titulo }} {{ curso.descripcion }} {{ curso.get_nivel_display|default:"Sin nivel" }} {{ curso.get_duracion_texto|default:"2h" }} Volver Progreso general {{ progreso_general }}% Módulos del curso {% for modulo_data in modulos %} {{ modulo_data.modulo.titulo }} {{ modulo_data.progreso }}% {{ modulo_data.modulo.descripcion }} {% for leccion in modulo_data.lecciones %} {% if leccion.id in usuario_lecciones_completadas %} {% else %} {% endif %} {{ leccion.titulo }} {{ leccion.get_tipo_display|default:"Teoría" }} {{ leccion.duracion_estimada|default:15 }} min Ver {% endfor %} {% endfor %} {# ============================================================ #} {# RECURSOS DEL CURSO #} {# ============================================================ #} {% if curso.recursos.exists %} Recursos del curso ({{ curso.recursos.count }}) Anadir recursos {% for r in curso.recursos.all %} {{ r.categoria }} {{ r.nombre|truncatechars:55 }} {% endfor %} {% endif %} {% endblock %}

@@ -1,0 +1,5 @@
+=== core/cursos/lista.html ===
+palabras: 141
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% load custom_filters %} {% block content %} Programa académico Estructura de los cursos 27 cursos Cada curso se organiza en 4 modulos de 3 lecciones cada uno, con una duracion estimada de 120 a 180 horas segun el nivel. Los niveles siguen una progresion académica: Básico Fundamentos Principiante Introduccion Intermedio Consolidacion Avanzado / Experto Especializacion El progreso se guarda automaticamente al completar cada lección. Los cursos completados otorgan certificaciones verificables. Mis cursos Técnicas Mis Cursos {{ cursos|length }} cursos disponibles Volver {% for curso in cursos %} {{ curso.get_nivel_display|default:"Sin nivel" }} {{ curso.get_duracion_texto|default:"2h" }} {{ curso.titulo }} {{ curso.descripcion|truncatechars:120 }} {{ curso|total_modulos }} módulos {{ curso|total_lecciones }} lecciones Progreso {{ curso.progreso|default:0 }}% Ver Curso {% empty %} No hay cursos disponibles Los cursos se generarán automáticamente. {% endfor %} {% endblock %}

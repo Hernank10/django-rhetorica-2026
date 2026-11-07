@@ -1,0 +1,5 @@
+=== core/profesor/evaluaciones/pregunta_form.html ===
+palabras: 69
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver a {{ evaluacion.titulo }} {% if pregunta %} Editar pregunta{% else %} Nueva pregunta{% endif %} {% csrf_token %} Enunciado * {{ pregunta.enunciado|default:'' }} Tipo Opción múltiple Verdadero/Falso Completar Puntaje Orden Opciones (una por línea) {% for o in pregunta.opciones %}{{ o.texto }}{% if not forloop.last %} {% endif %}{% endfor %} Respuesta correcta * Cancelar Guardar {% endblock %}

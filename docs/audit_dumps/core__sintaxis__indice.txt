@@ -1,0 +1,5 @@
+=== core/sintaxis/indice.html ===
+palabras: 88
+ALTA: 3  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% block content %} Sintaxis del castellano 100 técnicas de oraciones simples y compuestas Mi progreso {{ resumen.dominadas }} Dominadas {{ resumen.iniciadas }} Iniciadas {{ resumen.total }} Total {% for letra, bloque in bloques.items %} Bloque {{ letra }} — {{ bloque.nombre }} {{ bloque.dominadas }} / {{ bloque.total }} {% for item in bloque.items %} {{ item.tecnica.numero }} {{ item.tecnica.titulo|truncatechars:30 }} {% if item.estado == 'dominada' %} {% endif %} {% endfor %} {% endfor %} {% endblock %}

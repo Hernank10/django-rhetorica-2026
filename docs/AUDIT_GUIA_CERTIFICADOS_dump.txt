@@ -1,0 +1,1 @@
+{% extends 'core/estudiante/base.html' %} {% block panel %} Lectura Guia de certificados {{ titulo }} Volver a lectura {{ contenido_html|safe }} Todo listo para obtener tu certificado? Ir a los textos de lectura {% endblock %}

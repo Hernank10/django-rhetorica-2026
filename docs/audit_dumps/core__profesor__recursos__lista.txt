@@ -1,0 +1,5 @@
+=== core/profesor/recursos/lista.html ===
+palabras: 105
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Recursos Auto-vincular a cursos Ver galería pública — Todos los cursos — {% for c in cursos %} {{ c.titulo }} {% endfor %} — Todas las categorías — {% for c in categorias %} {{ c.categoria }} ({{ c.n }}) {% endfor %} Filtrar Recurso Categoría Ext Curso asignado Acciones {% for r in recursos %} {{ r.nombre|truncatechars:80 }} {{ r.tamaño_legible }} {{ r.categoria }} .{{ r.extension }} {% if r.curso %} {{ r.curso.titulo }} {% else %} — sin asignar — {% endif %} {% empty %} Sin recursos {% endfor %} {% endblock %}

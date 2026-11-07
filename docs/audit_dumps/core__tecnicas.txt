@@ -1,0 +1,5 @@
+=== core/tecnicas.html ===
+palabras: 138
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'base.html' %} {% load static %} {% block content %} Catálogo de técnicas Técnicas retóricas y lingüísticas 10 técnicas Cada técnica trabaja un aspecto del lenguaje, organizadas por area: Morfología Estructura de palabras Sintaxis Orden de la oracion Lexico Vocabulario y sentido Redacción Composicion escrita Filologia Origen y evolucion Cada técnica incluye ejemplos correctos e incorrectos, reglas de uso y ejercicios practicos. Puedes repasarlas con flashcards o ponerlas a prueba en la biblioteca de ejercicios. Flashcards lectura Técnicas redacción Técnicas Retóricas {{ técnicas|length|default:"0" }} técnicas disponibles Volver {% if técnicas %} {% for técnica in técnicas %} {{ técnica.nombre|default:"Técnica" }} {{ técnica.descripcion|default:"Descripción no disponible" }} {{ técnica.categoria|default:"General" }} Practicar {% endfor %} {% else %} No hay técnicas disponibles Las técnicas se cargarán automáticamente cuando estén disponibles. Volver al dashboard {% endif %} {% endblock %}

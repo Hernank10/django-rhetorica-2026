@@ -1,0 +1,5 @@
+=== core/profesor/evaluaciones/lista.html ===
+palabras: 55
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Evaluaciones ({{ total }}) Nueva evaluación Curso Módulo Evaluación Tipo Preguntas Puntaje {% for e in evaluaciones %} {{ e.curso.titulo }} {{ e.modulo.titulo|default:"—" }} {{ e.titulo }} {{ e.tipo }} {{ e.num_preguntas }} {{ e.puntaje_maximo }} {% empty %} Sin evaluaciones {% endfor %} {% endblock %}

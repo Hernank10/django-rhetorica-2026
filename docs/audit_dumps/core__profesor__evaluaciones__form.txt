@@ -1,0 +1,5 @@
+=== core/profesor/evaluaciones/form.html ===
+palabras: 98
+ALTA: 4  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver {% if evaluacion %} Editar evaluación{% else %} Nueva evaluación{% endif %} {% csrf_token %} Curso * — Selecciona — {% for c in cursos %} {{ c.titulo }} {% endfor %} Módulo (opcional) — Ninguno (evaluación del curso) — {% for m in modulos %} {{ m.curso.titulo }} → {{ m.titulo }} {% endfor %} Título * Descripción {{ evaluacion.descripcion|default:'' }} Tipo de evaluación * 📋 Diagnóstica 📝 Por módulo 🔄 Recapitulación 🎓 Final Preguntas / intento Tiempo (min) Puntaje máximo Intentos permitidos Cancelar Guardar {% endblock %}

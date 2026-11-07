@@ -1,0 +1,5 @@
+=== core/profesor/recursos/asignar.html ===
+palabras: 53
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver Asignar recurso a curso {{ recurso.nombre }} {{ recurso.categoria }} · .{{ recurso.extension }} · {{ recurso.tamaño_legible }} {% csrf_token %} Curso asignado — Sin asignar — {% for c in cursos %} {{ c.titulo }} {% endfor %} Cancelar Guardar {% endblock %}

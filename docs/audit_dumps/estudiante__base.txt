@@ -1,0 +1,5 @@
+=== estudiante/base.html ===
+palabras: 39
+ALTA: 4  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% block title %}Retorica - Redaccion{% endblock %} {% block extra_head %}{% endblock %} Retorica - Redaccion {% if user.is_authenticated %} {{ user.username }} {% endif %} {% block content %}{% endblock %} {% block extra_js %}{% endblock %}

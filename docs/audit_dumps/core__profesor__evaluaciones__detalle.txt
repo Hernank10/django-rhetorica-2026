@@ -1,0 +1,5 @@
+=== core/profesor/evaluaciones/detalle.html ===
+palabras: 89
+ALTA: 11  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver {{ evaluacion.titulo }} {{ evaluacion.curso.titulo }} {% if evaluacion.modulo %}· {{ evaluacion.modulo.titulo }}{% endif %} · {{ evaluacion.get_tipo_display|default:evaluacion.tipo }} Nueva pregunta Preguntas {{ preguntas.count }} Puntaje {{ evaluacion.puntaje_maximo }} Tiempo {{ evaluacion.tiempo_limite }} min Intentos {{ evaluacion.intentos_permitidos }} # Enunciado Tipo Respuesta correcta Puntos Acciones {% for p in preguntas %} {{ p.orden }} {{ p.enunciado|truncatechars:100 }} {{ p.tipo }} {{ p.puntaje }} {% csrf_token %} {% empty %} Sin preguntas. Crea la primera. {% endfor %} {% endblock %}

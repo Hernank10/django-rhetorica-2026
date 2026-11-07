@@ -1,0 +1,5 @@
+=== core/profesor/lecciones/lista.html ===
+palabras: 74
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Lecciones Nueva lección — Todos los cursos — {% for c in cursos %} {{ c.titulo }} {% endfor %} Curso Módulo Título Tipo Duración Puntos Acciones {% for l in lecciones %} {{ l.modulo.curso.titulo }} {{ l.modulo.titulo }} {{ l.titulo }} {{ l.tipo }} {{ l.duracion_estimada }} min {{ l.puntos }} {% csrf_token %} {% empty %} Sin lecciones {% endfor %} {% endblock %}

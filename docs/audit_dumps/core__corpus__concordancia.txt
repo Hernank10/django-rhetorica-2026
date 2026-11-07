@@ -1,0 +1,5 @@
+=== core/corpus/concordancia.html ===
+palabras: 127
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 3
+
+{% extends "estudiante/base.html" %} {% block title %}Concordancia{% endblock %} {% block content %} Volver Concordancia (KWIC) -- todas las fuentes -- {% for f in fuentes %} {{ f }} {% endfor %} Buscar {% if q %} {{ total }} apariciones de "{{ q }}" {% if fuente %}(filtrado por {{ fuente }}){% endif %} {% if total > 500 %}(mostrando las primeras 500){% endif %} {% if resultados %} ...izquierda palabra derecha... fuente {% for r in resultados %} {{ r.izq }} {{ r.palabra }} {{ r.der }} {{ r.fuente }} {% endfor %} {% else %} Sin resultados para "{{ q }}". {% endif %} {% else %} Escribe un termino para ver sus apariciones en contexto. {% endif %} {% endblock %}

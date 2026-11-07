@@ -1,0 +1,5 @@
+=== core/recursos/para_objeto.html ===
+palabras: 88
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 2
+
+{% extends 'base.html' %} {% block content %} Recursos para {{ tipo }}: {{ objeto }} {{ vinculados|length }} vinculados Vinculados {% for r in vinculados %} {{ r.categoria }} {{ r.nombre|truncatechars:70 }} .{{ r.extension }} · {{ r.tamaño_legible }} {% csrf_token %} {% empty %} Sin recursos vinculados aún. {% endfor %} Disponibles para asignar {% csrf_token %} {% for r in disponibles %} {{ r.categoria }} {{ r.nombre|truncatechars:70 }} {% empty %} Todos los recursos ya están vinculados. {% endfor %} Asignar seleccionados {% endblock %}

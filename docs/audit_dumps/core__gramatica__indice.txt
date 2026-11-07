@@ -1,0 +1,5 @@
+=== core/gramatica/indice.html ===
+palabras: 137
+ALTA: 3  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% block content %} {% if es_a2 %} Lengua Castellana A2{% elif es_a1 %} Lengua Castellana A1{% elif es_b1 %} Lengua Castellana B1{% elif es_c2 %} Lengua Castellana C2 {% elif es_c1 %} Lengua Castellana C1 {% elif es_b2 %} Lengua Castellana B2 {% elif es_generativa %} Gramática generativa{% else %} Gramática del castellano{% endif %} 100 técnicas de oraciones simples y compuestas Mi progreso {{ resumen.dominadas }} Dominadas {{ resumen.iniciadas }} Iniciadas {{ resumen.total }} Total {% for letra, bloque in bloques.items %} Bloque {{ letra }} — {{ bloque.nombre }} {{ bloque.dominadas }} / {{ bloque.total }} {% for item in bloque.items %} {{ item.tecnica.numero }} {{ item.tecnica.titulo|truncatechars:30 }} {% if item.estado == 'dominada' %} {% endif %} {% endfor %} {% endfor %} {% endblock %}

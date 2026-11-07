@@ -1,0 +1,5 @@
+=== core/profesor/certificaciones/lista.html ===
+palabras: 71
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Certificaciones Emitidas ({{ total_emitidas }}) {% for c in emitidas %} {{ c.certificacion.nombre }} {{ c.user.username }} · {{ c.codigo_verificacion }} {{ c.fecha_obtenida|date:"SHORT_DATE_FORMAT" }} PDF Word {% empty %} Sin certificados emitidos {% endfor %} Disponibles ({{ disponibles.count }}) {% for c in disponibles %} {{ c.nombre }} {{ c.descripcion|default:"" }} {% empty %} Sin certificaciones configuradas {% endfor %} {% endblock %}

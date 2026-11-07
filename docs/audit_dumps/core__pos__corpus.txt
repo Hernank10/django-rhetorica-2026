@@ -1,0 +1,5 @@
+=== core/pos/corpus.html ===
+palabras: 114
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends "estudiante/base.html" %} {% block title %}POS - Corpus{% endblock %} {% block content %} Volver al demo Analisis POS del corpus {% if not disponible %} spaCy no disponible. Instala spaCy + es_core_news_sm para analizar el corpus. {% else %} {{ items_analizados }} items · {{ total_tokens }} tokens · {{ oraciones }} oraciones Distribucion por POS POS Count {% for pos, count in stats.items %} {{ pos }} {{ count }} {% endfor %} Verbos detectados (lemmas) {% for v in ejemplos_verbos %}{% endfor %} Sustantivos detectados (lemmas) {% for s in ejemplos_sustantivos %}{% endfor %} Solo se analizan los primeros 20 items del corpus. {% endif %} {% endblock %}

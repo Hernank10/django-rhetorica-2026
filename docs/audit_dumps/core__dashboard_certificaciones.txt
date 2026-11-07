@@ -1,0 +1,5 @@
+=== core/dashboard_certificaciones.html ===
+palabras: 119
+ALTA: 10  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% block content %} Mis Certificaciones {{ certificaciones|length|default:"0" }} certificaciones obtenidas Volver {% if certificaciones %} {% for certificacion in certificaciones %} {{ certificacion.nombre|default:"Certificación" }} Verificada {% if certificacion.fecha %} Obtenida: {{ certificacion.fecha|date:"d/m/Y" }} {% endif %} {% if certificacion.descripcion %} {{ certificacion.descripcion|truncatechars:100 }} {% endif %} {% if certificacion.codigo_verificacion %} Código: {{ certificacion.codigo_verificacion|truncatechars:20 }} {% endif %} Ver detalle {% endfor %} {% else %} No tienes certificaciones Completa cursos y ejercicios para obtener tus primeras certificaciones. Ver cursos Practicar ejercicios {% endif %} {% if certificaciones %} Estadísticas de Certificaciones {{ certificaciones|length }} Certificaciones totales {{ certificaciones_verificadas|default:"0" }} Verificadas {{ certificaciones_pendientes|default:"0" }} Pendientes {% endif %} {% endblock %}

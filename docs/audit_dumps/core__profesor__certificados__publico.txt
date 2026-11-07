@@ -1,0 +1,5 @@
+=== core/profesor/certificados/publico.html ===
+palabras: 119
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% load i18n %} Verificación de certificado — Rhetorica+ RHETORICA+ Verificación de certificados {% if encontrado %} Certificado VÁLIDO Este certificado fue emitido por Rhetorica+ y es auténtico. Datos del certificado Titular {{ alumno.get_full_name|default:alumno.username }} Certificación {{ cert.certificacion.nombre }} Nivel {{ cert.certificacion.nivel|capfirst }} Fecha de emisión {{ cert.fecha_obtenida|date:"d/m/Y H:i" }} Folio único Código Huella (SHA-256) Huella corta Escanea este código para verificar desde otro dispositivo: {% else %} Certificado NO encontrado El código no corresponde a ningún certificado emitido. ¿Qué puedes hacer? Verifica que el código esté completo y sin espacios. Solicita al titular que revise su certificado. Contacta a info@rhetorica.com si crees que es un error. {% endif %} Rhetorica+ · Plataforma de aprendizaje retórico basada en IA

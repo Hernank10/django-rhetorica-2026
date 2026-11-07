@@ -1,0 +1,5 @@
+=== core/estudiante/mis_certificados.html ===
+palabras: 111
+ALTA: 6  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/estudiante/base.html' %} {% block panel %} Guía de certificados Como obtener, verificar y descargar tus certificados. Requisitos, verificación por código único y solucion de problemas. Leer la guía Mis Certificados Obtenidos ({{ total }}) {% for c in obtenidos %} {{ c.certificacion.nivel|capfirst }} {{ c.certificacion.nombre }} {{ c.certificacion.descripcion|truncatechars:100 }} Código: {{ c.codigo_verificacion }} Emitido: {{ c.fecha_obtenida|date:"d/m/Y" }} PDF Word Verificar {% empty %} Aún no tienes certificados. ¡Sigue completando cursos! {% endfor %} Disponibles por obtener ({{ disponibles|length }}) {% for c in disponibles %} {{ c.nivel|capfirst }} {{ c.nombre }} {{ c.descripcion|truncatechars:110 }} {% empty %} ¡Ya tienes todas las certificaciones disponibles! {% endfor %} {% endblock %}

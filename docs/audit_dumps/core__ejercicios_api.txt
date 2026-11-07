@@ -1,0 +1,5 @@
+=== core/ejercicios_api.html ===
+palabras: 44
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 2
+
+{% extends 'base.html' %} {% load static %} {% block content %} Ejercicios desde API 0 Recargar Volver Cargando... Cargando ejercicios desde la API... Error al cargar los ejercicios No se pudieron cargar los datos de la API. Intentar de nuevo {% endblock %}

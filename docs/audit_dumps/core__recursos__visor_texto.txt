@@ -1,0 +1,5 @@
+=== core/recursos/visor_texto.html ===
+palabras: 20
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'base.html' %} {% block content %} Volver {{ recurso.nombre }} .{{ recurso.extension }} Vincular Descargar {% endblock %}

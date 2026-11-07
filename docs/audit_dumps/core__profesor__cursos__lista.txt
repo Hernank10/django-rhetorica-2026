@@ -1,0 +1,5 @@
+=== core/profesor/cursos/lista.html ===
+palabras: 86
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Cursos ({{ total }}) Nuevo curso Título Nivel Estado Módulos Inscritos Acciones {% for c in cursos %} {{ c.titulo }} {{ c.descripcion|truncatechars:70 }} {{ c.get_nivel_display|default:c.nivel }} {% if c.estado == "publicado" %} Publicado {% else %} {{ c.estado }} {% endif %} {{ c.num_modulos }} {{ c.estudiantes_inscritos }} {% csrf_token %} {% if c.estado == "publicado" %} {% else %} {% endif %} {% csrf_token %} {% empty %} Sin cursos {% endfor %} {% endblock %}

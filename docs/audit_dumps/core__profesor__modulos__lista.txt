@@ -1,0 +1,5 @@
+=== core/profesor/modulos/lista.html ===
+palabras: 68
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Módulos Nuevo módulo — Todos los cursos — {% for c in cursos %} {{ c.titulo }} {% endfor %} Curso Orden Módulo Lecciones Acciones {% for m in modulos %} {{ m.curso.titulo }} {{ m.orden }} {{ m.titulo }} {{ m.descripcion|truncatechars:80 }} {{ m.lecciones.count }} {% csrf_token %} {% empty %} Sin módulos {% endfor %} {% endblock %}

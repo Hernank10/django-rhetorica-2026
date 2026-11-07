@@ -1,0 +1,5 @@
+=== core/lectura/flashcards_completado.html ===
+palabras: 60
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 1
+
+{% extends 'core/estudiante/base.html' %} {% block panel %} ¡Sesión completada! Has revisado todas las tarjetas de nivel {{ nivel }} {% if proceso != 'todos' %}({{ proceso }}){% endif %}. Total: {{ total }} técnicas. Vuelve mañana para repasar las que has acertado, o practica con los textos mientras tanto. Ir a los textos Ver mi progreso {% endblock %}

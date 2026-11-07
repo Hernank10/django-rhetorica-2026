@@ -1,0 +1,5 @@
+=== core/redaccion/historial.html ===
+palabras: 77
+ALTA: 5  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends "estudiante/base.html" %} {% block title %}Historial - Redaccion{% endblock %} {% block content %} Historial de redaccion {% if not evaluaciones %} Aun no has realizado ninguna evaluacion. Empieza aqui. {% else %} Fecha Ejercicio Resultado Feedback {% for ev in evaluaciones %} {{ ev.fecha|date:"Y-m-d H:i" }} {{ ev.ejercicio.titulo }} {% if ev.aprobado %} Aprobado {% else %} No aprobado {% endif %} {{ ev.feedback|truncatechars:80 }} {% endfor %} {% endif %} {% endblock %}

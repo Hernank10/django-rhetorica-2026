@@ -1,0 +1,5 @@
+=== core/cursos/leccion_detalle.html ===
+palabras: 124
+ALTA: 13  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% load static %} {% block content %} Cursos {{ curso.titulo|truncatechars:30 }} {{ modulo.titulo|truncatechars:30 }} {{ leccion.titulo|truncatechars:30 }} {{ leccion.titulo }} {{ leccion.get_tipo_display|default:"Práctica" }} {{ leccion.puntos|default:10 }} pts Contenido {{ leccion.contenido|safe|default:"Contenido en preparación" }} {% if ejercicios %} Ejercicios relacionados {% for ejercicio in ejercicios %} {{ ejercicio.titulo|truncatechars:30 }} Practicar {% endfor %} {% endif %} {% if evaluaciones %} Evaluaciones de esta lección {% for evaluacion in evaluaciones %} {{ evaluacion.titulo }} {{ evaluacion.descripcion|truncatechars:60 }} Ver Evaluación {{ evaluacion.preguntas_por_evaluacion }} preguntas {{ evaluacion.puntaje_maximo }} pts {{ evaluacion.tiempo_limite }} min {% endfor %} {% endif %} {% if leccion_anterior %} Lección Anterior {% endif %} Volver al Curso {% if leccion_siguiente %} Siguiente Lección {% endif %} {% endblock %}

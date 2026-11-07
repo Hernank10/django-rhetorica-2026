@@ -1,0 +1,5 @@
+=== core/sintaxis/progreso.html ===
+palabras: 113
+ALTA: 9  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% block content %} Mi progreso en sintaxis Ir al índice {{ resumen.dominadas }} Dominadas {{ resumen.iniciadas }} Iniciadas {{ resumen.total }} Total {% if proximas %} Para repasar hoy (SM-2) {% for p in proximas %} {{ p.tecnica.numero }}. {{ p.tecnica.titulo }} {{ p.proxima_revision|timesince }} atrás {% endfor %} {% endif %} {% if dominadas %} Dominadas ({{ dominadas|length }}) {% for p in dominadas %} {{ p.tecnica.numero }}. {{ p.tecnica.titulo|truncatechars:25 }} {% endfor %} {% endif %} {% if en_progreso %} En progreso ({{ en_progreso|length }}) {% for p in en_progreso %} {{ p.tecnica.numero }}. {{ p.tecnica.titulo|truncatechars:25 }} {% endfor %} {% endif %} {% endblock %}

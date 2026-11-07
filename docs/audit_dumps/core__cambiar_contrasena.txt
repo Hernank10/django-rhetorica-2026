@@ -1,0 +1,5 @@
+=== core/cambiar_contrasena.html ===
+palabras: 48
+ALTA: 5  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'base.html' %} {% block content %} Cambiar Contrasena {% if messages %} {% for message in messages %} {{ message }} {% endfor %} {% endif %} {% csrf_token %} Contrasena actual Nueva contrasena Minimo 6 caracteres Confirmar nueva contrasena Cancelar Guardar cambios {% endblock %}

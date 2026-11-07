@@ -1,0 +1,5 @@
+=== core/profesor/cursos/form.html ===
+palabras: 71
+ALTA: 1  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver {% if curso %} Editar curso{% else %} Nuevo curso{% endif %} {% csrf_token %} Título * Descripción {{ curso.descripcion|default:'' }} Objetivo {{ curso.objetivo|default:'' }} Nivel {% for val, label in niveles %} {{ label }} {% endfor %} Estado {% for val, label in estados %} {{ label }} {% endfor %} Duración (min) Puntos totales Cancelar Guardar {% endblock %}

@@ -1,0 +1,5 @@
+=== core/lectura/flashcards_sesion.html ===
+palabras: 151
+ALTA: 17  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/estudiante/base.html' %} {% block panel %} Sesión de repaso Salir {% if nivel or proceso %} {% if nivel %}{{ nivel }}{% endif %} {% if proceso %}{{ proceso }}{% endif %} {% endif %} Pendientes hoy: {{ pendientes_hoy }} En esta sesión: {{ total_vencidas }} {% if completado %} ¡Sesión completada! No tienes más cartas vencidas por hoy. Volver al catálogo {% else %} {{ tecnica.nivel_mcer }} {{ tecnica.proceso }}#{{ tecnica.numero }} {{ estado_badge.1 }} {{ tecnica.titulo }} {{ tecnica.teoria|safe|truncatewords:40 }} Mostrar respuesta {{ tecnica.nivel_mcer }} {{ tecnica.proceso }}#{{ tecnica.numero }} {{ estado_badge.1 }} {{ tecnica.titulo }} {% if tecnica.regla %} Regla: {{ tecnica.regla|safe }} {% endif %} {% if tecnica.ejemplo_correcto %} ✓ Correcto: {{ tecnica.ejemplo_correcto|safe }} {% endif %} {% if tecnica.ejemplo_incorrecto %} ✗ Incorrecto: {{ tecnica.ejemplo_incorrecto|safe }} {% endif %} ¿Cómo te ha ido? No la sabía Casi La sabía {% endif %} {% endblock %}

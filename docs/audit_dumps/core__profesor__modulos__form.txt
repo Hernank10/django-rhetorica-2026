@@ -1,0 +1,5 @@
+=== core/profesor/modulos/form.html ===
+palabras: 55
+ALTA: 3  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver {% if modulo %} Editar módulo{% else %} Nuevo módulo{% endif %} {% csrf_token %} Curso * — Selecciona un curso — {% for c in cursos %} {{ c.titulo }} {% endfor %} Título * Descripción {{ modulo.descripcion|default:'' }} Orden Cancelar Guardar {% endblock %}

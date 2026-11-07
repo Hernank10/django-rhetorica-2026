@@ -1,0 +1,5 @@
+=== core/recursos/lista.html ===
+palabras: 194
+ALTA: 0  MEDIA: 0  SIGNOS: 0  BAJA: 2
+
+{% extends 'base.html' %} {% load i18n %} {% block content %} ¿Cómo aprovechar los recursos? Cada recurso está vinculado a una técnica o curso. Desde aquí puedes: Buscar por nombre o tema (usa el buscador de arriba). Filtrar por categoría (Técnicas, Cuaderno, etc.). Ver el contenido completo en formato raw (Markdown). Vincular el recurso a un curso para acceso rápido. Ver mis cursos Explorar técnicas Recursos Educativos {{ total }} archivos Categorías Todas {% for c in categorias %} {{ c.categoria }} {{ c.n }} {% endfor %} Extensiones {% for e in extensiones %} .{{ e.extension }} {{ e.n }} {% endfor %} {% if cat %}{% endif %} {% if ext %}{% endif %} Buscar {% if q or cat or ext %} Limpiar {% endif %} {% for r in page %} {{ r.categoria }} .{{ r.extension }} {{ r.nombre|truncatechars:70 }} {{ r.tamaño_legible }} {% empty %} No hay recursos que coincidan con la búsqueda. {% endfor %} {% if page.has_other_pages %} {% if page.has_previous %} {% endif %} Página {{ page.number }} de {{ page.paginator.num_pages }} {% if page.has_next %} {% endif %} {% endif %} {% endblock %}

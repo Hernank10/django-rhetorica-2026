@@ -1,0 +1,5 @@
+=== core/profesor/certificados/preview.html ===
+palabras: 112
+ALTA: 2  MEDIA: 0  SIGNOS: 0  BAJA: 0
+
+{% extends 'core/profesor/base.html' %} {% block panel %} Volver Vista previa del certificado Descargar PDF Descargar Word Página pública Folio único: Código verificación: Huella: RHETORICA+ Plataforma de aprendizaje retórico basada en IA CERTIFICADO DE FINALIZACIÓN Se otorga el presente certificado a: {{ alumno.get_full_name|default:alumno.username }} por haber completado satisfactoriamente la certificación: {{ cert.certificacion.nombre }} Nivel: {{ cert.certificacion.nivel|capfirst }} Profesor Firma autorizada SELLO OFICIAL Dirección Académica Firma autorizada Fecha: {{ cert.fecha_obtenida|date:"d/m/Y" }} Folio: {{ folio }} Verificación: {{ cert.codigo_verificacion }} Huella: {{ huella_corta }} 🔒 Datos de integridad Folio Código Huella completa Fecha emisión{{ cert.fecha_obtenida|date:"d/m/Y H:i" }} 🌐 Verificación pública Comparte este enlace para que cualquiera pueda verificar el certificado: Abrir {% endblock %}
