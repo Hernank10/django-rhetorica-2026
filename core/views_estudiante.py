@@ -333,6 +333,8 @@ def mis_certificados(request):
     # Certificaciones disponibles que aún no tiene
     obtenidos_ids = obtenidos.values_list("certificacion_id", flat=True)
     disponibles = Certificacion.objects.filter(activa=True).exclude(
+        nombre__regex=r'^Certificación [0-9]+$'
+    ).exclude(
         id__in=obtenidos_ids
     )
 

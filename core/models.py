@@ -103,6 +103,10 @@ class LogroObtenido(models.Model):
 
 class Certificacion(models.Model):
     NIVEL_CHOICES = [
+        ('basico', 'Básico'),
+        ('intermedio', 'Intermedio'),
+        ('avanzado', 'Avanzado'),
+        ('experto', 'Experto'),
         ('bronce', 'Bronce'),
         ('plata', 'Plata'),
         ('oro', 'Oro'),
