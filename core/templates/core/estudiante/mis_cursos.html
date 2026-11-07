@@ -147,7 +147,7 @@
     <div class="card shadow-sm h-100">
       <div class="card-body">
         <div class="d-flex justify-content-between mb-2">
-          <span class="badge bg-info text-dark">{{ c.curso.nivel|capfirst }}</span>
+          <span class="badge bg-info text-dark">{{ c.curso.get_nivel_display }}</span>
           <span class="badge bg-secondary">{{ c.curso.duracion_estimada }}h</span>
         </div>
         <h5 class="card-title">{{ c.curso.titulo }}</h5>
