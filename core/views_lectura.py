@@ -344,7 +344,7 @@ def guia_certificados(request):
 
     if not guia_path.exists():
         return _render(request, "core/lectura/guia_certificados.html", {
-            "titulo": "Guia no disponible",
+            "titulo": "Guía no disponible",
             "contenido_html": (
                 "<p class='text-danger'>La guia aun no esta disponible. "
                 "Contacta con el administrador.</p>"
@@ -362,7 +362,7 @@ def guia_certificados(request):
         contenido_html = "<pre>" + guia_path.read_text(encoding="utf-8") + "</pre>"
 
     return _render(request, "core/lectura/guia_certificados.html", {
-        "titulo": "Guia para obtener certificados",
+        "titulo": "Guía para obtener certificados",
         "contenido_html": contenido_html,
     })
 
