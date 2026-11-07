@@ -26,7 +26,7 @@ Cada certificado incluye:
 
 ## 2. Qué certificados existen
 
-En la versión actual (`v3.4.6`), el catálogo de certificaciones contiene:
+En la versión actual (`v3.4.7`), el catálogo de certificaciones contiene:
 
 | Certificación | Descripción | Requisito |
 |---|---|---|
@@ -139,7 +139,7 @@ Cada certificado tiene un **código único** con el formato:
 
 | Parte | Significado |
 |---|---|
-| `PILOT-` | Prefijo que indica fase de pilot |
+| `PILOT-` | Prefijo que indica fase piloto |
 | `1447` | ID del usuario en la BD (4 dígitos) |
 | `A3F2B9C1` | Hash de 8 caracteres (aleatorio) |
 
@@ -197,12 +197,12 @@ código = f"PILOT-{user.id:04d}-{secrets.token_hex(4).upper()}"
 
 - **¿Cuántos textos necesito?** Al menos 3, con acierto >= 60%.
 - **¿Tiene validez oficial?** No. Reconocimiento interno, no MCER.
-- **¿Puedo obtener de nivel específico?** Solo "Lectura + Flashcards" en v3.4.6.
+- **¿Puedo obtener de nivel específico?** Solo "Lectura + Flashcards" en v3.4.7.
 - **¿Cómo verifico autenticidad?** Comparar código del PDF con BD o abrir URL de verificación.
 - **¿Y si pierdo el PDF?** Volver a descargarlo desde `/estudiante/certificados/`.
 - **¿Y si no estoy en grupo Estudiante?** No puedes obtenerlo.
 - **¿Caduca?** No.
-- **¿Varios certificados?** Si, si hay varios tipos.
+- **¿Varios certificados?** Sí, si hay varios tipos.
 
 ---
 ## 10. Solución de problemas
