@@ -17,6 +17,7 @@ class TecnicaGramatical(models.Model):
         ("basico", "Básico"),
         ("intermedio", "Intermedio"),
         ("avanzado", "Avanzado"),
+        ("maestria", "Maestría"),
     ]
 
     numero = models.PositiveSmallIntegerField(unique=True)

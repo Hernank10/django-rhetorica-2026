@@ -88,7 +88,7 @@
                                 <i class="fas fa-lightbulb"></i> Técnicas Retóricas
                             </h1>
                             <p class="lead mb-0">
-                                <span class="badge bg-light text-dark">{{ técnicas|length|default:"0" }}</span> técnicas disponibles
+                                <span class="badge bg-light text-dark">{{ tecnicas|length|default:"0" }}</span> técnicas disponibles
                             </p>
                         </div>
                         <div>
@@ -104,17 +104,17 @@
 
     <div class="row mt-4">
         {% if técnicas %}
-            {% for técnica in técnicas %}
+            {% for tecnica in tecnicas %}
             <div class="col-md-4 mb-4">
                 <div class="card shadow h-100 tecnica-card">
                     <div class="card-header bg-warning text-dark">
                         <h5 class="mb-0">
-                            <i class="fas fa-lightbulb"></i> {{ técnica.nombre|default:"Técnica" }}
+                            <i class="fas fa-lightbulb"></i> {{ tecnica.nombre|default:"Técnica" }}
                         </h5>
                     </div>
                     <div class="card-body">
-                        <p>{{ técnica.descripcion|default:"Descripción no disponible" }}</p>
-                        <span class="badge bg-secondary">{{ técnica.categoria|default:"General" }}</span>
+                        <p>{{ tecnica.descripcion|default:"Descripción no disponible" }}</p>
+                        <span class="badge bg-secondary">{{ tecnica.categoria|default:"General" }}</span>
                     </div>
                     <div class="card-footer bg-transparent">
                         <a href="{% url 'ejercicios_biblioteca' %}" class="btn btn-outline-primary btn-sm w-100">

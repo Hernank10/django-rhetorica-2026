@@ -171,8 +171,8 @@
                             <div class="col-md-4 col-lg-2 mb-3">
                                 <div class="card h-100 shadow-sm tecnicas-card">
                                     <div class="card-body text-center p-2">
-                                        <span class="badge bg-warning text-dark">{{ técnica.categoria|default:"General"|truncatechars:12 }}</span>
-                                        <h6 class="card-title mt-2 small">{{ técnica.nombre|truncatechars:18 }}</h6>
+                                        <span class="badge bg-warning text-dark">{{ tecnica.categoria|default:"General"|truncatechars:12 }}</span>
+                                        <h6 class="card-title mt-2 small">{{ tecnica.nombre|truncatechars:18 }}</h6>
                                         <a href="#" class="btn btn-success btn-sm w-100">
                                             <i class="fas fa-info-circle"></i> Ver
                                         </a>
@@ -188,7 +188,7 @@
                         {% if técnicas|length > 6 %}
                         <div class="text-center mt-2">
                             <a href="{% url 'ver_tecnicas' %}" class="btn btn-outline-success btn-sm">
-                                Ver {{ técnicas|length|add:"-6" }} técnicas más
+                                Ver {{ tecnicas|length|add:"-6" }} técnicas más
                             </a>
                         </div>
                         {% endif %}

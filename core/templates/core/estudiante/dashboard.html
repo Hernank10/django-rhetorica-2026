@@ -410,8 +410,8 @@
                 <div class="card h-100 border-primary">
                   <div class="card-body text-center">
                     <i class="fas fa-award fa-2x text-warning mb-2"></i>
-                    <h6 class="card-title">{{ cert.certificación.nombre|truncatechars:40 }}</h6>
-                    <p class="small text-muted mb-2">{{ cert.certificación.get_nivel_display }}</p>
+                    <h6 class="card-title">{{ cert.certificacion.nombre|truncatechars:40 }}</h6>
+                    <p class="small text-muted mb-2">{{ cert.certificacion.get_nivel_display }}</p>
                     <p class="small text-muted">{{ cert.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</p>
                     <a href="{% url 'verificar_certificado_publico' cert.codigo_verificacion %}"
                        class="btn btn-sm btn-outline-primary" target="_blank">
