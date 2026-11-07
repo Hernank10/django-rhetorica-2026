@@ -151,3 +151,5 @@ pytest_*.log
 .env.local
 db.sqlite3-journal
 !scripts/_pilot_*.py
+
+docs/AUDIT_*.md
