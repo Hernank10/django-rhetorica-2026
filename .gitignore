@@ -156,3 +156,6 @@ docs/AUDIT_*.md
 
 # Reportes de diagnostico generados (se regeneran con scripts/)
 docs/DIAG_*.md
+
+# Backups de DB (no versionar)
+backups/
