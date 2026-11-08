@@ -1,5 +1,6 @@
 """pilot_test.py - Prueba integral del sistema (versionado, URL admin corregida)"""
 import json, os, sys
+import re
 sys.path.insert(0, ".")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_retorica.settings.dev")
 import django
