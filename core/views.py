@@ -94,6 +94,7 @@ def dashboard_estudiante(request):
         'ejercicios': ejercicios,
         'ejercicios_count': EjercicioLinguistico.objects.count(),
         'tecnicas': tecnicas,
+        'tecnica': tecnicas.first() if tecnicas else None,  # fix 6.1
         'tecnicas_count': tecnicas.count(),
         'puntos_total': 0,  # Aquí puedes calcular puntos reales
         'certificaciones_count': 0,  # Aquí puedes contar certificaciones reales
