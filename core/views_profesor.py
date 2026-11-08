@@ -92,7 +92,7 @@ def dashboard(request):
 
     # Progresos completados últimos 30 días, agrupados por día
     try:
-        hace_30 = date.today() - timedelta(days=30)
+        hace_30 = timezone.now() - timedelta(days=30)
         chart_actividad = list(
             ProgresoUsuario.objects.filter(
                 completado=True, completado_en__gte=hace_30

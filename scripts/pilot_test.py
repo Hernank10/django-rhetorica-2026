@@ -229,17 +229,32 @@ for nivel in ["A1", "A2", "B1"]:
 # [11] WARNINGS de Python/Django (captura RuntimeWarning como el de naive datetime)
 header(11, "WARNINGS de Python/Django durante requests")
 import warnings as _w
-_c = Client(); _c.force_login(est_user)
-for url in ["/profesor/estudiantes/metricas/", "/estudiante/", "/lectura/"]:
+_url_clients = []
+# Cliente PROFESOR para rutas de profesor
+_prof_user = U.objects.filter(username__startswith="testprofe").first()
+if not _prof_user and grp_prof:
+    _prof_user = grp_prof.user_set.first()
+if _prof_user:
+    _c_prof = Client(); _c_prof.force_login(_prof_user)
+    _url_clients.append(("/profesor/", _c_prof))
+    _url_clients.append(("/profesor/estudiantes/metricas/", _c_prof))
+# Cliente ESTUDIANTE para rutas de estudiante
+if est_user:
+    _c_est = Client(); _c_est.force_login(est_user)
+    _url_clients.append(("/estudiante/", _c_est))
+    _url_clients.append(("/lectura/", _c_est))
+for _url, _cli in _url_clients:
     with _w.catch_warnings(record=True) as caught:
         _w.simplefilter("always")
-        try: _c.get(url)
-        except Exception: pass
+        try:
+            _cli.get(_url)
+        except Exception:
+            pass
     for w in caught:
         msg = str(w.message)
         if "naive datetime" in msg or "RuntimeWarning" in msg:
-            print(f"  [??] {url}: {msg[:120]}")
-            WARN.append(f"RuntimeWarning en {url}: {msg[:80]}")
+            print(f"  [??] {_url}: {msg[:120]}")
+            WARN.append(f"RuntimeWarning en {_url}: {msg[:80]}")
 # RESUMEN
 print(); print("=" * 78); print("RESUMEN PILOT TEST"); print("=" * 78)
 if OK:    print(f"\nOK ({len(OK)}):");   [print(f"  [OK] {o}") for o in OK]
