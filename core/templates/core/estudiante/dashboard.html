@@ -234,7 +234,7 @@
     {% if mcer_progreso %}
     <div class="card shadow-sm border-primary mb-4">
       <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-        <span><i class="fas fa-graduation-cap"></i> Recorrido MCER A1?C2 ? 610 t?cnicas</span>
+        <span><i class="fas fa-graduation-cap"></i> Recorrido MCER A1→C2 · 600 técnicas</span>
         <span class="badge bg-light text-dark">{{ mcer_progreso.dominadas_mcer }}/{{ mcer_progreso.total_mcer }} ({{ mcer_progreso.pct_mcer }}%)</span>
       </div>
       <div class="card-body">
@@ -303,7 +303,7 @@
         <h6 class="text-muted mb-2">Tasa de aciertos global</h6>
         <div class="fs-1 fw-bold
           {% if kpis.tasa >= 80 %}text-success{% elif kpis.tasa >= 50 %}text-warning{% else %}text-danger{% endif %}">
-          {{ kpis.tasa }}%
+          {% if kpis.tasa %}{{ kpis.tasa }}%{% else %}—{% endif %}
         </div>
       </div>
     </div>
@@ -350,7 +350,7 @@
             <small class="text-muted d-block">{{ l.fecha_obtenida|date:"SHORT_DATE_FORMAT" }}</small>
           </li>
         {% empty %}
-          <li class="list-group-item text-muted">Sin logros todavía</li>
+          <li class="list-group-item text-muted">Tu primer logro está a 5 técnicas. Empieza con A1 →</li>
         {% endfor %}
       </ul>
     </div>
@@ -512,7 +512,7 @@
             {% endfor %}
           </ul>
         {% else %}
-          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones abiertas ahora.</p>
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Cuando te inscribas en un curso, aquí verás las evaluaciones abiertas.</p>
         {% endif %}
       </div>
     </div>
@@ -543,7 +543,7 @@
             {% endfor %}
           </div>
         {% else %}
-          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Sin evaluaciones programadas en el futuro.</p>
+          <p class="text-muted mb-0"><i class="fas fa-inbox"></i> Aún no tienes evaluaciones programadas. Se mostrarán aquí.</p>
         {% endif %}
       </div>
     </div>
@@ -628,8 +628,8 @@ new Chart(document.getElementById('chartActividad'), {
       options: { responsive: true, scales: { y: { beginAtZero: true } } }
     });
   } else {
-    if (canvasA) canvasA.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
-    if (canvasT) canvasT.parentElement.innerHTML = '<p class="text-muted">Sin datos de ejercicios aun.</p>';
+    if (canvasA) canvasA.parentElement.innerHTML = '<p class="text-muted">Aquí verás tu rendimiento cuando respondas tu primer ejercicio.</p>';
+    if (canvasT) canvasT.parentElement.innerHTML = '<p class="text-muted">Aquí verás tu rendimiento cuando respondas tu primer ejercicio.</p>';
   }
 })();
 </script>
