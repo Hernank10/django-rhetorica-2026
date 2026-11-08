@@ -295,6 +295,10 @@ text
 **Esfuerzo:** ~2 min.
 
 ### 6.3 Limpieza de DB
+> **Estado 2026-11-08:** las 45 certificaciones basura (ids 9-53) han sido
+> borradas de la DB. Quedan 6 legítimas. El filtro en views_estudiante.py:335-337
+> se mantiene como defensivo. Los 20 `Logro` no-MCER (ids 11-30) **no se tocan**:
+> tienen 296 `LogroObtenido` dependientes y el filtro MCER ya los excluye del render.
 
 **Síntoma:** registros de test o de otra sección que no pertenecen al módulo MCER.
 
