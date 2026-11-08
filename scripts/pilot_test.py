@@ -255,6 +255,65 @@ for _url, _cli in _url_clients:
         if "naive datetime" in msg or "RuntimeWarning" in msg:
             print(f"  [??] {_url}: {msg[:120]}")
             WARN.append(f"RuntimeWarning en {_url}: {msg[:80]}")
+
+# [12] DASHBOARD_ESTUDIANTE
+header(12, "DASHBOARD_ESTUDIANTE - invariantes del onboarding")
+from django.db import transaction
+from core.models_cursos import Leccion as _Lecc12, ProgresoUsuario as _PU12
+
+_fails_12 = []
+
+# 12.1 Usuario SIN progreso -> hero SI, sin tareas huerfanas
+_u0 = None
+try:
+    with transaction.atomic():
+        _u0 = U.objects.create_user(username="__pilot_est0__", password="x")
+        _c0 = Client(); _c0.force_login(_u0)
+        _r0 = _c0.get("/estudiante/")
+        _html0 = _r0.content.decode("utf-8", errors="replace")
+        _hero0 = "Empieza tu recorrido MCER" in _html0
+        _tar0  = "Tareas pendientes" in _html0 and re.search(r"Tareas pendientes\s*[\(\s]*[1-9]", _html0)
+        print(f"  __pilot_est0__: HTTP={_r0.status_code}  hero={_hero0}  tareas_huerfanas={bool(_tar0)}")
+        if _r0.status_code != 200:
+            _fails_12.append(f"est0 HTTP {_r0.status_code}")
+        if not _hero0:
+            _fails_12.append("hero NO aparece con 0 cursos")
+        if _tar0:
+            _fails_12.append("tareas pendientes visibles sin cursos")
+finally:
+    if _u0:
+        try: _u0.delete()
+        except Exception: pass
+
+# 12.2 Usuario CON progreso (est_pilot_001) -> hero NO
+_up = U.objects.filter(username="est_pilot_001").first()
+if _up:
+    _cp = Client(); _cp.force_login(_up)
+    _rp = _cp.get("/estudiante/")
+    _htmlp = _rp.content.decode("utf-8", errors="replace")
+    _herop = "Empieza tu recorrido MCER" in _htmlp
+    _metasp = "Meta próxima:" in _htmlp
+    print(f"  est_pilot_001: HTTP={_rp.status_code}  hero={_herop}  metas={_metasp}")
+    if _herop:
+        _fails_12.append("hero aparece con cursos > 0")
+    if not _metasp:
+        _fails_12.append("metas NO aparecen en est_pilot_001")
+
+# 12.3 Invariantes de datos MCER
+_n_tec = TecnicaLectura.objects.count()
+_n_b1  = TecnicaLectura.objects.filter(nivel_mcer="B1").count()
+print(f"  TecnicaLectura.total={_n_tec}  B1={_n_b1}")
+if _n_tec != 600:
+    _fails_12.append(f"total MCER {_n_tec} != 600")
+if _n_b1 != 100:
+    _fails_12.append(f"B1 {_n_b1} != 100")
+
+if _fails_12:
+    for f in _fails_12:
+        FAILS.append(f"[12] {f}")
+else:
+    OK.append("Dashboard estudiante: invariantes OK")
+
 # RESUMEN
 print(); print("=" * 78); print("RESUMEN PILOT TEST"); print("=" * 78)
 if OK:    print(f"\nOK ({len(OK)}):");   [print(f"  [OK] {o}") for o in OK]
