@@ -1,4 +1,4 @@
-﻿# Cierre de auditoría MCER y ortografía
+# Cierre de auditoría MCER y ortografía
 
 **Fecha:** 2026-11-07
 **Rama:** main
@@ -420,8 +420,33 @@ Si los 3 dan limpio, el módulo está verificado.
 
 **Fin del documento.** Última actualización: 2026-11-07, commit `fe8c284`.
 
+## Fases A-D cerradas (dashboard /estudiante/)
 
+Commits:
+- `e4be397` + `105936c`: tildes en etiquetas Django de `dashboard_estudiante.html`
+- `07c5cd7`: mojibake `A1->C2`, empty states motivadores, `610->600`, `0%->—`
+- `bfdb056`: hero CTA sin progreso (dentro de `{% block panel %}`), proximas 1-por-curso, metas MCER
+- `2a4ef23`: seccion `[12] DASHBOARD_ESTUDIANTE` en `pilot_test.py`
 
+## Gap conocido: catálogo plano (deuda técnica post-B1.3)
 
+El dashboard de `/estudiante/` **no distingue visualmente** entre:
 
+1. **Cursos que el estudiante está cursando** — no hay badge "Cursando" en el catálogo
+2. **Cursos disponibles para empezar** — todos los cursos se ven iguales
+3. **Cursos legacy "Curso NN"** (ids 25–39, 15 cursos) — existen en DB pero **no aparecen** en el catálogo
 
+El catálogo muestra 9: Morfología, Sintaxis, Ortografía, Redacción, Retórica, A1, A2, B1, B2.
+La DB tiene 27. Los 15 "Curso NN" son legacy del seed inicial.
+
+### Verificación pendiente
+
+Añadir sección `[13] OFERTA_CURSOS` al `pilot_test.py` que valide:
+- `n_cursos_publicados_db == n_cursos_visibles_html`
+- Estudiante con 1 curso activo ve badge "Cursando" en ese curso
+- Estudiante con 0 cursos ve todos los cursos sin badge
+- Los cursos legacy están **intencionalmente** ocultos (o borrados)
+
+### Prioridad
+
+Post-B1.3. No bloquea la nueva fase MCER. Documentado aquí para no perderlo.
