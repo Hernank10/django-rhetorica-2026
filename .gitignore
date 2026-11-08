@@ -159,3 +159,6 @@ docs/DIAG_*.md
 
 # Backups de DB (no versionar)
 backups/
+
+# Planes generados por scripts _plan_*/_flashcard_migration* (regenerables)
+docs/plan_*.csv
