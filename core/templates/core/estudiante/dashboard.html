@@ -1,5 +1,18 @@
 {% extends 'core/estudiante/base.html' %}
+
 {% block panel %}
+{% if not kpis.cursos_activos %}
+<!-- HERO-ONBOARDING -->
+<div class="card border-success mb-4 shadow-sm">
+  <div class="card-body">
+    <h4 class="card-title mb-2">👋 Empieza tu recorrido MCER</h4>
+    <p class="mb-3">Aún no tienes cursos activos. Elige un punto de partida:</p>
+    <a href="/gramatica/a1/" class="btn btn-success">Empezar con A1 →</a>
+    <a href="/estudiante/cursos/" class="btn btn-outline-secondary ms-2">Ver todos los cursos</a>
+  </div>
+</div>
+{% endif %}
+
 
 <div class="card border-primary mb-4 shadow-sm" id="tarjeta-guia-certificados">
         <div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-2">
@@ -239,7 +252,13 @@
       </div>
       <div class="card-body">
         <div class="row g-2">
-          {% for nivel, datos in mcer_progreso.niveles.items %}
+          <!-- META-PROXIMA-5 -->
+            <div class="text-muted small mb-2" style="font-size: .85rem;">
+              <strong>Meta próxima:</strong> 5 técnicas → Logro "Primeros pasos" ·
+              25 → Insignia "A1 iniciado" ·
+              100 → Certificado A1
+            </div>
+            {% for nivel, datos in mcer_progreso.niveles.items %}
           <div class="col-md-2 col-4 text-center">
             <a href="/gramatica/{{ nivel|lower }}/" class="text-decoration-none text-reset">
               <h5 class="mb-1">{{ nivel }}</h5>

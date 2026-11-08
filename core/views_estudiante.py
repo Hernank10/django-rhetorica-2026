@@ -158,13 +158,19 @@ def dashboard(request):
     ).order_by("-fecha_obtenida")[:3]
 
     # Próximas lecciones sugeridas (no completadas)
-    proximas = Leccion.objects.filter(
-        modulo__curso__estado="publicado"
-    ).exclude(
-        id__in=ProgresoUsuario.objects.filter(
+    # Diversificar: 1 leccion NO completada por curso
+    from django.db.models import Min as _Min
+    _por_curso = list(
+        Leccion.objects.filter(modulo__curso__estado="publicado")
+        .exclude(id__in=ProgresoUsuario.objects.filter(
             usuario=u, completado=True
-        ).values_list("leccion_id", flat=True)
-    ).select_related("modulo__curso")[:5]
+        ).values_list("leccion_id", flat=True))
+        .values("modulo__curso_id")
+        .annotate(primera=_Min("id"))
+        .order_by("modulo__curso_id")[:5]
+    )
+    _ids_por_curso = [r["primera"] for r in _por_curso]
+    proximas = Leccion.objects.filter(id__in=_ids_por_curso).select_related("modulo__curso")
 
     from core.services.notificaciones import contar_no_leidas, ultimas_notificaciones
     from core.services.tareas import (
