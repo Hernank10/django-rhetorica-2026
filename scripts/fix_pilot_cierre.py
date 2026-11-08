@@ -57,19 +57,21 @@ else:
     else:
         FAILS.append(f"ProgresoUsuario: {remaining} naive remanentes")
 
-# ── C. URL resolve del admin ────────────────────────────────────────
-header("C", "URL RESOLVE admin")
-for url, debe_404 in [("/admin/core/tecnicalectura/", False),
-                      ("/admin/core/tecnicatectura/", True)]:
-    try:
-        resolve(url)
-        print(f"  [OK]  {url} resuelve")
-        if debe_404:
-            WARN.append(f"URL typo '{url}' resuelve (deberia 404)")
-    except Resolver404:
-        print(f"  [404] {url}")
-        if not debe_404:
-            FAILS.append(f"URL valida '{url}' NO resuelve")
+# ── C. URL HTTP real (resolve() no sirve: matchea el catch-all del admin) ──
+header("C", "URL HTTP real del admin")
+from django.test import Client
+_su = U.objects.filter(is_superuser=True, is_active=True).first()
+if not _su:
+    WARN.append("Sin superusuario para probar URLs del admin")
+else:
+    _c = Client(); _c.force_login(_su)
+    for url, debe_404 in [("/admin/core/tecnicalectura/", False),
+                          ("/admin/core/tecnicatectura/", True)]:
+        r = _c.get(url)
+        ok = (r.status_code == 404) if debe_404 else (r.status_code in (200, 302))
+        print(f"  [{'OK' if ok else 'FAIL'}] {url} -> {r.status_code}")
+        if not ok:
+            FAILS.append(f"URL {url}: {r.status_code} (esperado {'404' if debe_404 else '200/302'})")
 
 # ── Resumen ─────────────────────────────────────────────────────────
 print(); print("=" * 78); print("RESUMEN FIX"); print("=" * 78)

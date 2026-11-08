@@ -226,6 +226,20 @@ for nivel in ["A1", "A2", "B1"]:
     if nivel in ("A1", "A2") and c != tec.count():
         FAILS.append(f"{nivel}: {c}/{tec.count()} cobertura")
 
+# [11] WARNINGS de Python/Django (captura RuntimeWarning como el de naive datetime)
+header(11, "WARNINGS de Python/Django durante requests")
+import warnings as _w
+_c = Client(); _c.force_login(est_user)
+for url in ["/profesor/estudiantes/metricas/", "/estudiante/", "/lectura/"]:
+    with _w.catch_warnings(record=True) as caught:
+        _w.simplefilter("always")
+        try: _c.get(url)
+        except Exception: pass
+    for w in caught:
+        msg = str(w.message)
+        if "naive datetime" in msg or "RuntimeWarning" in msg:
+            print(f"  [??] {url}: {msg[:120]}")
+            WARN.append(f"RuntimeWarning en {url}: {msg[:80]}")
 # RESUMEN
 print(); print("=" * 78); print("RESUMEN PILOT TEST"); print("=" * 78)
 if OK:    print(f"\nOK ({len(OK)}):");   [print(f"  [OK] {o}") for o in OK]
