@@ -153,3 +153,6 @@ db.sqlite3-journal
 !scripts/_pilot_*.py
 
 docs/AUDIT_*.md
+
+# Reportes de diagnostico generados (se regeneran con scripts/)
+docs/DIAG_*.md
