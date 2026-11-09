@@ -166,3 +166,5 @@ docs/plan_*.csv
 # Excepciones: auditorias utiles
 !scripts/_diag_contenido_a1.py
 !scripts/_enrich_payloads.py
+!scripts/_diag_tildes.py
+!scripts/_fix_tildes.py
