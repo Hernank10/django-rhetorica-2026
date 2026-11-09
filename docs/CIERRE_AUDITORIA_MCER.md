@@ -468,3 +468,7 @@ Post-B1.3. No bloquea la nueva fase MCER. Documentado aquí para no perderlo.
 ### Blindaje
 - Seccion [13] DENSIFICACION_A1 anadida al pilot
 - Preflight: `python scripts/_diag_preflight.py`
+
+## Deuda conocida: placeholders A1
+
+Los 98 ejercicios anadidos en A1 son auto-reconocimiento (baja calidad pedagogica). Reemplazar con contenido real: rellenar docs/plan_densificacion_A1_full.csv y correr _seed_densificacion_a1.py --mode csv.
