@@ -472,3 +472,15 @@ Post-B1.3. No bloquea la nueva fase MCER. Documentado aquí para no perderlo.
 ## Deuda conocida: placeholders A1
 
 Los 98 ejercicios anadidos en A1 son auto-reconocimiento (baja calidad pedagogica). Reemplazar con contenido real: rellenar docs/plan_densificacion_A1_full.csv y correr _seed_densificacion_a1.py --mode csv.
+
+## Decision M3 (congelar Flashcard) - 2026-11-08
+
+- Opcion elegida: **M3**. No se toca Flashcard.
+- Motivo: 0 usos en views reales (views_flashcards_sesion, views_lectura, views_estudiante todas usan ProgresoTecnicaLectura).
+- M1 (migracion aditiva) descartado: anade campos a modelo muerto sin valor inmediato.
+- M2 (migrar 192 + borrar legacy) queda como sprint futuro si se decide unificar SRS.
+- scripts/_apply_opcion_m.py permanece en repo pero **NO ejecutar sin decision explicita**.
+
+## Deuda: placeholders A1
+
+Los 98 ejercicios A1 son placeholder (v1: auto-reconocimiento). Commit aa0ff84 los sembro, 2d0e588 los documento. Reemplazo real requiere CSV + _seed_densificacion_a1.py --mode csv.
