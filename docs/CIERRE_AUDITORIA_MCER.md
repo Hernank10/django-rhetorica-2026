@@ -450,3 +450,21 @@ Añadir sección `[13] OFERTA_CURSOS` al `pilot_test.py` que valide:
 ### Prioridad
 
 Post-B1.3. No bloquea la nueva fase MCER. Documentado aquí para no perderlo.
+
+## Fases M-D
+
+### Opcion M (Flashcard)
+- Estado: [[ completar tras decision M1/M2/M3 ]]
+- Backfill: NO automatico (fuente_id=0/192, categoria='sustantivo' unico)
+- Sistema legacy (Flashcard + Review) coexiste con el actual (TecnicaLectura + ProgresoTecnicaLectura)
+- Vista real (`views_flashcards_sesion.py`) usa el sistema ACTUAL, no Flashcard
+
+### Opcion D (densificar A1)
+- Target: 2.00 ej/tecnica en A1
+- Antes: 102 ejercicios / 100 tecnicas = 1.02
+- Despues: [[ completar tras seed ]]
+- Modo: [[ placeholder (baja calidad) | csv (contenido real) ]]
+
+### Blindaje
+- Seccion [13] DENSIFICACION_A1 anadida al pilot
+- Preflight: `python scripts/_diag_preflight.py`

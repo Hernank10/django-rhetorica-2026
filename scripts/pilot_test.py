@@ -315,6 +315,41 @@ if _fails_12:
 else:
     OK.append("Dashboard estudiante: invariantes OK")
 
+
+# [13] DENSIFICACION_A1 - invariantes de contenido A1
+header(13, "DENSIFICACION_A1 - ratio ejercicios/tecnica")
+from collections import Counter as _C13
+from core.models_lectura import TecnicaLectura as _TL13, EjercicioLectura as _EJ13
+
+_a1_ids = list(_TL13.objects.filter(nivel_mcer="A1").values_list("id", flat=True))
+_ej_por_tec = _C13(_EJ13.objects.filter(tecnica_id__in=_a1_ids).values_list("tecnica_id", flat=True))
+_total_ej = sum(_ej_por_tec.get(tid, 0) for tid in _a1_ids)
+_ratio = _total_ej / len(_a1_ids) if _a1_ids else 0
+_n_tec = len(_a1_ids)
+
+print(f"  Tecnicas A1: {_n_tec}  Ejercicios: {_total_ej}  Ratio: {_ratio:.2f}")
+
+_fails_13 = []
+if _n_tec != 100:
+    _fails_13.append(f"tecnicas A1 {_n_tec} != 100")
+if _ratio < 2.00:
+    _fails_13.append(f"ratio {_ratio:.2f} < 2.00 (faltan {int(_n_tec*2 - _total_ej)})")
+
+# Payload schema: todo multiple_choice debe tener opciones+correcta
+_ej_a1 = _EJ13.objects.filter(tecnica_id__in=_a1_ids)
+for _ej in _ej_a1[:20]:
+    _p = _ej.payload or {}
+    if _ej.tipo == "multiple_choice":
+        if not isinstance(_p, dict) or "opciones" not in _p or "correcta" not in _p:
+            _fails_13.append(f"payload malformado en ejercicio {_ej.id}")
+            break
+
+if _fails_13:
+    for f in _fails_13:
+        FAILS.append(f"[13] {f}")
+else:
+    OK.append(f"Densificacion A1 OK ({_ratio:.2f} ej/tec)")
+
 # RESUMEN
 print(); print("=" * 78); print("RESUMEN PILOT TEST"); print("=" * 78)
 if OK:    print(f"\nOK ({len(OK)}):");   [print(f"  [OK] {o}") for o in OK]
