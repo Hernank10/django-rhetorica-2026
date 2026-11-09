@@ -17,6 +17,11 @@ import os, sys, re, json, argparse
 from pathlib import Path
 from collections import Counter, defaultdict
 
+import sys as _sys
+if hasattr(_sys.stdout, "reconfigure"):
+    _sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    _sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 parser = argparse.ArgumentParser()
 parser.add_argument("--log", default=None)
 parser.add_argument("--sample", type=int, default=5, help="Ejercicios a puntuar en rubrica")
@@ -455,7 +460,7 @@ print("=" * 78)
 
 fases = [
     ("Fase 1 - Curaduria textos",  len(a1_textos) >= 10),
-    ("Fase 2 - Mapeo completo",    len(tec_sin_texto) == 0),
+    ("Fase 2 - Mapeo completo",    len(tec_sin_texto) == 0 and not sobrecargados),
     ("Fase 3 - Contenido real",    placeholders == 0 and reales > 0),
     ("Fase 4 - Rubrica >= 4.0",    muestra and prom_global >= 4.0),
     ("Fase 5 - Seed verificado",   placeholders == 0 and len(a1_ej_ids) >= len(a1_tec_ids) * 2),
