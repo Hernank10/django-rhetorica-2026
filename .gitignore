@@ -162,3 +162,7 @@ backups/
 
 # Planes generados por scripts _plan_*/_flashcard_migration* (regenerables)
 docs/plan_*.csv
+
+# Excepciones: auditorias utiles
+!scripts/_diag_contenido_a1.py
+!scripts/_enrich_payloads.py
