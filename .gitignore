@@ -168,3 +168,6 @@ docs/plan_*.csv
 !scripts/_enrich_payloads.py
 !scripts/_diag_tildes.py
 !scripts/_fix_tildes.py
+!scripts/_diag_tildes_v2.py
+!scripts/_fix_tildes_v2.py
+!scripts/_fix_tildes_v3_notif.py
