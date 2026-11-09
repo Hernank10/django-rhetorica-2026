@@ -45,3 +45,6 @@ echo "Enriching A1 payloads..."
 python scripts/_enrich_payloads.py --apply || true
 
 echo "=== BUILD DONE ==="
+
+# Fix tildes TecnicaGramatical (idempotente, corre siempre)
+python scripts/_fix_tildes.py --apply || true
