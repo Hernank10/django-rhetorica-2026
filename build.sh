@@ -48,3 +48,5 @@ echo "=== BUILD DONE ==="
 
 # Fix tildes TecnicaGramatical (idempotente, corre siempre)
 python scripts/_fix_tildes.py --apply || true
+
+python scripts/_fix_tildes_v2.py --apply || true
