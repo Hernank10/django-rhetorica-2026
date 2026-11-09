@@ -1,3 +1,4 @@
+# Build script v2 (LF normalizado, enrich sin condicional)
 #!/usr/bin/env bash
 set -o errexit
 
@@ -100,5 +101,8 @@ if [ "$RUN_SEEDS" = "True" ]; then
 fi
 
 # Enriquecer payloads A1 (idempotente, no condicional)
+echo "Enriqueciendo payloads A1 con explicacion..."
+python scripts/_enrich_payloads.py --apply || true
+# Enriquecer payloads A1 (idempotente, corre siempre)
 echo "Enriqueciendo payloads A1 con explicacion..."
 python scripts/_enrich_payloads.py --apply || true
