@@ -50,3 +50,5 @@ echo "=== BUILD DONE ==="
 python scripts/_fix_tildes.py --apply || true
 
 python scripts/_fix_tildes_v2.py --apply || true
+
+python scripts/_fix_tildes_v3_notif.py --apply || true
