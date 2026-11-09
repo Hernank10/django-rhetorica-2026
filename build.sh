@@ -99,8 +99,6 @@ if [ "$RUN_SEEDS" = "True" ]; then
   python manage.py seed_lectura_textos || true
 fi
 
-# Enriquecer payloads A1 (post-seeds, idempotente)
-if [ "$RUN_SEEDS" = "True" ]; then
-  echo "Enriqueciendo payloads A1 con explicacion..."
-  python scripts/_enrich_payloads.py --apply || true
-fi
+# Enriquecer payloads A1 (idempotente, no condicional)
+echo "Enriqueciendo payloads A1 con explicacion..."
+python scripts/_enrich_payloads.py --apply || true
