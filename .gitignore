@@ -201,3 +201,7 @@ docs/plan_*.csv
 !scripts/_fix_b1_doble_prefijo.py
 !scripts/_fix_diag_tildes.py
 !scripts/_fix_b1_tec2.py
+!scripts/_seed_textos_b2.py
+!scripts/_densificar_b2.py
+!scripts/_export_b2_textos.py
+!scripts/_fix_b2_cierre.py
