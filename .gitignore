@@ -194,3 +194,10 @@ docs/plan_*.csv
 !scripts/_seed_textos_b1.py
 !scripts/_densificar_b1.py
 !scripts/_diag_b1_plan.py
+
+# Fixes B1 acabado
+!scripts/_fix_b1_texto2.py
+!scripts/_fix_b1_tecnica_huerfana.py
+!scripts/_fix_b1_doble_prefijo.py
+!scripts/_fix_diag_tildes.py
+!scripts/_fix_b1_tec2.py
