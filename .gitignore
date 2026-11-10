@@ -171,3 +171,10 @@ docs/plan_*.csv
 !scripts/_diag_tildes_v2.py
 !scripts/_fix_tildes_v2.py
 !scripts/_fix_tildes_v3_notif.py
+
+# Sprint A1 contenido - scripts reproducibles del seed
+!scripts/_seed_textos_a1.py
+!scripts/_map_tecnicas_textos_a1.py
+!scripts/_seed_placeholders_contenido.py
+!scripts/_fix_12_ejercicios_faltantes.py
+!scripts/_diag_tecnicas_1ejercicio.py
