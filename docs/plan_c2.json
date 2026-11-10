@@ -1,0 +1,231 @@
+{
+  "nivel": "C2",
+  "fecha": "2026-11-10T17:39:01.700771",
+  "rango": "700-1200",
+  "textos": {
+    "total": 14,
+    "en_rango": 14,
+    "info": [
+      {
+        "id": 33,
+        "titulo": "El cuerpo como mercancía: análisis crítico del discurso publicitario",
+        "palabras": 1197,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 34,
+        "titulo": "El sujeto atrapado: poder, deseo y resistencia",
+        "palabras": 1170,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 35,
+        "titulo": "El archivo de los espejos",
+        "palabras": 1174,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 36,
+        "titulo": "Para qué sirve la crítica",
+        "palabras": 939,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 65,
+        "titulo": "La paradoja de la tolerancia",
+        "palabras": 874,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 66,
+        "titulo": "El narrador no fiable en El Quijote",
+        "palabras": 954,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 67,
+        "titulo": "El lenguaje como arma política",
+        "palabras": 941,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 68,
+        "titulo": "La ética de la IA en decisiones médicas",
+        "palabras": 860,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 69,
+        "titulo": "Carta a un joven escritor",
+        "palabras": 800,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 70,
+        "titulo": "La ciudad como texto",
+        "palabras": 721,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 71,
+        "titulo": "¿Progreso o barbarie? El debate sobre la Ilustración",
+        "palabras": 949,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 72,
+        "titulo": "El problema de la conciencia en la filosofía de la mente",
+        "palabras": 1164,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 73,
+        "titulo": "La memoria como reconstrucción",
+        "palabras": 861,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 74,
+        "titulo": "La traducción como traición",
+        "palabras": 900,
+        "en_rango": true,
+        "accion": null
+      }
+    ]
+  },
+  "ejercicios": {
+    "total": 200,
+    "tecnicas": 100,
+    "tec_0": 0,
+    "tec_1": 0,
+    "tec_2m": 100,
+    "ratio": 2.0
+  },
+  "coherencia": {
+    "coherentes": 193,
+    "pct": 96.5,
+    "incoherentes": [
+      {
+        "id": 625,
+        "tec": 13,
+        "proceso": "P1",
+        "enun": "¿Qué hace la deconstrucción (Derrida) con las oposiciones binarias de ",
+        "texto": "Carta a un joven escritor"
+      },
+      {
+        "id": 802,
+        "tec": 9,
+        "proceso": "P1",
+        "enun": "La frase del concejal 'Quien critique el turismo es un enemigo del pro",
+        "texto": "La ciudad como texto"
+      },
+      {
+        "id": 639,
+        "tec": 27,
+        "proceso": "P1",
+        "enun": "¿Cómo opera la biopolítica (Foucault/Agamben) en la publicidad?",
+        "texto": "Carta a un joven escritor"
+      },
+      {
+        "id": 693,
+        "tec": 81,
+        "proceso": "P4",
+        "enun": "¿Qué caracteriza a un argumento trascendental (Kant)?",
+        "texto": "El sujeto atrapado: poder, des"
+      },
+      {
+        "id": 624,
+        "tec": 12,
+        "proceso": "P1",
+        "enun": "En el apartado 1, qué estructura dialéctica se describe en el discurso",
+        "texto": "El archivo de los espejos"
+      },
+      {
+        "id": 633,
+        "tec": 21,
+        "proceso": "P1",
+        "enun": "¿Qué es el campo (Bourdieu) publicitario?",
+        "texto": "Para qué sirve la crítica"
+      },
+      {
+        "id": 146,
+        "tec": 1,
+        "proceso": "P2",
+        "enun": "¿Qué significa la metáfora 'la tecnología debe estar al servicio de la",
+        "texto": "Para qué sirve la crítica"
+      }
+    ]
+  },
+  "payload": {
+    "con_opciones": 200,
+    "con_correcta": 200,
+    "con_explicacion": 200
+  },
+  "tildes": {
+    "con_tildes": 200,
+    "sin_tildes": 0
+  },
+  "sobrecargas": {
+    "sobrecargados": 0,
+    "vacios": []
+  },
+  "rubrica": {
+    "a1_align": 5.0,
+    "claridad": 3.22,
+    "distractores": 3.17,
+    "justificacion": 5.0,
+    "promedio": 4.1,
+    "bajos_3_5": 0
+  },
+  "plan": {
+    "f1_textos": {
+      "necesario": false,
+      "textos_actuales": 14,
+      "en_rango": 14,
+      "fuera": [],
+      "faltantes_para_10": 0
+    },
+    "f2_mapeo": {
+      "necesario": false,
+      "sobrecargados": 0,
+      "vacios": []
+    },
+    "f3a_explicacion": {
+      "necesario": false,
+      "faltan": 0
+    },
+    "f3b_densificar": {
+      "necesario": false,
+      "ratio_actual": 2.0,
+      "ejercicios_actuales": 200,
+      "faltan_para_2.00": 0
+    },
+    "f3c_tildes": {
+      "necesario": false,
+      "con_tildes": 200,
+      "sin_tildes": 0
+    },
+    "f4_rubrica": {
+      "actual": 4.1,
+      "objetivo": 4.0,
+      "bajos_3_5": 0
+    }
+  },
+  "veredicto": {
+    "tipo_sprint": "LIGERO",
+    "razon": "Coherencia 96% alta, textos OK, ratio OK -> solo tildes + explicacion"
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "nivel": "C1",
+  "fecha": "2026-11-10T16:18:04.369950",
+  "rango": "450-700",
+  "textos": {
+    "total": 10,
+    "en_rango": 10,
+    "info": [
+      {
+        "id": 3,
+        "titulo": "La promesa incumplida de la empresa energética",
+        "palabras": 450,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 5,
+        "titulo": "La manipulación del lenguaje en el discurso político",
+        "palabras": 525,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 8,
+        "titulo": "El ruido de las redes sociales",
+        "palabras": 450,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 29,
+        "titulo": "Análisis crítico del discurso institucional: la reforma educativa",
+        "palabras": 484,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 30,
+        "titulo": "Elogio de la lentitud",
+        "palabras": 567,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 31,
+        "titulo": "El cuento que se escribía solo",
+        "palabras": 700,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 32,
+        "titulo": "Desinformación: cómo detectar la manipulación",
+        "palabras": 693,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 62,
+        "titulo": "Lisboa, ciudad de contrastes",
+        "palabras": 506,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 63,
+        "titulo": "La entrevista",
+        "palabras": 450,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 64,
+        "titulo": "Cómo escribir un ensayo argumentativo",
+        "palabras": 534,
+        "en_rango": true,
+        "accion": null
+      }
+    ]
+  },
+  "ejercicios": {
+    "total": 200,
+    "tecnicas": 100,
+    "tec_0": 0,
+    "tec_1": 0,
+    "tec_2m": 100,
+    "ratio": 2.0
+  },
+  "coherencia": {
+    "coherentes": 173,
+    "pct": 86.5,
+    "incoherentes": [
+      {
+        "id": 582,
+        "tec": 59,
+        "proceso": "P3",
+        "enun": "¿Qué práctica social refleja el texto?",
+        "texto": "Lisboa, ciudad de contrastes"
+      },
+      {
+        "id": 583,
+        "tec": 60,
+        "proceso": "P3",
+        "enun": "¿Con qué discursos dialoga el texto?",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 542,
+        "tec": 19,
+        "proceso": "P1",
+        "enun": "En 'declaramos', 'afirmamos', qué tipo de acto de habla se realiza?",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 567,
+        "tec": 44,
+        "proceso": "P2",
+        "enun": "¿Qué consecuencia no deseada se sigue de aceptar 'la lentitud es un pr",
+        "texto": "Lisboa, ciudad de contrastes"
+      },
+      {
+        "id": 568,
+        "tec": 45,
+        "proceso": "P2",
+        "enun": "¿Qué punto de vista implícito revela el uso de 'agotado', 'sobrevivir'",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 549,
+        "tec": 26,
+        "proceso": "P1",
+        "enun": "¿Qué sección del IMRAD corresponde a 'Método'?",
+        "texto": "Lisboa, ciudad de contrastes"
+      },
+      {
+        "id": 593,
+        "tec": 70,
+        "proceso": "P3",
+        "enun": "¿Qué función cumple la parodia de los cuentos de Borges?",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 552,
+        "tec": 29,
+        "proceso": "P1",
+        "enun": "En 'diagnóstico', 'normativa', 'inversión', ¿qué fenómeno discursivo a",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 619,
+        "tec": 96,
+        "proceso": "P4",
+        "enun": "En 'La delincuencia se debe solo a la inmigración', qué falacia hay?",
+        "texto": "Lisboa, ciudad de contrastes"
+      },
+      {
+        "id": 1067,
+        "tec": 55,
+        "proceso": "P2",
+        "enun": "¿Qué función cumplen las preguntas retóricas '¿Es eso vivir? ¿O es sol",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 603,
+        "tec": 80,
+        "proceso": "P3",
+        "enun": "¿Qué polifonía narrativa construye el texto?",
+        "texto": "Cómo escribir un ensayo argume"
+      },
+      {
+        "id": 564,
+        "tec": 41,
+        "proceso": "P2",
+        "enun": "¿Qué modelo mental de receptor construye el texto?",
+        "texto": "La promesa incumplida de la em"
+      },
+      {
+        "id": 589,
+        "tec": 66,
+        "proceso": "P3",
+        "enun": "¿Por qué el narrador puede considerarse no fiable?",
+        "texto": "La promesa incumplida de la em"
+      },
+      {
+        "id": 1096,
+        "tec": 93,
+        "proceso": "P4",
+        "enun": "¿Qué hace sólida o débil una analogía compleja?",
+        "texto": "La promesa incumplida de la em"
+      },
+      {
+        "id": 547,
+        "tec": 24,
+        "proceso": "P1",
+        "enun": "En 'Bruselas ha decidido', ¿qué tropo aparece?",
+        "texto": "La manipulación del lenguaje e"
+      },
+      {
+        "id": 590,
+        "tec": 67,
+        "proceso": "P3",
+        "enun": "¿Qué estructura temporal tiene el texto?",
+        "texto": "La manipulación del lenguaje e"
+      },
+      {
+        "id": 600,
+        "tec": 77,
+        "proceso": "P3",
+        "enun": "¿Qué tipo de focalización narrativa predomina?",
+        "texto": "La manipulación del lenguaje e"
+      },
+      {
+        "id": 1093,
+        "tec": 85,
+        "proceso": "P4",
+        "enun": "¿Qué revela la incoherencia entre discurso y práctica de una instituci",
+        "texto": "El ruido de las redes sociales"
+      },
+      {
+        "id": 566,
+        "tec": 43,
+        "proceso": "P2",
+        "enun": "¿Qué posición tiene el autor sobre la fiabilidad de la cita de Kundera",
+        "texto": "El ruido de las redes sociales"
+      },
+      {
+        "id": 591,
+        "tec": 68,
+        "proceso": "P3",
+        "enun": "¿Qué simboliza el cuaderno?",
+        "texto": "El ruido de las redes sociales"
+      },
+      {
+        "id": 618,
+        "tec": 95,
+        "proceso": "P4",
+        "enun": "¿Qué hace que un argumento sea éticamente rechazable aunque sea lógica",
+        "texto": "El ruido de las redes sociales"
+      },
+      {
+        "id": 576,
+        "tec": 53,
+        "proceso": "P2",
+        "enun": "¿Qué implica el cambio de registro en 'Y no me vengan con que la tecno",
+        "texto": "El ruido de las redes sociales"
+      },
+      {
+        "id": 596,
+        "tec": 73,
+        "proceso": "P3",
+        "enun": "¿Qué función cumple el viaje iniciatico de Aurelio?",
+        "texto": "Análisis crítico del discurso "
+      },
+      {
+        "id": 540,
+        "tec": 17,
+        "proceso": "P1",
+        "enun": "En 'se ha decidido', 'se ha aprobado', qué mecanismo discursivo aparec",
+        "texto": "El cuento que se escribía solo"
+      },
+      {
+        "id": 604,
+        "tec": 81,
+        "proceso": "P4",
+        "enun": "En 'Deberíamos prohibir los videojuegos violentos; son peligrosos', qu",
+        "texto": "El cuento que se escribía solo"
+      },
+      {
+        "id": 614,
+        "tec": 91,
+        "proceso": "P4",
+        "enun": "En 'El 50% de los que enferman son vacunados', qué hay que analizar?",
+        "texto": "El cuento que se escribía solo"
+      },
+      {
+        "id": 1061,
+        "tec": 38,
+        "proceso": "P2",
+        "enun": "¿Qué frame o marco conceptual activa la expresión 'el tiempo es oro'?",
+        "texto": "Desinformación: cómo detectar "
+      }
+    ]
+  },
+  "payload": {
+    "con_opciones": 200,
+    "con_correcta": 200,
+    "con_explicacion": 200
+  },
+  "tildes": {
+    "con_tildes": 200,
+    "sin_tildes": 0
+  },
+  "sobrecargas": {
+    "sobrecargados": 0,
+    "vacios": []
+  },
+  "rubrica": {
+    "a1_align": 5.0,
+    "claridad": 3.25,
+    "distractores": 3.39,
+    "justificacion": 5.0,
+    "promedio": 4.16,
+    "bajos_3_5": 0
+  },
+  "plan": {
+    "f1_textos": {
+      "necesario": false,
+      "textos_actuales": 10,
+      "en_rango": 10,
+      "fuera": [],
+      "faltantes_para_10": 0
+    },
+    "f2_mapeo": {
+      "necesario": false,
+      "sobrecargados": 0,
+      "vacios": []
+    },
+    "f3a_explicacion": {
+      "necesario": false,
+      "faltan": 0
+    },
+    "f3b_densificar": {
+      "necesario": false,
+      "ratio_actual": 2.0,
+      "ejercicios_actuales": 200,
+      "faltan_para_2.00": 0
+    },
+    "f3c_tildes": {
+      "necesario": false,
+      "con_tildes": 200,
+      "sin_tildes": 0
+    },
+    "f4_rubrica": {
+      "actual": 4.16,
+      "objetivo": 4.0,
+      "bajos_3_5": 0
+    }
+  },
+  "veredicto": {
+    "tipo_sprint": "LIGERO",
+    "razon": "Coherencia 86% alta, textos OK, ratio OK -> solo tildes + explicacion"
+  }
+}

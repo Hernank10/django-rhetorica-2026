@@ -1,0 +1,217 @@
+{
+  "nivel": "B2",
+  "fecha": "2026-11-10T12:48:26.326276",
+  "rango": "300-500",
+  "textos": {
+    "total": 10,
+    "en_rango": 9,
+    "info": [
+      {
+        "id": 6,
+        "titulo": "La inteligencia artificial en la educación: promesas y riesgos",
+        "palabras": 311,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 10,
+        "titulo": "La moda rápida y el costo humano",
+        "palabras": 474,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 12,
+        "titulo": "El turismo masivo en las ciudades",
+        "palabras": 464,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 25,
+        "titulo": "La semana laboral de cuatro días",
+        "palabras": 347,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 26,
+        "titulo": "El regreso de Amina",
+        "palabras": 440,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 27,
+        "titulo": "La casa de los relojes",
+        "palabras": 510,
+        "en_rango": false,
+        "accion": "reescribir_acortar"
+      },
+      {
+        "id": 28,
+        "titulo": "Móviles en los institutos: prohibir o educar",
+        "palabras": 458,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 59,
+        "titulo": "Una ciudad que cambia",
+        "palabras": 335,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 60,
+        "titulo": "Una conversación difícil",
+        "palabras": 315,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 61,
+        "titulo": "Leer en la era digital",
+        "palabras": 428,
+        "en_rango": true,
+        "accion": null
+      }
+    ]
+  },
+  "ejercicios": {
+    "total": 102,
+    "tecnicas": 100,
+    "tec_0": 0,
+    "tec_1": 98,
+    "tec_2m": 2,
+    "ratio": 1.02
+  },
+  "coherencia": {
+    "coherentes": 95,
+    "pct": 93.1,
+    "incoherentes": [
+      {
+        "id": 141,
+        "tec": 8,
+        "proceso": "P4",
+        "enun": "¿Cómo está estructurado el texto?",
+        "texto": "La inteligencia artificial en "
+      },
+      {
+        "id": 482,
+        "tec": 43,
+        "proceso": "P2",
+        "enun": "¿Qué tipo de narrador tiene el texto?",
+        "texto": "El regreso de Amina"
+      },
+      {
+        "id": 1016,
+        "tec": 49,
+        "proceso": "P2",
+        "enun": "¿A qué público objetivo va dirigido el texto?",
+        "texto": "El regreso de Amina"
+      },
+      {
+        "id": 490,
+        "tec": 51,
+        "proceso": "P2",
+        "enun": "¿Qué mensaje implícito transmite el texto?",
+        "texto": "El regreso de Amina"
+      },
+      {
+        "id": 1023,
+        "tec": 60,
+        "proceso": "P2",
+        "enun": "¿Qué crítica social contiene el texto?",
+        "texto": "El regreso de Amina"
+      },
+      {
+        "id": 1025,
+        "tec": 73,
+        "proceso": "P3",
+        "enun": "¿Qué función cumple el narrador testigo (primera persona que observa)?",
+        "texto": "La casa de los relojes"
+      },
+      {
+        "id": 129,
+        "tec": 5,
+        "proceso": "P3",
+        "enun": "¿Desde qué punto de vista está escrito el texto?",
+        "texto": "La manipulación del lenguaje e"
+      }
+    ]
+  },
+  "payload": {
+    "con_opciones": 101,
+    "con_correcta": 101,
+    "con_explicacion": 0
+  },
+  "tildes": {
+    "con_tildes": 100,
+    "sin_tildes": 2
+  },
+  "sobrecargas": {
+    "sobrecargados": 4,
+    "vacios": [
+      59,
+      60,
+      61
+    ]
+  },
+  "rubrica": {
+    "a1_align": 4.39,
+    "claridad": 3.34,
+    "distractores": 3.76,
+    "justificacion": 2.0,
+    "promedio": 3.38,
+    "bajos_3_5": 41
+  },
+  "plan": {
+    "f1_textos": {
+      "necesario": true,
+      "textos_actuales": 10,
+      "en_rango": 9,
+      "fuera": [
+        {
+          "id": 27,
+          "palabras": 510,
+          "accion": "reescribir_acortar"
+        }
+      ],
+      "faltantes_para_10": 0
+    },
+    "f2_mapeo": {
+      "necesario": true,
+      "sobrecargados": 4,
+      "vacios": [
+        59,
+        60,
+        61
+      ]
+    },
+    "f3a_explicacion": {
+      "necesario": true,
+      "faltan": 102
+    },
+    "f3b_densificar": {
+      "necesario": true,
+      "ratio_actual": 1.02,
+      "ejercicios_actuales": 102,
+      "faltan_para_2.00": 98
+    },
+    "f3c_tildes": {
+      "necesario": false,
+      "con_tildes": 100,
+      "sin_tildes": 2
+    },
+    "f4_rubrica": {
+      "actual": 3.38,
+      "objetivo": 4.0,
+      "bajos_3_5": 41
+    }
+  },
+  "veredicto": {
+    "tipo_sprint": "MEDIO",
+    "razon": "Coherencia 93%, 9/10 textos OK, ratio 1.02 -> F1+F2+F3a+F3b+tildes"
+  }
+}

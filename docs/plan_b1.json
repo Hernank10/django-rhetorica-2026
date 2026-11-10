@@ -1,0 +1,198 @@
+{
+  "nivel": "B1",
+  "fecha": "2026-11-10T11:46:37.983658",
+  "rango": "180-350",
+  "textos": {
+    "total": 7,
+    "en_rango": 4,
+    "info": [
+      {
+        "id": 2,
+        "titulo": "El reciclaje de vidrio en España",
+        "palabras": 119,
+        "en_rango": false,
+        "accion": "reescribir_ampliar"
+      },
+      {
+        "id": 4,
+        "titulo": "El debate sobre las redes sociales en los institutos",
+        "palabras": 210,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 7,
+        "titulo": "La biblioteca secreta",
+        "palabras": 310,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 21,
+        "titulo": "La fuerza de las palabras",
+        "palabras": 186,
+        "en_rango": true,
+        "accion": null
+      },
+      {
+        "id": 22,
+        "titulo": "La decisión de Marta",
+        "palabras": 417,
+        "en_rango": false,
+        "accion": "reescribir_acortar"
+      },
+      {
+        "id": 23,
+        "titulo": "El viaje de Santiago",
+        "palabras": 508,
+        "en_rango": false,
+        "accion": "reescribir_acortar"
+      },
+      {
+        "id": 24,
+        "titulo": "Pantallas en las aulas: ayuda o distracción",
+        "palabras": 282,
+        "en_rango": true,
+        "accion": null
+      }
+    ]
+  },
+  "ejercicios": {
+    "total": 100,
+    "tecnicas": 100,
+    "tec_0": 0,
+    "tec_1": 100,
+    "tec_2m": 0,
+    "ratio": 1.0
+  },
+  "coherencia": {
+    "coherentes": 93,
+    "pct": 93.0,
+    "incoherentes": [
+      {
+        "id": 728,
+        "tec": 5,
+        "proceso": "P3",
+        "enun": "¿Cómo se relacionan el segundo y el tercer párrafo?",
+        "texto": "El debate sobre las redes soci"
+      },
+      {
+        "id": 382,
+        "tec": 23,
+        "proceso": "P1",
+        "enun": "¿Qué marcador de orden aparece al inicio del segundo párrafo de desarr",
+        "texto": "La fuerza de las palabras"
+      },
+      {
+        "id": 388,
+        "tec": 29,
+        "proceso": "P1",
+        "enun": "¿Qué contraargumento menciona el texto?",
+        "texto": "La fuerza de las palabras"
+      },
+      {
+        "id": 397,
+        "tec": 38,
+        "proceso": "P1",
+        "enun": "¿Qué estructura tiene el texto?",
+        "texto": "La fuerza de las palabras"
+      },
+      {
+        "id": 408,
+        "tec": 49,
+        "proceso": "P2",
+        "enun": "A que público objetivo va dirigido el texto?",
+        "texto": "La decisión de Marta"
+      },
+      {
+        "id": 416,
+        "tec": 57,
+        "proceso": "P2",
+        "enun": "¿Cuál es la intención del autor con este texto?",
+        "texto": "La decisión de Marta"
+      },
+      {
+        "id": 434,
+        "tec": 75,
+        "proceso": "P3",
+        "enun": "¿Qué tipo de narrador tiene el texto?",
+        "texto": "El viaje de Santiago"
+      }
+    ]
+  },
+  "payload": {
+    "con_opciones": 99,
+    "con_correcta": 99,
+    "con_explicacion": 0
+  },
+  "tildes": {
+    "con_tildes": 90,
+    "sin_tildes": 10
+  },
+  "sobrecargas": {
+    "sobrecargados": 4,
+    "vacios": []
+  },
+  "rubrica": {
+    "a1_align": 3.7,
+    "claridad": 3.35,
+    "distractores": 4.22,
+    "justificacion": 2.0,
+    "promedio": 3.32,
+    "bajos_3_5": 49
+  },
+  "plan": {
+    "f1_textos": {
+      "necesario": true,
+      "textos_actuales": 7,
+      "en_rango": 4,
+      "fuera": [
+        {
+          "id": 2,
+          "palabras": 119,
+          "accion": "reescribir_ampliar"
+        },
+        {
+          "id": 22,
+          "palabras": 417,
+          "accion": "reescribir_acortar"
+        },
+        {
+          "id": 23,
+          "palabras": 508,
+          "accion": "reescribir_acortar"
+        }
+      ],
+      "faltantes_para_10": 3
+    },
+    "f2_mapeo": {
+      "necesario": true,
+      "sobrecargados": 4,
+      "vacios": []
+    },
+    "f3a_explicacion": {
+      "necesario": true,
+      "faltan": 100
+    },
+    "f3b_densificar": {
+      "necesario": true,
+      "ratio_actual": 1.0,
+      "ejercicios_actuales": 100,
+      "faltan_para_2.00": 100
+    },
+    "f3c_tildes": {
+      "necesario": true,
+      "con_tildes": 90,
+      "sin_tildes": 10
+    },
+    "f4_rubrica": {
+      "actual": 3.32,
+      "objetivo": 4.0,
+      "bajos_3_5": 49
+    }
+  },
+  "veredicto": {
+    "tipo_sprint": "MEDIO",
+    "razon": "Coherencia 93%, 4/7 textos OK, ratio 1.00 -> F1+F2+F3a+F3b+tildes"
+  }
+}

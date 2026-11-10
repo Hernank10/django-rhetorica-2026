@@ -1,0 +1,297 @@
+"""_seed_textos_c2.py - F1 C2: crear 10 textos nuevos en rango 700-1200 palabras.
+
+Rango C2: 700-1200 palabras.
+Tipos: ensayo, académico, narrativo, diálogo, descriptivo, informativo.
+No hay textos previos C2, así que todo son CREATE.
+"""
+import os, sys, re, argparse
+from pathlib import Path
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--apply", action="store_true")
+args = parser.parse_args()
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent if HERE.name == "scripts" else HERE
+sys.path.insert(0, str(ROOT))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_retorica.settings.dev")
+import django; django.setup()
+from django.apps import apps
+from django.db import transaction
+
+TX = apps.get_model("core", "Texto")
+MIN_W, MAX_W = 700, 1200
+
+def wc(text):
+    text = re.sub(r"<[^>]+>", " ", str(text or ""))
+    return len(re.findall(r"\b[\wáéíóúñÁÉÍÓÚÑü]+\b", text))
+
+NUEVOS = [
+    {
+        "titulo": "La paradoja de la tolerancia",
+        "tipo": "ensayo",
+        "cuerpo": """Hay una pregunta que atraviesa la filosofía política desde la Ilustración y que sigue sin una respuesta pacífica: ¿debe la sociedad tolerante tolerar a los intolerantes? La formulación es célebre, casi un lugar común de los manuales, pero su aparente sencillez esconde un problema de una profundidad que desborda los límites del debate académico. Cuando Karl Popper la planteó en 1945, en el contexto de la posguerra europea, no lo hacía como un ejercicio retórico, sino como una advertencia práctica sobre las condiciones de posibilidad de la propia democracia. Su tesis, mal citada con frecuencia, no era que debiéramos ser intolerantes sin más, sino que la tolerancia ilimitada conduce necesariamente a la desaparición de la tolerancia. Quien tolera sistemáticamente a los que no toleran, tolera el fin de su propia tolerancia. Es una paradoja performativa: el acto de tolerar destruye la condición que lo hacía posible.
+
+Conviene detenerse en la estructura lógica de este razonamiento, porque no es tan simple como a veces se presenta. Popper no afirma que debamos perseguir a todos los intolerantes, ni que cualquier opinión incómoda deba ser silenciada. Distingue con cuidado entre la tolerancia de las ideas y la tolerancia de las prácticas. Podemos tolerar, e incluso defender, la libertad de expresar ideas intolerantes, siempre que esa expresión no esté acompañada de prácticas que destruyan el marco mismo de la tolerancia. La línea, sin embargo, es difícil de trazar, y en esa dificultad se juega la salud de una democracia.
+
+Los críticos de Popper han señalado, con razón, que su criterio es peligrosamente elástico. ¿Quién decide qué expresiones son meramente ideológicas y cuáles constituyen una amenaza real para el orden tolerante? ¿No es esa distinción una invitación a la censura de todo lo que el poder considere peligroso? Es la objeción liberal clásica, formulada con lucidez por autores como Isaiah Berlin: toda distinción entre ideas tolerables e intolerables abre la puerta a que el gobernante de turno decida, según sus intereses, qué cuenta como idea y qué como práctica. El pluralismo, en cambio, supone aceptar el riesgo del disenso, incluso del disenso radical, como precio de la libertad.
+
+Sin embargo, la objeción liberal, por fundada que sea, no resuelve el problema, lo desplaza. Porque también es cierto que ninguna sociedad puede sobrevivir si trata como opinión respetable la propuesta de destruirla. La cuestión no es si hay que poner límites, sino cuáles, cómo y con qué garantías. El filósofo Ronald Dworkin sostuvo, en una línea más matizada que la de Popper, que la tolerancia debe extenderse a todas las opiniones, incluso las más ofensivas, siempre que su expresión no implique una incitación directa e inmediata a la violencia. Es la doctrina del "discurso público igualitario": todas las voces tienen derecho a ser escuchadas, pero ninguna puede reclamar para sí el monopolio de la verdad. El límite no está en el contenido, sino en las consecuencias directas del acto comunicativo.
+
+Otras tradiciones, en cambio, han defendido un enfoque más sustantivo. Jürgen Habermas, desde la teoría de la acción comunicativa, ha insistido en que la deliberación pública exige algo más que la mera coexistencia de opiniones: requiere un compromiso con los presupuestos pragmáticos del habla racional, con la disposición a dar y pedir razones. Quien sistemáticamente se niega a razonar no participa del juego democrático, aunque formalmente lo invoque. No se le puede excluir por sus ideas, pero sí se puede señalar que su práctica discursiva es incompatible con la deliberación que dice defender.
+
+En el fondo, la paradoja de la tolerancia es una paradoja de la reflexividad. Toda comunidad política se sostiene sobre un conjunto de presupuestos que no son objeto de discusión en el debate ordinario, y sin los cuales el debate mismo no sería posible. La tolerancia es uno de esos presupuestos. No puede ser tolerada sin más, como si fuera una opinión entre otras, porque es la condición que permite que haya opiniones en plural. Es, en el lenguaje de la filosofía del derecho, una norma de segundo orden: regula las condiciones en que las normas de primer orden (las opiniones, las prácticas, las leyes) pueden existir.
+
+¿Qué se sigue de todo esto en el terreno de la práctica? No una respuesta única, desde luego, pero sí algunas orientaciones. Primero, que el debate público no puede confundir la crítica de las ideas con la criminalización de las personas; la intolerancia se combate con argumentos, no con silencios. Segundo, que toda restricción de la libertad de expresión debe estar sometida a un escrutinio especialmente exigente, porque el coste del error es asimétrico: es peor callar una verdad que permitir un exceso verbal. Tercero, que la salud de una democracia se mide, en última instancia, por su capacidad para integrar el disenso sin sucumbir a él.
+
+La paradoja, quizá, no tiene solución, pero sí tiene una forma de habitarla: reconocer que la tolerancia no es un principio absoluto, sino un principio reflexivo, que exige ser defendido con los mismos medios que autoriza. Quien defiende la tolerancia no puede ser intolerante con los intolerantes sin más; pero tampoco puede ser tan tolerante que permita que los intolerantes acaben con ella. La tensión no se resuelve, se gestiona. Y esa gestión es, quizá, la tarea más alta de la política democrática.""",
+    },
+    {
+        "titulo": "El narrador no fiable en El Quijote",
+        "tipo": "academico",
+        "cuerpo": """La crítica cervantina ha dedicado ríos de tinta a la cuestión del narrador en el Quijote, y no es para menos: la obra inaugura, o al menos consolida, un dispositivo narrativo que la novela moderna explotará hasta el agotamiento. Me refiero a la figura del narrador no fiable, ese narrador que dice lo que dice pero cuyo decir está minado por la ironía, por la contradicción o por la simple imposibilidad de saber aquello que afirma saber. En el Quijote, este dispositivo no es un adorno técnico: es el corazón mismo de la novela, el mecanismo que permite a Cervantes poner en cuestión, simultáneamente, la verosimilitud de la ficción y la credibilidad de la historia.
+
+Conviene distinguir, en primer lugar, los distintos niveles narrativos que operan en el texto. Hay un narrador primero, anónimo, que abre la novela con la célebre fórmula "En un lugar de la Mancha, de cuyo nombre no quiero acordarme". Esta voz, que se presenta como historiador, es ya sospechosa desde el inicio: ¿cómo puede un historiador no acordarse del nombre del lugar? ¿Qué clase de historia es la que se construye sobre un olvido deliberado? El gesto inaugural del Quijote es, en este sentido, una declaración de principios: la novela no va a ofrecer una verdad, sino una verdad problemática, construida a base de silencios, lagunas y contradicciones.
+
+A este primer narrador se superpone, en el capítulo IX, la figura del traductor. El narrador nos cuenta que la historia se interrumpe en el momento culminante de la batalla contra el vizcaíno, y que él, no sabiendo cómo continuar, encontró casualmente en el Alcaná de Toledo un cartapacio con la continuación de la historia, escrita en árabe por un tal Cide Hamete Benengeli. Esta operación, que la crítica ha leído como un simple juego literario, es en realidad una mise en abyme de la condición ficcional del relato: la historia que leemos no es la que Cervantes escribió, sino la traducción de la traducción, la copia de la copia, el relato de un relato. El narrador se convierte en traductor, y su autoridad queda definitivamente minada.
+
+A partir de este momento, el Quijote se construye sobre una triple distancia: la que separa al lector de Cervantes, la que separa a Cervantes del narrador-traductor, y la que separa al traductor de Cide Hamete. En cada uno de estos tránsitos, el texto pierde algo: la certeza, la coherencia, la verosimilitud. Lo que el lector recibe no es la historia tal como sucedió, sino la historia tal como ha sido contada, traducida y transmitida. La novela se convierte así en una reflexión sobre las condiciones mismas de la narración, sobre lo que significa contar una historia y sobre lo que se pierde en el acto de contarla.
+
+Hay un episodio particularmente revelador de este dispositivo: el del bachiller Sansón Carrasco, que ha leído la primera parte del Quijote y comenta con don Quijote y Sancho las aventuras que en ella se narran. Estamos ante un personaje de ficción que ha leído el libro en que él mismo aparece, lo cual produce un efecto de vértigo ontológico: ¿en qué mundo vive Sansón Carrasco? ¿En el de la ficción o en el de la realidad? La respuesta es que vive en el único mundo posible, el de la ficción que se sabe ficción, el de la literatura que se pregunta por su propia condición. Este episodio, que ha sido leído como un simple guiño humorístico, es en realidad la culminación del proyecto cervantino: la novela que se piensa a sí misma como novela.
+
+La cuestión del narrador no fiable en el Quijote se complica, además, por la presencia constante de la ironía. El narrador no miente, pero tampoco dice la verdad: dice lo que Cide Hamete dice, y Cide Hamete, como autor musulmán, es sospechoso de mentir sobre los cristianos. "Si contra ella se puede objetar que el autor fue arábigo, no es de maravillar que en su historia se mezclen algunas mentiras", escribe Cervantes, en una de las más sutiles ironías metaficcionales de la literatura universal. La mentira no está en el texto, sino en la distancia entre el texto y la verdad; y esa distancia es, precisamente, lo que la novela pone en escena.
+
+Los críticos han discutido si el dispositivo del narrador no fiable es en Cervantes un recurso consciente o una consecuencia inevitable del género. Algunos, como E.C. Riley, lo interpretan como una sofisticada reflexión sobre los límites de la historiografía, género que pretendía decir la verdad y que, como el propio Cervantes muestra, no puede decirla. Otros, como Ruth El Saffar, lo leen en clave psicoanalítica: el narrador sería una figura de la escisión del yo, el síntoma de una subjetividad que se sabe múltiple y que no puede sino fragmentarse en el relato. Ambas lecturas no son excluyentes, y quizá la grandeza del Quijote resida precisamente en que admite, e incluso exige, lecturas plurales.
+
+Lo que me interesa subrayar aquí es la relación entre el narrador no fiable y la modernidad literaria. El Quijote inaugura un tipo de novela en la que el narrador ya no es una autoridad, sino un problema. La novela moderna, desde Flaubert hasta Joyce, desde Proust hasta Nabokov, se construirá sobre esta intuición: que la verdad de la novela no está en lo que cuenta, sino en cómo lo cuenta; que el narrador no es un medio transparente, sino un personaje más, tan ficticio como los que protagonizan la historia. El Quijote no es solo la primera novela moderna: es la primera novela que se pregunta qué es una novela, y esa pregunta, formulada a través del dispositivo del narrador no fiable, sigue siendo hoy la pregunta fundamental de la teoría literaria.""",
+    },
+    {
+        "titulo": "El lenguaje como arma política",
+        "tipo": "academico",
+        "cuerpo": """El análisis crítico del discurso, desarrollado por autores como Norman Fairclough, Teun van Dijk y Ruth Wodak, parte de una premisa que la lingüística tradicional había tendido a ignorar: que el lenguaje no es un medio neutro de transmisión de información, sino un instrumento de construcción de la realidad social. Esta premisa, que hoy parece evidente, tuvo en su momento un carácter fuertemente polémico, porque suponía reconocer que las relaciones de poder se juegan también, y quizá sobre todo, en el terreno del discurso. No basta con analizar las instituciones, las leyes o los aparatos represivos: hay que analizar también las palabras con que esas instituciones, leyes y aparatos se legitiman.
+
+El punto de partida teórico es la tesis de Sapir-Whorf, según la cual el lenguaje que hablamos condiciona, cuando no determina, nuestra manera de percibir el mundo. Aunque la versión fuerte de esta hipótesis ha sido ampliamente criticada, la versión débil —que el lenguaje influye en la cognición, aunque no la determine— sigue siendo un presupuesto razonable. Si esto es así, controlar el lenguaje con que se habla de un fenómeno es, en cierta medida, controlar la manera en que ese fenómeno es percibido. El político que impone un determinado vocabulario para referirse a una cuestión no solo está describiendo la realidad: está construyendo el marco en el que esa realidad será pensada.
+
+Un primer mecanismo de esta construcción es la nominalización, es decir, la conversión de acciones en sustantivos. Cuando un gobierno anuncia que "se ha producido un incremento del desempleo", está presentando un fenómeno como si fuera un acontecimiento natural, algo que simplemente ocurre. En cambio, si dice "hemos destruido empleo", está asumiendo una responsabilidad. La nominalización, al borrar el agente de la acción, despolitiza el conflicto: lo convierte en un dato de la naturaleza en lugar de en una decisión política. Este mecanismo es especialmente frecuente en los discursos institucionales, donde la responsabilidad tiende a diluirse en fórmulas impersonales.
+
+Un segundo mecanismo es la selección léxica. Las palabras no son intercambiables: "régimen" y "gobierno", "manifestación" y "disturbios", "ajuste" y "recorte", "flexibilización" y "despido", "daños colaterales" y "muertes civiles", activan marcos interpretativos distintos. El eufemismo, en particular, no es una simple cuestión de estilo: es una operación política que suaviza la percepción de un hecho y dificulta su crítica. George Orwell lo formuló con claridad en su ensayo sobre la política y el lenguaje: el lenguaje político está diseñado para hacer que las mentiras suenen verdaderas y el asesinato parezca respetable.
+
+Un tercer mecanismo es la presuposición. Toda frase presupone más de lo que afirma. Cuando un político dice "el actual sistema ha fracasado", está presuponiendo que hay un sistema, que ese sistema es el actual, y que ha fracasado. Ninguna de estas tres cosas se afirma explícitamente: se dan por supuestas. El oyente que acepta la frase acepta también sus presupuestos, sin haberlos examinado. La presuposición es, en este sentido, una forma de manipulación especialmente eficaz, porque no se presenta como tal: se presenta como el trasfondo obvio de una afirmación que se quiere discutir.
+
+Un cuarto mecanismo es la metáfora conceptual. George Lakoff y Mark Johnson mostraron, en Metáforas de la vida cotidiana, que nuestro pensamiento está estructurado por metáforas que no percibimos como tales. "La educación es una inversión", "la política es una guerra", "la sociedad es un cuerpo", "el tiempo es dinero": cada una de estas metáforas impone una manera de pensar el fenómeno, y excluye otras. Quien piensa la educación como inversión espera un retorno; quien la piensa como derecho no. La metáfora no es un adorno retórico: es un marco cognitivo que condiciona lo que podemos pensar y lo que no.
+
+Un quinto mecanismo, quizá el más visible, es la falacia argumentativa. El discurso político está plagado de falsos dilemas ("o está con nosotros o está contra nosotros"), de hombres de paja (atribuir al adversario una posición que no sostiene para refutarla más fácilmente), de argumentos ad hominem (descalificar a la persona en lugar de refutar su argumento), de pendientes resbaladizas (presentar una cadena de consecuencias catastróficas sin justificar cada paso). Estas falacias no son simples errores lógicos: son estrategias discursivas que buscan persuadir sin argumentar, ganar la adhesión sin pasar por la razón.
+
+Frente a estos mecanismos, el análisis crítico del discurso propone una serie de herramientas de lectura. La primera es la pregunta por el agente: ¿quién hace qué? Toda nominalización oculta un sujeto; desnominalizar es recuperarlo. La segunda es la pregunta por el léxico: ¿qué palabras se eligen y qué palabras se evitan? ¿Qué marcos activan unas y otras? La tercera es la pregunta por las presuposiciones: ¿qué se da por supuesto? ¿Qué se presenta como obvio y, por tanto, no se discute? La cuarta es la pregunta por las metáforas: ¿qué metáforas estructuran el discurso? ¿Qué implican? ¿Qué excluyen? La quinta es la pregunta por la argumentación: ¿qué se argumenta y qué se da por sentado? ¿Qué falacias se emplean?
+
+El análisis crítico del discurso no es, sin embargo, una empresa meramente negativa. No se trata solo de desenmascarar la manipulación, sino de construir un discurso alternativo. El pensador Cornelius Castoriadis lo formuló con claridad: la democracia es el régimen de la reflexividad, el régimen en el que la sociedad se pregunta por sus propias instituciones. Y esa pregunta solo es posible si los ciudadanos son capaces de analizar el lenguaje con que esas instituciones se legitiman. Sin ciudadanos capaces de leer críticamente el discurso del poder, la democracia se convierte en una cáscara vacía, en un ritual sin sustancia. El lenguaje es un arma política, y quien no sabe leerlo está condenado a ser su víctima.""",
+    },
+    {
+        "titulo": "La ética de la IA en decisiones médicas",
+        "tipo": "argumentativo",
+        "cuerpo": """La introducción de sistemas de inteligencia artificial en la práctica médica ha abierto un debate ético de una complejidad sin precedentes. No se trata solo de evaluar la eficacia de los algoritmos, sino de preguntarse quién decide, con qué criterios, y con qué legitimidad, cuando la decisión afecta a la vida o a la salud de una persona. El problema no es técnico, sino político y moral: ¿qué queremos que haga la máquina y qué queremos seguir haciendo nosotros, aunque la máquina lo haga mejor?
+
+Consideremos el caso de los sistemas de apoyo al diagnóstico. Un algoritmo entrenado con millones de imágenes médicas puede detectar ciertos tipos de cáncer con una precisión superior a la de un radiólogo medio. Los defensores de la IA en medicina subrayan las ventajas evidentes: reducción de errores, detección temprana, liberación de tiempo para el personal sanitario. Y sin embargo, la implantación de estos sistemas plantea problemas que no se resuelven con más datos ni con mejores algoritmos.
+
+El primero es el problema de la explicabilidad. Los sistemas de aprendizaje profundo son, en gran medida, cajas negras: producen un resultado, pero no pueden explicar por qué. En medicina, esto es un problema serio. No basta con que el sistema diga "hay un tumor"; hay que poder justificar la decisión, para que el paciente pueda entenderla, para que el médico pueda supervisarla, para que el sistema pueda ser auditado. La ética médica exige transparencia, y la opacidad de los algoritmos la hace imposible. Un diagnóstico que no se puede explicar no es plenamente un diagnóstico: es un oráculo.
+
+El segundo es el problema del sesgo. Los algoritmos aprenden de los datos que se les proporcionan, y esos datos reflejan los sesgos de la sociedad que los produce. Un sistema entrenado principalmente con imágenes de pacientes blancos puede ser menos preciso con pacientes negros. Un sistema entrenado con datos de hospitales urbanos puede fallar en zonas rurales. El sesgo algorítmico no es un fallo técnico que se corrija con más datos: es un problema estructural que exige una reflexión sobre qué datos se recogen, cómo se recogen, y qué voces quedan fuera. La justicia sanitaria exige que el sistema funcione igual de bien para todos, y eso no se consigue por defecto.
+
+El tercero es el problema de la responsabilidad. Si un algoritmo comete un error y el paciente sufre un daño, ¿quién responde? ¿El programador que lo diseñó? ¿El hospital que lo implantó? ¿El médico que lo supervisó? ¿El paciente que aceptó ser tratado con él? La cadena de responsabilidad se diluye en una maraña de actores, y esa dilución es, en sí misma, un problema ético. En medicina, la responsabilidad es personal: el médico responde de sus actos. La introducción de la IA rompe esa lógica y exige nuevas formas de atribución de responsabilidad que aún no hemos diseñado.
+
+El cuarto, y quizá el más profundo, es el problema de la relación médico-paciente. La medicina no es solo una técnica de diagnóstico y tratamiento: es también una relación humana, basada en la confianza, la escucha, el cuidado. El médico no solo cura: también acompaña, consuela, explica. La IA puede diagnosticar con precisión, pero no puede sostener la mirada del paciente cuando le da una mala noticia, ni puede responder a la pregunta "¿me voy a morir?", ni puede ofrecer el silencio que a veces es la única respuesta posible. Sustituir al médico por un algoritmo no es solo una cuestión de eficiencia: es una transformación de lo que entendemos por medicina.
+
+Frente a estos problemas, no faltan propuestas. Algunos abogan por un enfoque de "IA centrada en el humano", en el que el algoritmo es una herramienta al servicio del médico, no un sustituto. Otros proponen auditorías externas, comités de ética, certificaciones. Otros, más radicales, sostienen que hay ámbitos en los que la IA no debería entrar, porque la relación humana es irreducible. Ninguna de estas propuestas es suficiente por sí sola, pero todas apuntan en la misma dirección: la necesidad de un debate público, democrático, sobre qué queremos que haga la IA en medicina y qué no.
+
+La pregunta de fondo, en cualquier caso, no es si la IA puede tomar decisiones médicas, sino si queremos que las tome. La respuesta no se deduce de los datos, sino de los valores. Y los valores no son universales: varían según las culturas, las tradiciones, las concepciones del bien. Lo que en un país se considera aceptable, en otro puede ser inadmisible. Lo que una generación considera progreso, otra puede considerarlo una amenaza. La ética de la IA en medicina no es, por tanto, una cuestión técnica que pueda resolverse con un algoritmo más sofisticado: es una cuestión política que exige deliberación pública, participación ciudadana y rendición de cuentas.
+
+El reto, en definitiva, no es solo técnico, sino civilizatorio. Se trata de decidir qué tipo de medicina queremos, y qué tipo de sociedad queremos ser. La IA es una herramienta poderosa, pero las herramientas no deciden por nosotros: somos nosotros quienes decidimos qué hacer con ellas. Y esa decisión, en el ámbito de la salud, es demasiado importante para dejarla en manos de los algoritmos.""",
+    },
+    {
+        "titulo": "Carta a un joven escritor",
+        "tipo": "dialogo",
+        "cuerpo": """Querido Andrés:
+
+Me pides consejo, y me halaga y me incomoda a partes iguales. Me halaga porque implies que tengo algo que enseñarte, y me incomoda porque sé, por experiencia, que los consejos sobre escritura sirven de poco: cada escritor tiene que encontrar su propio camino, y el camino de otro, por brillante que sea, no sirve. Con todo, hay algunas cosas que me habría gustado que alguien me dijera cuando tenía tu edad, y te las voy a decir, aunque sea con la conciencia de que probablemente no te sirvan de mucho.
+
+La primera es que escribas todos los días. No cuando llegue la inspiración, no cuando tengas algo que decir: todos los días. La inspiración no llega sola; llega mientras trabajas. Flaubert decía que las palabras son como las piedras: hay que colocarlas una a una, con paciencia, hasta que el muro esté construido. No hay atajos. La disciplina es la base de todo lo demás.
+
+La segunda es que leas como un escritor, no como un lector. Un lector lee para entretenerse, para emocionarse, para aprender. Un escritor lee para descubrir cómo está hecho el texto. Se pregunta por qué el autor eligió esa palabra y no otra, por qué puso la coma ahí y no aquí, por qué esa frase tiene esa longitud y no otra. Leer como escritor es una forma de análisis, casi de anatomía. Al principio cuesta; luego se convierte en un hábito, y el hábito en un placer.
+
+La tercera es que no tengas miedo de escribir mal. El primer borrador siempre es malo. Lo dijo Hemingway: "La primera versión de cualquier cosa es una mierda". No lo dijo con desprecio, sino con realismo. Escribir es reescribir. El primer borrador sirve para saber qué quieres decir; los siguientes, para decirlo bien. Si esperas a que la primera frase sea perfecta para escribir la segunda, no escribirás nunca nada.
+
+La cuarta es que leas en voz alta lo que escribes. El oído es un juez implacable. Si una frase te hace tropezar al leerla en voz alta, si te obliga a tomar aire en un lugar incómodo, si suena a falso, reescríbela. La prosa es ritmo, y el ritmo se escucha, no se ve.
+
+La quinta es que no te obsesiones con la originalidad. Todos los temas están ya tratados. Lo que importa no es el tema, sino la mirada. Dos escritores pueden escribir sobre el mismo asunto y producir textos completamente distintos, porque cada uno ve el mundo a su manera. La originalidad no está en el qué, sino en el cómo.
+
+La sexta es que aceptes la soledad. Escribir es una actividad solitaria. Mientras escribes, no hay nadie que te aplauda, nadie que te corrija, nadie que te diga si vas por buen camino. Estás tú, la página en blanco y tus fantasmas. Esa soledad puede ser angustiosa, pero también es la condición de la libertad. En la soledad de la escritura, nadie te dice lo que tienes que decir.
+
+La séptima es que no esperes a tener algo importante que decir. Los grandes temas son los pequeños. Una taza de café, una conversación en un autobús, una tarde de lluvia: de eso están hechas las grandes novelas. Lo importante no es el acontecimiento, sino la mirada que lo transforma.
+
+La octava es que leas a los clásicos. No por deber, sino por placer. Los clásicos son clásicos porque siguen diciéndonos algo, siglo tras siglo. Leer a Cervantes, a Shakespeare, a Tolstói, a Proust, a Borges, no es un ejercicio de arqueología: es una conversación con los mejores maestros que puedes tener.
+
+La novena es que no tengas miedo del ridículo. El escritor que no se arriesga, que no se expone, que no dice lo que de verdad piensa, es un escritor mediocre. La literatura exige valentía: la valentía de decir lo que no se dice, de mostrar lo que no se muestra, de nombrar lo que no tiene nombre. Si no te expones, no escribes.
+
+La décima, y última, es que escribas para ti. No para el editor, no para el crítico, no para el público. Para ti. Si escribes para los demás, acabarás escribiendo lo que los demás esperan, y eso no es literatura: es marketing. Escribe lo que te obsesiona, lo que no te deja dormir, lo que te da miedo. Si a ti te conmueve, es probable que conmueva a otros. Si escribes para agradar, no conmoverás a nadie.
+
+Estas son mis diez reglas. Te las doy con la certeza de que no son universales, de que no funcionan para todos, de que cada escritor tiene que inventarse las suyas. Pero son las mías, y me han servido. Tómalas como lo que son: una invitación a buscar las tuyas.
+
+Un abrazo,
+
+Tu maestro (que también fue aprendiz)""",
+    },
+    {
+        "titulo": "La ciudad como texto",
+        "tipo": "descriptivo",
+        "cuerpo": """La ciudad no es solo un conjunto de edificios y calles: es también un texto que se lee, se interpreta y se escribe. Esta idea, que la semiótica urbana ha desarrollado con rigor en las últimas décadas, tiene una larga tradición en la literatura y en la filosofía. Ya Baudelaire, en sus cuadros parisinos, leía la ciudad como un laberinto de signos; ya Walter Benjamin, en sus pasajes, la pensaba como un sueño colectivo del que había que despertar. La ciudad, para estos autores, no era un simple escenario: era el gran texto de la modernidad, un texto que había que aprender a leer.
+
+¿Qué significa leer una ciudad? Significa prestar atención a los signos que la constituyen: los nombres de las calles, los monumentos, los grafitis, los escaparates, los olores, los sonidos. Significa preguntarse por qué una plaza está donde está, por qué una avenida se llama como se llama, por qué un barrio está más cuidado que otro. Significa descubrir que el espacio urbano no es neutro, sino que está cargado de significados, de historias, de relaciones de poder. La ciudad, como cualquier texto, no dice una sola cosa: dice muchas, y a veces dice cosas contradictorias.
+
+El barrio, en este sentido, es la unidad mínima de lectura. Cada barrio tiene su propio dialecto, su propia sintaxis, su propia retórica. El barrio de Salamanca, en Madrid, habla el lenguaje de la burguesía decimonónica: calles rectas, fachadas uniformes, soportales amplios, jardines cuidados. Lavapiés, en cambio, habla el lenguaje de la mezcla: calles estrechas, fachadas desconchadas, comercios étnicos, ruido constante. Son dos formas de escribir la ciudad, dos maneras de organizar el espacio y de organizar la vida. Quien aprende a leerlas puede entender algo de la sociedad que las produjo.
+
+Los monumentos, por su parte, son los grandes enunciados de la ciudad. Una estatua ecuestre, un arco de triunfo, una catedral gótica, un rascacielos de cristal: cada uno de estos monumentos es una afirmación sobre lo que la sociedad considera valioso. No es casualidad que las dictaduras derriben las estatuas de los regímenes anteriores, ni que las democracias discutan qué monumentos conservar y cuáles retirar. Los monumentos no son adornos: son declaraciones de identidad, y como tales, están siempre en disputa.
+
+Las calles, por su parte, son la sintaxis de la ciudad. Su trazado, su anchura, su orientación, dicen mucho de la sociedad que las diseñó. Las calles rectas de las ciudades barrocas expresan una voluntad de control, de orden, de racionalidad. Las calles laberínticas de las ciudades medievales expresan, en cambio, una lógica orgánica, de crecimiento por agregación, sin plan previo. Las grandes avenidas del siglo XIX, como los bulevares de Haussmann en París, expresan una voluntad de higienización y de control social: son anchas para que la multitud no se amotine, para que la caballería pueda cargar. La ciudad, en este sentido, es un texto que se puede leer en clave política.
+
+Los grafitis, por último, son la voz no oficial de la ciudad. Son los enunciados que no han sido autorizados, que no han pasado por el filtro del poder, que no han sido legitimados. Un grafiti es una intervención en el espacio público, una toma de la palabra en un lugar que no está previsto para la palabra. Puede ser una firma, un mensaje político, un dibujo, una declaración de amor, una amenaza. En cualquier caso, es una escritura que no pide permiso, y por eso es tan reveladora: muestra lo que la ciudad dice cuando nadie la vigila.
+
+¿Qué se gana, en definitiva, con leer la ciudad como texto? Se gana una forma de atención, una forma de resistencia. En un mundo que nos empuja a atravesar los espacios sin mirarlos, a consumirlos como imágenes, a habitarlos sin entenderlos, leer la ciudad es un acto de rebeldía. Es negarse a ser un simple usuario del espacio y reclamar la condición de lector. Es reconocer que el espacio no es neutro, que está cargado de historia, de poder, de memoria. Y es, en última instancia, una forma de ejercer la ciudadanía: solo quien entiende cómo está hecha la ciudad puede proponer cómo transformarla. Leer la ciudad, en definitiva, es una forma de resistir a la ciudad que nos quieren imponer, y de reclamar el derecho a habitarla de otra manera, más atenta, más crítica, más humana.""",
+    },
+    {
+        "titulo": "¿Progreso o barbarie? El debate sobre la Ilustración",
+        "tipo": "argumentativo",
+        "cuerpo": """El debate sobre la Ilustración es uno de los más persistentes en la historia intelectual de Occidente. Nacido en el siglo XVIII como un movimiento de crítica radical a las tradiciones heredadas, el proyecto ilustrado ha sido, a lo largo de los dos siglos y medio que nos separan de él, objeto de defensas apasionadas y de críticas no menos apasionadas. ¿Fue la Ilustración el origen de las libertades modernas o el preludio de los totalitarismos del siglo XX? ¿Fue un movimiento emancipador o una nueva forma de dominación? La pregunta, como todas las grandes preguntas, no admite una respuesta simple.
+
+Comencemos por lo que la Ilustración significó en su contexto. Los ilustrados, desde Voltaire hasta Kant, desde Diderot hasta Rousseau, se propusieron someter todas las creencias heredadas al tribunal de la razón. La religión, la monarquía, la tradición, la autoridad: nada debía escapar al examen crítico. La consigna kantiana, "atrévete a saber", resume el programa: el ser humano debía salir de su minoría de edad, debía pensar por sí mismo, debía liberarse de toda tutela. En el plano político, esto se tradujo en la defensa de la libertad de expresión, de la tolerancia religiosa, de la igualdad ante la ley, de la división de poderes. En el plano científico, en el desarrollo de la física newtoniana, de la química, de la biología. En el plano filosófico, en la crítica de la metafísica tradicional y en la construcción de una nueva teoría del conocimiento.
+
+Ahora bien, el proyecto ilustrado tuvo también su lado oscuro. La misma razón que liberaba al individuo podía convertirse en un instrumento de dominación. La misma fe en el progreso que impulsaba la ciencia podía justificar la colonización, el racismo, la explotación. Los ilustrados, en su mayoría, no cuestionaron la esclavitud, ni la sumisión de la mujer, ni la superioridad de la civilización europea sobre las demás. La razón ilustrada, en este sentido, fue también una razón imperial: se presentaba como universal, pero estaba situada, era la razón de los varones blancos europeos, y como tal, excluía a todos los demás.
+
+La crítica de la Ilustración no es nueva. Ya en el siglo XVIII, autores como Hamann o Herder señalaron que la razón abstracta de los ilustrados ignoraba la dimensión histórica, afectiva, corporal de la existencia humana. Ya en el siglo XIX, el romanticismo, el historicismo y el nacionalismo pusieron en cuestión la pretensión ilustrada de fundar una moral universal. Pero fue en el siglo XX cuando la crítica adquirió su forma más radical. Max Horkheimer y Theodor Adorno, en su Dialéctica de la Ilustración, publicada en 1944, sostuvieron que la Ilustración, en su afán de dominar la naturaleza, había terminado por dominar al propio ser humano. La razón instrumental, esa forma de racionalidad que solo atiende a los medios y no a los fines, había conducido, según estos autores, a la barbarie de los totalitarismos.
+
+La tesis de Horkheimer y Adorno ha sido muy discutida. Sus críticos señalan que el nazismo y el estalinismo no fueron la culminación de la Ilustración, sino su negación: fueron movimientos irracionalistas, que apelaban al mito, a la raza, a la sangre, a la tierra, a la violencia, y que despreciaban los valores ilustrados de libertad, igualdad y fraternidad. La Ilustración, en este sentido, no engendró el totalitarismo: fue su primera víctima. Los campos de exterminio no fueron el producto de la razón ilustrada, sino de su colapso.
+
+Otros críticos han ido más lejos. Para algunos autores postcoloniales, la Ilustración fue, ante todo, una empresa de legitimación del orden colonial. Los derechos del hombre y del ciudadano, proclamados por la Revolución Francesa, no se aplicaban a los esclavos de las colonias; la libertad de comercio, defendida por los fisiócratas, beneficiaba a los comerciantes europeos; la misión civilizadora, invocada por los imperios, justificaba la dominación de pueblos enteros. La Ilustración, en esta lectura, no fue un proyecto emancipador: fue una ideología de dominación, que se presentaba como universal cuando en realidad servía a los intereses particulares de la burguesía europea.
+
+Frente a estas críticas, los defensores de la Ilustración han subrayado su carácter autorreflexivo. La Ilustración, dicen, no es un conjunto de doctrinas cerradas, sino una actitud crítica, una disposición a examinar todas las creencias, incluidas las propias. Sus principios —la libertad de expresión, la tolerancia, la igualdad ante la ley, la separación de poderes— siguen siendo hoy los principios de toda democracia liberal. Sus instituciones —la escuela pública, la universidad, la prensa libre, los derechos humanos— siguen siendo las instituciones que garantizan la vida civilizada. Renunciar a la Ilustración, en este sentido, sería renunciar a lo mejor de nuestra herencia.
+
+¿Cómo salir de este debate? Quizá la clave esté en distinguir entre la Ilustración como proyecto y la Ilustración como realidad histórica. Como proyecto, la Ilustración sigue siendo válida: la razón crítica, la libertad, la igualdad, la solidaridad, son valores que merecen ser defendidos. Como realidad histórica, la Ilustración fue incompleta, contradictoria, a menudo cómplice de las peores formas de dominación. Reconocer ambas cosas no es renunciar a la Ilustración, sino asumirla en su complejidad, en su grandeza y en sus miserias.
+
+El filósofo Jürgen Habermas habló, en este sentido, de la "modernidad como proyecto inacabado". La Ilustración, decía, no es algo que hayamos superado, sino algo que tenemos que seguir realizando. Sus promesas —la libertad, la igualdad, la solidaridad— no están cumplidas; son tareas pendientes. Y esa es, quizá, la mejor manera de entenderla: no como una herencia que se conserva intacta, sino como un proyecto que se renueva cada generación. La pregunta "¿progreso o barbarie?" no es, en el fondo, una pregunta sobre el pasado, sino sobre el futuro. Y la respuesta, como siempre, está por escribirse.""",
+    },
+    {
+        "titulo": "El problema de la conciencia en la filosofía de la mente",
+        "tipo": "academico",
+        "cuerpo": """El problema de la conciencia es, probablemente, el problema más difícil de la filosofía contemporánea. No se trata solo de explicar cómo funciona el cerebro, ni de describir los correlatos neuronales de la experiencia, sino de dar cuenta de algo que parece resistirse a toda explicación científica: el hecho de que haya algo que se siente ser algo. El filósofo Thomas Nagel lo formuló en 1974 con una pregunta que se ha vuelto célebre: ¿qué se siente ser un murciélago? La pregunta no es retórica: apunta a un hecho que ninguna descripción objetiva del cerebro del murciélago puede capturar. Por muchas cosas que sepamos sobre su sistema nervioso, sobre su ecolocalización, sobre su comportamiento, seguimos sin saber qué se siente ser un murciélago. Y ese "qué se siente" es, precisamente, la conciencia.
+
+El problema tiene una larga historia. Descartes, en el siglo XVII, separó radicalmente la res cogitans (la cosa pensante) de la res extensa (la cosa extensa), y con ello inauguró el dualismo que ha marcado la filosofía moderna. Para Descartes, la mente era una sustancia distinta del cuerpo, y la relación entre ambas era un misterio que solo Dios podía explicar. Los filósofos posteriores, desde Locke hasta Kant, intentaron resolver o disolver el dualismo, pero el problema siguió ahí, como una piedra en el zapato de la filosofía.
+
+En el siglo XX, con el desarrollo de las neurociencias, el problema adquirió una nueva forma. Si la mente es el cerebro, ¿cómo explicar la experiencia subjetiva? Si todo lo que hay son neuronas, sinapsis, neurotransmisores, ¿de dónde sale el color rojo que veo cuando miro una amapola? ¿De dónde sale el dolor que siento cuando me pincho un dedo? El filósofo David Chalmers llamó a esto "el problema difícil de la conciencia", para distinguirlo de los "problemas fáciles", que son los que se refieren a las funciones cognitivas: la percepción, la memoria, el lenguaje, el control motor. Los problemas fáciles, dice Chalmers, son difíciles, pero en principio solubles por la ciencia cognitiva. El problema difícil, en cambio, parece resistirse a toda solución científica, porque la experiencia subjetiva no es una función, sino un hecho irreducible.
+
+Las respuestas a este problema se agrupan en varias familias. Los dualistas sostienen que la mente es una sustancia distinta del cuerpo, y que la conciencia no puede reducirse a procesos físicos. Los fisicalistas, en cambio, sostienen que la mente es el cerebro, y que la conciencia, por tanto, es un fenómeno físico, aunque aún no sepamos cómo explicarlo. Los funcionalistas, por su parte, sostienen que la mente es lo que el cerebro hace, no lo que el cerebro es: la conciencia sería una función, un conjunto de procesos, no una sustancia. Los eliminativistas, más radicales, sostienen que la conciencia, tal como la concebimos, no existe: es una ilusión, un residuo del lenguaje ordinario que la ciencia acabará por eliminar.
+
+Ninguna de estas posiciones es plenamente satisfactoria. Los dualistas tienen el problema de explicar cómo una sustancia inmaterial puede interactuar con una sustancia material: si la mente no es física, ¿cómo mueve el cuerpo? Los fisicalistas tienen el problema de explicar por qué la experiencia subjetiva se siente como se siente: si todo es materia, ¿por qué hay algo que se siente ser algo? Los funcionalistas tienen el problema de explicar por qué la función se siente: si la conciencia es solo un conjunto de procesos, ¿por qué hay una experiencia subjetiva de esos procesos? Los eliminativistas tienen el problema de explicar por qué la ilusión de la conciencia es tan persistente, tan universal, tan irresistible.
+
+El filósofo John Searle propuso, en los años noventa, una distinción útil: la distinción entre ontología de primera persona y ontología de tercera persona. La conciencia, dice Searle, tiene una ontología de primera persona: existe solo en tanto que es experimentada por un sujeto. Los fenómenos físicos, en cambio, tienen una ontología de tercera persona: existen independientemente de que alguien los experimente. Esta distinción permite reconocer que la conciencia es un fenómeno real, sin por ello tener que postular una sustancia inmaterial. La conciencia es una propiedad del cerebro, pero una propiedad que solo existe en tanto que es vivida.
+
+El filósofo Daniel Dennett, en cambio, ha sostenido una posición radicalmente opuesta. Para Dennett, la conciencia no es un fenómeno unitario, sino un conjunto de procesos distribuidos, sin un centro, sin un "yo" que los unifique. La idea de un "yo" consciente, dice Dennett, es una ilusión útil, una ficción que el cerebro construye para organizar su experiencia. Lo que llamamos "conciencia" no es una cosa, sino un relato: el relato que el cerebro se cuenta a sí mismo sobre lo que le está pasando. Esta posición, que Dennett ha defendido con brillantez en libros como La conciencia explicada, ha sido muy criticada por quienes consideran que niega la realidad de la experiencia subjetiva.
+
+En los últimos años, el debate se ha enriquecido con nuevos enfoques. La teoría de la información integrada, propuesta por Giulio Tononi, sostiene que la conciencia es una propiedad de ciertos sistemas que integran información de manera específica. La teoría del espacio de trabajo global, propuesta por Bernard Baars, sostiene que la conciencia es el resultado de la competencia entre distintos procesos por acceder a un espacio de trabajo común. La teoría del procesamiento predictivo, propuesta por Karl Friston, sostiene que la conciencia es el resultado de la inferencia bayesiana que el cerebro hace sobre las causas de sus sensaciones. Ninguna de estas teorías ha sido confirmada empíricamente, pero todas han aportado hipótesis valiosas.
+
+¿Qué se sigue de todo esto? En primer lugar, que el problema de la conciencia sigue abierto. No hay consenso sobre qué es la conciencia, ni sobre cómo explicarla, ni sobre si es explicable en términos científicos. En segundo lugar, que el problema no es solo filosófico, sino también científico, y que su solución, si llega, requerirá probablemente una colaboración estrecha entre filosofía y neurociencia. En tercer lugar, que el problema no es solo teórico, sino también práctico: la respuesta que demos a la pregunta "¿qué es la conciencia?" tiene implicaciones para la ética, el derecho, la medicina, la inteligencia artificial. Si los animales son conscientes, ¿qué obligaciones tenemos hacia ellos? Si las máquinas pueden ser conscientes, ¿qué derechos les corresponden? Si la conciencia es una ilusión, ¿qué queda de nuestra idea de dignidad humana?
+
+El problema de la conciencia es, en el fondo, el problema de lo que significa ser humano. Y como tal, no admite una respuesta rápida ni definitiva. Exige, por el contrario, una reflexión paciente, rigurosa, interdisciplinar, que se tome en serio la complejidad del fenómeno y la pluralidad de enfoques. Como escribió el filósofo Ludwig Wittgenstein, "los límites de mi lenguaje son los límites de mi mundo". Quizá el problema de la conciencia sea, precisamente, el límite de nuestro lenguaje, el punto en que las palabras se agotan y solo queda el silencio. Pero ese silencio, como el de Wittgenstein, no es una rendición: es una forma de atención.""",
+    },
+    {
+        "titulo": "La memoria como reconstrucción",
+        "tipo": "informativo",
+        "cuerpo": """Durante mucho tiempo, la memoria fue concebida como un archivo: un lugar donde se guardan los recuerdos, como se guardan los documentos en un cajón, y del que se extraen cuando se necesitan. Esta metáfora, que tiene una larga tradición filosófica —Platón hablaba de la memoria como una tablilla de cera donde se imprimen las sensaciones—, sigue estando muy presente en el lenguaje cotidiano. Decimos "guardar en la memoria", "recuperar un recuerdo", "tener buena memoria", como si la memoria fuera un almacén y los recuerdos, objetos que se guardan y se sacan.
+
+La psicología cognitiva del siglo XX, sin embargo, fue desmontando esta metáfora. Los experimentos de Bartlett en los años treinta, con sus historias que los sujetos recordaban de manera distinta según su cultura, mostraron que la memoria no es una reproducción fiel del pasado, sino una reconstrucción activa que el sujeto hace en el presente. Los experimentos de Loftus en los años setenta, con testigos de accidentes y de crímenes, mostraron que la memoria es extraordinariamente maleable: basta una palabra, una sugerencia, una pregunta mal formulada, para que el recuerdo se modifique. Los experimentos de Elizabeth Loftus sobre falsos recuerdos, en particular, mostraron que es posible implantar en un sujeto recuerdos de hechos que nunca ocurrieron.
+
+Estos hallazgos han dado lugar a una nueva concepción de la memoria, que la entiende como un proceso reconstructivo. Recordar no es recuperar un archivo, sino reconstruir una experiencia a partir de fragmentos, esquemas, expectativas, emociones. Cada vez que recordamos algo, dice el neurocientífico Antonio Damasio, estamos reconstruyendo el pasado con los materiales del presente. Y esa reconstrucción no es neutra: está guiada por nuestros intereses, nuestras emociones, nuestras creencias actuales. Recordamos lo que nos conviene recordar, o lo que nuestra identidad nos exige recordar.
+
+Esta concepción de la memoria tiene implicaciones profundas. En primer lugar, para la psicología clínica: si la memoria es reconstructiva, entonces los recuerdos traumáticos no son simplemente recuerdos que se han conservado intactos, sino reconstrucciones que el sujeto hace, a menudo bajo la influencia de la terapia, de los medios, de la cultura. Las terapias de recuperación de la memoria, que se popularizaron en los años ochenta y noventa, han sido muy criticadas por este motivo: pueden crear recuerdos falsos en lugar de recuperar recuerdos verdaderos. La cuestión de los abusos sexuales infantiles, en particular, ha sido un campo de batalla entre quienes defienden la veracidad de los recuerdos recuperados y quienes sostienen que son, en muchos casos, construcciones inducidas por la terapia.
+
+En segundo lugar, para el derecho: si la memoria es reconstructiva, entonces el testimonio de los testigos es mucho menos fiable de lo que se pensaba. Los estudios sobre condenas erróneas han mostrado que la identificación errónea de testigos es una de las principales causas de error judicial. En Estados Unidos, el Innocence Project ha logrado la exoneración de más de 375 personas condenadas injustamente, y en más del 70% de los casos la identificación errónea de un testigo había jugado un papel decisivo. Estos datos han llevado a muchos países a reformar sus procedimientos de identificación, y a los tribunales a ser más cautelosos con el testimonio de testigos.
+
+En tercer lugar, para la historia y la memoria colectiva: si la memoria individual es reconstructiva, la memoria colectiva lo es aún más. Los pueblos construyen su pasado en función de su presente, seleccionando lo que conviene recordar y olvidando lo que conviene olvidar. Las conmemoraciones, los monumentos, los libros de historia, los museos: todos son dispositivos de construcción de la memoria colectiva, y como tales, están siempre en disputa. ¿Qué se conmemora y qué se olvida? ¿Quién decide? ¿Con qué intereses? Estas preguntas son especialmente urgentes en sociedades que han atravesado traumas colectivos: guerras, genocidios, dictaduras. La memoria de esos traumas no es un simple recuerdo: es una tarea, un deber, una responsabilidad.
+
+En cuarto lugar, para la filosofía: si la memoria es reconstructiva, entonces la identidad personal, que depende de la memoria, es también reconstructiva. Yo soy el que soy porque recuerdo lo que he hecho, lo que he vivido, lo que he sufrido. Pero si esos recuerdos son reconstrucciones, entonces mi identidad es también una reconstrucción, una narración que me hago a mí mismo sobre quién soy. Esta idea, que la filosofía de la narración ha desarrollado con rigor —Paul Ricoeur, Alasdair MacIntyre, Charles Taylor—, tiene consecuencias importantes: mi identidad no es un dato, sino una tarea; no es algo que tengo, sino algo que hago, que construyo, que negocio conmigo mismo y con los demás.
+
+La memoria, en definitiva, no es un archivo, sino una reconstrucción. No es un depósito de recuerdos, sino un proceso activo, guiado por el presente, orientado al futuro. Esta concepción, que la psicología, la neurociencia, el derecho, la historia y la filosofía han ido elaborando a lo largo del siglo XX, tiene implicaciones profundas, no solo para nuestra comprensión de la memoria, sino para nuestra comprensión de lo que significa ser humano. Somos, en una medida importante, lo que recordamos. Y lo que recordamos no es simplemente lo que pasó: es lo que construimos, con los materiales del presente, para poder seguir siendo lo que somos.""",
+    },
+    {
+        "titulo": "La traducción como traición",
+        "tipo": "ensayo",
+        "cuerpo": """El célebre aforismo italiano traduttore traditore, "traductor, traidor", resume una intuición que ha acompañado a la traducción desde sus orígenes: que toda traducción es, en alguna medida, una traición al original. La intuición es antigua —los romanos ya decían que traducir a Homero era imposible—, pero sigue siendo profundamente actual. En un mundo globalizado, en el que la circulación de textos entre lenguas es constante, la pregunta por la fidelidad de la traducción adquiere una urgencia nueva: ¿qué se pierde cuando se traduce? ¿Qué se gana? ¿Es la traducción una simple operación técnica o una forma de creación?
+
+Comencemos por lo más evidente: la traducción es imposible. No hay dos lenguas que tengan exactamente el mismo repertorio de palabras, las mismas construcciones sintácticas, las mismas connotaciones, los mismos ritmos. Cada lengua es una forma distinta de organizar la experiencia, de segmentar la realidad, de construir el mundo. El alemán tiene palabras como Gemütlichkeit, que no tiene equivalente exacto en español; el español tiene palabras como duende, que no tiene equivalente exacto en alemán; el japonés tiene palabras como mono no aware, que designa una emoción estética que ninguna lengua europea nombra con una sola palabra. Traducir estas palabras es, en el sentido más literal, imposible: no hay equivalente.
+
+Y sin embargo, la traducción es posible. Los traductores llevan siglos traduciendo, y lo siguen haciendo, con resultados a veces admirables. ¿Cómo se resuelve la paradoja? Se resuelve aceptando que la traducción no es una operación de equivalencia, sino una operación de negociación. El traductor no busca la equivalencia exacta —que no existe—, sino el mejor equivalente posible en cada contexto. A veces opta por una palabra que se aproxima; a veces por una perífrasis; a veces por una nota al pie; a veces por dejar el término original, con una explicación. La traducción es, en este sentido, un arte de la pérdida controlada: se pierde algo, siempre, pero se intenta perder lo menos posible.
+
+El poeta y traductor Octavio Paz decía que la traducción es una operación análoga a la creación poética: ambas consisten en transformar un texto en otro texto, en hacer que las palabras digan algo que no decían. La traducción, para Paz, no es una copia, sino una recreación. El traductor no es un simple transmisor, sino un autor de segundo grado, que escribe un texto nuevo a partir de un texto ajeno. Esta concepción, que la tradición romántica alemana —Schleiermacher, Humboldt, Goethe— había anticipado, ha sido desarrollada por la traductología contemporánea, que habla de la traducción como "reescritura" o como "transcreación".
+
+Ahora bien, si la traducción es recreación, ¿qué queda de la fidelidad? La fidelidad, en traducción, no es una fidelidad a la letra, sino una fidelidad al espíritu. El traductor no traiciona al original si logra transmitir lo que el original dice, aunque las palabras sean otras. Traiciona, en cambio, si traiciona el sentido, el tono, la intención, el efecto. La fidelidad, en este sentido, es una categoría ética, no solo estética: el traductor tiene una responsabilidad hacia el autor, hacia el texto, hacia el lector, y debe responder de esa responsabilidad.
+
+Los grandes traductores han reflexionado sobre esta responsabilidad. San Jerónimo, el patrono de los traductores, distinguía entre la traducción literal, propia de los textos sagrados, y la traducción libre, propia de los textos profanos. Fray Luis de León, en el siglo XVI, defendía la traducción como un ejercicio de recreación poética, no como una simple operación de trasvase. Borges, que tradujo a Kafka, a Faulkner, a Virginia Woolf, decía que la traducción no es un problema de fidelidad, sino de creación: lo importante no es reproducir el original, sino producir un texto que funcione en la lengua de llegada. Y sin embargo, la sombra de la traición sigue planeando sobre toda traducción, como un recordatorio de que algo se pierde siempre, de que el original es irrepetible, de que la traducción es, en el fondo, una forma de amor y de duelo.
+
+¿Qué hacer, entonces? No hay una respuesta única, pero sí algunas orientaciones. Primero, aceptar la pérdida: no hay traducción sin pérdida, y pretender lo contrario es una ilusión. Segundo, elegir qué se pierde: el traductor tiene que decidir, en cada caso, qué es más importante preservar, si el sentido, el tono, el ritmo, la sonoridad, la estructura. Tercero, compensar la pérdida: cuando se pierde algo, se puede compensar con algo, con una nota, con un recurso estilístico, con un cambio de registro. Cuarto, asumir la responsabilidad: el traductor no es un simple técnico, es un autor, y como tal, debe responder de su trabajo.
+
+La traducción, en definitiva, no es una traición, sino una negociación. Es una negociación entre dos lenguas, entre dos culturas, entre dos concepciones del mundo. No hay traducción perfecta, pero hay traducciones buenas, que logran transmitir lo esencial, que respetan al autor y al lector, que enriquecen la lengua de llegada. El aforismo traduttore traditore es, en este sentido, una advertencia, no una condena. Nos recuerda que toda traducción es una pérdida, pero también que toda pérdida puede ser una ganancia. El traductor es, en el fondo, un traidor que traiciona por amor, un traidor que traiciona para que el original siga viviendo en otra lengua, en otro tiempo, en otro lector. Y esa traición, como toda traición amorosa, tiene algo de tragicómico: se sabe imposible, se sabe necesaria, se sabe, en el fondo, una forma de fidelidad.""",
+    },
+]
+
+def header(n, t):
+    print(); print("=" * 78); print(f"[{n}] {t}"); print("=" * 78)
+
+header("A", "ESTADO ACTUAL C2")
+textos_actuales = list(TX.objects.filter(nivel_mcer="C2").order_by("id"))
+print(f"  Textos C2: {len(textos_actuales)}")
+for t in textos_actuales:
+    w = wc(t.cuerpo)
+    ok = MIN_W <= w <= MAX_W
+    print(f"  [{'OK ' if ok else 'FUERA'}] id={t.id:>3}  {w:>4}w  {t.titulo[:55]}")
+
+header("B", "PLAN: CREAR 10 TEXTOS NUEVOS")
+plan = []
+for data in NUEVOS:
+    w = wc(data["cuerpo"])
+    ok = MIN_W <= w <= MAX_W
+    existente = TX.objects.filter(titulo=data["titulo"], nivel_mcer="C2").first()
+    if existente:
+        plan.append(("UPDATE", existente.id, data, w))
+        print(f"  [{'OK ' if ok else 'FUERA'}] UPDATE id={existente.id:>3}  {w:>4}w  {data['titulo'][:50]}")
+    else:
+        plan.append(("CREATE", None, data, w))
+        print(f"  [{'OK ' if ok else 'FUERA'}] CREATE        {w:>4}w  {data['titulo'][:50]}")
+
+header("C", "APLICAR" if args.apply else "DRY-RUN")
+if not args.apply:
+    print("  DRY-RUN. Nada modificado.")
+    print("  Ejecuta con --apply para escribir.")
+    sys.exit(0)
+
+with transaction.atomic():
+    for accion, tx_id, data, w in plan:
+        if accion == "UPDATE":
+            TX.objects.filter(id=tx_id).update(
+                titulo=data["titulo"], cuerpo=data["cuerpo"], tipo=data["tipo"],
+            )
+        else:
+            TX.objects.create(
+                titulo=data["titulo"], cuerpo=data["cuerpo"], tipo=data["tipo"],
+                nivel_mcer="C2", fuente="seed_fase1_c2",
+            )
+    print(f"  [OK] {len(plan)} operaciones aplicadas")
+
+header("D", "VERIFICAR (parcial - parte 1)")
+textos_final = list(TX.objects.filter(nivel_mcer="C2").order_by("id"))
+en_rango = 0
+for t in textos_final:
+    w = wc(t.cuerpo)
+    ok = MIN_W <= w <= MAX_W
+    en_rango += int(ok)
+    print(f"  [{'OK ' if ok else 'FUERA'}] id={t.id:>3}  {w:>4}w  {t.titulo[:55]}")
+
+print(f"\n  En rango {MIN_W}-{MAX_W}: {en_rango}/{len(textos_final)}")
+print(f"  (Parte 1: solo textos 1-5. Parte 2 anadira textos 6-10.)")

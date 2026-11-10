@@ -205,3 +205,21 @@ docs/plan_*.csv
 !scripts/_densificar_b2.py
 !scripts/_export_b2_textos.py
 !scripts/_fix_b2_cierre.py
+!scripts/_seed_textos_c1.py
+!scripts/_densificar_c1.py
+!scripts/_export_c1_textos.py
+!scripts/_fix_c1_cierre.py
+
+# Sprint C2 contenido - scripts del sprint
+!scripts/_seed_textos_c2.py
+!scripts/_densificar_c2.py
+!scripts/_export_c2_textos.py
+!scripts/_fix_c2_legacy.py
+!scripts/_fix_c2_cierre.py
+
+# Sprint C2 contenido - scripts del sprint
+!scripts/_seed_textos_c2.py
+!scripts/_densificar_c2.py
+!scripts/_export_c2_textos.py
+!scripts/_fix_c2_legacy.py
+!scripts/_fix_c2_cierre.py
