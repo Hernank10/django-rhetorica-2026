@@ -188,3 +188,9 @@ docs/plan_*.csv
 !scripts/_diag_a2_coherencia.py
 !scripts/_diag_tildes_pendientes.py
 !scripts/_fix_tildes_a2_p3.py
+
+# Sprint B1 contenido - scripts del sprint
+!scripts/_sprint_master.py
+!scripts/_seed_textos_b1.py
+!scripts/_densificar_b1.py
+!scripts/_diag_b1_plan.py
