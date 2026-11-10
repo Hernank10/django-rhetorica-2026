@@ -178,3 +178,12 @@ docs/plan_*.csv
 !scripts/_seed_placeholders_contenido.py
 !scripts/_fix_12_ejercicios_faltantes.py
 !scripts/_diag_tecnicas_1ejercicio.py
+
+# Sprint A2 contenido - scripts reproducibles del reset
+!scripts/_seed_a2_reset.py
+!scripts/_fix_tildes_a2.py
+!scripts/_fix_tildes_a2_extra.py
+!scripts/_diag_fases_contenido_v2.py
+!scripts/_diag_tecnicas_a2.py
+!scripts/_diag_a2_coherencia.py
+!scripts/_diag_tildes_pendientes.py

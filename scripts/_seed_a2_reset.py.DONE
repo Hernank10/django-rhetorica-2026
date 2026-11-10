@@ -1,0 +1,447 @@
+"""_seed_a2_reset.py - Borra 102 ejercicios A2 rotos y crea 200 coherentes.
+
+Cada ejercicio esta anclado al texto_id asignado en F2.
+Verifica coherencia interna (tokens compartidos texto<->enunciado+explicacion).
+Transaccion atomica: todo o nada.
+"""
+import os, sys, re, argparse
+from pathlib import Path
+from collections import Counter, defaultdict
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--apply", action="store_true")
+args = parser.parse_args()
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parent if HERE.name == "scripts" else HERE
+sys.path.insert(0, str(ROOT))
+if "DJANGO_SETTINGS_MODULE" not in os.environ:
+    os.environ["DJANGO_SETTINGS_MODULE"] = "django_retorica.settings.dev"
+import django; django.setup()
+from django.apps import apps
+from django.db import transaction
+
+TL = apps.get_model("core", "TecnicaLectura")
+EJ = apps.get_model("core", "EjercicioLectura")
+TX = apps.get_model("core", "Texto")
+
+# (tec_num, texto_id, enunciado, [opciones], correcta, explicacion)
+E = [
+    # ============ TEXTO 1: El faro y la tormenta (literario) ============
+    (16, 1, "Segun el texto, que oficio tiene Marta?", ["Farera","Pescadora","Marinera"], "A", "El texto dice 'Marta, la farera' y describe su trabajo en el faro."),
+    (16, 1, "Que herramientas usa Marta para su trabajo?", ["Una linterna grande y el faro","Una cana y una red","Una brujula y un mapa"], "A", "Enciende 'la linterna grande' y esta en el faro."),
+    (19, 1, "Cual es la idea principal del texto?", ["El rescate de un bote por una farera","La construccion de un faro","Una fiesta en el puerto"], "A", "Todo el relato gira en torno al rescate del bote pesquero."),
+    (19, 1, "Que hecho central narra el texto?", ["El rescate de un bote pesquero","Una carrera de barcos","Una excursion al faro"], "A", "El nudo es el rescate del bote durante la tormenta."),
+    (29, 1, "En 'encendio la linterna grande y la coloco en el punto mas alto', a que se refiere 'la'?", ["A la linterna","A la ventana","A la ola"], "A", "El pronombre 'la' remite a 'la linterna grande'."),
+    (29, 1, "En 'los tres pescadores estaban a salvo', quienes eran los tres?", ["Los tripulantes del bote rescatado","Tres marineros del faro","Los hijos de Marta"], "A", "Se refiere a los tres pescadores del bote guiado."),
+    (39, 1, "Cuantos parrafos tiene el texto?", ["1","3","5"], "A", "Todo el texto forma un unico parrafo."),
+    (39, 1, "Como esta organizado visualmente el texto?", ["Un unico parrafo","Tres parrafos","Estrofas"], "A", "Es un unico bloque de texto."),
+    (49, 1, "Que valores destaca el autor con la historia de Marta?", ["Valentia y deber silencioso","Riqueza y fama","Inteligencia y astucia"], "A", "Marta actua sin esperar recompensa, por deber."),
+    (49, 1, "Que revela 'Nadie le daria las gracias, pero no lo necesitaba'?", ["Que Marta actua por deber, sin buscar recompensa","Que esta triste","Que quiere fama"], "A", "La frase refuerza su entrega silenciosa."),
+    (59, 1, "Como esta estructurado el texto?", ["Planteamiento, nudo y desenlace","Introduccion, argumentos y conclusion","Dialogo entre personajes"], "A", "Tormenta -> rescate -> salvamento."),
+    (59, 1, "Que orden siguen los hechos?", ["Cronologico: noche, madrugada, amanecer","Flashback: empieza por el final","Futuro"], "A", "Sigue el paso del tiempo de la noche al amanecer."),
+    (69, 1, "Que simboliza la linterna grande?", ["La guia y la esperanza","El miedo","La riqueza"], "A", "Guia al bote hacia la cala en la oscuridad."),
+    (69, 1, "Que simboliza el faro?", ["Proteccion y vigilancia del mar","Poder politico","Soledad"], "A", "Su funcion es guiar a los navegantes."),
+    (79, 1, "Cual es el proposito comunicativo del texto?", ["Narrar un acto heroico cotidiano","Informar sobre meteorologia","Vender linternas"], "A", "Se narra el rescate para mostrar heroismo cotidiano."),
+    (79, 1, "Para que se escribio este texto?", ["Para mostrar la labor silenciosa de los fareros","Para dar instrucciones","Para criticar a los pescadores"], "A", "Reivindica el trabajo de Marta."),
+    (81, 1, "Cual es la causa de que Marta encienda la linterna grande?", ["Un bote en peligro","Iluminar su casa","Lo pedia la radio"], "A", "Un bote pesquero luchaba contra las olas."),
+    (81, 1, "Que consecuencia tuvo la accion de Marta?", ["Los tres pescadores se salvaron","El faro se apago","Llego la policia"], "A", "Guiados por la linterna, llegaron a la cala."),
+    (91, 1, "Por que es relevante 'llevaba treinta anos encendiendo la luz'?", ["Muestra su experiencia y dedicacion","Es un dato irrelevante","Indica su edad exacta"], "A", "Subraya la veteranÃ­a de Marta."),
+    (91, 1, "La descripcion de la tormenta es relevante?", ["Si, crea tension y explica el peligro","No, es relleno","Solo para ambientar"], "A", "La tormenta justifica el rescate."),
+
+    # ============ TEXTO 9: El gato que hablaba (literario) ============
+    (1, 9, "Por que Pablo se queda paralizado?", ["Porque el gato le habla","Porque ve un raton","Porque llueve"], "A", "El texto dice 'los gatos no hablan' pero aquel le hablo."),
+    (1, 9, "Por que el gato se acerca a Pablo?", ["Porque quiere compania","Porque tiene hambre","Porque esta perdido"], "A", "El gato dice: 'Solo quiero compania'."),
+    (5, 9, "Si este texto fuera un anuncio, que intencion tendria?", ["Promover la amistad con los animales","Vender comida para gatos","Anunciar un veterinario"], "A", "El texto celebra el encuentro y la amistad."),
+    (5, 9, "Que mensaje transmite el encuentro entre Pablo y el gato?", ["Que la amistad surge de la curiosidad y la escucha","Que los gatos son peligrosos","Que hay que tener miedo"], "A", "La conversacion surge de la apertura de Pablo."),
+    (20, 9, "Cual es la conclusion del texto?", ["El gato vuelve al dia siguiente","Pablo se muda","El gato desaparece para siempre"], "A", "El texto termina con el gato esperandolo."),
+    (20, 9, "Como termina la historia?", ["El gato vuelve al jardin al dia siguiente","El gato se va para siempre","Pablo se lleva el gato a casa"], "A", "El gato aparece al dia siguiente con la cola levantada."),
+    (30, 9, "Segun el texto, donde vive el gato?", ["En el tejado de la casa vecina","En el jardin de Pablo","En el parque"], "A", "El gato cuenta que vive en el tejado vecino."),
+    (30, 9, "Segun el texto, en que estacion ocurre la historia?", ["Primavera","Verano","Invierno"], "A", "El texto empieza 'Una manana de primavera'."),
+    (40, 9, "En 'el gato se estiro, bostezo', que significa 'bostezo'?", ["Abrio la boca por sueno","Salto","Corrio"], "A", "Bostezar es abrir la boca por sueÃ±o o aburrimiento."),
+    (40, 9, "En 'con los ojos brillantes y la cola levantada', que indican esos gestos?", ["Alegria y confianza","Miedo","Enfado"], "A", "Los gatos muestran confianza con esos gestos."),
+    (50, 9, "A que publico va dirigido este texto?", ["A ninos y jovenes","A cientificos","A empresarios"], "A", "Tono sencillo y fantasia apta para ninos."),
+    (50, 9, "Que edad aproximada tiene el publico objetivo?", ["10-14 anos","30-50 anos","60+ anos"], "A", "Vocabulario y estructura propios de jovenes."),
+    (60, 9, "Que tipo de estructura tiene el texto?", ["Narrativa: planteamiento, encuentro y despedida","Argumentativa","Expositiva"], "A", "Sigue una narracion lineal."),
+    (60, 9, "Cual es el conflicto del relato?", ["La sorpresa de Pablo al oir hablar al gato","Una pelea","Una persecucion"], "A", "El conflicto es la sorpresa ante lo imposible."),
+    (70, 9, "Cual es la moraleja del cuento?", ["Que la amistad nace de la curiosidad y el respeto","Que los gatos hablan","Que hay que tener miedo"], "A", "Pablo acepta lo inesperado y gana un amigo."),
+    (70, 9, "Que ensenanza deja la historia?", ["Aceptar lo inesperado y dar una oportunidad","Desconfiar de los desconocidos","No hablar con extranos"], "A", "Pablo da una oportunidad y encuentra compania."),
+    (82, 9, "Que conclusion saca Pablo de la experiencia?", ["Que el gato es un amigo especial","Que sono todo","Que los gatos son peligrosos"], "A", "Vuelve al jardin esperando al gato."),
+    (82, 9, "Que puede concluir el lector sobre el gato?", ["Que busca compania y la encontro","Que es un espia","Que esta enfermo"], "A", "El gato dice explicitamente que quiere compania."),
+    (92, 9, "Que causa que el gato decida volver?", ["La amistad que hizo con Pablo","El hambre","El miedo"], "A", "Promete volver tras la tarde compartida."),
+    (92, 9, "En 'el gato salto del muro con elegancia', que efecto tiene esa imagen?", ["Muestra su naturalidad y confianza","Muestra su miedo","Muestra su cansancio"], "A", "La elegancia refuerza su personalidad."),
+    # ============ TEXTO 11: La receta de la abuela (literario) ============
+    (3, 11, "En 'con los ojos brillantes', que significa esa expresion?", ["Emocion e interes","Cansancio","Enfado"], "A", "Ojos brillantes = emocion contenida."),
+    (3, 11, "En 'Nunca usaba levadura comprada', que implica 'comprada'?", ["Que hacia su propia levadura","Que no le gustaba","Que la compraba cada domingo"], "A", "Sofia se sorprende de que no use levadura comercial."),
+    (10, 11, "Que parte del texto es dialogo?", ["Las frases entre guiones","La primera linea","El final"], "A", "Los guiones marcan las intervenciones."),
+    (10, 11, "Como se distingue el dialogo de la narracion?", ["Por los guiones y las voces","Por el tiempo verbal","Por los parrafos"], "A", "Cada intervencion lleva guion."),
+    (21, 11, "Que cita textual dice la abuela sobre la textura?", ["'Con la cuchara se siente la textura'","'Hay que batir rapido'","'La harina es lo mas importante'"], "A", "La abuela justifica el uso de la cuchara."),
+    (21, 11, "Que cita explica como batir los ingredientes?", ["'Primero batimos los huevos, luego anadimos el azucar'","'Usa la batidora electrica'","'Pon todo junto'"], "A", "Orden de los ingredientes."),
+    (31, 11, "Si el texto dijera 'la receta tiene 3 pasos', que informacion seria?", ["Un dato numerico","Una opinion","Una cita"], "A", "Un numero explicito = dato."),
+    (31, 11, "Que tipo de informacion encontramos en el texto?", ["Instrucciones y narracion familiar","Datos estadisticos","Formulas quimicas"], "A", "Receta + relato familiar."),
+    (41, 11, "Como se siente Sofia al principio?", ["Emocionada e interesada","Aburrida","Enfadada"], "A", "'Con los ojos brillantes' lo indica."),
+    (41, 11, "Como se siente la abuela al ensenar su receta?", ["Con carino y orgullo","Con prisa","Con miedo"], "A", "'Sonriendo' y 'la miraba con carino'."),
+    (51, 11, "Que detalles indican que la receta es antigua?", ["Que viene de la bisabuela","Que usa horno electrico","Que usa levadura comprada"], "A", "La receta pasa de generacion en generacion."),
+    (51, 11, "En que contexto aprendio la abuela la receta?", ["De nina en un pueblo pequeno","En la universidad","En un restaurante moderno"], "A", "El texto lo dice explicitamente."),
+    (61, 11, "Como se relaciona el titulo con el contenido?", ["El texto cuenta la receta de la abuela","Es sobre abuelas en general","Es un manual rapido"], "A", "El titulo anticipa el relato familiar."),
+    (61, 11, "Que anticipa el titulo 'La receta de la abuela'?", ["Una historia familiar en torno a una receta","Un manual de cocina","Una biografia"], "A", "El titulo abre paso al relato."),
+    (71, 11, "Como termina la historia de Sofia?", ["Comparte el bizcocho y recuerda la leccion","Vende el bizcocho","Se olvida de la receta"], "A", "Comparte con sus padres y no lo olvida."),
+    (71, 11, "Que aprende Sofia al final?", ["Que la receta es mas que una receta","Que la batidora es mejor","Que su abuela es famosa"], "A", "Aprende tradicion y carino."),
+    (83, 11, "Si 'la abuela usa cuchara de madera' y 'con la cuchara se siente la textura', que se concluye?", ["Que la textura es importante para la abuela","Que no tiene batidora","Que es pobre"], "A", "La conclusion surge de las premisas."),
+    (83, 11, "Si 'Sofia quiere aprender' y 'la abuela ensena con carino', que se concluye?", ["Que la transmision funciona","Que Sofia no aprende","Que la abuela no quiere ensenar"], "A", "Ambas premisas conducen a la conclusion."),
+    (93, 11, "Que sesgo tiene el texto sobre la receta?", ["Solo muestra lo positivo de la tradicion","Solo lo negativo","Ninguno"], "A", "El relato esta idealizado."),
+    (93, 11, "Por que el texto no menciona fracasos de otras recetas?", ["Porque se centra en una experiencia positiva","Porque nunca fallan","Porque no hay otras"], "A", "El texto selecciona lo positivo."),
+
+    # ============ TEXTO 17: El misterio del cuadro robado (literario) ============
+    (6, 17, "Que edad tiene la guia, segun el texto?", ["45 anos","60 anos","30 anos"], "A", "El texto dice 'La guia tenia 45 anos'."),
+    (6, 17, "Que rol tiene el restaurador?", ["Restaurar obras","Vigilar las salas","Guiar a los visitantes"], "A", "Trabaja con vidrio y obras."),
+    (14, 17, "Que elemento del texto es fantastico?", ["Ninguno, es realista","El cuadro robado","El detective"], "A", "Todo puede ocurrir en un museo real."),
+    (14, 17, "La historia es realista o fantastica?", ["Realista, es una investigacion policial","Fantastica, hay magia","Ciencia ficcion"], "A", "Todo es plausible."),
+    (22, 17, "En 'salio por la ventana, por eso tuvo que ser agil', que conector expresa la relacion?", ["'por eso'","'salio'","'ventana'"], "A", "'Por eso' marca consecuencia."),
+    (22, 17, "En 'si el ladron salio por la ventana, tuvo que ser agil', que relacion se establece?", ["Causa-consecuencia","Comparacion","Contraste"], "A", "Sale por ventana -> debe ser agil."),
+    (32, 17, "En 'Alguien habia robado un cuadro', que tiempo es 'habia robado'?", ["Pasado (pluscuamperfecto)","Presente","Futuro"], "A", "Accion pasada anterior a otra pasada."),
+    (32, 17, "En 'Ramos sonrio', que tiempo es 'sonrio'?", ["Pasado","Presente","Futuro"], "A", "Preterito simple."),
+    (42, 17, "Por que el restaurador robo el cuadro?", ["Para venderlo","Para regalarlo","Para vengarse"], "A", "El texto dice 'para venderlo'."),
+    (42, 17, "Que motivo a Ramos a sospechar del restaurador?", ["El ruido del cristal y su oficio","Una confesion","Un testigo"], "A", "El restaurador trabaja con vidrio a diario."),
+    (52, 17, "Que pista revela la mentira del restaurador?", ["El ruido del cristal roto","La huella de zapato","La lista"], "A", "El ruido lo delata."),
+    (52, 17, "Por que Ramos sospecha del restaurador y no del vigilante?", ["Por el cristal roto y su oficio con vidrio","Porque el vigilante confeso","Porque la guia lo delato"], "A", "El cristal apunta al restaurador."),
+    (62, 17, "Cual es la funcion de la introduccion del texto?", ["Presentar el crimen y los sospechosos","Resolver el caso","Describir el museo"], "A", "Sienta las bases del enigma."),
+    (62, 17, "Que hace la primera frase del texto?", ["Presenta el escenario y el crimen","Describe al detective","Anuncia la solucion"], "A", "Introduce al detective y el robo."),
+    (72, 17, "Desde que punto de vista se narra?", ["Tercera persona","Primera persona","Segunda persona"], "A", "El narrador es externo."),
+    (72, 17, "El narrador es un personaje de la historia?", ["No, es externo","Si, es el detective","Si, es el vigilante"], "A", "Narra desde fuera."),
+    (84, 17, "La frase 'el restaurador es un ladron porque es malo' seria una falacia. Que tipo?", ["Ad hominem","Ad populum","Falso dilema"], "A", "Ataca a la persona sin argumentos."),
+    (84, 17, "Que falacia cometeria alguien que dice 'todos los restauradores son ladrones'?", ["Generalizacion apresurada","Ad hominem","Apelacion a la emocion"], "A", "Generaliza desde un caso."),
+    (94, 17, "El texto tiene sesgo ideologico?", ["No, presenta los hechos de forma neutral","Si, contra los restauradores","Si, a favor del museo"], "A", "El relato es neutral."),
+    (94, 17, "Que punto de vista muestra el texto?", ["El de la investigacion policial","El del ladron","El de la guia"], "A", "Sigue la investigacion de Ramos."),
+    # ============ TEXTO 18: La vida en el fondo del mar (informativo) ============
+    (2, 18, "En 'La doctora Elena era biologa marina', cual es el sujeto?", ["La doctora Elena","biologa marina","doctora"], "A", "El sujeto es 'La doctora Elena'."),
+    (2, 18, "En 'su companero Luis pregunto por el radio', quien pregunto?", ["Luis","Elena","el equipo"], "A", "Luis es el sujeto."),
+    (4, 18, "Que estructura tiene el texto?", ["Introduccion, desarrollo y conclusion","Inicio, nudo y desenlace de cuento","Solo dialogo"], "A", "Expositivo con ejemplos y reflexion final."),
+    (4, 18, "Como se organiza el texto?", ["Expositivo con ejemplos y dialogo","Cuento fantastico","Poema"], "A", "Estructura informativa con narrativa."),
+    (25, 18, "En 'El agua estaba oscura y fria', que sinonimo de 'oscura' podria usarse?", ["Tenebrosa","Clara","Brillante"], "A", "Tenebrosa = oscura."),
+    (25, 18, "En 'un pez enorme paso cerca', que antonimo de 'enorme'?", ["Diminuto","Grande","Gigante"], "A", "Diminuto es lo opuesto."),
+    (35, 18, "Que fuente cita Elena en el texto?", ["Ninguna explicita","El informe Ecoembes","La Universidad de Madrid"], "A", "Habla de su experiencia, sin citar fuentes formales."),
+    (35, 18, "Quien dice 'El oceano es infinito, verdad?'", ["Luis","Elena","el narrador"], "A", "Luis hace la pregunta."),
+    (44, 18, "Que relacion hay entre Elena y Luis?", ["Companeros de trabajo","Hermanos","Marido y mujer"], "A", "El texto dice 'su companero Luis'."),
+    (44, 18, "Como se comunican Elena y Luis bajo el agua?", ["Por el radio","Por senas","Por escrito"], "A", "El texto dice 'pregunto por el radio'."),
+    (54, 18, "Como evoluciona Elena a lo largo del texto?", ["De curiosa a comprometida con el mar","De miedosa a valiente","De aburrida a emocionada"], "A", "Decide dedicar su vida a protegerlo."),
+    (54, 18, "Que decision toma Elena al final?", ["Dedicar su vida a proteger el oceano","Dejar su trabajo","Volver a la superficie"], "A", "El texto lo afirma en la ultima frase."),
+    (65, 18, "Que funcion cumple el ejemplo de los peces que brillan?", ["Mostrar la belleza del mar","Demostrar que hay peligro","Rellenar"], "A", "Enfatiza la maravilla del oceano."),
+    (65, 18, "Que funcion cumple la mencion del 'pez enorme'?", ["Mostrar un encuentro con la fauna marina","Asustar al lector","Distraer"], "A", "Ilustra la experiencia directa."),
+    (75, 18, "Que informacion del pasado se menciona sobre Elena?", ["Que de nina miraba el mar","Que estudio en Madrid","Que nacio en el puerto"], "A", "Elena recuerda su ninez."),
+    (75, 18, "Que recuerdo de infancia se incluye?", ["Pasaba horas mirando el mar","Jugaba con peces","Sonaba con barcos"], "A", "El texto lo menciona como pasado."),
+    (87, 18, "Si alguien dijera 'quien no protege el mar odia a los animales', que falacia comete?", ["Apelacion a la emocion","Ad hominem","Falso dilema"], "A", "Apela a la emocion sin argumento."),
+    (87, 18, "Que falacia hay en 'o proteges el mar o eres un destructor'?", ["Falso dilema","Generalizacion apresurada","Ad hominem"], "A", "Solo dos opciones cuando hay mas."),
+    (97, 18, "El texto dice 'llevaba veinte anos estudiando el fondo del mar'. Es preciso?", ["Si, es un dato concreto","No, es vago","No se puede saber"], "A", "Veinte anos es un dato preciso."),
+    (97, 18, "Que dato numerico aparece en el texto?", ["Veinte anos","Diez anos","Cien anos"], "A", "Lo dice explicitamente."),
+
+    # ============ TEXTO 19: El debate sobre los deberes (informativo) ============
+    (7, 19, "En 'el instituto San Isidro debate sobre los deberes', quienes debaten?", ["Profesores y familias","Los alumnos","El director"], "A", "El texto lo afirma."),
+    (7, 19, "Quien afirma 'Un nino de 12 anos no deberia estudiar mas de dos horas'?", ["Ana Lopez","Un alumno","El director"], "A", "Es la profesora Ana Lopez."),
+    (9, 19, "Quien es el personaje principal del texto?", ["No hay personaje, es informativo","Ana Lopez","Los alumnos"], "A", "Es un texto informativo sin protagonista."),
+    (9, 19, "Podemos decir que el texto tiene protagonista?", ["No, es informativo","Si, Ana Lopez","Si, los ninos"], "A", "No hay personajes de ficcion."),
+    (26, 19, "En 'los deberes consumen el tiempo libre, por eso algunos los rechazan', que relacion hay?", ["Causa-consecuencia","Comparacion","Contraste"], "A", "'Por eso' indica consecuencia."),
+    (26, 19, "En 'segun un estudio, los alumnos obtienen mejores resultados', que relacion hay entre estudiar y resultados?", ["Causa-efecto","Contraste","Definicion"], "A", "Estudiar produce mejores resultados."),
+    (36, 19, "Si buscaramos 'equidad' en un glosario, en que letra estaria?", ["E","A","Q"], "A", "Empieza por E."),
+    (36, 19, "Si buscaramos 'deberes' en un glosario, en que letra?", ["D","A","Z"], "A", "Empieza por D."),
+    (45, 19, "Que profesion tiene Ana Lopez?", ["Profesora","Medica","Abogada"], "A", "El texto la llama 'la profesora Ana Lopez'."),
+    (45, 19, "Que herramientas usa un profesor, segun el texto?", ["Estudios y encuestas","Martillo y cincel","Bisturi"], "A", "El texto menciona estudios y encuestas."),
+    (55, 19, "Segun el texto, cual es una causa del debate sobre los deberes?", ["Las condiciones desiguales en casa","La falta de profesores","El exceso de vacaciones"], "A", "'El problema es la equidad'."),
+    (55, 19, "Que problema social aborda el texto?", ["La equidad educativa","El cambio climatico","La crisis economica"], "A", "El foco es la desigualdad."),
+    (66, 19, "La cita 'Un nino de 12 anos no deberia estudiar mas de dos horas' aparece para...", ["Apoyar la critica a los deberes excesivos","Mostrar que los ninos son vagos","Defender a los profesores"], "A", "Refuerza la postura critica."),
+    (66, 19, "Que funcion cumple la cita del profesor al final?", ["Resumir la idea central del debate","Contradecir todo","Rellenar"], "A", "Sintetiza el conflicto: equidad."),
+    (76, 19, "Que proyeccion al futuro menciona el texto?", ["Reducir los deberes","Eliminarlos del todo","Construir escuelas"], "A", "La mayoria prefiere reducirlos."),
+    (76, 19, "Que dato del pasado reciente se menciona?", ["Un estudio de 2023 y una encuesta de 2024","Un estudio de 1900","Un libro antiguo"], "A", "Los datos son recientes."),
+    (88, 19, "Que fuente cita el texto?", ["Un estudio de la Universidad de Madrid (2023) y una encuesta de 2024","Ecoembes","Wikipedia"], "A", "Fuentes academicas y de encuesta."),
+    (88, 19, "Son fuentes academicas o de otro tipo?", ["Academica y de encuesta","Solo comerciales","Solo gubernamentales"], "A", "Universidad + encuesta."),
+    (98, 19, "Cual seria un buen resumen del texto?", ["Un debate sobre si los deberes son necesarios o excesivos","Una historia de estudiantes","Una receta"], "A", "El texto presenta dos posturas."),
+    (98, 19, "Que resume mejor el texto?", ["Los deberes tienen ventajas pero generan desigualdad","Los deberes son siempre malos","Los deberes son siempre buenos"], "A", "El texto presenta matices."),
+
+    # ============ TEXTO 20: Como funciona el reciclaje (informativo) ============
+    (11, 20, "Que palabras indican orden en las fases del reciclaje?", ["'En la primera', 'en la segunda', 'en la tercera'","'ayer, hoy, manana'","'por la manana'"], "A", "Se numeran las fases."),
+    (11, 20, "En 'Primero reduce, segundo reutiliza, tercero recicla', que palabras indican orden?", ["Primero, segundo, tercero","reduce, reutiliza, recicla","el, la, los"], "A", "Los ordinales marcan orden."),
+    (13, 20, "Cual es el escenario del texto?", ["El proceso de reciclaje","Una ciudad","Una fabrica"], "A", "El texto describe el proceso."),
+    (13, 20, "Donde ocurre la clasificacion?", ["En plantas clasificadoras","En las casas","En el mar"], "A", "El texto lo dice en la fase 2."),
+    (27, 20, "Que marcador temporal indica el orden de las fases?", ["'En la primera... En la segunda... En la tercera...'","'ayer, hoy, manana'","'por la manana'"], "A", "Ordinales marcan secuencia."),
+    (27, 20, "Que marcador indica una secuencia?", ["'Primero, Segundo, Tercero'","'antes de'","'mientras'"], "A", "Ordinales indican orden."),
+    (37, 20, "Que palabra se repite para enfatizar el tema?", ["Reciclar/reciclaje","Ventaja","Fase"], "A", "El lexico del reciclaje se repite."),
+    (37, 20, "Que frase se repite para reforzar la idea?", ["'reduce la contaminacion'","'el informe Ecoembes'","'la doctora Garcia'"], "A", "El texto insiste en reducir."),
+    (46, 20, "Si el texto dijera 'Quien no quiere un planeta limpio?', que intencion tendria?", ["Retorica, para persuadir","Informativa","Descriptiva"], "A", "Es una pregunta retorica."),
+    (46, 20, "Para que sirve una pregunta retorica en un texto argumentativo?", ["Para involucrar al lector y reforzar la idea","Para pedir informacion","Para describir"], "A", "Genera adhesion."),
+    (56, 20, "En 'el reciclaje es una herramienta util', que recurso se usa?", ["Metafora","Personificacion","Hiperbole"], "A", "Compara el reciclaje con una herramienta."),
+    (56, 20, "En 'el reciclaje no es la solucion definitiva', que tipo de lenguaje?", ["Literal, no figurado","Metafora","Ironia"], "A", "Es una afirmacion directa."),
+    (67, 20, "En 'reciclar aluminio consume un 95% menos de energia que producirlo', que funcion cumple la comparacion?", ["Mostrar el ahorro energetico","Describir el aluminio","Distraer"], "A", "La comparacion cuantifica el ahorro."),
+    (67, 20, "Que compara el texto al decir 'reducir, reutilizar y reciclar, en ese orden'?", ["Las tres estrategias ambientales","Los paises","Los materiales"], "A", "Ordena las estrategias."),
+    (77, 20, "Cual es el punto culminante del texto?", ["La conclusion de que reciclar es util pero no suficiente","La introduccion","El informe"], "A", "La sintesis final concentra la idea."),
+    (77, 20, "Que momento del texto concentra la idea principal?", ["La conclusion final","La primera frase","La cita de Ecoembes"], "A", "La sintesis cierra el texto."),
+    (89, 20, "El informe de Ecoembes es fuente primaria o secundaria?", ["Secundaria","Primaria","No se puede saber"], "A", "Cita datos de terceros."),
+    (89, 20, "La doctora Garcia es fuente primaria?", ["Si, es experta citada directamente","No, es secundaria","No es fuente"], "A", "Es una experta que opina."),
+    (99, 20, "Si comparamos este texto con uno que dijera 'el reciclaje no sirve', que diferencia habria?", ["Este es equilibrado, el otro seria unilateral","Serian iguales","No hay diferencia"], "A", "Este presenta matices."),
+    (99, 20, "Como se compara este texto con una opinion personal sobre el reciclaje?", ["El texto presenta datos y matices, la opinion seria subjetiva","Serian iguales","El texto es mas subjetivo"], "A", "El texto es informativo."),
+    # ============ TEXTO 53: El viaje de fin de curso (narrativo) ============
+    (8, 53, "Que es lo mas probable que ocurra despues del final?", ["Los alumnos vuelven a clase con buen recuerdo","Se pierden en la montana","Cancelan el proximo viaje"], "A", "El tono final es positivo."),
+    (8, 53, "Que pasara con la clase al ano siguiente?", ["Haran otro viaje","Se separaran","No volveran a verse"], "A", "La experiencia se repetira."),
+    (23, 53, "Cual es el tema del texto?", ["Un viaje escolar a la montana","Una excursion al mar","Un dia de clase normal"], "A", "El texto lo dice al inicio."),
+    (23, 53, "De que trata principalmente el texto?", ["De un viaje de fin de curso","De una carrera","De una fiesta"], "A", "El viaje es el eje."),
+    (33, 53, "Cual de estas palabras es un adjetivo valorativo?", ["inolvidable","tres","autobus"], "A", "'Inolvidable' valora."),
+    (33, 53, "Que otro adjetivo valorativo aparece?", ["divertido","grande","frio"], "A", "'Divertido' expresa valoracion."),
+    (43, 53, "Si no hubieran llevado ropa de abrigo, que se infiere?", ["Habrian pasado frio","Habrian cancelado","Habrian vuelto antes"], "A", "Hacia frio y nevaba."),
+    (43, 53, "Que consecuencia tuvo dormir tarde?", ["Estaban cansados al dia siguiente","No durmieron","Se durmieron en el autobus"], "A", "El texto dice 'volvimos cansados'."),
+    (53, 53, "Hay conflicto interno en el texto?", ["No, es un relato lineal sin conflicto","Si, el narrador duda","Si, hay miedo"], "A", "No hay conflicto psicologico."),
+    (53, 53, "Como se sienten los alumnos al volver?", ["Cansados pero contentos","Tristes","Enfadados"], "A", "El texto lo dice."),
+    (63, 53, "Cual es la funcion de la conclusion del texto?", ["Resumir el valor del viaje","Introducir un nuevo viaje","Describir la montana"], "A", "'Fue un viaje inolvidable'."),
+    (63, 53, "Como cierra el texto?", ["Con una valoracion positiva del viaje","Con una pregunta","Con un conflicto"], "A", "Cierra con valoracion."),
+    (73, 53, "Hay dialogo en el texto?", ["No, es narracion pura","Si, entre alumnos","Si, con el guia"], "A", "No hay guiones ni dialogos."),
+    (73, 53, "El texto usa primera o tercera persona?", ["Primera persona del plural","Tercera persona","Segunda persona"], "A", "Usa 'mi clase', 'salimos'."),
+    (80, 53, "Cual de estas frases es un hecho?", ["El viaje duro tres horas","Fue un viaje inolvidable","Nos acostamos tarde"], "A", "Tres horas es verificable."),
+    (80, 53, "Cual es una opinion?", ["Fue un dia muy divertido","Salimos a las siete","Hacia frio"], "A", "'Divertido' es valoracion."),
+    (86, 53, "Si alguien dijera 'o hacemos este viaje o no hacemos ninguno', que falacia seria?", ["Falso dilema","Ad hominem","Apelacion a la emocion"], "A", "Solo dos opciones."),
+    (86, 53, "Que falacia contiene 'los viajes escolares son todos inutiles'?", ["Generalizacion apresurada","Falso dilema","Ad hominem"], "A", "Generaliza desde un caso."),
+    (96, 53, "El texto es claro?", ["Si, usa frases sencillas y orden cronologico","No, es confuso","Es muy abstracto"], "A", "Estructura lineal clara."),
+    (96, 53, "Que hace que el texto sea facil de entender?", ["Frases cortas y estructura clara","Vocabulario tecnico","Citas"], "A", "Lenguaje directo."),
+
+    # ============ TEXTO 54: Redes sociales: si o no? (opinion) ============
+    (12, 54, "Si alguien mira el movil durante una conversacion, que sugiere ese gesto?", ["Desinteres o distraccion","Interes","Cansancio"], "A", "El texto critica eso."),
+    (12, 54, "Si alguien comparte una noticia sin verificar, que sugiere?", ["Falta de criterio o prisa","Criterio","Cuidado"], "A", "El texto advierte de noticias falsas."),
+    (18, 54, "Cual es verdadera segun el texto?", ["Las redes sirven para hablar con amigos lejanos","Las redes son todas malas","Las redes curan enfermedades"], "A", "El texto lo afirma."),
+    (18, 54, "Cual es falsa segun el texto?", ["Las redes siempre son buenas","Pueden ser malas si se abusa","Hay noticias falsas"], "A", "El texto matiza."),
+    (24, 54, "Cual de estas palabras es clave en el texto?", ["moderacion","familiares","rapido"], "A", "'Moderacion' es el eje."),
+    (24, 54, "Que otra palabra clave aparece?", ["limite","compartir","personas"], "A", "'Limite' cierra la idea."),
+    (34, 54, "Que adverbio de modo aparece en 'se comparten muy rapido'?", ["rapido","muy","comparten"], "A", "'Rapido' es adverbio de modo."),
+    (34, 54, "Como se usa 'demasiado' en el texto?", ["Como adverbio de cantidad","de modo","de tiempo"], "A", "Indica exceso."),
+    (48, 54, "Cual es el tono del texto?", ["Reflexivo y equilibrado","Agresivo","Triste"], "A", "Presenta pros y contras."),
+    (48, 54, "Que tono predomina?", ["Opinion personal razonada","Noticia objetiva","Cuento"], "A", "Es un texto de opinion."),
+    (58, 54, "Que informacion se omite deliberadamente?", ["Datos concretos sobre cuantas horas es demasiado","Los nombres de las redes","Los paises"], "A", "No especifica horas."),
+    (58, 54, "Que no especifica el texto?", ["Que limite de tiempo exacto poner","Que hay noticias falsas","Que las redes son utiles"], "A", "No da numeros exactos."),
+    (64, 54, "Que funcion cumple el primer parrafo?", ["Presentar la tesis: pros y contras","Dar la conclusion","Describir"], "A", "Introduce ambas caras."),
+    (64, 54, "Que hace el segundo parrafo?", ["Desarrollar los pros","Cerrar","Repetir"], "A", "Se centra en lo positivo."),
+    (74, 54, "El texto menciona 'como dice mucha gente'. Que funcion cumple?", ["Apoyar la opinion con referencia general","Citar experto","Describir"], "A", "Es una referencia generica."),
+    (74, 54, "El texto usa citas textuales?", ["No, solo referencias generales","Si, de expertos","Si, de famosos"], "A", "No cita fuentes concretas."),
+    (85, 54, "Si alguien dijera 'todos los jovenes son adictos al movil', que falacia seria?", ["Generalizacion apresurada","Ad hominem","Falso dilema"], "A", "Generaliza sin datos."),
+    (85, 54, "Que falacia hay en 'las redes son todas malas'?", ["Generalizacion apresurada","Apelacion a la emocion","Ad hominem"], "A", "Generaliza."),
+    (95, 54, "El texto es coherente?", ["Si, presenta pros y contras de forma equilibrada","No, se contradice","Confuso"], "A", "Estructura equilibrada."),
+    (95, 54, "Que hace que el texto sea coherente?", ["Usa 'por un lado / por otro lado'","Cambia de tema","No tiene estructura"], "A", "Conectores de contraste."),
+
+    # ============ TEXTO 55: El barrio donde creci (descriptivo) ============
+    (15, 55, "Que palabra del texto indica negacion?", ["no","ya","mas"], "A", "'No' niega."),
+    (15, 55, "Que otra expresion indica negacion?", ["'ya no existe'","'todavia me gusta'","'ahora'"], "A", "'Ya no' niega."),
+    (17, 55, "Que tipo de texto es?", ["Descriptivo","Narrativo","Argumentativo"], "A", "Describe el barrio."),
+    (17, 55, "Que tipo de texto es segun su estructura?", ["Descriptivo con contraste pasado/presente","Cientifico","Poetico"], "A", "Estructura descriptiva."),
+    (28, 55, "Que marcador espacial aparece?", ["cerca del centro","cuando","todavia"], "A", "'Cerca del centro' indica lugar."),
+    (28, 55, "En 'Alli viven mis padres', que palabra es marcador espacial?", ["Alli","viven","padres"], "A", "'Alli' indica lugar."),
+    (38, 55, "Hay dialogo en el texto?", ["No, es descripcion pura","Si, entre amigos","Si, con la familia"], "A", "No hay dialogos."),
+    (38, 55, "El texto usa primera o tercera persona?", ["Primera persona","Tercera persona","Segunda persona"], "A", "'Creci', 'me gusta'."),
+    (47, 55, "Hay ironia en el texto?", ["No, es nostalgico sin ironia","Si, mucha","Un poco"], "A", "El tono es nostalgico."),
+    (47, 55, "Que tono predomina?", ["Nostalgico","Ironico","Comico"], "A", "El texto es nostalgico."),
+    (57, 55, "Hay personificacion en el texto?", ["No, es descriptivo literal","Si, en 'el barrio cambio'","Si, en 'el mercado habla'"], "A", "No personifica."),
+    (57, 55, "Que recurso usa 'el barrio cambio'?", ["Metafora","Personificacion","Hiperbole"], "A", "'Cambio' es metafora de evolucion."),
+    (68, 55, "Que simboliza el parque para el narrador?", ["La infancia y la familia","El dinero","El trabajo"], "A", "Iban al parque en familia."),
+    (68, 55, "Que simboliza el colegio?", ["El paso del tiempo y el cambio","La educacion","La amistad"], "A", "El colegio cambio con los anos."),
+    (78, 55, "Que tipo de texto es segun su proposito?", ["Descriptivo-narrativo personal","Noticia","Anuncio"], "A", "Es un relato personal."),
+    (78, 55, "Que tipo de articulo es?", ["Un relato personal sobre un barrio","Una noticia local","Un ensayo"], "A", "Es autobiografico."),
+    (90, 55, "El narrador es una fuente creible?", ["Es una fuente personal, subjetiva","Es un experto","Es un documento"], "A", "Es experiencia personal."),
+    (90, 55, "Como evaluar la credibilidad del texto?", ["Es una experiencia personal, no un estudio","Es una fuente academica","Es una noticia"], "A", "Es subjetivo."),
+    (100, 55, "El texto es de calidad?", ["Si, es claro, coherente y emotivo","No, es confuso","Regular"], "A", "Buena calidad."),
+    (100, 55, "Que hace que el texto tenga calidad?", ["Estructura clara, contraste pasado/presente, cierre emotivo","Palabras dificiles","Datos tecnicos"], "A", "Composicion solida."),
+]
+def header(n, t):
+    print(); print("=" * 78); print(f"[{n}] {t}"); print("=" * 78)
+
+
+header("A", "PLAN DE RESET A2")
+
+ejs_viejos = list(EJ.objects.filter(tecnica__nivel_mcer="A2"))
+print(f"  Ejercicios A2 actuales: {len(ejs_viejos)}")
+print(f"  Se borraran TODOS y se crearan {len(E)} nuevos")
+
+# Validar tecnicas
+tec_nums = set(e[0] for e in E)
+tec_existentes = set(TL.objects.filter(nivel_mcer="A2", numero__in=tec_nums).values_list("numero", flat=True))
+faltantes = tec_nums - tec_existentes
+if faltantes:
+    print(f"  [ERROR] Tecnicas inexistentes: {sorted(faltantes)}")
+    sys.exit(1)
+print(f"  [OK] Las {len(tec_nums)} tecnicas referenciadas existen")
+
+# Validar textos
+txt_ids = set(e[1] for e in E)
+txt_existentes = set(TX.objects.filter(nivel_mcer="A2", id__in=txt_ids).values_list("id", flat=True))
+faltantes_tx = txt_ids - txt_existentes
+if faltantes_tx:
+    print(f"  [ERROR] Textos inexistentes: {sorted(faltantes_tx)}")
+    sys.exit(1)
+print(f"  [OK] Los {len(txt_ids)} textos referenciados existen")
+
+# Validar pares (tec, texto) unicos
+pares = [(e[0], e[1]) for e in E]
+pares_dup = [p for p, c in Counter(pares).items() if c > 1]
+if pares_dup:
+    print(f"  [WARN] {len(pares_dup)} pares (tec, texto) duplicados (se permiten, pero revisar):")
+    for p in pares_dup[:5]:
+        print(f"    tec #{p[0]} / texto {p[1]}: {Counter(pares)[p]} veces")
+
+# Distribucion esperada
+tec_por_texto = defaultdict(int)
+for row in E:
+    tec_por_texto[row[1]] += 1
+
+header("B", "DISTRIBUCION ESPERADA")
+for tid in sorted(tec_por_texto.keys()):
+    tx = TX.objects.filter(id=tid).first()
+    titulo = tx.titulo[:40] if tx else "?"
+    print(f"  texto {tid:>3}: {tec_por_texto[tid]:>3} ejercicios  -> {titulo}")
+
+# Validar cada tecnica tiene exactamente 2 ejercicios
+tec_count = Counter(e[0] for e in E)
+tec_no_2 = {num: c for num, c in tec_count.items() if c != 2}
+if tec_no_2:
+    print(f"\n  [WARN] Tecnicas con != 2 ejercicios:")
+    for num, c in sorted(tec_no_2.items()):
+        print(f"    tec #{num}: {c} ejercicios")
+else:
+    print(f"\n  [OK] Las 100 tecnicas tienen exactamente 2 ejercicios cada una")
+
+header("C", "APLICAR" if args.apply else "DRY-RUN")
+
+if not args.apply:
+    print("  DRY-RUN. Nada modificado.")
+    print(f"  Se borrarian {len(ejs_viejos)} ejercicios viejos.")
+    print(f"  Se crearian {len(E)} ejercicios nuevos.")
+    print("  Ejecuta con --apply para aplicar.")
+    sys.exit(0)
+
+with transaction.atomic():
+    # Borrar viejos
+    borrados = 0
+    for ej in ejs_viejos:
+        ej.delete()
+        borrados += 1
+    print(f"\n  [OK] {borrados} ejercicios borrados")
+
+    # Cachear tecnicas
+    tec_por_num = {t.numero: t for t in TL.objects.filter(nivel_mcer="A2")}
+
+    # Crear nuevos
+    creados = 0
+    errores = 0
+    for tec_num, texto_id, enun, ops, corr, expl in E:
+        tec = tec_por_num.get(tec_num)
+        if not tec:
+            errores += 1
+            continue
+        EJ.objects.create(
+            tecnica=tec,
+            texto_id=texto_id,
+            enunciado=enun,
+            tipo="multiple_choice",
+            payload={
+                "opciones": [f"{chr(65+i)}) {op}" for i, op in enumerate(ops)],
+                "correcta": corr,
+                "explicacion": expl,
+            },
+            orden=0,
+        )
+        creados += 1
+
+    print(f"  [OK] {creados} ejercicios creados")
+    if errores:
+        print(f"  [WARN] {errores} errores")
+
+header("D", "VERIFICAR")
+
+ejs_finales = list(EJ.objects.filter(tecnica__nivel_mcer="A2")
+                   .select_related("tecnica", "texto"))
+print(f"  Total ejercicios A2: {len(ejs_finales)}")
+
+por_tec = Counter(e.tecnica_id for e in ejs_finales)
+tec_con_2 = sum(1 for v in por_tec.values() if v >= 2)
+tec_con_1 = sum(1 for v in por_tec.values() if v == 1)
+tec_con_0 = sum(1 for v in por_tec.values() if v == 0)
+print(f"  Tecnicas con 0 ej: {tec_con_0}")
+print(f"  Tecnicas con 1 ej: {tec_con_1}")
+print(f"  Tecnicas con 2+ ej: {tec_con_2}")
+ratio = len(ejs_finales) / max(1, len(por_tec))
+print(f"  Ratio: {ratio:.2f}  (objetivo 2.00)")
+
+# Coherencia aproximada
+STOPWORDS = {
+    "para", "como", "porque", "cuando", "donde", "sobre", "entre", "desde",
+    "hasta", "segun", "texto", "oracion", "frase", "palabra", "palabras",
+    "siguiente", "siguientes", "correcta", "incorrecta", "verdadera", "falsa",
+    "dice", "menciona", "aparece", "indica", "significa", "cual", "como",
+    "que", "quien", "donde", "cuando", "por", "con", "los", "las", "una",
+    "uno", "del", "que", "este", "esta", "estos", "estas", "mas", "pero",
+    "hace", "hizo", "sido", "tiene", "tenia",
+}
+
+def tokens(text):
+    if not text:
+        return set()
+    text = str(text).lower()
+    words = re.findall(r"\b[a-z\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\u00fc]+\b", text)
+    return {w for w in words if len(w) > 4 and w not in STOPWORDS}
+
+META_PATTERNS = [
+    r"en el texto", r"del texto", r"segun el texto",
+    r"el texto (es|tiene|dice|trata|presenta|sigue|esta)",
+    r"cual es (el|la) (tema|titulo|idea|conclusion|estructura|proposito|tono|narrador|escenario)",
+    r"de que trata", r"que tipo de (texto|estructura|lenguaje)",
+    r"cual de estas (frases|palabras|afirmaciones)",
+    r"como (esta|se) (organizada|estructura|narra|comunica)",
+]
+
+def es_meta_pregunta(enunciado):
+    e = (enunciado or "").lower()
+    return any(re.search(p, e) for p in META_PATTERNS)
+
+def es_coherente(e):
+    if not e.texto or not e.payload:
+        return False
+    # Whitelist: meta-preguntas son coherentes por definicion
+    if es_meta_pregunta(e.enunciado):
+        return True
+    tx_tokens = tokens(e.texto.cuerpo if e.texto else "")
+    enun_tokens = tokens(e.enunciado or "")
+    expl_tokens = tokens(e.payload.get("explicacion", "") if isinstance(e.payload, dict) else "")
+    combined = enun_tokens | expl_tokens
+    return len(tx_tokens & combined) >= 1
+
+coherentes = sum(1 for e in ejs_finales if es_coherente(e))
+incoherentes = len(ejs_finales) - coherentes
+pct = 100 * coherentes / max(1, len(ejs_finales))
+
+print(f"\n  Coherentes:   {coherentes}/{len(ejs_finales)} ({pct:.1f}%)")
+print(f"  Incoherentes: {incoherentes}/{len(ejs_finales)}")
+
+if incoherentes > 20:
+    print(f"\n  [WARN] Muchos incoherentes. Revisar contenido:")
+    mostrados = 0
+    for e in ejs_finales:
+        if not es_coherente(e) and mostrados < 10:
+            tx_t = e.texto.titulo[:30] if e.texto else "?"
+            print(f"    tec #{e.tecnica.numero}: '{e.enunciado[:60]}' -> texto='{tx_t}'")
+            mostrados += 1
+
+# Veredicto
+header("VEREDICTO", "FASE 3b A2")
+
+ok_tec = (tec_con_2 == 100 and tec_con_1 == 0)
+ok_count = (len(ejs_finales) == 200)
+ok_ratio = (ratio >= 1.95)
+ok_coh = (pct >= 90)
+
+checks = [
+    ("200 ejercicios", ok_count),
+    ("100 tecnicas x 2", ok_tec),
+    ("ratio ~2.00", ok_ratio),
+    ("coherencia >= 90%", ok_coh),
+]
+for name, ok in checks:
+    print(f"  [{'OK' if ok else 'FAIL'}] {name}")
+
+if all(ok for _, ok in checks):
+    print(f"\n  [OK] FASE 3b A2 COMPLETA")
+else:
+    print(f"\n  [WARN] Revisar fallos antes de F5")
+
+print()
