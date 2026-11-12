@@ -1,0 +1,173 @@
+{
+  "texto_id": 61,
+  "nivel": "B2",
+  "titulo": "Leer en la era digital",
+  "nota": "Reformulación completa: 15 ejercicios con preguntas específicas del texto. Cada uno respeta la técnica asignada. Incluye fix del bug '¿¿' en ej.id=472.",
+  "parches": [
+    {
+      "ej_id": 113,
+      "enunciado": "¿Cuál es la tesis que defiende el autor?",
+      "opciones": [
+        "Que hemos confundido información con conocimiento y hay que recuperar la lectura profunda",
+        "Que los jóvenes no leen porque los libros son caros",
+        "Que la tecnología debe sustituir a los libros en papel"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor sostiene que 'hemos confundido información con conocimiento, y entretenimiento con lectura' y propone recuperar el hábito de leer un libro al mes."
+    },
+    {
+      "ej_id": 115,
+      "enunciado": "¿Qué dato objetivo aporta el texto para apoyar su tesis?",
+      "opciones": [
+        "El 40% de los jóvenes entre 15 y 24 años no lee ningún libro al año (UNESCO 2024)",
+        "El 80% de los adultos lee solo en pantalla",
+        "Los libros en papel cuestan el doble que los digitales"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto cita: 'Según un informe de la UNESCO (2024), el 40% de los jóvenes entre 15 y 24 años no lee ningún libro al año'."
+    },
+    {
+      "ej_id": 464,
+      "enunciado": "Según el estudio de la Universidad de Valencia (2023) citado en el texto, ¿qué conclusión se extrae sobre los lectores en papel?",
+      "opciones": [
+        "Muestran mayor capacidad de concentración y mejor comprensión lectora",
+        "Leen más rápido que los lectores en pantalla",
+        "Prefieren los audiolibros a los libros impresos"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto dice: 'un estudio de la Universidad de Valencia (2023) encontró que los lectores habituales de libros en papel muestran mayor capacidad de concentración y mejor comprensión lectora'."
+    },
+    {
+      "ej_id": 472,
+      "enunciado": "El autor afirma que 'leer es un acto de rebeldía'. ¿Qué recurso expresivo usa en esa frase?",
+      "opciones": [
+        "Una metáfora que presenta la lectura como resistencia frente a las pantallas",
+        "Una comparación con la guerra",
+        "Una hipérbole sobre el precio de los libros"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor define la lectura como 'acto de rebeldía': 'No voy a dejar que las pantallas decidan cómo pienso'. Es una metáfora de resistencia, no una comparación literal."
+    },
+    {
+      "ej_id": 519,
+      "enunciado": "¿Qué tipo de texto es 'Leer en la era digital'?",
+      "opciones": [
+        "Un ensayo argumentativo con tesis, datos y propuesta final",
+        "Una noticia sobre un informe de la UNESCO",
+        "Un cuento sobre una biblioteca"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto presenta una tesis ('hemos confundido información con conocimiento'), la apoya con datos (UNESCO, Universidad de Valencia) y termina con una propuesta ('leer un libro al mes'). Es un ensayo argumentativo."
+    },
+    {
+      "ej_id": 765,
+      "enunciado": "¿Cómo interpreta el autor la lectura en la era digital al final del texto?",
+      "opciones": [
+        "Como un acto de rebeldía para recuperar el control del propio pensamiento",
+        "Como una actividad obsoleta frente a las pantallas",
+        "Como una pérdida de tiempo que debe evitarse"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto concluye: 'En la era digital, leer es un acto de rebeldía. Es decir: No voy a dejar que las pantallas decidan cómo pienso. Es recuperar el control'."
+    },
+    {
+      "ej_id": 1023,
+      "enunciado": "¿Qué crítica hace el autor al comportamiento digital actual?",
+      "opciones": [
+        "Que la pantalla nos empuja a hacer scroll y pasar al siguiente estímulo sin detenernos",
+        "Que los jóvenes no tienen acceso a libros digitales",
+        "Que las bibliotecas han cerrado por falta de usuarios"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto dice: 'La pantalla nos empuja a hacer scroll, a pasar al siguiente estímulo, a no detenernos. El libro, en cambio, nos invita a quedarnos'."
+    },
+    {
+      "ej_id": 1033,
+      "enunciado": "El autor escribe: 'Pero ¿leemos de verdad? La pregunta no es retórica'. ¿Qué función cumple esa pregunta al inicio del texto?",
+      "opciones": [
+        "Cuestionar si la lectura superficial actual merece llamarse lectura",
+        "Pedir información objetiva al lector",
+        "Expresar una duda sobre el informe de la UNESCO"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor aclara que 'la pregunta no es retórica': la usa para cuestionar si lo que hacemos con las pantallas es lectura de verdad, no para pedir información."
+    },
+    {
+      "ej_id": 1751,
+      "enunciado": "¿Qué propuesta concreta hace el autor al final del texto?",
+      "opciones": [
+        "Leer un libro al mes",
+        "Cerrar todas las redes sociales",
+        "Leer solo en papel y abandonar las pantallas"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto propone: 'recuperemos el hábito de leer un libro al mes. No hace falta más. Un libro al mes son doce libros al año'."
+    },
+    {
+      "ej_id": 1765,
+      "enunciado": "En 'Un estudio de la Universidad de Valencia encontró que los lectores en papel muestran mayor concentración; por tanto, el papel favorece la lectura profunda', ¿cuál es la conclusión?",
+      "opciones": [
+        "El papel favorece la lectura profunda",
+        "La Universidad de Valencia realizó un estudio",
+        "Los lectores en pantalla leen más rápido"
+      ],
+      "correcta": "A",
+      "explicacion": "La conclusión es la afirmación que se sigue del estudio: 'el papel favorece la lectura profunda'. Las demás son la premisa o información secundaria."
+    },
+    {
+      "ej_id": 1773,
+      "enunciado": "El texto afirma que 'la lectura no es una pérdida de tiempo, es una inversión'. ¿Qué recurso expresivo usa?",
+      "opciones": [
+        "Una metáfora económica que presenta la lectura como algo que rinde beneficios",
+        "Una comparación con la bolsa de valores",
+        "Un dato verificable sobre el precio de los libros"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor usa 'inversión' como metáfora económica: 'como toda inversión, requiere constancia. Pero los beneficios son enormes'."
+    },
+    {
+      "ej_id": 1779,
+      "enunciado": "¿Qué función cumple la pregunta '¿leemos de verdad?' al inicio del texto?",
+      "opciones": [
+        "Afirmar con énfasis que la lectura superficial actual no es lectura de verdad",
+        "Pedir información objetiva",
+        "Expresar una duda sobre el informe de la UNESCO"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor aclara que 'la pregunta no es retórica', pero la usa para enfatizar que la lectura digital actual no merece llamarse lectura de verdad. Es una pregunta con fuerza asertiva."
+    },
+    {
+      "ej_id": 1800,
+      "enunciado": "¿Qué relación establece el texto entre información y conocimiento?",
+      "opciones": [
+        "Que la información es superficial y el conocimiento requiere lectura profunda",
+        "Que son sinónimos y pueden usarse indistintamente",
+        "Que la información es más valiosa que el conocimiento"
+      ],
+      "correcta": "A",
+      "explicacion": "El autor dice: 'hemos confundido información con conocimiento'. La distinción implica que la información es superficial y el conocimiento exige lectura profunda."
+    },
+    {
+      "ej_id": 1820,
+      "enunciado": "¿Cuál es la actitud del autor hacia la tecnología digital?",
+      "opciones": [
+        "Matizada: reconoce sus ventajas (audiolibros, bibliotecas digitales) pero alerta sobre lo que se pierde",
+        "Totalmente negativa: rechaza cualquier formato digital",
+        "Totalmente positiva: defiende sustituir el papel por pantallas"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto dice: 'No se trata de demonizar lo digital. Los audiolibros... han acercado la lectura... Las bibliotecas digitales han democratizado el acceso'. Reconoce ventajas pero alerta de que 'hay algo que se pierde cuando solo leemos en pantalla'."
+    },
+    {
+      "ej_id": 1830,
+      "enunciado": "¿Qué revela el uso del léxico bélico ('rebeldía', 'recuperar el control') al final del texto?",
+      "opciones": [
+        "Una visión de la lectura como resistencia frente al dominio de las pantallas",
+        "Una invitación a la violencia contra la tecnología",
+        "Una postura neutral sobre el uso de dispositivos"
+      ],
+      "correcta": "A",
+      "explicacion": "El léxico bélico ('acto de rebeldía', 'recuperar el control') presenta la lectura como una forma de resistencia frente al control que ejercen las pantallas sobre el pensamiento."
+    }
+  ]
+}

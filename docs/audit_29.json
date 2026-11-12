@@ -1,0 +1,31 @@
+{
+  "texto_id": 29,
+  "nivel": "C1",
+  "titulo": "Análisis crítico del discurso institucional: la reforma educativa",
+  "nota": "Solo 2 parches: los dos ejercicios DEBILES que detectó la auditoría. El resto del texto 29 ya está OK (94.6% laxa).",
+  "parches": [
+    {
+      "ej_id": 1062,
+      "enunciado": "El texto menciona que la ironía puede ridiculizar al autor atribuyéndole una postura que no defiende. ¿Qué ejemplo del texto ilustra esa ironía?",
+      "opciones": [
+        "Claro, tú quieres volver al siglo XIX",
+        "Funciona en otros países",
+        "La reforma es una medicina"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto cita 'Claro, tú quieres volver al siglo XIX' como ejemplo de ironía que ridiculiza al autor atribuyéndole una postura reaccionaria."
+    },
+    {
+      "ej_id": 1880,
+      "enunciado": "¿Qué intención pragmática tiene la ironía en 'Claro, tú quieres volver al siglo XIX', según el análisis del texto?",
+      "opciones": [
+        "Ridiculizar al autor, atribuyéndole una postura reaccionaria que no defiende",
+        "Elogiar al autor",
+        "Expresar admiración",
+        "Pedir perdón"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto analiza esa ironía como un recurso para ridiculizar al autor atribuyéndole una postura reaccionaria que no defiende."
+    }
+  ]
+}

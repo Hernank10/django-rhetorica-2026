@@ -1,0 +1,71 @@
+{
+  "texto_id": 47,
+  "nivel": "A1",
+  "titulo": "Un día en la vida de Ana",
+  "nota": "Parches SOLO para ej_id que existen en el texto 47. IDs verificados: 135, 240, 274, 713, 822, 832, 843, 844, 1436.",
+  "parches": [
+    {
+      "ej_id": 135,
+      "enunciado": "¿Qué desayuna Ana?",
+      "opciones": ["Pan con tomate y un vaso de leche", "Café y tostadas", "Fruta y yogur"],
+      "correcta": "A",
+      "explicacion": "El texto dice: 'Desayuna pan con tomate y un vaso de leche'."
+    },
+    {
+      "ej_id": 713,
+      "enunciado": "¿Cuál es la idea principal del texto?",
+      "opciones": ["La rutina diaria de una profesora feliz con su vida", "Un viaje al mar", "Una fiesta de cumpleaños"],
+      "correcta": "A",
+      "explicacion": "El texto describe un día completo en la vida de Ana y termina con 'Es feliz con su vida tranquila'."
+    },
+    {
+      "ej_id": 240,
+      "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+      "opciones": ["Una descripción de una rutina diaria", "Una noticia", "Un cuento fantástico"],
+      "correcta": "A",
+      "explicacion": "El texto describe la rutina diaria de Ana sin elementos fantásticos."
+    },
+    {
+      "ej_id": 274,
+      "enunciado": "El texto repite acciones de la rutina de Ana. ¿Qué recurso es esa repetición?",
+      "opciones": ["Una enumeración rítmica de acciones cotidianas", "Una comparación", "Una pregunta retórica"],
+      "correcta": "A",
+      "explicacion": "El texto encadena acciones ('desayuna... sale... camina... trabaja... come... lee... cena') en una enumeración rítmica."
+    },
+    {
+      "ej_id": 822,
+      "enunciado": "¿Cuál de estas palabras del texto indica un lugar?",
+      "opciones": ["Parque", "Siete", "Feliz"],
+      "correcta": "A",
+      "explicacion": "'Parque' es un lugar; 'siete' es un número y 'feliz' una emoción."
+    },
+    {
+      "ej_id": 832,
+      "enunciado": "Ana trabaja como profesora de música y dice que los niños son divertidos. ¿Cómo se siente con su trabajo?",
+      "opciones": ["Le encanta", "Le aburre", "Le da igual"],
+      "correcta": "A",
+      "explicacion": "El texto dice: 'Le encanta su trabajo porque los niños son divertidos'."
+    },
+    {
+      "ej_id": 843,
+      "enunciado": "Ana saluda a los niños al llegar a la escuela. ¿Qué sugiere ese saludo?",
+      "opciones": ["Que está contenta y es amable", "Que está enfadada", "Que tiene sueño"],
+      "correcta": "A",
+      "explicacion": "El saludo cariñoso a los niños sugiere que Ana disfruta de su trabajo y es amable."
+    },
+    {
+      "ej_id": 844,
+      "enunciado": "Ana es feliz con su vida tranquila. ¿Qué sugiere esa frase sobre su carácter?",
+      "opciones": ["Que disfruta de las cosas sencillas", "Que está aburrida", "Que quiere cambiar de vida"],
+      "correcta": "A",
+      "explicacion": "La frase 'es feliz con su vida tranquila' muestra que valora lo cotidiano y sencillo."
+    },
+    {
+      "ej_id": 1436,
+      "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+      "opciones": ["Una descripción de la rutina de un personaje", "Una noticia", "Un cuento fantástico"],
+      "correcta": "A",
+      "explicacion": "El texto describe la rutina diaria de Ana sin narrar un conflicto ni informar de un hecho noticioso."
+    }
+  ]
+}
