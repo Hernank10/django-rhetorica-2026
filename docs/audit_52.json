@@ -1,0 +1,107 @@
+{
+  "texto_id": 52,
+  "nivel": "A1",
+  "titulo": "En la cafetería",
+  "nota": "Reformular 5 huérfanos (110, 812, 1366, 1437, 1440) + 4 débiles (193, 1362, 1368, 1401). Los 6 OK (1357, 1386, 1392, 1393, 1400, 1441) NO se tocan. Los ejercicios estaban mal mapeados desde el texto 47 (Ana, la profesora). Ahora se anclan al diálogo real: Marta camarera, clienta, café con leche y croissant, 3,50 €, pago con tarjeta, café caliente/croissant dulce.",
+  "parches": [
+    {
+      "ej_id": 110,
+      "enunciado": "¿Cuál es el tema principal de 'En la cafetería'?",
+      "opciones": [
+        "Una conversación entre una clienta y Marta, la camarera, que le sirve un café con leche y un croissant",
+        "Un viaje al mar de una profesora",
+        "Una fiesta de cumpleaños en el barrio"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto reproduce un diálogo breve en una cafetería: la clienta pide un café con leche y un croissant, y Marta le dice el precio."
+    },
+    {
+      "ej_id": 193,
+      "enunciado": "¿Qué hace Marta por las mañanas según el texto?",
+      "opciones": [
+        "Trabaja en la cafetería del barrio",
+        "Lee un libro en el sofá",
+        "Duerme hasta tarde"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto empieza así: 'En la cafetería del barrio, Marta trabaja por las mañanas'."
+    },
+    {
+      "ej_id": 812,
+      "enunciado": "En 'El café está muy caliente', ¿qué indica la palabra 'caliente'?",
+      "opciones": [
+        "Que el café tiene una temperatura alta",
+        "Que el café está frío",
+        "Que el café es dulce"
+      ],
+      "correcta": "A",
+      "explicacion": "La última frase del texto es: 'El café está muy caliente y el croissant es dulce'. 'Caliente' se refiere a la temperatura."
+    },
+    {
+      "ej_id": 1362,
+      "enunciado": "¿Qué pide la clienta para beber?",
+      "opciones": [
+        "Un café con leche",
+        "Un zumo de naranja",
+        "Un vaso de agua"
+      ],
+      "correcta": "A",
+      "explicacion": "La clienta dice: 'Un café con leche y un croissant, por favor'."
+    },
+    {
+      "ej_id": 1366,
+      "enunciado": "¿Cuánto cuesta el pedido de la clienta?",
+      "opciones": [
+        "Tres euros con cincuenta",
+        "Diez euros",
+        "Cincuenta céntimos"
+      ],
+      "correcta": "A",
+      "explicacion": "Marta responde a '¿Cuánto es?': 'Son tres euros con cincuenta'."
+    },
+    {
+      "ej_id": 1368,
+      "enunciado": "¿Qué tipo de texto es 'En la cafetería'?",
+      "opciones": [
+        "Un diálogo entre una clienta y una camarera",
+        "Una receta de cocina",
+        "Una noticia del periódico"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto reproduce una conversación con rayas (—) entre la clienta y Marta: es un diálogo."
+    },
+    {
+      "ej_id": 1401,
+      "enunciado": "¿Cómo se reconoce el diálogo en 'En la cafetería'?",
+      "opciones": [
+        "Por las líneas que empiezan con una raya (—)",
+        "Porque todo el texto está en cursiva",
+        "Porque no tiene puntos"
+      ],
+      "correcta": "A",
+      "explicacion": "Cada intervención de los personajes empieza con una raya (—), que es la marca típica del diálogo directo en español."
+    },
+    {
+      "ej_id": 1437,
+      "enunciado": "¿Qué se puede pagar con tarjeta según el texto?",
+      "opciones": [
+        "Sí, Marta dice que se puede pagar con tarjeta",
+        "No, solo se puede pagar en efectivo",
+        "No se menciona el pago"
+      ],
+      "correcta": "A",
+      "explicacion": "La clienta pregunta: '¿Puedo pagar con tarjeta?' y Marta responde: 'Sí, por supuesto'."
+    },
+    {
+      "ej_id": 1440,
+      "enunciado": "En 'el croissant es dulce', ¿qué tipo de información se da sobre el croissant?",
+      "opciones": [
+        "Una descripción de su sabor",
+        "Una crítica negativa",
+        "Una comparación con otro alimento"
+      ],
+      "correcta": "A",
+      "explicacion": "La palabra 'dulce' describe el sabor del croissant en la última frase del texto."
+    }
+  ]
+}
