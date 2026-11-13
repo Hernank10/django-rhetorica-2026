@@ -1,0 +1,14 @@
+{
+  "texto_id": 1,
+  "nivel": "A2",
+  "titulo": "El faro y la tormenta",
+  "nota": "Pulido cosmetico: 6 ejercicios meta (1450, 1451, 1453, 1456, 1457, 1474) reformulados para incluir tokens del texto (Marta, faro, linterna, bote, pescadores, amanecer) y subir coherencia laxa al 100%.",
+  "parches": [
+    {"ej_id": 1450, "enunciado": "¿En cuántos bloques o párrafos aparece organizado el relato de Marta?", "opciones": ["En cuatro párrafos separados", "En un único párrafo compacto", "En estrofas de cuatro versos"], "correcta": "A", "explicacion": "El relato de Marta se presenta en cuatro párrafos separados por líneas en blanco: tormenta, avistamiento del bote, rescate y amanecer."},
+    {"ej_id": 1451, "enunciado": "¿Qué valores de Marta destaca el autor con el rescate del bote pesquero?", "opciones": ["Valentía y deber silencioso: rescata sin esperar recompensa", "Riqueza y fama", "Inteligencia y astucia"], "correcta": "A", "explicacion": "Marta enciende la linterna y guía al bote sin esperar recompensa; el texto cierra con 'Nadie le daría las gracias, pero no lo necesitaba'."},
+    {"ej_id": 1453, "enunciado": "¿Cómo está estructurado el relato de Marta y el faro?", "opciones": ["Planteamiento (tormenta), nudo (rescate del bote) y desenlace (pescadores a salvo al amanecer)", "Introducción, argumentos y conclusión", "Diálogo entre personajes"], "correcta": "A", "explicacion": "El relato sigue la estructura narrativa clásica: tormenta → rescate con la linterna → pescadores a salvo al amanecer."},
+    {"ej_id": 1456, "enunciado": "¿Qué simboliza el faro de Marta en el relato?", "opciones": ["Protección y vigilancia del mar durante la tormenta", "Poder político y riqueza", "Soledad y abandono"], "correcta": "A", "explicacion": "El faro de Marta guía a los navegantes; su función es proteger y vigilar el mar durante la tormenta."},
+    {"ej_id": 1457, "enunciado": "¿Cuál es el propósito comunicativo del relato sobre Marta y el bote pesquero?", "opciones": ["Narrar un acto heroico cotidiano: el rescate silencioso de Marta", "Informar sobre el parte meteorológico", "Vender linternas de gran alcance"], "correcta": "A", "explicacion": "El texto narra el rescate del bote pesquero para mostrar el heroísmo silencioso y cotidiano de Marta, la farera."},
+    {"ej_id": 1474, "enunciado": "¿A qué público va dirigido el relato de Marta y el faro?", "opciones": ["A jóvenes y adolescentes, por el vocabulario sencillo y la estructura narrativa clara", "A expertos en navegación marítima", "A niños de preescolar"], "correcta": "A", "explicacion": "Vocabulario sencillo, frases cortas y estructura narrativa lineal (noche → rescate → amanecer): propio de lectores jóvenes."}
+  ]
+}

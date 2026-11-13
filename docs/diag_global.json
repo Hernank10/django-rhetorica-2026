@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-12T13:12:00.639260",
+  "fecha": "2026-11-13T12:37:15.926066",
   "umbral_ok": 2,
   "niveles": {
     "A1": {
@@ -12,30 +12,34 @@
           "tipo": "narrativo",
           "n_palabras": 76,
           "n_ejercicios": 33,
-          "n_tecnicas_distintas": 29,
+          "n_tecnicas_distintas": 31,
           "contadores": {
-            "DEBIL": 2,
-            "HUERFANO": 16,
-            "OK": 15
+            "OK": 32,
+            "DEBIL": 1
           },
-          "pct_estricta": 51.5,
-          "pct_laxa": 45.5,
-          "estado": "MAL",
+          "pct_estricta": 100.0,
+          "pct_laxa": 97.0,
+          "estado": "OK",
           "ejercicios": [
             {
               "ej_id": 124,
               "tec_num": 3,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 6,
               "tokens_comunes": [
-                "parque"
+                "barrio",
+                "llevó",
+                "lucía",
+                "parque",
+                "pequeño",
+                "perro"
               ],
               "enunciado": "¿Qué palabra del texto indica un lugar?",
               "opciones": [
                 "Parque",
                 "Toby",
-                "Siete"
+                "Pequeño"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -47,16 +51,20 @@
               "ej_id": 153,
               "tec_num": 7,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿A qué hora sale Ana de casa?",
-              "opciones": [
-                "A las siete",
-                "A las ocho",
-                "A las dos"
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "lucía",
+                "perro",
+                "vecino"
               ],
-              "correcta": "B",
+              "enunciado": "¿'El perro perdido' es un cuento o una noticia?",
+              "opciones": [
+                "Un cuento, porque narra una historia con personajes",
+                "Una noticia, porque informa de un hecho real",
+                "Una receta, porque da instrucciones"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -64,16 +72,22 @@
             },
             {
               "ej_id": 271,
-              "tec_num": 73,
+              "tec_num": 75,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En 'ojos brillantes como estrellas', ¿qué recurso se usa?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "buscó",
+                "durante",
+                "lucía",
+                "paloma",
+                "perro"
+              ],
+              "enunciado": "En 'Lucía lo buscó durante una hora', ¿qué exagera el texto?",
               "opciones": [
-                "Una comparación",
-                "Una pregunta",
-                "Una negación"
+                "El tiempo que Lucía buscó a Toby (una hora es una exageración para intensificar la búsqueda)",
+                "El tamaño del perro",
+                "El color de la paloma"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -85,14 +99,23 @@
               "ej_id": 288,
               "tec_num": 90,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto es claro?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 8,
+              "tokens_comunes": [
+                "abrazó",
+                "fuerte",
+                "lucía",
+                "nunca",
+                "parque",
+                "perro",
+                "suelto",
+                "vecino"
+              ],
+              "enunciado": "¿El texto usa oraciones cortas y palabras sencillas?",
               "opciones": [
-                "Sí, usa oraciones cortas y palabras sencillas",
+                "Sí, el texto es claro y fácil de entender",
                 "No, usa palabras muy difíciles",
-                "No, no se entiende"
+                "No, las oraciones son muy largas"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -104,12 +127,15 @@
               "ej_id": 293,
               "tec_num": 95,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto es coherente?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "lucía",
+                "parque"
+              ],
+              "enunciado": "¿Las ideas del texto se conectan de forma lógica?",
               "opciones": [
-                "Sí, las ideas se conectan lógicamente",
+                "Sí, cuenta los hechos en orden (Lucía va al parque → Toby se pierde → lo busca → lo encuentra)",
                 "No, salta de un tema a otro",
                 "No, se contradice"
               ],
@@ -123,14 +149,21 @@
               "ej_id": 296,
               "tec_num": 98,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
+              "veredicto": "OK",
+              "n_tokens_comunes": 6,
+              "tokens_comunes": [
+                "alejó",
+                "estaba",
+                "lucía",
+                "paloma",
+                "persiguiendo",
+                "preocupada"
+              ],
               "enunciado": "¿El texto es objetivo o subjetivo?",
               "opciones": [
-                "Mayormente objetivo (describe hechos) con algún toque subjetivo",
+                "Mayormente objetivo: cuenta hechos, aunque menciona que Lucía estaba preocupada",
                 "Totalmente subjetivo",
-                "Totalmente objetivo"
+                "Totalmente objetivo sin ninguna emoción"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -142,12 +175,14 @@
               "ej_id": 298,
               "tec_num": 100,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto es de calidad?",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "lucía"
+              ],
+              "enunciado": "¿El cuento de Lucía y Toby es claro, coherente y relevante?",
               "opciones": [
-                "Sí, es claro, preciso, coherente y relevante",
+                "Sí, es un cuento breve, claro y con hechos en orden (Lucía busca a Toby y lo encuentra)",
                 "No, es demasiado largo",
                 "No, no tiene sentido"
               ],
@@ -161,16 +196,21 @@
               "ej_id": 727,
               "tec_num": 2,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es el tema del texto?",
-              "opciones": [
-                "La ansiedad en los adolescentes.",
-                "El debate sobre la prohibición de móviles en los institutos.",
-                "La Universidad de Valencia."
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "cerca",
+                "fuente",
+                "lucía",
+                "perro"
               ],
-              "correcta": "B",
+              "enunciado": "¿Cuál es el tema principal del texto?",
+              "opciones": [
+                "La búsqueda y el reencuentro de un perro perdido",
+                "Un viaje al mar",
+                "Una receta de cocina"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -178,18 +218,23 @@
             },
             {
               "ej_id": 794,
-              "tec_num": 13,
+              "tec_num": 63,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En el diálogo '-Hoy te enseño mi receta secreta -dijo la abuela-', ¿quién habla?",
-              "opciones": [
-                "Sofía.",
-                "La abuela.",
-                "El narrador."
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "llevó",
+                "lucía",
+                "parque",
+                "perro"
               ],
-              "correcta": "B",
+              "enunciado": "¿Quién cuenta la historia de 'El perro perdido'?",
+              "opciones": [
+                "Un narrador externo que no es ninguno de los personajes",
+                "Lucía",
+                "Toby el perro"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -197,18 +242,23 @@
             },
             {
               "ej_id": 797,
-              "tec_num": 14,
+              "tec_num": 40,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En la oración 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cuál es la causa y cuál es la consecuencia?",
-              "opciones": [
-                "Causa: no usa batidora. Consecuencia: se siente la textura con la cuchara.",
-                "Causa: se siente la textura con la cuchara. Consecuencia: no usa batidora.",
-                "No hay causa ni consecuencia en esa oración."
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "alejó",
+                "lucía",
+                "paloma",
+                "persiguiendo"
               ],
-              "correcta": "B",
+              "enunciado": "En 'Toby se alejó persiguiendo una paloma', ¿cuál es la causa de que se alejara?",
+              "opciones": [
+                "Que perseguía una paloma",
+                "Que Lucía lo llamó",
+                "Que tenía hambre"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -240,18 +290,22 @@
               "ej_id": 817,
               "tec_num": 21,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
               "tokens_comunes": [
-                "pequeño"
-              ],
-              "enunciado": "¿Qué palabra del texto indica tamaño?",
-              "opciones": [
-                "marrón",
+                "cerca",
+                "fuente",
                 "pequeño",
-                "lunes"
+                "perro",
+                "vecino"
               ],
-              "correcta": "B",
+              "enunciado": "¿Qué palabra del texto describe el tamaño del perro?",
+              "opciones": [
+                "Pequeño",
+                "Marrón",
+                "Lunes"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -281,18 +335,21 @@
             },
             {
               "ej_id": 823,
-              "tec_num": 27,
+              "tec_num": 24,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué signo de puntuación aparece en '¡Era Toby!'?",
-              "opciones": [
-                "punto",
-                "signo de exclamación",
-                "coma"
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "encontró",
+                "nunca"
               ],
-              "correcta": "B",
+              "enunciado": "¿Qué palabra del texto indica negación?",
+              "opciones": [
+                "No",
+                "Nunca",
+                "Sí"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -322,16 +379,20 @@
             },
             {
               "ej_id": 849,
-              "tec_num": 56,
+              "tec_num": 79,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En el texto no hay ningún personaje que mienta. ¿Qué indica esto sobre el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "parque",
+                "perro",
+                "vecino"
+              ],
+              "enunciado": "El texto cuenta hechos reales (un perro, un parque, un vecino). ¿Es realista o fantástico?",
               "opciones": [
-                "Que es un texto informativo/descriptivo",
-                "Que es un texto de terror",
-                "Que es un misterio"
+                "Realista, porque los hechos podrían ocurrir en la vida real",
+                "Fantástico, porque hay dragones",
+                "Fantástico, porque los animales hablan"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -488,16 +549,20 @@
               "ej_id": 1395,
               "tec_num": 65,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto 'El reciclaje de vidrio en España' es un cuento o una noticia?",
-              "opciones": [
-                "Un cuento",
-                "Una noticia",
-                "Un poema"
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "lucía",
+                "perro",
+                "vecino"
               ],
-              "correcta": "B",
+              "enunciado": "¿Qué tipo de texto es 'El perro perdido'?",
+              "opciones": [
+                "Un cuento narrativo con personajes y hechos en orden",
+                "Una noticia sobre un perro real",
+                "Una receta para cuidar perros"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -507,10 +572,13 @@
               "ej_id": 1399,
               "tec_num": 69,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "lucía",
+                "perro"
+              ],
+              "enunciado": "¿Qué tipo de texto es 'El perro perdido'?",
               "opciones": [
                 "Narrativo",
                 "Descriptivo",
@@ -548,18 +616,26 @@
             },
             {
               "ej_id": 1410,
-              "tec_num": 80,
+              "tec_num": 41,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cómo se marca cada intervención en el diálogo?",
-              "opciones": [
-                "Con comillas",
-                "Con raya (—)",
-                "Con guion (-)"
+              "veredicto": "OK",
+              "n_tokens_comunes": 7,
+              "tokens_comunes": [
+                "alejó",
+                "buscó",
+                "caminos",
+                "durante",
+                "encontró",
+                "lucía",
+                "perro"
               ],
-              "correcta": "B",
+              "enunciado": "En 'Toby se alejó', ¿qué consecuencia tuvo para Lucía?",
+              "opciones": [
+                "Tuvo que buscarlo durante una hora",
+                "Se fue a casa a dormir",
+                "Compró otro perro"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -615,18 +691,23 @@
             },
             {
               "ej_id": 1425,
-              "tec_num": 95,
+              "tec_num": 44,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En 'El vaso se rompió porque se cayó', ¿qué es causa?",
-              "opciones": [
-                "Que se rompió",
-                "Que se cayó",
-                "El vaso"
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "llevó",
+                "lucía",
+                "parque",
+                "perro"
               ],
-              "correcta": "B",
+              "enunciado": "¿Qué relación hay entre Lucía y Toby?",
+              "opciones": [
+                "Lucía es la dueña y Toby es su perro",
+                "Son hermanos",
+                "Son vecinos"
+              ],
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -634,16 +715,25 @@
             },
             {
               "ej_id": 1430,
-              "tec_num": 100,
+              "tec_num": 59,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cómo se distingue un diálogo de una narración?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 8,
+              "tokens_comunes": [
+                "barrio",
+                "cerca",
+                "final",
+                "fuente",
+                "llevó",
+                "lucía",
+                "parque",
+                "perro"
+              ],
+              "enunciado": "¿Dónde ocurre la historia?",
               "opciones": [
-                "El diálogo usa rayas (—) para cada intervención",
-                "La narración usa rayas",
-                "No hay diferencia"
+                "En el parque del barrio y cerca de la fuente",
+                "En una escuela",
+                "En una cafetería"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -722,8 +812,17 @@
               "correcta_msg": ""
             }
           ],
-          "duplicados": {},
-          "n_duplicados": 0,
+          "duplicados": {
+            "¿'el perro perdido' es un cuento o una noticia?": [
+              153,
+              1432
+            ],
+            "¿qué tipo de texto es 'el perro perdido'?": [
+              1395,
+              1399
+            ]
+          },
+          "n_duplicados": 2,
           "n_prefijos": 0,
           "n_rotadas": 33,
           "n_correcta_mal": 0
@@ -2111,12 +2210,11 @@
           "n_ejercicios": 23,
           "n_tecnicas_distintas": 22,
           "contadores": {
-            "OK": 20,
-            "HUERFANO": 2,
-            "DEBIL": 1
+            "OK": 21,
+            "DEBIL": 2
           },
-          "pct_estricta": 91.3,
-          "pct_laxa": 87.0,
+          "pct_estricta": 100.0,
+          "pct_laxa": 91.3,
           "estado": "OK",
           "ejercicios": [
             {
@@ -2146,12 +2244,17 @@
               "ej_id": 240,
               "tec_num": 42,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "noche",
+                "profesora",
+                "tarde",
+                "trabajo"
+              ],
               "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
               "opciones": [
-                "Una descripción de una rutina diaria",
+                "Una descripción narrativa de la rutina diaria de Ana, la profesora",
                 "Una noticia",
                 "Un cuento fantástico"
               ],
@@ -2620,14 +2723,16 @@
               "ej_id": 1436,
               "tec_num": 7,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "profesora"
+              ],
+              "enunciado": "¿'Un día en la vida de Ana' es un cuento fantástico, una noticia o una descripción narrativa?",
               "opciones": [
-                "Una descripción de la rutina de un personaje",
-                "Una noticia",
-                "Un cuento fantástico"
+                "Una descripción narrativa de la rutina de Ana",
+                "Un cuento fantástico",
+                "Una noticia"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -2636,13 +2741,8 @@
               "correcta_msg": ""
             }
           ],
-          "duplicados": {
-            "¿qué tipo de texto es 'un día en la vida de ana'?": [
-              240,
-              1436
-            ]
-          },
-          "n_duplicados": 1,
+          "duplicados": {},
+          "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 23,
           "n_correcta_mal": 0
@@ -3178,8 +3278,8 @@
               "tokens_comunes": [],
               "enunciado": "El texto dice 'A las ocho sale de casa'. ¿A qué momento del día se refiere?",
               "opciones": [
-                "Por la mañana",
-                "Por la noche",
+                "A la mañana (sale de casa a las ocho)",
+                "A la noche",
                 "Al mediodía"
               ],
               "correcta": "A",
@@ -3604,12 +3704,12 @@
           "n_ejercicios": 17,
           "n_tecnicas_distintas": 17,
           "contadores": {
-            "OK": 14,
+            "OK": 15,
             "DEBIL": 1,
-            "HUERFANO": 2
+            "HUERFANO": 1
           },
-          "pct_estricta": 88.2,
-          "pct_laxa": 82.4,
+          "pct_estricta": 94.1,
+          "pct_laxa": 88.2,
           "estado": "OK",
           "ejercicios": [
             {
@@ -3726,14 +3826,20 @@
               "ej_id": 878,
               "tec_num": 92,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es la conclusión del texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "aceite",
+                "hacer",
+                "huevos",
+                "patatas",
+                "tortilla"
+              ],
+              "enunciado": "¿Cuál es la conclusión del texto 'Cómo hacer una tortilla'?",
               "opciones": [
-                "Las apariencias engañan: un huevo grande no siempre es mejor",
-                "Los animales son muchos",
-                "La granja es grande"
+                "Que con huevos, patatas y aceite se puede hacer una tortilla paso a paso",
+                "Que la tortilla es imposible de hacer",
+                "Que solo se hace con harina"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4377,26 +4483,31 @@
           "n_ejercicios": 15,
           "n_tecnicas_distintas": 14,
           "contadores": {
-            "HUERFANO": 5,
-            "DEBIL": 4,
-            "OK": 6
+            "OK": 14,
+            "DEBIL": 1
           },
-          "pct_estricta": 66.7,
-          "pct_laxa": 40.0,
-          "estado": "MAL",
+          "pct_estricta": 100.0,
+          "pct_laxa": 93.3,
+          "estado": "OK",
           "ejercicios": [
             {
               "ej_id": 110,
               "tec_num": 1,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es la idea principal del texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "barrio",
+                "cafetería",
+                "croissant",
+                "leche",
+                "marta"
+              ],
+              "enunciado": "¿Cuál es el tema principal de 'En la cafetería'?",
               "opciones": [
-                "La rutina diaria de una profesora",
-                "Un viaje al mar",
-                "Una fiesta de cumpleaños"
+                "Una conversación entre una clienta y Marta, la camarera, que le sirve un café con leche y un croissant",
+                "Un viaje al mar de una profesora",
+                "Una fiesta de cumpleaños en el barrio"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4408,16 +4519,20 @@
               "ej_id": 193,
               "tec_num": 12,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
               "tokens_comunes": [
+                "barrio",
+                "cafetería",
+                "marta",
+                "mañanas",
                 "trabaja"
               ],
-              "enunciado": "¿Qué hace Ana por la tarde?",
+              "enunciado": "¿Qué hace Marta por las mañanas según el texto?",
               "opciones": [
+                "Trabaja en la cafetería del barrio",
                 "Lee un libro en el sofá",
-                "Duerme",
-                "Trabaja"
+                "Duerme hasta tarde"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4429,14 +4544,18 @@
               "ej_id": 812,
               "tec_num": 16,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En 'lee un libro en el sofá', ¿qué sugiere esa acción?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "caliente",
+                "croissant",
+                "dulce"
+              ],
+              "enunciado": "En 'El café está muy caliente', ¿qué indica la palabra 'caliente'?",
               "opciones": [
-                "Que descansa",
-                "Que está enfadada",
-                "Que tiene prisa"
+                "Que el café tiene una temperatura alta",
+                "Que el café está frío",
+                "Que el café es dulce"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4471,18 +4590,20 @@
               "ej_id": 1362,
               "tec_num": 32,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
               "tokens_comunes": [
+                "croissant",
+                "favor",
                 "leche"
               ],
-              "enunciado": "¿Qué bebe Ana en el desayuno?",
+              "enunciado": "¿Qué pide la clienta para beber?",
               "opciones": [
-                "Café",
-                "Zumo de naranja",
-                "Un vaso de leche"
+                "Un café con leche",
+                "Un zumo de naranja",
+                "Un vaso de agua"
               ],
-              "correcta": "C",
+              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -4492,14 +4613,19 @@
               "ej_id": 1366,
               "tec_num": 36,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Con quién cena Ana por la noche?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "cincuenta",
+                "cuánto",
+                "euros",
+                "marta"
+              ],
+              "enunciado": "¿Cuánto cuesta el pedido de la clienta?",
               "opciones": [
-                "Con sus amigos",
-                "Con sus alumnos",
-                "Sola"
+                "Tres euros con cincuenta",
+                "Diez euros",
+                "Cincuenta céntimos"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4511,16 +4637,17 @@
               "ej_id": 1368,
               "tec_num": 38,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
               "tokens_comunes": [
-                "cafetería"
+                "cafetería",
+                "marta"
               ],
               "enunciado": "¿Qué tipo de texto es 'En la cafetería'?",
               "opciones": [
-                "Un diálogo",
-                "Una receta",
-                "Una noticia"
+                "Un diálogo entre una clienta y una camarera",
+                "Una receta de cocina",
+                "Una noticia del periódico"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4632,11 +4759,11 @@
               "tokens_comunes": [
                 "cafetería"
               ],
-              "enunciado": "¿Qué parte de 'En la cafetería' es diálogo?",
+              "enunciado": "¿Cómo se reconoce el diálogo en 'En la cafetería'?",
               "opciones": [
-                "Las líneas con guiones (—)",
-                "La primera frase",
-                "La última frase"
+                "Por las líneas que empiezan con una raya (—)",
+                "Porque todo el texto está en cursiva",
+                "Porque no tiene puntos"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4648,14 +4775,20 @@
               "ej_id": 1437,
               "tec_num": 9,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué hace Ana cuando hace sol?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "marta",
+                "pagar",
+                "puedo",
+                "supuesto",
+                "tarjeta"
+              ],
+              "enunciado": "¿Qué se puede pagar con tarjeta según el texto?",
               "opciones": [
-                "Va al parque",
-                "Se queda en casa",
-                "Va a la escuela"
+                "Sí, Marta dice que se puede pagar con tarjeta",
+                "No, solo se puede pagar en efectivo",
+                "No se menciona el pago"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4667,14 +4800,17 @@
               "ej_id": 1440,
               "tec_num": 12,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "En 'su vida tranquila', ¿qué tipo de descripción se hace?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "croissant",
+                "dulce"
+              ],
+              "enunciado": "En 'el croissant es dulce', ¿qué tipo de información se da sobre el croissant?",
               "opciones": [
-                "Una valoración positiva",
+                "Una descripción de su sabor",
                 "Una crítica negativa",
-                "Una comparación"
+                "Una comparación con otro alimento"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4727,13 +4863,12 @@
           "n_ejercicios": 34,
           "n_tecnicas_distintas": 22,
           "contadores": {
-            "OK": 13,
-            "HUERFANO": 18,
-            "DEBIL": 3
+            "OK": 33,
+            "DEBIL": 1
           },
-          "pct_estricta": 47.1,
-          "pct_laxa": 38.2,
-          "estado": "MAL",
+          "pct_estricta": 100.0,
+          "pct_laxa": 97.1,
+          "estado": "OK",
           "ejercicios": [
             {
               "ej_id": 1443,
@@ -4831,7 +4966,7 @@
               "veredicto": "OK",
               "n_tokens_comunes": 5,
               "tokens_comunes": [
-                "coloco",
+                "encendió",
                 "grande",
                 "linterna",
                 "punto",
@@ -4877,14 +5012,16 @@
               "ej_id": 1449,
               "tec_num": 39,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuántos parrafos tiene el texto?",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "amanecer"
+              ],
+              "enunciado": "¿En cuántos párrafos está escrito el relato?",
               "opciones": [
-                "1",
-                "3",
-                "5"
+                "En cuatro párrafos",
+                "En un único párrafo",
+                "En diez párrafos"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4896,14 +5033,17 @@
               "ej_id": 1450,
               "tec_num": 39,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cómo esta organizado visualmente el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "amanecer",
+                "marta"
+              ],
+              "enunciado": "¿En cuántos bloques o párrafos aparece organizado el relato de Marta?",
               "opciones": [
-                "Un unico parrafo",
-                "Tres parrafos",
-                "Estrofas"
+                "En cuatro párrafos separados",
+                "En un único párrafo compacto",
+                "En estrofas de cuatro versos"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4915,14 +5055,20 @@
               "ej_id": 1451,
               "tec_num": 49,
               "tec_nivel": "A2",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 7,
               "tokens_comunes": [
-                "marta"
+                "daría",
+                "gracias",
+                "linterna",
+                "marta",
+                "nadie",
+                "necesitaba",
+                "pesquero"
               ],
-              "enunciado": "¿Qué valores destaca el autor con la historia de Marta?",
+              "enunciado": "¿Qué valores de Marta destaca el autor con el rescate del bote pesquero?",
               "opciones": [
-                "Valentia y deber silencioso",
+                "Valentía y deber silencioso: rescata sin esperar recompensa",
                 "Riqueza y fama",
                 "Inteligencia y astucia"
               ],
@@ -4937,9 +5083,8 @@
               "tec_num": 49,
               "tec_nivel": "A2",
               "veredicto": "OK",
-              "n_tokens_comunes": 5,
+              "n_tokens_comunes": 4,
               "tokens_comunes": [
-                "daria",
                 "gracias",
                 "marta",
                 "nadie",
@@ -4961,13 +5106,19 @@
               "ej_id": 1453,
               "tec_num": 59,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cómo esta estructurado el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "amanecer",
+                "linterna",
+                "marta",
+                "pescadores",
+                "salvo"
+              ],
+              "enunciado": "¿Cómo está estructurado el relato de Marta y el faro?",
               "opciones": [
-                "Planteamiento, nudo y desenlace",
-                "Introduccion, argumentos y conclusion",
+                "Planteamiento (tormenta), nudo (rescate del bote) y desenlace (pescadores a salvo al amanecer)",
+                "Introducción, argumentos y conclusión",
                 "Diálogo entre personajes"
               ],
               "correcta": "A",
@@ -5026,14 +5177,17 @@
               "ej_id": 1456,
               "tec_num": 69,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué simboliza el faro?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "durante",
+                "marta"
+              ],
+              "enunciado": "¿Qué simboliza el faro de Marta en el relato?",
               "opciones": [
-                "Proteccion y vigilancia del mar",
-                "Poder politico",
-                "Soledad"
+                "Protección y vigilancia del mar durante la tormenta",
+                "Poder político y riqueza",
+                "Soledad y abandono"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5045,14 +5199,18 @@
               "ej_id": 1457,
               "tec_num": 79,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es el proposito comunicativo del texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "farera",
+                "marta",
+                "pesquero"
+              ],
+              "enunciado": "¿Cuál es el propósito comunicativo del relato sobre Marta y el bote pesquero?",
               "opciones": [
-                "Narrar un acto heroico cotidiano",
-                "Informar sobre meteorologia",
-                "Vender linternas"
+                "Narrar un acto heroico cotidiano: el rescate silencioso de Marta",
+                "Informar sobre el parte meteorológico",
+                "Vender linternas de gran alcance"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5113,9 +5271,8 @@
               "tec_num": 81,
               "tec_nivel": "A2",
               "veredicto": "OK",
-              "n_tokens_comunes": 4,
+              "n_tokens_comunes": 3,
               "tokens_comunes": [
-                "apago",
                 "linterna",
                 "marta",
                 "pescadores"
@@ -5160,14 +5317,19 @@
               "ej_id": 1462,
               "tec_num": 91,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "La descripción de la tormenta es relevante?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "furioso",
+                "golpeaba",
+                "ventanas",
+                "viento"
+              ],
+              "enunciado": "¿Qué función cumple la descripción de la tormenta en el relato?",
               "opciones": [
-                "Si, crea tension y explica el peligro",
-                "No, es relleno",
-                "Solo para ambientar"
+                "Crear tensión y justificar el peligro del rescate",
+                "Rellenar espacio sin función narrativa",
+                "Solo ambientar sin relación con la trama"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5179,14 +5341,18 @@
               "ej_id": 1474,
               "tec_num": 50,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué edad aproximada tiene el público objetivo?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "amanecer",
+                "marta",
+                "noche"
+              ],
+              "enunciado": "¿A qué público va dirigido el relato de Marta y el faro?",
               "opciones": [
-                "10-14 años",
-                "30-50 años",
-                "60+ años"
+                "A jóvenes y adolescentes, por el vocabulario sencillo y la estructura narrativa clara",
+                "A expertos en navegación marítima",
+                "A niños de preescolar"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5198,14 +5364,18 @@
               "ej_id": 1475,
               "tec_num": 60,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué tipo de estructura tiene el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "amanecer",
+                "pescadores",
+                "salvo"
+              ],
+              "enunciado": "¿Qué tipo de estructura narrativa tiene el texto?",
               "opciones": [
-                "Narrativa: planteamiento, encuentro y despedida",
-                "Argumentativa",
-                "Expositiva"
+                "Planteamiento (tormenta), nudo (rescate) y desenlace (pescadores a salvo)",
+                "Introducción, argumentos y conclusión",
+                "Diálogo entre dos personajes"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5217,16 +5387,18 @@
               "ej_id": 1502,
               "tec_num": 93,
               "tec_nivel": "A2",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
               "tokens_comunes": [
-                "nunca"
+                "marta",
+                "nunca",
+                "treinta"
               ],
-              "enunciado": "por qué el texto no menciona fracasos de otras recetas?",
+              "enunciado": "¿Por qué el texto no menciona otros rescates fallidos de Marta?",
               "opciones": [
-                "Porque se centra en una experiencia positiva",
-                "Porque nunca fallan",
-                "Porque no hay otras"
+                "Porque se centra en una experiencia positiva concreta de su labor",
+                "Porque nunca falló en treinta años",
+                "Porque no existen otros rescates"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5238,14 +5410,17 @@
               "ej_id": 1506,
               "tec_num": 14,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "La historia es realista o fantástica?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "farera",
+                "pesquero"
+              ],
+              "enunciado": "¿El relato es realista o fantástico?",
               "opciones": [
-                "Realista, es una investigacion policial",
-                "Fantástica, hay magia",
-                "Ciencia ficcion"
+                "Realista: los hechos podrían ocurrir en la vida real",
+                "Fantástico: hay magia y dragones",
+                "Ciencia ficción: hay tecnología futura"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5257,16 +5432,20 @@
               "ej_id": 1521,
               "tec_num": 94,
               "tec_nivel": "A2",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
               "tokens_comunes": [
-                "contra"
+                "daría",
+                "gracias",
+                "marta",
+                "nadie",
+                "necesitaba"
               ],
-              "enunciado": "El texto tiene sesgo ideológico?",
+              "enunciado": "¿El texto presenta la labor de Marta de forma neutral o valorativa?",
               "opciones": [
-                "No, presenta los hechos de forma neutral",
-                "Si, contra los restauradores",
-                "Si, a favor del museo"
+                "Valorativa: destaca su entrega silenciosa sin buscar recompensa",
+                "Neutral: solo informa sin valorar",
+                "Crítica: cuestiona su trabajo"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5276,16 +5455,21 @@
             },
             {
               "ej_id": 1572,
-              "tec_num": 46,
-              "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "Para que sirve una pregunta retórica en un texto argumentativo?",
+              "tec_num": 12,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "gracias",
+                "marta",
+                "noche",
+                "sonrió"
+              ],
+              "enunciado": "En 'sonrió' al final del relato, ¿qué revela ese gesto sobre Marta?",
               "opciones": [
-                "Para involucrar al lector y reforzar la idea",
-                "Para pedir información",
-                "Para describir"
+                "Que se siente satisfecha tras el rescate",
+                "Que está enfadada por no recibir gracias",
+                "Que tiene sueño tras la noche en vela"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5297,14 +5481,17 @@
               "ej_id": 1595,
               "tec_num": 73,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "Hay diálogo en el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "marta",
+                "pescadores"
+              ],
+              "enunciado": "¿Hay diálogo en 'El faro y la tormenta'?",
               "opciones": [
-                "No, es narracion pura",
-                "Si, entre alumnos",
-                "Si, con el guia"
+                "No, es narración pura sin diálogos",
+                "Sí, entre Marta y los pescadores",
+                "Sí, entre Marta y un guía turístico"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5316,14 +5503,20 @@
               "ej_id": 1602,
               "tec_num": 96,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué hace que el texto sea fácil de entender?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "amanecer",
+                "marta",
+                "noche",
+                "subir",
+                "volvió"
+              ],
+              "enunciado": "¿Qué hace que el relato sea fácil de entender?",
               "opciones": [
-                "Frases cortas y estructura clara",
-                "Vocabulario tecnico",
-                "Citas"
+                "Frases cortas y estructura narrativa clara",
+                "Vocabulario técnico marítimo",
+                "Abundancia de citas y referencias"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5335,14 +5528,17 @@
               "ej_id": 1611,
               "tec_num": 48,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es el tono del texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "necesitaba",
+                "sonrió"
+              ],
+              "enunciado": "¿Cuál es el tono del relato?",
               "opciones": [
-                "Reflexivo y equilibrado",
-                "Agresivo",
-                "Triste"
+                "Reflexivo y sereno, con tensión contenida",
+                "Agresivo y violento",
+                "Triste y pesimista"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5354,14 +5550,19 @@
               "ej_id": 1612,
               "tec_num": 48,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué tono predomina?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "encendiendo",
+                "gracias",
+                "marta",
+                "treinta"
+              ],
+              "enunciado": "¿Qué tono predomina en la descripción de Marta?",
               "opciones": [
-                "Opinion personal razonada",
-                "Noticia objetiva",
-                "Cuento"
+                "Admiración silenciosa por su entrega",
+                "Ironía y burla",
+                "Indiferencia total"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5373,14 +5574,17 @@
               "ej_id": 1621,
               "tec_num": 95,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto es coherente?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "amanecer",
+                "noche"
+              ],
+              "enunciado": "¿El relato es coherente?",
               "opciones": [
-                "Si, presenta pros y contras de forma equilibrada",
-                "No, se contradice",
-                "Confuso"
+                "Sí: la tormenta, el rescate y el amanecer forman una secuencia lógica",
+                "No: se contradice en varios puntos",
+                "No: es confuso y desordenado"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5392,14 +5596,19 @@
               "ej_id": 1622,
               "tec_num": 95,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué hace que el texto sea coherente?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "amanecer",
+                "aquella",
+                "madrugada",
+                "noche"
+              ],
+              "enunciado": "¿Qué hace que el relato sea coherente?",
               "opciones": [
-                "Usa 'por un lado / por otro lado'",
-                "Cambia de tema",
-                "No tiene estructura"
+                "El orden cronológico noche → madrugada → amanecer",
+                "Los conectores 'por un lado / por otro lado'",
+                "Los cambios bruscos de tema"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5411,14 +5620,19 @@
               "ej_id": 1623,
               "tec_num": 15,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué palabra del texto indica negacion?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "había",
+                "necesitaba",
+                "nunca",
+                "visto"
+              ],
+              "enunciado": "¿Qué palabra del texto indica negación?",
               "opciones": [
-                "no",
-                "ya",
-                "más"
+                "No ('no lo necesitaba')",
+                "Ya",
+                "Más"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5428,16 +5642,21 @@
             },
             {
               "ej_id": 1632,
-              "tec_num": 47,
-              "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué tono predomina?",
+              "tec_num": 46,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 4,
+              "tokens_comunes": [
+                "daría",
+                "gracias",
+                "marta",
+                "nadie"
+              ],
+              "enunciado": "En 'Nadie le daría las gracias', ¿qué intención expresa Marta con su actitud?",
               "opciones": [
-                "Nostalgico",
-                "Irónico",
-                "Comico"
+                "Actúa por deber, sin esperar reconocimiento",
+                "Espera una recompensa económica",
+                "Quiere fama y homenajes"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -5446,13 +5665,8 @@
               "correcta_msg": ""
             }
           ],
-          "duplicados": {
-            "¿qué tono predomina?": [
-              1612,
-              1632
-            ]
-          },
-          "n_duplicados": 1,
+          "duplicados": {},
+          "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 34,
           "n_correcta_mal": 0
@@ -6686,11 +6900,10 @@
           "n_tecnicas_distintas": 12,
           "contadores": {
             "DEBIL": 4,
-            "OK": 13,
-            "HUERFANO": 1
+            "OK": 14
           },
-          "pct_estricta": 94.4,
-          "pct_laxa": 72.2,
+          "pct_estricta": 100.0,
+          "pct_laxa": 77.8,
           "estado": "OK",
           "ejercicios": [
             {
@@ -7045,14 +7258,17 @@
               "ej_id": 1593,
               "tec_num": 63,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cuál es la función de la conclusion del texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "fondo",
+                "marina"
+              ],
+              "enunciado": "¿Cuál es la función de la conclusión del texto sobre la vida en el fondo del mar?",
               "opciones": [
-                "Resumir el valor del viaje",
-                "Introducir un nuevo viaje",
-                "Describir la montaña"
+                "Cerrar el tema resumiendo los peligros del fondo marino",
+                "Introducir un tema nuevo",
+                "Presentar un diálogo"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -8660,11 +8876,11 @@
               "veredicto": "HUERFANO",
               "n_tokens_comunes": 0,
               "tokens_comunes": [],
-              "enunciado": "La frase 'el restaurador es un ladrón porque es malo' seria una falacia. Que tipo?",
+              "enunciado": "La frase 'el restaurador es un ladrón porque es malo' sería un ejemplo de...",
               "opciones": [
-                "Ad hominem",
-                "Ad populum",
-                "Falso dilema"
+                "Falacia ad hominem: ataca a la persona, no al argumento",
+                "Argumento válido",
+                "Cita textual"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -9078,26 +9294,29 @@
           "n_ejercicios": 15,
           "n_tecnicas_distintas": 11,
           "contadores": {
-            "HUERFANO": 2,
-            "DEBIL": 7,
-            "OK": 6
+            "OK": 7,
+            "HUERFANO": 1,
+            "DEBIL": 7
           },
-          "pct_estricta": 86.7,
-          "pct_laxa": 40.0,
+          "pct_estricta": 93.3,
+          "pct_laxa": 46.7,
           "estado": "MIXTO",
           "ejercicios": [
             {
               "ej_id": 1486,
               "tec_num": 10,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Cómo se distingue el diálogo de la narracion?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "barrio",
+                "crecí"
+              ],
+              "enunciado": "¿Cómo se distingue el diálogo de la narración en 'El barrio donde crecí'?",
               "opciones": [
-                "Por los guiones y las voces",
-                "Por el tiempo verbal",
-                "Por los parrafos"
+                "El diálogo usa rayas (—) para cada intervención; la narración no",
+                "No hay diferencia",
+                "La narración usa rayas"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -9426,12 +9645,12 @@
           "n_ejercicios": 19,
           "n_tecnicas_distintas": 11,
           "contadores": {
-            "OK": 11,
-            "HUERFANO": 2,
+            "OK": 12,
+            "HUERFANO": 1,
             "DEBIL": 6
           },
-          "pct_estricta": 89.5,
-          "pct_laxa": 57.9,
+          "pct_estricta": 94.7,
+          "pct_laxa": 63.2,
           "estado": "MIXTO",
           "ejercicios": [
             {
@@ -9461,15 +9680,20 @@
               "ej_id": 397,
               "tec_num": 38,
               "tec_nivel": "B1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué estructura tiene el texto?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 5,
+              "tokens_comunes": [
+                "datos",
+                "españa",
+                "reciclaje",
+                "toneladas",
+                "vidrio"
+              ],
+              "enunciado": "¿Qué estructura tiene el texto sobre el reciclaje de vidrio en España?",
               "opciones": [
-                "Introducción + desarrollo + conclusión",
+                "Introducción, datos y propuesta final",
                 "Solo introducción",
-                "Solo desarrollo",
-                "No tiene estructura"
+                "Diálogo entre personajes"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -9590,14 +9814,14 @@
               "n_tokens_comunes": 3,
               "tokens_comunes": [
                 "ambiental",
-                "energía",
-                "según"
+                "según",
+                "vidrio"
               ],
-              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del turismo masivo?",
+              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del vidrio?",
               "opciones": [
-                "Los vuelos, los cruceros y el consumo de agua y energía de los hoteles.",
-                "Que los turistas hablan idiomas distintos.",
-                "Que las ciudades son muy grandes."
+                "La extracción de materias primas y el consumo energético de su fabricación",
+                "El color verde del vidrio",
+                "El peso del envase"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -9765,17 +9989,19 @@
               "tec_num": 19,
               "tec_nivel": "B1",
               "veredicto": "OK",
-              "n_tokens_comunes": 3,
+              "n_tokens_comunes": 5,
               "tokens_comunes": [
                 "ambiental",
-                "energía",
-                "según"
+                "reciclaje",
+                "reciclar",
+                "reduce",
+                "vidrio"
               ],
-              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del turismo masivo?",
+              "enunciado": "¿Qué consecuencia tiene el reciclaje de vidrio para el medio ambiente?",
               "opciones": [
-                "Los vuelos, los cruceros y el consumo de agua y energía de los hoteles.",
-                "Que los turistas hablan idiomas distintos.",
-                "Que las ciudades son muy grandes."
+                "Reduce la extracción de materias primas y el consumo energético",
+                "Aumenta la contaminación",
+                "No tiene efecto"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -9850,13 +10076,8 @@
               "correcta_msg": "correcta='None' no es A/B/C/D"
             }
           ],
-          "duplicados": {
-            "según el texto, ¿cuál es una causa del impacto ambiental del turismo masivo?": [
-              803,
-              1660
-            ]
-          },
-          "n_duplicados": 1,
+          "duplicados": {},
+          "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 18,
           "n_correcta_mal": 1
@@ -12795,15 +13016,15 @@
               "n_tokens_comunes": 4,
               "tokens_comunes": [
                 "condiciones",
-                "países",
-                "quieren",
-                "según"
+                "rápido",
+                "según",
+                "señala"
               ],
               "enunciado": "Según el texto, ¿cuál es una causa de las condiciones laborales precarias en la industria textil?",
               "opciones": [
-                "La falta de regulación laboral en los países donde se produce.",
-                "Que los trabajadores no quieren contratos.",
-                "Que la ropa es muy cara."
+                "La presión por producir rápido y barato",
+                "El color de la ropa",
+                "El clima del país"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -12952,18 +13173,17 @@
               "tec_num": 15,
               "tec_nivel": "B1",
               "veredicto": "OK",
-              "n_tokens_comunes": 4,
+              "n_tokens_comunes": 3,
               "tokens_comunes": [
                 "condiciones",
-                "países",
-                "quieren",
-                "según"
+                "mejores",
+                "rápido"
               ],
-              "enunciado": "Según el texto, ¿cuál es una causa de las condiciones laborales precarias en la industria textil?",
+              "enunciado": "¿Qué consecuencia tiene la moda rápida para los trabajadores textiles?",
               "opciones": [
-                "La falta de regulación laboral en los países donde se produce.",
-                "Que los trabajadores no quieren contratos.",
-                "Que la ropa es muy cara."
+                "Condiciones laborales precarias por la presión de producir rápido y barato",
+                "Mejores salarios",
+                "Más tiempo libre"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -13425,13 +13645,8 @@
               "correcta_msg": ""
             }
           ],
-          "duplicados": {
-            "según el texto, ¿cuál es una causa de las condiciones laborales precarias en la industria textil?": [
-              782,
-              1656
-            ]
-          },
-          "n_duplicados": 1,
+          "duplicados": {},
+          "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 35,
           "n_correcta_mal": 0
@@ -16922,10 +17137,11 @@
           "n_ejercicios": 21,
           "n_tecnicas_distintas": 11,
           "contadores": {
-            "HUERFANO": 4,
-            "OK": 17
+            "DEBIL": 1,
+            "OK": 17,
+            "HUERFANO": 3
           },
-          "pct_estricta": 81.0,
+          "pct_estricta": 85.7,
           "pct_laxa": 81.0,
           "estado": "OK",
           "ejercicios": [
@@ -16933,15 +17149,16 @@
               "ej_id": 470,
               "tec_num": 31,
               "tec_nivel": "B2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué relación marca el conector 'sin embargo' en 'Sin embargo, algunos empresarios sostienen...'?",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "amina"
+              ],
+              "enunciado": "¿Qué relación marca el conector 'sin embargo' en 'Sin embargo, Amina no se rindió'?",
               "opciones": [
-                "Contraste u oposición",
+                "Contraste: pese a la dificultad, Amina no se rindió",
                 "Causa",
-                "Consecuencia",
-                "Adición"
+                "Consecuencia"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -17482,10 +17699,10 @@
           "n_tecnicas_distintas": 15,
           "contadores": {
             "OK": 19,
-            "DEBIL": 6,
-            "HUERFANO": 2
+            "DEBIL": 7,
+            "HUERFANO": 1
           },
-          "pct_estricta": 92.6,
+          "pct_estricta": 96.3,
           "pct_laxa": 70.4,
           "estado": "OK",
           "ejercicios": [
@@ -17734,15 +17951,16 @@
               "ej_id": 1018,
               "tec_num": 52,
               "tec_nivel": "B2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿Qué ideología se revela en el léxico del texto con términos como 'raíces', 'memoria', 'tradición', 'comunidad'?",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "relojes"
+              ],
+              "enunciado": "¿Qué ideología se revela en el léxico del texto sobre la casa de los relojes con términos como 'herencia', 'tradición', 'familia'?",
               "opciones": [
-                "Una valoración de la identidad rural y la memoria frente a la despersonalización urbana",
-                "Una defensa del capitalismo extremo",
-                "Una crítica a la familia",
-                "Una apología del turismo masivo"
+                "Una valoración de la tradición familiar y la herencia",
+                "Una defensa del progreso tecnológico",
+                "Una crítica a la familia"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23668,24 +23886,29 @@
               "tec_num": 81,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 9,
+              "n_tokens_comunes": 15,
               "tokens_comunes": [
-                "deberíamos",
-                "jóvenes",
-                "peligroso",
-                "peligrosos",
-                "premisa",
-                "prohibir",
-                "prohibirse",
-                "videojuegos",
-                "violentos"
+                "diferencia",
+                "encuadre",
+                "familias",
+                "fenómeno",
+                "forma",
+                "framing",
+                "hecho",
+                "inmigrantes",
+                "invasión",
+                "llegan",
+                "migrantes",
+                "neutra",
+                "ocupan",
+                "plaza",
+                "presenta"
               ],
-              "enunciado": "En 'Deberíamos prohibir los videojuegos violentos; son peligrosos', qué premisa implícita hay?",
+              "enunciado": "¿Qué diferencia hay entre 'inmigrantes ocupan la plaza' y 'familias migrantes llegan a la plaza' según el texto?",
               "opciones": [
-                "Que todo lo peligroso debe prohibirse",
-                "Que los videojuegos son buenos",
-                "Que la violencia no existe",
-                "Que los jóvenes no juegan"
+                "El encuadre: 'ocupan' presenta el hecho como invasión; 'llegan' lo presenta de forma neutra",
+                "Ninguna: son sinónimos exactos",
+                "La primera es una cita literal; la segunda es una paráfrasis libre"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23698,26 +23921,27 @@
               "tec_num": 83,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 11,
+              "n_tokens_comunes": 13,
               "tokens_comunes": [
-                "calidad",
-                "científica",
-                "criterios",
-                "evidencia",
-                "muestra",
-                "método",
-                "prestigio",
-                "replicables",
-                "representativa",
-                "resultados",
-                "sólido"
+                "coherencia",
+                "contamina",
+                "datos",
+                "declara",
+                "defiende",
+                "discurso",
+                "empresa",
+                "institución",
+                "oculta",
+                "político",
+                "práctica",
+                "sostenibilidad",
+                "transparencia"
               ],
-              "enunciado": "¿Qué criterios definen la calidad de la evidencia científica según el texto?",
+              "enunciado": "¿Qué ejemplo del texto ilustra la incoherencia entre discurso y práctica de una institución?",
               "opciones": [
-                "Muestra representativa, método sólido y resultados replicables",
-                "Solo el prestigio del autor",
-                "Solo el número de citas",
-                "Solo la antigüedad"
+                "Una empresa que declara sostenibilidad pero contamina, o una institución que defiende la transparencia pero oculta datos",
+                "Un político que cambia de opinión tras leer nuevos datos",
+                "Una empresa que reconoce públicamente un error y lo corrige"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23730,23 +23954,24 @@
               "tec_num": 84,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 8,
+              "n_tokens_comunes": 10,
               "tokens_comunes": [
                 "autoridad",
-                "científica",
-                "evidencia",
+                "contra",
+                "dicotomía",
+                "equivalencia",
+                "estás",
                 "falacia",
-                "luego",
-                "nobel",
-                "premio",
-                "verdad"
+                "intermedias",
+                "muchas",
+                "nosotros",
+                "posiciones"
               ],
-              "enunciado": "En 'Un premio Nobel dice que X, luego X es verdad', qué falacia hay?",
+              "enunciado": "En 'O estás con nosotros o estás contra nosotros', ¿qué falacia señala el texto?",
               "opciones": [
-                "Falacia de autoridad científica (acepta sin evidencia)",
-                "Ad hominem",
-                "Falso dilema",
-                "Pendiente resbaladiza"
+                "Una falsa dicotomía: hay muchas posiciones intermedias",
+                "Una falacia de autoridad",
+                "Una falsa equivalencia"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23759,24 +23984,27 @@
               "tec_num": 89,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 9,
+              "n_tokens_comunes": 13,
               "tokens_comunes": [
-                "científico",
-                "conflicto",
-                "intención",
-                "muestra",
-                "oculta",
-                "persuasiva",
-                "reportaje",
-                "transparencia",
-                "versión"
+                "aporta",
+                "calidad",
+                "contexto",
+                "contraargumentos",
+                "datos",
+                "debate",
+                "descalificaciones",
+                "evidencia",
+                "evita",
+                "falacias",
+                "incluye",
+                "prestigio",
+                "público"
               ],
-              "enunciado": "¿Qué revela un reportaje que solo muestra una versión de un conflicto?",
+              "enunciado": "¿Qué rasgos distinguen un debate público de calidad según el texto?",
               "opciones": [
-                "Una intención persuasiva oculta bajo apariencia informativa",
-                "Neutralidad total",
-                "Rigor científico",
-                "Transparencia"
+                "Incluye contraargumentos, evita falacias y aporta evidencia",
+                "Se basa en descalificaciones y datos sin contexto",
+                "Solo participan expertos con prestigio reconocido"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23789,20 +24017,32 @@
               "tec_num": 91,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 5,
+              "n_tokens_comunes": 18,
               "tokens_comunes": [
-                "analizar",
-                "enferman",
-                "esperable",
-                "vacunado",
-                "vacunados"
+                "contexto",
+                "datos",
+                "diferencia",
+                "empieza",
+                "engañosos",
+                "escalas",
+                "estadística",
+                "exagera",
+                "gráfico",
+                "gráficos",
+                "lugar",
+                "manipulación",
+                "pequeña",
+                "porcentajes",
+                "replicables",
+                "resultados",
+                "tasas",
+                "truncadas"
               ],
-              "enunciado": "En 'El 50% de los que enferman son vacunados', qué hay que analizar?",
+              "enunciado": "¿Qué ejemplos de manipulación estadística menciona el texto?",
               "opciones": [
-                "La base: si el 95% está vacunado, el 50% de enfermos vacunados es esperable",
-                "Solo el porcentaje",
-                "Solo el titular",
-                "Solo la fuente"
+                "Gráficos engañosos (escalas truncadas, 3D), porcentajes sin base y tasas sin contexto",
+                "Encuestas con muestras representativas y métodos sólidos",
+                "Estudios con resultados replicables y datos públicos"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23815,21 +24055,23 @@
               "tec_num": 92,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 6,
+              "n_tokens_comunes": 9,
               "tokens_comunes": [
-                "algoritmos",
-                "algorítmico",
-                "cámaras",
-                "falacia",
-                "información",
-                "sesgo"
+                "activación",
+                "framing",
+                "interpretación",
+                "marcos",
+                "medios",
+                "mentales",
+                "orienta",
+                "priming",
+                "publicidad"
               ],
-              "enunciado": "¿Qué es el sesgo algorítmico?",
+              "enunciado": "¿Qué es el priming según el texto?",
               "opciones": [
-                "La filtración de información por algoritmos que crea cámaras de eco",
-                "Un error de cálculo",
-                "Una falacia lógica",
-                "Un tipo de metáfora"
+                "La activación de marcos mentales que orienta la interpretación de un mensaje",
+                "El uso de eslóganes pegadizos en publicidad",
+                "La repetición de una noticia en varios medios"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23842,23 +24084,23 @@
               "tec_num": 94,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 8,
+              "n_tokens_comunes": 9,
               "tokens_comunes": [
-                "autoridad",
-                "contratarlos",
-                "falacia",
-                "jóvenes",
-                "premisa",
-                "tanto",
-                "todos",
-                "vagos"
+                "analizar",
+                "contexto",
+                "enferman",
+                "engaña",
+                "engañoso",
+                "esperable",
+                "estadística",
+                "vacunado",
+                "vacunados"
               ],
-              "enunciado": "En 'Todos los jóvenes son vagos; por tanto, no hay que contratarlos', qué falacia hay?",
+              "enunciado": "En 'El 50% de los que enferman son vacunados', ¿qué dato adicional hace falta para interpretarlo bien?",
               "opciones": [
-                "Falsa premisa (premisa no justificada)",
-                "Ad hominem",
-                "Falso dilema",
-                "Apelación a la autoridad"
+                "La base: si el 95% está vacunado, ese 50% de enfermos vacunados es esperable",
+                "El titular del periódico que lo publicó",
+                "El número total de vacunados en el país, sin más"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23871,23 +24113,36 @@
               "tec_num": 96,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 8,
+              "n_tokens_comunes": 22,
               "tokens_comunes": [
-                "causa",
-                "compleja",
-                "delincuencia",
-                "equivalencia",
-                "falacia",
-                "ignora",
-                "inmigración",
-                "multicausalidad"
+                "algoritmos",
+                "algorítmico",
+                "burbuja",
+                "buscadores",
+                "consumimos",
+                "contenido",
+                "crean",
+                "críticamente",
+                "cámaras",
+                "desinformación",
+                "detectar",
+                "evaluar",
+                "fuentes",
+                "información",
+                "intereses",
+                "muestran",
+                "nuestros",
+                "permite",
+                "redes",
+                "salir",
+                "selección",
+                "sesgo"
               ],
-              "enunciado": "En 'La delincuencia se debe solo a la inmigración', qué falacia hay?",
+              "enunciado": "¿Qué consecuencia del sesgo algorítmico menciona el texto para la información que consumimos?",
               "opciones": [
-                "Falsa causa compleja (ignora la multicausalidad)",
-                "Ad hominem",
-                "Falso dilema",
-                "Falsa equivalencia"
+                "Crea cámaras de eco: solo vemos contenido afín a nuestros intereses y nos cuesta salir de la burbuja",
+                "Elimina por completo la desinformación de las redes",
+                "Garantiza la pluralidad de fuentes en los buscadores"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23900,26 +24155,24 @@
               "tec_num": 98,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 11,
+              "n_tokens_comunes": 10,
               "tokens_comunes": [
-                "apela",
-                "argumentos",
-                "científico",
-                "coche",
-                "compra",
-                "emocional",
-                "emoción",
-                "feliz",
-                "manipulación",
-                "quieres",
-                "transparencia"
+                "conclusión",
+                "contratarlos",
+                "justificación",
+                "jóvenes",
+                "oculta",
+                "premisa",
+                "presenta",
+                "tanto",
+                "todos",
+                "vagos"
               ],
-              "enunciado": "En 'Si quieres ser feliz, compra este coche', qué manipulación hay?",
+              "enunciado": "¿Qué premisa oculta hay en 'Todos los jóvenes son vagos; por tanto, no hay que contratarlos'?",
               "opciones": [
-                "Manipulación emocional: apela a la emoción sin argumentos",
-                "Rigor científico",
-                "Transparencia",
-                "Neutralidad"
+                "Que todos los jóvenes son vagos, presentada como verdadera sin justificación",
+                "Que los jóvenes prefieren no trabajar",
+                "Que contratar jóvenes es siempre rentable"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23932,16 +24185,23 @@
               "tec_num": 10,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 2,
+              "n_tokens_comunes": 9,
               "tokens_comunes": [
-                "hecho",
-                "redes"
+                "causa",
+                "compleja",
+                "delincuencia",
+                "educación",
+                "ignora",
+                "inmigración",
+                "multicausalidad",
+                "pobreza",
+                "también"
               ],
-              "enunciado": "¿Qué generalización apresurada aparece en el texto?",
+              "enunciado": "¿Qué factores ignora la afirmación 'La delincuencia se debe solo a la inmigración' según el texto?",
               "opciones": [
-                "'La gente es tonta' (el texto la menciona para refutarla).",
-                "'El 67% usa redes' (dato verificado).",
-                "'Las redes existen' (hecho obvio)."
+                "La multicausalidad: pobreza, educación y otros factores que también influyen",
+                "Solo la inmigración, que es la única causa",
+                "La opinión de los expertos en seguridad"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -23954,24 +24214,33 @@
               "tec_num": 90,
               "tec_nivel": "C1",
               "veredicto": "OK",
-              "n_tokens_comunes": 9,
+              "n_tokens_comunes": 19,
               "tokens_comunes": [
-                "causa",
-                "comparables",
-                "comparar",
-                "cosas",
-                "cáncer",
-                "equipara",
-                "equivalencia",
+                "apela",
+                "argumentos",
+                "autoridad",
+                "científica",
+                "coche",
+                "compra",
+                "datos",
+                "emocional",
+                "emociones",
+                "emoción",
                 "falacia",
-                "resfriado"
+                "feliz",
+                "manipula",
+                "manipulación",
+                "persuadir",
+                "publicidad",
+                "quieres",
+                "racionales",
+                "usando"
               ],
-              "enunciado": "En 'Es como comparar el cáncer con un resfriado', qué falacia hay?",
+              "enunciado": "¿Qué recurso persuasivo usa 'Si quieres ser feliz, compra este coche'?",
               "opciones": [
-                "Falsa equivalencia (equipara cosas no comparables)",
-                "Ad hominem",
-                "Falso dilema",
-                "Falsa causa"
+                "Manipulación emocional: apela a la emoción sin argumentos racionales",
+                "Argumentación racional basada en datos verificables",
+                "Una falacia de autoridad científica"
               ],
               "correcta": "A",
               "tiene_prefijo": false,

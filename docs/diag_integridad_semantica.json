@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-13T12:15:09.586977",
+  "fecha": "2026-11-13T12:37:07.273741",
   "umbral_ok": 0.7,
   "umbral_mal": 0.5,
   "niveles": {
@@ -18,8 +18,8 @@
           "nivel": "A1",
           "palabras": 76,
           "n_ej": 33,
-          "n_coherentes": 32,
-          "pct": 97.0,
+          "n_coherentes": 33,
+          "pct": 100.0,
           "estado": "OK",
           "tecnicas_asignadas": [
             2,
@@ -125,14 +125,7 @@
             97,
             99
           ],
-          "huerfanos": [
-            {
-              "ej_id": 298,
-              "tec": 100,
-              "enunciado": "¿El texto es claro, coherente y relevante?",
-              "correcta": "A"
-            }
-          ],
+          "huerfanos": [],
           "top_similitud": [
             {
               "ej_id": 1430,
@@ -613,8 +606,8 @@
           "nivel": "A1",
           "palabras": 83,
           "n_ej": 23,
-          "n_coherentes": 21,
-          "pct": 91.3,
+          "n_coherentes": 23,
+          "pct": 100.0,
           "estado": "OK",
           "tecnicas_asignadas": [
             1,
@@ -720,20 +713,7 @@
             99,
             100
           ],
-          "huerfanos": [
-            {
-              "ej_id": 240,
-              "tec": 42,
-              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1436,
-              "tec": 7,
-              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
-              "correcta": "A"
-            }
-          ],
+          "huerfanos": [],
           "top_similitud": [
             {
               "ej_id": 832,
@@ -1074,8 +1054,8 @@
           "nivel": "A1",
           "palabras": 75,
           "n_ej": 17,
-          "n_coherentes": 15,
-          "pct": 88.2,
+          "n_coherentes": 16,
+          "pct": 94.1,
           "estado": "OK",
           "tecnicas_asignadas": [
             15,
@@ -1183,12 +1163,6 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 878,
-              "tec": 92,
-              "enunciado": "¿Cuál es la conclusión del texto?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 879,
               "tec": 93,
               "enunciado": "El ejemplo del huevo grande, ¿es relevante para la conclusión del texto?",
@@ -1221,10 +1195,10 @@
               "enunciado": "¿Qué hay que hacer con las patatas antes de freírlas?"
             },
             {
-              "ej_id": 1388,
-              "tec": 58,
-              "ratio": 0.1176,
-              "enunciado": "¿Por qué la tortilla está lista cuando es dorada por fuera?"
+              "ej_id": 878,
+              "tec": 92,
+              "ratio": 0.1429,
+              "enunciado": "¿Cuál es la conclusión del texto 'Cómo hacer una tortilla'?"
             }
           ]
         },
@@ -1524,11 +1498,7 @@
         }
       ],
       "tecnicas_huerfanas": {
-        "100": 1,
-        "42": 1,
-        "7": 1,
         "53": 1,
-        "92": 1,
         "93": 1
       }
     },
@@ -1547,8 +1517,8 @@
           "nivel": "A2",
           "palabras": 117,
           "n_ej": 34,
-          "n_coherentes": 31,
-          "pct": 91.2,
+          "n_coherentes": 34,
+          "pct": 100.0,
           "estado": "OK",
           "tecnicas_asignadas": [
             12,
@@ -1654,27 +1624,14 @@
             99,
             100
           ],
-          "huerfanos": [
-            {
-              "ej_id": 1450,
-              "tec": 39,
-              "enunciado": "¿Cómo está organizado visualmente el texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1453,
-              "tec": 59,
-              "enunciado": "¿Cómo esta estructurado el texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1474,
-              "tec": 50,
-              "enunciado": "¿A qué público va dirigido el relato?",
-              "correcta": "A"
-            }
-          ],
+          "huerfanos": [],
           "top_similitud": [
+            {
+              "ej_id": 1451,
+              "tec": 49,
+              "ratio": 0.1077,
+              "enunciado": "¿Qué valores de Marta destaca el autor con el rescate del bote pesquero?"
+            },
             {
               "ej_id": 1459,
               "tec": 81,
@@ -1694,16 +1651,10 @@
               "enunciado": "¿Qué palabra del texto indica negación?"
             },
             {
-              "ej_id": 1602,
-              "tec": 96,
-              "ratio": 0.0758,
-              "enunciado": "¿Qué hace que el relato sea fácil de entender?"
-            },
-            {
-              "ej_id": 1521,
-              "tec": 94,
-              "ratio": 0.0735,
-              "enunciado": "¿El texto presenta la labor de Marta de forma neutral o valorativa?"
+              "ej_id": 1453,
+              "tec": 59,
+              "ratio": 0.0769,
+              "enunciado": "¿Cómo está estructurado el relato de Marta y el faro?"
             }
           ]
         },
@@ -2154,8 +2105,8 @@
           "nivel": "A2",
           "palabras": 179,
           "n_ej": 18,
-          "n_coherentes": 17,
-          "pct": 94.4,
+          "n_coherentes": 18,
+          "pct": 100.0,
           "estado": "OK",
           "tecnicas_asignadas": [
             2,
@@ -2261,14 +2212,7 @@
             98,
             99
           ],
-          "huerfanos": [
-            {
-              "ej_id": 1593,
-              "tec": 63,
-              "enunciado": "¿Cuál es la función de la conclusion del texto?",
-              "correcta": "A"
-            }
-          ],
+          "huerfanos": [],
           "top_similitud": [
             {
               "ej_id": 1524,
@@ -2860,7 +2804,7 @@
             {
               "ej_id": 1519,
               "tec": 84,
-              "enunciado": "La frase 'el restaurador es un ladrón porque es malo' seria una falacia. Que tipo?",
+              "enunciado": "La frase 'el restaurador es un ladrón porque es malo' sería un ejemplo de...",
               "correcta": "A"
             },
             {
@@ -2933,8 +2877,8 @@
           "nivel": "A2",
           "palabras": 102,
           "n_ej": 15,
-          "n_coherentes": 13,
-          "pct": 86.7,
+          "n_coherentes": 14,
+          "pct": 93.3,
           "estado": "OK",
           "tecnicas_asignadas": [
             4,
@@ -3042,12 +2986,6 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 1486,
-              "tec": 10,
-              "enunciado": "¿Cómo se distingue el diálogo de la narracion?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 1526,
               "tec": 4,
               "enunciado": "¿Cómo se organiza el texto?",
@@ -3092,11 +3030,6 @@
         "84": 2,
         "87": 2,
         "86": 2,
-        "39": 1,
-        "59": 1,
-        "50": 1,
-        "63": 1,
-        "10": 1,
         "4": 1
       }
     },
@@ -3115,8 +3048,8 @@
           "nivel": "B1",
           "palabras": 182,
           "n_ej": 19,
-          "n_coherentes": 17,
-          "pct": 89.5,
+          "n_coherentes": 18,
+          "pct": 94.7,
           "estado": "OK",
           "tecnicas_asignadas": [
             1,
@@ -3224,12 +3157,6 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 397,
-              "tec": 38,
-              "enunciado": "¿Qué estructura tiene el texto?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 398,
               "tec": 39,
               "enunciado": "¿Qué elementos del paratexto aparecen en el texto?",
@@ -3237,6 +3164,18 @@
             }
           ],
           "top_similitud": [
+            {
+              "ej_id": 397,
+              "tec": 38,
+              "ratio": 0.0505,
+              "enunciado": "¿Qué estructura tiene el texto sobre el reciclaje de vidrio en España?"
+            },
+            {
+              "ej_id": 1660,
+              "tec": 19,
+              "ratio": 0.05,
+              "enunciado": "¿Qué consecuencia tiene el reciclaje de vidrio para el medio ambiente?"
+            },
             {
               "ej_id": 111,
               "tec": 1,
@@ -3250,22 +3189,10 @@
               "enunciado": "Según el texto, ¿según ecovidrio (2024), ¿cuántos kilogramos de vidrio reciclo d"
             },
             {
-              "ej_id": 1742,
-              "tec": 2,
-              "ratio": 0.0303,
-              "enunciado": "¿Cuál de las siguientes afirmaciones resume mejor el texto?"
-            },
-            {
               "ej_id": 803,
               "tec": 19,
-              "ratio": 0.0294,
-              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del turismo masivo?"
-            },
-            {
-              "ej_id": 1660,
-              "tec": 19,
-              "ratio": 0.0291,
-              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del turismo masivo?"
+              "ratio": 0.0303,
+              "enunciado": "Según el texto, ¿cuál es una causa del impacto ambiental del vidrio?"
             }
           ]
         },
@@ -4594,7 +4521,6 @@
         }
       ],
       "tecnicas_huerfanas": {
-        "38": 1,
         "39": 1
       }
     },
@@ -5201,8 +5127,8 @@
           "nivel": "B2",
           "palabras": 440,
           "n_ej": 21,
-          "n_coherentes": 17,
-          "pct": 81.0,
+          "n_coherentes": 18,
+          "pct": 85.7,
           "estado": "OK",
           "tecnicas_asignadas": [
             31,
@@ -5310,12 +5236,6 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 470,
-              "tec": 31,
-              "enunciado": "¿Qué relación marca el conector 'sin embargo' en 'Sin embargo, algunos empresarios sostienen...'?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 482,
               "tec": 43,
               "enunciado": "¿Qué tipo de narrador tiene el texto?",
@@ -5373,8 +5293,8 @@
           "nivel": "B2",
           "palabras": 448,
           "n_ej": 27,
-          "n_coherentes": 25,
-          "pct": 92.6,
+          "n_coherentes": 26,
+          "pct": 96.3,
           "estado": "OK",
           "tecnicas_asignadas": [
             1,
@@ -5481,12 +5401,6 @@
             100
           ],
           "huerfanos": [
-            {
-              "ej_id": 1018,
-              "tec": 52,
-              "enunciado": "¿Qué ideología se revela en el léxico del texto con términos como 'raíces', 'memoria', 'tradición', ",
-              "correcta": "A"
-            },
             {
               "ej_id": 1792,
               "tec": 52,
@@ -6117,9 +6031,9 @@
         }
       ],
       "tecnicas_huerfanas": {
-        "31": 2,
         "43": 2,
-        "52": 2
+        "31": 1,
+        "52": 1
       }
     },
     "C1": {
