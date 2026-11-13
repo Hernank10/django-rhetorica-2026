@@ -1,0 +1,129 @@
+{
+  "texto_id": 32,
+  "nivel": "C1",
+  "titulo": "Desinformación: cómo detectar la manipulación",
+  "nota": "Opción A: reformular los 11 ejercicios cortos para cubrir los 5 apartados sin ejercicio propio (§2, §5, §6, §7, §8) y reforzar §11, §12, §13, §14, §15. Los 10 largos ya parcheados (1850, 1921-1938) NO se tocan.",
+  "parches": [
+    {
+      "ej_id": 604,
+      "enunciado": "¿Qué diferencia hay entre 'inmigrantes ocupan la plaza' y 'familias migrantes llegan a la plaza' según el texto?",
+      "opciones": [
+        "El encuadre: 'ocupan' presenta el hecho como invasión; 'llegan' lo presenta de forma neutra",
+        "Ninguna: son sinónimos exactos",
+        "La primera es una cita literal; la segunda es una paráfrasis libre"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 2) usa este par para ilustrar el framing: 'ocupan' presenta el fenómeno como invasión, mientras 'llegan' presenta el mismo hecho de forma neutra."
+    },
+    {
+      "ej_id": 606,
+      "enunciado": "¿Qué ejemplo del texto ilustra la incoherencia entre discurso y práctica de una institución?",
+      "opciones": [
+        "Una empresa que declara sostenibilidad pero contamina, o una institución que defiende la transparencia pero oculta datos",
+        "Un político que cambia de opinión tras leer nuevos datos",
+        "Una empresa que reconoce públicamente un error y lo corrige"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 5) define la coherencia entre discurso y práctica con esos dos ejemplos: sostenibilidad sin contaminar y transparencia sin ocultar datos."
+    },
+    {
+      "ej_id": 607,
+      "enunciado": "En 'O estás con nosotros o estás contra nosotros', ¿qué falacia señala el texto?",
+      "opciones": [
+        "Una falsa dicotomía: hay muchas posiciones intermedias",
+        "Una falacia de autoridad",
+        "Una falsa equivalencia"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 6) señala que 'O estás con nosotros o estás contra nosotros' es una falsa dicotomía porque hay muchas posiciones intermedias."
+    },
+    {
+      "ej_id": 612,
+      "enunciado": "¿Qué rasgos distinguen un debate público de calidad según el texto?",
+      "opciones": [
+        "Incluye contraargumentos, evita falacias y aporta evidencia",
+        "Se basa en descalificaciones y datos sin contexto",
+        "Solo participan expertos con prestigio reconocido"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 7) define el debate de calidad como aquel que incluye contraargumentos, evita falacias y aporta evidencia; el de baja calidad se basa en descalificaciones y datos sin contexto."
+    },
+    {
+      "ej_id": 614,
+      "enunciado": "¿Qué ejemplos de manipulación estadística menciona el texto?",
+      "opciones": [
+        "Gráficos engañosos (escalas truncadas, 3D), porcentajes sin base y tasas sin contexto",
+        "Encuestas con muestras representativas y métodos sólidos",
+        "Estudios con resultados replicables y datos públicos"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 8) cita como manipulación estadística los gráficos engañosos (escalas truncadas, 3D), los porcentajes sin base y las tasas sin contexto. Un gráfico que empieza en 95 en lugar de 0 exagera una diferencia pequeña."
+    },
+    {
+      "ej_id": 615,
+      "enunciado": "¿Qué es el priming según el texto?",
+      "opciones": [
+        "La activación de marcos mentales que orienta la interpretación de un mensaje",
+        "El uso de eslóganes pegadizos en publicidad",
+        "La repetición de una noticia en varios medios"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 2) define el priming como la activación de marcos mentales: el framing encuadra, el priming activa marcos previos que orientan la interpretación."
+    },
+    {
+      "ej_id": 617,
+      "enunciado": "En 'El 50% de los que enferman son vacunados', ¿qué dato adicional hace falta para interpretarlo bien?",
+      "opciones": [
+        "La base: si el 95% está vacunado, ese 50% de enfermos vacunados es esperable",
+        "El titular del periódico que lo publicó",
+        "El número total de vacunados en el país, sin más"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 11) advierte que el dato es engañoso sin la base: si el 95% está vacunado, ese 50% de enfermos vacunados es esperable. Sin analizar la base y el contexto, la estadística engaña."
+    },
+    {
+      "ej_id": 619,
+      "enunciado": "¿Qué consecuencia del sesgo algorítmico menciona el texto para la información que consumimos?",
+      "opciones": [
+        "Crea cámaras de eco: solo vemos contenido afín a nuestros intereses y nos cuesta salir de la burbuja",
+        "Elimina por completo la desinformación de las redes",
+        "Garantiza la pluralidad de fuentes en los buscadores"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 12) explica que los algoritmos de selección crean cámaras de eco: muestran solo contenido afín a nuestros intereses. Detectar este sesgo permite evaluar críticamente la información y salir de la burbuja."
+    },
+    {
+      "ej_id": 621,
+      "enunciado": "¿Qué premisa oculta hay en 'Todos los jóvenes son vagos; por tanto, no hay que contratarlos'?",
+      "opciones": [
+        "Que todos los jóvenes son vagos, presentada como verdadera sin justificación",
+        "Que los jóvenes prefieren no trabajar",
+        "Que contratar jóvenes es siempre rentable"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 13) señala que 'Todos los jóvenes son vagos' es una falsa premisa: se presenta como verdadera sin justificación, y la conclusión se apoya en una premisa no sustentada."
+    },
+    {
+      "ej_id": 768,
+      "enunciado": "¿Qué factores ignora la afirmación 'La delincuencia se debe solo a la inmigración' según el texto?",
+      "opciones": [
+        "La multicausalidad: pobreza, educación y otros factores que también influyen",
+        "Solo la inmigración, que es la única causa",
+        "La opinión de los expertos en seguridad"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 14) señala que 'La delincuencia se debe solo a la inmigración' es una falsa causa compleja porque ignora la multicausalidad (pobreza, educación, etc.)."
+    },
+    {
+      "ej_id": 1095,
+      "enunciado": "¿Qué recurso persuasivo usa 'Si quieres ser feliz, compra este coche'?",
+      "opciones": [
+        "Manipulación emocional: apela a la emoción sin argumentos racionales",
+        "Argumentación racional basada en datos verificables",
+        "Una falacia de autoridad científica"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto (apartado 15) usa este ejemplo para ilustrar la manipulación emocional: apela a la emoción ('ser feliz') sin argumentos racionales. La publicidad manipula usando emociones para persuadir."
+    }
+  ]
+}

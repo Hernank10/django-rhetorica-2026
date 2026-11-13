@@ -1,0 +1,708 @@
+{
+  "fecha": "2026-11-12T13:11:53.670899",
+  "apply": true,
+  "resumen": {
+    "A1": {
+      "textos": 10,
+      "ejercicios_a_fixear": 182,
+      "prefijos": 182,
+      "rotadas": 0,
+      "correcta_mal": 0,
+      "duplicados": 1
+    },
+    "A2": {
+      "textos": 10,
+      "ejercicios_a_fixear": 200,
+      "prefijos": 200,
+      "rotadas": 0,
+      "correcta_mal": 0,
+      "duplicados": 1
+    },
+    "B1": {
+      "textos": 10,
+      "ejercicios_a_fixear": 198,
+      "prefijos": 198,
+      "rotadas": 99,
+      "correcta_mal": 99,
+      "duplicados": 2
+    },
+    "B2": {
+      "textos": 10,
+      "ejercicios_a_fixear": 184,
+      "prefijos": 184,
+      "rotadas": 91,
+      "correcta_mal": 91,
+      "duplicados": 0
+    },
+    "C1": {
+      "textos": 10,
+      "ejercicios_a_fixear": 0,
+      "prefijos": 0,
+      "rotadas": 0,
+      "correcta_mal": 0,
+      "duplicados": 0
+    },
+    "C2": {
+      "textos": 14,
+      "ejercicios_a_fixear": 200,
+      "prefijos": 200,
+      "rotadas": 100,
+      "correcta_mal": 100,
+      "duplicados": 0
+    }
+  },
+  "niveles": {
+    "A1": [
+      {
+        "id": 13,
+        "titulo": "El perro perdido",
+        "n_ejercicios": 33,
+        "n_prefijos": 31,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 31,
+        "n_duplicados": 0
+      },
+      {
+        "id": 14,
+        "titulo": "Mi escuela",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 15,
+        "titulo": "La fiesta de cumpleaños",
+        "n_ejercicios": 24,
+        "n_prefijos": 24,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 24,
+        "n_duplicados": 0
+      },
+      {
+        "id": 16,
+        "titulo": "Los animales de la granja",
+        "n_ejercicios": 18,
+        "n_prefijos": 18,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 18,
+        "n_duplicados": 0
+      },
+      {
+        "id": 47,
+        "titulo": "Un día en la vida de Ana",
+        "n_ejercicios": 23,
+        "n_prefijos": 14,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 14,
+        "n_duplicados": 1
+      },
+      {
+        "id": 48,
+        "titulo": "Mi familia",
+        "n_ejercicios": 21,
+        "n_prefijos": 21,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 21,
+        "n_duplicados": 0
+      },
+      {
+        "id": 49,
+        "titulo": "La casa de Pablo",
+        "n_ejercicios": 19,
+        "n_prefijos": 18,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 18,
+        "n_duplicados": 0
+      },
+      {
+        "id": 50,
+        "titulo": "Cómo hacer una tortilla",
+        "n_ejercicios": 17,
+        "n_prefijos": 17,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 17,
+        "n_duplicados": 0
+      },
+      {
+        "id": 51,
+        "titulo": "Me gusta el verano",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 52,
+        "titulo": "En la cafetería",
+        "n_ejercicios": 15,
+        "n_prefijos": 9,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 9,
+        "n_duplicados": 0
+      }
+    ],
+    "A2": [
+      {
+        "id": 1,
+        "titulo": "El faro y la tormenta",
+        "n_ejercicios": 34,
+        "n_prefijos": 34,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 34,
+        "n_duplicados": 1
+      },
+      {
+        "id": 9,
+        "titulo": "El gato que hablaba",
+        "n_ejercicios": 17,
+        "n_prefijos": 17,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 17,
+        "n_duplicados": 0
+      },
+      {
+        "id": 11,
+        "titulo": "La receta de la abuela",
+        "n_ejercicios": 17,
+        "n_prefijos": 17,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 17,
+        "n_duplicados": 0
+      },
+      {
+        "id": 17,
+        "titulo": "El misterio del cuadro robado",
+        "n_ejercicios": 16,
+        "n_prefijos": 16,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 16,
+        "n_duplicados": 0
+      },
+      {
+        "id": 18,
+        "titulo": "La vida en el fondo del mar",
+        "n_ejercicios": 18,
+        "n_prefijos": 18,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 18,
+        "n_duplicados": 0
+      },
+      {
+        "id": 19,
+        "titulo": "El debate sobre los deberes",
+        "n_ejercicios": 25,
+        "n_prefijos": 25,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 25,
+        "n_duplicados": 0
+      },
+      {
+        "id": 20,
+        "titulo": "Cómo funciona el reciclaje",
+        "n_ejercicios": 22,
+        "n_prefijos": 22,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 22,
+        "n_duplicados": 0
+      },
+      {
+        "id": 53,
+        "titulo": "El viaje de fin de curso",
+        "n_ejercicios": 16,
+        "n_prefijos": 16,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 16,
+        "n_duplicados": 0
+      },
+      {
+        "id": 54,
+        "titulo": "Redes sociales: ¿sí o no?",
+        "n_ejercicios": 20,
+        "n_prefijos": 20,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 20,
+        "n_duplicados": 0
+      },
+      {
+        "id": 55,
+        "titulo": "El barrio donde crecí",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      }
+    ],
+    "B1": [
+      {
+        "id": 2,
+        "titulo": "El reciclaje de vidrio en España",
+        "n_ejercicios": 19,
+        "n_prefijos": 18,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 18,
+        "n_duplicados": 1
+      },
+      {
+        "id": 4,
+        "titulo": "El debate sobre las redes sociales en los institutos",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 7,
+        "titulo": "La biblioteca secreta",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 7,
+        "n_correcta_mal": 7,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 21,
+        "titulo": "La fuerza de las palabras",
+        "n_ejercicios": 35,
+        "n_prefijos": 35,
+        "n_rotadas": 19,
+        "n_correcta_mal": 19,
+        "n_necesitan_fix": 35,
+        "n_duplicados": 0
+      },
+      {
+        "id": 22,
+        "titulo": "La decisión de Marta",
+        "n_ejercicios": 21,
+        "n_prefijos": 20,
+        "n_rotadas": 9,
+        "n_correcta_mal": 9,
+        "n_necesitan_fix": 20,
+        "n_duplicados": 0
+      },
+      {
+        "id": 23,
+        "titulo": "El viaje de Santiago",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 24,
+        "titulo": "Pantallas en las aulas: ayuda o distracción",
+        "n_ejercicios": 35,
+        "n_prefijos": 35,
+        "n_rotadas": 18,
+        "n_correcta_mal": 18,
+        "n_necesitan_fix": 35,
+        "n_duplicados": 1
+      },
+      {
+        "id": 56,
+        "titulo": "El poder de la empatía",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 7,
+        "n_correcta_mal": 7,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 57,
+        "titulo": "Las bibliotecas del futuro",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 58,
+        "titulo": "Mi abuela y la tecnología",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 7,
+        "n_correcta_mal": 7,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      }
+    ],
+    "B2": [
+      {
+        "id": 6,
+        "titulo": "La inteligencia artificial en la educación: promesas y riesgos",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 9,
+        "n_correcta_mal": 9,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 10,
+        "titulo": "La moda rápida y el costo humano",
+        "n_ejercicios": 16,
+        "n_prefijos": 16,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 16,
+        "n_duplicados": 0
+      },
+      {
+        "id": 12,
+        "titulo": "El turismo masivo en las ciudades",
+        "n_ejercicios": 20,
+        "n_prefijos": 20,
+        "n_rotadas": 11,
+        "n_correcta_mal": 11,
+        "n_necesitan_fix": 20,
+        "n_duplicados": 0
+      },
+      {
+        "id": 25,
+        "titulo": "La semana laboral de cuatro días",
+        "n_ejercicios": 33,
+        "n_prefijos": 33,
+        "n_rotadas": 16,
+        "n_correcta_mal": 16,
+        "n_necesitan_fix": 33,
+        "n_duplicados": 0
+      },
+      {
+        "id": 26,
+        "titulo": "El regreso de Amina",
+        "n_ejercicios": 21,
+        "n_prefijos": 21,
+        "n_rotadas": 10,
+        "n_correcta_mal": 10,
+        "n_necesitan_fix": 21,
+        "n_duplicados": 0
+      },
+      {
+        "id": 27,
+        "titulo": "La casa de los relojes",
+        "n_ejercicios": 27,
+        "n_prefijos": 26,
+        "n_rotadas": 14,
+        "n_correcta_mal": 14,
+        "n_necesitan_fix": 26,
+        "n_duplicados": 0
+      },
+      {
+        "id": 28,
+        "titulo": "Móviles en los institutos: prohibir o educar",
+        "n_ejercicios": 23,
+        "n_prefijos": 23,
+        "n_rotadas": 11,
+        "n_correcta_mal": 11,
+        "n_necesitan_fix": 23,
+        "n_duplicados": 0
+      },
+      {
+        "id": 59,
+        "titulo": "Una ciudad que cambia",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 5,
+        "n_correcta_mal": 5,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 60,
+        "titulo": "Una conversación difícil",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 7,
+        "n_correcta_mal": 7,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 61,
+        "titulo": "Leer en la era digital",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      }
+    ],
+    "C1": [
+      {
+        "id": 3,
+        "titulo": "La promesa incumplida de la empresa energética",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 5,
+        "titulo": "La manipulación del lenguaje en el discurso político",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 8,
+        "titulo": "El ruido de las redes sociales",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 29,
+        "titulo": "Análisis crítico del discurso institucional: la reforma educativa",
+        "n_ejercicios": 37,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 30,
+        "titulo": "Elogio de la lentitud",
+        "n_ejercicios": 20,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 31,
+        "titulo": "El cuento que se escribía solo",
+        "n_ejercicios": 31,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 32,
+        "titulo": "Desinformación: cómo detectar la manipulación",
+        "n_ejercicios": 22,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 62,
+        "titulo": "Lisboa, ciudad de contrastes",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 63,
+        "titulo": "La entrevista",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      },
+      {
+        "id": 64,
+        "titulo": "Cómo escribir un ensayo argumentativo",
+        "n_ejercicios": 15,
+        "n_prefijos": 0,
+        "n_rotadas": 0,
+        "n_correcta_mal": 0,
+        "n_necesitan_fix": 0,
+        "n_duplicados": 0
+      }
+    ],
+    "C2": [
+      {
+        "id": 33,
+        "titulo": "El cuerpo como mercancía: análisis crítico del discurso publicitario",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 7,
+        "n_correcta_mal": 7,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 34,
+        "titulo": "El sujeto atrapado: poder, deseo y resistencia",
+        "n_ejercicios": 19,
+        "n_prefijos": 19,
+        "n_rotadas": 11,
+        "n_correcta_mal": 11,
+        "n_necesitan_fix": 19,
+        "n_duplicados": 0
+      },
+      {
+        "id": 35,
+        "titulo": "El archivo de los espejos",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 36,
+        "titulo": "Para qué sirve la crítica",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 9,
+        "n_correcta_mal": 9,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 65,
+        "titulo": "La paradoja de la tolerancia",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 66,
+        "titulo": "El narrador no fiable en El Quijote",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 6,
+        "n_correcta_mal": 6,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 67,
+        "titulo": "El lenguaje como arma política",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 9,
+        "n_correcta_mal": 9,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 68,
+        "titulo": "La ética de la IA en decisiones médicas",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 8,
+        "n_correcta_mal": 8,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 69,
+        "titulo": "Carta a un joven escritor",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 5,
+        "n_correcta_mal": 5,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 70,
+        "titulo": "La ciudad como texto",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 6,
+        "n_correcta_mal": 6,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 71,
+        "titulo": "¿Progreso o barbarie? El debate sobre la Ilustración",
+        "n_ejercicios": 15,
+        "n_prefijos": 15,
+        "n_rotadas": 9,
+        "n_correcta_mal": 9,
+        "n_necesitan_fix": 15,
+        "n_duplicados": 0
+      },
+      {
+        "id": 72,
+        "titulo": "El problema de la conciencia en la filosofía de la mente",
+        "n_ejercicios": 12,
+        "n_prefijos": 12,
+        "n_rotadas": 3,
+        "n_correcta_mal": 3,
+        "n_necesitan_fix": 12,
+        "n_duplicados": 0
+      },
+      {
+        "id": 73,
+        "titulo": "La memoria como reconstrucción",
+        "n_ejercicios": 10,
+        "n_prefijos": 10,
+        "n_rotadas": 6,
+        "n_correcta_mal": 6,
+        "n_necesitan_fix": 10,
+        "n_duplicados": 0
+      },
+      {
+        "id": 74,
+        "titulo": "La traducción como traición",
+        "n_ejercicios": 9,
+        "n_prefijos": 9,
+        "n_rotadas": 5,
+        "n_correcta_mal": 5,
+        "n_necesitan_fix": 9,
+        "n_duplicados": 0
+      }
+    ]
+  }
+}

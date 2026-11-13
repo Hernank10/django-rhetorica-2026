@@ -1,16 +1,16 @@
 {
-  "fecha": "2026-11-11T12:44:32.058160",
+  "fecha": "2026-11-13T12:15:09.586977",
   "umbral_ok": 0.7,
   "umbral_mal": 0.5,
   "niveles": {
     "A1": {
       "n_textos": 10,
       "n_tecnicas": 100,
-      "n_ok": 8,
-      "n_mixto": 1,
-      "n_mal": 1,
+      "n_ok": 10,
+      "n_mixto": 0,
+      "n_mal": 0,
       "n_vacio": 0,
-      "pct_ok": 80.0,
+      "pct_ok": 100.0,
       "textos": [
         {
           "id": 13,
@@ -18,33 +18,35 @@
           "nivel": "A1",
           "palabras": 76,
           "n_ej": 33,
-          "n_coherentes": 16,
-          "pct": 48.5,
-          "estado": "MAL",
+          "n_coherentes": 32,
+          "pct": 97.0,
+          "estado": "OK",
           "tecnicas_asignadas": [
             2,
             3,
             7,
             10,
-            13,
-            14,
             19,
             21,
+            24,
             25,
-            27,
             33,
             39,
+            40,
+            41,
             42,
             43,
+            44,
             45,
             46,
-            56,
+            59,
             61,
+            63,
             65,
             69,
-            73,
             74,
-            80,
+            75,
+            79,
             89,
             90,
             92,
@@ -61,6 +63,8 @@
             9,
             11,
             12,
+            13,
+            14,
             15,
             16,
             17,
@@ -68,8 +72,8 @@
             20,
             22,
             23,
-            24,
             26,
+            27,
             28,
             29,
             30,
@@ -80,9 +84,6 @@
             36,
             37,
             38,
-            40,
-            41,
-            44,
             47,
             48,
             49,
@@ -92,12 +93,11 @@
             53,
             54,
             55,
+            56,
             57,
             58,
-            59,
             60,
             62,
-            63,
             64,
             66,
             67,
@@ -105,11 +105,11 @@
             70,
             71,
             72,
-            75,
+            73,
             76,
             77,
             78,
-            79,
+            80,
             81,
             82,
             83,
@@ -127,109 +127,19 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 124,
-              "tec": 3,
-              "enunciado": "¿El texto es un cuento o una noticia?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 153,
-              "tec": 7,
-              "enunciado": "¿El texto es un cuento o una noticia?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 271,
-              "tec": 73,
-              "enunciado": "En 'ojos brillantes como estrellas', ¿qué recurso se usa?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 288,
-              "tec": 90,
-              "enunciado": "¿El texto es claro?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 293,
-              "tec": 95,
-              "enunciado": "¿El texto es coherente?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 296,
-              "tec": 98,
-              "enunciado": "¿El texto es objetivo o subjetivo?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 298,
               "tec": 100,
-              "enunciado": "¿El texto es de calidad?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 727,
-              "tec": 2,
-              "enunciado": "¿Cuál es el tema del texto?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 794,
-              "tec": 13,
-              "enunciado": "En el diálogo '-Hoy te enseño mi receta secreta -dijo la abuela-', ¿quién habla?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 797,
-              "tec": 14,
-              "enunciado": "En la oración 'La abuela no usaba batidora porque con la cuchara se siente la textura', ¿cuál es la ",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 823,
-              "tec": 27,
-              "enunciado": "¿Qué signo de puntuación aparece en '¡Era Toby!'?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 849,
-              "tec": 56,
-              "enunciado": "En el texto no hay ningún personaje que mienta. ¿Qué indica esto sobre el texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1395,
-              "tec": 65,
-              "enunciado": "¿El texto 'El reciclaje de vidrio en España' es un cuento o una noticia?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 1399,
-              "tec": 69,
-              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1410,
-              "tec": 80,
-              "enunciado": "¿Cómo se marca cada intervención en el diálogo?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 1425,
-              "tec": 95,
-              "enunciado": "En 'El vaso se rompió porque se cayó', ¿qué es causa?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 1430,
-              "tec": 100,
-              "enunciado": "¿Cómo se distingue un diálogo de una narración?",
+              "enunciado": "¿El texto es claro, coherente y relevante?",
               "correcta": "A"
             }
           ],
           "top_similitud": [
+            {
+              "ej_id": 1430,
+              "tec": 59,
+              "ratio": 0.2051,
+              "enunciado": "¿Dónde ocurre la historia?"
+            },
             {
               "ej_id": 1375,
               "tec": 45,
@@ -237,28 +147,22 @@
               "enunciado": "¿Qué pasó al final con Toby?"
             },
             {
-              "ej_id": 1419,
-              "tec": 89,
-              "ratio": 0.1389,
-              "enunciado": "En 'Toby se alejó persiguiendo una paloma', ¿cuál es la causa?"
+              "ej_id": 288,
+              "tec": 90,
+              "ratio": 0.1905,
+              "enunciado": "¿El texto usa oraciones cortas y palabras sencillas?"
             },
             {
-              "ej_id": 1391,
-              "tec": 61,
-              "ratio": 0.1143,
-              "enunciado": "¿Quién es Toby en 'El perro perdido'?"
+              "ej_id": 1410,
+              "tec": 41,
+              "ratio": 0.1892,
+              "enunciado": "En 'Toby se alejó', ¿qué consecuencia tuvo para Lucía?"
             },
             {
-              "ej_id": 1373,
-              "tec": 43,
-              "ratio": 0.1111,
-              "enunciado": "¿Por qué Toby se alejó de Lucía?"
-            },
-            {
-              "ej_id": 1404,
-              "tec": 74,
-              "ratio": 0.1053,
-              "enunciado": "¿Cuál es la conclusión de 'El perro perdido'?"
+              "ej_id": 124,
+              "tec": 3,
+              "ratio": 0.1765,
+              "enunciado": "¿Qué palabra del texto indica un lugar?"
             }
           ]
         },
@@ -709,8 +613,8 @@
           "nivel": "A1",
           "palabras": 83,
           "n_ej": 23,
-          "n_coherentes": 23,
-          "pct": 100.0,
+          "n_coherentes": 21,
+          "pct": 91.3,
           "estado": "OK",
           "tecnicas_asignadas": [
             1,
@@ -816,8 +720,27 @@
             99,
             100
           ],
-          "huerfanos": [],
+          "huerfanos": [
+            {
+              "ej_id": 240,
+              "tec": 42,
+              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+              "correcta": "A"
+            },
+            {
+              "ej_id": 1436,
+              "tec": 7,
+              "enunciado": "¿Qué tipo de texto es 'Un día en la vida de Ana'?",
+              "correcta": "A"
+            }
+          ],
           "top_similitud": [
+            {
+              "ej_id": 832,
+              "tec": 36,
+              "ratio": 0.2593,
+              "enunciado": "Ana trabaja como profesora de música y dice que los niños son divertidos. ¿Cómo "
+            },
             {
               "ej_id": 1370,
               "tec": 40,
@@ -837,16 +760,10 @@
               "enunciado": "¿De qué trata principalmente 'Un día en la vida de Ana'?"
             },
             {
-              "ej_id": 840,
-              "tec": 45,
-              "ratio": 0.0811,
-              "enunciado": "El texto dice 'Por la mañana, los niños llegan'. ¿A qué momento del día se refie"
-            },
-            {
-              "ej_id": 839,
-              "tec": 44,
-              "ratio": 0.075,
-              "enunciado": "¿Qué relación hay entre Ana y los niños?"
+              "ej_id": 135,
+              "tec": 4,
+              "ratio": 0.1111,
+              "enunciado": "¿Qué desayuna Ana?"
             }
           ]
         },
@@ -1003,8 +920,8 @@
           "nivel": "A1",
           "palabras": 83,
           "n_ej": 19,
-          "n_coherentes": 19,
-          "pct": 100.0,
+          "n_coherentes": 18,
+          "pct": 94.7,
           "estado": "OK",
           "tecnicas_asignadas": [
             8,
@@ -1110,7 +1027,14 @@
             99,
             100
           ],
-          "huerfanos": [],
+          "huerfanos": [
+            {
+              "ej_id": 251,
+              "tec": 53,
+              "enunciado": "El texto dice 'A las ocho sale de casa'. ¿A qué momento del día se refiere?",
+              "correcta": "A"
+            }
+          ],
           "top_similitud": [
             {
               "ej_id": 1364,
@@ -1457,9 +1381,9 @@
           "nivel": "A1",
           "palabras": 73,
           "n_ej": 15,
-          "n_coherentes": 9,
-          "pct": 60.0,
-          "estado": "MIXTO",
+          "n_coherentes": 15,
+          "pct": 100.0,
+          "estado": "OK",
           "tecnicas_asignadas": [
             1,
             9,
@@ -1564,44 +1488,7 @@
             99,
             100
           ],
-          "huerfanos": [
-            {
-              "ej_id": 110,
-              "tec": 1,
-              "enunciado": "Según el texto, ¿cuál es la idea principal?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 193,
-              "tec": 12,
-              "enunciado": "Cuando Sofía comparte el bizcocho con sus padres, ¿la acción es buena o mala?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 812,
-              "tec": 16,
-              "enunciado": "En 'Toby corrió detrás de un gato', ¿cuál es el verbo?",
-              "correcta": "C"
-            },
-            {
-              "ej_id": 1366,
-              "tec": 36,
-              "enunciado": "¿Qué recurso se usa en 'el reloj corría'?",
-              "correcta": "B"
-            },
-            {
-              "ej_id": 1437,
-              "tec": 9,
-              "enunciado": "¿La historia de 'El perro perdido' es real o imaginaria?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1440,
-              "tec": 12,
-              "enunciado": "Al final de 'El perro perdido', ¿es buena o mala la decisión de Lucía?",
-              "correcta": "A"
-            }
-          ],
+          "huerfanos": [],
           "top_similitud": [
             {
               "ej_id": 1386,
@@ -1610,65 +1497,49 @@
               "enunciado": "¿Quién es Marta en 'En la cafetería'?"
             },
             {
+              "ej_id": 193,
+              "tec": 12,
+              "ratio": 0.1613,
+              "enunciado": "¿Qué hace Marta por las mañanas según el texto?"
+            },
+            {
+              "ej_id": 1437,
+              "tec": 9,
+              "ratio": 0.1562,
+              "enunciado": "¿Qué se puede pagar con tarjeta según el texto?"
+            },
+            {
               "ej_id": 1400,
               "tec": 70,
               "ratio": 0.1333,
               "enunciado": "¿Quién dice 'Un café con leche y un croissant, por favor'?"
             },
             {
-              "ej_id": 1441,
-              "tec": 13,
-              "ratio": 0.125,
-              "enunciado": "En 'En la cafetería', ¿quién dice 'Son tres euros con cincuenta'?"
-            },
-            {
-              "ej_id": 1357,
-              "tec": 27,
-              "ratio": 0.1071,
-              "enunciado": "En 'Marta trabaja por las mañanas', ¿cuál es el verbo?"
-            },
-            {
-              "ej_id": 1393,
-              "tec": 63,
-              "ratio": 0.1,
-              "enunciado": "¿Qué indica 'Hoy hay mucha gente' sobre la cafetería?"
+              "ej_id": 1366,
+              "tec": 36,
+              "ratio": 0.129,
+              "enunciado": "¿Cuánto cuesta el pedido de la clienta?"
             }
           ]
         }
       ],
       "tecnicas_huerfanas": {
-        "95": 2,
-        "100": 2,
-        "12": 2,
-        "3": 1,
+        "100": 1,
+        "42": 1,
         "7": 1,
-        "73": 1,
-        "90": 1,
-        "98": 1,
-        "2": 1,
-        "13": 1,
-        "14": 1,
-        "27": 1,
-        "56": 1,
-        "65": 1,
-        "69": 1,
-        "80": 1,
+        "53": 1,
         "92": 1,
-        "93": 1,
-        "1": 1,
-        "16": 1,
-        "36": 1,
-        "9": 1
+        "93": 1
       }
     },
     "A2": {
       "n_textos": 10,
       "n_tecnicas": 100,
-      "n_ok": 9,
+      "n_ok": 10,
       "n_mixto": 0,
-      "n_mal": 1,
+      "n_mal": 0,
       "n_vacio": 0,
-      "pct_ok": 90.0,
+      "pct_ok": 100.0,
       "textos": [
         {
           "id": 1,
@@ -1676,10 +1547,11 @@
           "nivel": "A2",
           "palabras": 117,
           "n_ej": 34,
-          "n_coherentes": 16,
-          "pct": 47.1,
-          "estado": "MAL",
+          "n_coherentes": 31,
+          "pct": 91.2,
+          "estado": "OK",
           "tecnicas_asignadas": [
+            12,
             14,
             15,
             16,
@@ -1687,7 +1559,6 @@
             29,
             39,
             46,
-            47,
             48,
             49,
             50,
@@ -1715,7 +1586,6 @@
             9,
             10,
             11,
-            12,
             13,
             17,
             18,
@@ -1743,6 +1613,7 @@
             43,
             44,
             45,
+            47,
             51,
             52,
             53,
@@ -1785,15 +1656,9 @@
           ],
           "huerfanos": [
             {
-              "ej_id": 1449,
-              "tec": 39,
-              "enunciado": "¿Cuántos parrafos tiene el texto?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 1450,
               "tec": 39,
-              "enunciado": "¿Cómo esta organizado visualmente el texto?",
+              "enunciado": "¿Cómo está organizado visualmente el texto?",
               "correcta": "A"
             },
             {
@@ -1803,93 +1668,9 @@
               "correcta": "A"
             },
             {
-              "ej_id": 1456,
-              "tec": 69,
-              "enunciado": "¿Qué simboliza el faro?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1457,
-              "tec": 79,
-              "enunciado": "¿Cuál es el proposito comunicativo del texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1462,
-              "tec": 91,
-              "enunciado": "La descripción de la tormenta es relevante?",
-              "correcta": "A"
-            },
-            {
               "ej_id": 1474,
               "tec": 50,
-              "enunciado": "¿Qué edad aproximada tiene el público objetivo?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1475,
-              "tec": 60,
-              "enunciado": "¿Qué tipo de estructura tiene el texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1506,
-              "tec": 14,
-              "enunciado": "La historia es realista o fantástica?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1572,
-              "tec": 46,
-              "enunciado": "Para que sirve una pregunta retórica en un texto argumentativo?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1595,
-              "tec": 73,
-              "enunciado": "Hay diálogo en el texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1602,
-              "tec": 96,
-              "enunciado": "¿Qué hace que el texto sea fácil de entender?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1611,
-              "tec": 48,
-              "enunciado": "¿Cuál es el tono del texto?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1612,
-              "tec": 48,
-              "enunciado": "¿Qué tono predomina?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1621,
-              "tec": 95,
-              "enunciado": "¿El texto es coherente?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1622,
-              "tec": 95,
-              "enunciado": "¿Qué hace que el texto sea coherente?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1623,
-              "tec": 15,
-              "enunciado": "¿Qué palabra del texto indica negacion?",
-              "correcta": "A"
-            },
-            {
-              "ej_id": 1632,
-              "tec": 47,
-              "enunciado": "¿Qué tono predomina?",
+              "enunciado": "¿A qué público va dirigido el relato?",
               "correcta": "A"
             }
           ],
@@ -1907,22 +1688,22 @@
               "enunciado": "En 'encendió la linterna grande y la coloco en el punto más alto', a que se refi"
             },
             {
-              "ej_id": 1452,
-              "tec": 49,
-              "ratio": 0.0833,
-              "enunciado": "¿Qué revela 'Nadie le daria las gracias, pero no lo necesitaba'?"
+              "ej_id": 1623,
+              "tec": 15,
+              "ratio": 0.0784,
+              "enunciado": "¿Qué palabra del texto indica negación?"
             },
             {
-              "ej_id": 1448,
-              "tec": 29,
-              "ratio": 0.0702,
-              "enunciado": "En 'los tres pescadores estaban a salvo', quiénes eran los tres?"
+              "ej_id": 1602,
+              "tec": 96,
+              "ratio": 0.0758,
+              "enunciado": "¿Qué hace que el relato sea fácil de entender?"
             },
             {
-              "ej_id": 1460,
-              "tec": 81,
-              "ratio": 0.0702,
-              "enunciado": "¿Qué consecuencia tuvo la accion de Marta?"
+              "ej_id": 1521,
+              "tec": 94,
+              "ratio": 0.0735,
+              "enunciado": "¿El texto presenta la labor de Marta de forma neutral o valorativa?"
             }
           ]
         },
@@ -3308,24 +3089,12 @@
         }
       ],
       "tecnicas_huerfanas": {
-        "39": 2,
-        "48": 2,
-        "95": 2,
         "84": 2,
         "87": 2,
         "86": 2,
+        "39": 1,
         "59": 1,
-        "69": 1,
-        "79": 1,
-        "91": 1,
         "50": 1,
-        "60": 1,
-        "14": 1,
-        "46": 1,
-        "73": 1,
-        "96": 1,
-        "15": 1,
-        "47": 1,
         "63": 1,
         "10": 1,
         "4": 1
@@ -5556,13 +5325,13 @@
               "ej_id": 1771,
               "tec": 31,
               "enunciado": "Según el texto, ¿qué relación marca el conector 'sin embargo' en 'sin embargo, algunos empresarios s",
-              "correcta": "D"
+              "correcta": "A"
             },
             {
               "ej_id": 1783,
               "tec": 43,
               "enunciado": "Según el texto, ¿qué tipo de narrador tiene el texto?",
-              "correcta": "D"
+              "correcta": "A"
             }
           ],
           "top_similitud": [
@@ -5722,7 +5491,7 @@
               "ej_id": 1792,
               "tec": 52,
               "enunciado": "Según el texto, ¿qué ideología se revela en el léxico del texto con términos como 'raíces', 'memoria",
-              "correcta": "D"
+              "correcta": "A"
             }
           ],
           "top_similitud": [
@@ -6315,34 +6084,34 @@
           "huerfanos": [],
           "top_similitud": [
             {
-              "ej_id": 113,
-              "tec": 2,
-              "ratio": 0.0366,
-              "enunciado": "La frase 'algunos expertos consideran que las campañas de reciclaje deberían est"
-            },
-            {
-              "ej_id": 1779,
-              "tec": 39,
-              "ratio": 0.0355,
-              "enunciado": "Según el texto, ¿qué función cumple la pregunta retórica '¿quién puede negar que"
+              "ej_id": 1023,
+              "tec": 60,
+              "ratio": 0.1187,
+              "enunciado": "¿Qué crítica hace el autor al comportamiento digital actual?"
             },
             {
               "ej_id": 464,
               "tec": 25,
-              "ratio": 0.0307,
-              "enunciado": "En 'Un estudio de Cambridge encontró X; por tanto, la medida es viable', ¿cuál e"
+              "ratio": 0.1125,
+              "enunciado": "Según el estudio de la Universidad de Valencia (2023) citado en el texto, ¿qué c"
+            },
+            {
+              "ej_id": 1820,
+              "tec": 80,
+              "ratio": 0.0947,
+              "enunciado": "¿Cuál es la actitud del autor hacia la tecnología digital?"
+            },
+            {
+              "ej_id": 113,
+              "tec": 2,
+              "ratio": 0.0938,
+              "enunciado": "¿Cuál es la tesis que defiende el autor?"
             },
             {
               "ej_id": 1765,
               "tec": 25,
-              "ratio": 0.0305,
-              "enunciado": "Según el texto, ¿en 'un estudio de cambridge encontró x; por tanto, la medida es"
-            },
-            {
-              "ej_id": 115,
-              "tec": 2,
-              "ratio": 0.0242,
-              "enunciado": "La frase 'el incremento es temporal y responde a una mayor demanda energética' e"
+              "ratio": 0.0859,
+              "enunciado": "En 'Un estudio de la Universidad de Valencia encontró que los lectores en papel "
             }
           ]
         }
@@ -7360,34 +7129,34 @@
           "huerfanos": [],
           "top_similitud": [
             {
-              "ej_id": 621,
-              "tec": 98,
-              "ratio": 0.0453,
-              "enunciado": "En 'Si quieres ser feliz, compra este coche', qué manipulación hay?"
-            },
-            {
-              "ej_id": 1938,
-              "tec": 98,
-              "ratio": 0.0451,
-              "enunciado": "Según el texto, ¿en 'si quieres ser feliz, compra este coche', qué manipulación "
-            },
-            {
-              "ej_id": 606,
-              "tec": 83,
-              "ratio": 0.0447,
-              "enunciado": "¿Qué criterios definen la calidad de la evidencia científica según el texto?"
-            },
-            {
-              "ej_id": 1923,
-              "tec": 83,
-              "ratio": 0.0445,
-              "enunciado": "Según el texto, ¿qué criterios definen la calidad de la evidencia científica seg"
+              "ej_id": 619,
+              "tec": 96,
+              "ratio": 0.0887,
+              "enunciado": "¿Qué consecuencia del sesgo algorítmico menciona el texto para la información qu"
             },
             {
               "ej_id": 1095,
               "tec": 90,
-              "ratio": 0.0369,
-              "enunciado": "En 'Es como comparar el cáncer con un resfriado', qué falacia hay?"
+              "ratio": 0.0766,
+              "enunciado": "¿Qué recurso persuasivo usa 'Si quieres ser feliz, compra este coche'?"
+            },
+            {
+              "ej_id": 614,
+              "tec": 91,
+              "ratio": 0.0726,
+              "enunciado": "¿Qué ejemplos de manipulación estadística menciona el texto?"
+            },
+            {
+              "ej_id": 604,
+              "tec": 81,
+              "ratio": 0.0598,
+              "enunciado": "¿Qué diferencia hay entre 'inmigrantes ocupan la plaza' y 'familias migrantes ll"
+            },
+            {
+              "ej_id": 612,
+              "tec": 89,
+              "ratio": 0.0524,
+              "enunciado": "¿Qué rasgos distinguen un debate público de calidad según el texto?"
             }
           ]
         },
