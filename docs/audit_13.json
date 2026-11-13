@@ -1,0 +1,142 @@
+{
+  "texto_id": 13,
+  "nivel": "A1",
+  "titulo": "El perro perdido",
+  "nota": "10 reformulaciones normales (124, 153, 288, 293, 296, 298, 727, 817, 1395, 1399) + 8 con cambio de tecnica (271->#75, 794->#63, 797->#40, 823->#24, 849->#79, 1410->#41, 1425->#44, 1430->#59). Todas las tecnicas nuevas tienen usos_texto13=0, ratio global 2.0 A1 intacto. Los 15 OK no se tocan.",
+  "parches": [
+    {
+      "ej_id": 124,
+      "enunciado": "¿Qué palabra del texto indica un lugar?",
+      "opciones": ["Parque", "Toby", "Pequeño"],
+      "correcta": "A",
+      "explicacion": "'Parque' es el lugar donde Lucía lleva a Toby: 'Lucía llevó a su perro Toby al parque del barrio'."
+    },
+    {
+      "ej_id": 153,
+      "enunciado": "¿'El perro perdido' es un cuento o una noticia?",
+      "opciones": ["Un cuento, porque narra una historia con personajes", "Una noticia, porque informa de un hecho real", "Una receta, porque da instrucciones"],
+      "correcta": "A",
+      "explicacion": "Narra una historia con personajes (Lucía, Toby, el vecino): es un cuento."
+    },
+    {
+      "ej_id": 288,
+      "enunciado": "¿El texto usa oraciones cortas y palabras sencillas?",
+      "opciones": ["Sí, el texto es claro y fácil de entender", "No, usa palabras muy difíciles", "No, las oraciones son muy largas"],
+      "correcta": "A",
+      "explicacion": "El texto es claro: usa oraciones cortas ('Lucía lo abrazó fuerte', 'Nunca más lo dejó suelto') y vocabulario sencillo (perro, parque, vecino)."
+    },
+    {
+      "ej_id": 293,
+      "enunciado": "¿Las ideas del texto se conectan de forma lógica?",
+      "opciones": ["Sí, cuenta los hechos en orden (Lucía va al parque → Toby se pierde → lo busca → lo encuentra)", "No, salta de un tema a otro", "No, se contradice"],
+      "correcta": "A",
+      "explicacion": "El texto sigue un orden cronológico claro: Lucía va al parque, Toby se pierde, Lucía lo busca y lo encuentra."
+    },
+    {
+      "ej_id": 296,
+      "enunciado": "¿El texto es objetivo o subjetivo?",
+      "opciones": ["Mayormente objetivo: cuenta hechos, aunque menciona que Lucía estaba preocupada", "Totalmente subjetivo", "Totalmente objetivo sin ninguna emoción"],
+      "correcta": "A",
+      "explicacion": "El texto narra hechos ('Toby se alejó persiguiendo una paloma') y añade un estado emocional ('Estaba muy preocupada'): mayormente objetivo con un toque subjetivo."
+    },
+    {
+      "ej_id": 298,
+      "enunciado": "¿El texto es claro, coherente y relevante?",
+      "opciones": ["Sí, es un cuento breve, claro y con hechos en orden", "No, es demasiado largo", "No, no tiene sentido"],
+      "correcta": "A",
+      "explicacion": "El texto es de calidad: claro (oraciones cortas), coherente (orden cronológico) y relevante (cuenta una historia completa)."
+    },
+    {
+      "ej_id": 727,
+      "enunciado": "¿Cuál es el tema principal del texto?",
+      "opciones": ["La búsqueda y el reencuentro de un perro perdido", "Un viaje al mar", "Una receta de cocina"],
+      "correcta": "A",
+      "explicacion": "El texto cuenta cómo Lucía busca a su perro Toby y lo encuentra cerca de la fuente."
+    },
+    {
+      "ej_id": 817,
+      "enunciado": "¿Qué palabra del texto describe el tamaño del perro?",
+      "opciones": ["Pequeño", "Marrón", "Lunes"],
+      "correcta": "A",
+      "explicacion": "El vecino dice que vio 'un perro pequeño cerca de la fuente'. 'Pequeño' describe el tamaño."
+    },
+    {
+      "ej_id": 1395,
+      "enunciado": "¿Qué tipo de texto es 'El perro perdido'?",
+      "opciones": ["Un cuento narrativo con personajes y hechos en orden", "Una noticia sobre un perro real", "Una receta para cuidar perros"],
+      "correcta": "A",
+      "explicacion": "El texto narra una historia con personajes (Lucía, Toby, el vecino): es un cuento narrativo."
+    },
+    {
+      "ej_id": 1399,
+      "enunciado": "¿Qué tipo de texto es 'El perro perdido'?",
+      "opciones": ["Narrativo", "Descriptivo", "Instructivo"],
+      "correcta": "A",
+      "explicacion": "Cuenta la historia de Lucía y Toby en orden: es narrativo."
+    },
+    {
+      "ej_id": 271,
+      "tec_numero": 75,
+      "enunciado": "En 'Lucía lo buscó durante una hora', ¿qué exagera el texto?",
+      "opciones": ["El tiempo que Lucía buscó a Toby (una hora es una exageración para intensificar la búsqueda)", "El tamaño del perro", "El color de la paloma"],
+      "correcta": "A",
+      "explicacion": "La expresión 'durante una hora' intensifica la búsqueda de Lucía. Es una hipérbole que exagera el tiempo para mostrar su preocupación."
+    },
+    {
+      "ej_id": 794,
+      "tec_numero": 63,
+      "enunciado": "¿Quién cuenta la historia de 'El perro perdido'?",
+      "opciones": ["Un narrador externo que no es ninguno de los personajes", "Lucía", "Toby el perro"],
+      "correcta": "A",
+      "explicacion": "El texto está narrado en tercera persona ('Lucía llevó a su perro Toby al parque'), así que el narrador es externo y no es ninguno de los personajes."
+    },
+    {
+      "ej_id": 797,
+      "tec_numero": 40,
+      "enunciado": "En 'Toby se alejó persiguiendo una paloma', ¿cuál es la causa de que se alejara?",
+      "opciones": ["Que perseguía una paloma", "Que Lucía lo llamó", "Que tenía hambre"],
+      "correcta": "A",
+      "explicacion": "La causa de que Toby se alejara es que perseguía una paloma: 'Toby se alejó persiguiendo una paloma'."
+    },
+    {
+      "ej_id": 823,
+      "tec_numero": 24,
+      "enunciado": "¿Qué palabra del texto indica negación?",
+      "opciones": ["No", "Nunca", "Sí"],
+      "correcta": "A",
+      "explicacion": "El texto dice 'pero no lo encontró': la palabra 'no' indica negación. ('Nunca' también es negación, pero la pregunta pide una sola; 'no' es la primera que aparece.)"
+    },
+    {
+      "ej_id": 849,
+      "tec_numero": 79,
+      "enunciado": "El texto cuenta hechos reales (un perro, un parque, un vecino). ¿Es realista o fantástico?",
+      "opciones": ["Realista, porque los hechos podrían ocurrir en la vida real", "Fantástico, porque hay dragones", "Fantástico, porque los animales hablan"],
+      "correcta": "A",
+      "explicacion": "El texto es realista: cuenta hechos cotidianos (un perro que se pierde en el parque, un vecino que ayuda) sin elementos fantásticos."
+    },
+    {
+      "ej_id": 1410,
+      "tec_numero": 41,
+      "enunciado": "En 'Toby se alejó', ¿qué consecuencia tuvo para Lucía?",
+      "opciones": ["Tuvo que buscarlo durante una hora", "Se fue a casa a dormir", "Compró otro perro"],
+      "correcta": "A",
+      "explicacion": "La consecuencia de que Toby se alejara es que 'Lucía lo buscó durante una hora por los caminos, pero no lo encontró'."
+    },
+    {
+      "ej_id": 1425,
+      "tec_numero": 44,
+      "enunciado": "¿Qué relación hay entre Lucía y Toby?",
+      "opciones": ["Lucía es la dueña y Toby es su perro", "Son hermanos", "Son vecinos"],
+      "correcta": "A",
+      "explicacion": "El texto dice 'Lucía llevó a su perro Toby al parque': Lucía es la dueña y Toby es su perro."
+    },
+    {
+      "ej_id": 1430,
+      "tec_numero": 59,
+      "enunciado": "¿Dónde ocurre la historia?",
+      "opciones": ["En el parque del barrio y cerca de la fuente", "En una escuela", "En una cafetería"],
+      "correcta": "A",
+      "explicacion": "El texto empieza 'Lucía llevó a su perro Toby al parque del barrio' y al final lo encuentran 'cerca de la fuente'."
+    }
+  ]
+}
