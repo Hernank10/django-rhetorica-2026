@@ -1,0 +1,17 @@
+{
+  "texto": 13,
+  "parches": [
+    {"ej_id": 153, "enunciado": "¿Por qué 'El perro perdido' es un cuento y no una noticia?",
+     "opciones": ["Porque narra una historia con personajes ficticios (Lucía, Toby, el vecino)",
+                  "Porque informa de un hecho real con fecha y lugar",
+                  "Porque da instrucciones para cuidar perros"],
+     "correcta": "A",
+     "explicacion": "Es un cuento porque narra una historia con personajes sin informar de un hecho real verificable."},
+    {"ej_id": 1399, "enunciado": "¿Qué tipo de narración es 'El perro perdido'?",
+     "opciones": ["Narrativa: cuenta una historia de búsqueda y reencuentro",
+                  "Descriptiva: solo describe el parque",
+                  "Instructiva: da instrucciones para cuidar perros"],
+     "correcta": "A",
+     "explicacion": "Cuenta la historia de Lucía y Toby en orden cronológico: es narrativa."}
+  ]
+}
