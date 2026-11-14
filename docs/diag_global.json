@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-13T12:37:15.926066",
+  "fecha": "2026-11-14T11:13:37.314436",
   "umbral_ok": 2,
   "niveles": {
     "A1": {
@@ -15,9 +15,9 @@
           "n_tecnicas_distintas": 31,
           "contadores": {
             "OK": 32,
-            "DEBIL": 1
+            "HUERFANO": 1
           },
-          "pct_estricta": 100.0,
+          "pct_estricta": 97.0,
           "pct_laxa": 97.0,
           "estado": "OK",
           "ejercicios": [
@@ -58,11 +58,11 @@
                 "perro",
                 "vecino"
               ],
-              "enunciado": "¿'El perro perdido' es un cuento o una noticia?",
+              "enunciado": "¿Por qué 'El perro perdido' es un cuento y no una noticia?",
               "opciones": [
-                "Un cuento, porque narra una historia con personajes",
-                "Una noticia, porque informa de un hecho real",
-                "Una receta, porque da instrucciones"
+                "Porque narra una historia con personajes ficticios (Lucía, Toby, el vecino)",
+                "Porque informa de un hecho real con fecha y lugar",
+                "Porque da instrucciones para cuidar perros"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -175,14 +175,12 @@
               "ej_id": 298,
               "tec_num": 100,
               "tec_nivel": "A1",
-              "veredicto": "DEBIL",
-              "n_tokens_comunes": 1,
-              "tokens_comunes": [
-                "lucía"
-              ],
-              "enunciado": "¿El cuento de Lucía y Toby es claro, coherente y relevante?",
+              "veredicto": "HUERFANO",
+              "n_tokens_comunes": 0,
+              "tokens_comunes": [],
+              "enunciado": "¿El texto es claro, coherente y relevante?",
               "opciones": [
-                "Sí, es un cuento breve, claro y con hechos en orden (Lucía busca a Toby y lo encuentra)",
+                "Sí, es un cuento breve, claro y con hechos en orden",
                 "No, es demasiado largo",
                 "No, no tiene sentido"
               ],
@@ -573,16 +571,17 @@
               "tec_num": 69,
               "tec_nivel": "A1",
               "veredicto": "OK",
-              "n_tokens_comunes": 2,
+              "n_tokens_comunes": 3,
               "tokens_comunes": [
                 "lucía",
+                "parque",
                 "perro"
               ],
-              "enunciado": "¿Qué tipo de texto es 'El perro perdido'?",
+              "enunciado": "¿Qué tipo de narración es 'El perro perdido'?",
               "opciones": [
-                "Narrativo",
-                "Descriptivo",
-                "Instructivo"
+                "Narrativa: cuenta una historia de búsqueda y reencuentro",
+                "Descriptiva: solo describe el parque",
+                "Instructiva: da instrucciones para cuidar perros"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -812,17 +811,8 @@
               "correcta_msg": ""
             }
           ],
-          "duplicados": {
-            "¿'el perro perdido' es un cuento o una noticia?": [
-              153,
-              1432
-            ],
-            "¿qué tipo de texto es 'el perro perdido'?": [
-              1395,
-              1399
-            ]
-          },
-          "n_duplicados": 2,
+          "duplicados": {},
+          "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 33,
           "n_correcta_mal": 0
@@ -10072,15 +10062,15 @@
               "correcta": null,
               "tiene_prefijo": false,
               "rotadas": false,
-              "correcta_fuera_rango": true,
-              "correcta_msg": "correcta='None' no es A/B/C/D"
+              "correcta_fuera_rango": false,
+              "correcta_msg": "respuesta_abierta (no aplica)"
             }
           ],
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 18,
-          "n_correcta_mal": 1
+          "n_correcta_mal": 0
         },
         {
           "id": 4,
@@ -11805,8 +11795,8 @@
               "correcta": null,
               "tiene_prefijo": false,
               "rotadas": false,
-              "correcta_fuera_rango": true,
-              "correcta_msg": "correcta='None' no es A/B/C/D"
+              "correcta_fuera_rango": false,
+              "correcta_msg": "respuesta_abierta (no aplica)"
             },
             {
               "ej_id": 401,
@@ -12291,7 +12281,7 @@
           "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 20,
-          "n_correcta_mal": 1
+          "n_correcta_mal": 0
         },
         {
           "id": 23,
@@ -17934,18 +17924,21 @@
               "tec_num": 1,
               "tec_nivel": "B2",
               "veredicto": "OK",
-              "n_tokens_comunes": 2,
+              "n_tokens_comunes": 5,
               "tokens_comunes": [
-                "abierta",
-                "puede"
+                "elías",
+                "emilia",
+                "puede",
+                "relojes",
+                "tiempo"
               ],
-              "enunciado": "¿Qué se puede inferir sobre la empresa Promesas S.A. a partir de sus acciones?",
+              "enunciado": "¿Qué se puede inferir sobre don Elías y su familia a partir de cómo conserva los relojes en La casa de los relojes?",
               "opciones": [],
               "correcta": null,
               "tiene_prefijo": false,
               "rotadas": false,
-              "correcta_fuera_rango": true,
-              "correcta_msg": "correcta='None' no es A/B/C/D"
+              "correcta_fuera_rango": false,
+              "correcta_msg": "respuesta_abierta (no aplica)"
             },
             {
               "ej_id": 1018,
@@ -18356,7 +18349,7 @@
           "n_duplicados": 0,
           "n_prefijos": 0,
           "n_rotadas": 26,
-          "n_correcta_mal": 1
+          "n_correcta_mal": 0
         },
         {
           "id": 28,

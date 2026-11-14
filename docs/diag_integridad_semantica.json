@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-13T12:37:07.273741",
+  "fecha": "2026-11-14T11:13:31.124404",
   "umbral_ok": 0.7,
   "umbral_mal": 0.5,
   "niveles": {
@@ -18,8 +18,8 @@
           "nivel": "A1",
           "palabras": 76,
           "n_ej": 33,
-          "n_coherentes": 33,
-          "pct": 100.0,
+          "n_coherentes": 32,
+          "pct": 97.0,
           "estado": "OK",
           "tecnicas_asignadas": [
             2,
@@ -125,7 +125,14 @@
             97,
             99
           ],
-          "huerfanos": [],
+          "huerfanos": [
+            {
+              "ej_id": 298,
+              "tec": 100,
+              "enunciado": "¿El texto es claro, coherente y relevante?",
+              "correcta": "A"
+            }
+          ],
           "top_similitud": [
             {
               "ej_id": 1430,
@@ -1498,6 +1505,7 @@
         }
       ],
       "tecnicas_huerfanas": {
+        "100": 1,
         "53": 1,
         "93": 1
       }
