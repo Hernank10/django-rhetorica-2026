@@ -1,0 +1,49 @@
+{
+  "nota": "Cerrar 4 huerfanos reales: 298 (13), 251 (49), 879 (50), 1519 (54). Anclados al cuerpo real de cada texto.",
+  "parches": [
+    {
+      "ej_id": 298,
+      "enunciado": "¿El cuento de Lucía y Toby es claro, coherente y relevante?",
+      "opciones": [
+        "Sí, es un cuento breve, claro y con hechos en orden (Lucía busca a Toby y lo encuentra)",
+        "No, es demasiado largo",
+        "No, no tiene sentido"
+      ],
+      "correcta": "A",
+      "explicacion": "El cuento de Lucía y Toby es claro (oraciones cortas), coherente (orden cronológico: Lucía va al parque, Toby se pierde, lo busca, lo encuentra) y relevante (cuenta una historia completa de búsqueda y reencuentro)."
+    },
+    {
+      "ej_id": 251,
+      "enunciado": "En el texto 49, ¿a qué momento del día se refiere 'A las ocho sale de casa'?",
+      "opciones": [
+        "A la mañana (sale de casa a las ocho)",
+        "A la noche",
+        "Al mediodía"
+      ],
+      "correcta": "A",
+      "explicacion": "Las ocho de la mañana es cuando el personaje sale de casa para iniciar su rutina diaria."
+    },
+    {
+      "ej_id": 879,
+      "enunciado": "En 'Cómo hacer una tortilla', ¿qué ejemplos de ingredientes menciona el texto?",
+      "opciones": [
+        "Huevos, patatas y aceite",
+        "Harina, agua y sal",
+        "Arroz, tomate y cebolla"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto explica los pasos para hacer una tortilla con huevos, patatas y aceite: son los ingredientes que menciona."
+    },
+    {
+      "ej_id": 1519,
+      "enunciado": "En 'Redes sociales: ¿sí o no?', ¿qué tipo de falacia se menciona en el texto?",
+      "opciones": [
+        "La falacia ad hominem: ataca a la persona, no al argumento",
+        "La falacia de autoridad",
+        "La falacia de falsa equivalencia"
+      ],
+      "correcta": "A",
+      "explicacion": "El texto menciona la falacia ad hominem como ejemplo de ataque a la persona en lugar del argumento."
+    }
+  ]
+}

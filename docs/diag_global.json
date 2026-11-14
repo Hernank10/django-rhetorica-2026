@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-14T11:13:37.314436",
+  "fecha": "2026-11-14T15:03:52.678787",
   "umbral_ok": 2,
   "niveles": {
     "A1": {
@@ -11,14 +11,14 @@
           "nivel": "A1",
           "tipo": "narrativo",
           "n_palabras": 76,
-          "n_ejercicios": 33,
-          "n_tecnicas_distintas": 31,
+          "n_ejercicios": 32,
+          "n_tecnicas_distintas": 30,
           "contadores": {
-            "OK": 32,
-            "HUERFANO": 1
+            "OK": 31,
+            "DEBIL": 1
           },
-          "pct_estricta": 97.0,
-          "pct_laxa": 97.0,
+          "pct_estricta": 100.0,
+          "pct_laxa": 96.9,
           "estado": "OK",
           "ejercicios": [
             {
@@ -175,12 +175,15 @@
               "ej_id": 298,
               "tec_num": 100,
               "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "¿El texto es claro, coherente y relevante?",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "lucía",
+                "parque"
+              ],
+              "enunciado": "¿El cuento de Lucía y Toby es claro, coherente y relevante?",
               "opciones": [
-                "Sí, es un cuento breve, claro y con hechos en orden",
+                "Sí, es un cuento breve, claro y con hechos en orden (Lucía busca a Toby y lo encuentra)",
                 "No, es demasiado largo",
                 "No, no tiene sentido"
               ],
@@ -257,28 +260,6 @@
                 "Que tenía hambre"
               ],
               "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 815,
-              "tec_num": 19,
-              "tec_nivel": "A1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "parque",
-                "pequeño"
-              ],
-              "enunciado": "¿Cuál de estas palabras es un adjetivo calificativo?",
-              "opciones": [
-                "corrió",
-                "pequeño",
-                "parque"
-              ],
-              "correcta": "B",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -791,18 +772,16 @@
               "ej_id": 1438,
               "tec_num": 10,
               "tec_nivel": "A1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 3,
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
               "tokens_comunes": [
-                "lucía",
-                "parque",
                 "perro"
               ],
-              "enunciado": "¿Cuál es el orden correcto de 'El perro perdido'?",
+              "enunciado": "¿Qué diferencia hay entre 'Cómo hacer una tortilla' (texto 50) y 'El perro perdido' (texto 13)?",
               "opciones": [
-                "Lucía va al parque → Toby se pierde → Lucía lo busca → Lo encuentran",
-                "Toby se pierde → Lucía va al parque → Lo encuentran",
-                "Lo encuentran → Lucía va al parque → Toby se pierde"
+                "El primero enseña pasos (texto instructivo); el segundo cuenta una historia (texto narrativo)",
+                "Ambos son cuentos",
+                "Ambos son recetas"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -814,7 +793,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 33,
+          "n_rotadas": 32,
           "n_correcta_mal": 0
         },
         {
@@ -1175,14 +1154,15 @@
           "nivel": "A1",
           "tipo": "narrativo",
           "n_palabras": 73,
-          "n_ejercicios": 24,
-          "n_tecnicas_distintas": 24,
+          "n_ejercicios": 25,
+          "n_tecnicas_distintas": 25,
           "contadores": {
             "OK": 23,
+            "HUERFANO": 1,
             "DEBIL": 1
           },
-          "pct_estricta": 100.0,
-          "pct_laxa": 95.8,
+          "pct_estricta": 96.0,
+          "pct_laxa": 92.0,
           "estado": "OK",
           "ejercicios": [
             {
@@ -1546,6 +1526,25 @@
               "correcta_msg": ""
             },
             {
+              "ej_id": 878,
+              "tec_num": 92,
+              "tec_nivel": "A1",
+              "veredicto": "HUERFANO",
+              "n_tokens_comunes": 0,
+              "tokens_comunes": [],
+              "enunciado": "¿Cuál es la conclusión del texto 'Cómo hacer una tortilla'?",
+              "opciones": [
+                "Que con huevos, patatas y aceite se puede hacer una tortilla paso a paso",
+                "Que la tortilla es imposible de hacer",
+                "Que solo se hace con harina"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
               "ej_id": 1358,
               "tec_num": 28,
               "tec_nivel": "A1",
@@ -1748,7 +1747,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 24,
+          "n_rotadas": 25,
           "n_correcta_mal": 0
         },
         {
@@ -1757,14 +1756,15 @@
           "nivel": "A1",
           "tipo": "descriptivo",
           "n_palabras": 80,
-          "n_ejercicios": 18,
-          "n_tecnicas_distintas": 18,
+          "n_ejercicios": 20,
+          "n_tecnicas_distintas": 20,
           "contadores": {
-            "DEBIL": 2,
-            "OK": 16
+            "DEBIL": 3,
+            "OK": 16,
+            "HUERFANO": 1
           },
-          "pct_estricta": 100.0,
-          "pct_laxa": 88.9,
+          "pct_estricta": 95.0,
+          "pct_laxa": 80.0,
           "estado": "OK",
           "ejercicios": [
             {
@@ -1991,6 +1991,27 @@
               "correcta_msg": ""
             },
             {
+              "ej_id": 879,
+              "tec_num": 93,
+              "tec_nivel": "A1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "huevos"
+              ],
+              "enunciado": "En 'Cómo hacer una tortilla', ¿qué ejemplos de ingredientes menciona el texto?",
+              "opciones": [
+                "Huevos, patatas y aceite",
+                "Harina, agua y sal",
+                "Arroz, tomate y cebolla"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
               "ej_id": 880,
               "tec_num": 96,
               "tec_nivel": "A1",
@@ -2183,12 +2204,31 @@
               "rotadas": true,
               "correcta_fuera_rango": false,
               "correcta_msg": ""
+            },
+            {
+              "ej_id": 1440,
+              "tec_num": 12,
+              "tec_nivel": "A1",
+              "veredicto": "HUERFANO",
+              "n_tokens_comunes": 0,
+              "tokens_comunes": [],
+              "enunciado": "En 'el croissant es dulce', ¿qué tipo de información se da sobre el croissant?",
+              "opciones": [
+                "Una descripción de su sabor",
+                "Una crítica negativa",
+                "Una comparación con otro alimento"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
             }
           ],
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 18,
+          "n_rotadas": 20,
           "n_correcta_mal": 0
         },
         {
@@ -3248,15 +3288,15 @@
           "nivel": "A1",
           "tipo": "descriptivo",
           "n_palabras": 83,
-          "n_ejercicios": 19,
-          "n_tecnicas_distintas": 19,
+          "n_ejercicios": 20,
+          "n_tecnicas_distintas": 20,
           "contadores": {
             "HUERFANO": 1,
             "OK": 12,
-            "DEBIL": 6
+            "DEBIL": 7
           },
-          "pct_estricta": 94.7,
-          "pct_laxa": 63.2,
+          "pct_estricta": 95.0,
+          "pct_laxa": 60.0,
           "estado": "MIXTO",
           "ejercicios": [
             {
@@ -3266,7 +3306,7 @@
               "veredicto": "HUERFANO",
               "n_tokens_comunes": 0,
               "tokens_comunes": [],
-              "enunciado": "El texto dice 'A las ocho sale de casa'. ¿A qué momento del día se refiere?",
+              "enunciado": "En el texto 49, ¿a qué momento del día se refiere 'A las ocho sale de casa'?",
               "opciones": [
                 "A la mañana (sale de casa a las ocho)",
                 "A la noche",
@@ -3358,6 +3398,27 @@
                 "Pablo se sienta en el muro junto al gato.",
                 "Pablo encuentra un gato gris en el muro de su jardín.",
                 "El gato se va saltando del muro."
+              ],
+              "correcta": "B",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 815,
+              "tec_num": 19,
+              "tec_nivel": "A1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "grande"
+              ],
+              "enunciado": "¿Cuál de estas palabras es un adjetivo calificativo?",
+              "opciones": [
+                "corrió",
+                "pequeño",
+                "parque"
               ],
               "correcta": "B",
               "tiene_prefijo": false,
@@ -3682,7 +3743,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 19,
+          "n_rotadas": 20,
           "n_correcta_mal": 0
         },
         {
@@ -3691,15 +3752,14 @@
           "nivel": "A1",
           "tipo": "instructivo",
           "n_palabras": 75,
-          "n_ejercicios": 17,
-          "n_tecnicas_distintas": 17,
+          "n_ejercicios": 19,
+          "n_tecnicas_distintas": 19,
           "contadores": {
-            "OK": 15,
-            "DEBIL": 1,
-            "HUERFANO": 1
+            "OK": 18,
+            "DEBIL": 1
           },
-          "pct_estricta": 94.1,
-          "pct_laxa": 88.2,
+          "pct_estricta": 100.0,
+          "pct_laxa": 94.7,
           "estado": "OK",
           "ejercicios": [
             {
@@ -3805,50 +3865,6 @@
                 "Las apariencias engañan: un huevo grande no siempre es mejor",
                 "Los cerdos son divertidos",
                 "Las gallinas ponen huevos"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 878,
-              "tec_num": 92,
-              "tec_nivel": "A1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 5,
-              "tokens_comunes": [
-                "aceite",
-                "hacer",
-                "huevos",
-                "patatas",
-                "tortilla"
-              ],
-              "enunciado": "¿Cuál es la conclusión del texto 'Cómo hacer una tortilla'?",
-              "opciones": [
-                "Que con huevos, patatas y aceite se puede hacer una tortilla paso a paso",
-                "Que la tortilla es imposible de hacer",
-                "Que solo se hace con harina"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 879,
-              "tec_num": 93,
-              "tec_nivel": "A1",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "El ejemplo del huevo grande, ¿es relevante para la conclusión del texto?",
-              "opciones": [
-                "Sí, ilustra que las apariencias engañan",
-                "No, no tiene relación",
-                "No, es demasiado largo"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -4097,12 +4113,114 @@
               "rotadas": true,
               "correcta_fuera_rango": false,
               "correcta_msg": ""
+            },
+            {
+              "ej_id": 2041,
+              "tec_num": 31,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 6,
+              "tokens_comunes": [
+                "aceite",
+                "cinco",
+                "durante",
+                "fríelas",
+                "minutos",
+                "patatas"
+              ],
+              "enunciado": "¿Cuánto tiempo hay que freír las patatas según la receta?",
+              "opciones": [
+                "Diez minutos",
+                "Cinco minutos",
+                "Una hora"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 2042,
+              "tec_num": 32,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 3,
+              "tokens_comunes": [
+                "cocina",
+                "huevos",
+                "mezcla"
+              ],
+              "enunciado": "En 'bate los huevos en un bol', ¿en qué modo está el verbo?",
+              "opciones": [
+                "Imperativo (da una instrucción)",
+                "Indicativo (afirma un hecho)",
+                "Subjuntivo (expresa duda)"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 2043,
+              "tec_num": 33,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 6,
+              "tokens_comunes": [
+                "dentro",
+                "dorada",
+                "fuera",
+                "jugosa",
+                "lista",
+                "tortilla"
+              ],
+              "enunciado": "¿Qué dos adjetivos describen cómo debe quedar la tortilla?",
+              "opciones": [
+                "Dorada por fuera y jugosa por dentro",
+                "Grande y pequeña",
+                "Fría y caliente"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 2044,
+              "tec_num": 38,
+              "tec_nivel": "A1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 7,
+              "tokens_comunes": [
+                "después",
+                "finalmente",
+                "hacer",
+                "luego",
+                "mientras",
+                "primero",
+                "tortilla"
+              ],
+              "enunciado": "¿Qué tipo de texto es 'Cómo hacer una tortilla' y por qué?",
+              "opciones": [
+                "Instructivo: da pasos ordenados con verbos en imperativo",
+                "Narrativo: cuenta una historia",
+                "Argumentativo: defiende una opinión"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
             }
           ],
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 17,
+          "n_rotadas": 19,
           "n_correcta_mal": 0
         },
         {
@@ -4470,14 +4588,14 @@
           "nivel": "A1",
           "tipo": "dialogo",
           "n_palabras": 73,
-          "n_ejercicios": 15,
+          "n_ejercicios": 14,
           "n_tecnicas_distintas": 14,
           "contadores": {
-            "OK": 14,
+            "OK": 13,
             "DEBIL": 1
           },
           "pct_estricta": 100.0,
-          "pct_laxa": 93.3,
+          "pct_laxa": 92.9,
           "estado": "OK",
           "ejercicios": [
             {
@@ -4787,28 +4905,6 @@
               "correcta_msg": ""
             },
             {
-              "ej_id": 1440,
-              "tec_num": 12,
-              "tec_nivel": "A1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "croissant",
-                "dulce"
-              ],
-              "enunciado": "En 'el croissant es dulce', ¿qué tipo de información se da sobre el croissant?",
-              "opciones": [
-                "Una descripción de su sabor",
-                "Una crítica negativa",
-                "Una comparación con otro alimento"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
               "ej_id": 1441,
               "tec_num": 13,
               "tec_nivel": "A1",
@@ -4836,7 +4932,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 15,
+          "n_rotadas": 14,
           "n_correcta_mal": 0
         }
       ]
@@ -8831,11 +8927,11 @@
           "n_tecnicas_distintas": 11,
           "contadores": {
             "DEBIL": 4,
-            "HUERFANO": 6,
-            "OK": 10
+            "OK": 11,
+            "HUERFANO": 5
           },
-          "pct_estricta": 70.0,
-          "pct_laxa": 50.0,
+          "pct_estricta": 75.0,
+          "pct_laxa": 55.0,
           "estado": "MIXTO",
           "ejercicios": [
             {
@@ -8863,14 +8959,17 @@
               "ej_id": 1519,
               "tec_num": 84,
               "tec_nivel": "A2",
-              "veredicto": "HUERFANO",
-              "n_tokens_comunes": 0,
-              "tokens_comunes": [],
-              "enunciado": "La frase 'el restaurador es un ladrón porque es malo' sería un ejemplo de...",
+              "veredicto": "OK",
+              "n_tokens_comunes": 2,
+              "tokens_comunes": [
+                "redes",
+                "sociales"
+              ],
+              "enunciado": "En 'Redes sociales: ¿sí o no?', ¿qué tipo de falacia se menciona en el texto?",
               "opciones": [
-                "Falacia ad hominem: ataca a la persona, no al argumento",
-                "Argumento válido",
-                "Cita textual"
+                "La falacia ad hominem: ataca a la persona, no al argumento",
+                "La falacia de autoridad",
+                "La falacia de falsa equivalencia"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -12659,10 +12758,10 @@
           "nivel": "B1",
           "tipo": "informativo",
           "n_palabras": 282,
-          "n_ejercicios": 35,
-          "n_tecnicas_distintas": 18,
+          "n_ejercicios": 15,
+          "n_tecnicas_distintas": 15,
           "contadores": {
-            "OK": 35
+            "OK": 15
           },
           "pct_estricta": 100.0,
           "pct_laxa": 100.0,
@@ -12685,54 +12784,6 @@
                 "Entretener con una historia."
               ],
               "correcta": "B",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 412,
-              "tec_num": 53,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 4,
-              "tokens_comunes": [
-                "artículo",
-                "cuidado",
-                "estudio",
-                "según"
-              ],
-              "enunciado": "El estudio dice que el 70% de los cuidadores son mujeres y el artículo solo recoge testimonios de mujeres. Que postura del autor se infiere de esa selección de ejemplos?",
-              "opciones": [
-                "Visibilizar la desigualdad de género en el cuidado",
-                "Defender que solo las mujeres deben cuidar",
-                "Una postura neutral sin intención",
-                "Una postura cómica"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 418,
-              "tec_num": 59,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "artículo",
-                "según"
-              ],
-              "enunciado": "El artículo del periodista menciona solo mujeres cuidadoras y no incluye casos de hombres. Que tipo de sesgo es?",
-              "opciones": [
-                "Sesgo de selección: elige solo un tipo de casos",
-                "Sesgo de confirmación",
-                "Falso dilema",
-                "Ad hominem"
-              ],
-              "correcta": "A",
               "tiene_prefijo": false,
               "rotadas": true,
               "correcta_fuera_rango": false,
@@ -12999,30 +13050,6 @@
               "correcta_msg": ""
             },
             {
-              "ej_id": 782,
-              "tec_num": 15,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 4,
-              "tokens_comunes": [
-                "condiciones",
-                "rápido",
-                "según",
-                "señala"
-              ],
-              "enunciado": "Según el texto, ¿cuál es una causa de las condiciones laborales precarias en la industria textil?",
-              "opciones": [
-                "La presión por producir rápido y barato",
-                "El color de la ropa",
-                "El clima del país"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
               "ej_id": 989,
               "tec_num": 87,
               "tec_nivel": "B1",
@@ -13137,99 +13164,6 @@
               "correcta_msg": ""
             },
             {
-              "ej_id": 1649,
-              "tec_num": 8,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "educación",
-                "riesgos"
-              ],
-              "enunciado": "¿Para qué fue escrito este texto?",
-              "opciones": [
-                "Persuadir al lector de qué la IA es buena.",
-                "Informar sobre las promesas y riesgos de la IA en la educación.",
-                "Entretener con una historia."
-              ],
-              "correcta": "B",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1656,
-              "tec_num": 15,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 3,
-              "tokens_comunes": [
-                "condiciones",
-                "mejores",
-                "rápido"
-              ],
-              "enunciado": "¿Qué consecuencia tiene la moda rápida para los trabajadores textiles?",
-              "opciones": [
-                "Condiciones laborales precarias por la presión de producir rápido y barato",
-                "Mejores salarios",
-                "Más tiempo libre"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1694,
-              "tec_num": 53,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 4,
-              "tokens_comunes": [
-                "artículo",
-                "cuidado",
-                "estudio",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿el estudio dice que el 70% de los cuidadores son mujeres y el artículo solo recoge testimonios de mujeres. que postura del autor se infiere de esa selección de ejemplos?",
-              "opciones": [
-                "Visibilizar la desigualdad de género en el cuidado",
-                "Defender que solo las mujeres deben cuidar",
-                "Una postura neutral sin intención",
-                "Una postura cómica"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1700,
-              "tec_num": 59,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "artículo",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿el artículo del periodista menciona solo mujeres cuidadoras y no incluye casos de hombres. que tipo de sesgo es?",
-              "opciones": [
-                "Sesgo de selección: elige solo un tipo de casos",
-                "Sesgo de confirmación",
-                "Falso dilema",
-                "Ad hominem"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
               "ej_id": 1701,
               "tec_num": 60,
               "tec_nivel": "B1",
@@ -13256,389 +13190,12 @@
               "rotadas": true,
               "correcta_fuera_rango": false,
               "correcta_msg": ""
-            },
-            {
-              "ej_id": 1723,
-              "tec_num": 82,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 8,
-              "tokens_comunes": [
-                "alumnos",
-                "distraen",
-                "malas",
-                "pantallas",
-                "profesora",
-                "redes",
-                "según",
-                "sociales"
-              ],
-              "enunciado": "Según el texto, ¿el argumento 'todos los alumnos se distraen con las redes sociales, por tanto las pantallas son malas' es sólido?",
-              "opciones": [
-                "No, porque la premisa es una generalización sin datos",
-                "Si, porque la conclusión es verdadera",
-                "Si, porque lo dice una profesora",
-                "No, porque no hay conclusión"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1725,
-              "tec_num": 84,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 6,
-              "tokens_comunes": [
-                "defienden",
-                "entienden",
-                "jóvenes",
-                "pantallas",
-                "profesores",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿la frase 'los profesores que defienden las pantallas no entienden a los jóvenes' es:?",
-              "opciones": [
-                "Un argumento válido",
-                "Una falacia ad hominem (ataca a la persona, no al argumento)",
-                "Una evidencia empírica",
-                "Un dato verificable"
-              ],
-              "correcta": "B",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1726,
-              "tec_num": 85,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 9,
-              "tokens_comunes": [
-                "aulas",
-                "eliminar",
-                "harvard",
-                "llenar",
-                "ministerio",
-                "pantallas",
-                "profesores",
-                "quieren",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿la frase 'quieren llenar las aulas de pantallas y eliminar a los profesores' es:?",
-              "opciones": [
-                "Una falacia del hombre de paja (distorsiona el argumento del oponente)",
-                "Un dato del Ministerio",
-                "Una cita de Harvard",
-                "Una conclusión lógica"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1727,
-              "tec_num": 86,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 8,
-              "tokens_comunes": [
-                "famoso",
-                "malas",
-                "miles",
-                "pantallas",
-                "personas",
-                "repiten",
-                "según",
-                "youtuber"
-              ],
-              "enunciado": "Según el texto, ¿miles de personas repiten 'las pantallas son malas' porque lo dice un youtuber famoso. que falacia cometen?",
-              "opciones": [
-                "Apelación a la autoridad (la fama no es autoridad científica)",
-                "Falso dilema",
-                "Ad hominem",
-                "Hombre de paja"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1728,
-              "tec_num": 87,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 9,
-              "tokens_comunes": [
-                "educación",
-                "medio",
-                "moderado",
-                "pantallas",
-                "según",
-                "terminó",
-                "tradicional",
-                "usamos",
-                "volvemos"
-              ],
-              "enunciado": "Según el texto, ¿la frase 'o usamos pantallas o volvemos a la educación tradicional, no hay terminó medio' es:?",
-              "opciones": [
-                "Un falso dilema (hay más opciones, como el uso moderado)",
-                "Una evidencia empírica",
-                "Un argumento sólido",
-                "Una pregunta retórica"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1729,
-              "tec_num": 88,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 11,
-              "tokens_comunes": [
-                "artículo",
-                "educación",
-                "educativo",
-                "famoso",
-                "fuente",
-                "informe",
-                "ministerio",
-                "redes",
-                "según",
-                "sociales",
-                "youtuber"
-              ],
-              "enunciado": "Según el texto, ¿cuál de estas fuentes del texto es de mayor calidad?",
-              "opciones": [
-                "El informe del Ministerio de Educación (2024)",
-                "El blog educativo anonimo",
-                "El youtuber famoso",
-                "Un artículo de redes sociales sin fuente"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1730,
-              "tec_num": 89,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 11,
-              "tokens_comunes": [
-                "artículo",
-                "circula",
-                "estudio",
-                "fuente",
-                "harvard",
-                "original",
-                "puede",
-                "redes",
-                "resumen",
-                "según",
-                "sociales"
-              ],
-              "enunciado": "Según el texto, ¿el 'artículo de resumen que circula por redes sociales' que habla del estudió de harvard es una fuente:?",
-              "opciones": [
-                "Primaria, porque es el estudio original",
-                "Secundaria, porque resume el estudio original",
-                "No es una fuente",
-                "No se puede saber"
-              ],
-              "correcta": "B",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1732,
-              "tec_num": 91,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 9,
-              "tokens_comunes": [
-                "aprendizaje",
-                "barcelona",
-                "estudio",
-                "mejoran",
-                "pantallas",
-                "puede",
-                "según",
-                "tablets",
-                "universidad"
-              ],
-              "enunciado": "Según el texto, ¿el texto cita un estudio de la universidad de barcelona (2023). es un ejemplo relevante para la afirmación 'las pantallas mejoran el aprendizaje'?",
-              "opciones": [
-                "Si, porque el estudio aborda directamente el aprendizaje con tablets",
-                "No, porque la Universidad no es relevante",
-                "No, porque es un ejemplo muy largo",
-                "No se puede saber"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1734,
-              "tec_num": 93,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 13,
-              "tokens_comunes": [
-                "causalidad",
-                "correlación",
-                "factores",
-                "haber",
-                "implica",
-                "informe",
-                "mejores",
-                "notas",
-                "pantallas",
-                "países",
-                "puede",
-                "según",
-                "tienen"
-              ],
-              "enunciado": "Según el texto, ¿el texto dice que 'los países con más pantallas tienen mejores notas'. se puede concluir que las pantallas causan mejores notas?",
-              "opciones": [
-                "Si, porque los datos lo demuestran",
-                "No, correlación no implica causalidad; puede haber otros factores",
-                "No, porque los datos son falsos",
-                "Si, porque lo dice el informe"
-              ],
-              "correcta": "B",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1735,
-              "tec_num": 94,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 2,
-              "tokens_comunes": [
-                "pantallas",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿si un autor solo citara estudios favorables a las pantallas e ignorara los contrarios, qué sesgo tendria?",
-              "opciones": [
-                "Sesgo de confirmación",
-                "Falso dilema",
-                "Ad hominem",
-                "Apelación a la emoción"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1736,
-              "tec_num": 95,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 9,
-              "tokens_comunes": [
-                "algunos",
-                "aulas",
-                "debate",
-                "educación",
-                "malas",
-                "ministerio",
-                "pantallas",
-                "resumen",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿cuál de estos sería un buen resumen del texto?",
-              "opciones": [
-                "El texto presenta el debate sobre pantallas en las aulas, con argumentos a favor, en contra y algunos errores argumentales",
-                "El texto dice que las pantallas son malas",
-                "El texto dice que las pantallas son buenas",
-                "El texto habla del Ministerio de Educación"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1739,
-              "tec_num": 98,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 3,
-              "tokens_comunes": [
-                "educativa",
-                "pantallas",
-                "según"
-              ],
-              "enunciado": "Según el texto, ¿si compararamos este texto con otro que dijera 'las pantallas son la única solución educativa', que diferencia habría?",
-              "opciones": [
-                "Este texto es más equilibrado; el otro sería más radical",
-                "No habría diferencia",
-                "Este texto sería más radical",
-                "No se pueden comparar"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
-            },
-            {
-              "ej_id": 1740,
-              "tec_num": 99,
-              "tec_nivel": "B1",
-              "veredicto": "OK",
-              "n_tokens_comunes": 6,
-              "tokens_comunes": [
-                "debate",
-                "institutos",
-                "ministerio",
-                "opinión",
-                "según",
-                "tablets"
-              ],
-              "enunciado": "Según el texto, ¿qué función cumple el dato '67% de los institutos' en el texto?",
-              "opciones": [
-                "Aportar evidencia empírica verificable sobre el uso de tablets",
-                "Expresar una opinión",
-                "Cerrar el debate",
-                "Criticar al Ministerio"
-              ],
-              "correcta": "A",
-              "tiene_prefijo": false,
-              "rotadas": true,
-              "correcta_fuera_rango": false,
-              "correcta_msg": ""
             }
           ],
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 35,
+          "n_rotadas": 15,
           "n_correcta_mal": 0
         },
         {
@@ -15158,10 +14715,10 @@
           "nivel": "B2",
           "tipo": "informativo",
           "n_palabras": 474,
-          "n_ejercicios": 16,
+          "n_ejercicios": 18,
           "n_tecnicas_distintas": 9,
           "contadores": {
-            "OK": 16
+            "OK": 18
           },
           "pct_estricta": 100.0,
           "pct_laxa": 100.0,
@@ -15296,6 +14853,34 @@
               "correcta_msg": ""
             },
             {
+              "ej_id": 782,
+              "tec_num": 15,
+              "tec_nivel": "B1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 8,
+              "tokens_comunes": [
+                "condiciones",
+                "industria",
+                "laborales",
+                "precarias",
+                "rápido",
+                "según",
+                "señala",
+                "textil"
+              ],
+              "enunciado": "Según el texto, ¿cuál es una causa de las condiciones laborales precarias en la industria textil?",
+              "opciones": [
+                "La presión por producir rápido y barato",
+                "El color de la ropa",
+                "El clima del país"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
               "ej_id": 783,
               "tec_num": 14,
               "tec_nivel": "B2",
@@ -15375,6 +14960,34 @@
                 "Uso legítimo: solo informa",
                 "Uso irónico",
                 "Uso científico"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 1656,
+              "tec_num": 15,
+              "tec_nivel": "B1",
+              "veredicto": "OK",
+              "n_tokens_comunes": 8,
+              "tokens_comunes": [
+                "condiciones",
+                "laborales",
+                "precarias",
+                "rápida",
+                "rápido",
+                "salarios",
+                "textiles",
+                "tiempo"
+              ],
+              "enunciado": "¿Qué consecuencia tiene la moda rápida para los trabajadores textiles?",
+              "opciones": [
+                "Condiciones laborales precarias por la presión de producir rápido y barato",
+                "Mejores salarios",
+                "Más tiempo libre"
               ],
               "correcta": "A",
               "tiene_prefijo": false,
@@ -15605,7 +15218,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 16,
+          "n_rotadas": 18,
           "n_correcta_mal": 0
         },
         {
@@ -17124,17 +16737,61 @@
           "nivel": "B2",
           "tipo": "literario",
           "n_palabras": 440,
-          "n_ejercicios": 21,
+          "n_ejercicios": 25,
           "n_tecnicas_distintas": 11,
           "contadores": {
-            "DEBIL": 1,
+            "DEBIL": 5,
             "OK": 17,
             "HUERFANO": 3
           },
-          "pct_estricta": 85.7,
-          "pct_laxa": 81.0,
-          "estado": "OK",
+          "pct_estricta": 88.0,
+          "pct_laxa": 68.0,
+          "estado": "MIXTO",
           "ejercicios": [
+            {
+              "ej_id": 412,
+              "tec_num": 53,
+              "tec_nivel": "B1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "artículo"
+              ],
+              "enunciado": "El estudio dice que el 70% de los cuidadores son mujeres y el artículo solo recoge testimonios de mujeres. Que postura del autor se infiere de esa selección de ejemplos?",
+              "opciones": [
+                "Visibilizar la desigualdad de género en el cuidado",
+                "Defender que solo las mujeres deben cuidar",
+                "Una postura neutral sin intención",
+                "Una postura cómica"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 418,
+              "tec_num": 59,
+              "tec_nivel": "B1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "artículo"
+              ],
+              "enunciado": "El artículo del periodista menciona solo mujeres cuidadoras y no incluye casos de hombres. Que tipo de sesgo es?",
+              "opciones": [
+                "Sesgo de selección: elige solo un tipo de casos",
+                "Sesgo de confirmación",
+                "Falso dilema",
+                "Ad hominem"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
             {
               "ej_id": 470,
               "tec_num": 31,
@@ -17417,6 +17074,50 @@
               "correcta_msg": ""
             },
             {
+              "ej_id": 1694,
+              "tec_num": 53,
+              "tec_nivel": "B1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "artículo"
+              ],
+              "enunciado": "Según el texto, ¿el estudio dice que el 70% de los cuidadores son mujeres y el artículo solo recoge testimonios de mujeres. que postura del autor se infiere de esa selección de ejemplos?",
+              "opciones": [
+                "Visibilizar la desigualdad de género en el cuidado",
+                "Defender que solo las mujeres deben cuidar",
+                "Una postura neutral sin intención",
+                "Una postura cómica"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
+              "ej_id": 1700,
+              "tec_num": 59,
+              "tec_nivel": "B1",
+              "veredicto": "DEBIL",
+              "n_tokens_comunes": 1,
+              "tokens_comunes": [
+                "artículo"
+              ],
+              "enunciado": "Según el texto, ¿el artículo del periodista menciona solo mujeres cuidadoras y no incluye casos de hombres. que tipo de sesgo es?",
+              "opciones": [
+                "Sesgo de selección: elige solo un tipo de casos",
+                "Sesgo de confirmación",
+                "Falso dilema",
+                "Ad hominem"
+              ],
+              "correcta": "A",
+              "tiene_prefijo": false,
+              "rotadas": true,
+              "correcta_fuera_rango": false,
+              "correcta_msg": ""
+            },
+            {
               "ej_id": 1771,
               "tec_num": 31,
               "tec_nivel": "B2",
@@ -17676,7 +17377,7 @@
           "duplicados": {},
           "n_duplicados": 0,
           "n_prefijos": 0,
-          "n_rotadas": 21,
+          "n_rotadas": 25,
           "n_correcta_mal": 0
         },
         {
