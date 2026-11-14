@@ -1,0 +1,16 @@
+{
+  "texto_id": 50,
+  "nota": "Cierre texto 50: 17 ejercicios con opciones, correcta, tipo='multiple_choice' y orden=1..17. Incluye reasignaciones de contaminados (268, 285, 811, 877) y restauraciones (879, 878, 815, 1440).",
+  "estado_final": {
+    "n_ejercicios": 17,
+    "todos_con_tipo_multiple_choice": true,
+    "todos_con_opciones_3": true,
+    "orden_1_a_17": true
+  },
+  "cambios": [
+    {"accion": "reasignar", "ej_ids": [268, 285, 811, 877], "destino": {"268": 15, "285": 16, "811": 49, "877": 16}},
+    {"accion": "restaurar", "ej_ids": [879, 878, 815, 1440], "destino": {"879": 50, "878": 50, "815": 13, "1440": 52}},
+    {"accion": "fix_tipo", "ej_ids": [2041, 2042, 2043, 2044, 879, 1402, 1407, 1429], "tipo": "multiple_choice"},
+    {"accion": "renumerar", "ej_ids": "todos", "orden": "1..17"}
+  ]
+}
