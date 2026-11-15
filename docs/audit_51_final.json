@@ -1,0 +1,14 @@
+{
+  "texto_id": 51,
+  "titulo": "Me gusta el verano",
+  "nivel": "A1",
+  "nota": "Cierre texto 51: cuerpo ampliado a 4 parrafos (193 palabras), 4 contaminados reasignados, 3 meta-preguntas reformuladas, 4 nuevos creados, orden 1..15.",
+  "cambios": [
+    {"accion": "update_body", "n_parrafos": 4, "n_palabras": 193},
+    {"accion": "reasignar", "ej_ids": [1413, 1351, 1360, 275], "destino": {"1413": 48, "1351": 47, "1360": 13, "275": 16}},
+    {"accion": "reformular", "ej_ids": [1420, 1423, 1424]},
+    {"accion": "crear", "ej_ids": [2045, 2046, 2047, 2048], "tecnicas": [27, 14, 56, 80]},
+    {"accion": "renumerar", "orden": "1..15"}
+  ],
+  "verificacion": {"pct_laxa": 86.7, "contaminados": 0, "dups": 0, "pilot_test": "13/13 OK"}
+}
