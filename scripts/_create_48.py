@@ -11,28 +11,22 @@ EJ = apps.get_model("core", "EjercicioLectura")
 TL = apps.get_model("core", "TecnicaLectura")
 
 nuevas = [
-    {"tec_num": 14,  # Distinguir causa y consecuencia
-     "enunciado": "En 'Lucía se ríe porque Toby corre detrás de las olas', ¿qué es la causa?",
+    {"tec_num": 14, "enunciado": "En 'Lucía se ríe porque Toby corre detrás de las olas', ¿qué es la causa?",
      "opciones": ["Que Toby corre detrás de las olas", "Que Lucía se ríe", "Que hay playa"], "correcta": "A",
      "explicacion": "La causa es que Toby corre; la consecuencia, que Lucía se ríe."},
-    {"tec_num": 27,  # Signos de puntuación / párrafos
-     "enunciado": "¿Cuántos párrafos tiene el texto 'Mi familia'?",
+    {"tec_num": 27, "enunciado": "¿Cuántos párrafos tiene el texto 'Mi familia'?",
      "opciones": ["Cuatro", "Uno", "Dos"], "correcta": "A",
      "explicacion": "El texto tiene cuatro párrafos separados por puntos y aparte."},
-    {"tec_num": 56,  # Mentira / verdad
-     "enunciado": "Cuando Carlos dice 'me gusta mucho mi familia', ¿qué expresa?",
+    {"tec_num": 56, "enunciado": "Cuando Carlos dice 'me gusta mucho mi familia', ¿qué expresa?",
      "opciones": ["Una preferencia verdadera", "Una mentira", "Una duda"], "correcta": "A",
      "explicacion": "Carlos expresa una preferencia personal coherente con todo el texto."},
-    {"tec_num": 73,  # Comparación
-     "enunciado": "En 'Toby es el más juguetón de la casa', ¿qué recurso se usa?",
+    {"tec_num": 73, "enunciado": "En 'Toby es el más juguetón de la casa', ¿qué recurso se usa?",
      "opciones": ["Una comparación", "Una negación", "Una pregunta"], "correcta": "A",
      "explicacion": "'El más juguetón' compara a Toby con los demás."},
-    {"tec_num": 80,  # Causa / consecuencia
-     "enunciado": "En 'Por la tarde volvemos a casa cansados pero contentos', ¿qué es la consecuencia?",
+    {"tec_num": 80, "enunciado": "En 'Por la tarde volvemos a casa cansados pero contentos', ¿qué es la consecuencia?",
      "opciones": ["Volver cansados pero contentos", "Que es por la tarde", "Que comen juntos"], "correcta": "A",
      "explicacion": "La consecuencia de la comida familiar es volver cansados pero contentos."},
-    {"tec_num": 13,  # Personaje que habla en un diálogo
-     "enunciado": "En el texto, ¿quién cuenta las historias de cuando era joven?",
+    {"tec_num": 13, "enunciado": "En el texto, ¿quién cuenta las historias de cuando era joven?",
      "opciones": ["El abuelo", "El padre", "Toby"], "correcta": "A",
      "explicacion": "El texto dice: 'mi abuelo cuenta historias de cuando era joven'."},
 ]

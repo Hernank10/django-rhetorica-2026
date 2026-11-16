@@ -1,4 +1,4 @@
-import os, sys
+﻿import os, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent if HERE.name == "scripts" else HERE

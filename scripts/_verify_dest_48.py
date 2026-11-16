@@ -9,14 +9,7 @@ from django.apps import apps
 EJ = apps.get_model("core", "EjercicioLectura")
 TX = apps.get_model("core", "Texto")
 
-reassign = {
-    753:  13,  # Lucía biblioteca cerrada
-    772:  16,  # El gato saltó del muro
-    1394: 13,  # El perro perdido cuento/noticia
-    841:  49,  # Ana alta pelo negro
-    824:  49,  # Pablo mayúscula
-    1428: 16,  # el perro / los perros
-}
+reassign = {753: 13, 772: 16, 1394: 13, 841: 49, 824: 49, 1428: 16}
 
 def norm(s):
     return re.sub(r"\s+", " ", (s or "").strip().lower())
@@ -29,7 +22,7 @@ for ej_id, tx_id in reassign.items():
     try:
         tx = TX.objects.get(id=tx_id)
     except TX.DoesNotExist:
-        print(f"[ERROR] tx.id={tx_id} NO EXISTE (destino de {ej_id})"); continue
+        print(f"[ERROR] tx.id={tx_id} NO EXISTE"); continue
     dup = EJ.objects.filter(texto_id=tx_id).exclude(id=ej_id)
     dup = [d for d in dup if norm(d.enunciado) == norm(ej.enunciado)]
     if dup:
