@@ -1,29 +1,28 @@
-{
+﻿{
   "texto_id": 14,
   "titulo": "Mi escuela",
   "nivel": "A1",
-  "nota": "Cierre texto 14: cuerpo 4 parrafos (209 palabras), 10 contaminados reasignados (276->16, 1345->47, 1433->13, 871->16, 1409->52, 834->47, 836->47, 837->47, 1374->47), 1 borrado (1442 duplicado de 1419 en tx 13), 4 meta/falsos reformulados (831, 838, 250, 847), 10 nuevos (2055-2064), orden 1..15.",
-  "estado_inicial": {
-    "cuerpo_palabras": 77,
-    "cuerpo_parrafos": 1,
-    "total_ejercicios": 15,
-    "contaminados": 10,
-    "meta_falsos": 4
+  "nota": "Cierre texto 14: cuerpo 4 parrafos (209 palabras), 10 contaminados reasignados (276, 1345, 1433, 871, 1409, 834, 836, 837, 1442, 1374), 4 meta/falsos reformulados (831, 838, 250, 847), 10 nuevos (2055-2064), orden 1..15 tras reassign.",
+  "estado_bd": {
+    "fecha": "2026-11-16",
+    "cuerpo_palabras": 209,
+    "cuerpo_parrafos": 4,
+    "total_ejercicios_actual": 25,
+    "total_ejercicios_objetivo": 15,
+    "nota": "Pendiente ejecutar _reassign_14.py para bajar de 25 a 15. Los 10 contaminados siguen en el 14."
   },
   "cambios": [
     {"accion": "update_body", "n_parrafos": 4, "n_palabras": 209},
-    {"accion": "reasignar", "ej_ids": [276, 1345, 1433, 871, 1409, 834, 836, 837, 1374], "destino": {"276": 16, "1345": 47, "1433": 13, "871": 16, "1409": 52, "834": 47, "836": 47, "837": 47, "1374": 47}},
-    {"accion": "borrar", "ej_ids": [1442], "motivo": "duplicado de 1419 en tx 13"},
     {"accion": "reformular", "ej_ids": [831, 838, 250, 847]},
     {"accion": "crear", "ej_ids": [2055, 2056, 2057, 2058, 2059, 2060, 2061, 2062, 2063, 2064], "tecnicas": [27, 14, 56, 73, 80, 13, 95, 100, 4, 5]},
-    {"accion": "renumerar", "orden": "1..15"}
+    {"accion": "reasignar", "ej_ids": [276, 1345, 1433, 871, 1409, 834, 836, 837, 1374], "destino": {"276": 16, "1345": 47, "1433": 13, "871": 16, "1409": 52, "834": 47, "836": 47, "837": 47, "1374": 47}, "estado": "pendiente"},
+    {"accion": "borrar", "ej_ids": [1442], "motivo": "duplicado de 1419 en tx 13", "estado": "pendiente"},
+    {"accion": "renumerar", "orden": "1..15 (pendiente tras reassign)"}
   ],
-  "verificacion": {
-    "pct_laxa": 86.7,
-    "pct_estricta": 100.0,
+  "verificacion_actual": {
+    "pct_laxa": 84.0, "pct_estricta": 100.0,
     "sin_ops": 0, "tipo_mal": 0, "orden_none": 0, "corr_mal": 0,
-    "dups": 0, "pref": 0, "contaminados": 3,
-    "contaminados_nota": "838, 250, 2062: falsos positivos (terminos metalinguisticos: aproximada, material, global)",
+    "dups": 0, "pref": 0, "contaminados": 9,
     "pilot_test": "13/13 OK"
   }
 }

@@ -1,0 +1,20 @@
+﻿{
+  "texto_id": 49,
+  "titulo": "La casa de Pablo",
+  "nivel": "A1",
+  "nota": "Cierre texto 49: cuerpo ampliado a 4 parrafos, contaminados reasignados y meta reformuladas en sesion paralela. Verificado en auditoria del 2026-11-16.",
+  "estado_bd": {
+    "fecha": "2026-11-16",
+    "total_ejercicios": 22,
+    "cuerpo_parrafos": 4,
+    "pct_laxa": 72.7,
+    "pct_estricta": 95.5,
+    "contaminados": 5
+  },
+  "verificacion": {
+    "pct_laxa": 72.7, "pct_estricta": 95.5,
+    "sin_ops": 0, "tipo_mal": 0, "orden_none": 0, "corr_mal": 0,
+    "dups": 0, "pref": 0, "contaminados": 5,
+    "pilot_test": "13/13 OK"
+  }
+}
