@@ -1,0 +1,18 @@
+{
+  "texto_id": 2,
+  "titulo": "El reciclaje de vidrio en España",
+  "nivel": "B1",
+  "nota": "Cierre texto 2: cuerpo 4 parrafos (~250 palabras), 2 duplicados eliminados (983, 985), 3 contaminados/huerfanos borrados (1714, 1717, 398), 1 reformulado (1742 sin opciones), 6 meta reformuladas (779, 799, 1654, 1658, 1659, 767), orden 1..14.",
+  "verificacion": {
+    "pct_laxa": ">=70",
+    "pct_estricta": ">=90",
+    "sin_ops": 0,
+    "tipo_mal": 0,
+    "orden_none": 0,
+    "corr_mal": 0,
+    "dups": 0,
+    "pref": 0,
+    "contaminados": "<=2",
+    "pilot_test": "13/13 OK"
+  }
+}
