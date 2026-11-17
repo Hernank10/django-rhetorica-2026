@@ -1,0 +1,25 @@
+﻿{
+  "texto_id": 21,
+  "titulo": "La fuerza de las palabras",
+  "nivel": "B1",
+  "nota": "Cierre texto 21: cuerpo intacto (7 parrafos, 186 palabras), 14 duplicados eliminados (808, 384, 387, 389, 391, 393, 394, 1663, 383, 385, 392, 396, 956, 420), 4 contaminados borrados (1648, 136, 1686, 1702), 1 reformulado (1737), 10 nuevos (2072-2081), orden 1..27. Incluye 2 nuevos para recuperar cobertura B1 (#7 y #61).",
+  "estado_inicial": {
+    "cuerpo_palabras": 186, "cuerpo_parrafos": 7,
+    "total_ejercicios": 35, "duplicados": 14, "contaminados": 4, "incompletos": 1
+  },
+  "cambios": [
+    {"accion": "dedup", "ej_ids_eliminados": [808, 384, 387, 389, 391, 393, 394, 1663, 383, 385, 392, 396, 956, 420]},
+    {"accion": "borrar_contaminados", "ej_ids": [1648, 136, 1686, 1702]},
+    {"accion": "reformular", "ej_ids": [1737]},
+    {"accion": "crear", "n": 10, "ej_ids": [2072, 2073, 2074, 2075, 2076, 2077, 2078, 2079, 2080, 2081], "temas": ["Además", "Finalmente", "No obstante", "Por ejemplo", "Primero", "Según", "como semillas", "huella", "definición (#7)", "actualidad (#61)"]},
+    {"accion": "renumerar", "orden": "1..27"}
+  ],
+  "verificacion": {
+    "pct_laxa": 92.6, "pct_estricta": 100.0,
+    "sin_ops": 0, "tipo_mal": 0, "orden_none": 0, "corr_mal": 0,
+    "dups": 0, "pref": 0, "contaminados": 3,
+    "contaminados_nota": "954, 1669, 1680: falsos positivos (terminos metalinguisticos)",
+    "pilot_test": "13/13 OK",
+    "b1_cobertura": "100/100 (recuperada con 2080 y 2081)"
+  }
+}
