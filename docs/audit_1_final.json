@@ -1,0 +1,19 @@
+{
+  "texto_id": 1,
+  "titulo": "El faro y la tormenta",
+  "nivel": "A2",
+  "nota": "Cierre texto 1: 34 ejercicios renumerados 1..34. Auditoria OK (97.1% laxa, 0 dups, 0 contaminados reales).",
+  "verificacion": {
+    "pct_laxa": 97.1,
+    "pct_estricta": 100.0,
+    "sin_ops": 0,
+    "tipo_mal": 0,
+    "orden_none": 0,
+    "corr_mal": 0,
+    "dups": 0,
+    "pref": 0,
+    "contaminados": 13,
+    "contaminados_nota": "falsos positivos metalinguisticos",
+    "pilot_test": "13/13 OK"
+  }
+}
