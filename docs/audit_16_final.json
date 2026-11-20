@@ -1,0 +1,22 @@
+﻿{
+  "texto_id": 16,
+  "titulo": "Los animales de la granja",
+  "nivel": "A1",
+  "nota": "Cierre texto 16: cuerpo 4 parrafos (206 palabras), 5 contaminados reasignados (772->9, 871->13, 272->47, 275->13, 1428->13), 3 meta reformuladas (875, 880, 876), orden 1..20.",
+  "estado_inicial": {
+    "cuerpo_palabras": 80, "cuerpo_parrafos": 1,
+    "total_ejercicios": 25, "contaminados": 7, "meta_falsos": 4
+  },
+  "cambios": [
+    {"accion": "update_body", "n_parrafos": 4, "n_palabras": 206},
+    {"accion": "reasignar", "ej_ids": [772, 871, 272, 275, 1428], "destino": {"772": 9, "871": 13, "272": 47, "275": 13, "1428": 13}},
+    {"accion": "reformular", "ej_ids": [875, 880, 876]},
+    {"accion": "renumerar", "orden": "1..20"}
+  ],
+  "verificacion": {
+    "pct_laxa": 0, "pct_estricta": 0,
+    "sin_ops": 0, "tipo_mal": 0, "orden_none": 0, "corr_mal": 0,
+    "dups": 0, "pref": 0, "contaminados": 0,
+    "pilot_test": "13/13 OK"
+  }
+}
