@@ -1,0 +1,23 @@
+﻿{
+  "texto_id": 15,
+  "titulo": "La fiesta de cumpleaños",
+  "nivel": "A1",
+  "nota": "Cierre texto 15: cuerpo 4 parrafos (202 palabras), 1 contaminado reasignado (1403->13), 1 borrado (1426 Nebrija), 4 meta reformuladas (255, 256, 257, 268), orden 1..23.",
+  "estado_inicial": {
+    "cuerpo_palabras": 73, "cuerpo_parrafos": 1,
+    "total_ejercicios": 25, "contaminados": 8, "meta_falsos": 4
+  },
+  "cambios": [
+    {"accion": "update_body", "n_parrafos": 4, "n_palabras": 202},
+    {"accion": "reasignar", "ej_ids": [1403], "destino": {"1403": 13}},
+    {"accion": "borrar", "ej_ids": [1426], "motivo": "Nebrija/Gramatica 1492: no encaja en ningun texto A1 de lectura"},
+    {"accion": "reformular", "ej_ids": [255, 256, 257, 268]},
+    {"accion": "renumerar", "orden": "1..23"}
+  ],
+  "verificacion": {
+    "pct_laxa": 100.0, "pct_estricta": 100.0,
+    "sin_ops": 0, "tipo_mal": 0, "orden_none": 0, "corr_mal": 0,
+    "dups": 0, "pref": 0, "contaminados": 1,
+    "pilot_test": "13/13 OK"
+  }
+}
